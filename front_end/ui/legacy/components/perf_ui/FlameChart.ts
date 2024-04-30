@@ -1000,8 +1000,65 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     return this.dataProvider.findPossibleContextMenuActions?.(this.selectedEntryIndex);
   }
 
+<<<<<<< HEAD   (cfd3e4 Update translations for M125)
   onContextMenu(_event: Event): void {
     // The context menu only applies if the user is hovering over an individual entry.
+=======
+  #buildEnterEditModeContextMenu(event: MouseEvent): void {
+    if (this.#inTrackConfigEditMode) {
+      return;
+    }
+
+    this.contextMenu = new UI.ContextMenu.ContextMenu(event, {useSoftMenu: true});
+    const label = i18nString(UIStrings.enterTrackConfigurationMode);
+    this.contextMenu.defaultSection().appendItem(label, () => {
+      this.#enterEditMode();
+    }, {
+      jslogContext: 'track-configuration-enter',
+    });
+    void this.contextMenu.show();
+  }
+
+  #buildExitEditModeContextMenu(event: MouseEvent): void {
+    if (this.#inTrackConfigEditMode === false) {
+      return;
+    }
+    this.contextMenu = new UI.ContextMenu.ContextMenu(event, {useSoftMenu: true});
+    const label = i18nString(UIStrings.exitTrackConfigurationMode);
+    this.contextMenu.defaultSection().appendItem(label, () => {
+      this.#exitEditMode();
+    }, {
+      jslogContext: 'track-configuration-exit',
+    });
+    void this.contextMenu.show();
+  }
+
+  #hasTrackConfigurationMode(): boolean {
+    // Track Configuration mode is off by default: a provider must define the
+    // function and have it return `true` to enable it.
+    return Boolean(this.dataProvider.hasTrackConfigurationMode && this.dataProvider.hasTrackConfigurationMode());
+  }
+
+  onContextMenu(event: MouseEvent): void {
+    const {hoverType} = this.coordinatesToGroupIndexAndHoverType(event.offsetX, event.offsetY);
+
+    // If the user is in edit mode, allow a right click anywhere to exit the mode.
+    if (this.#inTrackConfigEditMode) {
+      this.#buildExitEditModeContextMenu(event);
+      return;
+    }
+
+    // If we are not in edit mode, and the user right clicks on the header,
+    // allow them to enter edit mode.
+    // Data providers can disable the ability to enter this mode, hence the
+    // extra check. For example, in the DevTools Performance Panel the network
+    // data provider & flame chart does not support this mode, but the main one
+    // does.
+    if (hoverType === HoverType.INSIDE_TRACK_HEADER && this.#hasTrackConfigurationMode()) {
+      this.#buildEnterEditModeContextMenu(event);
+    }
+
+>>>>>>> CHANGE (45cecb RPP: add ve-logging to track configuration mode)
     if (this.highlightedEntryIndex === -1) {
       return;
     }
@@ -1617,8 +1674,38 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
       }
     }
 
+<<<<<<< HEAD   (cfd3e4 Update translations for M125)
     if (groupIndex < 0 || groupIndex >= groups.length) {
       return {groupIndex: -1};
+=======
+    return {groupIndex: -1, hoverType: HoverType.OUTSIDE_TRACKS};
+  }
+
+  #enterEditMode(): void {
+    const div = document.createElement('div');
+    div.classList.add('flame-chart-edit-confirm');
+    const button = new Buttons.Button.Button();
+    button.data = {
+      variant: Buttons.Button.Variant.PRIMARY,
+      jslogContext: 'track-configuration-exit',
+    };
+    button.innerText = i18nString(UIStrings.exitTrackConfigurationMode);
+    div.appendChild(button);
+    button.addEventListener('click', () => {
+      this.#exitEditMode();
+    });
+
+    this.viewportElement.appendChild(div);
+    this.#inTrackConfigEditMode = true;
+    this.updateLevelPositions();
+    this.draw();
+  }
+
+  #exitEditMode(): void {
+    const confirmButton = this.viewportElement.querySelector('.flame-chart-edit-confirm');
+    if (confirmButton) {
+      this.viewportElement.removeChild(confirmButton);
+>>>>>>> CHANGE (45cecb RPP: add ve-logging to track configuration mode)
     }
 
     const context = (this.canvas.getContext('2d') as CanvasRenderingContext2D);
