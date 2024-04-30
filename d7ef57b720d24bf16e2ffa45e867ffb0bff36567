@@ -46,6 +46,30 @@
       },
       "revId": "d7ef57b720d24bf16e2ffa45e867ffb0bff36567",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b7ee587_da9aae29",
+        "filename": "front_end/panels/network/components/HeaderSectionRow.test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-04-30T07:10:34Z",
+      "side": 0,
+      "message": "Ah thanks, the missing bit for me was that we can\u0027t really test the real interaction and I agree that we don\u0027t need to check a web platform feature.",
+      "parentUuid": "e23a4a18_1098bae2",
+      "range": {
+        "startLine": 370,
+        "startChar": 0,
+        "endLine": 373,
+        "endChar": 74
+      },
+      "revId": "d7ef57b720d24bf16e2ffa45e867ffb0bff36567",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
