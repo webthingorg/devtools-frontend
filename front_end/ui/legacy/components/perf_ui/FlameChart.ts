@@ -751,11 +751,11 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
           this.showGroup(groupIndex);
           return;
         case HoverType.INSIDE_TRACK_HEADER:
-          this.selectGroup(groupIndex);
+          this.#selectGroup(groupIndex);
           this.toggleGroupExpand(groupIndex);
           return;
         case HoverType.INSIDE_TRACK: {
-          this.selectGroup(groupIndex);
+          this.#selectGroup(groupIndex);
 
           const timelineData = this.timelineData();
           if (mouseEvent.shiftKey && this.highlightedEntryIndex !== -1 && timelineData) {
@@ -772,7 +772,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     }
   }
 
-  private selectGroup(groupIndex: number): void {
+  #selectGroup(groupIndex: number): void {
     if (groupIndex < 0 || this.selectedGroupIndex === groupIndex) {
       return;
     }
@@ -1070,7 +1070,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
   }
 
   onContextMenu(event: MouseEvent): void {
-    const {hoverType} = this.coordinatesToGroupIndexAndHoverType(event.offsetX, event.offsetY);
+    const {groupIndex, hoverType} = this.coordinatesToGroupIndexAndHoverType(event.offsetX, event.offsetY);
 
     // If the user is in edit mode, allow a right click anywhere to exit the mode.
     if (this.#inTrackConfigEditMode) {
@@ -1103,6 +1103,8 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     // to trigger a context menu.
     this.dispatchEventToListeners(Events.EntryInvoked, this.highlightedEntryIndex);
     this.setSelectedEntry(this.highlightedEntryIndex);
+    // Update the selected group as well.
+    this.#selectGroup(groupIndex);
 
     const possibleActions = this.getPossibleActions();
     if (!possibleActions) {
@@ -1345,7 +1347,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     }
 
     const groupIndexToSelect = this.getGroupIndexToSelect(-1 /* offset */);
-    this.selectGroup(groupIndexToSelect);
+    this.#selectGroup(groupIndexToSelect);
     return true;
   }
 
@@ -1359,7 +1361,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     }
 
     const groupIndexToSelect = this.getGroupIndexToSelect(1 /* offset */);
-    this.selectGroup(groupIndexToSelect);
+    this.#selectGroup(groupIndexToSelect);
     return true;
   }
 
@@ -1394,7 +1396,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
 
     const groupIndexToSelect = this.keyboardFocusedGroup + 1;
     if (allGroups[groupIndexToSelect].style.nestingLevel > allGroups[this.keyboardFocusedGroup].style.nestingLevel) {
-      this.selectGroup(groupIndexToSelect);
+      this.#selectGroup(groupIndexToSelect);
     }
   }
 
@@ -1635,6 +1637,14 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
    */
   getScrollOffset(): number {
     return this.chartViewport.scrollOffset();
+  }
+
+  setScrollOffset(scrollTop: number, height?: number): void {
+    this.chartViewport.setScrollOffset(scrollTop, height);
+  }
+
+  getChartHeight(): number {
+    return this.chartViewport.chartHeight();
   }
 
   getContextMenu(): UI.ContextMenu.ContextMenu|undefined {
