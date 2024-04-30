@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "145103ea_ca6019b2",
+        "filename": "front_end/models/trace/helpers/Trace.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-04-30T13:49:30Z",
+      "side": 0,
+      "message": "small attempt to make this name a bit shorter xD",
+      "range": {
+        "startLine": 321,
+        "startChar": 16,
+        "endLine": 321,
+        "endChar": 58
+      },
+      "revId": "6e003ed3cc89139688b99675031166485ccf28e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
