@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc4781ee_3f151d09",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-04-30T08:01:39Z",
+      "side": 1,
+      "message": "rather than doing this, did we consider breaking up the reset method?\n\nSo that in this case, if the ignore list is changed, rather than reset the entire flamechart, we can force it to redraw, thus avoiding any resetting of the scroll position?\n\nI\u0027m wondering if it\u0027s more robust to not reset everything + then set some things back, and instead when the ignore list changes do the minimal amount of work to redraw the canvas correctly. wdyt?",
+      "range": {
+        "startLine": 295,
+        "startChar": 0,
+        "endLine": 295,
+        "endChar": 18
+      },
+      "revId": "d4652e793cde0fd1ae6d19f7566df2e2f914172d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
