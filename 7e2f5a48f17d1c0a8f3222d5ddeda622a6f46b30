@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "199d003f_9aa0c990",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2024-04-30T08:53:25Z",
+      "side": 1,
+      "message": "Hi folks.\n\nSimilarly to the CL before, please let me know if this matches a good mexican address.",
+      "revId": "7e2f5a48f17d1c0a8f3222d5ddeda622a6f46b30",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
