@@ -3,6 +3,46 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "5c025bc8_738e7f13",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-04-30T09:09:16Z",
+      "side": 1,
+      "message": "This is looking good! I have a few comments, please feel free to ping me if you want to chat about any of them in more detail. Thanks!",
+      "revId": "33c50a642e1134106afbfb9039d88d9ba2195faa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16f91d1a_c2d79ea0",
+        "filename": "front_end/models/trace/helpers/Trace.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-04-30T09:09:16Z",
+      "side": 1,
+      "message": "super nitpick: but whilst we are here, could we add to this jsdoc what the return type is? e.g. the key is the ID and the value is all the matching events.",
+      "range": {
+        "startLine": 215,
+        "startChar": 16,
+        "endLine": 215,
+        "endChar": 27
+      },
+      "revId": "33c50a642e1134106afbfb9039d88d9ba2195faa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "3ca14758_a7a7a846",
         "filename": "front_end/models/trace/helpers/Trace.ts",
         "patchSetId": 9
@@ -14,6 +54,167 @@
       "writtenOn": "2024-04-29T23:03:42Z",
       "side": 1,
       "message": "i just read through the demorgans laws [1] (again) thinking we could rewrite this for clarity but..  tbh i think its best like you have it.\n\n[1] like this https://ntgard.medium.com/https-medium-com-ntgard-boolean-logic-in-javascript-part-2-ec0b13169b2",
+      "revId": "33c50a642e1134106afbfb9039d88d9ba2195faa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df246baa_bc0de399",
+        "filename": "front_end/models/trace/helpers/Trace.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-04-30T09:09:16Z",
+      "side": 1,
+      "message": "please can we add a test case for this function that includes testing the instant event pairing?\n\nI know it is indirectly tested via the CLS tests you\u0027ve added, but it would be good to add a specific test of this function for a case with instant events.",
+      "range": {
+        "startLine": 324,
+        "startChar": 0,
+        "endLine": 325,
+        "endChar": 1
+      },
+      "revId": "33c50a642e1134106afbfb9039d88d9ba2195faa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5e640ca_2ad3d0c8",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-04-30T09:09:16Z",
+      "side": 1,
+      "message": "you don\u0027t need this helper at all, you can do (in an individual test):\n\n```\nconst traceData \u003d await TraceLoader.traceEngine(this, \u0027file.json.gz\u0027);\n```\n\nAll the helper does is destructure some data out of the object of the right type, and then cast an object that is missing some fields to that type, which it now isn\u0027t because you\u0027ve plucked parts of it.",
+      "range": {
+        "startLine": 11,
+        "startChar": 2,
+        "endLine": 17,
+        "endChar": 14
+      },
+      "revId": "33c50a642e1134106afbfb9039d88d9ba2195faa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48ece8f5_82be833c",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-04-30T09:09:16Z",
+      "side": 1,
+      "message": "can this read properly please? `it(\u0027returns no insights when there are no non-composited animations\u0027)` or something\n```suggestion\n    it(\u0027returns no insights when there are no non-composited animations\u0027, async () \u003d\u003e {\n```",
+      "range": {
+        "startLine": 44,
+        "startChar": 3,
+        "endLine": 44,
+        "endChar": 40
+      },
+      "revId": "33c50a642e1134106afbfb9039d88d9ba2195faa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35ec6e6c_f90e7d97",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-04-30T09:09:16Z",
+      "side": 1,
+      "message": "if we don\u0027t need to loop through these (haven\u0027t read the entire CL yet!), can this be `export const enum` ?",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 37
+      },
+      "revId": "33c50a642e1134106afbfb9039d88d9ba2195faa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe44c8f9_a20b0575",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-04-30T09:09:16Z",
+      "side": 1,
+      "message": "worth a comment explaining why we care about instant events and not endEvents here?",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 24
+      },
+      "revId": "33c50a642e1134106afbfb9039d88d9ba2195faa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f35dcfc6_06b79d57",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-04-30T09:09:16Z",
+      "side": 1,
+      "message": "this is a needless second loop, could we do:\n\n```\nfor (const event of instantEvents) {\n  if(!event.args?.data.unsupportedProperties) continue;\n  ...rest of your code here\n}\n```",
+      "range": {
+        "startLine": 90,
+        "startChar": 6,
+        "endLine": 93,
+        "endChar": 51
+      },
+      "revId": "33c50a642e1134106afbfb9039d88d9ba2195faa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "676adf7b_00c79489",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-04-30T09:09:16Z",
+      "side": 1,
+      "message": "should we make this `readonly` ?",
+      "range": {
+        "startLine": 114,
+        "startChar": 39,
+        "endLine": 114,
+        "endChar": 69
+      },
       "revId": "33c50a642e1134106afbfb9039d88d9ba2195faa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
