@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3162fecd_3bdd9dbf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-01T08:42:52Z",
+      "side": 1,
+      "message": "this is looking good and I love that we have the thorough tests, but I wonder if we can improve the structure of them a bit. Let me know what you think - thanks!",
+      "revId": "d43fa7ab1e0d6e345925d5d1f565a827beea09ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30cd600c_2d77c25a",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 295,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-01T08:42:52Z",
+      "side": 1,
+      "message": "\"does not\"",
+      "range": {
+        "startLine": 295,
+        "startChar": 7,
+        "endLine": 295,
+        "endChar": 15
+      },
+      "revId": "d43fa7ab1e0d6e345925d5d1f565a827beea09ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6d450dd_1e87951e",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 302,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-01T08:42:52Z",
+      "side": 1,
+      "message": "\"does not\"",
+      "range": {
+        "startLine": 302,
+        "startChar": 7,
+        "endLine": 302,
+        "endChar": 14
+      },
+      "revId": "d43fa7ab1e0d6e345925d5d1f565a827beea09ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f431e4f_b4289f1a",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-01T08:42:52Z",
+      "side": 1,
+      "message": "`nodeId` (I know this was here before, but let\u0027s just change it quickly now!)",
+      "range": {
+        "startLine": 331,
+        "startChar": 44,
+        "endLine": 331,
+        "endChar": 52
+      },
+      "revId": "d43fa7ab1e0d6e345925d5d1f565a827beea09ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce97abb3_ce445523",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 688,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-01T08:42:52Z",
+      "side": 1,
+      "message": "I\u0027m confused: what ID is this? or is this the index of this event in the flamechart?\n\nCan we make a helper that can query the data for this event, rather than hardcode some reference to it? This feels quite brittle to me and I am wondering if there is a better way where the code is something like:\n\n```\nconst event \u003d data.find(...)\ngenerateContextMenuForNode(event)\n```",
+      "range": {
+        "startLine": 687,
+        "startChar": 0,
+        "endLine": 688,
+        "endChar": 50
+      },
+      "revId": "d43fa7ab1e0d6e345925d5d1f565a827beea09ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7f1fb37_41e5ff01",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 1105,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-01T08:42:52Z",
+      "side": 1,
+      "message": "nice!",
+      "range": {
+        "startLine": 1099,
+        "startChar": 0,
+        "endLine": 1105,
+        "endChar": 0
+      },
+      "revId": "d43fa7ab1e0d6e345925d5d1f565a827beea09ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
