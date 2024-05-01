@@ -104,6 +104,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3f28d44_787dd4d8",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-05-01T20:34:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f5e640ca_2ad3d0c8",
+      "range": {
+        "startLine": 11,
+        "startChar": 2,
+        "endLine": 17,
+        "endChar": 14
+      },
+      "revId": "33c50a642e1134106afbfb9039d88d9ba2195faa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "48ece8f5_82be833c",
@@ -117,6 +141,30 @@
       "writtenOn": "2024-04-30T09:09:16Z",
       "side": 1,
       "message": "can this read properly please? `it(\u0027returns no insights when there are no non-composited animations\u0027)` or something\n```suggestion\n    it(\u0027returns no insights when there are no non-composited animations\u0027, async () \u003d\u003e {\n```",
+      "range": {
+        "startLine": 44,
+        "startChar": 3,
+        "endLine": 44,
+        "endChar": 40
+      },
+      "revId": "33c50a642e1134106afbfb9039d88d9ba2195faa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b510ad6_04eb6c8c",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-05-01T20:34:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48ece8f5_82be833c",
       "range": {
         "startLine": 44,
         "startChar": 3,
@@ -150,6 +198,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2820be33_adc5e6e4",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-05-01T20:34:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35ec6e6c_f90e7d97",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 37
+      },
+      "revId": "33c50a642e1134106afbfb9039d88d9ba2195faa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fe44c8f9_a20b0575",
@@ -173,6 +245,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7386a9a1_a51e93d6",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-05-01T20:34:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fe44c8f9_a20b0575",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 24
+      },
+      "revId": "33c50a642e1134106afbfb9039d88d9ba2195faa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f35dcfc6_06b79d57",
@@ -186,6 +282,30 @@
       "writtenOn": "2024-04-30T09:09:16Z",
       "side": 1,
       "message": "this is a needless second loop, could we do:\n\n```\nfor (const event of instantEvents) {\n  if(!event.args?.data.unsupportedProperties) continue;\n  ...rest of your code here\n}\n```",
+      "range": {
+        "startLine": 90,
+        "startChar": 6,
+        "endLine": 93,
+        "endChar": 51
+      },
+      "revId": "33c50a642e1134106afbfb9039d88d9ba2195faa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ae928d9_ff6d672a",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-05-01T20:34:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f35dcfc6_06b79d57",
       "range": {
         "startLine": 90,
         "startChar": 6,
