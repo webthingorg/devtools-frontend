@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6ea9a78_df9b558a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3362409
+      },
+      "writtenOn": "2024-05-01T01:42:52Z",
+      "side": 1,
+      "message": "This CL adds checks of `ServiceWorkerRouterInfo.ruleIdMatched` and see if the value is optional or not. PTAL!\n\nThanks.",
+      "revId": "30a8755283cb6eba8c0dd253f925ccb5ae2547ba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
