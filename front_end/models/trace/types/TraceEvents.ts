@@ -2203,6 +2203,9 @@ export interface TraceEventV8Compile extends TraceEventComplete {
     data?: {
       url?: string,
       columnNumber?: number,
+      consumedCacheSize?: number,
+      cacheRejected?: boolean,
+      cacheKind?: 'full'|'normal',
       lineNumber?: number,
       notStreamedReason?: string,
       streamed?: boolean,
