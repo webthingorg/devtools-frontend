@@ -472,7 +472,7 @@ describeWithEnvironment('ThreadAppender', function() {
       const {entryData, flameChartData, threadAppenders} = renderThreadAppendersFromParsedData(mockTraceParseData);
       const entryDataNames = entryData.map(entry => {
         const regularEvent =
-            Timeline.TimelineFlameChartDataProvider.TimelineFlameChartDataProvider.isEntryRegularEvent(entry);
+            Timeline.TimelineFlameChartDataProvider.TimelineFlameChartDataProvider.timelineEntryIsTraceEvent(entry);
         if (!regularEvent) {
           return 'Unknown type';
         }
