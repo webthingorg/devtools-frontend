@@ -33,6 +33,24 @@
       "message": "just `autoScrollToBottom` ?\n```suggestion\n  autoScrollToBottom?: boolean;\n```\n\n........\n\nof course alternatively.... you avoid having a default that\u0027s true, which is always awkward and requires the typeof check below..\n\nso that\u0027d be like.. `disableAutoScrollToBottom`",
       "revId": "b83e96f7b9d7bf8d09d8a64df5f2e9d38473acb6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e647c75_5f35e2e6",
+        "filename": "front_end/ui/components/data_grid/DataGrid.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-01T08:35:54Z",
+      "side": 1,
+      "message": "I don\u0027t like the double negative of `disableX: true`, so I prefer the positive version. But I dropped the `enable` prefix 😊",
+      "parentUuid": "061461b2_5e71af2d",
+      "revId": "b83e96f7b9d7bf8d09d8a64df5f2e9d38473acb6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
