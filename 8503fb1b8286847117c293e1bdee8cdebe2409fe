@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "47ee2963_7ffeddb4",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 936,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-05-01T22:42:20Z",
+      "side": 1,
+      "message": "I\u0027m fine with this but.. remember that whole \"old traces wont have these so shouldnt they be nullable\" thing?  For you to consider. :)",
+      "revId": "8503fb1b8286847117c293e1bdee8cdebe2409fe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2854268b_0d7755b4",
         "filename": "front_end/models/trace/types/TraceEvents.ts",
         "patchSetId": 1
