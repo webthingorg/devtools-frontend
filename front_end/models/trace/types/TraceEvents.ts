@@ -91,9 +91,27 @@ export interface TraceEventArgs {
 
 export interface TraceEventArgsData {
   stackTrace?: TraceEventCallFrame[];
-  url?: string;
   navigationId?: string;
   frame?: string;
+  frameType?: string;
+  isolate?: string;
+  v8context?: string;
+  url?: string;
+  origin?: string;
+  isDefault?: boolean;
+  contextType?: string;
+  executionContextId?: number;
+  scriptId?: number;
+  startLine?: number;
+  startColumn?: number;
+  endLine?: number;
+  endColumn?: number;
+  hash?: string;
+  isModule?: boolean;
+  hasSourceUrl?: boolean;
+  sourceMapUrl?: string;
+  length?: number;
+  sourceText?: string;
 }
 
 export interface TraceEventCallFrame {
