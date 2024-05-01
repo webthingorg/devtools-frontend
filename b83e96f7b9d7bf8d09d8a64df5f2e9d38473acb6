@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5ae9220_66c8faca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-05-01T06:55:13Z",
+      "side": 1,
+      "message": "a thought below…",
+      "revId": "b83e96f7b9d7bf8d09d8a64df5f2e9d38473acb6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "061461b2_5e71af2d",
+        "filename": "front_end/ui/components/data_grid/DataGrid.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-05-01T06:55:13Z",
+      "side": 1,
+      "message": "just `autoScrollToBottom` ?\n```suggestion\n  autoScrollToBottom?: boolean;\n```\n\n........\n\nof course alternatively.... you avoid having a default that\u0027s true, which is always awkward and requires the typeof check below..\n\nso that\u0027d be like.. `disableAutoScrollToBottom`",
+      "revId": "b83e96f7b9d7bf8d09d8a64df5f2e9d38473acb6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
