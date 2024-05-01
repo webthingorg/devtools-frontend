@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a97fe13_35fc3d5c",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 936,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-05-01T23:04:32Z",
+      "side": 1,
+      "message": "after offline chat.... it\u0027s not that important to me. and we agree the precedent isn\u0027t set.\nso as long as we\u0027re not risking breakage of users with recent traces.. all good.",
+      "parentUuid": "47ee2963_7ffeddb4",
+      "revId": "8503fb1b8286847117c293e1bdee8cdebe2409fe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2854268b_0d7755b4",
