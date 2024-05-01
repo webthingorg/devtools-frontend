@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9dc34143_8354e0cc",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 936,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-05-01T23:08:00Z",
+      "side": 1,
+      "message": "(cool, just summarizing)\n\nin general that would be my preference, but we\u0027ve made recent additions to the trace event ( https://issues.chromium.org/issues/324059246 ) that didn\u0027t get marked nullable - and I assume there are more \u0027required\u0027 fields that haven\u0027t always existed in the trace.\n\nI guess implicitly we\u0027ve decided to handle loading super old traces as an error state? unclear if this was conscious decision. there\u0027s benefits to keeping types simpler and assuming the traces we see are modern, and just deferring the small edge case of loading old traces into devtools perf panel to a try/catch.",
+      "parentUuid": "47ee2963_7ffeddb4",
+      "revId": "8503fb1b8286847117c293e1bdee8cdebe2409fe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2854268b_0d7755b4",
         "filename": "front_end/models/trace/types/TraceEvents.ts",
         "patchSetId": 1
