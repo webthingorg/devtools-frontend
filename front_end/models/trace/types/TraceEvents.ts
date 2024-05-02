@@ -1699,7 +1699,7 @@ export function isTraceEventNavigationStart(
 export function isTraceEventAnimation(
     traceEventData: TraceEventData,
     ): traceEventData is TraceEventAnimation {
-  return traceEventData.name === 'Animation';
+  return traceEventData.name === 'Animation' && traceEventData.cat.includes('devtools.timeline');
 }
 
 export function isTraceEventLayoutShift(
