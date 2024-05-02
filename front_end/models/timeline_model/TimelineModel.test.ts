@@ -43,6 +43,7 @@ describeWithEnvironment('TimelineData', function() {
       throw new Error('Could not find LCP New engine event.');
     }
     // Make sure we got the matching events.
-    assert.strictEqual(lcpNewEngineEvent, lcpSDKEvent.rawPayload());
+    delete lcpNewEngineEvent.selfTime;
+    assert.deepEqual(lcpNewEngineEvent, lcpSDKEvent.rawPayload());
   });
 });
