@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2aa7257d_a103f04e",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-05-02T13:34:19Z",
+      "side": 1,
+      "message": "This is interesting; it seems like this kind of errors, where we change aria-labels but did not update all the use cases, is hard to catch. Do you have some ideas how to prevent this, preferably automatically?",
+      "revId": "a3ce012dfd320ed9b611d6b21d3161f5c046042b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
