@@ -206,6 +206,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "730b21c9_3dc41f5e",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 688,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-02T09:01:40Z",
+      "side": 1,
+      "message": "So much nicer!",
+      "parentUuid": "e0274d5a_56f689ff",
+      "range": {
+        "startLine": 687,
+        "startChar": 0,
+        "endLine": 688,
+        "endChar": 50
+      },
+      "revId": "d43fa7ab1e0d6e345925d5d1f565a827beea09ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d7f1fb37_41e5ff01",
