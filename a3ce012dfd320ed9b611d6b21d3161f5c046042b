@@ -16,6 +16,24 @@
       "message": "This is interesting; it seems like this kind of errors, where we change aria-labels but did not update all the use cases, is hard to catch. Do you have some ideas how to prevent this, preferably automatically?",
       "revId": "a3ce012dfd320ed9b611d6b21d3161f5c046042b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62bbee4e_7890ba68",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-05-02T13:36:14Z",
+      "side": 1,
+      "message": "I think we\u0027re expecting the test executing such function to fail. Though it didn\u0027t fail for this function because the tests executing this function were skipped (pseudo-states_test.ts).\n\nSo, I think we\u0027re in a good place regarding the issue you mentioned.",
+      "parentUuid": "2aa7257d_a103f04e",
+      "revId": "a3ce012dfd320ed9b611d6b21d3161f5c046042b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
