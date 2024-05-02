@@ -375,8 +375,6 @@ describeWithEnvironment('ThreadAppender', function() {
   describe('ignore listing', () => {
     let ignoreListManager: Bindings.IgnoreListManager.IgnoreListManager;
     beforeEach(() => {
-      Root.Runtime.experiments.enableForTest('ignore-list-js-frames-on-timeline');
-
       const targetManager = SDK.TargetManager.TargetManager.instance({forceNew: true});
       const workspace = Workspace.Workspace.WorkspaceImpl.instance({forceNew: true});
       const resourceMapping = new Bindings.ResourceMapping.ResourceMapping(targetManager, workspace);
