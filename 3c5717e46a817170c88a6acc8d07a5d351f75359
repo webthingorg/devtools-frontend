@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ecce657_82c50f14",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-05-02T01:40:18Z",
+      "side": 1,
+      "message": "randomly ran into this bug. \n\nrepro: \n - open invalid-animation-events.json.gz\n - Expand Animations track\n - Notice it takes up ~10 lines but only the 1st one has content.\n - Look closer at the events and notice they\u0027re not for blink animations. They just have the same trace event name.",
+      "revId": "3c5717e46a817170c88a6acc8d07a5d351f75359",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
