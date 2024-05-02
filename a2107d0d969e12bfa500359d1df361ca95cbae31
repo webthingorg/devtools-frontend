@@ -16,6 +16,24 @@
       "message": "@wolfi@chromium.org would you be fine extending this check so it does not affect automation clients which are passing `--enable-automation` (https://source.chromium.org/chromium/chromium/src/+/main:content/public/common/content_switches.cc;l\u003d979?q\u003d%22enable-automation%22\u0026ss\u003dchromium%2Fchromium%2Fsrc) to Chromium?",
       "revId": "a2107d0d969e12bfa500359d1df361ca95cbae31",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48938fcb_126757e8",
+        "filename": "front_end/ui/legacy/components/source_frame/SourceFrame.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-05-02T09:20:15Z",
+      "side": 1,
+      "message": "Added a separate flag for this (see https://crbug.com/41491762): `--unsafely-disable-devtools-self-xss-warnings`",
+      "parentUuid": "8c39f546_506c4201",
+      "revId": "a2107d0d969e12bfa500359d1df361ca95cbae31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
