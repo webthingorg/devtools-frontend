@@ -556,6 +556,24 @@
       "parentUuid": "13b7e8bc_2ed16dc0",
       "revId": "2281a7172827f498bd2cb89355400db6d224ced1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e031685_b493fddc",
+        "filename": "front_end/panels/settings/KeybindsSettingsTab.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-05-02T17:48:52Z",
+      "side": 0,
+      "message": "Thanks, I do not have specific next steps: petermueller@ had a few UX ideas how visual updates can look like but I think nothing has a precedent in DevTools yet. I would recommend starting a discussion with UX so that visual state changes align with Material 3.",
+      "parentUuid": "770e9a78_6c394da9",
+      "revId": "2281a7172827f498bd2cb89355400db6d224ced1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
