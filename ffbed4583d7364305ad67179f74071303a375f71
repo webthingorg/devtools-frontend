@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "912aaeec_449e4ec0",
+        "filename": "front_end/models/trace/handlers/Threads.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-05-02T01:14:16Z",
+      "side": 1,
+      "message": "driveby: just moved the 3rd param to the end since it\u0027s far less important than the others.",
+      "revId": "ffbed4583d7364305ad67179f74071303a375f71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7dd16eb_8c4c3912",
+        "filename": "front_end/panels/timeline/GPUTrackAppender.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-05-02T01:14:16Z",
+      "side": 1,
+      "message": "GPU is always a single line. no need to have the triangle.",
+      "revId": "ffbed4583d7364305ad67179f74071303a375f71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
