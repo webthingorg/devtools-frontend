@@ -167,7 +167,7 @@ export class TraceProcessor<EnabledModelHandlers extends {[key: string]: Handler
         // TODO(paulirish): consider using `scheduler.await()` or `scheduler.postTask(() => {}, {priority: 'user-blocking'})`
         await new Promise(resolve => setTimeout(resolve, pauseDuration));
       }
-      const event = traceEvents[i];
+      const event = {...traceEvents[i]};
       for (let j = 0; j < sortedHandlers.length; ++j) {
         sortedHandlers[j].handleEvent(event);
       }
