@@ -317,7 +317,12 @@ describeWithMockConnection('TimelineUIUtils', function() {
   function getRowDataForDetailsElement(details: DocumentFragment) {
     return Array.from(details.querySelectorAll<HTMLDivElement>('.timeline-details-view-row')).map(row => {
       const title = row.querySelector<HTMLDivElement>('.timeline-details-view-row-title')?.innerText;
-      const value = row.querySelector<HTMLDivElement>('.timeline-details-view-row-value')?.innerText;
+      const valueEl = row.querySelector<HTMLDivElement>('.timeline-details-view-row-value');
+      let value = valueEl?.innerText;
+      if (!value && valueEl) {
+        // In rare occasions (eg: renderEventJson) the details text is within a shadowRoot.
+        value = Array.from(valueEl.children).find(e => e.shadowRoot)?.shadowRoot?.firstElementChild?.textContent || '';
+      }
       return {title, value};
     });
   }
@@ -511,16 +516,10 @@ describeWithMockConnection('TimelineUIUtils', function() {
       const rowData = getRowDataForDetailsElement(details);
       assert.deepEqual(rowData, [
         {
-          title: 'chrome_task_annotator',
-          value: '{"delay_policy":"PRECISE","task_delay_us":7159}',
-        },
-        {
-          title: 'src_file',
-          value: '"cc/scheduler/scheduler.cc"',
-        },
-        {
-          title: 'src_func',
-          value: '"ScheduleBeginImplFrameDeadline"',
+          title: '',
+          // Generic traces get their events rendered as JSON
+          value:
+              '{   "args": {\n        "chrome_task_annotator": {\n            "delay_policy": "PRECISE",\n            "task_delay_us": 7159\n        },\n        "src_file": "cc/scheduler/scheduler.cc",\n        "src_func": "ScheduleBeginImplFrameDeadline"\n    },\n    "cat": "toplevel",\n    "dur": 222,\n    "name": "ThreadControllerImpl::RunTask",\n    "ph": "X",\n    "pid": 1214129,\n    "tdur": 163,\n    "tid": 7,\n    "ts": 1670373249790,\n    "tts": 5752392,\n    "selfTime": 202\n}',
         },
       ]);
     });
