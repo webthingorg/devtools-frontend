@@ -105,6 +105,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aaad5dbc_96cd4c0b",
+        "filename": "front_end/models/trace/helpers/Trace.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-02T08:58:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df246baa_bc0de399",
+      "range": {
+        "startLine": 324,
+        "startChar": 0,
+        "endLine": 325,
+        "endChar": 1
+      },
+      "revId": "33c50a642e1134106afbfb9039d88d9ba2195faa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f5e640ca_2ad3d0c8",
