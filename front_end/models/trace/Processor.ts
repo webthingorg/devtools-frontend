@@ -167,7 +167,10 @@ export class TraceProcessor<EnabledModelHandlers extends {[key: string]: Handler
         // TODO(paulirish): consider using `scheduler.await()` or `scheduler.postTask(() => {}, {priority: 'user-blocking'})`
         await new Promise(resolve => setTimeout(resolve, pauseDuration));
       }
-      const event = traceEvents[i];
+      // To ensure the source data remains untouched we pass a copy to the handlers,
+      // which mutate the data in some cases (for example, adding a selfTime property).
+      // This way, the format of the exported trace file remains unchanged.
+      const event = {...traceEvents[i]};
       for (let j = 0; j < sortedHandlers.length; ++j) {
         sortedHandlers[j].handleEvent(event);
       }
