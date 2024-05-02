@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e942f56_65f78e9f",
+        "filename": "front_end/models/trace/handlers/NetworkRequestsHandler.test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-05-02T21:28:47Z",
+      "side": 0,
+      "message": "lmk if this was really being a useful test b/c of whatever parseAndFinalizeFile is doing (unrealted to search params) and I can keep",
+      "revId": "52010c7a7e8a19a5b43fb05aea70c024b2e7b593",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
