@@ -169,7 +169,7 @@ export class TraceProcessor<EnabledModelHandlers extends {[key: string]: Handler
       }
       const event = traceEvents[i];
       for (let j = 0; j < sortedHandlers.length; ++j) {
-        sortedHandlers[j].handleEvent(event);
+        sortedHandlers[j].handleEvent({...event});
       }
     }
 
