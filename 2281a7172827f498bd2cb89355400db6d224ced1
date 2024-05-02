@@ -538,6 +538,24 @@
       "parentUuid": "0c0575ac_94869a5b",
       "revId": "2281a7172827f498bd2cb89355400db6d224ced1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "770e9a78_6c394da9",
+        "filename": "front_end/panels/settings/KeybindsSettingsTab.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1554938
+      },
+      "writtenOn": "2024-05-02T17:45:40Z",
+      "side": 0,
+      "message": "@alexrudenko@chromium.org I filed an issue here - https://issues.chromium.org/issues/338392158. Feel free to add anything else and let me know of the next steps. Thank you!",
+      "parentUuid": "13b7e8bc_2ed16dc0",
+      "revId": "2281a7172827f498bd2cb89355400db6d224ced1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
