@@ -34,6 +34,24 @@
       "parentUuid": "2aa7257d_a103f04e",
       "revId": "a3ce012dfd320ed9b611d6b21d3161f5c046042b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80f018b4_97bf2b9b",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-05-02T13:57:49Z",
+      "side": 1,
+      "message": "Understood; it wasn\u0027t caught only because the test was skipped. Thanks!",
+      "parentUuid": "62bbee4e_7890ba68",
+      "revId": "a3ce012dfd320ed9b611d6b21d3161f5c046042b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
