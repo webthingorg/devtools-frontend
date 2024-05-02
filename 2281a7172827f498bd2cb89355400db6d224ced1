@@ -574,6 +574,24 @@
       "parentUuid": "770e9a78_6c394da9",
       "revId": "2281a7172827f498bd2cb89355400db6d224ced1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9247f075_f0e29d33",
+        "filename": "front_end/panels/settings/KeybindsSettingsTab.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1554938
+      },
+      "writtenOn": "2024-05-02T17:55:06Z",
+      "side": 0,
+      "message": "What\u0027s the best channel to do so? @petermueller@chromium.org any suggestions?",
+      "parentUuid": "2e031685_b493fddc",
+      "revId": "2281a7172827f498bd2cb89355400db6d224ced1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
