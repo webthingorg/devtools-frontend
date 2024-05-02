@@ -16,6 +16,23 @@
       "message": "I do not maintain devtools-frontend",
       "revId": "5cb91df5230fe1859d44d2a82931794e4755ff5d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8ea7ed9_7fff762a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-05-02T10:44:02Z",
+      "side": 1,
+      "message": "Thanks!\n\nThe change itself LGTM. Adding a test for this would be great! I don\u0027t see unit tests for this file, but it\u0027s probably enough to update this line (https://crsrc.org/c/third_party/devtools-frontend/src/test/e2e/network/network-request-view_test.ts;l\u003d353) to be a regex instead.",
+      "revId": "5cb91df5230fe1859d44d2a82931794e4755ff5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
