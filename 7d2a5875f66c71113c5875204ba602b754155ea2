@@ -69,6 +69,24 @@
       "parentUuid": "45b89ea2_51ee9b14",
       "revId": "7d2a5875f66c71113c5875204ba602b754155ea2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "397fc357_1d57ad7e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-03T14:33:54Z",
+      "side": 1,
+      "message": "I would be much happier if we made sure when we create the synthetic trace entries in the RenderHandler, that we do so by cloning there, so that we can then treat SyntheticTraceEntry as actually synthetic, and modify it as we build up data, whilst leaving the raw events that get stored to disk untouched.",
+      "parentUuid": "ebbb8947_04b5852b",
+      "revId": "7d2a5875f66c71113c5875204ba602b754155ea2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
