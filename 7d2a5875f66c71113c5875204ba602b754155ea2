@@ -33,6 +33,24 @@
       "message": "I\u0027m not sure on this yet... I can see the appeal of being able to mutate, but what I can see is it being a bit of a slippery slope. I know right now we only mutate to add selfTime, but before too long we could end up in a situation where we are mutating more and more and it gets very confusing.\n\nI could picture bugs where suddenly the order of handlers change, and one handler was implicitly relying on the fact that another mutated some events.\n\nI can totally see the upside of being able to mutate.\n\nI wonder if a compromise is keeping the event immutable but adding one key to it, say `traceEngineData: {}` which could hold any additional info...but even then I think I prefer the idea of lookups, especially if we can do it by something more efficient than a large map of events.",
       "revId": "7d2a5875f66c71113c5875204ba602b754155ea2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45b89ea2_51ee9b14",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-05-03T14:22:21Z",
+      "side": 1,
+      "message": "I see what you mean, we don\u0027t want to mutate event objects arbitrarily. However, I\u0027d argue self duration is almost intrinsic data, almost as timestamp and duration. I think that it makes sense for it to be part of the object itself and avoid passing helpers/data structures around that hold a basic property.\n\nWith our current type definition status we cannot strictly enforce immutability, so we are on the safer side by passing copies after buffering anyway, to keep the source trace format intact.\n\nWe can also start to think about an approach for extending events in the long term, if we feel strongly about removing the synthetic `selfTime` property we can use such approach with it.\n\n\u003eespecially if we can do it by something more efficient than a large map of events.\n\nDo you picture something in specific?",
+      "parentUuid": "0006bfad_189b19d4",
+      "revId": "7d2a5875f66c71113c5875204ba602b754155ea2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
