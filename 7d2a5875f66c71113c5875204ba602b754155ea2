@@ -51,6 +51,24 @@
       "parentUuid": "0006bfad_189b19d4",
       "revId": "7d2a5875f66c71113c5875204ba602b754155ea2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebbb8947_04b5852b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-03T14:32:38Z",
+      "side": 1,
+      "message": "\u003e With our current type definition status we cannot strictly enforce immutability, so we are on the safer side by passing copies after buffering anyway, to keep the source trace format intact.\n\nWe could though, if we added a bunch of `readonly` to all the keys in say `TraceEventArgs`.\n\nSeparately though, I\u0027m getting a bit confused: TreeHelpers (where the selfTime mutation is happening IIUC) is supposed to only take `SyntheticTraceEntry[]` - the implication of `Synthetic` being that it\u0027s not an actual trace event and won\u0027t impact the data we store on disk. So are we looking at this the wrong way, and that\u0027s the problem?",
+      "parentUuid": "45b89ea2_51ee9b14",
+      "revId": "7d2a5875f66c71113c5875204ba602b754155ea2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
