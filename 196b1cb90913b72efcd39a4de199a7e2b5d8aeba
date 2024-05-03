@@ -16,6 +16,24 @@
       "message": "Hmmm feels like we could generalize this..   Two aspects..\n\nI see similar `lazyBlah \u003d null` on L173/174. So I\u0027m thinking why not lazySelectorStatsView there too.\n\nBut also.. state-wise if we know setModel will be called with the same model... we should just early return and skip the rest of this method? ish?",
       "revId": "196b1cb90913b72efcd39a4de199a7e2b5d8aeba",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da8731ec_8cb533c6",
+        "filename": "front_end/panels/timeline/TimelineDetailsView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-03T12:29:37Z",
+      "side": 1,
+      "message": "It\u0027s not quite so clear cut because the `selectedEvents` could have changed, even if the model data hasn\u0027t, and we still need to do things in that case. So I don\u0027t think it\u0027s safe to early return.",
+      "parentUuid": "0be46094_e6c2560b",
+      "revId": "196b1cb90913b72efcd39a4de199a7e2b5d8aeba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
