@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48a40f0d_3b4a082e",
+        "filename": "front_end/testing/TraceLoader.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-05-03T10:36:14Z",
+      "side": 1,
+      "message": "under what circumstances would we need this to be false? If we could, it would be more practical to always do it w/o having to pass a value here",
+      "range": {
+        "startLine": 141,
+        "startChar": 0,
+        "endLine": 141,
+        "endChar": 31
+      },
+      "revId": "c544e32f144f6715d547e14c3c87295f29941303",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
