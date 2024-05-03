@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c907930_972591c1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-03T12:30:01Z",
+      "side": 1,
+      "message": "PTAL. I think we are very close to being able to not run the timeline model / perf model at all now!",
+      "revId": "8bda0728c1b34e9d4b88844dcbe50167fa5a0e75",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
