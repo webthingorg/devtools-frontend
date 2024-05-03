@@ -92,7 +92,11 @@ export class SizeInputElement extends HTMLElement {
       <input type="number"
              max=${EmulationModel.DeviceModeModel.MaxDeviceSize}
              min=${EmulationModel.DeviceModeModel.MinDeviceSize}
-             jslog=${VisualLogging.textField().track({change: true}).context(this.#jslogContext)}
+             jslog=${
+            VisualLogging.textField()
+                .track({change: true})
+                .context(this.#jslogContext)
+                .parent('device-size-input-parent')}
              maxlength="4"
              title=${this.#title}
              placeholder=${this.#placeholder}
@@ -124,6 +128,9 @@ export class SizeInputElement extends HTMLElement {
 }
 
 customElements.define('device-mode-emulation-size-input', SizeInputElement);
+
+VisualLogging.registerParentProvider(
+    'device-size-input-parent', (e: Element) => e.enclosingNodeOrSelfWithClass('device-mode-toolbar'));
 
 declare global {
   interface HTMLElementTagNameMap {
