@@ -16,6 +16,23 @@
       "message": "PTAL. I ran perf tests against this change and its parent and didn\u0027t see significant performance changes",
       "revId": "7d2a5875f66c71113c5875204ba602b754155ea2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0006bfad_189b19d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-03T10:25:40Z",
+      "side": 1,
+      "message": "I\u0027m not sure on this yet... I can see the appeal of being able to mutate, but what I can see is it being a bit of a slippery slope. I know right now we only mutate to add selfTime, but before too long we could end up in a situation where we are mutating more and more and it gets very confusing.\n\nI could picture bugs where suddenly the order of handlers change, and one handler was implicitly relying on the fact that another mutated some events.\n\nI can totally see the upside of being able to mutate.\n\nI wonder if a compromise is keeping the event immutable but adding one key to it, say `traceEngineData: {}` which could hold any additional info...but even then I think I prefer the idea of lookups, especially if we can do it by something more efficient than a large map of events.",
+      "revId": "7d2a5875f66c71113c5875204ba602b754155ea2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
