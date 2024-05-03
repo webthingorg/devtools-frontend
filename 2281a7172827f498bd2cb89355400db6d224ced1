@@ -592,6 +592,24 @@
       "parentUuid": "2e031685_b493fddc",
       "revId": "2281a7172827f498bd2cb89355400db6d224ced1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2329413c_bc731e10",
+        "filename": "front_end/panels/settings/KeybindsSettingsTab.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2024-05-03T06:28:21Z",
+      "side": 0,
+      "message": "A think starting a design doc would be the best approach. This way you can get broad sign off and we can add UI patterns there.",
+      "parentUuid": "9247f075_f0e29d33",
+      "revId": "2281a7172827f498bd2cb89355400db6d224ced1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
