@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2a6f69a_c822661a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-05-06T11:53:19Z",
+      "side": 1,
+      "message": "adding Jack for OWNERS review",
+      "revId": "c63d94f05f1108a962d018c8e3132cf161425973",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b19429a9_606fcc01",
+        "filename": "scripts/component_server/server.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-05-06T11:53:19Z",
+      "side": 1,
+      "message": "could this get problematic in OSs that use `\\` as path separator?",
+      "range": {
+        "startLine": 29,
+        "startChar": 31,
+        "endLine": 29,
+        "endChar": 32
+      },
+      "revId": "c63d94f05f1108a962d018c8e3132cf161425973",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
