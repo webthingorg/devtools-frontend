@@ -5,7 +5,6 @@
 import * as i18n from '../../../core/i18n/i18n.js';
 import * as Platform from '../../../core/platform/platform.js';
 import * as Buttons from '../../../ui/components/buttons/buttons.js';
-import * as ComponentHelpers from '../../../ui/components/helpers/helpers.js';
 import * as IconButton from '../../../ui/components/icon_button/icon_button.js';
 import * as Menus from '../../../ui/components/menus/menus.js';
 import * as UI from '../../../ui/legacy/legacy.js';
@@ -291,8 +290,6 @@ export class StepView extends HTMLElement {
   #isLastSection: boolean = false;
   #isRecording = false;
   #isPlaying = false;
-  #actionsMenuButton?: Buttons.Button.Button;
-  #actionsMenuExpanded = false;
   #isVisible = false;
   #observer: IntersectionObserver = new IntersectionObserver(result => {
     this.#isVisible = result[0].isIntersecting;
@@ -516,18 +513,6 @@ export class StepView extends HTMLElement {
     }
   }
 
-  #onToggleActionsMenu(event: Event): void {
-    event.stopPropagation();
-    event.preventDefault();
-    this.#actionsMenuExpanded = !this.#actionsMenuExpanded;
-    this.#render();
-  }
-
-  #onCloseActionsMenu(): void {
-    this.#actionsMenuExpanded = false;
-    this.#render();
-  }
-
   #onBreakpointClick(): void {
     if (this.#hasBreakpoint) {
       this.dispatchEvent(new RemoveBreakpointEvent(this.#stepIndex));
@@ -535,13 +520,6 @@ export class StepView extends HTMLElement {
       this.dispatchEvent(new AddBreakpointEvent(this.#stepIndex));
     }
     this.#render();
-  }
-
-  #getActionsMenuButton(): Buttons.Button.Button {
-    if (!this.#actionsMenuButton) {
-      throw new Error('Missing actionsMenuButton');
-    }
-    return this.#actionsMenuButton;
   }
 
   #getActions = (): Array<Action> => {
@@ -640,13 +618,10 @@ export class StepView extends HTMLElement {
         class="step-actions"
         title=${i18nString(UIStrings.openStepActions)}
         aria-label=${i18nString(UIStrings.openStepActions)}
-        @click=${this.#onToggleActionsMenu}
+        @click=${this.#onStepContextMenu}
         @keydown=${(event: Event) => {
           event.stopPropagation();
         }}
-        on-render=${ComponentHelpers.Directives.nodeRenderedCallback(node => {
-          this.#actionsMenuButton = node as Buttons.Button.Button;
-        })}
         jslog=${VisualLogging.dropDown('step-actions').track({click: true})}
         .data=${
           {
@@ -656,51 +631,11 @@ export class StepView extends HTMLElement {
           } as Buttons.Button.ButtonData
         }
       ></${Buttons.Button.Button.litTagName}>
-      <${Menus.Menu.Menu.litTagName}
-        @menucloserequest=${this.#onCloseActionsMenu}
-        @menuitemselected=${this.#handleStepAction}
-        .origin=${this.#getActionsMenuButton.bind(this)}
-        .showSelectedItem=${false}
-        .showConnector=${false}
-        .open=${this.#actionsMenuExpanded}
-      >
-        ${LitHtml.Directives.repeat(
-          groups,
-          item => item.group,
-          item => {
-            return LitHtml.html`
-            <${Menus.Menu.MenuGroup.litTagName}
-              .name=${item.groupTitle}
-            >
-              ${LitHtml.Directives.repeat(
-                item.actions,
-                item => item.id,
-                item => {
-                  return LitHtml.html`<${Menus.Menu.MenuItem.litTagName}
-                      .value=${item.id}
-                      jslog=${VisualLogging.action().track({click: true}).context(`${item.jslogContext || item.id}`)}
-                    >
-                      ${item.label}
-                    </${Menus.Menu.MenuItem.litTagName}>
-                  `;
-                },
-              )}
-            </${Menus.Menu.MenuGroup.litTagName}>
-          `;
-          },
-        )}
-      </${Menus.Menu.Menu.litTagName}>
     `;
     // clang-format on
   }
 
   #onStepContextMenu = (event: MouseEvent): void => {
-    if (event.button !== 2) {
-      // 2 = secondary button = right click. We only show context menus if the
-      // user has right clicked.
-      return;
-    }
-
     const menu = new UI.ContextMenu.ContextMenu(event);
 
     const actions = this.#getActions();
