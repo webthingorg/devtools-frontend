@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a95da42_a2dd52e3",
+        "filename": "front_end/models/trace/helpers/SamplesIntegrator.test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-05-06T18:07:56Z",
+      "side": 1,
+      "message": "we don\u0027t at all. but.. some eslint rule makes sure we do that when we ignore returned promises.\nand since this method returns something i thought this\u0027d be equivalent. I don\u0027t really care though. :)\n\nanyhow.. removed!",
+      "parentUuid": "e50d3a4a_d20562b9",
+      "range": {
+        "startLine": 65,
+        "startChar": 6,
+        "endLine": 65,
+        "endChar": 10
+      },
+      "revId": "1494cb135ebe8474afaa07d78931986d491452f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2e1da3d1_720d1d7b",
