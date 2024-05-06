@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b870622_3e4dac69",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-05-06T05:40:40Z",
+      "side": 1,
+      "message": "Hi Alex,\n\nI\u0027m disabling a flaky ARIAUtils test, ptal!",
+      "revId": "429739159d466ca7f5b85ae7de91154d3b794d19",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
