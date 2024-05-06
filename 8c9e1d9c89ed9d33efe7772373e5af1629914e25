@@ -16,6 +16,46 @@
       "message": "Hi Simon, would you please review this change?",
       "revId": "8c9e1d9c89ed9d33efe7772373e5af1629914e25",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d1f995d_a4a2d514",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-05-06T05:22:47Z",
+      "side": 1,
+      "message": "lgtm, thanks!",
+      "revId": "8c9e1d9c89ed9d33efe7772373e5af1629914e25",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06803b5b_78e67aed",
+        "filename": "front_end/panels/profiler/HeapSnapshotView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 759,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-05-06T05:22:47Z",
+      "side": 1,
+      "message": "nit: Since it\u0027s a constant lets follow the naming scheme (`static readonly ALWAYS_AVAILABLE_FILTERS`).\n\nWe could also type it as `ReadonlyArray\u003c...\u003e`, so TS ensures the content itself is also not modified.",
+      "range": {
+        "startLine": 759,
+        "startChar": 9,
+        "endLine": 759,
+        "endChar": 31
+      },
+      "revId": "8c9e1d9c89ed9d33efe7772373e5af1629914e25",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
