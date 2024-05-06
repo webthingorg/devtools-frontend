@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e50d3a4a_d20562b9",
+        "filename": "front_end/models/trace/helpers/SamplesIntegrator.test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-05-06T09:20:22Z",
+      "side": 1,
+      "message": "do we need this `void`?",
+      "range": {
+        "startLine": 65,
+        "startChar": 6,
+        "endLine": 65,
+        "endChar": 10
+      },
+      "revId": "1494cb135ebe8474afaa07d78931986d491452f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2e1da3d1_720d1d7b",
         "filename": "front_end/models/trace/helpers/SamplesIntegrator.ts",
         "patchSetId": 3
@@ -14,6 +37,24 @@
       "writtenOn": "2024-05-03T19:35:49Z",
       "side": 1,
       "message": "also.. lol i\u0027m renaming it the second time today :)\n `makeProfileCallsForChildren` in https://crrev.com/c/5515897 is okay but.. i think maybe `makeProfileCallsForStack` is more clear since the parent/child relationship is kinda unimportant.",
+      "revId": "1494cb135ebe8474afaa07d78931986d491452f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bacb27ed_a1503b19",
+        "filename": "front_end/models/trace/helpers/SamplesIntegrator.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-05-06T09:20:22Z",
+      "side": 1,
+      "message": "I like it :)",
+      "parentUuid": "2e1da3d1_720d1d7b",
       "revId": "1494cb135ebe8474afaa07d78931986d491452f2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
