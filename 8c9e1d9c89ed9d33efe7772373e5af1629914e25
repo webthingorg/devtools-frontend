@@ -56,6 +56,30 @@
       },
       "revId": "8c9e1d9c89ed9d33efe7772373e5af1629914e25",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc821dcf_338279ef",
+        "filename": "front_end/panels/profiler/HeapSnapshotView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 759,
+      "author": {
+        "id": 1325508
+      },
+      "writtenOn": "2024-05-06T15:06:59Z",
+      "side": 1,
+      "message": "Good idea, thanks!",
+      "parentUuid": "06803b5b_78e67aed",
+      "range": {
+        "startLine": 759,
+        "startChar": 9,
+        "endLine": 759,
+        "endChar": 31
+      },
+      "revId": "8c9e1d9c89ed9d33efe7772373e5af1629914e25",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
