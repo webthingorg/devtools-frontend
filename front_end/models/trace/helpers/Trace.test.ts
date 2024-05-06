@@ -503,8 +503,10 @@ describeWithEnvironment('TraceModel helpers', function() {
   describe('frameIDForEvent', () => {
     it('returns the frame ID from beginData if the event has it', async function() {
       const traceParsedData = await TraceLoader.traceEngine(this, 'web-dev-with-commit.json.gz');
-      const parseHTMLEvent =
-          traceParsedData.Renderer.allTraceEntries.find(TraceModel.Types.TraceEvents.isTraceEventParseHTML);
+      // We need to be explicit about the `TraceEventData` type for the `find` below to be used
+      // as type guard.
+      const allEntries: TraceModel.Types.TraceEvents.TraceEventData[] = traceParsedData.Renderer.allTraceEntries;
+      const parseHTMLEvent = allEntries.find(TraceModel.Types.TraceEvents.isTraceEventParseHTML);
       assert.isOk(parseHTMLEvent);
       const frameId = TraceModel.Helpers.Trace.frameIDForEvent(parseHTMLEvent);
       assert.isNotNull(frameId);
@@ -518,7 +520,7 @@ describeWithEnvironment('TraceModel helpers', function() {
       assert.isOk(invalidateLayoutEvent);
       const frameId = TraceModel.Helpers.Trace.frameIDForEvent(invalidateLayoutEvent);
       assert.isNotNull(frameId);
-      assert.strictEqual(frameId, invalidateLayoutEvent.args.data.frame);
+      assert.strictEqual(frameId, invalidateLayoutEvent.args?.data?.frame);
     });
 
     it('returns null if the event does not have a frame', async function() {

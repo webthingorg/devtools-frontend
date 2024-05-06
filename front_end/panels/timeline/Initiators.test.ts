@@ -153,7 +153,8 @@ describe('Initiators', () => {
          // Ensure each initiatorData object has TimerInstall>TimerFire event to initiator.
          assert.strictEqual(initiatorData.event.name, TraceEngine.Types.TraceEvents.KnownEventName.TimerFire);
          assert.strictEqual(initiatorData.initiator.name, TraceEngine.Types.TraceEvents.KnownEventName.TimerInstall);
-         const parentEvent = traceData.Renderer.entryToNode.get(initiatorData.event)?.parent?.entry;
+         const parentEvent = TraceEngine.Types.TraceEvents.isSyntheticTreifiedEntry(initiatorData.event) &&
+             traceData.Renderer.entryToNode.get(initiatorData.event)?.parent?.entry;
          if (parentEvent) {
            timerFireParents.push(parentEvent);
            initiatedEvents.push(initiatorData.event);

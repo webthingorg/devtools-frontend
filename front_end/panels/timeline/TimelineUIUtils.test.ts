@@ -1389,13 +1389,15 @@ describeWithMockConnection('TimelineUIUtils', function() {
       assert.isOk(commitLoadEvent);
       const url = Timeline.TimelineUIUtils.urlForEvent(traceParsedData, commitLoadEvent);
       assert.isNotNull(url);
-      assert.strictEqual(url, commitLoadEvent.args.data?.url);
+      assert.strictEqual(url, commitLoadEvent.args?.data?.url);
     });
 
     it('finds the URL for a ParseHTML event', async function() {
       const traceParsedData = await TraceLoader.traceEngine(this, 'web-dev-with-commit.json.gz');
       const parseHTMLEvent =
-          traceParsedData.Renderer.allTraceEntries.find(TraceEngine.Types.TraceEvents.isTraceEventParseHTML);
+          traceParsedData.Renderer.allTraceEntries.find(TraceEngine.Types.TraceEvents.isTraceEventParseHTML) as
+              TraceEngine.Types.TraceEvents.TraceEventParseHTML |
+          undefined;
       assert.isOk(parseHTMLEvent);
       const url = Timeline.TimelineUIUtils.urlForEvent(traceParsedData, parseHTMLEvent);
       assert.isNotNull(url);

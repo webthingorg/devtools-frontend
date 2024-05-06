@@ -70,11 +70,12 @@ export function extractExtensionEntries(
       args: extensionPayload,
     };
     if (Types.Extensions.isExtensionPayloadMarker(extensionPayload)) {
-      extensionMarkers.push(extensionSyntheticEntry as Types.Extensions.SyntheticExtensionMarker);
+      extensionMarkers.push(extensionSyntheticEntry as unknown as Types.Extensions.SyntheticExtensionMarker);
       continue;
     }
     if (Types.Extensions.isExtensionPayloadFlameChartEntry(extensionPayload)) {
-      extensionFlameChartEntries.push(extensionSyntheticEntry as Types.Extensions.SyntheticExtensionFlameChartEntry);
+      extensionFlameChartEntries.push(
+          extensionSyntheticEntry as unknown as Types.Extensions.SyntheticExtensionFlameChartEntry);
       continue;
     }
   }
