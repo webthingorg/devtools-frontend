@@ -16,6 +16,23 @@
       "message": "Can you take a look please? Thanks! 🙏",
       "revId": "7b627502383f721d2bda69e1f918a9e984b31a1b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e4b538c_c90c2b89",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2024-05-06T12:28:01Z",
+      "side": 1,
+      "message": "All great, a suggestion for the \"Copy as\" menu items:\n\nRight now, \"JSON\" isn\u0027t a verb and doesn\u0027t indicate which action is taken. What about this:\n\nCopy as JSON\nMore formats \u003e\n     Copy as Puppeteer\n     Copy as ...\n     Copy as ...",
+      "revId": "7b627502383f721d2bda69e1f918a9e984b31a1b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
