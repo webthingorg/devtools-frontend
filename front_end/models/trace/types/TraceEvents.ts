@@ -1299,11 +1299,16 @@ export interface SyntheticInteractionPair extends SyntheticEventPair<TraceEventE
   presentationDelay: MicroSeconds;
 }
 
+export function isSyntheticInteractionEvent(event: TraceEventData): event is SyntheticInteractionPair {
+  return Boolean(
+      'interactionId' in event && event.args?.data && 'beginEvent' in event.args.data && 'endEvent' in event.args.data);
+}
+
 /**
  * An event created synthetically in the frontend that has a self time
  * (the time spent running the task itself).
  */
-export interface SyntheticTraceEntry extends TraceEventData {
+export interface SyntheticTraceEventWithSelfTime extends TraceEventData {
   selfTime?: MicroSeconds;
 }
 
@@ -1311,24 +1316,29 @@ export interface SyntheticTraceEntry extends TraceEventData {
  * A profile call created in the frontend from samples disguised as a
  * trace event.
  */
-export interface SyntheticProfileCall extends SyntheticTraceEntry {
+export interface SyntheticProfileCall extends SyntheticTraceEventWithSelfTime {
   callFrame: Protocol.Runtime.CallFrame;
   nodeId: Protocol.integer;
 }
 
 /**
- * A trace event augmented synthetically in the frontend to contain
- * its self time.
+ * A synthetic copy of a trace event which includes a synthetic selfTime
+ * property.
  */
-export type SyntheticRendererEvent = TraceEventRendererEvent&SyntheticTraceEntry;
+export type SyntheticRendererEvent = TraceEventRendererEvent&SyntheticTraceEventWithSelfTime&{
+  // This tag is used to prevent raw trace events to be directly
+  // typed as synthetic and hint the developer to create a copy to
+  // prevent mutating the raw trace data.
+  _tag: 'synthetic event tag',
+};
 
-export function isSyntheticInteractionEvent(event: TraceEventData): event is SyntheticInteractionPair {
-  return Boolean(
-      'interactionId' in event && event.args?.data && 'beginEvent' in event.args.data && 'endEvent' in event.args.data);
+export type SyntheticTreifiedEntry = SyntheticProfileCall|SyntheticRendererEvent;
+
+export function isSyntheticRendererEvent(event: TraceEventData): event is SyntheticRendererEvent {
+  return isTraceEventRendererEvent(event) && 'selfTime' in event;
 }
-
-export function isSyntheticTraceEntry(event: TraceEventData): event is SyntheticTraceEntry {
-  return isTraceEventRendererEvent(event) || isProfileCall(event);
+export function isSyntheticTreifiedEntry(event: TraceEventData): event is SyntheticTreifiedEntry {
+  return isSyntheticRendererEvent(event) || isProfileCall(event);
 }
 
 // Events relating to frames.

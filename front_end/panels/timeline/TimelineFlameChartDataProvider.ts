@@ -150,14 +150,14 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
   }
 
   modifyTree(node: number, action: TraceEngine.EntriesFilter.FilterAction): void {
-    const entry = this.entryData[node] as TraceEngine.Types.TraceEvents.SyntheticTraceEntry;
+    const entry = this.entryData[node] as TraceEngine.Types.TraceEvents.SyntheticTreifiedEntry;
 
     AnnotationsManager.AnnotationsManager.AnnotationsManager.maybeInstance()?.getEntriesFilter().applyFilterAction(
         {type: action, entry});
   }
 
   findPossibleContextMenuActions(node: number): TraceEngine.EntriesFilter.PossibleFilterActions|void {
-    const entry = this.entryData[node] as TraceEngine.Types.TraceEvents.SyntheticTraceEntry;
+    const entry = this.entryData[node] as TraceEngine.Types.TraceEvents.SyntheticTreifiedEntry;
     return AnnotationsManager.AnnotationsManager.AnnotationsManager.maybeInstance()
         ?.getEntriesFilter()
         .findPossibleActions(entry);
@@ -632,7 +632,7 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
       delegatesFocus: undefined,
     });
 
-    const entry = this.entryData[entryIndex] as TraceEngine.Types.TraceEvents.SyntheticTraceEntry;
+    const entry = this.entryData[entryIndex] as TraceEngine.Types.TraceEvents.SyntheticTreifiedEntry;
     const hiddenEntriesAmount = AnnotationsManager.AnnotationsManager.AnnotationsManager.maybeInstance()
                                     ?.getEntriesFilter()
                                     .findHiddenDescendantsAmount(entry);
@@ -979,7 +979,7 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     if (this.entryData.indexOf(selection.object) === -1 && TimelineSelection.isTraceEventSelection(selection.object)) {
       if (this.timelineDataInternal?.selectedGroup) {
         AnnotationsManager.AnnotationsManager.AnnotationsManager.maybeInstance()?.getEntriesFilter().revealEntry(
-            selection.object as TraceEngine.Types.TraceEvents.SyntheticTraceEntry);
+            selection.object as TraceEngine.Types.TraceEvents.SyntheticTreifiedEntry);
         this.timelineData(true);
       }
     }

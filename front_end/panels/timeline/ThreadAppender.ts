@@ -605,7 +605,7 @@ export class ThreadAppender implements TrackAppender {
    * Returns the info shown when an event added by this appender
    * is hovered in the timeline.
    */
-  highlightedEntryInfo(event: TraceEngine.Types.TraceEvents.SyntheticTraceEntry): HighlightedEntryInfo {
+  highlightedEntryInfo(event: TraceEngine.Types.TraceEvents.SyntheticTreifiedEntry): HighlightedEntryInfo {
     let title = this.titleForEvent(event);
     if (TraceEngine.Types.TraceEvents.isTraceEventParseHTML(event)) {
       const startLine = event.args['beginData']['startLine'];

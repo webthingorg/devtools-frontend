@@ -1389,13 +1389,15 @@ describeWithMockConnection('TimelineUIUtils', function() {
       assert.isOk(commitLoadEvent);
       const url = Timeline.TimelineUIUtils.urlForEvent(traceParsedData, commitLoadEvent);
       assert.isNotNull(url);
-      assert.strictEqual(url, commitLoadEvent.args.data?.url);
+      assert.strictEqual(url, commitLoadEvent.args?.data?.url);
     });
 
     it('finds the URL for a ParseHTML event', async function() {
       const traceParsedData = await TraceLoader.traceEngine(this, 'web-dev-with-commit.json.gz');
-      const parseHTMLEvent =
-          traceParsedData.Renderer.allTraceEntries.find(TraceEngine.Types.TraceEvents.isTraceEventParseHTML);
+      // We need to be explicit about the `TraceEventData` type for the `find` below to be used
+      // as type guard.
+      const allEntries: TraceEngine.Types.TraceEvents.TraceEventData[] = traceParsedData.Renderer.allTraceEntries;
+      const parseHTMLEvent = allEntries.find(TraceEngine.Types.TraceEvents.isTraceEventParseHTML);
       assert.isOk(parseHTMLEvent);
       const url = Timeline.TimelineUIUtils.urlForEvent(traceParsedData, parseHTMLEvent);
       assert.isNotNull(url);

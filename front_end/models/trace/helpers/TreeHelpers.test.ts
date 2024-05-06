@@ -24,7 +24,7 @@ describe('TreeHelpers', () => {
         makeCompleteEvent('D', 5, 3),   // 5..8
         makeCompleteEvent('C', 2, 1),   // 2..3
         makeCompleteEvent('E', 11, 3),  // 11..14
-      ];
+      ] as TraceModel.Types.TraceEvents.SyntheticTreifiedEntry[];
 
       TraceModel.Helpers.Trace.sortTraceEventsInPlace(data);
       const {tree} = TraceModel.Helpers.TreeHelpers.treify(data, {filter: {has: () => true}});
@@ -90,7 +90,7 @@ describe('TreeHelpers', () => {
         makeCompleteEvent('D', 5, 3),   // 5..8
         makeCompleteEvent('C', 2, 1),   // 2..3
         makeCompleteEvent('E', 11, 3),  // 11..14
-      ];
+      ] as TraceModel.Types.TraceEvents.SyntheticTreifiedEntry[];
 
       TraceModel.Helpers.Trace.sortTraceEventsInPlace(data);
       const filter = new Set(['A', 'D']);
@@ -136,7 +136,7 @@ describe('TreeHelpers', () => {
         makeCompleteEvent('D', 3, 3),   // 3..6 (starts when B finishes)
         makeCompleteEvent('C', 2, 1),   // 2..3 (finishes when B finishes)
         makeCompleteEvent('E', 10, 3),  // 10..13 (starts when A finishes)
-      ];
+      ] as TraceModel.Types.TraceEvents.SyntheticTreifiedEntry[];
 
       TraceModel.Helpers.Trace.sortTraceEventsInPlace(data);
       const {tree} = TraceModel.Helpers.TreeHelpers.treify(data, {filter: {has: () => true}});
@@ -202,7 +202,7 @@ describe('TreeHelpers', () => {
         makeCompleteEvent('D', 3, 3),   // 3..6 (starts when B finishes)
         makeCompleteEvent('C', 2, 1),   // 2..3 (finishes when B finishes)
         makeCompleteEvent('E', 10, 3),  // 10..13 (starts when A finishes)
-      ] as TraceModel.Types.TraceEvents.SyntheticTraceEntry[];
+      ] as TraceModel.Types.TraceEvents.SyntheticTreifiedEntry[];
 
       TraceModel.Helpers.Trace.sortTraceEventsInPlace(data);
       const {tree} = TraceModel.Helpers.TreeHelpers.treify(data, {filter: {has: () => true}});
@@ -279,7 +279,8 @@ describe('TreeHelpers', () => {
         const v8Run = makeCompleteEvent('v8.run', 10, 490);
         const parseFunction = makeCompleteEvent('V8.ParseFunction', 12, 1);
 
-        const traceEvents: TraceModel.Types.TraceEvents.SyntheticTraceEntry[] = [evaluateScript, v8Run, parseFunction];
+        const traceEvents =
+            [evaluateScript, v8Run, parseFunction] as TraceModel.Types.TraceEvents.SyntheticTreifiedEntry[];
 
         const profileCalls = [makeProfileCall('a', 100, 200), makeProfileCall('b', 300, 200)];
         const allEntries = TraceModel.Helpers.Trace.mergeEventsInOrder(traceEvents, profileCalls);
@@ -321,15 +322,15 @@ describe('TreeHelpers', () => {
         makeCompleteEvent('D', 5, 3),   // 5..8
         makeCompleteEvent('C', 2, 1),   // 2..3
         makeCompleteEvent('E', 11, 3),  // 11..14
-      ];
+      ] as TraceModel.Types.TraceEvents.SyntheticTreifiedEntry[];
       TraceModel.Helpers.Trace.sortTraceEventsInPlace(data);
       const {tree, entryToNode} = TraceModel.Helpers.TreeHelpers.treify(data, {filter: {has: () => true}});
 
       const callOrder: Array<{type: 'START' | 'END', entryName: string}> = [];
-      function onEntryStart(entry: TraceModel.Types.TraceEvents.SyntheticTraceEntry): void {
+      function onEntryStart(entry: TraceModel.Types.TraceEvents.SyntheticTreifiedEntry): void {
         callOrder.push({type: 'START', entryName: entry.name});
       }
-      function onEntryEnd(entry: TraceModel.Types.TraceEvents.SyntheticTraceEntry): void {
+      function onEntryEnd(entry: TraceModel.Types.TraceEvents.SyntheticTreifiedEntry): void {
         callOrder.push({type: 'END', entryName: entry.name});
       }
       TraceModel.Helpers.TreeHelpers.walkEntireTree(entryToNode, tree, onEntryStart, onEntryEnd);
@@ -360,15 +361,15 @@ describe('TreeHelpers', () => {
         makeCompleteEvent('D', 5, 3),   // 5..8
         makeCompleteEvent('C', 2, 1),   // 2..3
         makeCompleteEvent('E', 11, 3),  // 11..14
-      ];
+      ] as TraceModel.Types.TraceEvents.SyntheticTreifiedEntry[];
       TraceModel.Helpers.Trace.sortTraceEventsInPlace(data);
       const {tree, entryToNode} = TraceModel.Helpers.TreeHelpers.treify(data, {filter: {has: () => true}});
 
       const callOrder: Array<{type: 'START' | 'END', entryName: string}> = [];
-      function onEntryStart(entry: TraceModel.Types.TraceEvents.SyntheticTraceEntry): void {
+      function onEntryStart(entry: TraceModel.Types.TraceEvents.SyntheticTreifiedEntry): void {
         callOrder.push({type: 'START', entryName: entry.name});
       }
-      function onEntryEnd(entry: TraceModel.Types.TraceEvents.SyntheticTraceEntry): void {
+      function onEntryEnd(entry: TraceModel.Types.TraceEvents.SyntheticTreifiedEntry): void {
         callOrder.push({type: 'END', entryName: entry.name});
       }
       TraceModel.Helpers.TreeHelpers.walkEntireTree(entryToNode, tree, onEntryStart, onEntryEnd, {
@@ -397,15 +398,15 @@ describe('TreeHelpers', () => {
         makeCompleteEvent('D', 5, 3),   // 5..8
         makeCompleteEvent('C', 2, 1),   // 2..3
         makeCompleteEvent('E', 11, 3),  // 11..14
-      ];
+      ] as TraceModel.Types.TraceEvents.SyntheticTreifiedEntry[];
       TraceModel.Helpers.Trace.sortTraceEventsInPlace(data);
       const {tree, entryToNode} = TraceModel.Helpers.TreeHelpers.treify(data, {filter: {has: () => true}});
 
       const callOrder: Array<{type: 'START' | 'END', entryName: string}> = [];
-      function onEntryStart(entry: TraceModel.Types.TraceEvents.SyntheticTraceEntry): void {
+      function onEntryStart(entry: TraceModel.Types.TraceEvents.SyntheticTreifiedEntry): void {
         callOrder.push({type: 'START', entryName: entry.name});
       }
-      function onEntryEnd(entry: TraceModel.Types.TraceEvents.SyntheticTraceEntry): void {
+      function onEntryEnd(entry: TraceModel.Types.TraceEvents.SyntheticTreifiedEntry): void {
         callOrder.push({type: 'END', entryName: entry.name});
       }
       const rootNode = Array.from(tree.roots).at(0);

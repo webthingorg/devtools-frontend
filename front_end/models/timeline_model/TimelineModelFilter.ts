@@ -22,7 +22,7 @@ export class TimelineVisibleEventsFilter extends TimelineModelFilter {
   accept(event: TraceEngine.Legacy.CompatibleTraceEvent): boolean {
     if (TraceEngine.Legacy.eventIsFromNewEngine(event)) {
       if (TraceEngine.Types.Extensions.isSyntheticExtensionEntry(event) ||
-          TraceEngine.Types.TraceEvents.isSyntheticTraceEntry(event)) {
+          TraceEngine.Types.TraceEvents.isSyntheticTreifiedEntry(event)) {
         return true;
       }
     }

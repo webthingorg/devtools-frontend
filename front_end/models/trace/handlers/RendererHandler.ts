@@ -32,8 +32,8 @@ const compositorTileWorkers = Array<{
   pid: Types.TraceEvents.ProcessID,
   tid: Types.TraceEvents.ThreadID,
 }>();
-const entryToNode: Map<Types.TraceEvents.SyntheticTraceEntry, Helpers.TreeHelpers.TraceEntryNode> = new Map();
-let allTraceEntries: Types.TraceEvents.SyntheticTraceEntry[] = [];
+const entryToNode: Map<Types.TraceEvents.SyntheticTreifiedEntry, Helpers.TreeHelpers.TraceEntryNode> = new Map();
+let allTraceEntries: Types.TraceEvents.SyntheticTreifiedEntry[] = [];
 
 const completeEventStack: (Types.TraceEvents.SyntheticCompleteEvent)[] = [];
 
@@ -101,16 +101,16 @@ export function handleEvent(event: Types.TraceEvents.TraceEventData): void {
     if (!completeEvent) {
       return;
     }
-    thread.entries.push(completeEvent);
-    allTraceEntries.push(completeEvent);
+    thread.entries.push({...completeEvent} as Types.TraceEvents.SyntheticTreifiedEntry);
+    allTraceEntries.push({...completeEvent} as Types.TraceEvents.SyntheticTreifiedEntry);
     return;
   }
 
   if (Types.TraceEvents.isTraceEventInstant(event) || Types.TraceEvents.isTraceEventComplete(event)) {
     const process = getOrCreateRendererProcess(processes, event.pid);
     const thread = getOrCreateRendererThread(process, event.tid);
-    thread.entries.push(event);
-    allTraceEntries.push(event);
+    thread.entries.push({...event} as Types.TraceEvents.SyntheticTreifiedEntry);
+    allTraceEntries.push({...event} as Types.TraceEvents.SyntheticTreifiedEntry);
   }
 }
 
@@ -387,12 +387,12 @@ export interface RendererHandlerData {
    * by the process ID.
    */
   compositorTileWorkers: Map<Types.TraceEvents.ProcessID, Types.TraceEvents.ThreadID[]>;
-  entryToNode: Map<Types.TraceEvents.SyntheticTraceEntry, Helpers.TreeHelpers.TraceEntryNode>;
+  entryToNode: Map<Types.TraceEvents.SyntheticTreifiedEntry, Helpers.TreeHelpers.TraceEntryNode>;
   /**
    * All trace events and synthetic profile calls made from
    * samples.
    */
-  allTraceEntries: Types.TraceEvents.SyntheticTraceEntry[];
+  allTraceEntries: Types.TraceEvents.SyntheticTreifiedEntry[];
 }
 
 export interface RendererProcess {
@@ -409,6 +409,6 @@ export interface RendererThread {
    * Contains trace events and synthetic profile calls made from
    * samples.
    */
-  entries: Types.TraceEvents.SyntheticTraceEntry[];
+  entries: Types.TraceEvents.SyntheticTreifiedEntry[];
   tree?: Helpers.TreeHelpers.TraceEntryTree;
 }
