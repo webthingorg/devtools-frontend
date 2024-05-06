@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67f1718a_cc05a28f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-05-06T16:00:09Z",
+      "side": 1,
+      "message": "PTAL.\nI\u0027m not sure why this was not caught by the unit tests (https://crsrc.org/c/third_party/devtools-frontend/src/front_end/panels/network/components/HeaderSectionRow.test.ts;l\u003d438), but I suspect there are slight differences in how event bubbling works in our unit tests vs. in proper DevTools.",
+      "revId": "7b41bec54422db5f09d9f1ee7410451c4812ccd9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
