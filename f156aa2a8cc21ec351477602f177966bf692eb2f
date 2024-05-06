@@ -16,6 +16,23 @@
       "message": "Thanks a lot! LGTM",
       "revId": "f156aa2a8cc21ec351477602f177966bf692eb2f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a1a446d_c85c51d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-05-06T09:13:38Z",
+      "side": 1,
+      "message": "Jack, PTAL. We need a 2nd code owner, thanks!",
+      "revId": "f156aa2a8cc21ec351477602f177966bf692eb2f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
