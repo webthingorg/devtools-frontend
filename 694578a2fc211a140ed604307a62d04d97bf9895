@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b243ab6_bf53f80e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-05-06T07:02:00Z",
+      "side": 1,
+      "message": "Hi Andrés,\n\nI\u0027m disabling a flaky Lighthouse test, ptal!",
+      "revId": "694578a2fc211a140ed604307a62d04d97bf9895",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
