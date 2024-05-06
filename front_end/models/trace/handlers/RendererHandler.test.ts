@@ -194,13 +194,13 @@ describeWithEnvironment('RendererHandler', function() {
     }
 
     const isRoot = (node: TraceModel.Helpers.TreeHelpers.TraceEntryNode) => node.depth === 0;
-    const isInstant = (event: TraceModel.Types.TraceEvents.SyntheticTraceEntry) =>
+    const isInstant = (event: TraceModel.Types.TraceEvents.SyntheticTreifiedEntry) =>
         TraceModel.Types.TraceEvents.isTraceEventInstant(event);
-    const isLong = (event: TraceModel.Types.TraceEvents.SyntheticTraceEntry) =>
+    const isLong = (event: TraceModel.Types.TraceEvents.SyntheticTreifiedEntry) =>
         TraceModel.Types.TraceEvents.isTraceEventComplete(event) && event.dur > 1000;
     const isIncluded =
         (node: TraceModel.Helpers.TreeHelpers.TraceEntryNode,
-         event: TraceModel.Types.TraceEvents.SyntheticTraceEntry) =>
+         event: TraceModel.Types.TraceEvents.SyntheticTreifiedEntry) =>
             (!isRoot(node) || isInstant(event) || isLong(event)) &&
         Boolean(Timeline.EventUICategory.getEventStyle(event.name as TraceModel.Types.TraceEvents.KnownEventName));
     assert.strictEqual(prettyPrint(tree, isIncluded), `
@@ -404,7 +404,7 @@ describeWithEnvironment('RendererHandler', function() {
     }
     const isIncluded =
         (_node: TraceModel.Helpers.TreeHelpers.TraceEntryNode,
-         event: TraceModel.Types.TraceEvents.SyntheticTraceEntry) =>
+         event: TraceModel.Types.TraceEvents.SyntheticTreifiedEntry) =>
             Boolean(Timeline.EventUICategory.getEventStyle(event.name as TraceModel.Types.TraceEvents.KnownEventName));
     assert.strictEqual(prettyPrint(tree, isIncluded), `
 -RunTask [0.13ms]
@@ -955,7 +955,7 @@ describeWithEnvironment('RendererHandler', function() {
       }
       const onlyLongTasksPredicate =
           (_node: TraceModel.Helpers.TreeHelpers.TraceEntryNode,
-           event: TraceModel.Types.TraceEvents.SyntheticTraceEntry) => Boolean(event.dur && event.dur > 1000) &&
+           event: TraceModel.Types.TraceEvents.SyntheticTreifiedEntry) => Boolean(event.dur && event.dur > 1000) &&
           Boolean(Timeline.EventUICategory.getEventStyle(event.name as TraceModel.Types.TraceEvents.KnownEventName));
       assert.strictEqual(prettyPrint(thread.tree, onlyLongTasksPredicate), `
 .............

@@ -58,7 +58,7 @@ function findInitiatorDataPredecessors(
       continue;
     }
 
-    if (!TraceEngine.Types.TraceEvents.isSyntheticTraceEntry(currentEvent)) {
+    if (!TraceEngine.Types.TraceEvents.isSyntheticTreifiedEntry(currentEvent)) {
       // If the current event is not a renderer, we have no
       // concept of a parent event, so we can bail.
       currentEvent = null;
@@ -107,7 +107,8 @@ function getClosestVisibleInitiatorEntriesAncestors(
     initiatorData: InitiatorData, modifiedEntries: TraceEngine.Types.TraceEvents.TraceEventData[],
     hiddenEntries: TraceEngine.Types.TraceEvents.TraceEventData[],
     traceEngineData: TraceEngine.Handlers.Types.TraceParseData): InitiatorData {
-  if (hiddenEntries.includes(initiatorData.event)) {
+  if (hiddenEntries.includes(initiatorData.event) &&
+      TraceEngine.Types.TraceEvents.isSyntheticTreifiedEntry(initiatorData.event)) {
     let nextParent = traceEngineData.Renderer.entryToNode.get(initiatorData.event)?.parent;
     while (nextParent?.entry && !modifiedEntries.includes(nextParent?.entry)) {
       nextParent = nextParent.parent ?? undefined;
@@ -116,7 +117,8 @@ function getClosestVisibleInitiatorEntriesAncestors(
     initiatorData.isEntryHidden = true;
   }
 
-  if (hiddenEntries.includes(initiatorData.initiator)) {
+  if (hiddenEntries.includes(initiatorData.initiator) &&
+      TraceEngine.Types.TraceEvents.isSyntheticTreifiedEntry(initiatorData.initiator)) {
     let nextParent = traceEngineData.Renderer.entryToNode.get(initiatorData.initiator)?.parent;
     while (nextParent?.entry && !modifiedEntries.includes(nextParent?.entry)) {
       nextParent = nextParent.parent ?? undefined;

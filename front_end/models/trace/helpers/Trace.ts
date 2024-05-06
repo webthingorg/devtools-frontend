@@ -202,9 +202,9 @@ export function makeProfileCall(
   };
 }
 
-export function makeSyntheticTraceEntry(
+export function makeSyntheticTreifiedEntry(
     name: string, ts: Types.Timing.MicroSeconds, pid: Types.TraceEvents.ProcessID,
-    tid: Types.TraceEvents.ThreadID): Types.TraceEvents.SyntheticTraceEntry {
+    tid: Types.TraceEvents.ThreadID): Types.TraceEvents.SyntheticTreifiedEntry {
   return {
     cat: '',
     name,
@@ -215,7 +215,7 @@ export function makeSyntheticTraceEntry(
     ts,
     dur: Types.Timing.MicroSeconds(0),
     selfTime: Types.Timing.MicroSeconds(0),
-  };
+  } as Types.TraceEvents.SyntheticTreifiedEntry;
 }
 
 /**

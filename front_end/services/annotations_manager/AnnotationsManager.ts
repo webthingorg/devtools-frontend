@@ -7,14 +7,14 @@ import * as TimelineComponents from '../../panels/timeline/components/components
 
 let instance: AnnotationsManager|null = null;
 type EntryToNodeMap =
-    Map<TraceEngine.Types.TraceEvents.SyntheticTraceEntry, TraceEngine.Helpers.TreeHelpers.TraceEntryNode>;
+    Map<TraceEngine.Types.TraceEvents.SyntheticTreifiedEntry, TraceEngine.Helpers.TreeHelpers.TraceEntryNode>;
 
 export class AnnotationsManager {
   /**
    * An Array with all trace entries.
    * We save annotations into the trace file by saving their id in the allEntries Array.
    **/
-  #allEntries: TraceEngine.Types.TraceEvents.SyntheticTraceEntry[];
+  #allEntries: TraceEngine.Types.TraceEvents.TraceEventData[];
   #entriesFilter: TraceEngine.EntriesFilter.EntriesFilter;
   #timelineBreadcrumbs: TimelineComponents.Breadcrumbs.Breadcrumbs;
 
@@ -52,7 +52,7 @@ export class AnnotationsManager {
     return this.#timelineBreadcrumbs;
   }
 
-  getEntryIndex(entry: TraceEngine.Types.TraceEvents.SyntheticTraceEntry): number {
+  getEntryIndex(entry: TraceEngine.Types.TraceEvents.TraceEventData): number {
     return this.#allEntries.indexOf(entry);
   }
 
@@ -94,14 +94,14 @@ export class AnnotationsManager {
 
   applyEntriesFilterAnnotations(hiddenEntriesIndexes: number[], modifiedEntriesIndexes: number[]): void {
     // Build the hidden events array by getting the entries by their index in the allEntries array.
-    const hiddenEntries: TraceEngine.Types.TraceEvents.SyntheticTraceEntry[] = [];
+    const hiddenEntries: TraceEngine.Types.TraceEvents.TraceEventData[] = [];
     hiddenEntriesIndexes.map(hiddenEntryHash => {
       const hiddenEntry = this.#allEntries[hiddenEntryHash];
       if (hiddenEntry) {
         hiddenEntries.push(hiddenEntry);
       }
     });
-    const modifiedEntries: TraceEngine.Types.TraceEvents.SyntheticTraceEntry[] = [];
+    const modifiedEntries: TraceEngine.Types.TraceEvents.TraceEventData[] = [];
     modifiedEntriesIndexes.map(hiddenEntryHash => {
       const modifiedEntry = this.#allEntries[hiddenEntryHash];
       if (modifiedEntry) {

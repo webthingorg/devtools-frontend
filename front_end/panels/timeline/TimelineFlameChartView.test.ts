@@ -129,7 +129,7 @@ describeWithEnvironment('TimelineFlameChartView', function() {
     const nodeOfGroup = flameChartView.getMainDataProvider().groupTreeEvents(mainTrack);
     const firstNodeWithChildren = nodeOfGroup?.find(node => {
       const childrenAmount =
-          traceParsedData.Renderer.entryToNode.get(node as TraceEngine.Types.TraceEvents.SyntheticTraceEntry)
+          traceParsedData.Renderer.entryToNode.get(node as TraceEngine.Types.TraceEvents.SyntheticTreifiedEntry)
               ?.children.length;
       if (!childrenAmount) {
         return false;
@@ -137,7 +137,7 @@ describeWithEnvironment('TimelineFlameChartView', function() {
       return childrenAmount > 0 && node.cat === 'devtools.timeline';
     });
     const node = traceParsedData.Renderer.entryToNode.get(
-        firstNodeWithChildren as TraceEngine.Types.TraceEvents.SyntheticTraceEntry);
+        firstNodeWithChildren as TraceEngine.Types.TraceEvents.SyntheticTreifiedEntry);
     if (!node) {
       throw new Error('Could not find a visible node with children');
     }
@@ -177,7 +177,7 @@ describeWithEnvironment('TimelineFlameChartView', function() {
        const nodeOfGroup = flameChartView.getMainDataProvider().groupTreeEvents(mainTrack);
        const firstNodeWithChildren = nodeOfGroup?.find(node => {
          const childrenAmount =
-             traceParsedData.Renderer.entryToNode.get(node as TraceEngine.Types.TraceEvents.SyntheticTraceEntry)
+             traceParsedData.Renderer.entryToNode.get(node as TraceEngine.Types.TraceEvents.SyntheticTreifiedEntry)
                  ?.children.length;
          if (!childrenAmount) {
            return false;
@@ -185,7 +185,7 @@ describeWithEnvironment('TimelineFlameChartView', function() {
          return childrenAmount > 0 && node.cat === 'devtools.timeline';
        });
        const node = traceParsedData.Renderer.entryToNode.get(
-           firstNodeWithChildren as TraceEngine.Types.TraceEvents.SyntheticTraceEntry);
+           firstNodeWithChildren as TraceEngine.Types.TraceEvents.SyntheticTreifiedEntry);
        if (!node) {
          throw new Error('Could not find a visible node with children');
        }
@@ -228,7 +228,7 @@ describeWithEnvironment('TimelineFlameChartView', function() {
        const nodeOfGroup = flameChartView.getMainDataProvider().groupTreeEvents(mainTrack);
        const firstNodeWithChildren = nodeOfGroup?.find(node => {
          const childrenAmount =
-             traceParsedData.Renderer.entryToNode.get(node as TraceEngine.Types.TraceEvents.SyntheticTraceEntry)
+             traceParsedData.Renderer.entryToNode.get(node as TraceEngine.Types.TraceEvents.SyntheticTreifiedEntry)
                  ?.children.length;
          if (!childrenAmount) {
            return false;
@@ -236,7 +236,7 @@ describeWithEnvironment('TimelineFlameChartView', function() {
          return childrenAmount > 0 && node.cat === 'devtools.timeline';
        });
        const node = traceParsedData.Renderer.entryToNode.get(
-           firstNodeWithChildren as TraceEngine.Types.TraceEvents.SyntheticTraceEntry);
+           firstNodeWithChildren as TraceEngine.Types.TraceEvents.SyntheticTreifiedEntry);
        if (!node) {
          throw new Error('Could not find a visible node with children');
        }
@@ -347,9 +347,9 @@ describeWithEnvironment('TimelineFlameChartView', function() {
       }
 
       function findFirstEntry(
-          allEntries: readonly TraceEngine.Types.TraceEvents.SyntheticTraceEntry[],
-          predicate: (entry: TraceEngine.Types.TraceEvents.SyntheticTraceEntry) =>
-              boolean): TraceEngine.Types.TraceEvents.SyntheticTraceEntry {
+          allEntries: readonly TraceEngine.Types.TraceEvents.SyntheticTreifiedEntry[],
+          predicate: (entry: TraceEngine.Types.TraceEvents.SyntheticTreifiedEntry) =>
+              boolean): TraceEngine.Types.TraceEvents.SyntheticTreifiedEntry {
         const entry = allEntries.find(entry => predicate(entry));
         if (!entry) {
           throw new Error('Could not find expected entry.');

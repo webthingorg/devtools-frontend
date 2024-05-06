@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 
 import {
-  type SyntheticTraceEntry,
   type TraceEventArgs,
   type TraceEventData,
 } from './TraceEvents.js';
@@ -50,12 +49,8 @@ export interface ExtensionMarkerPayload extends ExtensionDataPayload {
   hintText?: string;
 }
 
-export interface SyntheticExtensionFlameChartEntry extends SyntheticTraceEntry {
+export interface SyntheticExtensionFlameChartEntry extends TraceEventData {
   args: TraceEventArgs&ExtensionFlameChartEntryPayload;
-}
-
-export interface SyntheticExtensionMarker extends SyntheticTraceEntry {
-  args: TraceEventArgs&ExtensionMarkerPayload;
 }
 
 export type SyntheticExtensionEntry = SyntheticExtensionFlameChartEntry|SyntheticExtensionMarker;
@@ -87,7 +82,7 @@ export function isSyntheticExtensionEntry(entry: TraceEventData): entry is Synth
 /**
  * Synthetic events created for extension tracks.
  */
-export interface SyntheticExtensionFlameChartEntry extends SyntheticTraceEntry {
+export interface SyntheticExtensionFlameChartEntry extends TraceEventData {
   args: TraceEventArgs&ExtensionFlameChartEntryPayload;
   cat: 'devtools.extension';
 }
@@ -95,7 +90,7 @@ export interface SyntheticExtensionFlameChartEntry extends SyntheticTraceEntry {
 /**
  * Synthetic events created for extension marks.
  */
-export interface SyntheticExtensionMarker extends SyntheticTraceEntry {
+export interface SyntheticExtensionMarker extends TraceEventData {
   args: TraceEventArgs&ExtensionMarkerPayload;
   cat: 'devtools.extension';
 }

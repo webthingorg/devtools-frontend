@@ -6,7 +6,7 @@ import * as Platform from '../../core/platform/platform.js';
 import * as Helpers from './helpers/helpers.js';
 import * as Types from './types/types.js';
 
-type EntryToNodeMap = Map<Types.TraceEvents.SyntheticTraceEntry, Helpers.TreeHelpers.TraceEntryNode>;
+type EntryToNodeMap = Map<Types.TraceEvents.SyntheticTreifiedEntry, Helpers.TreeHelpers.TraceEntryNode>;
 
 export const enum FilterAction {
   MERGE_FUNCTION = 'MERGE_FUNCTION',
@@ -18,7 +18,7 @@ export const enum FilterAction {
 
 export interface UserFilterAction {
   type: FilterAction;
-  entry: Types.TraceEvents.SyntheticTraceEntry;
+  entry: Types.TraceEvents.SyntheticTreifiedEntry;
 }
 
 // Object used to indicate to the Context Menu if an action is possible on the selected entry.
@@ -63,7 +63,7 @@ export class EntriesFilter {
    * Checks which actions can be applied on an entry. This allows us to only show possible actions in the Context Menu.
    * For example, if an entry has no children, COLLAPSE_FUNCTION will not change the FlameChart, therefore there is no need to show this action as an option.
    **/
-  findPossibleActions(entry: Types.TraceEvents.SyntheticTraceEntry): PossibleFilterActions {
+  findPossibleActions(entry: Types.TraceEvents.SyntheticTreifiedEntry): PossibleFilterActions {
     const entryNode = this.#entryToNode.get(entry);
     if (!entryNode) {
       // Invalid node was given, return no possible actions.
@@ -97,7 +97,7 @@ export class EntriesFilter {
   /**
    * Returns the amount of entry descendants that belong to the hidden entries array.
    * **/
-  findHiddenDescendantsAmount(entry: Types.TraceEvents.SyntheticTraceEntry): number {
+  findHiddenDescendantsAmount(entry: Types.TraceEvents.SyntheticTreifiedEntry): number {
     const entryNode = this.#entryToNode.get(entry);
     if (!entryNode) {
       return 0;
@@ -211,6 +211,10 @@ export class EntriesFilter {
    */
   #addModifiedEntry(entry: Types.TraceEvents.TraceEventData): void {
     this.#modifiedVisibleEntries.push(entry);
+    if (!Types.TraceEvents.isSyntheticTreifiedEntry(entry)) {
+      return;
+    }
+
     const entryNode = this.#entryToNode.get(entry);
     if (!entryNode) {
       // Invalid node was given, just ignore and move on.
@@ -262,10 +266,10 @@ export class EntriesFilter {
   }
 
   #findAllRepeatingDescendantsOfNext(root: Helpers.TreeHelpers.TraceEntryNode):
-      Types.TraceEvents.SyntheticTraceEntry[] {
+      Types.TraceEvents.SyntheticTreifiedEntry[] {
     // Walk through all the ancestors, starting at the root node.
     const children: Helpers.TreeHelpers.TraceEntryNode[] = [...root.children];
-    const repeatingNodes: Types.TraceEvents.SyntheticTraceEntry[] = [];
+    const repeatingNodes: Types.TraceEvents.SyntheticTreifiedEntry[] = [];
     const rootIsProfileCall = Types.TraceEvents.isProfileCall(root.entry);
 
     while (children.length > 0) {
@@ -297,7 +301,7 @@ export class EntriesFilter {
    * it might be in the invisible entries array.
    * If it is, reveal it by resetting clidren the closest modified entry,
    */
-  revealEntry(entry: Types.TraceEvents.SyntheticTraceEntry): void {
+  revealEntry(entry: Types.TraceEvents.SyntheticTreifiedEntry): void {
     const entryNode = this.#entryToNode.get(entry);
     if (!entryNode) {
       // Invalid node was given, just ignore and move on.
@@ -314,7 +318,7 @@ export class EntriesFilter {
    * Removes all of the entry children from the
    * invisible entries array to make them visible.
    **/
-  #makeEntryChildrenVisible(entry: Types.TraceEvents.SyntheticTraceEntry): void {
+  #makeEntryChildrenVisible(entry: Types.TraceEvents.SyntheticTreifiedEntry): void {
     const entryNode = this.#entryToNode.get(entry);
     if (!entryNode) {
       // Invalid node was given, just ignore and move on.
