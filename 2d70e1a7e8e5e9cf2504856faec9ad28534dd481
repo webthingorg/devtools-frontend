@@ -16,6 +16,23 @@
       "message": "PTAL, thanks!",
       "revId": "2d70e1a7e8e5e9cf2504856faec9ad28534dd481",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb0d4e2e_8064e26c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-05-06T04:53:02Z",
+      "side": 1,
+      "message": "You don\u0027t need parent provider for this. Moreover it won\u0027t work as the `device-mode-toolbar` element does not have a `jslog` attribute. This means we don\u0027t know how to log the parent. \n\nWhat we should do instead is simply set `jslog` on the `device-mode-toolbar`, probably as `VisualLogging.toolbar(\u0027device-mode\u0027).track({resize: true})`",
+      "revId": "2d70e1a7e8e5e9cf2504856faec9ad28534dd481",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
