@@ -36,6 +36,7 @@ import * as Root from '../../../../core/root/root.js';
 import * as SDK from '../../../../core/sdk/sdk.js';
 import * as JavaScriptMetaData from '../../../../models/javascript_metadata/javascript_metadata.js';
 import * as TextUtils from '../../../../models/text_utils/text_utils.js';
+import * as Buttons from '../../../components/buttons/buttons.js';
 import * as IconButton from '../../../components/icon_button/icon_button.js';
 import * as TextEditor from '../../../components/text_editor/text_editor.js';
 import * as VisualLogging from '../../../visual_logging/visual_logging.js';
@@ -431,12 +432,12 @@ export class ObjectPropertiesSection extends UI.TreeOutline.TreeOutlineInShadow 
       return;
     }
 
-    const memoryIcon = new IconButton.Icon.Icon();
+    const memoryIcon = new Buttons.Button.Button();
     memoryIcon.data = {
+      variant: Buttons.Button.Variant.ICON,
+      size: Buttons.Button.Size.SMALL,
       iconName: 'memory',
-      color: 'var(--icon-default)',
-      width: '16px',
-      height: '13px',
+      jslogContext: 'open-memory-inspector',
     };
     memoryIcon.addEventListener('click', event => {
       event.consume();
