@@ -16,6 +16,23 @@
       "message": "PTAL.\nI\u0027m not sure why this was not caught by the unit tests (https://crsrc.org/c/third_party/devtools-frontend/src/front_end/panels/network/components/HeaderSectionRow.test.ts;l\u003d438), but I suspect there are slight differences in how event bubbling works in our unit tests vs. in proper DevTools.",
       "revId": "7b41bec54422db5f09d9f1ee7410451c4812ccd9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a609ce5_3c0f36b8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2024-05-06T17:36:41Z",
+      "side": 1,
+      "message": "Test it the changes locally, it works.",
+      "revId": "7b41bec54422db5f09d9f1ee7410451c4812ccd9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
