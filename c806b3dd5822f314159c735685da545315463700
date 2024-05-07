@@ -111,6 +111,30 @@
       },
       "revId": "c806b3dd5822f314159c735685da545315463700",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f39f8e3a_f2e8cb0f",
+        "filename": "front_end/panels/elements/StylePropertiesSection.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-05-07T14:23:37Z",
+      "side": 1,
+      "message": "We use `Value` for editable text that doesn\u0027t appear editable by default. However, I think CSS selector is very similar behavior-wise to CSS queries. Is there a more generic term that could account for both? Something like \"scope for CSS rules\".",
+      "parentUuid": "6fa2d678_161957b6",
+      "range": {
+        "startLine": 278,
+        "startChar": 34,
+        "endLine": 278,
+        "endChar": 43
+      },
+      "revId": "c806b3dd5822f314159c735685da545315463700",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
