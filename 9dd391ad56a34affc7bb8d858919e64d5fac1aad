@@ -16,6 +16,24 @@
       "message": "LGTM! I think there are two things that would be cool to fix too:\n* There is an additional space before first parenthesis for such rules: https://g-issues.chromium.org/issues/40248266#comment24\n* (small one) for implicit nested rules with CSSQuery (like this[1]):\n - we\u0027re not able to add a CSS property declaration as the first declaration.\n - the parentheses are shown as gray whereas in the other rules, they are black.",
       "revId": "9dd391ad56a34affc7bb8d858919e64d5fac1aad",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27c9202c_3c757ec1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-05-07T11:01:42Z",
+      "side": 1,
+      "message": "Interesting; I think that space is a pre-existing condition: it\u0027s put there to have a space between the previous selector and the `{`. Anyways I fixed it.\n\nI\u0027m not able to see the link. Nonetheless I\u0027ll fix that in a separate CL.",
+      "parentUuid": "12f69bb1_29f54eff",
+      "revId": "9dd391ad56a34affc7bb8d858919e64d5fac1aad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
