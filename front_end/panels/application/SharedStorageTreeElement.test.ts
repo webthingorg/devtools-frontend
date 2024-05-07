@@ -11,6 +11,7 @@ import {
   stubNoopSettings,
 } from '../../testing/EnvironmentHelpers.js';
 import {describeWithMockConnection} from '../../testing/MockConnection.js';
+import {SECURITY_ORIGIN} from '../../testing/ResourceTreeHelpers.js';
 import * as Coordinator from '../../ui/components/render_coordinator/render_coordinator.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
@@ -57,8 +58,6 @@ describeWithMockConnection('SharedStorageTreeElement', function() {
     let sharedStorage: Application.SharedStorageModel.SharedStorageForOrigin;
     let treeElement: Application.SharedStorageTreeElement.SharedStorageTreeElement;
 
-    const TEST_ORIGIN = 'http://a.test';
-
     const METADATA = {
       creationTime: 100 as Protocol.Network.TimeSinceEpoch,
       length: 3,
@@ -83,13 +82,14 @@ describeWithMockConnection('SharedStorageTreeElement', function() {
 
     beforeEach(async () => {
       stubNoopSettings();
+      SDK.ChildTargetManager.ChildTargetManager.install();
       target = targetFactory();
       Root.Runtime.experiments.register(Root.Runtime.ExperimentName.PRELOADING_STATUS_PANEL, '', false);
 
       sharedStorageModel = target.model(Application.SharedStorageModel.SharedStorageModel) as
           Application.SharedStorageModel.SharedStorageModel;
-      sharedStorage = new Application.SharedStorageModel.SharedStorageForOrigin(sharedStorageModel, TEST_ORIGIN);
-      assert.strictEqual(sharedStorage.securityOrigin, TEST_ORIGIN);
+      sharedStorage = new Application.SharedStorageModel.SharedStorageForOrigin(sharedStorageModel, SECURITY_ORIGIN);
+      assert.strictEqual(sharedStorage.securityOrigin, SECURITY_ORIGIN);
     });
 
     it('shows view on select', async () => {
@@ -113,7 +113,7 @@ describeWithMockConnection('SharedStorageTreeElement', function() {
           await Application.SharedStorageTreeElement.SharedStorageTreeElement.createElement(panel, sharedStorage);
 
       await coordinator.done({waitForWork: true});
-      assert.isTrue(getMetadataSpy.calledOnceWithExactly({ownerOrigin: TEST_ORIGIN}));
+      assert.isTrue(getMetadataSpy.calledOnceWithExactly({ownerOrigin: SECURITY_ORIGIN}));
 
       const {view} = treeElement;
 
@@ -127,8 +127,8 @@ describeWithMockConnection('SharedStorageTreeElement', function() {
       await refreshedPromise;
 
       assert.isTrue(getMetadataSpy.calledTwice);
-      assert.isTrue(getMetadataSpy.alwaysCalledWithExactly({ownerOrigin: TEST_ORIGIN}));
-      assert.isTrue(getEntriesSpy.calledOnceWithExactly({ownerOrigin: TEST_ORIGIN}));
+      assert.isTrue(getMetadataSpy.alwaysCalledWithExactly({ownerOrigin: SECURITY_ORIGIN}));
+      assert.isTrue(getEntriesSpy.calledOnceWithExactly({ownerOrigin: SECURITY_ORIGIN}));
 
       assert.deepEqual(view.getEntriesForTesting(), ENTRIES);
 
