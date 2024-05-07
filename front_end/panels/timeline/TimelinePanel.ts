@@ -90,7 +90,7 @@ const UIStrings = {
   /**
    *@description Title of CSS selector stats setting in timeline panel of the performance panel
    */
-  enableSelectorStats: 'Enable CSS selector stats',
+  enableSelectorStats: 'Enable CSS selector stats (slow)',
   /**
    *@description Title of show screenshots setting in timeline panel of the performance panel
    */
