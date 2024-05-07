@@ -237,6 +237,8 @@ export async function clickSelectButtonItem(itemLabel: string, root: string) {
   }
 
   await clickElement(selectMenuItems[selectMenuItemIndex]);
+  const button = await waitFor('devtools-button', selectMenu);  // selectMenu.$$('pierce/devtools-button');
+  await clickElement(button);
 }
 
 export async function setupRecorderWithScript(
