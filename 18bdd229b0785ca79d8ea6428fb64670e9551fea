@@ -16,6 +16,23 @@
       "message": "Alex, please kindly take a look",
       "revId": "18bdd229b0785ca79d8ea6428fb64670e9551fea",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64843ffe_46d0deff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-05-07T14:43:23Z",
+      "side": 1,
+      "message": "LGTM thanks",
+      "revId": "18bdd229b0785ca79d8ea6428fb64670e9551fea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
