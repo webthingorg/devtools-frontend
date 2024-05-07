@@ -11,6 +11,7 @@ import {
 } from '../../../testing/DOMHelpers.js';
 import {createTarget} from '../../../testing/EnvironmentHelpers.js';
 import {describeWithMockConnection} from '../../../testing/MockConnection.js';
+import {getMainFrame, navigate} from '../../../testing/ResourceTreeHelpers.js';
 import * as Coordinator from '../../../ui/components/render_coordinator/render_coordinator.js';
 import * as TreeOutline from '../../../ui/components/tree_outline/tree_outline.js';
 
@@ -51,37 +52,23 @@ describeWithMockConnection('BackForwardCacheView', () => {
     let target: SDK.Target.Target;
     let resourceTreeModel: SDK.ResourceTreeModel.ResourceTreeModel;
 
-    beforeEach(() => {
+    beforeEach(async () => {
       target = targetFactory();
       resourceTreeModel =
           target.model(SDK.ResourceTreeModel.ResourceTreeModel) as SDK.ResourceTreeModel.ResourceTreeModel;
-      assert.exists(resourceTreeModel);
-      resourceTreeModel.mainFrame = {
-        url: 'https://www.example.com/' as Platform.DevToolsPath.UrlString,
-        backForwardCacheDetails: {
-          restoredFromCache: true,
-          explanations: [],
-        },
-      } as unknown as SDK.ResourceTreeModel.ResourceTreeFrame;
     });
 
     it('updates BFCacheView on main frame navigation', async () => {
       await renderBackForwardCacheView();
-      assert.exists(resourceTreeModel);
-      assert.exists(resourceTreeModel.mainFrame);
-      resourceTreeModel.dispatchEventToListeners(
-          SDK.ResourceTreeModel.Events.PrimaryPageChanged,
-          {frame: resourceTreeModel.mainFrame, type: SDK.ResourceTreeModel.PrimaryPageChangeType.Navigation});
+      navigate(getMainFrame(target), {}, Protocol.Page.NavigationType.BackForwardCacheRestore);
 
       await coordinator.done({waitForWork: true});
     });
 
     it('updates BFCacheView on BFCache detail update', async () => {
       await renderBackForwardCacheView();
-      assert.exists(resourceTreeModel);
-      assert.exists(resourceTreeModel.mainFrame);
       resourceTreeModel.dispatchEventToListeners(
-          SDK.ResourceTreeModel.Events.BackForwardCacheDetailsUpdated, resourceTreeModel.mainFrame);
+          SDK.ResourceTreeModel.Events.BackForwardCacheDetailsUpdated, getMainFrame(target));
 
       await coordinator.done({waitForWork: true});
     });
