@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12f69bb1_29f54eff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-05-07T10:29:14Z",
+      "side": 1,
+      "message": "LGTM! I think there are two things that would be cool to fix too:\n* There is an additional space before first parenthesis for such rules: https://g-issues.chromium.org/issues/40248266#comment24\n* (small one) for implicit nested rules with CSSQuery (like this[1]):\n - we\u0027re not able to add a CSS property declaration as the first declaration.\n - the parentheses are shown as gray whereas in the other rules, they are black.",
+      "revId": "9dd391ad56a34affc7bb8d858919e64d5fac1aad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
