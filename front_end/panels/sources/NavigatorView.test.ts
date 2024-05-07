@@ -5,7 +5,7 @@
 import * as Common from '../../core/common/common.js';
 import type * as Platform from '../../core/platform/platform.js';
 import * as Root from '../../core/root/root.js';
-import * as SDK from '../../core/sdk/sdk.js';
+import type * as SDK from '../../core/sdk/sdk.js';
 import type * as Protocol from '../../generated/protocol.js';
 import * as Bindings from '../../models/bindings/bindings.js';
 import * as Breakpoints from '../../models/breakpoints/breakpoints.js';
@@ -14,9 +14,11 @@ import * as TextUtils from '../../models/text_utils/text_utils.js';
 import * as Workspace from '../../models/workspace/workspace.js';
 import {createTarget} from '../../testing/EnvironmentHelpers.js';
 import {
+  clearMockConnectionResponseHandler,
   describeWithMockConnection,
   setMockConnectionResponseHandler,
 } from '../../testing/MockConnection.js';
+import {addChildFrame, createResource} from '../../testing/ResourceTreeHelpers.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 import * as Sources from './sources.js';
@@ -29,6 +31,7 @@ describeWithMockConnection('NavigatorView', () => {
     Root.Runtime.experiments.register(Root.Runtime.ExperimentName.AUTHORED_DEPLOYED_GROUPING, '');
     Root.Runtime.experiments.register(Root.Runtime.ExperimentName.JUST_MY_CODE, '');
 
+    clearMockConnectionResponseHandler('Page.getResourceTree');
     setMockConnectionResponseHandler('Page.getResourceTree', async () => {
       return {
         frameTree: null,
@@ -38,6 +41,9 @@ describeWithMockConnection('NavigatorView', () => {
     const actionRegistryInstance = UI.ActionRegistry.ActionRegistry.instance({forceNew: true});
     UI.ShortcutRegistry.ShortcutRegistry.instance({forceNew: true, actionRegistry: actionRegistryInstance});
     target = createTarget();
+    sinon.stub(target.pageAgent(), 'invoke_getResourceTree').resolves({
+      frameTree: null,
+    } as unknown as Protocol.Page.GetResourceTreeResponse);
     const targetManager = target.targetManager();
     targetManager.setScopeTarget(target);
     workspace = Workspace.Workspace.WorkspaceImpl.instance();
@@ -57,10 +63,8 @@ describeWithMockConnection('NavigatorView', () => {
 
   function addResourceAndUISourceCode(
       url: Platform.DevToolsPath.UrlString, frame: SDK.ResourceTreeModel.ResourceTreeFrame, content: string,
-      mimeType: string, resourceTreeModel: SDK.ResourceTreeModel.ResourceTreeModel) {
-    frame.addResource(new SDK.Resource.Resource(
-        resourceTreeModel, null, url, url, frame.id, null, Common.ResourceType.resourceTypes.Document, 'text/html',
-        null, null));
+      mimeType: string) {
+    createResource(frame, url, 'text/html', content);
     const uiSourceCode = workspace.uiSourceCodeForURL(url) as Workspace.UISourceCode.UISourceCode;
 
     const projectType = Workspace.Workspace.projectTypes.Network;
@@ -76,16 +80,9 @@ describeWithMockConnection('NavigatorView', () => {
 
   it('can discard multiple childless frames', async () => {
     const url = 'http://example.com/index.html' as Platform.DevToolsPath.UrlString;
-    const mainFrameId = 'main' as Protocol.Page.FrameId;
-    const childFrameId = 'child' as Protocol.Page.FrameId;
 
-    const resourceTreeModel =
-        target.model(SDK.ResourceTreeModel.ResourceTreeModel) as SDK.ResourceTreeModel.ResourceTreeModel;
-    await resourceTreeModel.once(SDK.ResourceTreeModel.Events.CachedResourcesLoaded);
-    resourceTreeModel.frameAttached(mainFrameId, null);
-    const childFrame = resourceTreeModel.frameAttached(childFrameId, mainFrameId);
-    assert.exists(childFrame);
-    const {project} = addResourceAndUISourceCode(url, childFrame, '', 'text/html', resourceTreeModel);
+    const childFrame = await addChildFrame(target);
+    const {project} = addResourceAndUISourceCode(url, childFrame, '', 'text/html');
 
     const navigatorView = Sources.SourcesNavigator.NetworkNavigatorView.instance({forceNew: true});
     const children = navigatorView.scriptsTree.rootElement().children();

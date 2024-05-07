@@ -10,6 +10,7 @@ import {
   stubNoopSettings,
 } from '../../testing/EnvironmentHelpers.js';
 import {
+  clearMockConnectionResponseHandler,
   describeWithMockConnection,
   setMockConnectionResponseHandler,
 } from '../../testing/MockConnection.js';
@@ -38,6 +39,7 @@ describeWithMockConnection('InspectElementModeController', () => {
   }
 
   beforeEach(() => {
+    clearMockConnectionResponseHandler('Page.getResourceTree');
     stubNoopSettings();
     registerNoopActions(['elements.toggle-element-search']);
     const tabTarget = createTarget({type: SDK.Target.Type.Tab});

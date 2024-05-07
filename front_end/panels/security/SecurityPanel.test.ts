@@ -6,6 +6,7 @@ import * as SDK from '../../core/sdk/sdk.js';
 import * as Protocol from '../../generated/protocol.js';
 import {createTarget} from '../../testing/EnvironmentHelpers.js';
 import {describeWithMockConnection} from '../../testing/MockConnection.js';
+import {getMainFrame, navigate} from '../../testing/ResourceTreeHelpers.js';
 
 import * as Security from './security.js';
 
@@ -90,13 +91,8 @@ describeWithMockConnection('SecurityPanel', () => {
                       ?.classList.contains('security-summary-secure'));
 
     // Check that the SecurityPanel listens to any PrimaryPageChanged event
-    const resourceTreeModel = mainTarget.model(SDK.ResourceTreeModel.ResourceTreeModel);
-    assert.exists(resourceTreeModel);
     const sidebarTreeClearSpy = sinon.spy(securityPanel.sidebarTree, 'clearOrigins');
-    resourceTreeModel.dispatchEventToListeners(SDK.ResourceTreeModel.Events.PrimaryPageChanged, {
-      frame: {url: 'https://www.example.com'} as SDK.ResourceTreeModel.ResourceTreeFrame,
-      type: SDK.ResourceTreeModel.PrimaryPageChangeType.Navigation,
-    });
+    navigate(getMainFrame(mainTarget));
     assert.isTrue(sidebarTreeClearSpy.calledOnce);
   });
 
@@ -124,12 +120,7 @@ describeWithMockConnection('SecurityPanel', () => {
     assert.isTrue(reloadMessage.classList.contains('hidden'));
 
     // Check that reload message is hidden after clearing data.
-    const resourceTreeModel = target.model(SDK.ResourceTreeModel.ResourceTreeModel);
-    assert.exists(resourceTreeModel);
-    resourceTreeModel.dispatchEventToListeners(SDK.ResourceTreeModel.Events.PrimaryPageChanged, {
-      frame: {url: 'https://www.example.com'} as SDK.ResourceTreeModel.ResourceTreeFrame,
-      type: SDK.ResourceTreeModel.PrimaryPageChangeType.Navigation,
-    });
+    navigate(getMainFrame(target));
     assert.isFalse(reloadMessage.classList.contains('hidden'));
   });
 });
