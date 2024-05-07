@@ -42,6 +42,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a143d0d8_350c6f59",
+        "filename": "front_end/panels/elements/ClassesPaneWidget.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-05-07T14:20:14Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "53d1584e_11e0d1aa",
+      "range": {
+        "startLine": 183,
+        "startChar": 0,
+        "endLine": 183,
+        "endChar": 116
+      },
+      "revId": "c806b3dd5822f314159c735685da545315463700",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5f9e7cb2_6f3f5acb",
@@ -55,6 +79,30 @@
       "writtenOn": "2024-05-07T14:13:34Z",
       "side": 1,
       "message": "Why? It doesn\u0027t look or behave like a text field.",
+      "range": {
+        "startLine": 278,
+        "startChar": 34,
+        "endLine": 278,
+        "endChar": 43
+      },
+      "revId": "c806b3dd5822f314159c735685da545315463700",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6fa2d678_161957b6",
+        "filename": "front_end/panels/elements/StylePropertiesSection.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-05-07T14:20:14Z",
+      "side": 1,
+      "message": "It\u0027s a text field in the sense that after you click on it, it can be modified as free text, and you can click on other parts or press \"enter\" to confirm what you typed. Do you have a better suggestion? Selectors are not CssQueries so I think the current element type might be confusing.",
+      "parentUuid": "5f9e7cb2_6f3f5acb",
       "range": {
         "startLine": 278,
         "startChar": 34,
