@@ -16,6 +16,57 @@
       "message": "Alex, please kindly take a look",
       "revId": "00da093c8b26ef224e064232408e2d7aea8b88de",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e21c6fe_e3ae1f04",
+        "filename": "front_end/panels/recorder/components/ReplayButton.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-05-07T14:41:47Z",
+      "side": 1,
+      "message": "let\u0027s rename the file too then",
+      "revId": "00da093c8b26ef224e064232408e2d7aea8b88de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc3b6d0d_4a117d52",
+        "filename": "front_end/panels/recorder/components/ReplayButton.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-05-07T14:41:47Z",
+      "side": 1,
+      "message": "let\u0027s change the tag name as well",
+      "revId": "00da093c8b26ef224e064232408e2d7aea8b88de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2296f4f_2993fc23",
+        "filename": "test/e2e/recorder/helpers.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-05-07T14:41:47Z",
+      "side": 1,
+      "message": "remove comment?",
+      "revId": "00da093c8b26ef224e064232408e2d7aea8b88de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
