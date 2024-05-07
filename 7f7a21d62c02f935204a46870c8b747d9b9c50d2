@@ -33,6 +33,24 @@
       "message": "nice! Most of the goldens used to be out of date and didn\u0027t get updated because the diff threshold wasn\u0027t met, until this CL, which is a side win! 😎",
       "revId": "7f7a21d62c02f935204a46870c8b747d9b9c50d2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "179b7105_134f6b61",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-05-07T11:40:23Z",
+      "side": 1,
+      "message": "Yay :D! Thanks for the review!",
+      "parentUuid": "cebeed64_f8db25ec",
+      "revId": "7f7a21d62c02f935204a46870c8b747d9b9c50d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
