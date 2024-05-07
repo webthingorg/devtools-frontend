@@ -3,10 +3,12 @@
 // found in the LICENSE file.
 
 import * as SDK from '../../core/sdk/sdk.js';
+import * as Protocol from '../../generated/protocol.js';
 import * as Bindings from '../../models/bindings/bindings.js';
 import * as Workspace from '../../models/workspace/workspace.js';
 import {createTarget, registerNoopActions} from '../../testing/EnvironmentHelpers.js';
 import {describeWithMockConnection} from '../../testing/MockConnection.js';
+import {activate, getMainFrame, navigate} from '../../testing/ResourceTreeHelpers.js';
 import * as Coordinator from '../../ui/components/render_coordinator/render_coordinator.js';
 
 import * as Coverage from './coverage.js';
@@ -77,10 +79,7 @@ const setupTargetAndModels = () => {
     timestamp: 0,
   });
 
-  const resourceTreeModel = target.model(SDK.ResourceTreeModel.ResourceTreeModel);
-  assert.exists(resourceTreeModel);
-
-  return {startSpy, stopSpy, resourceTreeModel};
+  return {startSpy, stopSpy, target};
 };
 
 describeWithMockConnection('CoverageView', () => {
@@ -95,7 +94,7 @@ describeWithMockConnection('CoverageView', () => {
   });
 
   it('can handle back/forward cache navigations', async () => {
-    const {startSpy, stopSpy, resourceTreeModel} = setupTargetAndModels();
+    const {startSpy, stopSpy, target} = setupTargetAndModels();
     const view = Coverage.CoverageView.CoverageView.instance();
     view.markAsRoot();
     view.show(document.body);
@@ -113,18 +112,10 @@ describeWithMockConnection('CoverageView', () => {
     assert.isFalse(isShowingBfcachePage(view));
     assert.isTrue(startSpy.calledOnce);
 
-    let frame = {
-      url: 'http://www.example.com/',
-      displayName: () => 'frameName',
-      parentFrame: () => null,
-      resourceTreeModel: () => resourceTreeModel,
-      backForwardCacheDetails: {restoredFromCache: true},
-      id: 'myFrameId',
-      childFrames: [],
-    } as unknown as SDK.ResourceTreeModel.ResourceTreeFrame;
-    resourceTreeModel.dispatchEventToListeners(
-        SDK.ResourceTreeModel.Events.PrimaryPageChanged,
-        {frame, type: SDK.ResourceTreeModel.PrimaryPageChangeType.Navigation});
+    // getMainFrame(target)
+    //     .backForwardCacheDetails = {restoredFromCache: true, explanations: [], explanationsTree: undefined};
+    navigate(getMainFrame(target), {}, Protocol.Page.NavigationType.BackForwardCacheRestore);
+
     assert.isFalse(isShowingLandingPage(view));
     assert.isFalse(isShowingResults(view));
     assert.isFalse(isShowingPrerenderPage(view));
@@ -132,14 +123,9 @@ describeWithMockConnection('CoverageView', () => {
     assert.isTrue(startSpy.calledOnce);
     assert.isTrue(stopSpy.notCalled);
 
-    frame = {
-      ...frame,
-      url: 'http://www.example.com/page',
-      backForwardCacheDetails: {restoredFromCache: false},
-    } as unknown as SDK.ResourceTreeModel.ResourceTreeFrame;
-    resourceTreeModel.dispatchEventToListeners(
-        SDK.ResourceTreeModel.Events.PrimaryPageChanged,
-        {frame, type: SDK.ResourceTreeModel.PrimaryPageChangeType.Navigation});
+    // getMainFrame(target).url =  'http://www.example.com/page';
+    // getMainFrame(target).backForwardCacheDetails = {restoredFromCache: false, explanations: [], explanationsTree: undefined};
+    navigate(getMainFrame(target));
     assert.isFalse(isShowingLandingPage(view));
     assert.isTrue(isShowingResults(view));
     assert.isFalse(isShowingPrerenderPage(view));
@@ -174,19 +160,17 @@ describeWithMockConnection('CoverageView', () => {
     assert.isTrue(startSpy.calledOnce);
 
     // Create 2nd target for the prerendered frame.
-    const {startSpy: startSpy2, stopSpy: stopSpy2, resourceTreeModel} = setupTargetAndModels();
-    let frame = {
-      url: 'http://www.example.com/',
-      displayName: () => 'frameName',
-      parentFrame: () => null,
-      resourceTreeModel: () => resourceTreeModel,
-      backForwardCacheDetails: {restoredFromCache: false},
-      id: 'myFrameId',
-      childFrames: [],
-    } as unknown as SDK.ResourceTreeModel.ResourceTreeFrame;
-    resourceTreeModel.dispatchEventToListeners(
-        SDK.ResourceTreeModel.Events.PrimaryPageChanged,
-        {frame, type: SDK.ResourceTreeModel.PrimaryPageChangeType.Activation});
+    const {startSpy: startSpy2, stopSpy: stopSpy2, target: target2} = setupTargetAndModels();
+    // let frame = {
+    //   url: 'http://www.example.com/',
+    //   displayName: () => 'frameName',
+    //   parentFrame: () => null,
+    //   resourceTreeModel: () => resourceTreeModel,
+    //   backForwardCacheDetails: {restoredFromCache: false},
+    //   id: 'myFrameId',
+    //   childFrames: [],
+    // } as unknown as SDK.ResourceTreeModel.ResourceTreeFrame;
+    activate(target2);
     await coordinator.done({waitForWork: true});
     assert.isFalse(isShowingLandingPage(view));
     assert.isFalse(isShowingResults(view));
@@ -197,13 +181,10 @@ describeWithMockConnection('CoverageView', () => {
     assert.isTrue(startSpy2.calledOnce);
     assert.isTrue(stopSpy2.notCalled);
 
-    frame = {
-      ...frame,
-      url: 'http://www.example.com/page',
-    } as unknown as SDK.ResourceTreeModel.ResourceTreeFrame;
-    resourceTreeModel.dispatchEventToListeners(
-        SDK.ResourceTreeModel.Events.PrimaryPageChanged,
-        {frame, type: SDK.ResourceTreeModel.PrimaryPageChangeType.Navigation});
+    // getMainFrame(target2).url = 'http://www.example.com/page';
+    console.error(1);
+    navigate(getMainFrame(target2), {url: 'http://www.example.com/page'});
+    console.error(2);
     assert.isFalse(isShowingLandingPage(view));
     assert.isTrue(isShowingResults(view));
     assert.isFalse(isShowingPrerenderPage(view));
