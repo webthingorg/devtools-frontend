@@ -20,7 +20,7 @@ describeWithEnvironment('ReplayButton', () => {
   let settings: Models.RecorderSettings.RecorderSettings;
   async function createReplayButton() {
     settings = new Models.RecorderSettings.RecorderSettings();
-    const component = new RecorderComponents.ReplayButton.ReplayButton();
+    const component = new RecorderComponents.ReplayButton.ReplaySection();
     component.data = {settings, replayExtensions: []};
     renderElementIntoDOM(component);
     await coordinator.done();
@@ -43,7 +43,7 @@ describeWithEnvironment('ReplayButton', () => {
     );
 
     selectButton?.dispatchEvent(
-        new RecorderComponents.SelectButton.SelectButtonClickEvent(
+        new RecorderComponents.SelectButton.SelectMenuSelectedEvent(
             Models.RecordingPlayer.PlayRecordingSpeed.Slow,
             ),
     );
@@ -66,9 +66,12 @@ describeWithEnvironment('ReplayButton', () => {
         'devtools-select-button',
     );
     selectButton?.dispatchEvent(
-        new RecorderComponents.SelectButton.SelectButtonClickEvent(
+        new RecorderComponents.SelectButton.SelectMenuSelectedEvent(
             Models.RecordingPlayer.PlayRecordingSpeed.Slow,
             ),
+    );
+    selectButton?.dispatchEvent(
+        new RecorderComponents.SelectButton.SelectButtonClickEvent(),
     );
 
     const event = await onceClicked;
@@ -85,7 +88,7 @@ describeWithEnvironment('ReplayButton', () => {
     );
 
     selectButton?.dispatchEvent(
-        new RecorderComponents.SelectButton.SelectButtonClickEvent(
+        new RecorderComponents.SelectButton.SelectMenuSelectedEvent(
             Models.RecordingPlayer.PlayRecordingSpeed.Slow,
             ),
     );
