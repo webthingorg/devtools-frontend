@@ -15,6 +15,7 @@ import * as Persistence from '../../models/persistence/persistence.js';
 import * as Workspace from '../../models/workspace/workspace.js';
 import {createTarget} from '../../testing/EnvironmentHelpers.js';
 import {
+  clearMockConnectionResponseHandler,
   describeWithMockConnection,
   dispatchEvent,
   setMockConnectionResponseHandler,
@@ -28,6 +29,7 @@ import * as Sources from './sources.js';
 describeWithMockConnection('NetworkNavigatorView', () => {
   let workspace: Workspace.Workspace.WorkspaceImpl;
   beforeEach(async () => {
+    clearMockConnectionResponseHandler('Page.getResourceTree');
     const actionRegistryInstance = UI.ActionRegistry.ActionRegistry.instance({forceNew: true});
     workspace = Workspace.Workspace.WorkspaceImpl.instance();
     const targetManager = SDK.TargetManager.TargetManager.instance();
