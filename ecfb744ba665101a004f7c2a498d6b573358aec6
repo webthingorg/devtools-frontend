@@ -50,6 +50,24 @@
       "message": "I think we can use `toggled: this.#props.toggled` or `toggled: Boolean(this.#props.toggled)` instead of using the ternary operator.",
       "revId": "ecfb744ba665101a004f7c2a498d6b573358aec6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "63ee51b0_60502bb9",
+        "filename": "front_end/ui/components/buttons/Button.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-05-07T07:23:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "00ca7585_5fed31c5",
+      "revId": "ecfb744ba665101a004f7c2a498d6b573358aec6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
