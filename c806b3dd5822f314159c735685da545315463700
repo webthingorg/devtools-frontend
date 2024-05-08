@@ -159,6 +159,30 @@
       },
       "revId": "c806b3dd5822f314159c735685da545315463700",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13661acc_346e5dd9",
+        "filename": "front_end/panels/elements/StylePropertiesSection.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-05-08T08:39:02Z",
+      "side": 1,
+      "message": "Yes, that\u0027s a good idea!",
+      "parentUuid": "607208cd_29d8cd30",
+      "range": {
+        "startLine": 278,
+        "startChar": 34,
+        "endLine": 278,
+        "endChar": 43
+      },
+      "revId": "c806b3dd5822f314159c735685da545315463700",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
