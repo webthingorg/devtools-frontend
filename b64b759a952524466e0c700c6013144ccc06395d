@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a06720b9_13709a59",
+        "filename": "front_end/models/persistence/IsolatedFileSystem.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-05-08T08:19:00Z",
+      "side": 1,
+      "message": "Ohh nice, I didn\u0027t know about this utility.",
+      "revId": "b64b759a952524466e0c700c6013144ccc06395d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
