@@ -90,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9c3ca07c_9fc48ea9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-05-08T18:46:37Z",
+      "side": 1,
+      "message": "Nice, thank you! :) I have one more behavioral comment and I\u0027ll look into implementation details next:\n\n* Tab navigation doesn\u0027t jump to the clear icon and it skips over it.",
+      "parentUuid": "ba02cfb5_c770457e",
+      "revId": "6a866c311b8c4deda24fcfa80b693cdbb53b2a10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fddd6eaa_eded94c0",
         "filename": "front_end/ui/legacy/SearchableView.ts",
         "patchSetId": 5
