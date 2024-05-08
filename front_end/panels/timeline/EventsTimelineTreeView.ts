@@ -6,15 +6,18 @@ import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import type * as TimelineModel from '../../models/timeline_model/timeline_model.js';
 import * as TraceEngine from '../../models/trace/trace.js';
+import {f} from '../../third_party/codemirror.next/chunk/codemirror.js';
 import * as DataGrid from '../../ui/legacy/components/data_grid/data_grid.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 import {type EventCategory, getCategoryStyles} from './EventUICategory.js';
-import {Category, IsLong} from './TimelineFilters.js';
+import {Category, IsLong, TimelineEventFilter} from './TimelineFilters.js';
 import {type TimelineModeViewDelegate} from './TimelinePanel.js';
 import {TimelineSelection} from './TimelineSelection.js';
 import {TimelineTreeView} from './TimelineTreeView.js';
 import {TimelineUIUtils} from './TimelineUIUtils.js';
+
+class CategoryFilter extends TimelineEventFilter {}
 
 const UIStrings = {
   /**

@@ -11,7 +11,6 @@ devtools_module("timeline_model") {
   sources = [
     "TimelineJSProfile.ts",
     "TimelineModel.ts",
-    "TimelineModelFilter.ts",
     "TimelineProfileTree.ts",
     "TracingLayerTree.ts",
   ]
@@ -49,7 +48,6 @@ ts_library("unittests") {
 
   sources = [
     "TimelineModel.test.ts",
-    "TimelineModelFilter.test.ts",
     "TimelineProfileTree.test.ts",
   ]
 

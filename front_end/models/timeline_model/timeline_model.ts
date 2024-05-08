@@ -10,14 +10,12 @@ import './TimelineProfileTree.js';
 
 import * as TimelineJSProfile from './TimelineJSProfile.js';
 import * as TimelineModel from './TimelineModel.js';
-import * as TimelineModelFilter from './TimelineModelFilter.js';
 import * as TimelineProfileTree from './TimelineProfileTree.js';
 import * as TracingLayerTree from './TracingLayerTree.js';
 
 export {
   TimelineJSProfile,
   TimelineModel,
-  TimelineModelFilter,
   TimelineProfileTree,
   TracingLayerTree,
 };

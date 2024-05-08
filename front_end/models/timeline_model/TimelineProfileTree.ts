@@ -5,10 +5,10 @@
 import type * as Platform from '../../core/platform/platform.js';
 import type * as Protocol from '../../generated/protocol.js';
 import * as TraceEngine from '../../models/trace/trace.js';
+import {type TimelineEventFilter} from '../../panels/timeline/TimelineFilters.js';
 
 import {TimelineJSProfileProcessor} from './TimelineJSProfile.js';
 import {RecordType, TimelineModelImpl} from './TimelineModel.js';
-import {type TimelineModelFilter} from './TimelineModelFilter.js';
 
 export class Node {
   totalTime: number;
@@ -244,13 +244,16 @@ export class TopDownRootNode extends TopDownNode {
   override selfTime: number;
 
   constructor(
-      events: TraceEngine.Types.TraceEvents.TraceEventData[], filters: TimelineModelFilter[], startTime: number,
+      events: TraceEngine.Types.TraceEvents.TraceEventData[], filters: TimelineEventFilter[], startTime: number,
       endTime: number, doNotAggregate?: boolean,
       eventGroupIdCallback?: ((arg0: TraceEngine.Types.TraceEvents.TraceEventData) => string)|null) {
     super('', null, null);
     this.root = this;
     this.events = events;
-    this.filter = (e: TraceEngine.Legacy.CompatibleTraceEvent): boolean => filters.every(f => f.accept(e));
+    this.filter = (e: TraceEngine.Legacy.CompatibleTraceEvent): boolean => {
+      // TODO: remove this check once the old engine is gone.
+      return TraceEngine.Legacy.eventIsFromNewEngine(e) && filters.every(f => f.accept(e));
+    };
     this.startTime = startTime;
     this.endTime = endTime;
     this.eventGroupIdCallback = eventGroupIdCallback;
@@ -296,7 +299,7 @@ export class TopDownRootNode extends TopDownNode {
 export class BottomUpRootNode extends Node {
   private childrenInternal: ChildrenCache|null;
   readonly events: TraceEngine.Legacy.CompatibleTraceEvent[];
-  private textFilter: TimelineModelFilter;
+  private textFilter: TimelineEventFilter;
   readonly filter: (e: TraceEngine.Legacy.CompatibleTraceEvent) => boolean;
   readonly startTime: number;
   readonly endTime: number;
@@ -304,14 +307,15 @@ export class BottomUpRootNode extends Node {
   override totalTime: number;
 
   constructor(
-      events: TraceEngine.Legacy.CompatibleTraceEvent[], textFilter: TimelineModelFilter,
-      filters: TimelineModelFilter[], startTime: number, endTime: number,
+      events: TraceEngine.Legacy.CompatibleTraceEvent[], textFilter: TimelineEventFilter,
+      filters: TimelineEventFilter[], startTime: number, endTime: number,
       eventGroupIdCallback: ((arg0: TraceEngine.Types.TraceEvents.TraceEventData) => string)|null) {
     super('', null);
     this.childrenInternal = null;
     this.events = events;
     this.textFilter = textFilter;
-    this.filter = (e: TraceEngine.Legacy.CompatibleTraceEvent): boolean => filters.every(f => f.accept(e));
+    this.filter = (e: TraceEngine.Legacy.CompatibleTraceEvent): boolean =>
+        TraceEngine.Legacy.eventIsFromNewEngine(e) && filters.every(f => f.accept(e));
     this.startTime = startTime;
     this.endTime = endTime;
     this.eventGroupIdCallback = eventGroupIdCallback;

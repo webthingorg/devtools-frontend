@@ -72,6 +72,7 @@ import {Tracker} from './FreshRecording.js';
 import {titleForInteractionEvent} from './InteractionsTrackAppender.js';
 import {SourceMapsResolver} from './SourceMapsResolver.js';
 import {targetForEvent} from './TargetForEvent.js';
+import {type TimelineEventFilter, TimelineVisibleEventsFilter} from './TimelineFilters.js';
 import {TimelinePanel} from './TimelinePanel.js';
 import {TimelineSelection} from './TimelineSelection.js';
 
@@ -2272,8 +2273,8 @@ export class TimelineUIUtils {
     return eventDivider;
   }
 
-  static visibleEventsFilter(): TimelineModel.TimelineModelFilter.TimelineModelFilter {
-    return new TimelineModel.TimelineModelFilter.TimelineVisibleEventsFilter(visibleTypes());
+  static visibleEventsFilter(): TimelineEventFilter {
+    return new TimelineVisibleEventsFilter(visibleTypes());
   }
 
   // Included only for layout tests.
