@@ -124,7 +124,9 @@ export function buildRowsForWebSocketEvent(
     event: TraceEngine.Types.TraceEvents.TraceEventWebSocketCreate|
     TraceEngine.Types.TraceEvents.TraceEventWebSocketDestroy|
     TraceEngine.Types.TraceEvents.TraceEventWebSocketSendHandshakeRequest|
-    TraceEngine.Types.TraceEvents.TraceEventWebSocketReceiveHandshakeResponse,
+    TraceEngine.Types.TraceEvents.TraceEventWebSocketReceiveHandshakeResponse|
+    TraceEngine.Types.TraceEvents.TraceEventWebSocketReceive|
+    TraceEngine.Types.TraceEvents.TraceEventWebSocketSend,
     traceParsedData: TraceEngine.Handlers.Types.TraceParseData): readonly DetailRow[] {
   const rows: DetailRow[] = [];
 
@@ -141,6 +143,7 @@ export function buildRowsForWebSocketEvent(
       rows.push({key: i18nString(UIStrings.websocketProtocol), value: event.args.data.websocketProtocol});
     }
   }
+  // fix data length here? 
 
   return rows;
 }

@@ -172,7 +172,7 @@ export function handleEvent(event: Types.TraceEvents.TraceEventData): void {
   } else if (
       Types.TraceEvents.isTraceEventWebSocketSendHandshakeRequest(event) ||
       Types.TraceEvents.isTraceEventWebSocketReceiveHandshakeResponse(event) ||
-      Types.TraceEvents.isTraceEventWebSocketDestroy(event)) {
+      Types.TraceEvents.isTraceEventWebSocketDestroy(event)|| Types.TraceEvents.isTraceEventWebSocketReceive(event) || Types.TraceEvents.isTraceEventWebSocketSend(event)){
     const matchingCreateEvent = webSocketCreateEventsById.get(event.args.data.identifier);
     if (matchingCreateEvent) {
       storeInitiator({
