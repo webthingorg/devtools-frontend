@@ -22,6 +22,30 @@
       },
       "revId": "d5a542305ba92c7d4716bc8b1575b5ebab33c1d9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "462ac1ee_9ef497c1",
+        "filename": "front_end/panels/recorder/components/StepView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-05-08T12:55:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ad26e8e_27d327f4",
+      "range": {
+        "startLine": 5,
+        "startChar": 6,
+        "endLine": 5,
+        "endChar": 14
+      },
+      "revId": "d5a542305ba92c7d4716bc8b1575b5ebab33c1d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
