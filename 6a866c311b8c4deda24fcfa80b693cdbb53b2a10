@@ -16,6 +16,40 @@
       "message": "Hi Ergün!\n\nHere\u0027s a CL to change the SearchableView (find/replace) to GM3. There\u0027s one blink web test that needs to be updated, I\u0027ll disable it in the meantime :). PTAL!",
       "revId": "6a866c311b8c4deda24fcfa80b693cdbb53b2a10",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d707328c_8b538d10",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-05-08T09:36:55Z",
+      "side": 1,
+      "message": "Hey hey, I have some visual comments and I\u0027ll look into implementation details after discussing them :)\n\n1 - See the screenshot in https://g-issues.chromium.org/issues/40248266#comment25, the filter input is not vertically aligned in the middle, in the Elements panel usage. The top vertical margin is bigger than the bottom one.\n\n2 - See the screenshot in https://g-issues.chromium.org/issues/40248266#comment26. For Elements panel usage, when the width is constrained, elements overlap with each other, current behavior is that they maintain a min-width so that they don\u0027t overlap with each other. For the Sources panel usage, the buttons jump down (which might be fine).\n\n3 - See the screenshot in https://g-issues.chromium.org/issues/40248266#comment27; there are 3 things: a) hover state of the icon button overflows the input field, b) hovering over the clear button also triggers the hover state of the input field, c) the radius of the clear button is not looking in harmony with the input field\u0027s radius.\n\n3rd comment is also applicable to regex and case sensitive buttons.\nMaybe for 3a and 3c; we can use a button similar to the up / down carets; WDYT?",
+      "revId": "6a866c311b8c4deda24fcfa80b693cdbb53b2a10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fddd6eaa_eded94c0",
+        "filename": "front_end/ui/legacy/SearchableView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 512,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-05-08T09:36:55Z",
+      "side": 1,
+      "message": "I know this didn\u0027t change with this CL but as a suggestion, we can use `font-variant-numeric: tabular-nums;` on this element so that the filter input field doesn\u0027t jump when the number is changed :)\n\nThat CSS property renders all the numbers the same size so that when they change, it doesn\u0027t change the size of the element: https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant-numeric",
+      "revId": "6a866c311b8c4deda24fcfa80b693cdbb53b2a10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
