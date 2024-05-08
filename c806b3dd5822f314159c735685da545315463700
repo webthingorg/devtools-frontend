@@ -183,6 +183,30 @@
       },
       "revId": "c806b3dd5822f314159c735685da545315463700",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54eedd58_848316f0",
+        "filename": "front_end/panels/elements/StylePropertiesSection.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-05-08T09:14:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "13661acc_346e5dd9",
+      "range": {
+        "startLine": 278,
+        "startChar": 34,
+        "endLine": 278,
+        "endChar": 43
+      },
+      "revId": "c806b3dd5822f314159c735685da545315463700",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
