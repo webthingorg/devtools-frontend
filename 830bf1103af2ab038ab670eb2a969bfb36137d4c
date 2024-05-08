@@ -33,6 +33,70 @@
       "message": "Nice. LGTM!",
       "revId": "830bf1103af2ab038ab670eb2a969bfb36137d4c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21840a07_f5a8f8cd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-05-08T11:25:32Z",
+      "side": 1,
+      "message": "I think this is a step in the right direction. \n\nI assume you intentionally decided not to inline the view function to the constructor argument list and to have manual renaming of ViewInput members. This is fine with me, although I would have done it differently.",
+      "parentUuid": "3a4df741_d4ab0a8d",
+      "revId": "830bf1103af2ab038ab670eb2a969bfb36137d4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "659e7ce4_ec6d98d8",
+        "filename": "front_end/panels/recorder/components/StepView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-05-08T11:25:32Z",
+      "side": 1,
+      "message": "This doesn\u0027t seem to be used and some other members below don\u0027t seem to be used by the view function",
+      "range": {
+        "startLine": 293,
+        "startChar": 0,
+        "endLine": 293,
+        "endChar": 33
+      },
+      "revId": "830bf1103af2ab038ab670eb2a969bfb36137d4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9ff3fa5_4d36316b",
+        "filename": "front_end/panels/recorder/components/StepView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 916,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-05-08T11:25:32Z",
+      "side": 1,
+      "message": "If you don\u0027t like the Pimpl approach maybe we could have move all these fields into a `#viewInput: ViewInput` member?",
+      "range": {
+        "startLine": 916,
+        "startChar": 0,
+        "endLine": 916,
+        "endChar": 15
+      },
+      "revId": "830bf1103af2ab038ab670eb2a969bfb36137d4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
