@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22c54195_111724b3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-05-08T09:03:31Z",
+      "side": 1,
+      "message": "is there any fix applied to the originally reverted CL or was the revert unnecessary in the first place? Either way let\u0027s make that explicit in the commit message.",
+      "revId": "119d7689fb4ff23890500505235c471b3ef13b59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8604923c_34aca49e",
+        "filename": "test/conductor/mocha_hooks.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-05-08T09:03:31Z",
+      "side": 1,
+      "message": "do we need to handle path separators for Windows?",
+      "range": {
+        "startLine": 181,
+        "startChar": 11,
+        "endLine": 181,
+        "endChar": 12
+      },
+      "revId": "119d7689fb4ff23890500505235c471b3ef13b59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
