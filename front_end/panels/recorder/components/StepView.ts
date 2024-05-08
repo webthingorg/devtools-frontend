@@ -273,6 +273,317 @@ type Action = {
   jslogContext?: string,
 };
 
+export type ViewInput = {
+  step?: Models.Schema.Step,
+  section?: Models.Section.Section, state: State,
+  error?: Error,
+       showDetails: boolean,
+       isEndOfGroup: boolean,
+       isStartOfGroup: boolean,
+       stepIndex: number,
+       sectionIndex: number,
+       isFirstSection: boolean,
+       isLastSection: boolean,
+       isRecording: boolean,
+       isPlaying: boolean,
+  actionsMenuButton?: Buttons.Button.Button,
+                   actionsMenuExpanded: boolean,
+                   isVisible: boolean,
+                   observer: IntersectionObserver,
+                   hasBreakpoint: boolean,
+                   removable: boolean,
+  builtInConverters?: Converters.Converter.Converter[],
+  extensionConverters?: Converters.Converter.Converter[], isSelected: boolean,
+  recorderSettings?: Models.RecorderSettings.RecorderSettings,
+                  actions: Array<Action>,
+                  host: HTMLElement,
+
+                  stepEdited: (event: StepEditedEvent) => void,
+                  onToggleActionsMenu: (event: Event) => void,
+                  onCloseActionsMenu: () => void,
+                  onBreakpointClick: () => void,
+                  getActionsMenuButton: () => Buttons.Button.Button,
+                  handleStepAction: (event: Menus.Menu.MenuItemSelectedEvent) => void,
+                  toggleShowDetails: () => void,
+                  onToggleShowDetailsKeydown: (event: Event) => void,
+                  onStepContextMenu: (event: MouseEvent) => void,
+};
+
+export type ViewOutput = {
+  actionsMenuButton?: Buttons.Button.Button,
+};
+
+function getStepTypeTitle(input: {
+  step?: Models.Schema.Step,
+  section?: Models.Section.Section,
+}): string|LitHtml.TemplateResult {
+  if (input.section) {
+    return input.section.title ? input.section.title : LitHtml.html`<span class="fallback">(No Title)</span>`;
+  }
+  if (!input.step) {
+    throw new Error('Missing both step and section');
+  }
+  switch (input.step.type) {
+    case Models.Schema.StepType.CustomStep:
+      return i18nString(UIStrings.customStepTitle);
+    case Models.Schema.StepType.SetViewport:
+      return i18nString(UIStrings.setViewportClickTitle);
+    case Models.Schema.StepType.Click:
+      return i18nString(UIStrings.clickStepTitle);
+    case Models.Schema.StepType.DoubleClick:
+      return i18nString(UIStrings.doubleClickStepTitle);
+    case Models.Schema.StepType.Hover:
+      return i18nString(UIStrings.hoverStepTitle);
+    case Models.Schema.StepType.EmulateNetworkConditions:
+      return i18nString(UIStrings.emulateNetworkConditionsStepTitle);
+    case Models.Schema.StepType.Change:
+      return i18nString(UIStrings.changeStepTitle);
+    case Models.Schema.StepType.Close:
+      return i18nString(UIStrings.closeStepTitle);
+    case Models.Schema.StepType.Scroll:
+      return i18nString(UIStrings.scrollStepTitle);
+    case Models.Schema.StepType.KeyUp:
+      return i18nString(UIStrings.keyUpStepTitle);
+    case Models.Schema.StepType.KeyDown:
+      return i18nString(UIStrings.keyDownStepTitle);
+    case Models.Schema.StepType.WaitForElement:
+      return i18nString(UIStrings.waitForElementStepTitle);
+    case Models.Schema.StepType.WaitForExpression:
+      return i18nString(UIStrings.waitForExpressionStepTitle);
+    case Models.Schema.StepType.Navigate:
+      return i18nString(UIStrings.navigateStepTitle);
+  }
+}
+
+function getElementRoleTitle(role: string): string {
+  switch (role) {
+    case 'button':
+      return i18nString(UIStrings.elementRoleButton);
+    case 'input':
+      return i18nString(UIStrings.elementRoleInput);
+    default:
+      return i18nString(UIStrings.elementRoleFallback);
+  }
+}
+
+function getSelectorPreview(step?: Models.Schema.Step): string {
+  if (!step || !('selectors' in step)) {
+    return '';
+  }
+
+  const ariaSelector = step.selectors.flat().find(selector => selector.startsWith('aria/'));
+
+  if (!ariaSelector) {
+    return '';
+  }
+
+  const m = ariaSelector.match(/^aria\/(.+?)(\[role="(.+)"\])?$/);
+  if (!m) {
+    return '';
+  }
+
+  return `${getElementRoleTitle(m[3])} "${m[1]}"`;
+}
+
+function getSectionPreview(section?: Models.Section.Section): string {
+  if (!section) {
+    return '';
+  }
+  return section.url;
+}
+
+function renderStepActions(input: ViewInput, output: ViewOutput): LitHtml.TemplateResult|null {
+  const actions = input.actions;
+  const groupsById = new Map<string, Action[]>();
+  for (const action of actions) {
+    const group = groupsById.get(action.group);
+    if (!group) {
+      groupsById.set(action.group, [action]);
+    } else {
+      group.push(action);
+    }
+  }
+  const groups = [];
+  for (const [group, actions] of groupsById) {
+    groups.push({
+      group,
+      groupTitle: actions[0].groupTitle,
+      actions,
+    });
+  }
+  // clang-format off
+  return LitHtml.html`
+    <${Buttons.Button.Button.litTagName}
+      class="step-actions"
+      title=${i18nString(UIStrings.openStepActions)}
+      aria-label=${i18nString(UIStrings.openStepActions)}
+      @click=${input.onToggleActionsMenu}
+      @keydown=${(event: Event) => {
+        event.stopPropagation();
+      }}
+      on-render=${ComponentHelpers.Directives.nodeRenderedCallback(node => {
+        output.actionsMenuButton = node as Buttons.Button.Button;
+      })}
+      jslog=${VisualLogging.dropDown('step-actions').track({click: true})}
+      .data=${
+        {
+          variant: Buttons.Button.Variant.ICON,
+          iconName: 'dots-vertical',
+          title: i18nString(UIStrings.openStepActions),
+        } as Buttons.Button.ButtonData
+      }
+    ></${Buttons.Button.Button.litTagName}>
+    <${Menus.Menu.Menu.litTagName}
+      @menucloserequest=${input.onCloseActionsMenu}
+      @menuitemselected=${input.handleStepAction}
+      .origin=${input.getActionsMenuButton}
+      .showSelectedItem=${false}
+      .showConnector=${false}
+      .open=${input.actionsMenuExpanded}
+    >
+      ${LitHtml.Directives.repeat(
+        groups,
+        item => item.group,
+        item => {
+          return LitHtml.html`
+          <${Menus.Menu.MenuGroup.litTagName}
+            .name=${item.groupTitle}
+          >
+            ${LitHtml.Directives.repeat(
+              item.actions,
+              item => item.id,
+              item => {
+                return LitHtml.html`<${Menus.Menu.MenuItem.litTagName}
+                    .value=${item.id}
+                    jslog=${VisualLogging.action().track({click: true}).context(`${item.jslogContext || item.id}`)}
+                  >
+                    ${item.label}
+                  </${Menus.Menu.MenuItem.litTagName}>
+                `;
+              },
+            )}
+          </${Menus.Menu.MenuGroup.litTagName}>
+        `;
+        },
+      )}
+    </${Menus.Menu.Menu.litTagName}>
+  `;
+  // clang-format on
+}
+
+function viewFunction(input: ViewInput, output: ViewOutput, target: HTMLElement|ShadowRoot): void {
+  if (!input.step && !input.section) {
+    return;
+  }
+
+  const stepClasses = {
+    step: true,
+    expanded: input.showDetails,
+    'is-success': input.state === State.Success,
+    'is-current': input.state === State.Current,
+    'is-outstanding': input.state === State.Outstanding,
+    'is-error': input.state === State.Error,
+    'is-stopped': input.state === State.Stopped,
+    'is-start-of-group': input.isStartOfGroup,
+    'is-first-section': input.isFirstSection,
+    'has-breakpoint': input.hasBreakpoint,
+  };
+  const isExpandable = Boolean(input.step);
+  const mainTitle = getStepTypeTitle({
+    step: input.step,
+    section: input.section,
+  });
+  const subtitle = input.step ? getSelectorPreview() : getSectionPreview();
+
+  // clang-format off
+  LitHtml.render(
+    LitHtml.html`
+    <${TimelineSection.litTagName} .data=${
+      {
+        isFirstSection: input.isFirstSection,
+        isLastSection: input.isLastSection,
+        isStartOfGroup: input.isStartOfGroup,
+        isEndOfGroup: input.isEndOfGroup,
+        isSelected: input.isSelected,
+      } as TimelineSectionData
+    } @contextmenu=${input.onStepContextMenu} data-step-index=${
+      input.stepIndex
+    } data-section-index=${
+      input.sectionIndex
+    } class=${LitHtml.Directives.classMap(stepClasses)}>
+      <svg slot="icon" width="24" height="24" height="100%" class="icon">
+        <circle class="circle-icon"/>
+        <g class="error-icon">
+          <path d="M1.5 1.5L6.5 6.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M1.5 6.5L6.5 1.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+        <path @click=${input.onBreakpointClick} jslog=${VisualLogging.action('breakpoint').track({click: true})} class="breakpoint-icon" d="M2.5 5.5H17.7098L21.4241 12L17.7098 18.5H2.5V5.5Z"/>
+      </svg>
+      <div class="summary">
+        <div class="title-container ${isExpandable ? 'action' : ''}"
+          @click=${isExpandable && input.toggleShowDetails}
+          @keydown=${
+            isExpandable && input.onToggleShowDetailsKeydown
+          }
+          tabindex="0"
+          jslog=${VisualLogging.sectionHeader().track({click: true})}
+          aria-role=${isExpandable ? 'button' : ''}
+          aria-label=${isExpandable ? 'Show details for step' : ''}
+        >
+          ${
+            isExpandable
+              ? LitHtml.html`<${IconButton.Icon.Icon.litTagName}
+                  class="chevron"
+                  jslog=${VisualLogging.expand().track({click: true})}
+                  name="triangle-down">
+                </${IconButton.Icon.Icon.litTagName}>`
+              : ''
+          }
+          <div class="title">
+            <div class="main-title" title=${mainTitle}>${mainTitle}</div>
+            <div class="subtitle" title=${subtitle}>${subtitle}</div>
+          </div>
+        </div>
+        <div class="filler"></div>
+        ${renderStepActions(input, output)}
+      </div>
+      <div class="details">
+        ${
+          input.step &&
+          LitHtml.html`<devtools-recorder-step-editor
+          class=${input.isSelected ? 'is-selected' : ''}
+          .step=${input.step}
+          .disabled=${input.isPlaying}
+          @stepedited=${input.stepEdited}>
+        </devtools-recorder-step-editor>`
+        }
+        ${
+          input.section?.causingStep &&
+          LitHtml.html`<devtools-recorder-step-editor
+          .step=${input.section.causingStep}
+          .isTypeEditable=${false}
+          .disabled=${input.isPlaying}
+          @stepedited=${input.stepEdited}>
+        </devtools-recorder-step-editor>`
+        }
+      </div>
+      ${
+        input.error &&
+        LitHtml.html`
+        <div class="error" role="alert">
+          ${input.error.message}
+        </div>
+      `
+      }
+    </${TimelineSection.litTagName}>
+  `,
+    target,
+    /* eslint-disable-next-line rulesdir/lit_html_host_this */
+    {host: input.host},
+  );
+  // clang-format on
+}
+
 export class StepView extends HTMLElement {
   static readonly litTagName = LitHtml.literal`devtools-step-view`;
 
@@ -304,8 +615,13 @@ export class StepView extends HTMLElement {
   #isSelected = false;
   #recorderSettings?: Models.RecorderSettings.RecorderSettings;
 
-  constructor() {
+  #view = viewFunction;
+
+  constructor(view?: typeof viewFunction) {
     super();
+    if (view) {
+      this.#view = view;
+    }
     this.setAttribute('jslog', `${VisualLogging.section('step-view')}`);
   }
 
@@ -367,82 +683,6 @@ export class StepView extends HTMLElement {
       event.stopPropagation();
       event.preventDefault();
     }
-  }
-
-  #getStepTypeTitle(): string|LitHtml.TemplateResult {
-    if (this.#section) {
-      return this.#section.title ? this.#section.title : LitHtml.html`<span class="fallback">(No Title)</span>`;
-    }
-    if (!this.#step) {
-      throw new Error('Missing both step and section');
-    }
-    switch (this.#step.type) {
-      case Models.Schema.StepType.CustomStep:
-        return i18nString(UIStrings.customStepTitle);
-      case Models.Schema.StepType.SetViewport:
-        return i18nString(UIStrings.setViewportClickTitle);
-      case Models.Schema.StepType.Click:
-        return i18nString(UIStrings.clickStepTitle);
-      case Models.Schema.StepType.DoubleClick:
-        return i18nString(UIStrings.doubleClickStepTitle);
-      case Models.Schema.StepType.Hover:
-        return i18nString(UIStrings.hoverStepTitle);
-      case Models.Schema.StepType.EmulateNetworkConditions:
-        return i18nString(UIStrings.emulateNetworkConditionsStepTitle);
-      case Models.Schema.StepType.Change:
-        return i18nString(UIStrings.changeStepTitle);
-      case Models.Schema.StepType.Close:
-        return i18nString(UIStrings.closeStepTitle);
-      case Models.Schema.StepType.Scroll:
-        return i18nString(UIStrings.scrollStepTitle);
-      case Models.Schema.StepType.KeyUp:
-        return i18nString(UIStrings.keyUpStepTitle);
-      case Models.Schema.StepType.KeyDown:
-        return i18nString(UIStrings.keyDownStepTitle);
-      case Models.Schema.StepType.WaitForElement:
-        return i18nString(UIStrings.waitForElementStepTitle);
-      case Models.Schema.StepType.WaitForExpression:
-        return i18nString(UIStrings.waitForExpressionStepTitle);
-      case Models.Schema.StepType.Navigate:
-        return i18nString(UIStrings.navigateStepTitle);
-    }
-  }
-
-  #getElementRoleTitle(role: string): string {
-    switch (role) {
-      case 'button':
-        return i18nString(UIStrings.elementRoleButton);
-      case 'input':
-        return i18nString(UIStrings.elementRoleInput);
-      default:
-        return i18nString(UIStrings.elementRoleFallback);
-    }
-  }
-
-  #getSelectorPreview(): string {
-    if (!this.#step || !('selectors' in this.#step)) {
-      return '';
-    }
-
-    const ariaSelector = this.#step.selectors.flat().find(selector => selector.startsWith('aria/'));
-
-    if (!ariaSelector) {
-      return '';
-    }
-
-    const m = ariaSelector.match(/^aria\/(.+?)(\[role="(.+)"\])?$/);
-    if (!m) {
-      return '';
-    }
-
-    return `${this.#getElementRoleTitle(m[3])} "${m[1]}"`;
-  }
-
-  #getSectionPreview(): string {
-    if (!this.#section) {
-      return '';
-    }
-    return this.#section.url;
   }
 
   #stepEdited(event: StepEditedEvent): void {
@@ -615,85 +855,6 @@ export class StepView extends HTMLElement {
     return actions;
   };
 
-  #renderStepActions(): LitHtml.TemplateResult|null {
-    const actions = this.#getActions();
-    const groupsById = new Map<string, Action[]>();
-    for (const action of actions) {
-      const group = groupsById.get(action.group);
-      if (!group) {
-        groupsById.set(action.group, [action]);
-      } else {
-        group.push(action);
-      }
-    }
-    const groups = [];
-    for (const [group, actions] of groupsById) {
-      groups.push({
-        group,
-        groupTitle: actions[0].groupTitle,
-        actions,
-      });
-    }
-    // clang-format off
-    return LitHtml.html`
-      <${Buttons.Button.Button.litTagName}
-        class="step-actions"
-        title=${i18nString(UIStrings.openStepActions)}
-        aria-label=${i18nString(UIStrings.openStepActions)}
-        @click=${this.#onToggleActionsMenu}
-        @keydown=${(event: Event) => {
-          event.stopPropagation();
-        }}
-        on-render=${ComponentHelpers.Directives.nodeRenderedCallback(node => {
-          this.#actionsMenuButton = node as Buttons.Button.Button;
-        })}
-        jslog=${VisualLogging.dropDown('step-actions').track({click: true})}
-        .data=${
-          {
-            variant: Buttons.Button.Variant.ICON,
-            iconName: 'dots-vertical',
-            title: i18nString(UIStrings.openStepActions),
-          } as Buttons.Button.ButtonData
-        }
-      ></${Buttons.Button.Button.litTagName}>
-      <${Menus.Menu.Menu.litTagName}
-        @menucloserequest=${this.#onCloseActionsMenu}
-        @menuitemselected=${this.#handleStepAction}
-        .origin=${this.#getActionsMenuButton.bind(this)}
-        .showSelectedItem=${false}
-        .showConnector=${false}
-        .open=${this.#actionsMenuExpanded}
-      >
-        ${LitHtml.Directives.repeat(
-          groups,
-          item => item.group,
-          item => {
-            return LitHtml.html`
-            <${Menus.Menu.MenuGroup.litTagName}
-              .name=${item.groupTitle}
-            >
-              ${LitHtml.Directives.repeat(
-                item.actions,
-                item => item.id,
-                item => {
-                  return LitHtml.html`<${Menus.Menu.MenuItem.litTagName}
-                      .value=${item.id}
-                      jslog=${VisualLogging.action().track({click: true}).context(`${item.jslogContext || item.id}`)}
-                    >
-                      ${item.label}
-                    </${Menus.Menu.MenuItem.litTagName}>
-                  `;
-                },
-              )}
-            </${Menus.Menu.MenuGroup.litTagName}>
-          `;
-          },
-        )}
-      </${Menus.Menu.Menu.litTagName}>
-    `;
-    // clang-format on
-  }
-
   #onStepContextMenu = (event: MouseEvent): void => {
     if (event.button !== 2) {
       // 2 = secondary button = right click. We only show context menus if the
@@ -749,114 +910,48 @@ export class StepView extends HTMLElement {
   };
 
   #render(): void {
-    if (!this.#step && !this.#section) {
-      return;
-    }
-
-    const stepClasses = {
-      step: true,
-      expanded: this.#showDetails,
-      'is-success': this.#state === State.Success,
-      'is-current': this.#state === State.Current,
-      'is-outstanding': this.#state === State.Outstanding,
-      'is-error': this.#state === State.Error,
-      'is-stopped': this.#state === State.Stopped,
-      'is-start-of-group': this.#isStartOfGroup,
-      'is-first-section': this.#isFirstSection,
-      'has-breakpoint': this.#hasBreakpoint,
-    };
-    const isExpandable = Boolean(this.#step);
-    const mainTitle = this.#getStepTypeTitle();
-    const subtitle = this.#step ? this.#getSelectorPreview() : this.#getSectionPreview();
-
-    // clang-format off
-    LitHtml.render(
-      LitHtml.html`
-      <${TimelineSection.litTagName} .data=${
+    const output: ViewOutput = {};
+    this.#view(
         {
+          step: this.#step,
+          section: this.#section,
+          state: this.#state,
+          error: this.#error,
+          showDetails: this.#showDetails,
+          isEndOfGroup: this.#isEndOfGroup,
+          isStartOfGroup: this.#isStartOfGroup,
+          stepIndex: this.#stepIndex,
+          sectionIndex: this.#sectionIndex,
           isFirstSection: this.#isFirstSection,
           isLastSection: this.#isLastSection,
-          isStartOfGroup: this.#isStartOfGroup,
-          isEndOfGroup: this.#isEndOfGroup,
+          isRecording: this.#isRecording,
+          isPlaying: this.#isPlaying,
+          actionsMenuButton: this.#actionsMenuButton,
+          actionsMenuExpanded: this.#actionsMenuExpanded,
+          isVisible: this.#isVisible,
+          observer: this.#observer,
+          hasBreakpoint: this.#hasBreakpoint,
+          removable: this.#removable,
+          builtInConverters: this.#builtInConverters,
+          extensionConverters: this.#extensionConverters,
           isSelected: this.#isSelected,
-        } as TimelineSectionData
-      } @contextmenu=${this.#onStepContextMenu} data-step-index=${
-        this.#stepIndex
-      } data-section-index=${
-        this.#sectionIndex
-      } class=${LitHtml.Directives.classMap(stepClasses)}>
-        <svg slot="icon" width="24" height="24" height="100%" class="icon">
-          <circle class="circle-icon"/>
-          <g class="error-icon">
-            <path d="M1.5 1.5L6.5 6.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M1.5 6.5L6.5 1.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </g>
-          <path @click=${this.#onBreakpointClick.bind(
-            this,
-          )} jslog=${VisualLogging.action('breakpoint').track({click: true})} class="breakpoint-icon" d="M2.5 5.5H17.7098L21.4241 12L17.7098 18.5H2.5V5.5Z"/>
-        </svg>
-        <div class="summary">
-          <div class="title-container ${isExpandable ? 'action' : ''}"
-            @click=${isExpandable && this.#toggleShowDetails.bind(this)}
-            @keydown=${
-              isExpandable && this.#onToggleShowDetailsKeydown.bind(this)
-            }
-            tabindex="0"
-            jslog=${VisualLogging.sectionHeader().track({click: true})}
-            aria-role=${isExpandable ? 'button' : ''}
-            aria-label=${isExpandable ? 'Show details for step' : ''}
-          >
-            ${
-              isExpandable
-                ? LitHtml.html`<${IconButton.Icon.Icon.litTagName}
-                    class="chevron"
-                    jslog=${VisualLogging.expand().track({click: true})}
-                    name="triangle-down">
-                  </${IconButton.Icon.Icon.litTagName}>`
-                : ''
-            }
-            <div class="title">
-              <div class="main-title" title=${mainTitle}>${mainTitle}</div>
-              <div class="subtitle" title=${subtitle}>${subtitle}</div>
-            </div>
-          </div>
-          <div class="filler"></div>
-          ${this.#renderStepActions()}
-        </div>
-        <div class="details">
-          ${
-            this.#step &&
-            LitHtml.html`<devtools-recorder-step-editor
-            class=${this.#isSelected ? 'is-selected' : ''}
-            .step=${this.#step}
-            .disabled=${this.#isPlaying}
-            @stepedited=${this.#stepEdited}>
-          </devtools-recorder-step-editor>`
-          }
-          ${
-            this.#section?.causingStep &&
-            LitHtml.html`<devtools-recorder-step-editor
-            .step=${this.#section.causingStep}
-            .isTypeEditable=${false}
-            .disabled=${this.#isPlaying}
-            @stepedited=${this.#stepEdited}>
-          </devtools-recorder-step-editor>`
-          }
-        </div>
-        ${
-          this.#error &&
-          LitHtml.html`
-          <div class="error" role="alert">
-            ${this.#error.message}
-          </div>
-        `
-        }
-      </${TimelineSection.litTagName}>
-    `,
-      this.#shadow,
-      { host: this },
-    );
-    // clang-format on
+          recorderSettings: this.#recorderSettings,
+          host: this,
+          actions: this.#getActions(),
+
+          getActionsMenuButton: this.#getActionsMenuButton.bind(this),
+
+          stepEdited: this.#stepEdited,
+          onToggleActionsMenu: this.#onToggleActionsMenu,
+          onCloseActionsMenu: this.#onCloseActionsMenu,
+          onBreakpointClick: this.#onBreakpointClick,
+          handleStepAction: this.#handleStepAction,
+          toggleShowDetails: this.#toggleShowDetails,
+          onToggleShowDetailsKeydown: this.#onToggleShowDetailsKeydown,
+          onStepContextMenu: this.#onStepContextMenu,
+        },
+        output, this.#shadow);
+    this.#actionsMenuButton = output.actionsMenuButton;
   }
 }
 
