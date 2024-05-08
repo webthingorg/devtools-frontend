@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a4df741_d4ab0a8d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-05-08T09:12:59Z",
+      "side": 1,
+      "message": "@bmeurer@chromium.org found that StepView unit tests do not test much and they also are dependent on a specific sub-component (Menu) implementation. I have tried to rewrite the component to decouple the presenter part from the view part and improve the unit tests somewhat. @dsv@chromium.org PTAL as well and let me know if this is a step in the right direction according to your proposal or if there is anything that I overlooked",
+      "revId": "830bf1103af2ab038ab670eb2a969bfb36137d4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
