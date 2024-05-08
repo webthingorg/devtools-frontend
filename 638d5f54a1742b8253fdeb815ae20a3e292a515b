@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b2d7e6a_e61127c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-05-08T15:23:38Z",
+      "side": 1,
+      "message": "Hi Kateryna,\n\nhere are two fixes to the styles of the filter bars, ptal!",
+      "revId": "638d5f54a1742b8253fdeb815ae20a3e292a515b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
