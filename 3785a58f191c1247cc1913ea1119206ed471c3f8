@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07a72348_bd2b9b7d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-08T08:58:22Z",
+      "side": 1,
+      "message": "Andrés, PTAL. I can\u0027t review as I just rebased and uploaded the CL to fix the conflicts. Thanks!",
+      "revId": "3785a58f191c1247cc1913ea1119206ed471c3f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
