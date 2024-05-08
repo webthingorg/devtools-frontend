@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 
 import type * as Platform from '../../core/platform/platform.js';
-import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Bindings from '../../models/bindings/bindings.js';
 import * as TraceEngine from '../../models/trace/trace.js';
@@ -108,8 +107,6 @@ describeWithEnvironment('TimelineFlameChartDataProvider', function() {
 
   describe('ignoring frames', function() {
     it('removes entries from the data that match the ignored URL', async function() {
-      Root.Runtime.experiments.enableForTest('ignore-list-js-frames-on-timeline');
-
       const targetManager = SDK.TargetManager.TargetManager.instance({forceNew: true});
       const workspace = Workspace.Workspace.WorkspaceImpl.instance({forceNew: true});
       const resourceMapping = new Bindings.ResourceMapping.ResourceMapping(targetManager, workspace);
