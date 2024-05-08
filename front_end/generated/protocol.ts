@@ -16965,6 +16965,8 @@ export namespace Preload {
     PrerenderingUrlHasEffectiveUrl = 'PrerenderingUrlHasEffectiveUrl',
     RedirectedPrerenderingUrlHasEffectiveUrl = 'RedirectedPrerenderingUrlHasEffectiveUrl',
     ActivationUrlHasEffectiveUrl = 'ActivationUrlHasEffectiveUrl',
+    JavaScriptInterfaceAdded = 'JavaScriptInterfaceAdded',
+    JavaScriptInterfaceRemoved = 'JavaScriptInterfaceRemoved',
   }
 
   /**
