@@ -7,9 +7,9 @@ const {createCoverageMap} = require('istanbul-lib-coverage');
 const report = require('istanbul-lib-report');
 const reports = require('istanbul-reports');
 
-const mergedMap = createCoverageMap(require(path.join('..', '..', 'karma-coverage', 'coverage-final.json')));
+const mergedMap = createCoverageMap(require(path.join('karma-coverage', 'coverage-final.json')));
 
-mergedMap.merge(require(path.join('..', '..', 'interactions-coverage', 'coverage-final.json')));
+mergedMap.merge(require(path.join('interactions-coverage', 'coverage-final.json')));
 
 const context = report.createContext({
   dir: 'test',
