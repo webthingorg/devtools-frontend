@@ -108,6 +108,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "44b7d1de_451b7b0b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-05-08T22:13:03Z",
+      "side": 1,
+      "message": "That is intended: It was the case previously and we wanted to keep it that way; Peter said that for keyboard navigation we can do Ctrl+a and Backspace so there\u0027s no need to focus it with keyboard navigation.\n\nThanks for having a look Ergün :)!",
+      "parentUuid": "9c3ca07c_9fc48ea9",
+      "revId": "6a866c311b8c4deda24fcfa80b693cdbb53b2a10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fddd6eaa_eded94c0",
         "filename": "front_end/ui/legacy/SearchableView.ts",
         "patchSetId": 5
