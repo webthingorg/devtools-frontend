@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "25b0af97e426bb5185b7d096562b99ee95da8e39",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "059c6465_3e28a0e9",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-08T16:59:08Z",
+      "side": 1,
+      "message": "I think we can now pull this method out into a standalone util but I will do that in a follow-up.",
+      "range": {
+        "startLine": 90,
+        "startChar": 0,
+        "endLine": 90,
+        "endChar": 22
+      },
+      "revId": "25b0af97e426bb5185b7d096562b99ee95da8e39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
