@@ -16,6 +16,24 @@
       "message": "Where is the opacity of a `.link-swatch-link` set to be not 100%?",
       "revId": "883c1457fd7b79ff975b50141be57df220560bac",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11e4c89f_a8b230c7",
+        "filename": "front_end/ui/legacy/components/inline_editor/linkSwatch.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-05-08T09:18:12Z",
+      "side": 1,
+      "message": "It comes from `textButtonStyles` `:disabled` state.\n\nOverall, I think we need a better strategy here for rendering this link as now it is not exactly a TextButton and not exactly a custom button too. Though that\u0027s a discussion for another time I think :)",
+      "parentUuid": "a658e6ca_944ff421",
+      "revId": "883c1457fd7b79ff975b50141be57df220560bac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
