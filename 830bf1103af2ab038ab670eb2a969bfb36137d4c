@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ca36bf3_c2eda953",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-05-08T12:27:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "21840a07_f5a8f8cd",
+      "revId": "830bf1103af2ab038ab670eb2a969bfb36137d4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "659e7ce4_ec6d98d8",
@@ -76,6 +94,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "21bc092a_82a876b6",
+        "filename": "front_end/panels/recorder/components/StepView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-05-08T12:27:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "659e7ce4_ec6d98d8",
+      "range": {
+        "startLine": 293,
+        "startChar": 0,
+        "endLine": 293,
+        "endChar": 33
+      },
+      "revId": "830bf1103af2ab038ab670eb2a969bfb36137d4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c9ff3fa5_4d36316b",
@@ -89,6 +131,30 @@
       "writtenOn": "2024-05-08T11:25:32Z",
       "side": 1,
       "message": "If you don\u0027t like the Pimpl approach maybe we could have move all these fields into a `#viewInput: ViewInput` member?",
+      "range": {
+        "startLine": 916,
+        "startChar": 0,
+        "endLine": 916,
+        "endChar": 15
+      },
+      "revId": "830bf1103af2ab038ab670eb2a969bfb36137d4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "81ec8500_c317de93",
+        "filename": "front_end/panels/recorder/components/StepView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 916,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-05-08T12:27:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9ff3fa5_4d36316b",
       "range": {
         "startLine": 916,
         "startChar": 0,
