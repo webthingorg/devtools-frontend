@@ -72,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ba02cfb5_c770457e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-05-08T15:54:00Z",
+      "side": 1,
+      "message": "Ok Peter got back to me on that - basically we want to ignore these icon button issues for now (in this CL). We\u0027ll probably introduce a smaller icon than the 16x16 which should fix these issues afterwards.",
+      "parentUuid": "2320d613_45a13766",
+      "revId": "6a866c311b8c4deda24fcfa80b693cdbb53b2a10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fddd6eaa_eded94c0",
         "filename": "front_end/ui/legacy/SearchableView.ts",
         "patchSetId": 5
