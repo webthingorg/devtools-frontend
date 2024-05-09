@@ -6,7 +6,7 @@ export type Configuration = Readonly<{
   settings: {
       // Currently empty but defining here as we will migrate more settings into this.
   },
-  experiments: {
+  experiments: Readonly<{
     /**
      * Include V8 RCS in the timeline
      */
@@ -15,8 +15,12 @@ export type Configuration = Readonly<{
      * Show all events: disable the default filtering which hides and excludes some events.
      */
     timelineShowAllEvents: boolean,
-  },
-  processing: {
+    /**
+     * Extra detail for RPP developers
+     */
+    timelineDebugMode: boolean,
+  }>,
+  processing: Readonly<{
     /**
      * How long the processor should pause between event chunks.
      */
@@ -25,7 +29,7 @@ export type Configuration = Readonly<{
      * How many events should be processed before yielding to the main thread for a pause.
      */
     eventsPerChunk: number,
-  },
+  }>,
 }>;
 
 export const DEFAULT: Configuration = {
@@ -33,6 +37,7 @@ export const DEFAULT: Configuration = {
   experiments: {
     timelineV8RuntimeCallStats: false,
     timelineShowAllEvents: false,
+    timelineDebugMode: false,
   },
   processing: {
 
@@ -61,5 +66,6 @@ export function configToCacheKey(config: Configuration): string {
   return [
     `experiments.timelineShowAllEvents:${config.experiments.timelineShowAllEvents}`,
     `experiments.timelineV8RuntimeCallStats:${config.experiments.timelineV8RuntimeCallStats}`,
+    `experiments.timelineDebugMode:${config.experiments.timelineDebugMode}`,
   ].join('-');
 }
