@@ -16,6 +16,24 @@
       "message": "PTAL.",
       "revId": "a04d5a5b7b9d0c3efbbadd7ebfe70178256966ed",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9c5f01a_630f995b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-09T14:57:00Z",
+      "side": 1,
+      "message": "I will replace usage of the old method in follow-up CLs 😊",
+      "parentUuid": "c48dada6_7ecef4b8",
+      "revId": "a04d5a5b7b9d0c3efbbadd7ebfe70178256966ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
