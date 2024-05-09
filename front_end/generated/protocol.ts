@@ -16965,6 +16965,8 @@ export namespace Preload {
     PrerenderingUrlHasEffectiveUrl = 'PrerenderingUrlHasEffectiveUrl',
     RedirectedPrerenderingUrlHasEffectiveUrl = 'RedirectedPrerenderingUrlHasEffectiveUrl',
     ActivationUrlHasEffectiveUrl = 'ActivationUrlHasEffectiveUrl',
+    JavaScriptInterfaceAdded = 'JavaScriptInterfaceAdded',
+    JavaScriptInterfaceRemoved = 'JavaScriptInterfaceRemoved',
   }
 
   /**
@@ -17248,6 +17250,18 @@ export namespace PWA {
 
   export interface UninstallRequest {
     manifestId: string;
+  }
+
+  export interface LaunchRequest {
+    manifestId: string;
+    url?: string;
+  }
+
+  export interface LaunchResponse extends ProtocolResponseWithError {
+    /**
+     * ID of the tab target created as a result.
+     */
+    targetId: Target.TargetID;
   }
 }
 
