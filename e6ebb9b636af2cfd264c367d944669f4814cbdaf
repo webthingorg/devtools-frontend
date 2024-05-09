@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd3102a0_05fce058",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-05-09T20:14:00Z",
+      "side": 1,
+      "message": "Flaky tests not so much flaky as... broken. I was mutating configuration.DEFAULT by accident..  Going to propose a fix to that in a followup.",
+      "revId": "e6ebb9b636af2cfd264c367d944669f4814cbdaf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
