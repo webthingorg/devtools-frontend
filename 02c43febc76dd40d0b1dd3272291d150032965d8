@@ -16,6 +16,23 @@
       "message": "ptal",
       "revId": "02c43febc76dd40d0b1dd3272291d150032965d8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38ef2b24_e4169367",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-05-09T23:33:23Z",
+      "side": 1,
+      "message": "I ran coverage panel against things with a regular and generic trace.. This method goes unused in both cases. It looks deletable. \n\nBut i\u0027m okay leaving it here, assuming a subsequent CL wipes out even most of these parsing ones.",
+      "revId": "02c43febc76dd40d0b1dd3272291d150032965d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
