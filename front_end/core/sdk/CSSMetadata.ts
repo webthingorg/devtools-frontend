@@ -341,7 +341,6 @@ export class CSSMetadata {
 export const CSSWideKeywords = ['inherit', 'initial', 'revert', 'revert-layer', 'unset'];
 
 export const VariableNameRegex = /(\s*--.*?)/gs;
-export const VariableRegex = /(var\(\s*--.*?\))/gs;
 export const CustomVariableRegex = /(var\(*--[\w\d]+-([\w]+-[\w]+)\))/g;
 export const URLRegex = /url\(\s*('.+?'|".+?"|[^)]+)\s*\)/g;
 

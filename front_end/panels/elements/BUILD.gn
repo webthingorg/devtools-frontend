@@ -31,6 +31,7 @@ devtools_module("elements") {
   sources = [
     "AccessibilityTreeUtils.ts",
     "AccessibilityTreeView.ts",
+    "CSSExpressionHelper.ts",
     "CSSRuleValidator.ts",
     "CSSRuleValidatorHelper.ts",
     "ClassesPaneWidget.ts",
@@ -150,6 +151,7 @@ ts_library("unittests") {
 
   sources = [
     "AccessibilityTreeView.test.ts",
+    "CSSExpressionHelper.test.ts",
     "CSSRuleValidator.test.ts",
     "ClassesPaneWidget.test.ts",
     "DOMLinkifier.test.ts",

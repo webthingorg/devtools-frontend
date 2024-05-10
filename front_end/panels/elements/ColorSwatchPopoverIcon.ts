@@ -158,7 +158,7 @@ export class ColorSwatchPopoverIcon extends Common.ObjectWrapper.ObjectWrapper<C
       if (cssVariable === this.treeElement.property.name) {
         continue;
       }
-      const value = matchedStyles.computeCSSVariable(style, cssVariable);
+      const value = matchedStyles.getVariableValue(style, cssVariable);
       if (!value) {
         continue;
       }

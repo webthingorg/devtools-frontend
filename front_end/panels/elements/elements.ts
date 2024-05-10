@@ -36,6 +36,7 @@ import * as ClassesPaneWidget from './ClassesPaneWidget.js';
 import * as ColorSwatchPopoverIcon from './ColorSwatchPopoverIcon.js';
 import * as ComputedStyleModel from './ComputedStyleModel.js';
 import * as ComputedStyleWidget from './ComputedStyleWidget.js';
+import * as CSSExpressionHelper from './CSSExpressionHelper.js';
 import * as CSSRuleValidator from './CSSRuleValidator.js';
 import * as DOMLinkifier from './DOMLinkifier.js';
 import * as DOMPath from './DOMPath.js';
@@ -71,6 +72,7 @@ export {
   ColorSwatchPopoverIcon,
   ComputedStyleModel,
   ComputedStyleWidget,
+  CSSExpressionHelper,
   CSSRuleValidator,
   DOMLinkifier,
   DOMPath,
