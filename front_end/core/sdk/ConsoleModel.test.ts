@@ -127,6 +127,7 @@ describeWithMockConnection('ConsoleMessage', () => {
     await getInitializedResourceTreeModel(mainFrameTarget);
     navigate(getMainFrame(mainFrameTarget), {}, Protocol.Page.NavigationType.BackForwardCacheRestore);
     assert.isTrue(consoleLog.calledOnce);
+    console.error(consoleLog.firstCall.firstArg);
     assert.isTrue(consoleLog.calledOnceWith(
         `Navigation to ${FRAME_URL} was restored from back/forward cache (see https://web.dev/bfcache/)`));
   });
