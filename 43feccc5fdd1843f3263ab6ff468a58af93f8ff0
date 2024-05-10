@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b4f2967_f8a4043e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-05-10T15:00:33Z",
+      "side": 1,
+      "message": "Ergün, please kindly take a look?:)",
+      "revId": "43feccc5fdd1843f3263ab6ff468a58af93f8ff0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
