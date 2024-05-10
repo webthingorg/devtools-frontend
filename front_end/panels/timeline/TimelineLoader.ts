@@ -167,7 +167,7 @@ export class TimelineLoader implements Common.StringOutputStream.OutputStream {
   /**
    * As TimelineLoader implements `Common.StringOutputStream.OutputStream`, `write()` is called when a
    * Common.StringOutputStream.StringOutputStream instance has decoded a chunk. This path is only used
-   * by `loadFromURL()`; it's NOT used by `loadFromEvents` or `loadFromFile`.
+   * by `loadFromFile()`; it's NOT used by `loadFromEvents` or `loadFromURL`.
    */
   async write(chunk: string, endOfFile: boolean): Promise<void> {
     if (!this.client) {
@@ -183,7 +183,7 @@ export class TimelineLoader implements Common.StringOutputStream.OutputStream {
       let progress = undefined;
       progress = this.buffer.length / this.totalSize;
       // For compressed traces, we can't provide a definite progress percentage. So, just keep it moving.
-      // For other traces, calculate a laoded part.
+      // For other traces, calculate a loaded part.
       progress = progress > 1 ? progress - Math.floor(progress) : progress;
       await this.client.loadingProgress(progress);
     }
