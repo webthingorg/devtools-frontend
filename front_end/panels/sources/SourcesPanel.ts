@@ -184,6 +184,7 @@ export class SourcesPanel extends UI.Panel.Panel implements
   private readonly debugToolbar: UI.Toolbar.Toolbar;
   private readonly debugToolbarDrawer: HTMLDivElement;
   private readonly debuggerPausedMessage: DebuggerPausedMessage;
+  private overlayLoggables?: {debuggerPausedMessage: {}, resumeButton: {}, stepOverButton: {}};
   private splitWidget: UI.SplitWidget.SplitWidget;
   editorView: UI.SplitWidget.SplitWidget;
   private navigatorTabbedLocation: UI.View.TabbedViewLocation;
@@ -486,9 +487,42 @@ export class SourcesPanel extends UI.Panel.Panel implements
     this.revealDebuggerSidebar();
     window.focus();
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.bringToFront();
+    if (!this.overlayLoggables) {
+      this.overlayLoggables = {debuggerPausedMessage: {}, resumeButton: {}, stepOverButton: {}};
+    }
+    VisualLogging.registerLoggable(
+        this.overlayLoggables.debuggerPausedMessage, `${VisualLogging.dialog('debugger-paused')}`, null);
+    VisualLogging.registerLoggable(
+        this.overlayLoggables.resumeButton, `${VisualLogging.action('debugger.toggle-pause')}`,
+        this.overlayLoggables.debuggerPausedMessage);
+    VisualLogging.registerLoggable(
+        this.overlayLoggables.stepOverButton, `${VisualLogging.action('debugger.step-over')}`,
+        this.overlayLoggables.debuggerPausedMessage);
+  }
+
+  private maybeLogOverlayAction(): void {
+    if (!this.overlayLoggables) {
+      return;
+    }
+    const byOverlayButton = !document.hasFocus();
+    window.setTimeout(() => {
+      if (!this.overlayLoggables) {
+        return;
+      }
+      if (byOverlayButton) {
+        VisualLogging.logClick(
+            this.pausedInternal ? this.overlayLoggables.stepOverButton : this.overlayLoggables.resumeButton,
+            new MouseEvent('click'));
+      }
+      if (!this.pausedInternal) {
+        VisualLogging.logResize(this.overlayLoggables.debuggerPausedMessage, new DOMRect(0, 0, 0, 0));
+        this.overlayLoggables = undefined;
+      }
+    }, 500);
   }
 
   private debuggerResumed(debuggerModel: SDK.DebuggerModel.DebuggerModel): void {
+    this.maybeLogOverlayAction();
     const target = debuggerModel.target();
     if (UI.Context.Context.instance().flavor(SDK.Target.Target) !== target) {
       return;
