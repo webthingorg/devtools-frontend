@@ -363,6 +363,21 @@ const UIStrings = {
    */
   prerenderFinalStatusActivationUrlHasEffectiveUrl:
       'The prerender was not used because during activation time, navigation has an effective URL that is different from its normal URL. (For example, the New Tab Page, or hosted apps.)',
+  // TODO(nhiroki): Please provide meaningful description.
+  /**
+   * Description text for PrenderFinalStatus::kJavaScriptInterfaceAdded.
+   */
+  prerenderJavaScriptInterfaceAdded: 'Unknown',
+  // TODO(nhiroki): Please provide meaningful description.
+  /**
+   * Description text for PrenderFinalStatus::JavaScriptInterfaceRemoved.
+   */
+  prerenderJavaScriptInterfaceRemoved: 'Unknown',
+  // TODO(nhiroki): Please provide meaningful description.
+  /**
+   * Description text for PrenderFinalStatus::kAllPrerenderingCanceled.
+   */
+  prerenderAllPrerenderingCanceled: 'Unknown',
 
   /**
    *@description Text in grid and details: Preloading attempt is not yet triggered.
@@ -666,6 +681,12 @@ export function prerenderFailureReason(attempt: SDK.PreloadingModel.PrerenderAtt
       return i18nString(UIStrings.prerenderFinalStatusRedirectedPrerenderingUrlHasEffectiveUrl);
     case Protocol.Preload.PrerenderFinalStatus.ActivationUrlHasEffectiveUrl:
       return i18nString(UIStrings.prerenderFinalStatusActivationUrlHasEffectiveUrl);
+    case Protocol.Preload.PrerenderFinalStatus.JavaScriptInterfaceAdded:
+      return i18nString(UIStrings.prerenderJavaScriptInterfaceAdded);
+    case Protocol.Preload.PrerenderFinalStatus.JavaScriptInterfaceRemoved:
+      return i18nString(UIStrings.prerenderJavaScriptInterfaceRemoved);
+    case Protocol.Preload.PrerenderFinalStatus.AllPrerenderingCanceled:
+      return i18nString(UIStrings.prerenderAllPrerenderingCanceled);
     default:
       // Note that we use switch and exhaustiveness check to prevent to
       // forget updating these strings, but allow to handle unknown
