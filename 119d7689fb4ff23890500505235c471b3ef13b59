@@ -39,6 +39,30 @@
       },
       "revId": "119d7689fb4ff23890500505235c471b3ef13b59",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a15efb7a_1f355d88",
+        "filename": "test/conductor/mocha_hooks.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2024-05-10T10:54:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8604923c_34aca49e",
+      "range": {
+        "startLine": 181,
+        "startChar": 11,
+        "endLine": 181,
+        "endChar": 12
+      },
+      "revId": "119d7689fb4ff23890500505235c471b3ef13b59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
