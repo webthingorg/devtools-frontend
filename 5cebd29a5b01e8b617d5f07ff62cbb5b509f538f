@@ -1,0 +1,85 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7151ee6d_b4a0de71",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-10T08:13:15Z",
+      "side": 1,
+      "message": "love it with two nits",
+      "revId": "5cebd29a5b01e8b617d5f07ff62cbb5b509f538f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8ee5498_1e5f9d6e",
+        "filename": "front_end/models/trace/types/Configuration.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-10T08:13:15Z",
+      "side": 1,
+      "message": "typo / bad sentence here",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 50
+      },
+      "revId": "5cebd29a5b01e8b617d5f07ff62cbb5b509f538f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "275eda68_8a5e7233",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1339,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-10T08:13:15Z",
+      "side": 1,
+      "message": "can we add `name: KnownEventNames.JSSample` here?",
+      "range": {
+        "startLine": 1332,
+        "startChar": 0,
+        "endLine": 1339,
+        "endChar": 1
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "34b561ff_625e6243",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/models/trace/types/TraceEvents.ts",
+              "range": {
+                "startLine": 1333,
+                "startChar": 0,
+                "endLine": 1333,
+                "endChar": 0
+              },
+              "replacement": "  name: KnownEventName.JSSample;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "5cebd29a5b01e8b617d5f07ff62cbb5b509f538f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
