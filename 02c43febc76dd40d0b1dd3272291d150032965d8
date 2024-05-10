@@ -33,6 +33,24 @@
       "message": "I ran coverage panel against things with a regular and generic trace.. This method goes unused in both cases. It looks deletable. \n\nBut i\u0027m okay leaving it here, assuming a subsequent CL wipes out even most of these parsing ones.",
       "revId": "02c43febc76dd40d0b1dd3272291d150032965d8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "464eba55_bf48d4be",
+        "filename": "front_end/models/timeline_model/TimelineModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-10T08:14:54Z",
+      "side": 1,
+      "message": "yeah - I am purposefully leaving the larger parsing ones to do in a future CL - but it is good to know that this is unused. I think we are now safely able to remove this model entirely but let\u0027s wait for after the M126 branch 😄",
+      "parentUuid": "38ef2b24_e4169367",
+      "revId": "02c43febc76dd40d0b1dd3272291d150032965d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
