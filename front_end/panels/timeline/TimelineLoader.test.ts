@@ -4,9 +4,9 @@
 
 import type * as Protocol from '../../generated/protocol.js';
 import type * as TimelineModel from '../../models/timeline_model/timeline_model.js';
-import * as TraceEngine from '../../models/trace/trace.js';
+import type * as TraceEngine from '../../models/trace/trace.js';
 import {describeWithEnvironment} from '../../testing/EnvironmentHelpers.js';
-import {makeFakeEventPayload} from '../../testing/TraceHelpers.js';
+import {makeBeginEvent, makeEndEvent} from '../../testing/TraceHelpers.js';
 
 import * as Timeline from './timeline.js';
 
@@ -129,21 +129,9 @@ describeWithEnvironment('TimelineLoader', () => {
   });
 
   it('can load recorded trace events correctly', async () => {
-    const testTraceEvents: TraceEngine.TracingManager.EventPayload[] = [
-      makeFakeEventPayload({
-        name: 'test-event',
-        ph: TraceEngine.Types.TraceEvents.Phase.BEGIN,
-        categories: ['testing1', 'testing2'],
-        ts: 1_000,
-        dur: 5_000,
-      }),
-      makeFakeEventPayload({
-        name: 'test-event',
-        ph: TraceEngine.Types.TraceEvents.Phase.COMPLETE,
-        categories: ['testing1', 'testing2'],
-        ts: 10_000,
-        dur: 5_000,
-      }),
+    const testTraceEvents: TraceEngine.Types.TraceEvents.TraceEventData[] = [
+      makeBeginEvent('test-event', 1_000),
+      makeEndEvent('test-event', 5_000),
     ];
     const loader = Timeline.TimelineLoader.TimelineLoader.loadFromEvents(testTraceEvents, client);
     await loader.traceFinalizedForTest();

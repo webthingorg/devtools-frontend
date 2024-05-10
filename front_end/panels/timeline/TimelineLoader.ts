@@ -77,7 +77,7 @@ export class TimelineLoader implements Common.StringOutputStream.OutputStream {
     return loader;
   }
 
-  static loadFromEvents(events: TraceEngine.TracingManager.EventPayload[], client: Client): TimelineLoader {
+  static loadFromEvents(events: TraceEngine.Types.TraceEvents.TraceEventData[], client: Client): TimelineLoader {
     const loader = new TimelineLoader(client);
     window.setTimeout(async () => {
       void loader.addEvents(events);
@@ -132,7 +132,7 @@ export class TimelineLoader implements Common.StringOutputStream.OutputStream {
     return loader;
   }
 
-  async addEvents(events: TraceEngine.TracingManager.EventPayload[]): Promise<void> {
+  async addEvents(events: TraceEngine.Types.TraceEvents.TraceEventData[]): Promise<void> {
     await this.client?.loadingStarted();
     /**
      * See the `eventsPerChunk` comment in `models/trace/types/Configuration.ts`.
@@ -144,7 +144,8 @@ export class TimelineLoader implements Common.StringOutputStream.OutputStream {
     for (let i = 0; i < events.length; i += eventsPerChunk) {
       const chunk = events.slice(i, i + eventsPerChunk);
       this.#collectEvents(chunk);
-      (this.tracingModel as TraceEngine.Legacy.TracingModel).addEvents(chunk);
+      (this.tracingModel as TraceEngine.Legacy.TracingModel)
+          .addEvents(chunk as unknown as TraceEngine.TracingManager.EventPayload[]);
       await this.client?.loadingProgress((i + chunk.length) / events.length);
       await new Promise(r => window.setTimeout(r, 0));  // Yield event loop to paint.
     }
@@ -214,7 +215,6 @@ export class TimelineLoader implements Common.StringOutputStream.OutputStream {
       return Promise.resolve();
     }
   }
-
   private reportErrorAndCancelLoading(message?: string): void {
     if (message) {
       Common.Console.Console.instance().error(message);
@@ -250,13 +250,12 @@ export class TimelineLoader implements Common.StringOutputStream.OutputStream {
   private parseCPUProfileFormat(parsedTrace: string): void {
     const traceEvents = TimelineModel.TimelineJSProfile.TimelineJSProfileProcessor.createFakeTraceFromCpuProfile(
         parsedTrace, /* tid */ 1, /* injectPageEvent */ true);
-    (this.tracingModel as TraceEngine.Legacy.TracingModel).addEvents(traceEvents);
+    (this.tracingModel as TraceEngine.Legacy.TracingModel)
+        .addEvents(traceEvents as unknown as TraceEngine.TracingManager.EventPayload[]);
     this.#collectEvents(traceEvents);
   }
 
-  #collectEvents(events: TraceEngine.TracingManager.EventPayload[]): void {
-    // Once the old engine is removed, this can be updated to use the types from the new engine and avoid the `as unknown`.
-    this.#collectedEvents =
-        this.#collectedEvents.concat(events as unknown as TraceEngine.Types.TraceEvents.TraceEventData);
+  #collectEvents(events: TraceEngine.Types.TraceEvents.TraceEventData[]): void {
+    this.#collectedEvents = this.#collectedEvents.concat(events);
   }
 }

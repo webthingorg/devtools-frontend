@@ -35,8 +35,8 @@ export class TimelineJSProfileProcessor {
   }
 
   static createFakeTraceFromCpuProfile(profile: any, tid: number, injectPageEvent: boolean, name?: string|null):
-      TraceEngine.TracingManager.EventPayload[] {
-    const events: TraceEngine.TracingManager.EventPayload[] = [];
+      TraceEngine.Types.TraceEvents.TraceEventData[] {
+    const events: TraceEngine.Types.TraceEvents.TraceEventData[] = [];
 
     if (injectPageEvent) {
       appendEvent('TracingStartedInPage', {data: {'sessionId': '1'}}, 0, 0, 'M');
@@ -57,12 +57,12 @@ export class TimelineJSProfileProcessor {
     return events;
 
     function appendEvent(name: string, args: any, ts: number, dur?: number, ph?: string, cat?: string):
-        TraceEngine.TracingManager.EventPayload {
+        TraceEngine.Types.TraceEvents.TraceEventData {
       const event =
           ({cat: cat || 'disabled-by-default-devtools.timeline', name, ph: ph || 'X', pid: 1, tid, ts, args} as
-           TraceEngine.TracingManager.EventPayload);
+           TraceEngine.Types.TraceEvents.TraceEventData);
       if (dur) {
-        event.dur = dur;
+        event.dur = TraceEngine.Types.Timing.MicroSeconds(dur);
       }
       events.push(event);
       return event;

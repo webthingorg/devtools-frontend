@@ -495,7 +495,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     this.#historyManager.cancelIfShowing();
   }
 
-  loadFromEvents(events: TraceEngine.TracingManager.EventPayload[]): void {
+  loadFromEvents(events: TraceEngine.Types.TraceEvents.TraceEventData[]): void {
     if (this.state !== State.Idle) {
       return;
     }

@@ -470,7 +470,7 @@ export function frameIDForEvent(event: Types.TraceEvents.TraceEventData): string
 }
 
 const DevToolsTimelineEventCategory = 'disabled-by-default-devtools.timeline';
-function isTopLevelEvent(event: Types.TraceEvents.TraceEventData): boolean {
+export function isTopLevelEvent(event: Types.TraceEvents.TraceEventData): boolean {
   return event.cat.includes(DevToolsTimelineEventCategory) && event.name === Types.TraceEvents.KnownEventName.RunTask;
 }
 
