@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57c932e9_ce035504",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1107806
+      },
+      "writtenOn": "2024-05-10T08:03:52Z",
+      "side": 1,
+      "message": "I do not have a TypeScript readability, but overall lgtm.",
+      "revId": "99ccf70a413510dd1c7baa1d0db0dd4bbc6fcec0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
