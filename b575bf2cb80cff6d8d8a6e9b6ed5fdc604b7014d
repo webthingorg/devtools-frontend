@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "21eaa19c_ec782feb",
+        "filename": "front_end/panels/sources/SourcesPanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 514,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-05-10T14:42:35Z",
+      "side": 1,
+      "message": "There\u0027re only \"resume\" and \"step over\" buttons in the overlay.",
+      "parentUuid": "786e956c_cbcb1915",
+      "range": {
+        "startLine": 514,
+        "startChar": 34,
+        "endLine": 514,
+        "endChar": 71
+      },
+      "revId": "b575bf2cb80cff6d8d8a6e9b6ed5fdc604b7014d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "794fcb7b_c352bb4c",
         "filename": "front_end/panels/sources/SourcesPanel.ts",
         "patchSetId": 2
@@ -37,6 +61,30 @@
       "writtenOn": "2024-05-10T10:07:17Z",
       "side": 1,
       "message": "Can you comment explaining the reason for the delay? Is this intended to run immediately before switchToPausedTarget or is that a coincidence?",
+      "range": {
+        "startLine": 521,
+        "startChar": 0,
+        "endLine": 521,
+        "endChar": 12
+      },
+      "revId": "b575bf2cb80cff6d8d8a6e9b6ed5fdc604b7014d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43468350_9fe0e8c4",
+        "filename": "front_end/panels/sources/SourcesPanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-05-10T14:42:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "794fcb7b_c352bb4c",
       "range": {
         "startLine": 521,
         "startChar": 0,
