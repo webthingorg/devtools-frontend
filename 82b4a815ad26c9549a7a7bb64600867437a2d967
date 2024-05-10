@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f63a01d9_e0bc61f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-05-10T12:13:09Z",
+      "side": 1,
+      "message": "Hi Kateryna,\n\nI\u0027m rolling the protocol with a patch, ptal!",
+      "revId": "82b4a815ad26c9549a7a7bb64600867437a2d967",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
