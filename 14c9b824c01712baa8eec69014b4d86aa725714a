@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "828763d8_1058befd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-05-10T08:37:47Z",
+      "side": 1,
+      "message": "LGTM with a few comments! :)",
+      "revId": "14c9b824c01712baa8eec69014b4d86aa725714a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "418c5892_89bbf266",
+        "filename": "front_end/ui/legacy/SearchableView.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-05-10T08:37:47Z",
+      "side": 1,
+      "message": "We don\u0027t need javascript to handle outline behavior thanks to `:has` selector in CSS. We can use these CSS rules to achieve the same behavior:\n\n```\n.replace-element:has(input:focus) {\n  box-shadow: inset 0 0 0 2px var(--sys-color-state-focus-ring);\n}\n\n.search-inputs:has(input[type\u003d\"search\"]:focus) .search-input-background {\n  box-shadow: inset 0 0 0 2px var(--sys-color-state-focus-ring);\n}\n```",
+      "revId": "14c9b824c01712baa8eec69014b4d86aa725714a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b132afe_c990e1cd",
+        "filename": "front_end/ui/legacy/SearchableView.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-05-10T08:37:47Z",
+      "side": 1,
+      "message": "One behavior difference from the previous version: we were not showing clear button when there is no input but now it is shown in default.\n\nI think it\u0027d make sense to keep that behavior, WDYT?",
+      "revId": "14c9b824c01712baa8eec69014b4d86aa725714a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34cbfcbc_7806c9c9",
+        "filename": "front_end/ui/legacy/SearchableView.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-05-10T08:37:47Z",
+      "side": 1,
+      "message": "When the `search-as-you-type` setting is enabled, calling `this.onInput` instead of `this.clearSearch` causes around 1s delay between the button click and the search to be cleared.\n\nI think we can call `this.clearSearch` here; WDYT?",
+      "revId": "14c9b824c01712baa8eec69014b4d86aa725714a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eeb34fa8_589fb594",
+        "filename": "front_end/ui/legacy/searchableView.css",
+        "patchSetId": 8
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-05-10T08:37:47Z",
+      "side": 1,
+      "message": "I\u0027m a bit afraid of directly using `devtools-icon[type\u003d\"search\"]` selector above to style the icon since the stylesheet is added in the #sources-panel-sources-view scope. This might cause other usages of the same icon to appear broken.\n\nWe can nest it inside .search-bar, WDYT?\n\n---\nAlso, I think these selectors (.icon-and-input, .input-line etc.) feel pretty generic too, WDYT of nesting them under `.search-bar`?",
+      "revId": "14c9b824c01712baa8eec69014b4d86aa725714a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49846a17_cb5f4530",
+        "filename": "front_end/ui/legacy/searchableView.css",
+        "patchSetId": 8
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-05-10T08:37:47Z",
+      "side": 1,
+      "message": "I think we can say `1fr` instead of `auto` here so that when the replace input is open the space for the first column is still the space remaining from the second column\u0027s content.\n\nOtherwise, the search input field is shrinking in smaller viewports even though there is still space to render it.",
+      "revId": "14c9b824c01712baa8eec69014b4d86aa725714a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
