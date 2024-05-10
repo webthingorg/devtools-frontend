@@ -16,6 +16,23 @@
       "message": "Hi Kateryna,\n\nhere are two fixes to the styles of the filter bars, ptal!",
       "revId": "638d5f54a1742b8253fdeb815ae20a3e292a515b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "63aa8887_b1cb7485",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-05-10T08:23:00Z",
+      "side": 1,
+      "message": "LGTM, thanks!",
+      "revId": "638d5f54a1742b8253fdeb815ae20a3e292a515b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
