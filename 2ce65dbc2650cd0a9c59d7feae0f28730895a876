@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9109b795_6cb0c021",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-05-10T12:30:12Z",
+      "side": 1,
+      "message": "Thanks for the review 😊\n\n@nhiroki@chromium.org: Please have a look at this later to add meaningful descriptions :)",
+      "revId": "2ce65dbc2650cd0a9c59d7feae0f28730895a876",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
