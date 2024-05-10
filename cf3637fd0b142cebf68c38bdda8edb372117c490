@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55903cb2_d1565bc6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-05-10T16:33:28Z",
+      "side": 1,
+      "message": "love these! \n\nbtw i tested this out a bit and all good. loadFromFile and loadFromUrl with traces, cpu profiles, gz and not.",
+      "revId": "cf3637fd0b142cebf68c38bdda8edb372117c490",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81ef98f1_4de728ad",
+        "filename": "front_end/panels/timeline/TimelineLoader.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-05-10T16:33:28Z",
+      "side": 1,
+      "message": "```suggestion\n  #resolveParsedFile(trace: ParsedJSONTrace): void {\n```\n\ni mostly want to replace `load` with something else.. as I really like how this file has 3 `load*` methods that are the primary entrypoints.\n\nnaming wise i\u0027m fine with `TraceOrCPUProfile` but... kinda think if its important to call that out them lets use ~that name for `ParsedJSONTrace`.",
+      "revId": "cf3637fd0b142cebf68c38bdda8edb372117c490",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95d14dfb_ec295142",
+        "filename": "front_end/panels/timeline/TimelineLoader.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-05-10T16:33:28Z",
+      "side": 1,
+      "message": "```suggestion\n    // We know that this is NOT a raw CPU Profile if it has traceEvents\n```\n\nI mean if this comment was _within_ the `if` block i wouldnt have suggested the edit.. nahmean?",
+      "revId": "cf3637fd0b142cebf68c38bdda8edb372117c490",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "125ec169_e31bccca",
+        "filename": "front_end/panels/timeline/TimelineLoader.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-05-10T16:33:28Z",
+      "side": 1,
+      "message": "```suggestion\ntype ParsedJSONFile \u003d TraceEngine.Types.File.Contents|Protocol.Profiler.Profile;\n```\n\nmaybe? feels weird calling it a trace when it might be a profile",
+      "revId": "cf3637fd0b142cebf68c38bdda8edb372117c490",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
