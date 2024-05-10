@@ -109,7 +109,6 @@ export const mochaHooks = {
 
     await writeCoverageReports();
     copyGoldens();
-
   },
   // In both modes, run before each test.
   beforeEach: async function(this: Mocha.Context) {
