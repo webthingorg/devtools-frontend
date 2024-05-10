@@ -3,10 +3,9 @@
 // found in the LICENSE file.
 
 import * as Protocol from '../../generated/protocol.js';
-import * as TextUtils from '../../models/text_utils/text_utils.js';
 import * as Platform from '../platform/platform.js';
 
-import {cssMetadata, VariableRegex} from './CSSMetadata.js';
+import {cssMetadata} from './CSSMetadata.js';
 import {type CSSModel} from './CSSModel.js';
 import {type CSSProperty} from './CSSProperty.js';
 import {
@@ -19,14 +18,6 @@ import {
 } from './CSSRule.js';
 import {CSSStyleDeclaration, Type} from './CSSStyleDeclaration.js';
 import {type DOMNode} from './DOMModel.js';
-
-export function parseCSSVariableNameAndFallback(cssVariableValue: string): {
-  variableName: string|null,
-  fallback: string|null,
-} {
-  const match = cssVariableValue.match(/var\(\s*(--(?:[\s\w\P{ASCII}-]|\\.)+),?\s*(.*)\s*\)/u);
-  return {variableName: match && match[1].trim(), fallback: match && match[2]};
-}
 
 function containsStyle(styles: CSSStyleDeclaration[]|Set<CSSStyleDeclaration>, query: CSSStyleDeclaration): boolean {
   if (!query.styleSheetId || !query.range) {
@@ -724,25 +715,9 @@ export class CSSMatchedStyles {
     return domCascade ? domCascade.findAvailableCSSVariables(style) : [];
   }
 
-  computeCSSVariable(style: CSSStyleDeclaration, variableName: string): CSSVariableValue|null {
+  getVariableValue(style: CSSStyleDeclaration, variableName: string): CSSVariableValue|null {
     const domCascade = this.#styleToDOMCascade.get(style) || null;
-    return domCascade ? domCascade.computeCSSVariable(style, variableName) : null;
-  }
-
-  computeValue(style: CSSStyleDeclaration, value: string): string|null {
-    const domCascade = this.#styleToDOMCascade.get(style) || null;
-    return domCascade ? domCascade.computeValue(style, value) : null;
-  }
-
-  /**
-   * Same as computeValue, but to be used for `var(--#name [,...])` values only
-   */
-  computeSingleVariableValue(style: CSSStyleDeclaration, cssVariableValue: string): {
-    computedValue: string|null,
-    fromFallback: boolean,
-  }|null {
-    const domCascade = this.#styleToDOMCascade.get(style) || null;
-    return domCascade ? domCascade.computeSingleVariableValue(style, cssVariableValue) : null;
+    return domCascade ? domCascade.getVariableValue(style, variableName) : null;
   }
 
   isInherited(style: CSSStyleDeclaration): boolean {
@@ -861,14 +836,13 @@ class NodeCascade {
 
 export interface CSSVariableValue {
   value: string;
-  declaration: CSSProperty|CSSRegisteredProperty|null;
+  declaration: CSSProperty|CSSRegisteredProperty;
 }
 
 class DOMInheritanceCascade {
   readonly #nodeCascades: NodeCascade[];
   readonly #propertiesState: Map<CSSProperty, PropertyState>;
   readonly #availableCSSVariables: Map<NodeCascade, Map<string, CSSVariableValue|null>>;
-  readonly #computedCSSVariables: Map<NodeCascade, Map<string, CSSVariableValue|null>>;
   #initialized: boolean;
   readonly #styleToNodeCascade: Map<CSSStyleDeclaration, NodeCascade>;
   #registeredProperties: CSSRegisteredProperty[];
@@ -876,7 +850,6 @@ class DOMInheritanceCascade {
     this.#nodeCascades = nodeCascades;
     this.#propertiesState = new Map();
     this.#availableCSSVariables = new Map();
-    this.#computedCSSVariables = new Map();
     this.#initialized = false;
     this.#registeredProperties = registeredProperties;
 
@@ -901,104 +874,27 @@ class DOMInheritanceCascade {
     return Array.from(availableCSSVariables.keys());
   }
 
-  computeCSSVariable(style: CSSStyleDeclaration, variableName: string): CSSVariableValue|null {
+  getVariableValue(style: CSSStyleDeclaration, variableName: string): CSSVariableValue|null {
     const nodeCascade = this.#styleToNodeCascade.get(style);
     if (!nodeCascade) {
       return null;
     }
     this.ensureInitialized();
     const availableCSSVariables = this.#availableCSSVariables.get(nodeCascade);
-    const computedCSSVariables = this.#computedCSSVariables.get(nodeCascade);
-    if (!availableCSSVariables || !computedCSSVariables) {
+    if (!availableCSSVariables) {
       return null;
     }
-    return this.innerComputeCSSVariable(availableCSSVariables, computedCSSVariables, variableName);
-  }
 
-  computeValue(style: CSSStyleDeclaration, value: string): string|null {
-    const nodeCascade = this.#styleToNodeCascade.get(style);
-    if (!nodeCascade) {
-      return null;
-    }
-    this.ensureInitialized();
-    const availableCSSVariables = this.#availableCSSVariables.get(nodeCascade);
-    const computedCSSVariables = this.#computedCSSVariables.get(nodeCascade);
-    if (!availableCSSVariables || !computedCSSVariables) {
-      return null;
-    }
-    return this.innerComputeValue(availableCSSVariables, computedCSSVariables, value);
-  }
-
-  computeSingleVariableValue(style: CSSStyleDeclaration, cssVariableValue: string): {
-    computedValue: string|null,
-    fromFallback: boolean,
-  }|null {
-    const nodeCascade = this.#styleToNodeCascade.get(style);
-    if (!nodeCascade) {
-      return null;
-    }
-    this.ensureInitialized();
-    const availableCSSVariables = this.#availableCSSVariables.get(nodeCascade);
-    const computedCSSVariables = this.#computedCSSVariables.get(nodeCascade);
-    if (!availableCSSVariables || !computedCSSVariables) {
-      return null;
-    }
-    const computedValue = this.innerComputeValue(availableCSSVariables, computedCSSVariables, cssVariableValue);
-    const {variableName} = parseCSSVariableNameAndFallback(cssVariableValue);
-
-    return {
-      computedValue: computedValue,
-      fromFallback: variableName !== null && !availableCSSVariables.has(variableName),
-    };
-  }
-
-  private innerComputeCSSVariable(
-      availableCSSVariables: Map<string, CSSVariableValue|null>,
-      computedCSSVariables: Map<string, CSSVariableValue|null>, variableName: string): CSSVariableValue|null {
     if (!availableCSSVariables.has(variableName)) {
       return null;
     }
-    if (computedCSSVariables.has(variableName)) {
-      return computedCSSVariables.get(variableName) || null;
-    }
-    // Set dummy value to avoid infinite recursion.
-    computedCSSVariables.set(variableName, null);
+
     const definedValue = availableCSSVariables.get(variableName);
     if (definedValue === undefined || definedValue === null) {
       return null;
     }
-    const computedValue = this.innerComputeValue(availableCSSVariables, computedCSSVariables, definedValue.value);
-    const value = computedValue ? {value: computedValue, declaration: definedValue.declaration} : null;
-    computedCSSVariables.set(variableName, value);
-    return value;
-  }
 
-  private innerComputeValue(
-      availableCSSVariables: Map<string, CSSVariableValue|null>,
-      computedCSSVariables: Map<string, CSSVariableValue|null>, value: string): string|null {
-    const results = TextUtils.TextUtils.Utils.splitStringByRegexes(value, [VariableRegex]);
-    const tokens = [];
-    for (const result of results) {
-      if (result.regexIndex === -1) {
-        tokens.push(result.value);
-        continue;
-      }
-      // process var() function
-      const {variableName, fallback} = parseCSSVariableNameAndFallback(result.value);
-      if (!variableName) {
-        return null;
-      }
-      const computedValue = this.innerComputeCSSVariable(availableCSSVariables, computedCSSVariables, variableName);
-      if (computedValue === null && !fallback) {
-        return null;
-      }
-      if (computedValue === null) {
-        tokens.push(fallback);
-      } else {
-        tokens.push(computedValue.value);
-      }
-    }
-    return tokens.map(token => token ? token.trim() : '').join(' ');
+    return definedValue;
   }
 
   styles(): CSSStyleDeclaration[] {
@@ -1014,7 +910,6 @@ class DOMInheritanceCascade {
     this.#initialized = false;
     this.#propertiesState.clear();
     this.#availableCSSVariables.clear();
-    this.#computedCSSVariables.clear();
   }
 
   private ensureInitialized(): void {
@@ -1084,19 +979,7 @@ class DOMInheritanceCascade {
         }
       }
       const availableCSSVariablesMap = new Map(accumulatedCSSVariables);
-      const computedVariablesMap = new Map();
       this.#availableCSSVariables.set(nodeCascade, availableCSSVariablesMap);
-      this.#computedCSSVariables.set(nodeCascade, computedVariablesMap);
-      for (const variableName of variableNames) {
-        const prevValue = accumulatedCSSVariables.get(variableName);
-        accumulatedCSSVariables.delete(variableName);
-        const computedValue =
-            this.innerComputeCSSVariable(availableCSSVariablesMap, computedVariablesMap, variableName);
-        if (prevValue && computedValue?.value === prevValue.value) {
-          computedValue.declaration = prevValue.declaration;
-        }
-        accumulatedCSSVariables.set(variableName, computedValue);
-      }
     }
   }
 }

@@ -2137,7 +2137,7 @@ export class CSSPropertyPrompt extends UI.TextPrompt.TextPrompt {
       };
       if (variable) {
         const computedValue =
-            this.treeElement.matchedStyles().computeCSSVariable(this.treeElement.property.ownerStyle, completion);
+            this.treeElement.matchedStyles().getVariableValue(this.treeElement.property.ownerStyle, completion);
         if (computedValue) {
           const color = Common.Color.parse(computedValue.value);
           if (color) {

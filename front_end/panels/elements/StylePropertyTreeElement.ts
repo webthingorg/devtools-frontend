@@ -25,6 +25,7 @@ import {
   ShadowSwatchPopoverHelper,
 } from './ColorSwatchPopoverIcon.js';
 import * as ElementsComponents from './components/components.js';
+import {resolveCSSExpressionWithVar} from './CSSExpressionHelper.js';
 import {cssRuleValidatorsMap, type Hint} from './CSSRuleValidator.js';
 import {ElementsPanel} from './ElementsPanel.js';
 import {
@@ -139,7 +140,6 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('panels/elements/StylePropertyTreeElement.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 const parentMap = new WeakMap<StylesSidebarPane, StylePropertyTreeElement>();
-
 interface StylePropertyTreeElementParams {
   stylesPane: StylesSidebarPane;
   section: StylePropertiesSection;
@@ -160,34 +160,18 @@ export class VariableRenderer implements MatchRenderer<VariableMatch> {
   }
 
   matcher(): VariableMatcher {
-    return new VariableMatcher(this.computedText.bind(this));
-  }
-
-  resolveVariable(match: VariableMatch): SDK.CSSMatchedStyles.CSSVariableValue|null {
-    return this.#matchedStyles.computeCSSVariable(this.#style, match.name);
-  }
-
-  fallbackValue(match: VariableMatch, matching: BottomUpTreeMatching): string|null {
-    if (match.fallback.length === 0 || match.fallback.some(node => matching.hasUnresolvedVars(node))) {
-      return null;
-    }
-    return match.fallback.map(node => matching.getComputedText(node)).join(' ');
-  }
-
-  computedText(match: VariableMatch, matching: BottomUpTreeMatching): string|null {
-    return this.resolveVariable(
-                   match,
-                   )
-               ?.value ??
-        this.fallbackValue(match, matching);
+    return new VariableMatcher((match: VariableMatch) => {
+      return resolveCSSExpressionWithVar(this.#treeElement.matchedStyles(), this.#style, match.text);
+    });
   }
 
   render(match: VariableMatch, context: RenderingContext): Node[] {
     const renderedFallback = match.fallback.length > 0 ? Renderer.render(match.fallback, context) : undefined;
 
-    const {declaration, value: variableValue} = this.resolveVariable(match) ?? {};
+    const {declaration, value: variableValue} =
+        this.#treeElement.matchedStyles().getVariableValue(this.#style, match.name) || {};
+    const computedValue = resolveCSSExpressionWithVar(this.#treeElement.matchedStyles(), this.#style, match.text);
     const fromFallback = !variableValue;
-    const computedValue = variableValue ?? this.fallbackValue(match, context.matchedResult);
 
     const varSwatch = new InlineEditor.LinkSwatch.CSSVarSwatch();
     varSwatch.data = {
@@ -213,7 +197,9 @@ export class VariableRenderer implements MatchRenderer<VariableMatch> {
 
     if (varSwatch.link) {
       this.#pane.addPopover(varSwatch.link, {
-        contents: () => this.#treeElement.getVariablePopoverContents(match.name, variableValue ?? null),
+        // If the `variableValue` exists, it means the variable exists. Though we prefer showing the computed value of the variable
+        // instead of showing its immediate value.
+        contents: () => this.#treeElement.getVariablePopoverContents(match.name, variableValue ? computedValue : null),
         jslogContext: 'elements.css-var',
       });
     }
@@ -229,10 +215,6 @@ export class VariableRenderer implements MatchRenderer<VariableMatch> {
 
   get #pane(): StylesSidebarPane {
     return this.#treeElement.parentPane();
-  }
-
-  get #matchedStyles(): SDK.CSSMatchedStyles.CSSMatchedStyles {
-    return this.#treeElement.matchedStyles();
   }
 
   #handleVarDefinitionActivate(variable: string|SDK.CSSProperty.CSSProperty|
@@ -532,8 +514,9 @@ export class AngleRenderer implements MatchRenderer<AngleMatch> {
     cssAngle.setAttribute('jslog', `${VisualLogging.showStyleEditor().track({click: true}).context('css-angle')}`);
     const valueElement = document.createElement('span');
     valueElement.textContent = angleText;
-    const computedPropertyValue = this.#treeElement.matchedStyles().computeValue(
-                                      this.#treeElement.property.ownerStyle, this.#treeElement.property.value) ||
+    const computedPropertyValue = resolveCSSExpressionWithVar(
+                                      this.#treeElement.matchedStyles(), this.#treeElement.property.ownerStyle,
+                                      this.#treeElement.property.value) ||
         '';
     cssAngle.data = {
       propertyName: this.#treeElement.property.name,
@@ -567,8 +550,9 @@ export class AngleRenderer implements MatchRenderer<AngleMatch> {
     cssAngle.addEventListener('valuechanged', async ({data}) => {
       valueElement.textContent = data.value;
       await this.#treeElement.applyStyleText(this.#treeElement.renderedPropertyText(), false);
-      const computedPropertyValue = this.#treeElement.matchedStyles().computeValue(
-                                        this.#treeElement.property.ownerStyle, this.#treeElement.property.value) ||
+      const computedPropertyValue = resolveCSSExpressionWithVar(
+                                        this.#treeElement.matchedStyles(), this.#treeElement.property.ownerStyle,
+                                        this.#treeElement.property.value) ||
           '';
       cssAngle.updateProperty(this.#treeElement.property.name, computedPropertyValue);
     });
@@ -1376,7 +1360,8 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
   }
 
   updateTitleIfComputedValueChanged(): void {
-    const computedValue = this.matchedStylesInternal.computeValue(this.property.ownerStyle, this.property.value);
+    const computedValue =
+        resolveCSSExpressionWithVar(this.matchedStylesInternal, this.property.ownerStyle, this.property.value);
     if (computedValue === this.lastComputedValue) {
       return;
     }
@@ -1385,7 +1370,8 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
   }
 
   updateTitle(): void {
-    this.lastComputedValue = this.matchedStylesInternal.computeValue(this.property.ownerStyle, this.property.value);
+    this.lastComputedValue =
+        resolveCSSExpressionWithVar(this.matchedStylesInternal, this.property.ownerStyle, this.property.value);
     this.innerUpdateTitle();
   }
 
@@ -1424,7 +1410,8 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
       this.parentPaneInternal.addPopover(this.nameElement, {
         contents: () => this.getVariablePopoverContents(
             this.property.name,
-            this.matchedStylesInternal.computeCSSVariable(this.style, this.property.name)?.value ?? null),
+            resolveCSSExpressionWithVar(this.matchedStylesInternal, this.style, `var(${this.property.name})`),
+            ),
         jslogContext: 'elements.css-var',
       });
     }
