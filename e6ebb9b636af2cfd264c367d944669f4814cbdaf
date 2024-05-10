@@ -16,6 +16,46 @@
       "message": "Flaky tests not so much flaky as... broken. I was mutating configuration.DEFAULT by accident..  Going to propose a fix to that in a followup.",
       "revId": "e6ebb9b636af2cfd264c367d944669f4814cbdaf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1331f37_212cb20b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-05-10T06:16:07Z",
+      "side": 1,
+      "message": "LGTM, thanks!",
+      "revId": "e6ebb9b636af2cfd264c367d944669f4814cbdaf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52543cd4_f75d8b7c",
+        "filename": "front_end/models/trace/helpers/SamplesIntegrator.test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-05-10T06:16:07Z",
+      "side": 1,
+      "message": "took me a while to realize why this behaviour is different from the one before, we def. should to make the default config code less prone to overwriting!  😄",
+      "range": {
+        "startLine": 68,
+        "startChar": 21,
+        "endLine": 71,
+        "endChar": 10
+      },
+      "revId": "e6ebb9b636af2cfd264c367d944669f4814cbdaf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
