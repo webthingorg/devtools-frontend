@@ -16,6 +16,23 @@
       "message": "I do not have a TypeScript readability, but overall lgtm.",
       "revId": "99ccf70a413510dd1c7baa1d0db0dd4bbc6fcec0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be853f74_638c9fa9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3362409
+      },
+      "writtenOn": "2024-05-10T10:03:53Z",
+      "side": 1,
+      "message": "LGTM :)",
+      "revId": "99ccf70a413510dd1c7baa1d0db0dd4bbc6fcec0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
