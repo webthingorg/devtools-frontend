@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "520fb682_8dfabef7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-05-10T08:45:36Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "2d5393e50c9d7ec1fd329ad6ed8ced7fb2bd7dba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aff1c707_41a18c28",
+        "filename": "front_end/core/sdk/ConsoleModel.test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-05-10T08:45:36Z",
+      "side": 1,
+      "message": "remove?",
+      "range": {
+        "startLine": 130,
+        "startChar": 4,
+        "endLine": 130,
+        "endChar": 49
+      },
+      "revId": "2d5393e50c9d7ec1fd329ad6ed8ced7fb2bd7dba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
