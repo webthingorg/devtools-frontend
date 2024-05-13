@@ -13,14 +13,18 @@
   display: inline;
   pointer-events: auto;
   outline-offset: 2px;
-}
 
-.node-link:focus-visible {
-  outline-width: unset;
+  &:focus-visible {
+    outline-width: unset;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .node-label-name {
-  color: var(--sys-color-token-property-special);
+  color: var(--text-link);
 }
 
 .node-label-class,
