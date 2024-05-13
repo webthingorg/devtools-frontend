@@ -16,6 +16,52 @@
       "message": "Note: Nearly all call-sites are guaranteed to be text content. E.g snippets are always JS and performance traces/lighthouse reports are always JSON",
       "revId": "717913cf551d94d27cfc42da105debafd2e4f8c3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ee73b22_0843e8c0",
+        "filename": "front_end/models/persistence/PersistenceAction.test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-05-13T10:17:53Z",
+      "side": 1,
+      "message": "Use `event` here as well?",
+      "range": {
+        "startLine": 37,
+        "startChar": 39,
+        "endLine": 37,
+        "endChar": 58
+      },
+      "revId": "717913cf551d94d27cfc42da105debafd2e4f8c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6853bf4f_fbfc2f9e",
+        "filename": "front_end/models/persistence/PersistenceAction.test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-05-13T10:17:53Z",
+      "side": 1,
+      "message": "import {expectCall} form \u0027\u0027../../testing/ExpectStubCall.js\u0027;\n\n    ...\n\n    await expectCall(saveStub);",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 0
+      },
+      "revId": "717913cf551d94d27cfc42da105debafd2e4f8c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
