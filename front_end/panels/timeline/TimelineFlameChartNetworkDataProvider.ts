@@ -5,7 +5,7 @@
 import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
-import type * as Protocol from '../../generated/protocol.js';
+import * as Protocol from '../../generated/protocol.js';
 import * as TraceEngine from '../../models/trace/trace.js';
 import * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 import * as UI from '../../ui/legacy/legacy.js';
@@ -19,7 +19,8 @@ import {TimelineSelection} from './TimelineSelection.js';
 export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.FlameChartDataProvider {
   #minimumBoundaryInternal: number;
   #timeSpan: number;
-  #events: TraceEngine.Types.TraceEvents.SyntheticNetworkRequest[];
+  #events: (TraceEngine.Types.TraceEvents.SyntheticNetworkRequest|
+            TraceEngine.Types.TraceEvents.SyntheticWebSocketEvent)[];
   #maxLevel: number;
   #networkTrackAppender: NetworkTrackAppender|null;
 
@@ -40,6 +41,113 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
     this.#timelineDataInternal = null;
     this.#traceEngineData = traceEngineData;
     this.#events = traceEngineData?.NetworkRequests.byTime || [];
+    // processing websocket
+    traceEngineData?.WebSockets.traceData.forEach(webSocketData => {
+      const startEndEventsMap = new Map<
+          number,
+          (TraceEngine.Types.TraceEvents.TraceEventWebSocketCreate |
+           TraceEngine.Types.TraceEvents.TraceEventWebSocketDestroy | null)[]>();
+
+      for (const event of webSocketData.events) {
+        if (TraceEngine.Types.TraceEvents.isTraceEventWebSocketCreate(event)) {
+          const pidItem = startEndEventsMap.get(event.pid);
+          if (pidItem) {
+            pidItem[0] = event;
+          } else {
+            startEndEventsMap.set(event.pid, [event, null]);
+          }
+        }
+        if (TraceEngine.Types.TraceEvents.isTraceEventWebSocketDestroy(event)) {
+          const pidItem = startEndEventsMap.get(event.pid);
+          if (pidItem) {
+            pidItem[1] = event;
+          } else {
+            startEndEventsMap.set(event.pid, [null, event]);
+          }
+        }
+      }
+      for (const value of startEndEventsMap.values()) {
+        if (value[0] && value[1]) {
+          const duration = value[1].ts - value[0].ts;
+          const syntheticWebSocketEvent: TraceEngine.Types.TraceEvents.SyntheticWebSocketEvent = {
+            name: 'SyntheticWebSocketEvent',
+            cat: value[0].cat,
+            ph: value[0].ph,
+
+            ts: value[0].ts,
+            dur: duration as TraceEngine.Types.Timing.MicroSeconds,
+            pid: value[0].pid,
+            tid: value[0].tid,
+            s: value[0].s,
+
+            args: {
+              data: {
+                url: value[0].args.data.url || '',
+                identifier: value[0].args.data.identifier as number,
+                frame: value[0].args.data.frame,
+                priority: Protocol.Network.ResourcePriority.Low,
+                subEvents: webSocketData.events,
+              },
+            },
+          };
+          this.#events.push(syntheticWebSocketEvent);
+        } else if (value[0]) {
+          const {traceBounds} = traceEngineData.Meta;
+          const duration = traceBounds.max - value[0].ts;
+          const syntheticWebSocketEvent: TraceEngine.Types.TraceEvents.SyntheticWebSocketEvent = {
+            name: 'SyntheticWebSocketEvent',
+            cat: value[0].cat,
+            ph: value[0].ph,
+
+            ts: value[0].ts,
+            dur: duration as TraceEngine.Types.Timing.MicroSeconds,
+            pid: value[0].pid,
+            tid: value[0].tid,
+            s: value[0].s,
+
+            args: {
+              data: {
+                url: value[0].args.data.url || '',
+                identifier: value[0].args.data.identifier as number,
+                frame: value[0].args.data.frame,
+                priority: Protocol.Network.ResourcePriority.Low,
+                subEvents: webSocketData.events,
+              },
+            },
+          };
+          this.#events.push(syntheticWebSocketEvent);
+        } else if (value[1]) {
+          const {traceBounds} = traceEngineData.Meta;
+          const duration = value[1].ts - traceBounds.min;
+          const syntheticWebSocketEvent: TraceEngine.Types.TraceEvents.SyntheticWebSocketEvent = {
+            name: 'SyntheticWebSocketEvent',
+            cat: value[1].cat,
+            ph: value[1].ph,
+
+            ts: value[1].ts,
+            dur: duration as TraceEngine.Types.Timing.MicroSeconds,
+            pid: value[1].pid,
+            tid: value[1].tid,
+            s: value[1].s,
+
+            args: {
+              data: {
+                url: value[1].args.data.url || '',
+                identifier: value[1].args.data.identifier as number,
+                frame: value[1].args.data.frame,
+                priority: Protocol.Network.ResourcePriority.Low,
+                subEvents: webSocketData.events,
+              },
+            },
+          };
+          this.#events.push(syntheticWebSocketEvent);
+        }
+      }
+
+      for (const event of webSocketData.events) {
+        this.#events.push(event as unknown as TraceEngine.Types.TraceEvents.SyntheticNetworkRequest);
+      }
+    });
 
     if (this.#traceEngineData) {
       this.#setTimingBoundsData(this.#traceEngineData);
@@ -130,6 +238,9 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
 
   entryTitle(index: number): string|null {
     const event = this.#events[index];
+    if (TraceEngine.Types.TraceEvents.isWebSocketTraceEvent(event)) {
+      return this.#networkTrackAppender?.titleForWebSocketEvent(event) || '';
+    }
     const parsedURL = new Common.ParsedURL.ParsedURL(event.args.data.url);
     return parsedURL.isValid ? `${parsedURL.displayName} (${parsedURL.host})` : event.args.data.url || null;
   }
@@ -202,6 +313,27 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
       barWidth: number, barHeight: number, unclippedBarX: number, timeToPixelRatio: number): boolean {
     const event = this.#events[index];
 
+    if (TraceEngine.Types.TraceEvents.isSyntheticWebSocketEvent(event)) {
+      const beginTime = TraceEngine.Helpers.Timing.microSecondsToMilliseconds(event.ts);
+      const timeToPixel = (time: number): number => Math.floor(unclippedBarX + (time - beginTime) * timeToPixelRatio);
+      const endTime = TraceEngine.Helpers.Timing.microSecondsToMilliseconds(
+          (event.ts + event.dur) as TraceEngine.Types.Timing.MicroSeconds);
+      const start = timeToPixel(beginTime) + 0.5;
+      const end = timeToPixel(endTime) - 0.5;
+      context.strokeStyle = '#ccc';
+
+      const lineY = Math.floor(barY + barHeight / 2) + 0.5;
+      context.moveTo(start, lineY);
+      context.setLineDash([6, 4]);
+      context.lineTo(end, lineY);
+      context.stroke();
+      context.restore();
+      return true;
+    }
+    if (TraceEngine.Types.TraceEvents.isSyntheticNetworkRequestDetailsEvent(event) === false) {
+      return false;
+    }
+
     const {sendStart, headersEnd, finish, start, end} =
         this.getDecorationPixels(event, unclippedBarX, timeToPixelRatio);
 
@@ -267,6 +399,9 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
   prepareHighlightedEntryInfo(index: number): Element|null {
     const /** @const */ maxURLChars = 80;
     const event = this.#events[index];
+    if (TraceEngine.Types.TraceEvents.isSyntheticWebSocketEvent(event)) {
+      return null;
+    }
     const element = document.createElement('div');
     const root = UI.UIUtils.createShadowRootWithCoreStyles(element, {
       cssFile: [timelineFlamechartPopoverStyles],
@@ -282,7 +417,13 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
     const div = (contents.createChild('span') as HTMLElement);
     div.textContent = PerfUI.NetworkPriorities.uiLabelForNetworkPriority((event.args.data.priority));
     div.style.color = this.#colorForPriority(event.args.data.priority) || 'black';
-    contents.createChild('span').textContent = Platform.StringUtilities.trimMiddle(event.args.data.url, maxURLChars);
+    if (TraceEngine.Types.TraceEvents.isWebSocketTraceEvent(event)) {
+      const title = this.#networkTrackAppender?.titleForWebSocketEvent(event) || '';
+      contents.createChild('span').textContent = Platform.StringUtilities.trimMiddle(title, maxURLChars);
+    } else {
+      contents.createChild('span').textContent = Platform.StringUtilities.trimMiddle(event.args.data.url, maxURLChars);
+    }
+
     return element;
   }
 
@@ -310,12 +451,14 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
    * PerfUI.FlameChart.FlameChartTimelineData instance to force the flamechart
    * to re-render.
    */
+  /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
   #updateTimelineData(startTime: number, endTime: number): void {
     if (!this.#networkTrackAppender || !this.#timelineDataInternal) {
       return;
     }
+    // TODO: This is hiding rows, need to fix when there is websocket messages
     this.#maxLevel = this.#networkTrackAppender.filterTimelineDataBetweenTimes(
-        TraceEngine.Types.Timing.MilliSeconds(startTime), TraceEngine.Types.Timing.MilliSeconds(endTime));
+        this.#events, TraceEngine.Types.Timing.MilliSeconds(startTime), TraceEngine.Types.Timing.MilliSeconds(endTime));
 
     // TODO(crbug.com/1459225): Remove this recreating code.
     // Force to create a new PerfUI.FlameChart.FlameChartTimelineData instance
