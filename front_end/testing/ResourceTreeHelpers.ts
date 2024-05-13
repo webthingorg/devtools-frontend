@@ -81,6 +81,19 @@ export function getMainFrame(
   return mainFrame;
 }
 
+export async function addChildFrame(target: SDK.Target.Target, framePayload?: Partial<Protocol.Page.Frame>):
+    Promise<SDK.ResourceTreeModel.ResourceTreeFrame> {
+  const resourceTreeModel = await getInitializedResourceTreeModel(target);
+  getMainFrame(target);
+  const childFrame =
+      resourceTreeModel.frameAttached(`CHILD_FRAME_${++childFrameId}` as Protocol.Page.FrameId, MAIN_FRAME_ID);
+  assert.exists(childFrame);
+  if (framePayload) {
+    navigate(childFrame, {...FRAME, ...framePayload});
+  }
+  return childFrame;
+}
+
 export function navigate(
     frame: SDK.ResourceTreeModel.ResourceTreeFrame, framePayload?: Partial<Protocol.Page.Frame>,
     type: Protocol.Page.NavigationType = Protocol.Page.NavigationType.Navigation) {
