@@ -176,7 +176,11 @@ describeWithDevtoolsExtension('Extensions', {}, context => {
     await context.chrome.devtools?.recorder.unregisterRecorderExtensionPlugin(extensionPlugin);
   });
 
-  it('can not show a view for Recorder without using the replay trigger', async () => {
+  // Causing this error:
+  // ERROR: 'Extension server error: Operation failed: https://example.com/ has no execution context'
+  // Which doesn't fail this test but seems to have knock on effects that cause the browser to crash.
+  // FIXME: DO_NOT_SUBMIT without adding this bug link
+  it.skip('[crbug.com/1234]: can not show a view for Recorder without using the replay trigger', async () => {
     const view = await context.chrome.devtools?.recorder.createView('Test', 'test.html');
     class RecorderPlugin {
       replay(_recording: object) {
