@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e39a92d_1229925f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-05-13T09:00:42Z",
+      "side": 1,
+      "message": "Thanks for the changes! The changes look good to me, but you\u0027ll also need Philip\u0027s LGTM. Sorry for the late reply, I was out on vacation for most of the time, and Philip still is.",
+      "revId": "0052cc3873394b7bcc443701c5ea4514d73b299d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
