@@ -16,6 +16,23 @@
       "message": "ptal",
       "revId": "27346b8ac9b624942393bd09a379f7887f7fea43",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a40e7ac_20f36c7f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2024-05-13T14:08:39Z",
+      "side": 1,
+      "message": "LGTM. Chromium actually does the same thing.",
+      "revId": "27346b8ac9b624942393bd09a379f7887f7fea43",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
