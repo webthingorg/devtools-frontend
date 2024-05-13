@@ -61,8 +61,16 @@ export class ContextMenuProvider implements
       if (contentProvider instanceof Workspace.UISourceCode.UISourceCode) {
         (contentProvider as Workspace.UISourceCode.UISourceCode).commitWorkingCopy();
       }
-      const content = await contentProvider.requestContent();
       const url = contentProvider.contentURL();
+      let content: TextUtils.ContentProvider.DeferredContent;
+      const maybeScript = getScript(contentProvider);
+      if (maybeScript?.isWasm()) {
+        const byteCode = await maybeScript.getWasmBytecode();
+        const base64 = await Common.Base64.encode(byteCode);
+        content = {isEncoded: true, content: base64};
+      } else {
+        content = await contentProvider.requestContent();
+      }
       await Workspace.FileManager.FileManager.instance().save(url, content.content ?? '', true, content.isEncoded);
       Workspace.FileManager.FileManager.instance().close(url);
     }
@@ -205,4 +213,29 @@ export class ContextMenuProvider implements
 
     return deployedUiSourceCode;
   }
+}
+
+/**
+ * @returns The WASM script if the content provider is a UISourceCode and it's underlying SDK.Script is a WASM module.
+ */
+function getScript(contentProvider: unknown): SDK.Script.Script|null {
+  if (!(contentProvider instanceof Workspace.UISourceCode.UISourceCode)) {
+    return null;
+  }
+
+  // First we try to resolve the target and use that to get the script.
+  const target = Bindings.NetworkProject.NetworkProject.targetForUISourceCode(contentProvider);
+  const model = target?.model(SDK.DebuggerModel.DebuggerModel);
+  if (model) {
+    const resourceFile =
+        Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance().scriptFile(contentProvider, model);
+    if (resourceFile?.script) {
+      return resourceFile.script;
+    }
+  }
+
+  // Otherwise we'll check all possible scripts for this UISourceCode and take the first one.
+  return Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance().scriptsForUISourceCode(
+             contentProvider)[0] ??
+      null;
 }
