@@ -142,6 +142,7 @@ async function process(): Promise<void> {
       };
       if (loggingState.config.track?.click) {
         element.addEventListener('click', clickLikeHandler(false), {capture: true});
+        element.addEventListener('auxclick', clickLikeHandler(false), {capture: true});
         element.addEventListener('contextmenu', clickLikeHandler(false), {capture: true});
       }
       if (loggingState.config.track?.dblclick) {
