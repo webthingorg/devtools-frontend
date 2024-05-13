@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8efef9f1_2532b811",
+        "filename": "front_end/core/common/Base64.test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-05-13T09:56:27Z",
+      "side": 1,
+      "message": "Note that I didn\u0027t manage to construct a test case where the FileReader emits an `error` event. Even detaching the buffer results in reading an empty string instead of an error.",
+      "range": {
+        "startLine": 30,
+        "startChar": 9,
+        "endLine": 30,
+        "endChar": 25
+      },
+      "revId": "0d06f0a1ace9577570939b82ae2531cc4e96de0f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
