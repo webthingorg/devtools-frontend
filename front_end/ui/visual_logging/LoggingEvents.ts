@@ -108,7 +108,7 @@ export const logKeyDown =
       }
       const loggingState = loggable ? getLoggingState(loggable) : null;
       const codes = (typeof loggingState?.config.track?.keydown === 'string') ? loggingState.config.track.keydown : '';
-      if (codes.length && !codes.split('|').includes(event.code)) {
+      if (codes.length && !codes.split('|') && !codes.split('|').includes(event.key)) {
         return;
       }
       const keyDownEvent: Host.InspectorFrontendHostAPI.KeyDownEvent = {veid: loggingState?.veid};
