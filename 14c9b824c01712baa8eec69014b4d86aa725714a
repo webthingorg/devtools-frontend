@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0666a782_468e61cd",
+        "filename": "front_end/ui/legacy/SearchableView.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-05-13T09:19:33Z",
+      "side": 1,
+      "message": "TIL, you\u0027re right, thanks for the tip!!",
+      "parentUuid": "418c5892_89bbf266",
+      "revId": "14c9b824c01712baa8eec69014b4d86aa725714a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9b132afe_c990e1cd",
@@ -48,6 +66,24 @@
       "writtenOn": "2024-05-10T08:37:47Z",
       "side": 1,
       "message": "One behavior difference from the previous version: we were not showing clear button when there is no input but now it is shown in default.\n\nI think it\u0027d make sense to keep that behavior, WDYT?",
+      "revId": "14c9b824c01712baa8eec69014b4d86aa725714a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1353a79e_d32758d7",
+        "filename": "front_end/ui/legacy/SearchableView.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-05-13T09:19:33Z",
+      "side": 1,
+      "message": "Yes, this was actually also intended, it seems as if after changing some css I messed something up. I\u0027ve changed it again, using the `:has` 😊 selector",
+      "parentUuid": "9b132afe_c990e1cd",
       "revId": "14c9b824c01712baa8eec69014b4d86aa725714a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -69,6 +105,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "631b9396_5c610b2c",
+        "filename": "front_end/ui/legacy/SearchableView.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-05-13T09:19:33Z",
+      "side": 1,
+      "message": "Makes sense, done!",
+      "parentUuid": "34cbfcbc_7806c9c9",
+      "revId": "14c9b824c01712baa8eec69014b4d86aa725714a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eeb34fa8_589fb594",
@@ -86,6 +140,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "206b62ae_58dee59e",
+        "filename": "front_end/ui/legacy/searchableView.css",
+        "patchSetId": 8
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-05-13T09:19:33Z",
+      "side": 1,
+      "message": "Makes sense! Done, thanks!",
+      "parentUuid": "eeb34fa8_589fb594",
+      "revId": "14c9b824c01712baa8eec69014b4d86aa725714a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "49846a17_cb5f4530",
@@ -99,6 +171,24 @@
       "writtenOn": "2024-05-10T08:37:47Z",
       "side": 1,
       "message": "I think we can say `1fr` instead of `auto` here so that when the replace input is open the space for the first column is still the space remaining from the second column\u0027s content.\n\nOtherwise, the search input field is shrinking in smaller viewports even though there is still space to render it.",
+      "revId": "14c9b824c01712baa8eec69014b4d86aa725714a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9ae8eaf_a85bf8f2",
+        "filename": "front_end/ui/legacy/searchableView.css",
+        "patchSetId": 8
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-05-13T09:19:33Z",
+      "side": 1,
+      "message": "Ohh yes, thanks, using `1fr` here!",
+      "parentUuid": "49846a17_cb5f4530",
       "revId": "14c9b824c01712baa8eec69014b4d86aa725714a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
