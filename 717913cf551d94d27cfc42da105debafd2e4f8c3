@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54f33853_b1275573",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-05-13T08:54:22Z",
+      "side": 1,
+      "message": "Note: Nearly all call-sites are guaranteed to be text content. E.g snippets are always JS and performance traces/lighthouse reports are always JSON",
+      "revId": "717913cf551d94d27cfc42da105debafd2e4f8c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
