@@ -1,0 +1,45 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d51cfb9_4e194ce5",
+        "filename": "front_end/core/sdk/AutofillModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1453423
+      },
+      "writtenOn": "2024-05-13T17:43:43Z",
+      "side": 1,
+      "message": "You\u0027ve added a middle name, then the full name should be Gottfried Wilhelm Leibniz",
+      "range": {
+        "startLine": 123,
+        "startChar": 20,
+        "endLine": 123,
+        "endChar": 29
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "b8a57754_0c354b13",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/core/sdk/AutofillModel.ts",
+              "range": {
+                "startLine": 123,
+                "startChar": 0,
+                "endLine": 124,
+                "endChar": 0
+              },
+              "replacement": "            {name: \u0027NAME_FULL\u0027, value: \u0027Gottfried Wilhelm Leibniz\u0027},\n"
+            }
+          ]
+        }
+      ],
+      "revId": "5213bb0bbce8e34580ab320f7a636b28b0be2df0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
