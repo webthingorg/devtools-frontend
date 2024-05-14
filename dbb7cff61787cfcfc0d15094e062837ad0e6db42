@@ -33,6 +33,109 @@
       "message": "(I\u0027ll disable the failing chromium test for landing this, as soon as this is LGTMed.)",
       "revId": "dbb7cff61787cfcfc0d15094e062837ad0e6db42",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ae0e6be_8b4335b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-05-14T13:19:40Z",
+      "side": 1,
+      "message": "Thanks, Kim! Looks good to me, just a q and some suggestions:)",
+      "revId": "dbb7cff61787cfcfc0d15094e062837ad0e6db42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a48cd3f_745b28ad",
+        "filename": "front_end/panels/search/SearchView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-05-14T13:19:40Z",
+      "side": 1,
+      "message": "great to see new buttons being used!:)",
+      "revId": "dbb7cff61787cfcfc0d15094e062837ad0e6db42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c861446_02511e40",
+        "filename": "front_end/panels/search/SearchView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-05-14T13:19:40Z",
+      "side": 1,
+      "message": "Suggestion: this.regexButtonToggled.bind(this)",
+      "range": {
+        "startLine": 209,
+        "startChar": 47,
+        "endLine": 209,
+        "endChar": 78
+      },
+      "revId": "dbb7cff61787cfcfc0d15094e062837ad0e6db42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85b2fc68_016490f6",
+        "filename": "front_end/panels/search/SearchView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-05-14T13:19:40Z",
+      "side": 1,
+      "message": "same as above:)",
+      "range": {
+        "startLine": 214,
+        "startChar": 51,
+        "endLine": 214,
+        "endChar": 86
+      },
+      "revId": "dbb7cff61787cfcfc0d15094e062837ad0e6db42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "611c87b6_1ce96e7f",
+        "filename": "front_end/panels/search/searchView.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-05-14T13:19:40Z",
+      "side": 1,
+      "message": "Does this come from a spec? Asking, because for buttons we just add a 2px outline with some offset",
+      "range": {
+        "startLine": 36,
+        "startChar": 6,
+        "endLine": 36,
+        "endChar": 68
+      },
+      "revId": "dbb7cff61787cfcfc0d15094e062837ad0e6db42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
