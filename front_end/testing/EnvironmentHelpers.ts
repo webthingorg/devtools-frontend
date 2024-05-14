@@ -130,6 +130,9 @@ const REGISTERED_EXPERIMENTS = [
 ];
 
 export async function initializeGlobalVars({reset = true} = {}) {
+  // Don't retain host binding listeners across tests. This should be in `test_setup.ts` but it messes with
+  // `describeWithRealConnection`.
+  Host.InspectorFrontendHost.InspectorFrontendHostInstance.events = new Common.ObjectWrapper.ObjectWrapper();
   await initializeGlobalLocaleVars();
 
   // Create the appropriate settings needed to boot.
