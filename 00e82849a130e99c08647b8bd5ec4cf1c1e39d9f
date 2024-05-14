@@ -63,6 +63,30 @@
       },
       "revId": "00e82849a130e99c08647b8bd5ec4cf1c1e39d9f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1fe084d3_543deecc",
+        "filename": "front_end/panels/sources/SourcesPanel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2024-05-14T10:00:57Z",
+      "side": 1,
+      "message": "Got it. I guess we can\u0027t do much better, but I don\u0027t expect this to be accurate. Frequently when a user is stopped on a breakpoint, resume will quickly result in being stopped on another. Is it possible to get the break reason when the following pause happens to see if step is among the reasons?",
+      "parentUuid": "a8e7938d_b31c6f2f",
+      "range": {
+        "startLine": 510,
+        "startChar": 62,
+        "endLine": 511,
+        "endChar": 75
+      },
+      "revId": "00e82849a130e99c08647b8bd5ec4cf1c1e39d9f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
