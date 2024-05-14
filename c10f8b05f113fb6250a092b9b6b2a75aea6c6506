@@ -213,6 +213,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "031313b9_0478562b",
+        "filename": "extension-api/ExtensionAPI.d.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1565770
+      },
+      "writtenOn": "2024-05-14T14:57:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e0dd41b_a9d04b64",
+      "revId": "c10f8b05f113fb6250a092b9b6b2a75aea6c6506",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d72b7439_0bbc1821",
@@ -508,6 +526,24 @@
       "side": 1,
       "message": "I\u0027m now checking the type and subtype of the remote object, and correctly handling the case where the value does not actually exist.",
       "parentUuid": "629d047e_c16248b6",
+      "revId": "c10f8b05f113fb6250a092b9b6b2a75aea6c6506",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "014b5957_d01e4183",
+        "filename": "front_end/models/extensions/ExtensionServer.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1565770
+      },
+      "writtenOn": "2024-05-14T14:57:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8755791b_5a428753",
       "revId": "c10f8b05f113fb6250a092b9b6b2a75aea6c6506",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

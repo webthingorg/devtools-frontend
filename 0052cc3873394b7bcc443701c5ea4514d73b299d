@@ -33,6 +33,24 @@
       "message": "We need to sanitize the expression. Both index and valueClass come from the extension, and I think up to here the contents aren\u0027t checked. So let\u0027s make sure they contain what we expect, so that we don\u0027t execute arbitrary code on behalf of an extension.",
       "revId": "0052cc3873394b7bcc443701c5ea4514d73b299d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a743e4ef_c3e4336b",
+        "filename": "front_end/models/bindings/DebuggerLanguagePlugins.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1565770
+      },
+      "writtenOn": "2024-05-14T14:57:21Z",
+      "side": 1,
+      "message": "Indeed. I\u0027m now checking `valueClass` and converting `index` to an integer.",
+      "parentUuid": "da62bc65_0a8ca855",
+      "revId": "0052cc3873394b7bcc443701c5ea4514d73b299d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
