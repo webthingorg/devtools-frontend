@@ -6,7 +6,8 @@
  * This file is automatically loaded and run by Karma because it automatically
  * loads and injects all *.js files it finds.
  */
-import type * as Common from '../core/common/common.js';
+import * as Common from '../core/common/common.js';
+import * as Host from '../core/host/host.js';
 import * as TraceEngine from '../models/trace/trace.js';
 import * as Timeline from '../panels/timeline/timeline.js';
 import * as ThemeSupport from '../ui/legacy/theme_support/theme_support.js';
@@ -34,6 +35,9 @@ beforeEach(() => {
     },
   } as Common.Settings.Setting<string>;
   ThemeSupport.ThemeSupport.instance({forceNew: true, setting});
+
+  // Don't retain host binding listeners across tests.
+  Host.InspectorFrontendHost.InspectorFrontendHostInstance.events = new Common.ObjectWrapper.ObjectWrapper();
 
   startTrackingAsyncActivity();
 });
