@@ -16,6 +16,23 @@
       "message": "Hi Kateryna,\n\nthis is the last search bar (in Network and Search Panel) to update for GM3, ptal!",
       "revId": "dbb7cff61787cfcfc0d15094e062837ad0e6db42",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "08dd5130_56921bb9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-05-14T12:58:10Z",
+      "side": 1,
+      "message": "(I\u0027ll disable the failing chromium test for landing this, as soon as this is LGTMed.)",
+      "revId": "dbb7cff61787cfcfc0d15094e062837ad0e6db42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
