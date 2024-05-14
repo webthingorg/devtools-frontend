@@ -1205,10 +1205,8 @@ export abstract class HeapSnapshot {
     const classIndexes = [];
     const nodes = this.nodes;
     const nodesLength = nodes.length;
-    const nodeNativeType = this.nodeNativeType;
     const nodeFieldCount = this.nodeFieldCount;
     const selfSizeOffset = this.nodeSelfSizeOffset;
-    const nodeTypeOffset = this.nodeTypeOffset;
     const node = this.rootNode();
     const nodeDistances = this.nodeDistances;
 
@@ -1218,7 +1216,7 @@ export abstract class HeapSnapshot {
         continue;
       }
       const selfSize = nodes.getValue(nodeIndex + selfSizeOffset);
-      if (!selfSize && nodes.getValue(nodeIndex + nodeTypeOffset) !== nodeNativeType) {
+      if (!selfSize) {
         continue;
       }
       const classIndex = node.classIndex();
@@ -1274,10 +1272,7 @@ export abstract class HeapSnapshot {
 
     const seenClassNameIndexes = new Map<number, boolean>();
     const nodeFieldCount = this.nodeFieldCount;
-    const nodeTypeOffset = this.nodeTypeOffset;
-    const nodeNativeType = this.nodeNativeType;
     const dominatedNodes = this.dominatedNodes;
-    const nodes = this.nodes;
     const firstDominatedNodeIndex = this.firstDominatedNodeIndex;
 
     while (list.length) {
@@ -1289,8 +1284,7 @@ export abstract class HeapSnapshot {
       const dominatedIndexFrom = firstDominatedNodeIndex[nodeOrdinal];
       const dominatedIndexTo = firstDominatedNodeIndex[nodeOrdinal + 1];
 
-      if (!seen && (!filter || filter(node)) &&
-          (node.selfSize() || nodes.getValue(nodeIndex + nodeTypeOffset) === nodeNativeType)) {
+      if (!seen && (!filter || filter(node)) && node.selfSize()) {
         aggregates[classIndex].maxRet += node.retainedSize();
         if (dominatedIndexFrom !== dominatedIndexTo) {
           seenClassNameIndexes.set(classIndex, true);
