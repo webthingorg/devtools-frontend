@@ -3198,7 +3198,7 @@
     "message": "Serial API'ни колдонгон барактарды кештөөгө болбойт."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebAuthenticationAPI": {
-    "message": "WebAuthetication API'ни колдонгон барактарды кештөөгө болбойт."
+    "message": "WebAuthentication API'ни колдонгон барактарды кештөөгө болбойт."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebBluetooth": {
     "message": "WebBluetooth API'ни колдонгон барактарды кештөөгө болбойт."

@@ -3198,7 +3198,7 @@
     "message": "Las páginas que utilizan la API de Serial no son aptas para el almacenamiento en la memoria caché atrás/adelante."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebAuthenticationAPI": {
-    "message": "Las páginas que utilizan la API de WebAuthetication no son aptas para el almacenamiento en la memoria caché atrás/adelante."
+    "message": "Las páginas que utilizan la API de WebAuthentication no son aptas para el almacenamiento en la memoria caché atrás/adelante."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebBluetooth": {
     "message": "Las páginas que utilizan la API de WebBluetooth no son aptas para el almacenamiento en la memoria caché atrás/adelante."

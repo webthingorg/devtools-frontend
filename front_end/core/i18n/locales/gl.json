@@ -3198,7 +3198,7 @@
     "message": "As páxinas que usan Serial API non se gardan correctamente na memoria caché de páxinas anteriores e seguintes."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebAuthenticationAPI": {
-    "message": "As páxinas que usan WebAuthetication API non se gardan correctamente na memoria caché de páxinas anteriores e seguintes."
+    "message": "As páxinas que usan WebAuthentication API non se gardan correctamente na memoria caché de páxinas anteriores e seguintes."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebBluetooth": {
     "message": "As páxinas que usan WebBluetooth API non se gardan correctamente na memoria caché de páxinas anteriores e seguintes."

@@ -3198,7 +3198,7 @@
     "message": "Цуваа API-г ашигладаг хуудаснууд back/forward cache-г ашиглах эрхгүй."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebAuthenticationAPI": {
-    "message": "WebAuthetication API-г ашигладаг хуудаснууд back/forward cache-г ашиглах эрхгүй."
+    "message": "WebAuthentication API-г ашигладаг хуудаснууд back/forward cache-г ашиглах эрхгүй."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebBluetooth": {
     "message": "WebBluetooth API-г ашигладаг хуудаснууд back/forward cache-г ашиглах эрхгүй."

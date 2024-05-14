@@ -3198,7 +3198,7 @@
     "message": "דפים שמשתמשים ב-Serial API לא מתאימים לשמירה במטמון לדף הקודם/הבא."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebAuthenticationAPI": {
-    "message": "דפים שנעשה בהם שימוש ב-WebAuthetication API לא מתאימים לשמירה במטמון לדף הקודם/הבא."
+    "message": "דפים שנעשה בהם שימוש ב-WebAuthentication API לא מתאימים לשמירה במטמון לדף הקודם/הבא."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebBluetooth": {
     "message": "דפים שנעשה בהם שימוש ב-WebBluetooth API לא מתאימים לשמירה במטמון לדף הקודם/הבא."

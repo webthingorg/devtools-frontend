@@ -3198,7 +3198,7 @@
     "message": "Serial API သုံးသော စာမျက်နှာများသည် ရှေ့-နောက် ကက်ရှ်အတွက် အကျုံးမဝင်ပါ။"
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebAuthenticationAPI": {
-    "message": "WebAuthetication API သုံးသော စာမျက်နှာများသည် ရှေ့-နောက် ကက်ရှ်အတွက် အကျုံးမဝင်ပါ။"
+    "message": "WebAuthentication API သုံးသော စာမျက်နှာများသည် ရှေ့-နောက် ကက်ရှ်အတွက် အကျုံးမဝင်ပါ။"
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebBluetooth": {
     "message": "WebBluetooth API သုံးသော စာမျက်နှာများသည် ရှေ့-နောက် ကက်ရှ်အတွက် အကျုံးမဝင်ပါ။"

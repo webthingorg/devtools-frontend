@@ -3198,7 +3198,7 @@
     "message": "Էջերը, որոնք օգտագործում են Serial API-ը, հնարավոր չէ ամբողջությամբ քեշավորել։"
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebAuthenticationAPI": {
-    "message": "Էջերը, որոնք օգտագործում են WebAuthetication API-ը, հնարավոր չէ ամբողջությամբ քեշավորել։"
+    "message": "Էջերը, որոնք օգտագործում են WebAuthentication API-ը, հնարավոր չէ ամբողջությամբ քեշավորել։"
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebBluetooth": {
     "message": "Էջերը, որոնք օգտագործում են WebBluetooth API-ը, հնարավոր չէ ամբողջությամբ քեշավորել։"

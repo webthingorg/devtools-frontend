@@ -3198,7 +3198,7 @@
     "message": "Faqet që përdorin Serial API nuk janë të përshtatshme për memorien specifike të faqes së plotë."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebAuthenticationAPI": {
-    "message": "Faqet që përdorin WebAuthetication API nuk janë të përshtatshme për memorien specifike të faqes së plotë."
+    "message": "Faqet që përdorin WebAuthentication API nuk janë të përshtatshme për memorien specifike të faqes së plotë."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebBluetooth": {
     "message": "Faqet që përdorin WebBluetooth API nuk janë të përshtatshme për memorien specifike të faqes së plotë."

@@ -3198,7 +3198,7 @@
     "message": "Serial APIa käyttävät sivut eivät voi käyttää siirtymisvälimuistia."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebAuthenticationAPI": {
-    "message": "WebAuthetication APIa käyttävät sivut eivät voi käyttää siirtymisvälimuistia."
+    "message": "WebAuthentication APIa käyttävät sivut eivät voi käyttää siirtymisvälimuistia."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebBluetooth": {
     "message": "WebBluetooth APIa käyttävät sivut eivät voi käyttää siirtymisvälimuistia."

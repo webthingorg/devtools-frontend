@@ -3198,7 +3198,7 @@
     "message": "Kurasa zinazotumia API ya Serial haziwezi kuwekwa kwenye kipengele cha kuakibisha ukurasa kamili."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebAuthenticationAPI": {
-    "message": "Kurasa zinazotumia API ya WebAuthetication haziwezi kuwekwa kwenye kipengele cha kuakibisha ukurasa kamili."
+    "message": "Kurasa zinazotumia API ya WebAuthentication haziwezi kuwekwa kwenye kipengele cha kuakibisha ukurasa kamili."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebBluetooth": {
     "message": "Kurasa zinazotumia API ya WebBluetooth haziwezi kuwekwa kwenye kipengele cha kuakibisha ukurasa kamili."

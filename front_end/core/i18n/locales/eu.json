@@ -3198,7 +3198,7 @@
     "message": "Aurreko orria cachean gordetzeko eginbidea ez dago erabilgarri Serial APIa erabiltzen duten orrietan."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebAuthenticationAPI": {
-    "message": "Aurreko orria cachean gordetzeko eginbidea ez dago erabilgarri WebAuthetication APIa erabiltzen duten orrietan."
+    "message": "Aurreko orria cachean gordetzeko eginbidea ez dago erabilgarri WebAuthentication APIa erabiltzen duten orrietan."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebBluetooth": {
     "message": "Aurreko orria cachean gordetzeko eginbidea ez dago erabilgarri WebBluetooth APIa erabiltzen duten orrietan."

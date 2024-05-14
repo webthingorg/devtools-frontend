@@ -3198,7 +3198,7 @@
     "message": "ໜ້າທີ່ໃຊ້ Serial API ແມ່ນບໍ່ມີສິດໃຊ້ແຄສຍ້ອນຫຼັງ."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebAuthenticationAPI": {
-    "message": "ໜ້າທີ່ໃຊ້ WebAuthetication API ແມ່ນບໍ່ມີສິດໃຊ້ແຄສຍ້ອນຫຼັງ."
+    "message": "ໜ້າທີ່ໃຊ້ WebAuthentication API ແມ່ນບໍ່ມີສິດໃຊ້ແຄສຍ້ອນຫຼັງ."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebBluetooth": {
     "message": "ໜ້າທີ່ໃຊ້ WebBluetooth API ແມ່ນບໍ່ມີສິດໃຊ້ແຄສຍ້ອນຫຼັງ."

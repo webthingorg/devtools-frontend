@@ -3198,7 +3198,7 @@
     "message": "Serial API kullanan sayfalar geri-ileri önbelleğe alınmaya uygun değildir."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebAuthenticationAPI": {
-    "message": "WebAuthetication API kullanan sayfalar geri-ileri önbelleğe alınmaya uygun değildir."
+    "message": "WebAuthentication API kullanan sayfalar geri-ileri önbelleğe alınmaya uygun değildir."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebBluetooth": {
     "message": "WebBluetooth API kullanan sayfalar geri-ileri önbelleğe alınmaya uygun değildir."

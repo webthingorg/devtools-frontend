@@ -3198,7 +3198,7 @@
     "message": "Сторінки, які використовують Serial API, не підходять для зворотного кешу."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebAuthenticationAPI": {
-    "message": "Сторінки, які використовують WebAuthetication API, не підходять для зворотного кешу."
+    "message": "Сторінки, які використовують WebAuthentication API, не підходять для зворотного кешу."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebBluetooth": {
     "message": "Сторінки, які використовують WebBluetooth API, не підходять для зворотного кешу."

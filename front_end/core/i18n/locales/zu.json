@@ -3198,7 +3198,7 @@
     "message": "Amakhasi asebenzisa i-Serial API awafaneleki ukuthola inqolobane yasemuva/phambili."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebAuthenticationAPI": {
-    "message": "Amakhasi asebenzisa i-WebAuthetication API awafaneleki ukuthola inqolobane yasemuva/phambili."
+    "message": "Amakhasi asebenzisa i-WebAuthentication API awafaneleki ukuthola inqolobane yasemuva/phambili."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebBluetooth": {
     "message": "Amakhasi asebenzisa i-WebBluetooth API awafaneleki ukuthola inqolobane yasemuva/phambili."

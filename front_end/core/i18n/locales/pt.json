@@ -3198,7 +3198,7 @@
     "message": "As páginas que usam a API Serial não são qualificadas para o cache de avanço e retorno."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebAuthenticationAPI": {
-    "message": "As páginas que usam a API WebAuthetication não são qualificadas para o cache de avanço e retorno."
+    "message": "As páginas que usam a API WebAuthentication não são qualificadas para o cache de avanço e retorno."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebBluetooth": {
     "message": "As páginas que usam a API WebBluetooth não são qualificadas para o cache de avanço e retorno."

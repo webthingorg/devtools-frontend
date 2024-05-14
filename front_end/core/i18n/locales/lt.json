@@ -3198,7 +3198,7 @@
     "message": "Puslapiams, kuriuose naudojama serijos API, negalima taikyti ilgalaikio viso puslapio saugojimo talpykloje funkcijos."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebAuthenticationAPI": {
-    "message": "Puslapiams, kuriuose naudojama „WebAuthetication“ API, negalima taikyti ilgalaikio viso puslapio saugojimo talpykloje funkcijos."
+    "message": "Puslapiams, kuriuose naudojama „WebAuthentication“ API, negalima taikyti ilgalaikio viso puslapio saugojimo talpykloje funkcijos."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebBluetooth": {
     "message": "Puslapiams, kuriuose naudojama „WebBluetooth“ API, negalima taikyti ilgalaikio viso puslapio saugojimo talpykloje funkcijos."

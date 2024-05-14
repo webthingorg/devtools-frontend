@@ -3198,7 +3198,7 @@
     "message": "ተከታታይ ኤፒአይን የሚጠቀሙ ገጾች ለጀርባ-ፊት መሸጎጫ ብቁ አይደሉም።"
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebAuthenticationAPI": {
-    "message": "የWebAuthetication ኤፒአይን የሚጠቀሙ ገጾች ለጀርባ/ፊት መሸጎጫ ብቁ አይደሉም።"
+    "message": "የWebAuthentication ኤፒአይን የሚጠቀሙ ገጾች ለጀርባ/ፊት መሸጎጫ ብቁ አይደሉም።"
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebBluetooth": {
     "message": "የWebBluetooth ኤፒአይን የሚጠቀሙ ገጾች ለጀርባ/ፊት መሸጎጫ ብቁ አይደሉም።"

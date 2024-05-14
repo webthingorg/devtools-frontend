@@ -3198,7 +3198,7 @@
     "message": "Stránky, které používají rozhraní Serial API, nemohou využívat mezipaměť pro přechod zpět nebo vpřed."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebAuthenticationAPI": {
-    "message": "Stránky, které používají rozhraní WebAuthetication API, nemohou využívat mezipaměť pro přechod zpět nebo vpřed."
+    "message": "Stránky, které používají rozhraní WebAuthentication API, nemohou využívat mezipaměť pro přechod zpět nebo vpřed."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebBluetooth": {
     "message": "Stránky, které používají rozhraní WebBluetooth API, nemohou využívat mezipaměť pro přechod zpět nebo vpřed."

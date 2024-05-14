@@ -3198,7 +3198,7 @@
     "message": "Ekki er hægt að vista síður sem nota forritaskil Serial í skyndiminni til baka/áfram."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebAuthenticationAPI": {
-    "message": "Ekki er hægt að vista síður sem nota forritaskil WebAuthetication í skyndiminni til baka/áfram."
+    "message": "Ekki er hægt að vista síður sem nota forritaskil WebAuthentication í skyndiminni til baka/áfram."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebBluetooth": {
     "message": "Ekki er hægt að vista síður sem nota forritaskil WebBluetooth í skyndiminni til baka/áfram."

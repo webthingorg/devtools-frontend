@@ -3198,7 +3198,7 @@
     "message": "Serial API-ды пайдаланатын беттер алға-артқа өту кэшіне жарамайды."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebAuthenticationAPI": {
-    "message": "WebAuthetication API-ын пайдаланатын беттер алға-артқа өту кэшіне жарамайды."
+    "message": "WebAuthentication API-ын пайдаланатын беттер алға-артқа өту кэшіне жарамайды."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebBluetooth": {
     "message": "WebBluetooth API-ын пайдаланатын беттер алға-артқа өту кэшіне жарамайды."

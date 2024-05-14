@@ -3198,7 +3198,7 @@
     "message": "Страниците што користат сериски API не ги исполнуваат условите за кешот за движење наназад и нанапред."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebAuthenticationAPI": {
-    "message": "Страниците што користат WebAuthetication API не ги исполнуваат условите за кешот за движење наназад и нанапред."
+    "message": "Страниците што користат WebAuthentication API не ги исполнуваат условите за кешот за движење наназад и нанапред."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebBluetooth": {
     "message": "Страниците што користат WebBluetooth API не ги исполнуваат условите за кешот за движење наназад и нанапред."
