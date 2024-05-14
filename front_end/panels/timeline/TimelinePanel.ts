@@ -306,6 +306,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
   private cpuProfiler!: SDK.CPUProfilerModel.CPUProfilerModel|null;
   private clearButton!: UI.Toolbar.ToolbarButton;
   private fixMeButton: UI.Toolbar.ToolbarButton;
+  private showAnnotationsSidePanelButton: UI.Toolbar.ToolbarButton;
   private fixMeButtonAdded = false;
   private loadButton!: UI.Toolbar.ToolbarButton;
   private saveButton!: UI.Toolbar.ToolbarButton;
@@ -348,6 +349,8 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
       content: adornerContent,
     };
     this.fixMeButton = new UI.Toolbar.ToolbarButton(i18nString(UIStrings.fixMe), adorner);
+    this.showAnnotationsSidePanelButton = new UI.Toolbar.ToolbarButton(i18nString(UIStrings.fixMe), adorner);
+    
     this.fixMeButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, () => this.onFixMe());
     const config = TraceEngine.Types.Configuration.defaults();
     config.showAllEvents = Root.Runtime.experiments.isEnabled('timeline-show-all-events');
@@ -401,11 +404,18 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
       this.createSettingsPane();
       this.updateShowSettingsToolbarButton();
     }
+
+    const timelinePaneAndAnnotationsWrapper = this.element.createChild('div', 'timeline-wrapper fill');
+
+    const sidePanel = timelinePaneAndAnnotationsWrapper.createChild('div', 'timeline-overview-side-panel');
+    
     this.timelinePane = new UI.Widget.VBox();
-    this.timelinePane.show(this.element);
+    this.timelinePane.show(timelinePaneAndAnnotationsWrapper);
     const topPaneElement = this.timelinePane.element.createChild('div', 'hbox');
     topPaneElement.id = 'timeline-overview-panel';
-
+    
+    const textNode = document.createTextNode("Annotations list coming here soon (ish) 😁");
+    sidePanel.appendChild(textNode);
     this.#minimapComponent.show(topPaneElement);
 
     this.statusPaneContainer = this.timelinePane.element.createChild('div', 'status-pane-container fill');
@@ -463,6 +473,13 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
       },
       targetRemoved: (_: SDK.Target.Target) => {},
     });
+
+
+    this.showAnnotationsSidePanelButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, () => {
+      sidePanel.style.display = (sidePanel.style.display === 'none') ? 'flex' : 'none';
+      this.flameChart.doResize()
+  });
+
   }
 
   static instance(opts: {
@@ -620,6 +637,8 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
 
     // GC
     this.panelToolbar.appendToolbarItem(UI.Toolbar.Toolbar.createActionButtonForId('components.collect-garbage'));
+    
+    this.panelToolbar.appendToolbarItem(this.showAnnotationsSidePanelButton);
 
     // Isolate selector
     const isolateSelector = new IsolateSelector();
