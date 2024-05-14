@@ -16,6 +16,29 @@
       "message": "Friendly ping:)",
       "revId": "00e82849a130e99c08647b8bd5ec4cf1c1e39d9f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5362122c_dfd480d9",
+        "filename": "front_end/panels/sources/SourcesPanel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2024-05-14T09:49:33Z",
+      "side": 1,
+      "message": "Can we not intercept the actual click and see which button triggered it?",
+      "range": {
+        "startLine": 510,
+        "startChar": 62,
+        "endLine": 511,
+        "endChar": 75
+      },
+      "revId": "00e82849a130e99c08647b8bd5ec4cf1c1e39d9f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

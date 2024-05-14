@@ -48,6 +48,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee77dd4b_128e3e65",
+        "filename": "front_end/panels/sources/SourcesPanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 514,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2024-05-14T09:49:33Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "21eaa19c_ec782feb",
+      "range": {
+        "startLine": 514,
+        "startChar": 34,
+        "endLine": 514,
+        "endChar": 71
+      },
+      "revId": "b575bf2cb80cff6d8d8a6e9b6ed5fdc604b7014d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "794fcb7b_c352bb4c",
