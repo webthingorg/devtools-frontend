@@ -67,6 +67,24 @@
       "message": "```suggestion\n      \u0027All prerendered pages were unloaded by the browser for some reason (For example, WebViewCompat.addWebMessageListener() was called during prerendering.)\u0027,\n```",
       "revId": "307e1224f30aa83d83504da35537639618f2198c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5751cdbe_1e121fb5",
+        "filename": "front_end/panels/application/preloading/components/PreloadingString.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1115976
+      },
+      "writtenOn": "2024-05-14T04:30:15Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "a2df8b0d_02093ef3",
+      "revId": "307e1224f30aa83d83504da35537639618f2198c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
