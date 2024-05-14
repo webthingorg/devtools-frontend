@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fe9031d6_be396465",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-14T13:29:34Z",
+      "side": 1,
+      "message": "can we also do the work here to have it collapse/expandable? please sync with Yuin to agree on the icon to use, behaviour, etc. Thanks!\n\nI also don\u0027t know if we have a DevTools widget that can be used for this - I know in other places we do have the idea of a side panel that can be hidden (the bottom-up UI includes a \"heaviest stack\" side panel which looks very similar to what we want, so we might be able to use that same widget",
+      "revId": "1ee8e20ebf4e19f5a027770469eaf2e17e68bdb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "16df9207_82468b15",
         "filename": "front_end/panels/timeline/components/Sidebar.ts",
         "patchSetId": 7
