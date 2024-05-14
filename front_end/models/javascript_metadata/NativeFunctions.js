@@ -6366,7 +6366,7 @@ export const NativeFunctions = [
   },
   {
     name: "caretPositionFromPoint",
-    signatures: [["x","y"]]
+    signatures: [["x","y","...shadowRoots"]]
   },
   {
     name: "hasPrivateToken",

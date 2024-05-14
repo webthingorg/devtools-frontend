@@ -2906,6 +2906,14 @@ export const generatedProperties = [
   "name": "scroll-margin-top"
  },
  {
+  "keywords": [
+   "none",
+   "after",
+   "before"
+  ],
+  "name": "scroll-markers"
+ },
+ {
   "longhands": [
    "scroll-padding-top",
    "scroll-padding-right",
@@ -3289,6 +3297,7 @@ export const generatedProperties = [
   "name": "text-autospace"
  },
  {
+  "inherited": true,
   "name": "text-box-edge"
  },
  {
@@ -5280,6 +5289,13 @@ export const generatedPropertyValues = {
   "values": [
    "auto",
    "smooth"
+  ]
+ },
+ "scroll-markers": {
+  "values": [
+   "none",
+   "after",
+   "before"
   ]
  },
  "scroll-padding-block-end": {

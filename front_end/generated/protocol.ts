@@ -3699,6 +3699,7 @@ export namespace DOM {
     Marker = 'marker',
     Backdrop = 'backdrop',
     Selection = 'selection',
+    SearchText = 'search-text',
     TargetText = 'target-text',
     SpellingError = 'spelling-error',
     GrammarError = 'grammar-error',
