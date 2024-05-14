@@ -8,7 +8,6 @@ import * as Protocol from '../../generated/protocol.js';
 import {createTarget} from '../../testing/EnvironmentHelpers.js';
 import {describeWithMockConnection} from '../../testing/MockConnection.js';
 import {
-  getInitializedResourceTreeModel,
   getMainFrame,
   MAIN_FRAME_ID,
   navigate,
