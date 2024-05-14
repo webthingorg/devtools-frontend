@@ -39,6 +39,30 @@
       },
       "revId": "00e82849a130e99c08647b8bd5ec4cf1c1e39d9f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8e7938d_b31c6f2f",
+        "filename": "front_end/panels/sources/SourcesPanel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-05-14T09:51:09Z",
+      "side": 1,
+      "message": "The actual overlay UI is in the separate document that cannot\ncommunicate with DevTools frontend or UI bindings where we do the\nlogging.",
+      "parentUuid": "5362122c_dfd480d9",
+      "range": {
+        "startLine": 510,
+        "startChar": 62,
+        "endLine": 511,
+        "endChar": 75
+      },
+      "revId": "00e82849a130e99c08647b8bd5ec4cf1c1e39d9f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
