@@ -53,6 +53,11 @@
   border-bottom: 1px solid var(--sys-color-divider);
 }
 
+.timeline-pane-sidebar-wrapper {
+  display: flex;
+  height: 100%;
+}
+
 #timeline-overview-grid {
   background-color: var(--sys-color-cdt-base-container);
 }
