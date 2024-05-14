@@ -55,6 +55,7 @@ import * as MobileThrottling from '../mobile_throttling/mobile_throttling.js';
 
 import {ActiveFilters} from './ActiveFilters.js';
 import {TraceLoadEvent} from './BenchmarkEvents.js';
+import * as TimelineComponents from './components/components.js';
 import {SHOULD_SHOW_EASTER_EGG} from './EasterEgg.js';
 import {Tracker} from './FreshRecording.js';
 import historyToolbarButtonStyles from './historyToolbarButton.css.js';
@@ -296,6 +297,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
   private readonly panelRightToolbar: UI.Toolbar.Toolbar;
   private readonly timelinePane: UI.Widget.VBox;
   readonly #minimapComponent = new TimelineMiniMap();
+  readonly #sideBar = new TimelineComponents.Sidebar.Sidebar();
   private readonly statusPaneContainer: HTMLElement;
   private readonly flameChart: TimelineFlameChartView;
   private readonly searchableViewInternal: UI.SearchableView.SearchableView;
@@ -401,13 +403,15 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
       this.createSettingsPane();
       this.updateShowSettingsToolbarButton();
     }
+
+    const timelinePaneAndSidebarWrapper = this.element.createChild('div', 'timeline-pane-sidebar-wrapper');
+    timelinePaneAndSidebarWrapper.appendChild(this.#sideBar);
+
     this.timelinePane = new UI.Widget.VBox();
-    this.timelinePane.show(this.element);
+    this.timelinePane.show(timelinePaneAndSidebarWrapper);
     const topPaneElement = this.timelinePane.element.createChild('div', 'hbox');
     topPaneElement.id = 'timeline-overview-panel';
-
     this.#minimapComponent.show(topPaneElement);
-
     this.statusPaneContainer = this.timelinePane.element.createChild('div', 'status-pane-container fill');
 
     this.createFileSelector();
