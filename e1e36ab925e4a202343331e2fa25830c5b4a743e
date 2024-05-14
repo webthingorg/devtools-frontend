@@ -16,6 +16,23 @@
       "message": "Alex, PTAL (context: http://docs/document/d/19LDaCKA7Ry4F9do9NLE9RZ9htPyFr8JH1ue-kUAElmA/r/0-hE-vN-koTpkAvRyekN24_g/edit?tab\u003dt.0#bookmark\u003did.rf4svtjjr0c7)",
       "revId": "e1e36ab925e4a202343331e2fa25830c5b4a743e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8496322_16003b1d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-05-14T15:51:13Z",
+      "side": 1,
+      "message": "You need to update the screenshot tests",
+      "revId": "e1e36ab925e4a202343331e2fa25830c5b4a743e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
