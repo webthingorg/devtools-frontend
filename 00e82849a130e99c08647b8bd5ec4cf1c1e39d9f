@@ -87,6 +87,30 @@
       },
       "revId": "00e82849a130e99c08647b8bd5ec4cf1c1e39d9f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "524d13ca_19568f3f",
+        "filename": "front_end/panels/sources/SourcesPanel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-05-14T10:28:08Z",
+      "side": 1,
+      "message": "Good idea, I didn\u0027t know we have a pause reason. Done.",
+      "parentUuid": "1fe084d3_543deecc",
+      "range": {
+        "startLine": 510,
+        "startChar": 62,
+        "endLine": 511,
+        "endChar": 75
+      },
+      "revId": "00e82849a130e99c08647b8bd5ec4cf1c1e39d9f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
