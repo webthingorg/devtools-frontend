@@ -39,6 +39,7 @@
 
 .timeline-main-toolbar {
   flex: 1 1 auto;
+  z-index: 999;
 }
 
 .timeline-settings-pane {
@@ -51,6 +52,13 @@
   flex: none;
   position: relative;
   border-bottom: 1px solid var(--sys-color-divider);
+}
+
+.timeline-wrapper {
+  display: flex;
+  flex: none;
+  padding-top: 27px;
+  flex-direction: row;
 }
 
 #timeline-overview-grid {
