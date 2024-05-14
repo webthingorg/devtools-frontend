@@ -67,6 +67,7 @@ import {TimelineFlameChartView} from './TimelineFlameChartView.js';
 import {TimelineHistoryManager} from './TimelineHistoryManager.js';
 import {TimelineLoader} from './TimelineLoader.js';
 import {TimelineMiniMap} from './TimelineMiniMap.js';
+import {Sidebar} from './components/components.js';
 import timelinePanelStyles from './timelinePanel.css.js';
 import {TimelineSelection} from './TimelineSelection.js';
 import timelineStatusDialogStyles from './timelineStatusDialog.css.js';
@@ -296,6 +297,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
   private readonly panelRightToolbar: UI.Toolbar.Toolbar;
   private readonly timelinePane: UI.Widget.VBox;
   readonly #minimapComponent = new TimelineMiniMap();
+  readonly #sideBar = new Sidebar.Sidebar();
   private readonly statusPaneContainer: HTMLElement;
   private readonly flameChart: TimelineFlameChartView;
   private readonly searchableViewInternal: UI.SearchableView.SearchableView;
@@ -401,13 +403,15 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
       this.createSettingsPane();
       this.updateShowSettingsToolbarButton();
     }
+
+    const timelinePaneAndAnnotationsWrapper = this.element.createChild('div', 'timeline-wrapper');
+    timelinePaneAndAnnotationsWrapper.appendChild(this.#sideBar);
+    
     this.timelinePane = new UI.Widget.VBox();
-    this.timelinePane.show(this.element);
+    this.timelinePane.show(timelinePaneAndAnnotationsWrapper);
     const topPaneElement = this.timelinePane.element.createChild('div', 'hbox');
-    topPaneElement.id = 'timeline-overview-panel';
-
+    topPaneElement.id = 'timeline-overview-panel';    
     this.#minimapComponent.show(topPaneElement);
-
     this.statusPaneContainer = this.timelinePane.element.createChild('div', 'status-pane-container fill');
 
     this.createFileSelector();
@@ -463,6 +467,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
       },
       targetRemoved: (_: SDK.Target.Target) => {},
     });
+
   }
 
   static instance(opts: {
@@ -620,7 +625,6 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
 
     // GC
     this.panelToolbar.appendToolbarItem(UI.Toolbar.Toolbar.createActionButtonForId('components.collect-garbage'));
-
     // Isolate selector
     const isolateSelector = new IsolateSelector();
     if (isNode) {
