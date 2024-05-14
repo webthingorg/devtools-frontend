@@ -69,6 +69,13 @@ export function nonNull<T>(value: T|null|undefined): T {
   return value as T;
 }
 
+export function remoteObject(value: Chrome.DevTools.RemoteObject|Chrome.DevTools.ForeignObject|
+                             null): Chrome.DevTools.RemoteObject {
+  assert.exists(value);
+  assert(value.type != 'reftype');
+  return value;
+}
+
 export class TestWasmInterface implements WasmInterface {
   memory = new ArrayBuffer(0);
   locals = new Map<number, WasmValue>();
@@ -98,6 +105,9 @@ export class TestWasmInterface implements WasmInterface {
       return val;
     }
     throw new Error(`No global ${global}`);
+  }
+  getCachedValue(i: number): Chrome.DevTools.ForeignObject {
+    throw new Error('No cached value');
   }
 }
 
