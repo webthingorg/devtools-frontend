@@ -16,6 +16,23 @@
       "message": "Thanks for the changes! The changes look good to me, but you\u0027ll also need Philip\u0027s LGTM. Sorry for the late reply, I was out on vacation for most of the time, and Philip still is.",
       "revId": "0052cc3873394b7bcc443701c5ea4514d73b299d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da62bc65_0a8ca855",
+        "filename": "front_end/models/bindings/DebuggerLanguagePlugins.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 132,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-05-14T10:12:05Z",
+      "side": 1,
+      "message": "We need to sanitize the expression. Both index and valueClass come from the extension, and I think up to here the contents aren\u0027t checked. So let\u0027s make sure they contain what we expect, so that we don\u0027t execute arbitrary code on behalf of an extension.",
+      "revId": "0052cc3873394b7bcc443701c5ea4514d73b299d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
