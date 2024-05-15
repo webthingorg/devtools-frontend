@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5d40d08_2b8ce529",
+        "filename": "front_end/core/sdk/CookieModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-05-15T13:48:39Z",
+      "side": 1,
+      "message": "Why do we not care if only a cookie\u0027s value is different?",
+      "range": {
+        "startLine": 174,
+        "startChar": 2,
+        "endLine": 176,
+        "endChar": 9
+      },
+      "revId": "da6469f0f0a3f77e1b223d02a83e3b4e90d45065",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
