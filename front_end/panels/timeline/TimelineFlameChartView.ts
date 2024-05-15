@@ -23,6 +23,7 @@ import {
   TimelineFlameChartDataProvider,
 } from './TimelineFlameChartDataProvider.js';
 import {TimelineFlameChartNetworkDataProvider} from './TimelineFlameChartNetworkDataProvider.js';
+import timelineFlameChartViewStyles from './timelineFlameChartView.css.js';
 import {type TimelineModeViewDelegate} from './TimelinePanel.js';
 import {TimelineSelection} from './TimelineSelection.js';
 import {AggregatedTimelineTreeView} from './TimelineTreeView.js';
@@ -40,6 +41,19 @@ const str_ = i18n.i18n.registerUIStrings('panels/timeline/TimelineFlameChartView
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 const MAX_HIGHLIGHTED_SEARCH_ELEMENTS: number = 200;
+
+interface OverlayTimingSection {
+  // This would probably be a TraceBound type in reality
+  start: TraceEngine.Types.Timing.MicroSeconds;
+  end: TraceEngine.Types.Timing.MicroSeconds;
+  label: string;
+}
+
+type Overlay = {
+  type: 'ENTRY_TIMING_BREAKDOWN',
+  entry: Readonly<TraceEngine.Types.TraceEvents.SyntheticInteractionPair>,
+  sections: OverlayTimingSection[],
+};
 
 export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.FlameChart.FlameChartDelegate,
                                                                       UI.SearchableView.Searchable {
@@ -78,6 +92,11 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
   #onTraceBoundsChangeBound = this.#onTraceBoundsChange.bind(this);
   #gameKeyMatches = 0;
   #gameTimeout = setTimeout(() => ({}), 0);
+  #overlaysContainer: HTMLDivElement;
+  #activeOverlays: Overlay[] = [];
+  #visibleWindowMilliSeconds: Readonly<TraceEngine.Types.Timing.TraceWindowMilliSeconds>|null = null;
+  #flameChartWidth: number = -1;
+
   constructor(delegate: TimelineModeViewDelegate) {
     super();
     this.element.classList.add('timeline-flamechart');
@@ -86,26 +105,35 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     this.eventListeners = [];
     this.#traceEngineData = null;
 
+    const flameChartsContainer = new UI.Widget.VBox();
+    flameChartsContainer.element.classList.add('flame-charts-container');
+
     // Create main and network flamecharts.
     this.networkSplitWidget = new UI.SplitWidget.SplitWidget(false, false, 'timeline-flamechart-main-view', 150);
+    this.networkSplitWidget.show(flameChartsContainer.element);
 
     // Ensure that the network panel & resizer appears above the main thread.
     this.networkSplitWidget.sidebarElement().style.zIndex = '120';
+
+    this.#overlaysContainer = document.createElement('div');
+    this.#overlaysContainer.classList.add('timeline-overlays-container');
+    flameChartsContainer.element.appendChild(this.#overlaysContainer);
 
     const mainViewGroupExpansionSetting =
         Common.Settings.Settings.instance().createSetting('timeline-flamechart-main-view-group-expansion', {});
     this.mainDataProvider = new TimelineFlameChartDataProvider();
     this.mainDataProvider.addEventListener(
         TimelineFlameChartDataProviderEvents.DataChanged, () => this.mainFlameChart.scheduleUpdate());
-    this.mainFlameChart = new PerfUI.FlameChart.FlameChart(this.mainDataProvider, this, mainViewGroupExpansionSetting);
+    this.mainFlameChart =
+        new PerfUI.FlameChart.FlameChart('MAIN', this.mainDataProvider, this, mainViewGroupExpansionSetting);
     this.mainFlameChart.alwaysShowVerticalScroll();
     this.mainFlameChart.enableRuler(false);
 
     this.networkFlameChartGroupExpansionSetting =
         Common.Settings.Settings.instance().createSetting('timeline-flamechart-network-view-group-expansion', {});
     this.networkDataProvider = new TimelineFlameChartNetworkDataProvider();
-    this.networkFlameChart =
-        new PerfUI.FlameChart.FlameChart(this.networkDataProvider, this, this.networkFlameChartGroupExpansionSetting);
+    this.networkFlameChart = new PerfUI.FlameChart.FlameChart(
+        'NETWORK', this.networkDataProvider, this, this.networkFlameChartGroupExpansionSetting);
     this.networkFlameChart.alwaysShowVerticalScroll();
 
     this.networkPane = new UI.Widget.VBox();
@@ -120,7 +148,7 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     // Create counters chart splitter.
     this.chartSplitWidget = new UI.SplitWidget.SplitWidget(false, true, 'timeline-counters-split-view-state');
     this.countersView = new CountersGraph(this.delegate);
-    this.chartSplitWidget.setMainWidget(this.networkSplitWidget);
+    this.chartSplitWidget.setMainWidget(flameChartsContainer);
     this.chartSplitWidget.setSidebarWidget(this.countersView);
     this.chartSplitWidget.hideDefaultResizer();
     this.chartSplitWidget.installResizer((this.countersView.resizerElement() as Element));
@@ -151,6 +179,13 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     this.refreshMainFlameChart();
 
     TraceBounds.TraceBounds.onChange(this.#onTraceBoundsChangeBound);
+    this.element.addEventListener(
+        PerfUI.FlameChart.FlameChartDrawDimensionsEvent.eventName,
+        event => {
+          this.#flameChartWidth = event.dimensions.widthPixels;
+          this.#updateOverlays(event.dimensions);
+        },
+    );
   }
 
   #keydownHandler(event: KeyboardEvent): void {
@@ -191,11 +226,42 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     }
 
     const visibleWindow = event.state.milli.timelineTraceWindow;
+    this.#visibleWindowMilliSeconds = visibleWindow;
     const shouldAnimate = Boolean(event.options.shouldAnimate);
     this.mainFlameChart.setWindowTimes(visibleWindow.min, visibleWindow.max, shouldAnimate);
     this.networkDataProvider.setWindowTimes(visibleWindow.min, visibleWindow.max);
     this.networkFlameChart.setWindowTimes(visibleWindow.min, visibleWindow.max, shouldAnimate);
     this.updateSearchResults(false, false);
+  }
+
+  #yStartPixelForEntryLevel(entry: TraceEngine.Types.TraceEvents.TraceEventData): number {
+    // TODO: we need to implement this for the network too.
+    const indexForEntry = this.mainDataProvider.getIndexForEvent(entry);
+    if (!indexForEntry) {
+      return -1;
+    }
+    const timelineData = this.mainDataProvider.timelineData();
+    if (!timelineData) {
+      return -1;
+    }
+    const level = timelineData.entryLevels[indexForEntry];
+    const offsetForLevel = this.mainFlameChart.levelToOffset(level);
+    return offsetForLevel;
+  }
+  #microSecondsToPixel(dimensions: PerfUI.FlameChart.FlameChartDimensions, time: TraceEngine.Types.Timing.MicroSeconds):
+      number {
+    const startTime = TraceEngine.Helpers.Timing.microSecondsToMilliseconds(time);
+    if (!this.#visibleWindowMilliSeconds) {
+      return -1;
+    }
+
+    const timeFromLeft = startTime - dimensions.traceWindowLeft;
+    const totalSpan = dimensions.traceWindowRight - dimensions.traceWindowLeft;
+    const canvasWidthPx = dimensions.widthPixels;
+
+    return Math.floor(
+        timeFromLeft / totalSpan * canvasWidthPx,
+    );
   }
 
   isNetworkTrackShownForTests(): boolean {
@@ -215,8 +281,8 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
       animate: boolean): void {
     TraceBounds.TraceBounds.BoundsManager.instance().setTimelineVisibleWindow(
         TraceEngine.Helpers.Timing.traceWindowFromMilliSeconds(
-            TraceEngine.Types.Timing.MilliSeconds(windowStartTime),
-            TraceEngine.Types.Timing.MilliSeconds(windowEndTime),
+            windowStartTime,
+            windowEndTime,
             ),
         {shouldAnimate: animate},
     );
@@ -259,6 +325,43 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     this.updateSearchResults(false, false);
     this.refreshMainFlameChart();
     this.#updateFlameCharts();
+  }
+
+  #updateOverlays(dimensions: PerfUI.FlameChart.FlameChartDimensions): void {
+    if (!this.#traceEngineData) {
+      return;
+    }
+    const longestInteraction = this.#traceEngineData.UserInteractions.longestInteractionEvent;
+    if (longestInteraction) {
+      this.#activeOverlays = [{
+        type: 'ENTRY_TIMING_BREAKDOWN',
+        entry: longestInteraction,
+        sections: [
+          {start: longestInteraction.ts, end: longestInteraction.processingStart, label: 'Input Delay'},
+          {start: longestInteraction.processingStart, end: longestInteraction.processingEnd, label: 'Processing'},
+          {
+            start: longestInteraction.processingEnd,
+            end: TraceEngine.Types.Timing.MicroSeconds(longestInteraction.ts + longestInteraction.dur),
+            label: 'Processing',
+          },
+        ],
+      }];
+
+      const pixelTopValue = this.#yStartPixelForEntryLevel(longestInteraction) - dimensions.scrollOffset;
+      if (pixelTopValue < 0) {
+        this.#overlaysContainer.style.visibility = 'hidden';
+        return;
+      }
+
+      this.#overlaysContainer.style.top = pixelTopValue + 'px';
+      this.#overlaysContainer.style.visibility = 'visible';
+
+      const entryStartLeft = this.#microSecondsToPixel(dimensions, longestInteraction.ts);
+      const entryEndRight = this.#microSecondsToPixel(
+          dimensions, TraceEngine.Types.Timing.MicroSeconds(longestInteraction.ts + longestInteraction.dur));
+      this.#overlaysContainer.style.left = entryStartLeft + 'px';
+      this.#overlaysContainer.style.width = (entryEndRight - entryStartLeft) + 'px';
+    }
   }
 
   #reset(): void {
@@ -336,6 +439,7 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
   }
 
   override wasShown(): void {
+    this.registerCSSFiles([timelineFlameChartViewStyles]);
     this.networkFlameChartGroupExpansionSetting.addChangeListener(this.resizeToPreferredHeights, this);
     Bindings.IgnoreListManager.IgnoreListManager.instance().addChangeListener(this.#boundRefreshAfterIgnoreList);
     if (this.needsResizeToPreferredHeights) {

@@ -171,6 +171,29 @@ export const enum HoverType {
   ERROR = 'ERROR',
 }
 
+export interface FlameChartDimensions {
+  sourceFlameChart: 'MAIN'|'NETWORK'|'TICKING';
+  widthPixels: number;
+  traceWindowLeft: TraceEngine.Types.Timing.MilliSeconds;
+  traceWindowRight: TraceEngine.Types.Timing.MilliSeconds;
+  scrollOffset: number;
+}
+
+export class FlameChartDrawDimensionsEvent extends Event {
+  static readonly eventName = 'flamechartdrawdimensions';
+  constructor(public dimensions: FlameChartDimensions) {
+    super(FlameChartDrawDimensionsEvent.eventName, {
+      bubbles: true,
+      composed: true,
+    });
+  }
+}
+declare global {
+  interface HTMLElementEventMap {
+    [FlameChartDrawDimensionsEvent.eventName]: FlameChartDrawDimensionsEvent;
+  }
+}
+
 export class FlameChartDelegate {
   windowChanged(_startTime: number, _endTime: number, _animate: boolean): void {
   }
@@ -266,11 +289,13 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
   #searchResultEntryIndex: number;
   #searchResultHighlightElements: HTMLElement[] = [];
   #inTrackConfigEditMode: boolean = false;
+  #name: 'MAIN'|'NETWORK'|'TICKING';
 
   constructor(
-      dataProvider: FlameChartDataProvider, flameChartDelegate: FlameChartDelegate,
+      name: 'MAIN'|'NETWORK'|'TICKING', dataProvider: FlameChartDataProvider, flameChartDelegate: FlameChartDelegate,
       groupExpansionSetting?: Common.Settings.Setting<GroupExpansionState>) {
     super(true);
+    this.#name = name;
     this.#font = `${DEFAULT_FONT_SIZE} ${getFontFamilyForCanvas()}`;
     this.registerRequiredCSS(flameChartStyles);
     this.contentElement.classList.add('flame-chart-main-pane');
@@ -341,6 +366,11 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     ThemeSupport.ThemeSupport.instance().addEventListener(ThemeSupport.ThemeChangeEvent.eventName, () => {
       this.scheduleUpdate();
     });
+  }
+
+  name(): 'MAIN'|'NETWORK'|'TICKING' {
+    // Not exposed externally in the UI, but useful for debugging!
+    return this.#name;
   }
 
   override willHide(): void {
@@ -1849,6 +1879,13 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
       return;
     }
     this.resetCanvas();
+    this.element.dispatchEvent(new FlameChartDrawDimensionsEvent({
+      sourceFlameChart: this.#name,
+      widthPixels: this.offsetWidth,
+      traceWindowLeft: this.minimumBoundary(),
+      traceWindowRight: this.maximumBoundary(),
+      scrollOffset: this.chartViewport.scrollOffset(),
+    }));
 
     const canvasWidth = this.offsetWidth;
     const canvasHeight = this.offsetHeight;
