@@ -54,6 +54,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "bbfe3ac8_ceba3da6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-05-15T09:02:42Z",
+      "side": 1,
+      "message": "Hi Kateryna, thanks a lot for the review 😊! Some answers below!",
+      "revId": "dbb7cff61787cfcfc0d15094e062837ad0e6db42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "1a48cd3f_745b28ad",
         "filename": "front_end/panels/search/SearchView.ts",
         "patchSetId": 5
@@ -71,6 +88,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "f28fec31_34448449",
+        "filename": "front_end/panels/search/SearchView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-05-15T09:02:42Z",
+      "side": 1,
+      "message": "Yay, I was looking forward to these :)!",
+      "parentUuid": "1a48cd3f_745b28ad",
+      "revId": "dbb7cff61787cfcfc0d15094e062837ad0e6db42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "3c861446_02511e40",
         "filename": "front_end/panels/search/SearchView.ts",
         "patchSetId": 5
@@ -82,6 +117,30 @@
       "writtenOn": "2024-05-14T13:19:40Z",
       "side": 1,
       "message": "Suggestion: this.regexButtonToggled.bind(this)",
+      "range": {
+        "startLine": 209,
+        "startChar": 47,
+        "endLine": 209,
+        "endChar": 78
+      },
+      "revId": "dbb7cff61787cfcfc0d15094e062837ad0e6db42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ba17f8a_7ddf2255",
+        "filename": "front_end/panels/search/SearchView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-05-15T09:02:42Z",
+      "side": 1,
+      "message": "I remember that there was a discussion in DevTools that we preferred not to use `bind(this)`, but maybe things have changed? I\u0027m not strongly against it, though. If you prefer the `bind` solution here over this approach, let me know 😊",
+      "parentUuid": "3c861446_02511e40",
       "range": {
         "startLine": 209,
         "startChar": 47,
@@ -128,6 +187,30 @@
       "writtenOn": "2024-05-14T13:19:40Z",
       "side": 1,
       "message": "Does this come from a spec? Asking, because for buttons we just add a 2px outline with some offset",
+      "range": {
+        "startLine": 36,
+        "startChar": 6,
+        "endLine": 36,
+        "endChar": 68
+      },
+      "revId": "dbb7cff61787cfcfc0d15094e062837ad0e6db42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c89d32d9_861d605f",
+        "filename": "front_end/panels/search/searchView.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-05-15T09:02:42Z",
+      "side": 1,
+      "message": "No it\u0027s not directly from the spec. My first try was to use a normal border outline, but this didn\u0027t work in combination with filter bars as they already have a default background color. \n\nThe problem was the following: If I hovered over the search bar with that approach,  I got the overlapped colored layers (hover color + default background) for most of the search bar, but not for the thin outline outside. It may well be that there\u0027s a different solution to that to make it work, but I found this way of accomplishing the same using `box-shadow`.",
+      "parentUuid": "611c87b6_1ce96e7f",
       "range": {
         "startLine": 36,
         "startChar": 6,
