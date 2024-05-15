@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a03c606d_391e0873",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-15T15:48:59Z",
+      "side": 1,
+      "message": "Did you look to see how it\u0027s done elsewhere in the panel? This implementation is good but if we can re-use a widget that makes us consistent with everywhere else that might be useful and saves us some work. Especially in the future if we want the sidebar to be resizable, etc, then we won\u0027t have to re-implement that.",
+      "parentUuid": "c562d6fd_c7790931",
+      "revId": "1ee8e20ebf4e19f5a027770469eaf2e17e68bdb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "16df9207_82468b15",
         "filename": "front_end/panels/timeline/components/Sidebar.ts",
         "patchSetId": 7
