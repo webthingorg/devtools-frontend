@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "31d0ba283af3616d60ed0902cdc69756a60e1c77",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6cd62a84_02a1f123",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-15T13:37:52Z",
+      "side": 1,
+      "message": "LGTM but would lean towards adding some unit tests for the helper now it\u0027s standalone.",
+      "revId": "31d0ba283af3616d60ed0902cdc69756a60e1c77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "590fdc5c_3889541c",
+        "filename": "front_end/models/trace/helpers/Trace.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 622,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-15T13:37:52Z",
+      "side": 1,
+      "message": "worth a unit test or two for this method in isolation?",
+      "range": {
+        "startLine": 622,
+        "startChar": 0,
+        "endLine": 622,
+        "endChar": 103
+      },
+      "revId": "31d0ba283af3616d60ed0902cdc69756a60e1c77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
