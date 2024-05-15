@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad89e2a9_4703d046",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-05-15T10:02:21Z",
+      "side": 1,
+      "message": "Hi Benedikt!\n\nAs discussed, this CL is adding the gm3 reviewer as a watcher on `front_end/ui/components`, ptal!",
+      "revId": "2d17debf265ccfc7f03f99198226294827d5a7e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
