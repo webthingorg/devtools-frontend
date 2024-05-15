@@ -71,6 +71,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "c8d5efb7_c8dabd42",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-05-15T09:18:23Z",
+      "side": 1,
+      "message": "Thanks again, Kateryna 😊 landing!",
+      "revId": "dbb7cff61787cfcfc0d15094e062837ad0e6db42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "1a48cd3f_745b28ad",
         "filename": "front_end/panels/search/SearchView.ts",
         "patchSetId": 5
@@ -259,6 +276,30 @@
       "side": 1,
       "message": "I see, alright! Thanks for explaining:)",
       "parentUuid": "c89d32d9_861d605f",
+      "range": {
+        "startLine": 36,
+        "startChar": 6,
+        "endLine": 36,
+        "endChar": 68
+      },
+      "revId": "dbb7cff61787cfcfc0d15094e062837ad0e6db42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "594c4728_5e0ca84d",
+        "filename": "front_end/panels/search/searchView.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-05-15T09:18:23Z",
+      "side": 1,
+      "message": "NP 😊!",
+      "parentUuid": "9d61cd61_009dd7cc",
       "range": {
         "startLine": 36,
         "startChar": 6,
