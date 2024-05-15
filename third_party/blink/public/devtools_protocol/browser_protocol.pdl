@@ -2626,13 +2626,14 @@ domain DOM
       marker
       backdrop
       selection
+      search-text
       target-text
       spelling-error
       grammar-error
       highlight
       first-line-inherited
       scroll-marker
-      scroll-markers
+      scroll-marker-group
       scrollbar
       scrollbar-thumb
       scrollbar-button
@@ -6182,6 +6183,8 @@ domain Network
       TopLevelStorageAccess
       # The cookie should have been blocked by 3PCD but is exempted by CORS opt-in.
       CorsOptIn
+      # The cookie should have been blocked by 3PCD but is exempted by the first-party URL scheme.
+      Scheme
 
   # A cookie which was not stored from a response with the corresponding reason.
   experimental type BlockedSetCookieWithReason extends object

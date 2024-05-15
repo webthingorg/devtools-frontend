@@ -5546,13 +5546,14 @@
                         "marker",
                         "backdrop",
                         "selection",
+                        "search-text",
                         "target-text",
                         "spelling-error",
                         "grammar-error",
                         "highlight",
                         "first-line-inherited",
                         "scroll-marker",
-                        "scroll-markers",
+                        "scroll-marker-group",
                         "scrollbar",
                         "scrollbar-thumb",
                         "scrollbar-button",
@@ -13069,7 +13070,8 @@
                         "EnterprisePolicy",
                         "StorageAccess",
                         "TopLevelStorageAccess",
-                        "CorsOptIn"
+                        "CorsOptIn",
+                        "Scheme"
                     ]
                 },
                 {
@@ -28880,6 +28882,11 @@
                     "type": "integer"
                 },
                 {
+                    "id": "ExecutionContextUniqueId",
+                    "description": "Id of an execution context that is unique across processes\n(unlike ExecutionContextId).",
+                    "type": "string"
+                },
+                {
                     "id": "ExecutionContextDescription",
                     "description": "Description of an isolated world.",
                     "type": "object",
@@ -28903,7 +28910,7 @@
                             "name": "uniqueId",
                             "description": "A system-unique execution context identifier. Unlike the id, this is unique across\nmultiple processes, so can be reliably used to identify specific context while backend\nperforms a cross-process navigation.",
                             "experimental": true,
-                            "type": "string"
+                            "$ref": "ExecutionContextUniqueId"
                         },
                         {
                             "name": "auxData",
@@ -29677,7 +29684,7 @@
                         },
                         {
                             "name": "executionContextId",
-                            "description": "If specified, the binding would only be exposed to the specified\nexecution context. If omitted and `executionContextName` is not set,\nthe binding is exposed to all execution contexts of the target.\nThis parameter is mutually exclusive with `executionContextName`.\nDeprecated in favor of `executionContextName` due to an unclear use case\nand bugs in implementation (crbug.com/1169639). `executionContextId` will be\nremoved in the future.",
+                            "description": "If specified, the binding would only be exposed to the specified\nexecution context. If omitted and `executionContextName` is not set,\nthe binding is exposed to all execution contexts of the target.\nThis parameter is mutually exclusive with `executionContextName`\nand `executionContextUniqueId`.\nDeprecated in favor of `executionContextName` due to an unclear use case\nand bugs in implementation (crbug.com/1169639). `executionContextId` will be\nremoved in the future.",
                             "experimental": true,
                             "deprecated": true,
                             "optional": true,
@@ -29685,9 +29692,16 @@
                         },
                         {
                             "name": "executionContextName",
-                            "description": "If specified, the binding is exposed to the executionContext with\nmatching name, even for contexts created after the binding is added.\nSee also `ExecutionContext.name` and `worldName` parameter to\n`Page.addScriptToEvaluateOnNewDocument`.\nThis parameter is mutually exclusive with `executionContextId`.",
+                            "description": "If specified, the binding is exposed to the executionContext with\nmatching name, even for contexts created after the binding is added.\nSee also `ExecutionContext.name` and `worldName` parameter to\n`Page.addScriptToEvaluateOnNewDocument`.\nThis parameter is mutually exclusive with `executionContextId`\nand `executionContextUniqueId`.",
                             "optional": true,
                             "type": "string"
+                        },
+                        {
+                            "name": "executionContextUniqueId",
+                            "description": "This parameter is mutually exclusive with `executionContextId`\nand `executionContextName`.",
+                            "experimental": true,
+                            "optional": true,
+                            "$ref": "ExecutionContextUniqueId"
                         }
                     ]
                 },
@@ -29739,6 +29753,11 @@
                             "name": "executionContextId",
                             "description": "Identifier of the context where the call was made.",
                             "$ref": "ExecutionContextId"
+                        },
+                        {
+                            "name": "executionContextUniqueId",
+                            "experimental": true,
+                            "$ref": "ExecutionContextUniqueId"
                         }
                     ]
                 },
@@ -29783,6 +29802,11 @@
                             "name": "executionContextId",
                             "description": "Identifier of the context where the call was made.",
                             "$ref": "ExecutionContextId"
+                        },
+                        {
+                            "name": "executionContextUniqueId",
+                            "experimental": true,
+                            "$ref": "ExecutionContextUniqueId"
                         },
                         {
                             "name": "timestamp",
@@ -29860,7 +29884,7 @@
                             "name": "executionContextUniqueId",
                             "description": "Unique Id of the destroyed context",
                             "experimental": true,
-                            "type": "string"
+                            "$ref": "ExecutionContextUniqueId"
                         }
                     ]
                 },

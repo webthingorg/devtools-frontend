@@ -6366,7 +6366,7 @@ export const NativeFunctions = [
   },
   {
     name: "caretPositionFromPoint",
-    signatures: [["x","y"]]
+    signatures: [["x","y","...shadowRoots"]]
   },
   {
     name: "hasPrivateToken",
@@ -6779,6 +6779,10 @@ export const NativeFunctions = [
   {
     name: "ImageData",
     signatures: [["sw","sh","?settings"],["data","sw","?sh","?settings"]]
+  },
+  {
+    name: "getSelectionRects",
+    signatures: [["start","end"]]
   },
   {
     name: "CloseWatcher",

@@ -1616,6 +1616,7 @@ export const generatedProperties = [
    "cap-height",
    "ch-width",
    "ic-width",
+   "ic-height",
    "from-font"
   ],
   "name": "font-size-adjust"
@@ -2736,7 +2737,7 @@ export const generatedProperties = [
  },
  {
   "keywords": [
-   "implicit"
+   "auto"
   ],
   "name": "position-anchor"
  },
@@ -2904,6 +2905,14 @@ export const generatedProperties = [
  },
  {
   "name": "scroll-margin-top"
+ },
+ {
+  "keywords": [
+   "none",
+   "after",
+   "before"
+  ],
+  "name": "scroll-markers"
  },
  {
   "longhands": [
@@ -3289,6 +3298,7 @@ export const generatedProperties = [
   "name": "text-autospace"
  },
  {
+  "inherited": true,
   "name": "text-box-edge"
  },
  {
@@ -4600,6 +4610,7 @@ export const generatedPropertyValues = {
    "cap-height",
    "ch-width",
    "ic-width",
+   "ic-height",
    "from-font"
   ]
  },
@@ -5197,7 +5208,7 @@ export const generatedPropertyValues = {
  },
  "position-anchor": {
   "values": [
-   "implicit"
+   "auto"
   ]
  },
  "position-try-options": {
@@ -5280,6 +5291,13 @@ export const generatedPropertyValues = {
   "values": [
    "auto",
    "smooth"
+  ]
+ },
+ "scroll-markers": {
+  "values": [
+   "none",
+   "after",
+   "before"
   ]
  },
  "scroll-padding-block-end": {
