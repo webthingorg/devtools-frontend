@@ -153,6 +153,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "b6839d78_d790e84b",
+        "filename": "front_end/panels/search/SearchView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-05-15T09:13:31Z",
+      "side": 1,
+      "message": "I must have missed that! Will also avoid using bind then:)",
+      "parentUuid": "1ba17f8a_7ddf2255",
+      "range": {
+        "startLine": 209,
+        "startChar": 47,
+        "endLine": 209,
+        "endChar": 78
+      },
+      "revId": "dbb7cff61787cfcfc0d15094e062837ad0e6db42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "85b2fc68_016490f6",
         "filename": "front_end/panels/search/SearchView.ts",
         "patchSetId": 5
@@ -211,6 +235,30 @@
       "side": 1,
       "message": "No it\u0027s not directly from the spec. My first try was to use a normal border outline, but this didn\u0027t work in combination with filter bars as they already have a default background color. \n\nThe problem was the following: If I hovered over the search bar with that approach,  I got the overlapped colored layers (hover color + default background) for most of the search bar, but not for the thin outline outside. It may well be that there\u0027s a different solution to that to make it work, but I found this way of accomplishing the same using `box-shadow`.",
       "parentUuid": "611c87b6_1ce96e7f",
+      "range": {
+        "startLine": 36,
+        "startChar": 6,
+        "endLine": 36,
+        "endChar": 68
+      },
+      "revId": "dbb7cff61787cfcfc0d15094e062837ad0e6db42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d61cd61_009dd7cc",
+        "filename": "front_end/panels/search/searchView.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-05-15T09:13:31Z",
+      "side": 1,
+      "message": "I see, alright! Thanks for explaining:)",
+      "parentUuid": "c89d32d9_861d605f",
       "range": {
         "startLine": 36,
         "startChar": 6,
