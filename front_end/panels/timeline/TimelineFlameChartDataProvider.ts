@@ -1014,9 +1014,9 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
    * @returns if we should re-render the flame chart (canvas)
    */
   buildFlowForInitiator(entryIndex: number): boolean {
-    if (this.lastInitiatorEntry === entryIndex) {
-      return false;
-    }
+    // if (this.lastInitiatorEntry === entryIndex) {
+    //   return false;
+    // }
     if (!this.traceEngineData) {
       return false;
     }
