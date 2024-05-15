@@ -16,6 +16,29 @@
       "message": "ptal",
       "revId": "21f13514045737baf8486f48c85b2183f50b6a7e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9db3ef73_653e0223",
+        "filename": "front_end/models/trace/LegacyTracingModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 748,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-15T13:40:10Z",
+      "side": 1,
+      "message": "once you delete this method, you can delete a lot of the other methods and classes...I started it but the CL was getting HUGE, so I will do that in a follow-up.",
+      "range": {
+        "startLine": 747,
+        "startChar": 2,
+        "endLine": 748,
+        "endChar": 27
+      },
+      "revId": "21f13514045737baf8486f48c85b2183f50b6a7e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
