@@ -104,6 +104,7 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
   private screenshotImageCache!: Map<TraceEngine.Types.TraceEvents.SyntheticScreenshot, HTMLImageElement|null>;
   private entryIndexToTitle!: string[];
   private lastInitiatorEntry!: number;
+  private lastInitiatorsData!: PerfUI.FlameChart.FlameChartInitiatorData[];
   private lastSelection?: Selection;
   #font: string;
   #eventIndexByEvent: WeakMap<TraceEngine.Types.TraceEvents.TraceEventData, number|null> = new WeakMap();
@@ -1014,13 +1015,14 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
    * @returns if we should re-render the flame chart (canvas)
    */
   buildFlowForInitiator(entryIndex: number): boolean {
-    if (this.lastInitiatorEntry === entryIndex) {
-      return false;
-    }
     if (!this.traceEngineData) {
       return false;
     }
     if (!this.timelineDataInternal) {
+      return false;
+    }
+    if (this.lastInitiatorEntry === entryIndex) {
+      this.timelineDataInternal.initiatorsData = this.lastInitiatorsData;
       return false;
     }
     if (!this.compatibilityTracksAppender) {
@@ -1028,13 +1030,12 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
     }
 
     // Remove all previously assigned decorations indicating that the flow event entries are hidden
-    const previousInitiatorsDataLength = this.timelineDataInternal.initiatorsData.length;
     // |entryIndex| equals -1 means there is no entry selected, just clear the
     // initiator cache if there is any previous arrow and return true to
     // re-render.
     if (entryIndex === -1) {
       this.lastInitiatorEntry = entryIndex;
-      if (previousInitiatorsDataLength === 0) {
+      if (this.lastInitiatorsData.length === 0) {
         // This means there is no arrow before, so we don't need to re-render.
         return false;
       }
@@ -1070,7 +1071,7 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
         modifiedEntries,
     );
     // This means there is no change for arrows.
-    if (previousInitiatorsDataLength === 0 && initiatorsData.length === 0) {
+    if (this.lastInitiatorsData.length === 0 && initiatorsData.length === 0) {
       return false;
     }
     for (const intiatorData of initiatorsData) {
@@ -1086,6 +1087,7 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
         isEntryHidden: intiatorData.isEntryHidden,
       });
     }
+    this.lastInitiatorsData = this.timelineDataInternal.initiatorsData;
     return true;
   }
 
