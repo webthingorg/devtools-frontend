@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c562d6fd_c7790931",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-05-15T08:13:48Z",
+      "side": 1,
+      "message": "I added a simple logic with expanded boolean to achieve this",
+      "parentUuid": "fe9031d6_be396465",
+      "revId": "1ee8e20ebf4e19f5a027770469eaf2e17e68bdb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "16df9207_82468b15",
@@ -31,6 +49,30 @@
       "writtenOn": "2024-05-14T13:28:13Z",
       "side": 1,
       "message": "I don\u0027t think we should use LitElement given all the current conversations around UI. I\u0027d suggest using the lit-html approach for now as it will be consistent with the other components we have in this folder and will then be easier to migrate once Danil\u0027s work to define \"the way\" is complete.",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 1
+      },
+      "revId": "1ee8e20ebf4e19f5a027770469eaf2e17e68bdb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d53294d6_7d79354e",
+        "filename": "front_end/panels/timeline/components/Sidebar.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-05-15T08:13:48Z",
+      "side": 1,
+      "message": "Sure! changed to lit-html",
+      "parentUuid": "16df9207_82468b15",
       "range": {
         "startLine": 18,
         "startChar": 0,
