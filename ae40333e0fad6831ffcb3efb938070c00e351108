@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62da05fe_034e3161",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1545637
+      },
+      "writtenOn": "2024-05-15T15:31:45Z",
+      "side": 1,
+      "message": "An fyi: I\u0027ve made a few tweaks to this patch:\n\n- It uses the new names the CSS working group agreed on (https://github.com/w3c/csswg-drafts/issues/9697#issuecomment-2089278615), i.e. snapchanging is renamed to scrollsnapchanging.\n- It now accounts for both snap events rather than just snapchanging.",
+      "revId": "ae40333e0fad6831ffcb3efb938070c00e351108",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
