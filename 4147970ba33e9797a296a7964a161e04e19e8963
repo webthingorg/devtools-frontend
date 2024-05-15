@@ -16,6 +16,108 @@
       "message": "Changhao, could you please take a look?",
       "revId": "4147970ba33e9797a296a7964a161e04e19e8963",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ef706d2_32b6332c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-05-15T13:23:10Z",
+      "side": 1,
+      "message": "Mostly LGRM % some nit questions.",
+      "revId": "4147970ba33e9797a296a7964a161e04e19e8963",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4a1213b_e161647b",
+        "filename": "front_end/panels/application/ServiceWorkersView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-05-15T13:23:10Z",
+      "side": 1,
+      "message": "If we have changed the button text for `Periodic sync`, should we update this tag to `Periodic sync tag` as well?",
+      "revId": "4147970ba33e9797a296a7964a161e04e19e8963",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54078a87_7a19bdf3",
+        "filename": "front_end/panels/application/ServiceWorkersView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 531,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-05-15T13:23:10Z",
+      "side": 1,
+      "message": "Why is `networkRequests` button created by instantiating `Buttons.Button.Button`, while `updateButton` and `deleteButton` are cfeated via `UI.UIUtils.createTextButton`? What\u0027s the difference here? Are there downsides of creating the latter two buttons with `Buttons.Button.Button` as well?",
+      "revId": "4147970ba33e9797a296a7964a161e04e19e8963",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51014990_31063565",
+        "filename": "front_end/panels/application/serviceWorkersView.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-05-15T13:23:10Z",
+      "side": 1,
+      "message": "nit: with the new CSS nesting syntax, I think you should be able to write `devtools-button {...}` directly without prefixing `\u0026 `.",
+      "revId": "4147970ba33e9797a296a7964a161e04e19e8963",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce4f818a_cec2d7e4",
+        "filename": "front_end/panels/application/serviceWorkersView.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-05-15T13:23:10Z",
+      "side": 1,
+      "message": "Just curious: how does this work, i.e. where can I find a reference of how our sys sizes represent and should be used?",
+      "revId": "4147970ba33e9797a296a7964a161e04e19e8963",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60024d5b_65b324b0",
+        "filename": "front_end/ui/legacy/ReportView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-05-15T13:23:10Z",
+      "side": 1,
+      "message": "nit: this `bool` parameter does not indicate what it does, unless we look into its implementation, and together with this function it\u0027s a bit confusing because the function sounds like it\u0027s always going to disable header buttons, but the boolean actually controls whether it\u0027s disabled or not. Could we change it to something like `setHeaderButtonsState(disabled: boolean): void {...}`?",
+      "revId": "4147970ba33e9797a296a7964a161e04e19e8963",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
