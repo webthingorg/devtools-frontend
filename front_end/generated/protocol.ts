@@ -3699,13 +3699,14 @@ export namespace DOM {
     Marker = 'marker',
     Backdrop = 'backdrop',
     Selection = 'selection',
+    SearchText = 'search-text',
     TargetText = 'target-text',
     SpellingError = 'spelling-error',
     GrammarError = 'grammar-error',
     Highlight = 'highlight',
     FirstLineInherited = 'first-line-inherited',
     ScrollMarker = 'scroll-marker',
-    ScrollMarkers = 'scroll-markers',
+    ScrollMarkerGroup = 'scroll-marker-group',
     Scrollbar = 'scrollbar',
     ScrollbarThumb = 'scrollbar-thumb',
     ScrollbarButton = 'scrollbar-button',
@@ -8774,6 +8775,7 @@ export namespace Network {
     StorageAccess = 'StorageAccess',
     TopLevelStorageAccess = 'TopLevelStorageAccess',
     CorsOptIn = 'CorsOptIn',
+    Scheme = 'Scheme',
   }
 
   /**
@@ -19088,6 +19090,12 @@ export namespace Runtime {
   export type ExecutionContextId = OpaqueIdentifier<integer, 'Protocol.Runtime.ExecutionContextId'>;
 
   /**
+   * Id of an execution context that is unique across processes
+   * (unlike ExecutionContextId).
+   */
+  export type ExecutionContextUniqueId = OpaqueIdentifier<string, 'Protocol.Runtime.ExecutionContextUniqueId'>;
+
+  /**
    * Description of an isolated world.
    */
   export interface ExecutionContextDescription {
@@ -19109,7 +19117,7 @@ export namespace Runtime {
      * multiple processes, so can be reliably used to identify specific context while backend
      * performs a cross-process navigation.
      */
-    uniqueId: string;
+    uniqueId: ExecutionContextUniqueId;
     /**
      * Embedder-specific auxiliary data likely matching {isDefault: boolean, type: 'default'|'isolated'|'worker', frameId: string}
      */
@@ -19646,7 +19654,8 @@ export namespace Runtime {
      * If specified, the binding would only be exposed to the specified
      * execution context. If omitted and `executionContextName` is not set,
      * the binding is exposed to all execution contexts of the target.
-     * This parameter is mutually exclusive with `executionContextName`.
+     * This parameter is mutually exclusive with `executionContextName`
+     * and `executionContextUniqueId`.
      * Deprecated in favor of `executionContextName` due to an unclear use case
      * and bugs in implementation (crbug.com/1169639). `executionContextId` will be
      * removed in the future.
@@ -19657,9 +19666,15 @@ export namespace Runtime {
      * matching name, even for contexts created after the binding is added.
      * See also `ExecutionContext.name` and `worldName` parameter to
      * `Page.addScriptToEvaluateOnNewDocument`.
-     * This parameter is mutually exclusive with `executionContextId`.
+     * This parameter is mutually exclusive with `executionContextId`
+     * and `executionContextUniqueId`.
      */
     executionContextName?: string;
+    /**
+     * This parameter is mutually exclusive with `executionContextId`
+     * and `executionContextName`.
+     */
+    executionContextUniqueId?: ExecutionContextUniqueId;
   }
 
   export interface RemoveBindingRequest {
@@ -19687,6 +19702,7 @@ export namespace Runtime {
      * Identifier of the context where the call was made.
      */
     executionContextId: ExecutionContextId;
+    executionContextUniqueId: ExecutionContextUniqueId;
   }
 
   export const enum ConsoleAPICalledEventType {
@@ -19726,6 +19742,7 @@ export namespace Runtime {
      * Identifier of the context where the call was made.
      */
     executionContextId: ExecutionContextId;
+    executionContextUniqueId: ExecutionContextUniqueId;
     /**
      * Call timestamp.
      */
@@ -19790,7 +19807,7 @@ export namespace Runtime {
     /**
      * Unique Id of the destroyed context
      */
-    executionContextUniqueId: string;
+    executionContextUniqueId: ExecutionContextUniqueId;
   }
 
   /**
