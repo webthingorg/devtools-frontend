@@ -34,6 +34,24 @@
       "parentUuid": "26ee1eea_7ab9c0e0",
       "revId": "db776f12ab89fdc2a0b7d0e6964bbec04996f708",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d60a9e9f_69f0d44a",
+        "filename": "front_end/ui/legacy/theme_support/ThemeSupport.test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-05-15T09:50:48Z",
+      "side": 1,
+      "message": "Thank you, LGTM!",
+      "parentUuid": "921a6fc3_6da101de",
+      "revId": "db776f12ab89fdc2a0b7d0e6964bbec04996f708",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
