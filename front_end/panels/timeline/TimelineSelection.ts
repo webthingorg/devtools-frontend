@@ -39,21 +39,18 @@ export class TimelineSelection {
     if (object instanceof TraceEngine.Legacy.Event) {
       return false;
     }
-    // Sadly new trace events are just raw objects, so now we have to confirm it is a trace event by ruling everything else out.
+    // New trace events are just raw objects, so now we have to confirm it is a trace event by ruling everything else out.
     if (TimelineSelection.isFrameObject(object) || TimelineSelection.isRangeSelection(object)) {
       return false;
     }
-    if (TraceEngine.Legacy.eventIsFromNewEngine(object)) {
-      return TraceEngine.Types.TraceEvents.isSyntheticNetworkRequestDetailsEvent(object);
-    }
-    return false;
+    return TraceEngine.Types.TraceEvents.isSyntheticNetworkRequestDetailsEvent(object);
   }
 
   static isTraceEventSelection(object: PermittedObjectTypes): object is TraceEngine.Types.TraceEvents.TraceEventData {
     if (object instanceof TraceEngine.Legacy.Event) {
       return true;
     }
-    // Sadly new trace events are just raw objects, so now we have to confirm it is a trace event by ruling everything else out.
+    // New trace events are just raw objects, so now we have to confirm it is a trace event by ruling everything else out.
     if (TimelineSelection.isFrameObject(object) || TimelineSelection.isRangeSelection(object)) {
       return false;
     }
@@ -61,7 +58,7 @@ export class TimelineSelection {
     if (TraceEngine.Types.TraceEvents.isSyntheticNetworkRequestDetailsEvent(object)) {
       return false;
     }
-    return TraceEngine.Legacy.eventIsFromNewEngine(object);
+    return true;
   }
 
   static fromTraceEvent(event: TraceEngine.Types.TraceEvents.TraceEventData): TimelineSelection {
