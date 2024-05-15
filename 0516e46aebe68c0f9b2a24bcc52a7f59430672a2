@@ -16,6 +16,57 @@
       "message": "Changhao, could you please kindly review?:)",
       "revId": "0516e46aebe68c0f9b2a24bcc52a7f59430672a2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d071e716_d13a8a7f",
+        "filename": "front_end/panels/event_listeners/eventListenersView.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-05-15T20:48:47Z",
+      "side": 1,
+      "message": "nit: same as another CL, I think we don\u0027t need the prepending `\u0026` anymore.",
+      "revId": "0516e46aebe68c0f9b2a24bcc52a7f59430672a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14599fe7_85e2a020",
+        "filename": "front_end/ui/components/buttons/button.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-05-15T20:48:47Z",
+      "side": 1,
+      "message": "Just curious, why are we not using some variables here, e.g. --sys-size-X?",
+      "revId": "0516e46aebe68c0f9b2a24bcc52a7f59430672a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87b7ac2e_3a653c9b",
+        "filename": "test/e2e/elements/sidebar-event-listeners-remove_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-05-15T20:48:47Z",
+      "side": 1,
+      "message": "Super nit: I know you didn\u0027t write this, but could we make this comment into a sentence, i.e. capitalize the first letter and add a `.` at the end. Thanks!",
+      "revId": "0516e46aebe68c0f9b2a24bcc52a7f59430672a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
