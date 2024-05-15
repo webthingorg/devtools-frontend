@@ -327,6 +327,47 @@ function findVeDebugImpression(veid: number, includeAncestorChain?: boolean): In
   return findImpression({children: veDebugEventsLog as IntuitiveLogEntry[]});
 }
 
+function exportAdHocAnalysisLogForSql(): void {
+  const serialzeFields = <T>(obj: T, stringFields: (keyof T)[], numericFields: (keyof T)[]):
+      string => [...stringFields.map(f => obj[f] ? `"${obj[f]}"` : '$NullString'),
+                 ...numericFields.map(f => obj[f] ?? 'null')]
+                    .join(', ');
+
+  const serialzeVe = (e: AdHocAnalysisVisualElement): string => `\$VeFields(${serialzeFields(e, ['ve', 'context'], [
+    'veid',
+    'width',
+    'height',
+  ])}, ${e.parent ? `STRUCT(${serialzeVe(e.parent)})` : null})`;
+
+  const serialzeInteraction = (i: AdHocAnalysisInteraction): string => `\$Interaction(${
+      serialzeFields(i, ['type', 'context'], ['width', 'height', 'mouseButton', 'doubleClick', 'time'])})`;
+
+  const serialzeEntry = (e: AdHocAnalysisLogEntry): string =>
+      `\$Entry(${serialzeVe(e)}, ([${e.interactions.map(serialzeInteraction).join(', ')}]), ${e.time})`;
+
+  const entries = veDebugEventsLog as AdHocAnalysisLogEntry[];
+
+  // eslint-disable-next-line no-console
+  console.log(`DEFINE MACRO NullString CAST(null AS STRING);
+DEFINE MACRO VeFields $1 AS ve, $2 AS context, $3 AS veid, $4 AS width, $5 AS height, $6 AS parent;
+DEFINE MACRO Interaction STRUCT($1 AS type, $2 AS context, $3 AS width, $4 AS height, $5 AS mouseButton, $6 AS doubleClick, $7 AS time);
+DEFINE MACRO Entry STRUCT($1, $2 AS interactions, $3 AS time);
+DEFINE MACRO FakeVeFields $VeFields("", $NullString, 0, 0, 0, $1);
+DEFINE MACRO FakeVe STRUCT($FakeVeFields($1));
+
+WITH
+  processed_logs AS (
+      SELECT * FROM UNNEST([
+        $Entry($FakeVeFields($FakeVe($FakeVe($FakeVe($FakeVe($FakeVe($FakeVe($FakeVe(null)))))))), ([]), 0),
+        ${entries.map(serialzeEntry).join(', \n')}
+      ])
+    )
+
+
+
+SELECT * FROM processed_logs;`);
+}
+
 let sessionStartTime: number = Date.now();
 
 export function processStartLoggingForDebugging(): void {
@@ -342,3 +383,5 @@ globalThis.setVeDebugLoggingEnabled = setVeDebugLoggingEnabled;
 globalThis.veDebugEventsLog = veDebugEventsLog;
 // @ts-ignore
 globalThis.findVeDebugImpression = findVeDebugImpression;
+// @ts-ignore
+globalThis.exportAdHocAnalysisLogForSql = exportAdHocAnalysisLogForSql;
