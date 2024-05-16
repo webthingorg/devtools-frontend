@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6f44df2_e01316e8",
+        "filename": "front_end/models/persistence/PersistenceActions.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-05-16T09:04:11Z",
+      "side": 1,
+      "message": "Great idea, done. We are now bailing out if something goes wrong.",
+      "parentUuid": "f25620d5_f4315e65",
+      "revId": "68ee73603feda89dbddf06afa6145c18829e239a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e4db9155_862d3cb7",
@@ -65,6 +83,24 @@
       "writtenOn": "2024-05-16T08:06:28Z",
       "side": 1,
       "message": "Nit: `TextUtils.ContentProvider.ContentProvider`?",
+      "revId": "68ee73603feda89dbddf06afa6145c18829e239a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99b2e8b6_e5df7d20",
+        "filename": "front_end/models/persistence/PersistenceActions.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-05-16T09:04:11Z",
+      "side": 1,
+      "message": "Good catch, left-over from prototyping.",
+      "parentUuid": "e4db9155_862d3cb7",
       "revId": "68ee73603feda89dbddf06afa6145c18829e239a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
