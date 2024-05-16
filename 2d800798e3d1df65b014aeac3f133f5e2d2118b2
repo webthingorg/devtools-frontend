@@ -16,6 +16,40 @@
       "message": "Hi Ergün, could you PTAL? Thanks!",
       "revId": "2d800798e3d1df65b014aeac3f133f5e2d2118b2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dad353d1_93cfe617",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-05-16T09:43:19Z",
+      "side": 1,
+      "message": "LGTM with 2 comments:\n\n* (nit): After adding link to the `popovertarget` attribute name, it is not possible to get into an editing state from the DOM tree now for the `popovertarget`. I wonder if we can fix this somehow. -- though not super important I think, so we shouldn\u0027t block on this CL.\n* The other comment related to underline behavior below :)",
+      "revId": "2d800798e3d1df65b014aeac3f133f5e2d2118b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99233392_cc89a536",
+        "filename": "front_end/panels/elements/domLinkifier.css",
+        "patchSetId": 7
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-05-16T09:43:19Z",
+      "side": 1,
+      "message": "Do we want this hover-underline behavior for all node links, as currently this is making node links from the animations panel with underline too(1). I think I\u0027d prefer keeping the old behavior for the node links in other parts of the product.\n\nAs linking from the DOM(2): links are always underlined. I\u0027d prefer if we underlined this link too.\n\nQuestion for Peter to clarify the exact behavior we want here :)\n\n(1): https://g-issues.chromium.org/issues/40248266#comment28\n(2): https://g-issues.chromium.org/issues/40248266#comment29",
+      "revId": "2d800798e3d1df65b014aeac3f133f5e2d2118b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
