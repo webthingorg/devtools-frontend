@@ -153,6 +153,7 @@ export class MainImpl {
 
     console.timeStamp('Main._gotPreferences');
     this.#initializeGlobalsForLayoutTests();
+    await Common.SettingRegistration.evaluateAsyncConditions();
     this.createSettings(prefs);
     await this.requestAndRegisterLocaleData();
 

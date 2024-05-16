@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as Common from '../../core/common/common.js';
+import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as Root from '../../core/root/root.js';
 import * as Console from '../../panels/console/console.js';
@@ -132,7 +133,6 @@ Common.Settings.registerSettingExtension({
   title: i18nLazyString(UIStrings.enableConsoleInsights),
   defaultValue: isDisabledByDefault() ? false : true,
   reloadRequired: true,
-  condition: isSettingAvailable,
   disabledCondition: () => {
     if (isLocaleRestricted()) {
       return {disabled: true, reason: i18nString(UIStrings.wrongLocale)};
@@ -150,6 +150,16 @@ Common.Settings.registerSettingExtension({
       return {disabled: true, reason: i18nString(UIStrings.rolloutRestricted)};
     }
     return {disabled: false};
+  },
+  asyncCondition: async () => {
+    const featureInfo: Host.InspectorFrontendHostAPI.FeatureInformation = await new Promise(resolve => {
+      Host.InspectorFrontendHost.InspectorFrontendHostInstance.getFeatureInformation(
+          'DevToolsConsoleInsights', resp => {
+            resolve(resp);
+          });
+    });
+    const blocked = featureInfo.details?.blocked_by_feature_flag ?? true;
+    return !blocked;
   },
 });
 

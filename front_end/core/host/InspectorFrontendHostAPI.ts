@@ -303,6 +303,8 @@ export interface InspectorFrontendHostAPI {
 
   getSyncInformation(callback: (arg0: SyncInformation) => void): void;
 
+  getFeatureInformation(featureName: string, callback: (arg0: FeatureInformation) => void): void;
+
   upgradeDraggedFileSystemPermissions(fileSystem: FileSystem): void;
 
   platform(): string;
@@ -417,6 +419,12 @@ export interface SyncInformation {
   accountEmail?: string;
   /** The image of the account used for syncing. Its a base64 encoded PNG */
   accountImage?: string;
+}
+
+export interface FeatureInformation {
+  enabled: boolean;
+  details?: {[key: string]: string|boolean};
+  error?: string;
 }
 
 /**
