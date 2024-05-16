@@ -1,0 +1,85 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "007fc727_592a753e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-16T08:58:51Z",
+      "side": 1,
+      "message": "lgtm\u0027ing so I don\u0027t block you landing as we are in very different timezones this week, but please resolve the two comments first. Thanks - and great find on the double flamechart rendering too.",
+      "revId": "1f172a3dc56ce90cd0b71a796f33f92154bbf690",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0deada10_0851dc45",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-16T08:58:51Z",
+      "side": 1,
+      "message": "why use the `!` here rather than initalize it to `[]` ?\n\nOr make it `InitiatorData[]|null` and initialise it to `null`.\n\nThe `!` potentially hides type errors that could cause runtime bugs so I would like to avoid usage of it.",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 75
+      },
+      "revId": "1f172a3dc56ce90cd0b71a796f33f92154bbf690",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "204598ca_4258982f",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 1029,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-16T08:58:51Z",
+      "side": 1,
+      "message": "can we add a comment explaining this logic please? Probably based on your CL description.\n\nSomething like \"when timeline data is rebuilt, we lose all the initiators data. In this instance, if the selected event hasn\u0027t changed, rather than rebuild the initiators data, we can use the data we constructed previously\"",
+      "range": {
+        "startLine": 1024,
+        "startChar": 3,
+        "endLine": 1029,
+        "endChar": 5
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "1d016021_bf3c3c64",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+              "range": {
+                "startLine": 1024,
+                "startChar": 0,
+                "endLine": 1024,
+                "endChar": 0
+              },
+              "replacement": "    // When timeline data is rebuilt, we lose all the initiators data. In this\n    // instance, if the selected entry is the same as the last selected entry,\n    // we can just reuse the last initiators data.\n"
+            }
+          ]
+        }
+      ],
+      "revId": "1f172a3dc56ce90cd0b71a796f33f92154bbf690",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

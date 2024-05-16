@@ -16,6 +16,24 @@
       "message": "Also removing this update. It was causing the FlameChart to render twice. We are updating it from the Flamechart after calling this onEntrySelected method.",
       "revId": "7310f0f3d73b5584ee1cc3202fd5ff1792dbbbac",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16e02877_aa88aeb2",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-16T08:58:51Z",
+      "side": 0,
+      "message": "Acknowledged",
+      "parentUuid": "51e16ff5_1d0f1cb9",
+      "revId": "7310f0f3d73b5584ee1cc3202fd5ff1792dbbbac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
