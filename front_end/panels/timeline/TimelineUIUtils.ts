@@ -882,6 +882,8 @@ export class TimelineUIUtils {
       case recordType.WebSocketSendHandshakeRequest:
       case recordType.WebSocketReceiveHandshakeResponse:
       case recordType.WebSocketDestroy:
+      case recordType.WebSocketSend:
+      case recordType.WebSocketReceive:
       case recordType.ResourceWillSendRequest:
       case recordType.ResourceSendRequest:
       case recordType.ResourceReceivedData:
@@ -958,6 +960,8 @@ export class TimelineUIUtils {
       case recordType.WebSocketCreate:
       case recordType.WebSocketSendHandshakeRequest:
       case recordType.WebSocketReceiveHandshakeResponse:
+      case recordType.WebSocketSend:
+      case recordType.WebSocketReceive:
       case recordType.WebSocketDestroy: {
         detailsText = await TimelineUIUtils.buildDetailsTextForTraceEvent(event, traceParsedData);
         break;
@@ -1474,6 +1478,8 @@ export class TimelineUIUtils {
       case recordTypes.WebSocketCreate:
       case recordTypes.WebSocketSendHandshakeRequest:
       case recordTypes.WebSocketReceiveHandshakeResponse:
+      case recordTypes.WebSocketReceive:
+      case recordTypes.WebSocketSend:
       case recordTypes.WebSocketDestroy: {
         // The events will be from tthe new engine; as we remove the old engine we can remove these checks.
         if (TraceEngine.Legacy.eventIsFromNewEngine(event) &&
