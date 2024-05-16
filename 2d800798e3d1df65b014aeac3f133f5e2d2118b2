@@ -50,6 +50,23 @@
       "message": "Do we want this hover-underline behavior for all node links, as currently this is making node links from the animations panel with underline too(1). I think I\u0027d prefer keeping the old behavior for the node links in other parts of the product.\n\nAs linking from the DOM(2): links are always underlined. I\u0027d prefer if we underlined this link too.\n\nQuestion for Peter to clarify the exact behavior we want here :)\n\n(1): https://g-issues.chromium.org/issues/40248266#comment28\n(2): https://g-issues.chromium.org/issues/40248266#comment29",
       "revId": "2d800798e3d1df65b014aeac3f133f5e2d2118b2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e241f890_bd4718fb",
+        "filename": "front_end/panels/elements/domLinkifier.css",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-05-16T10:11:01Z",
+      "side": 1,
+      "message": "I also realized this color change too, I wonder if this affects other places; WDYT?",
+      "revId": "2d800798e3d1df65b014aeac3f133f5e2d2118b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
