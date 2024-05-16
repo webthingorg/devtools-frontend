@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85969684_73be68e6",
+        "filename": "front_end/legacy_test_runner/performance_test_runner/TimelineTestRunner.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-16T13:03:55Z",
+      "side": 0,
+      "message": "I think there are more methods in here that can be removed, but I will go through them in another CL and check for any usage in the layout tests.",
+      "revId": "4ce1adaae8466e1ae0b7f0b65f118d94c55239d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
