@@ -48,6 +48,7 @@ import {
   Events,
   type EventTypes,
   type ExtensionDescriptor,
+  type FeatureInformation,
   type HoverEvent,
   type ImpressionEvent,
   type InspectorFrontendHostAPI,
@@ -395,6 +396,10 @@ export class InspectorFrontendHostStub implements InspectorFrontendHostAPI {
       isSyncActive: false,
       arePreferencesSynced: false,
     });
+  }
+
+  getFeatureInformation(featureName: string, callback: (arg0: FeatureInformation) => void): void {
+    callback({enabled: false});
   }
 
   upgradeDraggedFileSystemPermissions(fileSystem: FileSystem): void {

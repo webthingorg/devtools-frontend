@@ -91,8 +91,22 @@ export function registerSettingExtension(registration: SettingRegistration): voi
 
 export function getRegisteredSettings(): Array<SettingRegistration> {
   return registeredSettings.filter(
-      setting =>
-          Root.Runtime.Runtime.isDescriptorEnabled({experiment: setting.experiment, condition: setting.condition}));
+      setting => {
+        if (setting.asyncCondition && !setting.asyncConditionResult) {
+          return false;
+        }
+        return Root.Runtime.Runtime.isDescriptorEnabled({experiment: setting.experiment, condition: setting.condition});
+      },
+  );
+}
+
+export async function evaluateAsyncConditions(): Promise<void> {
+  await Promise.allSettled(registeredSettings.map(setting => (async innerSetting => {
+                                                    if (innerSetting.asyncCondition) {
+                                                      innerSetting.asyncConditionResult =
+                                                          await innerSetting.asyncCondition();
+                                                    }
+                                                  })(setting)));
 }
 
 export function registerSettingsForTest(settings: Array<SettingRegistration>, forceReset: boolean = false): void {
@@ -287,6 +301,16 @@ export interface SettingRegistration {
    * jump to the experiment. If a setting is not disabled, the experiment entry will be ignored.
    */
   deprecationNotice?: {disabled: boolean, warning: () => Platform.UIString.LocalizedString, experiment?: string};
+
+  /**
+   * Similar to `condition` above, the resolved value of an `asyncCondition`
+   * controls whether a setting is available or not. `asyncCondition`s are only
+   * evaluated once during startup and the resolved value is stored in
+   * `asyncConditionResult`. If one wants to update `asyncConditionResult`,
+   * DevTools needs to be restarted.
+   */
+  asyncCondition?: () => Promise<boolean>;
+  asyncConditionResult?: boolean;
 }
 interface LocalizedSettingExtensionOption {
   value: boolean|string;
