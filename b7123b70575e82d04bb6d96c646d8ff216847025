@@ -33,6 +33,24 @@
       "message": "Should we also log this to the user-visible console so that they know something didn\u0027t work?",
       "revId": "b7123b70575e82d04bb6d96c646d8ff216847025",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c53ca626_ca28940c",
+        "filename": "front_end/models/persistence/PersistenceActions.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-05-16T09:10:39Z",
+      "side": 1,
+      "message": "I don\u0027t know what the current UX should be if user actions fail. Is adding an error message to the console still the way to go?",
+      "parentUuid": "0ccae310_c6790ea9",
+      "revId": "b7123b70575e82d04bb6d96c646d8ff216847025",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
