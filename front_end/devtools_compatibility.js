@@ -639,6 +639,15 @@ const InspectorFrontendHostImpl = class {
 
   /**
    * @override
+   * @param {string} featureName
+   * @param {!function(!InspectorFrontendHostAPI.FeatureInformation):void} callback
+   */
+  getFeatureInformation(featureName, callback) {
+    DevToolsAPI.sendMessageToEmbedder('getFeatureInformation', [featureName], callback);
+  }
+
+  /**
+   * @override
    * @param {string} origin
    * @param {string} script
    */
