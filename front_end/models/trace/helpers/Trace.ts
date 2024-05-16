@@ -471,6 +471,12 @@ export function frameIDForEvent(event: Types.TraceEvents.TraceEventData): string
 
 const DevToolsTimelineEventCategory = 'disabled-by-default-devtools.timeline';
 function isTopLevelEvent(event: Types.TraceEvents.TraceEventData): boolean {
+  if (event.cat.includes('toplevel')) {
+    // This is used in TimelineJSProfile to insert a fake event prior to the
+    // CPU Profile in order to ensure the trace isn't truncated. So if we see
+    // this, we want to treat it as a top level event.
+    return true;
+  }
   return event.cat.includes(DevToolsTimelineEventCategory) && event.name === Types.TraceEvents.KnownEventName.RunTask;
 }
 
