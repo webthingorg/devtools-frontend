@@ -26,4 +26,5 @@ export * as SelectorStats from './SelectorStatsHandler.js';
 export * as UserInteractions from './UserInteractionsHandler.js';
 export * as UserTimings from './UserTimingsHandler.js';
 export * as Warnings from './WarningsHandler.js';
+export * as WebSockets from './WebSocketsHandler.js';
 export * as Workers from './WorkersHandler.js';
