@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d513257e_c780be44",
+        "filename": "front_end/panels/timeline/TimelineDetailsView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-16T08:51:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd9b1ab7_77614b7c",
+      "range": {
+        "startLine": 366,
+        "startChar": 0,
+        "endLine": 367,
+        "endChar": 22
+      },
+      "revId": "27d167ea357a534bb63ba2c4bfdf80ab1a309be9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c8ba0c10_046f8943",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-05-16T08:13:01Z",
       "side": 1,
       "message": "nit:\n```suggestion\n    // Trace events are just raw objects, so now we have to confirm it is a trace event by ruling everything else out.\n```",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 122
+      },
+      "revId": "27d167ea357a534bb63ba2c4bfdf80ab1a309be9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8bf92946_d3d1103a",
+        "filename": "front_end/panels/timeline/TimelineSelection.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-16T08:51:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8ba0c10_046f8943",
       "range": {
         "startLine": 42,
         "startChar": 0,
