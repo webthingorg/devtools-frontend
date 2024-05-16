@@ -161,7 +161,7 @@ export class ProfileFlameChart extends
     this.overviewPane = new OverviewPane(dataProvider);
     this.overviewPane.show(this.element);
 
-    this.mainPane = new PerfUI.FlameChart.FlameChart(dataProvider, this.overviewPane);
+    this.mainPane = new PerfUI.FlameChart.FlameChart('PROFILER', dataProvider, this.overviewPane);
     this.mainPane.setBarHeight(15);
     this.mainPane.setTextBaseline(4);
     this.mainPane.setTextPadding(2);

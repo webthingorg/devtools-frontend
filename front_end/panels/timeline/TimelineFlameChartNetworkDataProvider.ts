@@ -7,6 +7,7 @@ import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
 import type * as Protocol from '../../generated/protocol.js';
 import * as TraceEngine from '../../models/trace/trace.js';
+import {TraceEvents} from '../../models/trace/types/types.js';
 import * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as ThemeSupport from '../../ui/legacy/theme_support/theme_support.js';
@@ -26,6 +27,7 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
   #timelineDataInternal?: PerfUI.FlameChart.FlameChartTimelineData|null;
   #lastSelection?: Selection;
   #traceEngineData: TraceEngine.Handlers.Types.TraceParseData|null;
+  #eventIndexByEvent: Map<TraceEngine.Types.TraceEvents.SyntheticNetworkRequest, number|null> = new Map();
   constructor() {
     this.#minimumBoundaryInternal = 0;
     this.#timeSpan = 0;
@@ -39,6 +41,7 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
   setModel(traceEngineData: TraceEngine.Handlers.Types.TraceParseData|null): void {
     this.#timelineDataInternal = null;
     this.#traceEngineData = traceEngineData;
+    this.#eventIndexByEvent.clear();
     this.#events = traceEngineData?.NetworkRequests.byTime || [];
 
     if (this.#traceEngineData) {
@@ -49,6 +52,20 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
   isEmpty(): boolean {
     this.timelineData();
     return !this.#events.length;
+  }
+
+  getIndexForEvent(event: TraceEngine.Types.TraceEvents.TraceEventData): number|null {
+    if (!TraceEngine.Types.TraceEvents.isSyntheticNetworkRequestDetailsEvent(event)) {
+      return null;
+    }
+    const fromCache = this.#eventIndexByEvent.get(event);
+    if (fromCache) {
+      return fromCache;
+    }
+    const index = this.#events.indexOf(event);
+    const result = index > -1 ? index : null;
+    this.#eventIndexByEvent.set(event, result);
+    return result;
   }
 
   maxStackDepth(): number {

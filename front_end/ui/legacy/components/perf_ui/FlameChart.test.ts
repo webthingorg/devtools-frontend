@@ -76,7 +76,7 @@ describeWithEnvironment('FlameChart', () => {
     const provider = new FakeProvider();
     const delegate = new MockFlameChartDelegate();
     const windowChangedSpy = sinon.spy(delegate, 'windowChanged');
-    chartInstance = new PerfUI.FlameChart.FlameChart(provider, delegate);
+    chartInstance = new PerfUI.FlameChart.FlameChart('MAIN', provider, delegate);
     renderChart(chartInstance);
     chartInstance.windowChanged(0, 5, false);
     assert.isTrue(windowChangedSpy.calledWith(0, 5, false));
@@ -86,7 +86,7 @@ describeWithEnvironment('FlameChart', () => {
     const provider = new FakeProvider();
     const delegate = new MockFlameChartDelegate();
     const updateRangeSpy = sinon.spy(delegate, 'updateRangeSelection');
-    chartInstance = new PerfUI.FlameChart.FlameChart(provider, delegate);
+    chartInstance = new PerfUI.FlameChart.FlameChart('MAIN', provider, delegate);
     renderChart(chartInstance);
     chartInstance.updateRangeSelection(0, 5);
     assert.isTrue(updateRangeSpy.calledWith(0, 5));
@@ -116,7 +116,7 @@ describeWithEnvironment('FlameChart', () => {
       const provider = new SetSelectedEntryTestProvider();
       const delegate = new MockFlameChartDelegate();
       const windowChangedSpy = sinon.spy(delegate, 'windowChanged');
-      chartInstance = new PerfUI.FlameChart.FlameChart(provider, delegate);
+      chartInstance = new PerfUI.FlameChart.FlameChart('MAIN', provider, delegate);
       // Make the window wide so lots is visible
       chartInstance.setSize(800, 400);
       chartInstance.setWindowTimes(0, 100);
@@ -131,7 +131,7 @@ describeWithEnvironment('FlameChart', () => {
          const provider = new SetSelectedEntryTestProvider();
          const delegate = new MockFlameChartDelegate();
          const windowChangedSpy = sinon.spy(delegate, 'windowChanged');
-         chartInstance = new PerfUI.FlameChart.FlameChart(provider, delegate);
+         chartInstance = new PerfUI.FlameChart.FlameChart('MAIN', provider, delegate);
          // Make the width narrow so that not everything fits
          chartInstance.setSize(100, 400);
          // Ensure the event we want to select is out of the viewport by selecting the first 100ms.
@@ -146,7 +146,7 @@ describeWithEnvironment('FlameChart', () => {
          const provider = new SetSelectedEntryTestProvider();
          const delegate = new MockFlameChartDelegate();
          const windowChangedSpy = sinon.spy(delegate, 'windowChanged');
-         chartInstance = new PerfUI.FlameChart.FlameChart(provider, delegate);
+         chartInstance = new PerfUI.FlameChart.FlameChart('MAIN', provider, delegate);
          // Make the width narrow so that not everything fits
          chartInstance.setSize(100, 400);
          // Ensure the event we want to select is out of the viewport by selecting the last 200ms
@@ -161,7 +161,7 @@ describeWithEnvironment('FlameChart', () => {
     it('updates the chart to highlight the entry and dispatches an event', async () => {
       const provider = new FakeProvider();
       const delegate = new MockFlameChartDelegate();
-      chartInstance = new PerfUI.FlameChart.FlameChart(provider, delegate);
+      chartInstance = new PerfUI.FlameChart.FlameChart('MAIN', provider, delegate);
       renderChart(chartInstance);
 
       const highlightedEventListener = sinon.stub();
@@ -192,7 +192,7 @@ describeWithEnvironment('FlameChart', () => {
     it('does nothing if the entry is already highlighted', async () => {
       const provider = new FakeProvider();
       const delegate = new MockFlameChartDelegate();
-      chartInstance = new PerfUI.FlameChart.FlameChart(provider, delegate);
+      chartInstance = new PerfUI.FlameChart.FlameChart('MAIN', provider, delegate);
       renderChart(chartInstance);
 
       const highlightedEventListener = sinon.stub();
@@ -213,7 +213,7 @@ describeWithEnvironment('FlameChart', () => {
       }
       const provider = new EmptyColorProvider();
       const delegate = new MockFlameChartDelegate();
-      chartInstance = new PerfUI.FlameChart.FlameChart(provider, delegate);
+      chartInstance = new PerfUI.FlameChart.FlameChart('MAIN', provider, delegate);
       renderChart(chartInstance);
 
       const highlightedEventListener = sinon.stub();
@@ -226,7 +226,7 @@ describeWithEnvironment('FlameChart', () => {
     it('dispatches the highlight event with an ID of -1 when the highlight is hidden', async () => {
       const provider = new FakeProvider();
       const delegate = new MockFlameChartDelegate();
-      chartInstance = new PerfUI.FlameChart.FlameChart(provider, delegate);
+      chartInstance = new PerfUI.FlameChart.FlameChart('MAIN', provider, delegate);
       renderChart(chartInstance);
 
       const highlightedEventListener = sinon.stub();
@@ -270,7 +270,7 @@ describeWithEnvironment('FlameChart', () => {
     it('Calculate the level position correctly', () => {
       const provider = new UpdateLevelPositionsTestProvider();
       const delegate = new MockFlameChartDelegate();
-      chartInstance = new PerfUI.FlameChart.FlameChart(provider, delegate);
+      chartInstance = new PerfUI.FlameChart.FlameChart('MAIN', provider, delegate);
       renderChart(chartInstance);
 
       // For Group 0, it is expanded (not collapsible),
@@ -303,7 +303,7 @@ describeWithEnvironment('FlameChart', () => {
     it('Calculate the level position correctly after hide and unhide a group without nested group', () => {
       const provider = new UpdateLevelPositionsTestProvider();
       const delegate = new MockFlameChartDelegate();
-      chartInstance = new PerfUI.FlameChart.FlameChart(provider, delegate);
+      chartInstance = new PerfUI.FlameChart.FlameChart('MAIN', provider, delegate);
       renderChart(chartInstance);
 
       chartInstance.hideGroup(/* groupIndex= */ 0);
@@ -379,7 +379,7 @@ describeWithEnvironment('FlameChart', () => {
       it('Calculate the level position correctly after hide and unhide a group with nested group', () => {
         const provider = new UpdateLevelPositionsWithNestedGroupTestProvider();
         const delegate = new MockFlameChartDelegate();
-        chartInstance = new PerfUI.FlameChart.FlameChart(provider, delegate);
+        chartInstance = new PerfUI.FlameChart.FlameChart('MAIN', provider, delegate);
         renderChart(chartInstance);
 
         chartInstance.hideGroup(/* groupIndex= */ 1);
@@ -432,7 +432,7 @@ describeWithEnvironment('FlameChart', () => {
       it('Calculate the level position correctly after hide and unhide a nested group', () => {
         const provider = new UpdateLevelPositionsWithNestedGroupTestProvider();
         const delegate = new MockFlameChartDelegate();
-        chartInstance = new PerfUI.FlameChart.FlameChart(provider, delegate);
+        chartInstance = new PerfUI.FlameChart.FlameChart('MAIN', provider, delegate);
         renderChart(chartInstance);
 
         chartInstance.hideGroup(/* groupIndex= */ 2);
@@ -519,7 +519,7 @@ describeWithEnvironment('FlameChart', () => {
       it('returns the correct coordinates for a given entry', () => {
         const provider = new IndexAndCoordinatesConversionTestProvider();
         const delegate = new MockFlameChartDelegate();
-        chartInstance = new PerfUI.FlameChart.FlameChart(provider, delegate);
+        chartInstance = new PerfUI.FlameChart.FlameChart('MAIN', provider, delegate);
         // Make the width narrow so that not everything fits
         chartInstance.setSize(100, 400);
         chartInstance.setWindowTimes(0, 100);
@@ -561,7 +561,7 @@ describeWithEnvironment('FlameChart', () => {
       it('returns the correct coordinates after re-order', () => {
         const provider = new IndexAndCoordinatesConversionTestProvider();
         const delegate = new MockFlameChartDelegate();
-        chartInstance = new PerfUI.FlameChart.FlameChart(provider, delegate);
+        chartInstance = new PerfUI.FlameChart.FlameChart('MAIN', provider, delegate);
         // Make the width narrow so that not everything fits
         chartInstance.setSize(100, 400);
         chartInstance.setWindowTimes(0, 100);
@@ -594,7 +594,7 @@ describeWithEnvironment('FlameChart', () => {
       it('returns the correct entry index for given coordinates', () => {
         const provider = new IndexAndCoordinatesConversionTestProvider();
         const delegate = new MockFlameChartDelegate();
-        chartInstance = new PerfUI.FlameChart.FlameChart(provider, delegate);
+        chartInstance = new PerfUI.FlameChart.FlameChart('MAIN', provider, delegate);
 
         // Make the width narrow so that not everything fits
         chartInstance.setSize(100, 400);
@@ -631,7 +631,7 @@ describeWithEnvironment('FlameChart', () => {
       it('returns the correct entry index for given coordinates after re-order', () => {
         const provider = new IndexAndCoordinatesConversionTestProvider();
         const delegate = new MockFlameChartDelegate();
-        chartInstance = new PerfUI.FlameChart.FlameChart(provider, delegate);
+        chartInstance = new PerfUI.FlameChart.FlameChart('MAIN', provider, delegate);
 
         // Make the width narrow so that not everything fits
         chartInstance.setSize(100, 400);
@@ -661,7 +661,7 @@ describeWithEnvironment('FlameChart', () => {
       it('returns the correct group index for given coordinates', () => {
         const provider = new IndexAndCoordinatesConversionTestProvider();
         const delegate = new MockFlameChartDelegate();
-        chartInstance = new PerfUI.FlameChart.FlameChart(provider, delegate);
+        chartInstance = new PerfUI.FlameChart.FlameChart('MAIN', provider, delegate);
 
         // Make the width narrow so that not everything fits
         chartInstance.setSize(100, 400);
@@ -699,7 +699,7 @@ describeWithEnvironment('FlameChart', () => {
       it('returns the correct group index for given coordinates after re-order', () => {
         const provider = new IndexAndCoordinatesConversionTestProvider();
         const delegate = new MockFlameChartDelegate();
-        chartInstance = new PerfUI.FlameChart.FlameChart(provider, delegate);
+        chartInstance = new PerfUI.FlameChart.FlameChart('MAIN', provider, delegate);
 
         // Make the width narrow so that not everything fits
         chartInstance.setSize(100, 400);
@@ -740,7 +740,7 @@ describeWithEnvironment('FlameChart', () => {
       it('returns the correct group index and the icon type for given coordinates', () => {
         const provider = new IndexAndCoordinatesConversionTestProvider();
         const delegate = new MockFlameChartDelegate();
-        chartInstance = new PerfUI.FlameChart.FlameChart(provider, delegate);
+        chartInstance = new PerfUI.FlameChart.FlameChart('MAIN', provider, delegate);
 
         // Make the width narrow so that not everything fits
         chartInstance.setSize(100, 400);
@@ -843,7 +843,7 @@ describeWithEnvironment('FlameChart', () => {
     it('builds the group tree correctly', async () => {
       const provider = new BuildGroupTreeTestProvider();
       const delegate = new MockFlameChartDelegate();
-      chartInstance = new PerfUI.FlameChart.FlameChart(provider, delegate);
+      chartInstance = new PerfUI.FlameChart.FlameChart('MAIN', provider, delegate);
       const root = chartInstance.buildGroupTree(provider.timelineData().groups);
 
       // The built tree should be
@@ -950,7 +950,7 @@ describeWithEnvironment('FlameChart', () => {
     it('builds the group tree correctly', async () => {
       const provider = new UpdateGroupTreeTestProvider();
       const delegate = new MockFlameChartDelegate();
-      chartInstance = new PerfUI.FlameChart.FlameChart(provider, delegate);
+      chartInstance = new PerfUI.FlameChart.FlameChart('MAIN', provider, delegate);
       const root = chartInstance.buildGroupTree(provider.timelineData().groups);
 
       // The built tree should be

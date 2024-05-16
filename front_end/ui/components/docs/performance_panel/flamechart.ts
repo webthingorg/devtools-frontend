@@ -59,7 +59,7 @@ function renderExample1() {
   }
   const delegate = new TraceHelpers.MockFlameChartDelegate();
   const dataProvider = new FakeProviderWithBasicEvents();
-  const flameChart = new PerfUI.FlameChart.FlameChart(dataProvider, delegate);
+  const flameChart = new PerfUI.FlameChart.FlameChart('MAIN', dataProvider, delegate);
 
   flameChart.markAsRoot();
   flameChart.setWindowTimes(0, 100);
@@ -153,7 +153,7 @@ function renderExample2() {
   }
   const delegate = new TraceHelpers.MockFlameChartDelegate();
   const dataProvider = new FakeProviderWithLongTasksForStriping();
-  const flameChart = new PerfUI.FlameChart.FlameChart(dataProvider, delegate);
+  const flameChart = new PerfUI.FlameChart.FlameChart('MAIN', dataProvider, delegate);
 
   flameChart.markAsRoot();
   flameChart.setWindowTimes(0, 100);
@@ -198,7 +198,7 @@ function renderExample3() {
   }
   const delegate = new TraceHelpers.MockFlameChartDelegate();
   const dataProvider = new FakeProviderWithNestedGroup();
-  const flameChart = new PerfUI.FlameChart.FlameChart(dataProvider, delegate);
+  const flameChart = new PerfUI.FlameChart.FlameChart('MAIN', dataProvider, delegate);
 
   flameChart.markAsRoot();
   flameChart.setWindowTimes(0, 100);
@@ -253,7 +253,7 @@ function renderExample4() {
   }
   const delegate = new TraceHelpers.MockFlameChartDelegate();
   const dataProvider = new FakeProviderWithBasicEvents();
-  const flameChart = new PerfUI.FlameChart.FlameChart(dataProvider, delegate);
+  const flameChart = new PerfUI.FlameChart.FlameChart('MAIN', dataProvider, delegate);
 
   flameChart.markAsRoot();
   flameChart.setWindowTimes(0, 100);
@@ -341,7 +341,7 @@ function renderExample5() {
   }
   const delegate = new TraceHelpers.MockFlameChartDelegate();
   const dataProvider = new FakeProviderWithVariousTasksForInitiators();
-  const flameChart = new PerfUI.FlameChart.FlameChart(dataProvider, delegate);
+  const flameChart = new PerfUI.FlameChart.FlameChart('MAIN', dataProvider, delegate);
 
   flameChart.markAsRoot();
   flameChart.setSelectedEntry(14);
