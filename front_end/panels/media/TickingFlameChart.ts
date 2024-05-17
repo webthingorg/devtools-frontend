@@ -213,10 +213,11 @@ export class TickingFlameChart extends UI.Widget.VBox {
         Common.Settings.Settings.instance().createSetting('media-flame-chart-group-expansion', {});
 
     // Create the chart.
-    this.chart =
+    this.chart = new PerfUI.FlameChart.FlameChart(
+        'TICKING', this.dataProvider, this.delegate,
         // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
         // @ts-expect-error
-        new PerfUI.FlameChart.FlameChart(this.dataProvider, this.delegate, this.chartGroupExpansionSetting);
+        this.chartGroupExpansionSetting);
 
     // TODO: needs to have support in the delegate for supporting this.
     this.chart.disableRangeSelection();

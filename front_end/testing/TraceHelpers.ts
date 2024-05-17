@@ -59,7 +59,7 @@ export async function getMainFlameChartWithTracks(
   dataProvider.buildFromTrackAppenders(
       {filterThreadsByName: trackName, expandedTracks: expanded ? trackAppenderNames : undefined});
   const delegate = new MockFlameChartDelegate();
-  const flameChart = new PerfUI.FlameChart.FlameChart(dataProvider, delegate);
+  const flameChart = new PerfUI.FlameChart.FlameChart('MAIN', dataProvider, delegate);
   const minTime = TraceEngine.Helpers.Timing.microSecondsToMilliseconds(traceParsedData.Meta.traceBounds.min);
   const maxTime = TraceEngine.Helpers.Timing.microSecondsToMilliseconds(traceParsedData.Meta.traceBounds.max);
   flameChart.setWindowTimes(minTime, maxTime);
@@ -93,7 +93,7 @@ export async function getNetworkFlameChart(traceFileName: string, expanded: bool
   });
 
   const delegate = new MockFlameChartDelegate();
-  const flameChart = new PerfUI.FlameChart.FlameChart(dataProvider, delegate);
+  const flameChart = new PerfUI.FlameChart.FlameChart('NETWORK', dataProvider, delegate);
   flameChart.setWindowTimes(minTime, maxTime);
   flameChart.markAsRoot();
   flameChart.update();

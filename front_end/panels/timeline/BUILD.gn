@@ -42,6 +42,7 @@ generate_css("css_files") {
     "historyToolbarButton.css",
     "timelineFlamechartPopover.css",
     "timelineHistoryManager.css",
+    "timelineFlameChartView.css",
     "timelineMiniMap.css",
     "timelinePaintProfiler.css",
     "timelinePanel.css",

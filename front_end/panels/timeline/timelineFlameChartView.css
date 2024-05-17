@@ -1,0 +1,63 @@
+.timeline-overlays-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* TODO: figure out why this value */
+  z-index: 200;
+  pointer-events: none;
+}
+
+.overlay-item {
+  position: absolute;
+  /* The FlameChartView will move these as the FlameChart is drawn*/
+  top: 0;
+  left: 0;
+}
+.overlay-type-long_network_request {
+  height: 17px;
+  border: 1px solid green;
+}
+
+.overlay-type-entry_timing_breakdown {
+  background-color: white;
+  pointer-events: auto;
+
+  devtools-overlay-entry-timings-breakdown {
+    display: block;
+    ul {
+      list-style: none;
+      display: flex;
+      padding: 0;
+      margin: 0;
+    }
+    ul.sections-labels {
+      justify-content: space-between;
+      li {
+        flex: 1 1 0;
+      }
+    }
+
+    ul.sections-time {
+      height: 50px;
+    }
+
+    li {
+      height: 100%;
+
+      &.inputDelay {
+        background-color: #89CFF0;
+        color: black;
+      }
+      &.processing {
+        background-color: #6082B6;
+        color: white;
+      }
+      &.presentationDelay {
+        background-color: #A7C7E7;
+        color: black;
+      }
+    }
+  }
+}

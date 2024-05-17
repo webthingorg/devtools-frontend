@@ -9,8 +9,10 @@ import * as SDK from '../../core/sdk/sdk.js';
 import * as Bindings from '../../models/bindings/bindings.js';
 import * as TraceEngine from '../../models/trace/trace.js';
 import * as TraceBounds from '../../services/trace_bounds/trace_bounds.js';
+import {from} from '../../third_party/puppeteer/package/lib/cjs/third_party/rxjs/rxjs.js';
 import * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 import * as UI from '../../ui/legacy/legacy.js';
+import * as LitHtml from '../../ui/lit-html/lit-html.js';
 
 import {CountersGraph} from './CountersGraph.js';
 import {SHOULD_SHOW_EASTER_EGG} from './EasterEgg.js';
@@ -23,6 +25,7 @@ import {
   TimelineFlameChartDataProvider,
 } from './TimelineFlameChartDataProvider.js';
 import {TimelineFlameChartNetworkDataProvider} from './TimelineFlameChartNetworkDataProvider.js';
+import timelineFlameChartViewStyles from './timelineFlameChartView.css.js';
 import {type TimelineModeViewDelegate} from './TimelinePanel.js';
 import {TimelineSelection} from './TimelineSelection.js';
 import {AggregatedTimelineTreeView} from './TimelineTreeView.js';
@@ -40,6 +43,51 @@ const str_ = i18n.i18n.registerUIStrings('panels/timeline/TimelineFlameChartView
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 const MAX_HIGHLIGHTED_SEARCH_ELEMENTS: number = 200;
+
+interface OverlayTimingSection {
+  // This would probably be a TraceBound type in reality
+  start: TraceEngine.Types.Timing.MicroSeconds;
+  end: TraceEngine.Types.Timing.MicroSeconds;
+  label: string;
+  className: string;
+}
+
+interface EntryTimingBreakdownOverlay {
+  type: 'ENTRY_TIMING_BREAKDOWN';
+  entry: Readonly<TraceEngine.Types.TraceEvents.SyntheticInteractionPair>;
+  sections: OverlayTimingSection[];
+}
+interface ConnectedEntriesOverlay {
+  type: 'CONNECTED_ENTRIES';
+  fromEntry: Readonly<TraceEngine.Types.TraceEvents.TraceEventData>;
+  toEntry: Readonly<TraceEngine.Types.TraceEvents.TraceEventData>;
+}
+type Overlay = EntryTimingBreakdownOverlay|ConnectedEntriesOverlay|{
+  type: 'LONG_NETWORK_REQUEST',
+  entry: Readonly<TraceEngine.Types.TraceEvents.SyntheticNetworkRequest>,
+  label: string,
+};
+
+const elementForOverlay = new Map<Overlay, HTMLElement>();
+
+function getOrCreateElementForOverlay(overlay: Overlay): HTMLElement {
+  const existing = elementForOverlay.get(overlay);
+  if (existing) {
+    return existing;
+  }
+
+  const div = document.createElement('div');
+  div.classList.add('overlay-item');
+  div.classList.add(`overlay-type-${overlay.type.toLowerCase()}`);
+
+  elementForOverlay.set(overlay, div);
+  return div;
+}
+
+interface KnownFlameChartDimensions {
+  main?: PerfUI.FlameChart.FlameChartDimensions;
+  network?: PerfUI.FlameChart.FlameChartDimensions;
+}
 
 export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.FlameChart.FlameChartDelegate,
                                                                       UI.SearchableView.Searchable {
@@ -78,6 +126,12 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
   #onTraceBoundsChangeBound = this.#onTraceBoundsChange.bind(this);
   #gameKeyMatches = 0;
   #gameTimeout = setTimeout(() => ({}), 0);
+  #overlaysContainer: HTMLDivElement;
+  #activeOverlays: Overlay[] = [];
+  #visibleWindowMilliSeconds: Readonly<TraceEngine.Types.Timing.TraceWindowMilliSeconds>|null = null;
+
+  #viewDimensions: KnownFlameChartDimensions = {};
+
   constructor(delegate: TimelineModeViewDelegate) {
     super();
     this.element.classList.add('timeline-flamechart');
@@ -86,26 +140,35 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     this.eventListeners = [];
     this.#traceEngineData = null;
 
+    const flameChartsContainer = new UI.Widget.VBox();
+    flameChartsContainer.element.classList.add('flame-charts-container');
+
     // Create main and network flamecharts.
     this.networkSplitWidget = new UI.SplitWidget.SplitWidget(false, false, 'timeline-flamechart-main-view', 150);
+    this.networkSplitWidget.show(flameChartsContainer.element);
 
     // Ensure that the network panel & resizer appears above the main thread.
     this.networkSplitWidget.sidebarElement().style.zIndex = '120';
+
+    this.#overlaysContainer = document.createElement('div');
+    this.#overlaysContainer.classList.add('timeline-overlays-container');
+    flameChartsContainer.element.appendChild(this.#overlaysContainer);
 
     const mainViewGroupExpansionSetting =
         Common.Settings.Settings.instance().createSetting('timeline-flamechart-main-view-group-expansion', {});
     this.mainDataProvider = new TimelineFlameChartDataProvider();
     this.mainDataProvider.addEventListener(
         TimelineFlameChartDataProviderEvents.DataChanged, () => this.mainFlameChart.scheduleUpdate());
-    this.mainFlameChart = new PerfUI.FlameChart.FlameChart(this.mainDataProvider, this, mainViewGroupExpansionSetting);
+    this.mainFlameChart =
+        new PerfUI.FlameChart.FlameChart('MAIN', this.mainDataProvider, this, mainViewGroupExpansionSetting);
     this.mainFlameChart.alwaysShowVerticalScroll();
     this.mainFlameChart.enableRuler(false);
 
     this.networkFlameChartGroupExpansionSetting =
         Common.Settings.Settings.instance().createSetting('timeline-flamechart-network-view-group-expansion', {});
     this.networkDataProvider = new TimelineFlameChartNetworkDataProvider();
-    this.networkFlameChart =
-        new PerfUI.FlameChart.FlameChart(this.networkDataProvider, this, this.networkFlameChartGroupExpansionSetting);
+    this.networkFlameChart = new PerfUI.FlameChart.FlameChart(
+        'NETWORK', this.networkDataProvider, this, this.networkFlameChartGroupExpansionSetting);
     this.networkFlameChart.alwaysShowVerticalScroll();
 
     this.networkPane = new UI.Widget.VBox();
@@ -120,7 +183,7 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     // Create counters chart splitter.
     this.chartSplitWidget = new UI.SplitWidget.SplitWidget(false, true, 'timeline-counters-split-view-state');
     this.countersView = new CountersGraph(this.delegate);
-    this.chartSplitWidget.setMainWidget(this.networkSplitWidget);
+    this.chartSplitWidget.setMainWidget(flameChartsContainer);
     this.chartSplitWidget.setSidebarWidget(this.countersView);
     this.chartSplitWidget.hideDefaultResizer();
     this.chartSplitWidget.installResizer((this.countersView.resizerElement() as Element));
@@ -151,6 +214,18 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     this.refreshMainFlameChart();
 
     TraceBounds.TraceBounds.onChange(this.#onTraceBoundsChangeBound);
+    this.element.addEventListener(
+        PerfUI.FlameChart.FlameChartDrawDimensionsEvent.eventName,
+        event => {
+          if (event.dimensions.sourceFlameChart === 'MAIN') {
+            this.#viewDimensions.main = event.dimensions;
+
+          } else if (event.dimensions.sourceFlameChart === 'NETWORK') {
+            this.#viewDimensions.network = event.dimensions;
+          }
+          this.#renderAndUpdateOverlays();
+        },
+    );
   }
 
   #keydownHandler(event: KeyboardEvent): void {
@@ -191,11 +266,50 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     }
 
     const visibleWindow = event.state.milli.timelineTraceWindow;
+    this.#visibleWindowMilliSeconds = visibleWindow;
     const shouldAnimate = Boolean(event.options.shouldAnimate);
     this.mainFlameChart.setWindowTimes(visibleWindow.min, visibleWindow.max, shouldAnimate);
     this.networkDataProvider.setWindowTimes(visibleWindow.min, visibleWindow.max);
     this.networkFlameChart.setWindowTimes(visibleWindow.min, visibleWindow.max, shouldAnimate);
     this.updateSearchResults(false, false);
+  }
+
+  #yStartPixelForEntryLevel(
+      chart: PerfUI.FlameChart.FlameChart, provider: PerfUI.FlameChart.FlameChartDataProvider,
+      entry: TraceEngine.Types.TraceEvents.TraceEventData): number {
+    const indexForEntry = provider.getIndexForEvent(entry);
+    if (indexForEntry === null) {
+      return -1;
+    }
+    const timelineData = provider.timelineData();
+    if (!timelineData) {
+      return -1;
+    }
+    const level = timelineData.entryLevels.at(indexForEntry);
+    if (typeof level === 'undefined') {
+      return -1;
+    }
+    // Could be undefined if the entry is not rendered.
+    const offsetForLevel = chart.levelToOffset(level) as number | undefined;
+    if (typeof offsetForLevel === 'undefined') {
+      return -1;
+    }
+    return offsetForLevel;
+  }
+  #microSecondsToPixel(dimensions: PerfUI.FlameChart.FlameChartDimensions, time: TraceEngine.Types.Timing.MicroSeconds):
+      number {
+    const startTime = TraceEngine.Helpers.Timing.microSecondsToMilliseconds(time);
+    if (!this.#visibleWindowMilliSeconds) {
+      return -1;
+    }
+
+    const timeFromLeft = startTime - dimensions.traceWindowLeft;
+    const totalSpan = dimensions.traceWindowRight - dimensions.traceWindowLeft;
+    const canvasWidthPx = dimensions.widthPixels;
+
+    return Math.floor(
+        timeFromLeft / totalSpan * canvasWidthPx,
+    );
   }
 
   isNetworkTrackShownForTests(): boolean {
@@ -215,8 +329,8 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
       animate: boolean): void {
     TraceBounds.TraceBounds.BoundsManager.instance().setTimelineVisibleWindow(
         TraceEngine.Helpers.Timing.traceWindowFromMilliSeconds(
-            TraceEngine.Types.Timing.MilliSeconds(windowStartTime),
-            TraceEngine.Types.Timing.MilliSeconds(windowEndTime),
+            windowStartTime,
+            windowEndTime,
             ),
         {shouldAnimate: animate},
     );
@@ -250,6 +364,7 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     }
     this.#selectedGroupName = null;
     this.#traceEngineData = newTraceEngineData;
+    this.#makeFakeOverlaysForPrototype();
     Common.EventTarget.removeEventListeners(this.eventListeners);
     this.#selectedEvents = null;
     this.mainDataProvider.setModel(newTraceEngineData, isCpuProfile);
@@ -259,6 +374,313 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     this.updateSearchResults(false, false);
     this.refreshMainFlameChart();
     this.#updateFlameCharts();
+  }
+
+  #makeFakeOverlaysForPrototype(): void {
+    if (!this.#traceEngineData) {
+      return;
+    }
+    // Get rid of any old overlays
+    for (const element of elementForOverlay.values()) {
+      element.parentElement?.removeChild(element);
+    }
+    elementForOverlay.clear();
+    // TODO: do we need the separate array? Could just use keys in the map
+    // (with the element set to null initially)
+    this.#activeOverlays = [];
+
+    // These overlays can come from anywhere - for the sake of this prototype
+    // we make a couple based on things that might be in the trace.
+    const longestInteraction = this.#traceEngineData.UserInteractions.longestInteractionEvent;
+    if (longestInteraction) {
+      this.#activeOverlays.push({
+        type: 'ENTRY_TIMING_BREAKDOWN',
+        entry: longestInteraction,
+        sections: [
+          {
+            start: longestInteraction.ts,
+            end: longestInteraction.processingStart,
+            label: 'Input Delay',
+            className: 'inputDelay',
+          },
+          {
+            start: longestInteraction.processingStart,
+            end: longestInteraction.processingEnd,
+            label: 'Processing',
+            className: 'processing',
+          },
+          {
+            start: longestInteraction.processingEnd,
+            end: TraceEngine.Types.Timing.MicroSeconds(longestInteraction.ts + longestInteraction.dur),
+            label: 'Presentation delay',
+            className: 'presentationDelay',
+          },
+        ],
+      });
+    }
+
+    this.#traceEngineData.NetworkRequests.byTime.forEach((request, index) => {
+      if (index === 0) {
+        const parseHTMLEvent = this.#traceEngineData?.Renderer.allTraceEntries.find(event => {
+          const requestEnd = TraceEngine.Helpers.Timing.eventTimingsMicroSeconds(request).endTime;
+          return TraceEngine.Types.TraceEvents.isTraceEventParseHTML(event) && event.ts > requestEnd;
+        });
+        // Create a connection from the first network request to the parseHTML event
+        // (demo using web-dev-with-commit.json trace)
+        if (parseHTMLEvent) {
+          this.#activeOverlays.push({
+            type: 'CONNECTED_ENTRIES',
+            fromEntry: request,
+            toEntry: parseHTMLEvent,
+          });
+        }
+      }
+      if (request.dur > 100_000) {
+        // Clearly this is not a real overlay type, but just for prototyping...highlight network reqs that take >100ms
+        this.#activeOverlays.push({
+          type: 'LONG_NETWORK_REQUEST',
+          entry: request,
+          label: 'This took a while!',
+        });
+      }
+    });
+  }
+
+  #renderConnectedEntriesOverlay(
+      overlay: ConnectedEntriesOverlay, mainDimensions: PerfUI.FlameChart.FlameChartDimensions,
+      networkDimensions: PerfUI.FlameChart.FlameChartDimensions): void {
+    const resizerHeight = networkDimensions.heightPixels > 0 ? 8 : 0;
+    const overlayIsNew = elementForOverlay.has(overlay) === false;
+    const element = getOrCreateElementForOverlay(overlay);
+    if (overlayIsNew) {
+      // If the overlay is new, append it to the container. If it's not new,
+      // this will have already happened so don't do it again else we will
+      // duplicate the overlay in the DOM.
+      if (overlayIsNew) {
+        const NAMESPACE_URI = 'http://www.w3.org/2000/svg';
+        const svg = document.createElementNS(NAMESPACE_URI, 'svg');
+
+        svg.setAttribute('width', String(mainDimensions.widthPixels));
+        svg.setAttribute(
+            'height', String(mainDimensions.heightPixels + networkDimensions.heightPixels + resizerHeight));
+
+        svg.setAttribute('viewBox', `0 0 ${svg.getAttribute('width')} ${svg.getAttribute('height')}`);
+
+        const line = document.createElementNS(NAMESPACE_URI, 'line');
+        // we will update these below to the proper points.
+        line.setAttribute('x1', '50');
+        line.setAttribute('y1', '50');
+        line.setAttribute('x2', '200');
+        line.setAttribute('y2', '200');
+        line.setAttribute('style', 'stroke-width: 2px; stroke: black;');
+        line.setAttribute('marker-start', 'url(#arrowhead)');
+        line.setAttribute('marker-end', 'url(#arrowhead)');
+        svg.appendChild(line);
+
+        const markerForArrowHead = document.createElementNS(NAMESPACE_URI, 'marker');
+        markerForArrowHead.setAttribute('viewBox', '0 0 10 10');
+        markerForArrowHead.setAttribute('refX', '5');
+        markerForArrowHead.setAttribute('refY', '5');
+        markerForArrowHead.setAttribute('markerWidth', '6');
+        markerForArrowHead.setAttribute('markerHeight', '6');
+        markerForArrowHead.setAttribute('orient', 'auto-start-reverse');
+        markerForArrowHead.id = 'arrowhead';
+
+        const arrowHeadPath = document.createElementNS(NAMESPACE_URI, 'path');
+        arrowHeadPath.setAttribute('d', 'M 0 0 L 10 5 L 0 10 z');
+
+        markerForArrowHead.appendChild(arrowHeadPath);
+        svg.appendChild(markerForArrowHead);
+
+        element.appendChild(svg);
+        this.#overlaysContainer.appendChild(element);
+      }
+    }
+    // All arrow overlays are drawn on an SVG element that is positioned to take up the entire flamechart view. We then position the arrows inside that.
+    const line = element.querySelector<SVGLineElement>('line');
+    if (!line) {
+      return;
+    }
+
+    // TODO: logic to not show if either event is hidden - or if the network track is hidden.
+
+    const {fromEntry, toEntry} = overlay;
+    const dimensionsForFromEntry = TraceEngine.Types.TraceEvents.isSyntheticNetworkRequestDetailsEvent(fromEntry) ?
+        networkDimensions :
+        mainDimensions;
+    const chartForFromEntry = TraceEngine.Types.TraceEvents.isSyntheticNetworkRequestDetailsEvent(fromEntry) ?
+        this.networkFlameChart :
+        this.mainFlameChart;
+    const providerForFromEntry = TraceEngine.Types.TraceEvents.isSyntheticNetworkRequestDetailsEvent(fromEntry) ?
+        this.networkDataProvider :
+        this.mainDataProvider;
+    const topPaddingForFromEntry = TraceEngine.Types.TraceEvents.isSyntheticNetworkRequestDetailsEvent(fromEntry) ?
+        0 :
+        networkDimensions.heightPixels + resizerHeight;
+
+    const dimensionsForToEntry = TraceEngine.Types.TraceEvents.isSyntheticNetworkRequestDetailsEvent(toEntry) ?
+        networkDimensions :
+        mainDimensions;
+    const chartFortoEntry = TraceEngine.Types.TraceEvents.isSyntheticNetworkRequestDetailsEvent(toEntry) ?
+        this.networkFlameChart :
+        this.mainFlameChart;
+    const providerForToEntry = TraceEngine.Types.TraceEvents.isSyntheticNetworkRequestDetailsEvent(toEntry) ?
+        this.networkDataProvider :
+        this.mainDataProvider;
+    const topPaddingForToEntry = TraceEngine.Types.TraceEvents.isSyntheticNetworkRequestDetailsEvent(toEntry) ?
+        0 :
+        networkDimensions.heightPixels + resizerHeight;
+
+    const {endTime} = TraceEngine.Helpers.Timing.eventTimingsMicroSeconds(fromEntry);
+    const fromArrowStartX = this.#microSecondsToPixel(dimensionsForFromEntry, endTime);
+    const fromArrowStartY = this.#yStartPixelForEntryLevel(chartForFromEntry, providerForFromEntry, fromEntry) -
+        dimensionsForFromEntry.scrollOffset + topPaddingForFromEntry + /* bump to roughly middle of the bar */ 8;
+
+    const toArrowStartX = this.#microSecondsToPixel(dimensionsForToEntry, toEntry.ts);
+    const toArrowStartY = this.#yStartPixelForEntryLevel(chartFortoEntry, providerForToEntry, toEntry) -
+        dimensionsForToEntry.scrollOffset + topPaddingForToEntry + /* bump to roughly middle of the bar */ 8;
+
+    // TODO: check for visibility
+    // TODO: would check if the event is rendered or not, and if not decide where to point the arrow.
+    line.setAttribute('x1', String(fromArrowStartX));
+    line.setAttribute('y1', String(fromArrowStartY));
+    line.setAttribute('x2', String(toArrowStartX));
+    line.setAttribute('y2', String(toArrowStartY));
+  }
+
+  #renderAndUpdateOverlays(): void {
+    if (!this.#viewDimensions.main) {
+      // Don't have the data to render yet. Once FlameChart#draw is called, we
+      // will have this data and that will trigger an update.
+      // Note that we don't check for network dimensions, because a trace
+      // without any network requests does not have a network flame chart
+      // visible.
+      return;
+    }
+
+    const mainDimensions = this.#viewDimensions.main;
+    // The network flame chart will be hidden if there are no requests. If this
+    // happens, fallback to a stubbed version of dimensions which sets the
+    // height to 0. This means we don't have to continually check for the
+    // presence of the network flame chart, and all the code below can run
+    // regardless of if we are actually showing the network track or not.
+    const networkDimensions: PerfUI.FlameChart.FlameChartDimensions = this.#viewDimensions.network || {
+      widthPixels: this.#viewDimensions.main.widthPixels,
+      heightPixels: 0,
+      scrollOffset: 0,
+      sourceFlameChart: this.networkFlameChart.name(),
+      traceWindowLeft: this.#viewDimensions.main.traceWindowLeft,
+      traceWindowRight: this.#viewDimensions.main.traceWindowRight,
+    };
+
+    for (const overlay of this.#activeOverlays) {
+      if (overlay.type === 'CONNECTED_ENTRIES') {
+        this.#renderConnectedEntriesOverlay(overlay, mainDimensions, networkDimensions);
+        continue;
+      }
+      // A new overlay has yet to have an HTML Element created.
+      const overlayIsNew = elementForOverlay.has(overlay) === false;
+
+      const chartDimensions = TraceEngine.Types.TraceEvents.isSyntheticNetworkRequestDetailsEvent(overlay.entry) ?
+          networkDimensions :
+          mainDimensions;
+
+      const element = getOrCreateElementForOverlay(overlay);
+      // If the overlay is new, append it to the container. If it's not new,
+      // this will have already happened so don't do it again else we will
+      // duplicate the overlay in the DOM.
+      if (overlayIsNew) {
+        this.#overlaysContainer.appendChild(element);
+        this.#populateOverlayElement(overlay, element, chartDimensions);
+      }
+
+      const resizerVisible = networkDimensions.heightPixels > 0;
+
+      // need to position based on the main flame chart, which means knowing
+      // how high in px the network chart is in order to push the entry down
+      // to align with the main flame chart
+      // Add some padding for the resize element. TODO: how to get the resize element height accurately?
+      const topPadding = TraceEngine.Types.TraceEvents.isSyntheticNetworkRequestDetailsEvent(overlay.entry) ?
+          0 :
+          networkDimensions.heightPixels + (resizerVisible ? 8 : 0);
+
+      // Update the positioning of each overlay.
+
+      const provider: PerfUI.FlameChart.FlameChartDataProvider =
+          TraceEngine.Types.TraceEvents.isSyntheticNetworkRequestDetailsEvent(overlay.entry) ?
+          this.networkDataProvider :
+          this.mainDataProvider;
+
+      const chart: PerfUI.FlameChart.FlameChart =
+          TraceEngine.Types.TraceEvents.isSyntheticNetworkRequestDetailsEvent(overlay.entry) ? this.networkFlameChart :
+                                                                                               this.mainFlameChart;
+
+      // First, calculate how far from the top of the chart it is, EXCLUDING the padding for the network track.
+      // If this value is <0, the element is off screen, so we can just hide the element.
+      const pixelTopValue =
+          this.#yStartPixelForEntryLevel(chart, provider, overlay.entry) - chartDimensions.scrollOffset;
+
+      if (pixelTopValue < 0) {
+        // Element is off the top of the chart.
+        element.style.visibility = 'hidden';
+        continue;
+      }
+
+      if (pixelTopValue >= chartDimensions.heightPixels - 10) {
+        // Element is off the bottom of the chart. Allow some padding so we
+        // only draw the overlay if a decent chunk of the event is visible.
+        element.style.visibility = 'hidden';
+        continue;
+      }
+
+      const entryStartLeft = this.#microSecondsToPixel(chartDimensions, overlay.entry.ts);
+      if (entryStartLeft > chartDimensions.widthPixels) {
+        // The entry is off screen to the RHS, so hide it.
+        element.style.visibility = 'hidden';
+        continue;
+      }
+      const entryEndRight = this.#microSecondsToPixel(
+          chartDimensions, TraceEngine.Types.Timing.MicroSeconds(overlay.entry.ts + overlay.entry.dur));
+      if (entryEndRight < 0) {
+        // The entry is off screen to the LHS, so hide it.
+        element.style.visibility = 'hidden';
+        continue;
+      }
+
+      // At this point we know the element is visible, so render it and add
+      // the extra padding to accommodate the network chart above it.
+      let topPx = pixelTopValue + topPadding;
+
+      if (overlay.type === 'ENTRY_TIMING_BREAKDOWN') {
+        // we render the timing breakdown immediately below the event, so bump
+        // it down by the height of the event.
+        topPx += 17;
+      }
+      element.style.top = topPx + 'px';
+      element.style.left = entryStartLeft + 'px';
+      element.style.width = (entryEndRight - entryStartLeft) + 'px';
+      // TODO: set the height accordingly
+      element.style.visibility = 'visible';
+    }
+  }
+
+  #populateOverlayElement(overlay: Overlay, element: HTMLElement, dimensions: PerfUI.FlameChart.FlameChartDimensions):
+      void {
+    switch (overlay.type) {
+      case 'ENTRY_TIMING_BREAKDOWN': {
+        const ui = new OverlayEntryTimingBreakdownUI();
+        ui.overlay = overlay;
+        ui.microSecondsToPixel = (x: TraceEngine.Types.Timing.MicroSeconds) => {
+          return this.#microSecondsToPixel(dimensions, x);
+        };
+        element.appendChild(ui);
+        break;
+      }
+
+      case 'LONG_NETWORK_REQUEST':
+        // Nothing to do here
+        break;
+    }
   }
 
   #reset(): void {
@@ -336,6 +758,7 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
   }
 
   override wasShown(): void {
+    this.registerCSSFiles([timelineFlameChartViewStyles]);
     this.networkFlameChartGroupExpansionSetting.addChangeListener(this.resizeToPreferredHeights, this);
     Bindings.IgnoreListManager.IgnoreListManager.instance().addChangeListener(this.#boundRefreshAfterIgnoreList);
     if (this.needsResizeToPreferredHeights) {
@@ -445,7 +868,7 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     }
     const regExpFilter = new TimelineRegExp(this.searchRegex);
     const visibleWindow = traceBoundsState.milli.timelineTraceWindow;
-    this.searchResults = this.mainDataProvider.search(visibleWindow.min, visibleWindow.max, regExpFilter);
+    this.searchResults = this.mainDataProvider.search(visibleWindow.min, visibleWindow.max, regExpFilter) || [];
     this.searchableView.updateSearchMatchesCount(this.searchResults.length);
     // To avoid too many highlights when the search regex matches too many entries,
     // for example, when user only types in "e" as the search query,
@@ -553,4 +976,67 @@ export class TimelineFlameChartMarker implements PerfUI.FlameChart.FlameChartMar
 
 export const enum ColorBy {
   URL = 'URL',
+}
+
+// This would live in timeline/components if this wasn't a prototype.
+// eslint-disable-next-line rulesdir/custom_element_definitions_location
+class OverlayEntryTimingBreakdownUI extends HTMLElement {
+  static readonly litTagName = LitHtml.literal`devtools-overlay-entry-timings-breakdown`;
+  #overlay: EntryTimingBreakdownOverlay|null = null;
+  #microSecondsToPixel: ((x: TraceEngine.Types.Timing.MicroSeconds) => number)|null = null;
+
+  set overlay(overlay: EntryTimingBreakdownOverlay) {
+    if (overlay === this.#overlay) {
+      return;
+    }
+    this.#overlay = overlay;
+    this.#render();
+  }
+
+  set microSecondsToPixel(func: (x: TraceEngine.Types.Timing.MicroSeconds) => number) {
+    if (this.#microSecondsToPixel === func) {
+      return;
+    }
+    this.#microSecondsToPixel = func;
+    this.#render();
+  }
+
+  #render(): void {
+    if (!this.#overlay || !this.#microSecondsToPixel) {
+      return;
+    }
+
+    const {entry} = this.#overlay;
+    // Note: would use shadow dom in the real impl and style properly, but this will do for prototyping...
+    LitHtml.render(
+        // clang-format off
+        LitHtml.html`<ul class="sections-time">
+        ${this.#overlay.sections.map(section => {
+          const sectionTimeSpan = section.end - section.start;
+          const spanPercentage = sectionTimeSpan / entry.dur * 100;
+          return LitHtml.html`
+            <li class=${section.className} style=${LitHtml.Directives.styleMap({
+              width: `${spanPercentage}%`,
+            })}></li>
+          `;
+
+        })}
+        </ul>
+        <ul class="sections-labels">
+        ${this.#overlay.sections.map(section => {
+          return LitHtml.html`
+            <li class=${section.className}>${section.label}</li>
+          `;
+        })}
+        </ul>
+        `,
+        // clang-format on
+        this, {host: this});
+  }
+}
+customElements.define('devtools-overlay-entry-timings-breakdown', OverlayEntryTimingBreakdownUI);
+declare global {
+  interface HTMLElementTagNameMap {
+    'devtools-overlay-entry-timings-breakdown': OverlayEntryTimingBreakdownUI;
+  }
 }

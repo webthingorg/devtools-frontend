@@ -116,7 +116,6 @@ export class ChartViewport extends UI.Widget.VBox {
       return;
     }
     this.vScrollElement.classList.toggle('hidden', !showScroll);
-    this.updateContentElementSize();
   }
 
   override onResize(): void {
@@ -142,7 +141,7 @@ export class ChartViewport extends UI.Widget.VBox {
     this.targetLeftTime = 0;
     this.targetRightTime = 0;
     this.isUpdateScheduled = false;
-    this.updateContentElementSize();
+    // this.updateContentElementSize();
   }
 
   private updateContentElementSize(): void {
