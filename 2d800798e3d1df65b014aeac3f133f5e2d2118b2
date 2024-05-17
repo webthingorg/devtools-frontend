@@ -142,6 +142,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b142196c_398ebccf",
+        "filename": "front_end/panels/elements/domLinkifier.css",
+        "patchSetId": 7
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-05-17T14:32:22Z",
+      "side": 1,
+      "message": "I think we are at an intermediate stage regarding this part. I\u0027ll ask in the bigger chat next week about these UX details (this week they\u0027re probably I/O partying). I think we are on a very good track now: having consistent UX means we spend this effort once and harvest the result for the next many milestones, hopefully.",
+      "parentUuid": "85fb99b8_fb3f2fde",
+      "revId": "2d800798e3d1df65b014aeac3f133f5e2d2118b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e241f890_bd4718fb",
