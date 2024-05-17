@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c14e1fc1_7569d1a1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-05-17T06:05:30Z",
+      "side": 1,
+      "message": "PTAL, the reland only shuffled the init order in `test_setup.ts` 😊\nI\u0027m still not sure why this affected interaction tests.",
+      "revId": "bf6180243945e2ec4a8ae97059da590f7b201ba8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
