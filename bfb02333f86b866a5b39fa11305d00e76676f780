@@ -1,0 +1,108 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4871236_112bc471",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-17T13:32:08Z",
+      "side": 1,
+      "message": "nice this is great!",
+      "revId": "bfb02333f86b866a5b39fa11305d00e76676f780",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "195a63bc_f379c8b9",
+        "filename": "front_end/panels/timeline/components/Sidebar.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-17T13:32:08Z",
+      "side": 1,
+      "message": "might be worth a comment on what these refer to (I wish the constructor took an object!)",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 38
+      },
+      "revId": "bfb02333f86b866a5b39fa11305d00e76676f780",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8dfad5f9_6ad9cb55",
+        "filename": "front_end/panels/timeline/components/Sidebar.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-17T13:32:08Z",
+      "side": 1,
+      "message": "checking my understanding: this doesn\u0027t mean the user cannot then resize it, but this is to force a certain size when it is opened?",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 39
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "d97028f8_2c7742c6",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/components/Sidebar.ts",
+              "range": {
+                "startLine": 35,
+                "startChar": 0,
+                "endLine": 36,
+                "endChar": 0
+              },
+              "replacement": "        this.forceSetSidebarWidth(240); // Force a certain size when it is opened.\n"
+            }
+          ]
+        }
+      ],
+      "revId": "bfb02333f86b866a5b39fa11305d00e76676f780",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "108d5a1f_6f0b30b3",
+        "filename": "front_end/ui/legacy/SplitWidget.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-17T13:32:08Z",
+      "side": 1,
+      "message": "out of interest for my understanding: why do we track this twice / what do the two values refer to ?",
+      "range": {
+        "startLine": 413,
+        "startChar": 0,
+        "endLine": 414,
+        "endChar": 37
+      },
+      "revId": "bfb02333f86b866a5b39fa11305d00e76676f780",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
