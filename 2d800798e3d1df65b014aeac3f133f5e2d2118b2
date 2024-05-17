@@ -54,6 +54,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "085696ea_2f437cc1",
+        "filename": "front_end/panels/elements/domLinkifier.css",
+        "patchSetId": 7
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2024-05-17T05:17:16Z",
+      "side": 1,
+      "message": "In general, real text links that and make you lose context (open a URL in a new tab, follow an anchor, switch panels) should be marked as links (underline either in default or hover state).\n\nElements that just highlight or select other elements (like the node elements in the Animations panel) are not real hyperlinks - they just highlight something but you are not carried away by the click. Here it\u0027s fine to not treat them as links and have them without an underline.\n\nTo help signaling interactivity for the Animations panel case, you could use the same pattern as in the Layout tab: hovering shows a gray background. Remember that we should only use the \"pointer\" cursor on links (that take you away) but not on buttons, so some indicator would be nice. The gray background of the Layout tab is not an official component yet, but might be something worth exploring in the future.\n\nSo for now:\n\u003d\u003e popovertarget link: underline is fine\n\u003d\u003e node \"links\": no underline is fine",
+      "parentUuid": "99233392_cc89a536",
+      "revId": "2d800798e3d1df65b014aeac3f133f5e2d2118b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e241f890_bd4718fb",
         "filename": "front_end/panels/elements/domLinkifier.css",
         "patchSetId": 7
