@@ -9,6 +9,17 @@ import {
   dispatchEvent,
   setMockConnectionResponseHandler,
 } from '../../testing/MockConnection.js';
+<<<<<<< HEAD   (43a5bb Roll browser_protocol)
+=======
+import {
+  addChildFrame,
+  getInitializedResourceTreeModel,
+  getMainFrame,
+  LOADER_ID,
+  MAIN_FRAME_ID,
+  navigate,
+} from '../../testing/ResourceTreeHelpers.js';
+>>>>>>> CHANGE (33a09f Ensure inspectedWindow.reload reloads the correct page)
 
 import * as SDK from './sdk.js';
 
@@ -28,11 +39,10 @@ function navigateFrameWithMockConnection(
 }
 
 describeWithMockConnection('ResourceTreeModel', () => {
-  it('calls clearRequests on reloadPage', () => {
-    const target = createTarget();
-    const resourceTreeModel = target.model(SDK.ResourceTreeModel.ResourceTreeModel);
+  it('calls clearRequests on reloadPage', async () => {
+    const resourceTreeModel = await getInitializedResourceTreeModel(createTarget());
     const clearRequests = sinon.stub(SDK.NetworkManager.NetworkManager.prototype, 'clearRequests');
-    resourceTreeModel!.reloadPage();
+    resourceTreeModel.reloadPage();
     assert.isTrue(clearRequests.calledOnce, 'Not called just once');
   });
 
@@ -130,6 +140,18 @@ describeWithMockConnection('ResourceTreeModel', () => {
 
     assert.isTrue(reloadMainFramePage.calledOnce);
     assert.isTrue(reloadSubframePage.notCalled);
+  });
+
+  it('tags reloads with the targets loaderId', async () => {
+    const target = createTarget();
+    const resourceTreeModel = await getInitializedResourceTreeModel(target);
+
+    const reload = sinon.spy(target.pageAgent(), 'invoke_reload');
+    assert.isNotNull(resourceTreeModel.mainFrame);
+    resourceTreeModel.reloadPage();
+    assert.isTrue(reload.calledOnce);
+    assert.deepStrictEqual(
+        reload.args[0], [{ignoreCache: undefined, loaderId: LOADER_ID, scriptToEvaluateOnLoad: undefined}]);
   });
 
   it('identifies not top frame', async () => {
