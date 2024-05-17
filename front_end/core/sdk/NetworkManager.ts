@@ -234,6 +234,8 @@ export class NetworkManager extends SDKModel<EventTypes> {
     if (error) {
       return {error};
     }
+    // Wait for at least the `responseReceived event so we have accurate mimetype and charset.
+    await request.responseReceivedPromise;
     return new TextUtils.ContentData.ContentData(
         response.bufferedData, /* isBase64=*/ true, request.mimeType, request.charset() ?? undefined);
   }
@@ -573,6 +575,7 @@ export class NetworkDispatcher implements ProtocolProxyApi.NetworkDispatcher {
     if (newResourceType) {
       networkRequest.setResourceType(newResourceType);
     }
+    networkRequest.responseReceivedPromiseResolve();
   }
 
   requestForId(id: string): NetworkRequest|null {

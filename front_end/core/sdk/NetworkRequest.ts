@@ -342,6 +342,8 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
   #hasOverriddenContent: boolean;
   #hasThirdPartyCookiePhaseoutIssue: boolean;
   #serverSentEvents?: ServerSentEvents;
+  readonly responseReceivedPromise: Promise<void>;
+  readonly responseReceivedPromiseResolve: () => void;
 
   constructor(
       requestId: string, backendRequestId: Protocol.Network.RequestId|undefined, url: Platform.DevToolsPath.UrlString,
@@ -427,6 +429,10 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
     this.#wasIntercepted = false;
     this.#hasOverriddenContent = false;
     this.#hasThirdPartyCookiePhaseoutIssue = false;
+
+    const {promise, resolve} = Platform.PromiseUtilities.promiseWithResolvers<void>();
+    this.responseReceivedPromise = promise;
+    this.responseReceivedPromiseResolve = resolve;
   }
 
   static create(
