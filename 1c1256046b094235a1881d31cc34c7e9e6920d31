@@ -34,6 +34,24 @@
       "parentUuid": "6b9dc669_63bcefe7",
       "revId": "1c1256046b094235a1881d31cc34c7e9e6920d31",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d91a0904_d071220d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-05-17T07:36:50Z",
+      "side": 1,
+      "message": "Simon\u0027s proposal looks good to me. I am also wondering if we add this information to getPreferences (as it is a sort of server-controlled preference)",
+      "parentUuid": "d145d4d1_e127387b",
+      "revId": "1c1256046b094235a1881d31cc34c7e9e6920d31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
