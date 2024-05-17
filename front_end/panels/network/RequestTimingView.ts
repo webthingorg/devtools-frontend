@@ -351,6 +351,41 @@ export class RequestTimingView extends UI.Widget.VBox {
           Math.max(timing.sendEnd, timing.connectEnd, timing.dnsEnd, timing.proxyEnd, blockingEnd), responseReceived);
     }
 
+    const {serviceWorkerRouterInfo} = request;
+    if (serviceWorkerRouterInfo) {
+      // The current implementation of `addOffsetRange` takes a relative time
+      // from `fetchStart` (`startTime` in this context) and assumes all time
+      // to be a plus number. However, since `workerRouterEvaluationStart`
+      // and `workerCacheLookupStart` both comes before `fetchStart` (`requestStart`),
+      // it is a negative number, and thus cannot use `addOffsetRange` to calculate
+      // the time. To overcome this, we manually re-calculate the absolute time, and
+      // add them to `result` array using `addRange`.
+      if (timing.workerRouterEvaluationStart) {
+        const absoluteRouterEvaluationStart = startTime + timing.workerRouterEvaluationStart / 1000;
+        let absoluteRouterEvaluationEnd = startTime;
+        switch (serviceWorkerRouterInfo.actualSourceType) {
+          case Protocol.Network.ServiceWorkerRouterSource.Cache:
+            absoluteRouterEvaluationEnd = startTime + timing.workerCacheLookupStart / 1000;
+            break;
+          case Protocol.Network.ServiceWorkerRouterSource.FetchEvent:
+            absoluteRouterEvaluationEnd = startTime + timing.workerStart / 1000;
+            break;
+        }
+        addRange(
+            RequestTimeRangeNames.ServiceWorkerRouterEvaluation, absoluteRouterEvaluationStart,
+            absoluteRouterEvaluationEnd);
+      }
+
+      if (timing.workerCacheLookupStart) {
+        const absoluteCacheLookupStart = startTime + timing.workerCacheLookupStart / 1000;
+        let absoluteCacheLookupEnd = startTime;
+        if (serviceWorkerRouterInfo?.actualSourceType === Protocol.Network.ServiceWorkerRouterSource.Cache) {
+          absoluteCacheLookupEnd = startTime + timing.receiveHeadersStart / 1000;
+        }
+        addRange(RequestTimeRangeNames.ServiceWorkerCacheLookup, absoluteCacheLookupStart, absoluteCacheLookupEnd);
+      }
+    }
+
     if (request.endTime !== -1) {
       addRange(
           timing.pushStart ? RequestTimeRangeNames.ReceivingPush : RequestTimeRangeNames.Receiving,
@@ -697,6 +732,8 @@ export const enum RequestTimeRangeNames {
   ServiceWorker = 'serviceworker',
   ServiceWorkerPreparation = 'serviceworker-preparation',
   ServiceWorkerRespondWith = 'serviceworker-respondwith',
+  ServiceWorkerRouterEvaluation = 'serviceworker-routerevaluation',
+  ServiceWorkerCacheLookup = 'serviceworker-cachelookup',
   SSL = 'ssl',
   Total = 'total',
   Waiting = 'waiting',
@@ -706,6 +743,8 @@ export const ServiceWorkerRangeNames = new Set<RequestTimeRangeNames>([
   RequestTimeRangeNames.ServiceWorker,
   RequestTimeRangeNames.ServiceWorkerPreparation,
   RequestTimeRangeNames.ServiceWorkerRespondWith,
+  RequestTimeRangeNames.ServiceWorkerRouterEvaluation,
+  RequestTimeRangeNames.ServiceWorkerCacheLookup,
 ]);
 
 export const ConnectionSetupRangeNames = new Set<RequestTimeRangeNames>([
