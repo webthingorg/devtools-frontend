@@ -69,6 +69,24 @@
       "parentUuid": "c53ca626_ca28940c",
       "revId": "b7123b70575e82d04bb6d96c646d8ff216847025",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cf5beaf7_52986477",
+        "filename": "front_end/models/persistence/PersistenceActions.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-05-17T05:06:55Z",
+      "side": 1,
+      "message": "Done, but kept the console.error so we get a stack trace in DevTools-on-DevTools.",
+      "parentUuid": "bb91d7bb_2dc29958",
+      "revId": "b7123b70575e82d04bb6d96c646d8ff216847025",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
