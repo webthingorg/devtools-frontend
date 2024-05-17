@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3bc1b3b0_42216236",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2024-05-17T05:48:56Z",
+      "side": 1,
+      "message": "Quick fix:\n\n- Regular double-click edits the popover attribute. We show an underline though, signaling that there is a link hidden.\n- cmd/ctrl + click follows the link.\n\nThat should be inline with other links in the DOM tree. In the DOM tree, you never follow links via click, don\u0027t you? At least I couldn\u0027t find an example.\n\n\u003cbraindump\u003e\n\nI think there is a good solution, but it would require re-working links in general in the DOM tree and Styles tab. So treat this more as a thought experiment than a todo.\n\nCurrent situation:\n\n- src\u003d\"...\" links in the DOM tree show a pointer cursor, but the link actually isn\u0027t clickable. Only Right click \u003e Open in new tab allows you to follow the link.\n- var(--css-variables) in the Styles tab show a pointer cursor and always takes you to the definition. It\u0027s not possible to edit in-place. \n- popovertarget behaves exactly like CSS variables in the Styles tab.\n\nPotential improvement:\n\n- All links are treated as editable text by default, similar to VS Code. You get a text cursor and a regular click let\u0027s you edit the code. They have an underline though signaling that they there is a hyperlink.\n- All links allow you to Cmd/ctrl+click them to follow the hyperlink. Same in VS Code.\n\nI remember we once had this pattern in the Styles tab.\n\nThis way editing and following the popover link would work. Also editing CSS variables would become much nicer for me.\n\n\u003d\u003e But ask Adam! He knows much more about this. Maybe it\u0027s just me who is annoyed by this CSS variable behavior.\n\n\u003c/braindump\u003e",
+      "parentUuid": "dad353d1_93cfe617",
+      "revId": "2d800798e3d1df65b014aeac3f133f5e2d2118b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "99233392_cc89a536",
         "filename": "front_end/panels/elements/domLinkifier.css",
         "patchSetId": 7
