@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05d0d999_691c6a9a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-05-17T15:00:26Z",
+      "side": 1,
+      "message": "Left one more suggestion, but otherwise LGTM!\n\nI think it\u0027ll work, but do you see any problems with backwards compatibility (new devtools, old extension)?",
+      "revId": "335be9c029219bfb96aa4b19293b5c713a5d47c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb6ef32f_fde61930",
+        "filename": "extensions/cxx_debugging/src/CustomFormatters.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 623,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-05-17T15:00:26Z",
+      "side": 1,
+      "message": "I think we can get by without a cache: Have you considered packing the reftype value into an i64? Effectively as a fat pointer with the high 32 bits being the value class and the low 32 bits being the index.",
+      "revId": "335be9c029219bfb96aa4b19293b5c713a5d47c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
