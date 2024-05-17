@@ -229,6 +229,8 @@ export class NetworkManager extends SDKModel<EventTypes> {
     if (!requestId) {
       return {error: 'No backend request id for request'};
     }
+    // Wait for at least the `responseReceived event so we have accurate mimetype and charset.
+    await request.responseReceivedPromise;
     const response = await manager.#networkAgent.invoke_streamResourceContent({requestId});
     const error = response.getError();
     if (error) {
@@ -573,6 +575,7 @@ export class NetworkDispatcher implements ProtocolProxyApi.NetworkDispatcher {
     if (newResourceType) {
       networkRequest.setResourceType(newResourceType);
     }
+    networkRequest.responseReceivedPromiseResolve();
   }
 
   requestForId(id: string): NetworkRequest|null {
