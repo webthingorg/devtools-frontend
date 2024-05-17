@@ -16,6 +16,24 @@
       "message": "Alex, Danil, Simon PTAL at the direction of this CL.\nPrevious discussion was at go/chrome-devtools:base-features-design \n\nSimon suggested to replace the `getFeatureInformation(featureName)` with a `getFeatureInformation()` which would return info for all `base::Feature`s relevant to DevTools. This would prevent the need for multiple roundtrips to the backend during startup, and a persisted result could be re-used elsewhere since the returned values do not change.",
       "revId": "1c1256046b094235a1881d31cc34c7e9e6920d31",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d145d4d1_e127387b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-05-17T06:04:30Z",
+      "side": 1,
+      "message": "To summarize the discussion that I had with Wolfgang how I would prefer the implementation:\n\nWe have one host binding `getFeatureInformation()` (or `getHostConfig()`) that basically returns the various feature config flags. Similar to how `getPreferences` works.\n\nWe fetch this before we setup the Settings. Once we have the `FeatureInformation` we just pass that into all the `condition`/`disabledCondition` functions of various settings so they can decide based on the host config.\n\nI see several advantages over the `asyncCondition` approach:\n\n1) How we retrieve the feature information is bottle necked into a single call-site at the very start of MainImpl.\n2) Easier testing and less coupling: We just pass a `FeatureInformation` JSON to `Settings`, `Settings` doesn\u0027t need to care if host bindings are available or not to make the various conditions work.\n3) It makes it easier to reason about setting conditions if they are side effect free (or even pure).\n4) Less async/await since we have been bitten by this a lot and in this case it\u0027s somewhat straight-forward to avoid alltogether.",
+      "parentUuid": "6b9dc669_63bcefe7",
+      "revId": "1c1256046b094235a1881d31cc34c7e9e6920d31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
