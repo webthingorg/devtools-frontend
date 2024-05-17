@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c4a2640_3a55628a",
+        "filename": "front_end/models/timeline_model/TimelineJSProfile.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-17T10:27:59Z",
+      "side": 1,
+      "message": "filed crbug.com/341234884 because I didn\u0027t really want to mess with this as part of this CL",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 86
+      },
+      "revId": "0a4047e57da1a1c1d6a48c4b99d0d9442689cead",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
