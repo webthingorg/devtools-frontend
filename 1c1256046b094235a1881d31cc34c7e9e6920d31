@@ -52,6 +52,24 @@
       "parentUuid": "d145d4d1_e127387b",
       "revId": "1c1256046b094235a1881d31cc34c7e9e6920d31",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75cdece6_08a4e87f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-05-17T07:44:38Z",
+      "side": 1,
+      "message": "+1 to Simon\u0027s proposal",
+      "parentUuid": "d91a0904_d071220d",
+      "revId": "1c1256046b094235a1881d31cc34c7e9e6920d31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
