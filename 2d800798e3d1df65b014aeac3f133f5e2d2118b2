@@ -124,6 +124,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "85fb99b8_fb3f2fde",
+        "filename": "front_end/panels/elements/domLinkifier.css",
+        "patchSetId": 7
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-05-17T10:57:04Z",
+      "side": 1,
+      "message": "Cool, thanks for the resolution! I have added a comment to the doc on differentiation between underlined \u0026 non-underlined links in attribute values.\n\nI think this resolution is good too, so LGTM. If we decide to change, we can change later as it is not a super big update :)",
+      "parentUuid": "38c6338a_93e9e5cf",
+      "revId": "2d800798e3d1df65b014aeac3f133f5e2d2118b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e241f890_bd4718fb",
