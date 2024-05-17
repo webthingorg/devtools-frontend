@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2156bb6_9d43b364",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-05-17T10:14:08Z",
+      "side": 1,
+      "message": "PTAL since I updated the link style to only apply to popovertarget for now, thanks!",
+      "revId": "5c658d49976afc254b1ce23618662ea394cab326",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

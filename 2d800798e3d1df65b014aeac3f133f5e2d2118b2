@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b04a3eb4_e8d6fbc5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-05-17T10:14:08Z",
+      "side": 1,
+      "message": "Sounds good! I\u0027ll ask in the design components chat to see what people think. For now, I\u0027ll keep the popovertarget behavior consistent with the css variable behavior, and if we decide to change them, we can change them together, since both requires non-trivial work.",
+      "parentUuid": "3bc1b3b0_42216236",
+      "revId": "2d800798e3d1df65b014aeac3f133f5e2d2118b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "99233392_cc89a536",
@@ -88,6 +106,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "38c6338a_93e9e5cf",
+        "filename": "front_end/panels/elements/domLinkifier.css",
+        "patchSetId": 7
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-05-17T10:14:08Z",
+      "side": 1,
+      "message": "Thanks for the detailed explanation! I\u0027ll incorporate this into the doc as well.",
+      "parentUuid": "085696ea_2f437cc1",
+      "revId": "2d800798e3d1df65b014aeac3f133f5e2d2118b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e241f890_bd4718fb",
@@ -101,6 +137,24 @@
       "writtenOn": "2024-05-16T10:11:01Z",
       "side": 1,
       "message": "I also realized this color change too, I wonder if this affects other places; WDYT?",
+      "revId": "2d800798e3d1df65b014aeac3f133f5e2d2118b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "674eaf92_6d9ff866",
+        "filename": "front_end/panels/elements/domLinkifier.css",
+        "patchSetId": 7
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-05-17T10:14:08Z",
+      "side": 1,
+      "message": "I discussed with Peter, and I\u0027ll limit the color only to popovertarget for now.",
+      "parentUuid": "e241f890_bd4718fb",
       "revId": "2d800798e3d1df65b014aeac3f133f5e2d2118b2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
