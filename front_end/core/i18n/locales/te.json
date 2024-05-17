@@ -3198,7 +3198,7 @@
     "message": "Serial APIను ఉపయోగించే పేజీలకు వెనుకకు/ముందుకు కాష్‌ను ఉపయోగించడానికి ప్రస్తుతం అర్హత లేదు."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebAuthenticationAPI": {
-    "message": "WebAuthetication APIను ఉపయోగించే పేజీలకు వెనుకకు/ముందుకు కాష్‌ను ఉపయోగించడానికి ప్రస్తుతం అర్హత లేదు."
+    "message": "WebAuthentication APIను ఉపయోగించే పేజీలకు వెనుకకు/ముందుకు కాష్‌ను ఉపయోగించడానికి ప్రస్తుతం అర్హత లేదు."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebBluetooth": {
     "message": "WebBluetooth APIను ఉపయోగించే పేజీలకు వెనుకకు/ముందుకు కాష్‌ను ఉపయోగించడానికి ప్రస్తుతం అర్హత లేదు."

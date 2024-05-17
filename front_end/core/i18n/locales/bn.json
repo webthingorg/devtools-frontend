@@ -3198,7 +3198,7 @@
     "message": "Serial API ব্যবহার করে এমন পৃষ্ঠা ব্যাক-ফরোয়ার্ড ক্যাশেতে সেভ করা যায় না।"
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebAuthenticationAPI": {
-    "message": "WebAuthetication API ব্যবহার করে এমন পৃষ্ঠা ব্যাক-ফরোয়ার্ড ক্যাশেতে সেভ করা যায় না।"
+    "message": "WebAuthentication API ব্যবহার করে এমন পৃষ্ঠা ব্যাক-ফরোয়ার্ড ক্যাশেতে সেভ করা যায় না।"
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebBluetooth": {
     "message": "WebBluetooth API ব্যবহার করে এমন পৃষ্ঠা ব্যাক-ফরোয়ার্ড ক্যাশেতে সেভ করা যায় না।"

@@ -3198,7 +3198,7 @@
     "message": "Strony, które używają interfejsu Serial API, nie kwalifikują się do korzystania z pamięci podręcznej stanu strony internetowej."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebAuthenticationAPI": {
-    "message": "Strony, które używają interfejsu WebAuthetication API, nie kwalifikują się do korzystania z pamięci podręcznej stanu strony internetowej."
+    "message": "Strony, które używają interfejsu WebAuthentication API, nie kwalifikują się do korzystania z pamięci podręcznej stanu strony internetowej."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebBluetooth": {
     "message": "Strony, które używają interfejsu WebBluetooth API, nie kwalifikują się do korzystania z pamięci podręcznej stanu strony internetowej."

@@ -3198,7 +3198,7 @@
     "message": "Serial API ഉപയോഗിക്കുന്ന പേജുകൾക്ക് നിലവിൽ ബാക്ക്/ഫോർവേഡ് കാഷെയ്ക്കുള്ള യോഗ്യതയില്ല."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebAuthenticationAPI": {
-    "message": "WebAuthetication API ഉപയോഗിക്കുന്ന പേജുകൾക്ക് ബാക്ക്/ഫോർവേഡ് കാഷെയ്ക്കുള്ള യോഗ്യതയില്ല."
+    "message": "WebAuthentication API ഉപയോഗിക്കുന്ന പേജുകൾക്ക് ബാക്ക്/ഫോർവേഡ് കാഷെയ്ക്കുള്ള യോഗ്യതയില്ല."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebBluetooth": {
     "message": "WebBluetooth API ഉപയോഗിക്കുന്ന പേജുകൾക്ക് ബാക്ക്/ഫോർവേഡ് കാഷെയ്ക്കുള്ള യോഗ്യതയില്ല."

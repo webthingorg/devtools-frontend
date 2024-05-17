@@ -3198,7 +3198,7 @@
     "message": "Lapas, kurās tiek izmantota saskarne Serial API, pašlaik nav piemērotas pilnīgai saglabāšanai kešatmiņā."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebAuthenticationAPI": {
-    "message": "Lapas, kurās tiek izmantota saskarne WebAuthetication API, pašlaik nav piemērotas pilnīgai saglabāšanai kešatmiņā."
+    "message": "Lapas, kurās tiek izmantota saskarne WebAuthentication API, pašlaik nav piemērotas pilnīgai saglabāšanai kešatmiņā."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebBluetooth": {
     "message": "Lapas, kurās tiek izmantota saskarne WebBluetooth API, pašlaik nav piemērotas pilnīgai saglabāšanai kešatmiņā."

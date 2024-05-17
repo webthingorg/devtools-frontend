@@ -3198,7 +3198,7 @@
     "message": "გვერდები, რომლებიც იყენებს Serial API-ს, ვერ შეძლებს უკან-წინ გადასვლის ქეშის გამოყენებას."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebAuthenticationAPI": {
-    "message": "გვერდები, რომლებიც იყენებს WebAuthetication API-ს, ვერ შეძლებს უკან-წინ გადასვლის ქეშის გამოყენებას."
+    "message": "გვერდები, რომლებიც იყენებს WebAuthentication API-ს, ვერ შეძლებს უკან-წინ გადასვლის ქეშის გამოყენებას."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebBluetooth": {
     "message": "გვერდები, რომლებიც იყენებს WebBluetooth API-ს, ვერ შეძლებს უკან-წინ გადასვლის ქეშის გამოყენებას."

@@ -3198,7 +3198,7 @@
     "message": "As páginas que utilizam a API Serial não são elegíveis para a cache para a frente/para trás."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebAuthenticationAPI": {
-    "message": "As páginas que utilizam a API WebAuthetication não são elegíveis para a cache para a frente/para trás."
+    "message": "As páginas que utilizam a API WebAuthentication não são elegíveis para a cache para a frente/para trás."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebBluetooth": {
     "message": "As páginas que utilizam a API WebBluetooth não são elegíveis para a cache para a frente/para trás."

@@ -3198,7 +3198,7 @@
     "message": "Serial API प्रयोग गर्ने पेजहरूका हकमा ब्याक/फर्वार्ड क्यास प्रयोग गर्न मिल्दैन।"
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebAuthenticationAPI": {
-    "message": "WebAuthetication API प्रयोग गर्ने पेजहरूका हकमा ब्याक/फर्वार्ड क्यास प्रयोग गर्न मिल्दैन।"
+    "message": "WebAuthentication API प्रयोग गर्ने पेजहरूका हकमा ब्याक/फर्वार्ड क्यास प्रयोग गर्न मिल्दैन।"
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebBluetooth": {
     "message": "WebBluetooth API प्रयोग गर्ने पेजहरूका हकमा ब्याक/फर्वार्ड क्यास प्रयोग गर्न मिल्दैन।"

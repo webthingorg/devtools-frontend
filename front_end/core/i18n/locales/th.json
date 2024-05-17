@@ -3198,7 +3198,7 @@
     "message": "หน้าที่ใช้ Serial API ไม่สามารถใช้ฟีเจอร์แคชย้อนหลัง"
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebAuthenticationAPI": {
-    "message": "หน้าที่ใช้ WebAuthetication API ไม่สามารถใช้ฟีเจอร์แคชย้อนหลัง"
+    "message": "หน้าที่ใช้ WebAuthentication API ไม่สามารถใช้ฟีเจอร์แคชย้อนหลัง"
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebBluetooth": {
     "message": "หน้าที่ใช้ WebBluetooth API ไม่สามารถใช้ฟีเจอร์แคชย้อนหลัง"

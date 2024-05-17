@@ -3198,7 +3198,7 @@
     "message": "មិនអាចទុកទំព័រដែលប្រើ Serial API នៅក្នុងឃ្លាំងបម្រុងទុកទំព័រក្នុងសភាពដើមទាំងស្រុងបានទេ។"
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebAuthenticationAPI": {
-    "message": "មិនអាចទុកទំព័រដែលប្រើ WebAuthetication API នៅក្នុងឃ្លាំងបម្រុងទុកទំព័រក្នុងសភាពដើមទាំងស្រុងបានទេ។"
+    "message": "មិនអាចទុកទំព័រដែលប្រើ WebAuthentication API នៅក្នុងឃ្លាំងបម្រុងទុកទំព័រក្នុងសភាពដើមទាំងស្រុងបានទេ។"
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebBluetooth": {
     "message": "មិនអាចទុកទំព័រដែលប្រើ WebBluetooth API នៅក្នុងឃ្លាំងបម្រុងទុកទំព័រក្នុងសភាពដើមទាំងស្រុងបានទេ។"

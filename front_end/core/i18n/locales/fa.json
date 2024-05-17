@@ -3198,7 +3198,7 @@
     "message": "صفحه‌هایی که از Serial API استفاده می‌کنند واجدشرایط حافظه پنهان عقب-جلو نیستند."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebAuthenticationAPI": {
-    "message": "صفحه‌هایی که از WebAuthetication API استفاده می‌کنند واجدشرایط حافظه پنهان عقب-جلو نیستند."
+    "message": "صفحه‌هایی که از WebAuthentication API استفاده می‌کنند واجدشرایط حافظه پنهان عقب-جلو نیستند."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebBluetooth": {
     "message": "صفحه‌هایی که از WebBluetooth API استفاده می‌کنند واجدشرایط حافظه پنهان عقب-جلو نیستند."

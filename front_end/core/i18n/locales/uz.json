@@ -3198,7 +3198,7 @@
     "message": "Serial API ishlatadigan sahifalarda hozircha ortga qaytadigan kesh ishlamaydi."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebAuthenticationAPI": {
-    "message": "WebAuthetication API ishlatadigan sahifalarda hozircha ortga qaytadigan kesh ishlamaydi."
+    "message": "WebAuthentication API ishlatadigan sahifalarda hozircha ortga qaytadigan kesh ishlamaydi."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebBluetooth": {
     "message": "WebBluetooth API ishlatadigan sahifalarda hozircha ortga qaytadigan kesh ishlamaydi."

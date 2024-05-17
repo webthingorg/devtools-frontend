@@ -3198,7 +3198,7 @@
     "message": "Pagina's die de Serial API gebruiken, komen niet in aanmerking voor Back-Forward Cache."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebAuthenticationAPI": {
-    "message": "Pagina's die de WebAuthetication API gebruiken, komen niet in aanmerking voor Back-Forward Cache."
+    "message": "Pagina's die de WebAuthentication API gebruiken, komen niet in aanmerking voor Back-Forward Cache."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebBluetooth": {
     "message": "Pagina's die de WebBluetooth API gebruiken, komen niet in aanmerking voor Back-Forward Cache."

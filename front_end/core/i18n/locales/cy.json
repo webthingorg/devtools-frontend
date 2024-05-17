@@ -3198,7 +3198,7 @@
     "message": "Nid yw tudalennau sy'n defnyddio API Cyfresol yn gymwys ar gyfer storfa yn ôl/ymlaen."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebAuthenticationAPI": {
-    "message": "Nid yw tudalennau sy'n defnyddio API WebAuthetication yn gymwys ar gyfer storfa yn ôl/ymlaen."
+    "message": "Nid yw tudalennau sy'n defnyddio API WebAuthentication yn gymwys ar gyfer storfa yn ôl/ymlaen."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebBluetooth": {
     "message": "Nid yw tudalennau sy'n defnyddio API WebBluetooth yn gymwys ar gyfer storfa yn ôl/ymlaen."

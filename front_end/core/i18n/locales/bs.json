@@ -3198,7 +3198,7 @@
     "message": "Stranice koje koriste Serial API ne ispunjavaju uslove za keširanje cijele stranice."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebAuthenticationAPI": {
-    "message": "Stranice koje koriste WebAuthetication API ne ispunjavaju uslove za keširanje cijele stranice."
+    "message": "Stranice koje koriste WebAuthentication API ne ispunjavaju uslove za keširanje cijele stranice."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebBluetooth": {
     "message": "Stranice koje koriste WebBluetooth API ne ispunjavaju uslove za keširanje cijele stranice."

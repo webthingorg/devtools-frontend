@@ -3198,7 +3198,7 @@
     "message": "Serial API-d kasutavad lehed ei ole tagasi-edasiliikumise vahemälu jaoks sobilikud."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebAuthenticationAPI": {
-    "message": "WebAuthetication API-d kasutavad lehed ei ole tagasi-edasiliikumise vahemälu jaoks sobilikud."
+    "message": "WebAuthentication API-d kasutavad lehed ei ole tagasi-edasiliikumise vahemälu jaoks sobilikud."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebBluetooth": {
     "message": "WebBluetooth API-d kasutavad lehed ei ole tagasi-edasiliikumise vahemälu jaoks sobilikud."

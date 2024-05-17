@@ -3198,7 +3198,7 @@
     "message": "Старонкі, якія выкарыстоўваюць Serial API, не падыходзяць для захавання ў кэшы пераходу назад і наперад."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebAuthenticationAPI": {
-    "message": "Старонкі, якія выкарыстоўваюць WebAuthetication API, не падыходзяць для захавання ў кэшы пераходу назад і наперад."
+    "message": "Старонкі, якія выкарыстоўваюць WebAuthentication API, не падыходзяць для захавання ў кэшы пераходу назад і наперад."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebBluetooth": {
     "message": "Старонкі, якія выкарыстоўваюць WebBluetooth API, не падыходзяць для захавання ў кэшы пераходу назад і наперад."

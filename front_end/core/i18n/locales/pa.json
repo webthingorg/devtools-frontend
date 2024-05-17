@@ -3198,7 +3198,7 @@
     "message": "ਪੰਨੇ ਜੋ Serial API ਦੀ ਵਰਤੋਂ ਕਰਦੇ ਹਨ, ਉਹ ਪੂਰੇ ਪੰਨੇ ਦੇ ਕੈਸ਼ੇ ਲਈ ਯੋਗ ਨਹੀਂ ਹਨ।"
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebAuthenticationAPI": {
-    "message": "ਪੰਨੇ ਜੋ WebAuthetication API ਦੀ ਵਰਤੋਂ ਕਰਦੇ ਹਨ, ਉਹ ਪੂਰੇ ਪੰਨੇ ਦੇ ਕੈਸ਼ੇ ਲਈ ਯੋਗ ਨਹੀਂ ਹਨ।"
+    "message": "ਪੰਨੇ ਜੋ WebAuthentication API ਦੀ ਵਰਤੋਂ ਕਰਦੇ ਹਨ, ਉਹ ਪੂਰੇ ਪੰਨੇ ਦੇ ਕੈਸ਼ੇ ਲਈ ਯੋਗ ਨਹੀਂ ਹਨ।"
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebBluetooth": {
     "message": "ਪੰਨੇ ਜੋ WebBluetooth API ਦੀ ਵਰਤੋਂ ਕਰਦੇ ਹਨ, ਉਹ ਪੂਰੇ ਪੰਨੇ ਦੇ ਕੈਸ਼ੇ ਲਈ ਯੋਗ ਨਹੀਂ ਹਨ।"

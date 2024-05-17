@@ -3198,7 +3198,7 @@
     "message": "Những trang sử dụng API nối tiếp không đủ điều kiện dùng bộ nhớ đệm cho thao tác tiến/lùi."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebAuthenticationAPI": {
-    "message": "Những trang sử dụng API WebAuthetication không đủ điều kiện dùng bộ nhớ đệm cho thao tác tiến/lùi."
+    "message": "Những trang sử dụng API WebAuthentication không đủ điều kiện dùng bộ nhớ đệm cho thao tác tiến/lùi."
   },
   "panels/application/components/BackForwardCacheStrings.ts | contentWebBluetooth": {
     "message": "Những trang sử dụng API WebBluetooth không đủ điều kiện dùng bộ nhớ đệm cho thao tác tiến/lùi."
