@@ -74,8 +74,8 @@ export class BreadcrumbsUI extends HTMLElement {
           <div class="breadcrumb" @click=${() => this.#removeBreadcrumb(breadcrumb)}>
            <span class="${(index !== 0 && breadcrumb.child === null) ? 'last-breadcrumb' : ''} range">
             ${(index === 0) ?
-              `Full range (${breadcrumbRange.toFixed(2)}ms)` :
-              `${breadcrumbRange.toFixed(2)}ms`}
+              `Full range (${breadcrumbRange.toFixed(2)} ms)` :
+              `${breadcrumbRange.toFixed(2)} ms`}
             </span>
           </div>
           ${breadcrumb.child !== null ?
