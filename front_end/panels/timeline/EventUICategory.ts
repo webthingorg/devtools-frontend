@@ -560,8 +560,9 @@ export type CategoryPalette = {
   [c in EventCategory]: TimelineCategory
 };
 
+// Have to define this as the join of two types as you cannot have two dynamic keys in one type.
 type EventStylesMap = {
-  [key in TraceEngine.Types.TraceEvents.KnownEventName]?: TimelineRecordStyle;
+  [key in TraceEngine.Types.TraceEvents.RenderedEventName]?: TimelineRecordStyle;
 };
 
 /**
@@ -1000,7 +1001,8 @@ export function maybeInitSylesMap(): EventStylesMap {
     [TraceEngine.Types.TraceEvents.KnownEventName.AsyncTask]:
         new TimelineRecordStyle(i18nString(UIStrings.asyncTask), defaultCategoryStyles.async),
 
-    [TraceEngine.Types.TraceEvents.KnownEventName.LayoutShift]:
+    // For the LayoutShift track we do not render raw LayoutShift events but instead use the SyntheticLayoutShift event.
+    [TraceEngine.Types.TraceEvents.SyntheticEventName.LayoutShift]:
         new TimelineRecordStyle(i18nString(UIStrings.layoutShift), defaultCategoryStyles.experience),
 
     [TraceEngine.Types.TraceEvents.KnownEventName.EventTiming]:

@@ -494,12 +494,16 @@ export class CompatibilityTracksAppender {
       return true;
     }
 
-    // Default styles are globally defined for each event name. Some
-    // events are hidden by default.
-    const eventStyle = getEventStyle(entry.name as TraceEngine.Types.TraceEvents.KnownEventName);
     const eventIsTiming = TraceEngine.Types.TraceEvents.isTraceEventConsoleTime(entry) ||
         TraceEngine.Types.TraceEvents.isTraceEventPerformanceMeasure(entry) ||
         TraceEngine.Types.TraceEvents.isTraceEventPerformanceMark(entry);
+    if (eventIsTiming) {
+      return true;
+    }
+
+    // Default styles are globally defined for each event name. Some
+    // events are hidden by default.
+    const eventStyle = getEventStyle(entry.name as TraceEngine.Types.TraceEvents.KnownEventName);
 
     return (eventStyle && !eventStyle.hidden) || eventIsTiming;
   }

@@ -310,6 +310,7 @@ async function buildLayoutShiftsClusters(): Promise<void> {
     }
     const shift: Types.TraceEvents.SyntheticLayoutShift = {
       ...event,
+      name: Types.TraceEvents.SyntheticEventName.LayoutShift,
       args: {
         frame: event.args.frame,
         data: {

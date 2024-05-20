@@ -813,7 +813,6 @@ type LayoutShiftData = TraceEventArgsData&{
   weighted_score_delta: number,
   /* eslint-enable @typescript-eslint/naming-convention */
 };
-// These keys come from the trace data, so we have to use underscores.
 export interface TraceEventLayoutShift extends TraceEventInstant {
   name: 'LayoutShift';
   normalized?: boolean;
@@ -840,7 +839,9 @@ export interface LayoutShiftParsedData {
   cumulativeWeightedScoreInWindow: number;
   sessionWindowData: LayoutShiftSessionWindowData;
 }
-export interface SyntheticLayoutShift extends TraceEventLayoutShift {
+
+export interface SyntheticLayoutShift extends TraceEventInstant {
+  name: SyntheticEventName.LayoutShift;
   args: TraceEventArgs&{
     frame: string,
     data?: LayoutShiftData&{
@@ -1965,10 +1966,7 @@ export function isTraceEventAsyncPhase(traceEventData: TraceEventData): boolean 
 }
 
 export function isSyntheticLayoutShift(traceEventData: TraceEventData): traceEventData is SyntheticLayoutShift {
-  if (!isTraceEventLayoutShift(traceEventData) || !traceEventData.args.data) {
-    return false;
-  }
-  return 'rawEvent' in traceEventData.args.data;
+  return traceEventData.name === 'SyntheticLayoutShift';
 }
 
 export function isProfileCall(event: TraceEventData): event is SyntheticProfileCall {
@@ -2318,11 +2316,16 @@ export function isJSInvocationEvent(event: TraceEventData): boolean {
   return false;
 }
 
+export type RenderedEventName = SyntheticEventName|KnownEventName;
+
+export const enum SyntheticEventName {
+  LayoutShift = 'SyntheticLayoutShift',
+}
+
 /**
- * This is an exhaustive list of events we track in the Performance
- * panel. Note not all of them are necessarliry shown in the flame
+ * This is a list of raw trace events we track in the Performance
+ * panel. Note not all of them are shown in the flame
  * chart, some of them we only use for parsing.
- * TODO(crbug.com/1428024): Complete this enum.
  */
 export const enum KnownEventName {
   /* Metadata */

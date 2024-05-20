@@ -49,8 +49,8 @@ const fontRequestsByPrePaint = new Map<Types.TraceEvents.TraceEventPrePaint, Fon
 const renderBlocksByPrePaint = new Map<Types.TraceEvents.TraceEventPrePaint, RenderBlockingRequest[]|null>();
 
 function setDefaultValue(
-    map: Map<Types.TraceEvents.TraceEventLayoutShift, LayoutShiftRootCausesData>,
-    shift: Types.TraceEvents.TraceEventLayoutShift): void {
+    map: Map<Types.TraceEvents.SyntheticLayoutShift, LayoutShiftRootCausesData>,
+    shift: Types.TraceEvents.SyntheticLayoutShift): void {
   Platform.MapUtilities.getWithDefault(map, shift, () => {
     return {
       unsizedMedia: [],
@@ -91,7 +91,7 @@ interface Options {
 
 export class LayoutShiftRootCauses {
   #protocolInterface: RootCauseProtocolInterface;
-  #rootCauseCacheMap = new Map<Types.TraceEvents.TraceEventLayoutShift, LayoutShiftRootCausesData>();
+  #rootCauseCacheMap = new Map<Types.TraceEvents.SyntheticLayoutShift, LayoutShiftRootCausesData>();
   #nodeDetailsCache = new Map<Protocol.DOM.NodeId, Protocol.DOM.Node|null>();
   #iframeRootCausesEnabled: boolean;
 
@@ -108,7 +108,7 @@ export class LayoutShiftRootCauses {
    * events the first time that it's called. That then populates the cache for
    * each shift, so any subsequent calls are just a constant lookup.
    */
-  async rootCausesForEvent(modelData: TraceParseData, event: Types.TraceEvents.TraceEventLayoutShift):
+  async rootCausesForEvent(modelData: TraceParseData, event: Types.TraceEvents.SyntheticLayoutShift):
       Promise<Readonly<LayoutShiftRootCausesData>|null> {
     const cachedResult = this.#rootCauseCacheMap.get(event);
     if (cachedResult) {
@@ -139,7 +139,7 @@ export class LayoutShiftRootCauses {
    * Determines potential root causes for shifts
    */
   async blameShifts(
-      layoutShifts: Types.TraceEvents.TraceEventLayoutShift[],
+      layoutShifts: Types.TraceEvents.SyntheticLayoutShift[],
       modelData: TraceParseData,
       ): Promise<void> {
     await this.linkShiftsToLayoutInvalidations(layoutShifts, modelData);
@@ -153,7 +153,7 @@ export class LayoutShiftRootCauses {
    * to layout shifts.
    */
   async linkShiftsToLayoutInvalidations(
-      layoutShifts: Types.TraceEvents.TraceEventLayoutShift[], modelData: TraceParseData): Promise<void> {
+      layoutShifts: Types.TraceEvents.SyntheticLayoutShift[], modelData: TraceParseData): Promise<void> {
     const {prePaintEvents, layoutInvalidationEvents, scheduleStyleInvalidationEvents, backendNodeIds} =
         modelData.LayoutShifts;
 
@@ -244,7 +244,7 @@ export class LayoutShiftRootCauses {
    * Note that a Layout cannot always be linked to a script, in that case, we cannot add a
    * "script causing reflow" as a potential root cause to the corresponding shift.
    */
-  linkShiftsToLayoutEvents(layoutShifts: Types.TraceEvents.TraceEventLayoutShift[], modelData: TraceParseData): void {
+  linkShiftsToLayoutEvents(layoutShifts: Types.TraceEvents.SyntheticLayoutShift[], modelData: TraceParseData): void {
     const {prePaintEvents} = modelData.LayoutShifts;
     // Maps from PrePaint events to LayoutShifts that occured in each one.
     const shiftsByPrePaint = getShiftsByPrePaintEvents(layoutShifts, prePaintEvents);
@@ -657,11 +657,11 @@ function dimensionsAreExplicit(dimensions: CSSDimensions): boolean {
  * PrePaint events to layout shifts dispatched within it.
  */
 function getShiftsByPrePaintEvents(
-    layoutShifts: Types.TraceEvents.TraceEventLayoutShift[],
+    layoutShifts: Types.TraceEvents.SyntheticLayoutShift[],
     prePaintEvents: Types.TraceEvents.TraceEventPrePaint[],
-    ): Map<Types.TraceEvents.TraceEventPrePaint, Types.TraceEvents.TraceEventLayoutShift[]> {
+    ): Map<Types.TraceEvents.TraceEventPrePaint, Types.TraceEvents.SyntheticLayoutShift[]> {
   // Maps from PrePaint events to LayoutShifts that occured in each one.
-  const shiftsByPrePaint = new Map<Types.TraceEvents.TraceEventPrePaint, Types.TraceEvents.TraceEventLayoutShift[]>();
+  const shiftsByPrePaint = new Map<Types.TraceEvents.TraceEventPrePaint, Types.TraceEvents.SyntheticLayoutShift[]>();
 
   // Associate all shifts to their corresponding PrePaint.
   for (const prePaintEvent of prePaintEvents) {

@@ -46,7 +46,7 @@ describe('TimelineModelFilter', () => {
         assert.isOk(layoutShiftEvent);
         assert.strictEqual(
             TimelineModel.TimelineModelFilter.TimelineVisibleEventsFilter.eventType(layoutShiftEvent),
-            TraceEngine.Types.TraceEvents.KnownEventName.LayoutShift);
+            TraceEngine.Types.TraceEvents.SyntheticEventName.LayoutShift);
       });
     });
   });
@@ -95,7 +95,7 @@ describe('TimelineModelFilter', () => {
       assert.isOk(layoutShiftEvent);
 
       const filter = new TimelineModel.TimelineModelFilter.ExclusiveNameFilter([
-        TraceEngine.Types.TraceEvents.KnownEventName.LayoutShift,
+        TraceEngine.Types.TraceEvents.SyntheticEventName.LayoutShift,
       ]);
       assert.isFalse(filter.accept(layoutShiftEvent));
     });
