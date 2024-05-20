@@ -3547,6 +3547,10 @@ export const generatedProperties = [
   "name": "transition"
  },
  {
+  "keywords": [
+   "normal",
+   "allow-discrete"
+  ],
   "name": "transition-behavior"
  },
  {
@@ -5674,6 +5678,12 @@ export const generatedPropertyValues = {
   "values": [
    "flat",
    "preserve-3d"
+  ]
+ },
+ "transition-behavior": {
+  "values": [
+   "normal",
+   "allow-discrete"
   ]
  },
  "transition-property": {
