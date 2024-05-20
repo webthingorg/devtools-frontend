@@ -27,14 +27,18 @@ export class AffectedMetadataAllowedSitesView extends AffectedResourcesView {
 
   override update(): void {
     this.clear();
-    const allowedSites = this.issue.getMetadataAllowedSites();
+    const allowedSites = this.issue.getCookieDeprecationMetadataIssues();
     let count = 0;
 
-    for (const site of allowedSites) {
+    for (const siteData of allowedSites) {
       const row = document.createElement('tr');
       row.classList.add('affected-resource-directive');
 
-      this.appendIssueDetailCell(row, site);
+      const text = siteData.metadataAllowedSites();
+      if (!siteData.getMetadataIsOptOutTopLevel() && siteData.getMetadataOptOutPercentage() > 0) {
+        text += ' (opt-out at ' + siteData.getMetadataOptOutPercentage() + ')';
+      }
+      this.appendIssueDetailCell(row, text);
       this.affectedResources.appendChild(row);
       count++;
     }
