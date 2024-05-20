@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ba7936c_a80d9de0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-20T14:48:14Z",
+      "side": 1,
+      "message": "PTAL. Want to get your feedback on the impl - if you are happy I will add some comments to the code to clarify the intent of the types.",
+      "revId": "c1c077fc8050011ae17994c6fead41880733c393",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
