@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "168bbed3_9960a58b",
+        "filename": "third_party/blink/renderer/core/css/css_properties.json5",
+        "patchSetId": 3
+      },
+      "lineNbr": 1039,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2024-05-20T08:34:07Z",
+      "side": 1,
+      "message": "`ParseSingleValueFromRange` all changed to `ParseSingleValue`.\n\nIt may be necessary to synchronize the css_properties.json5 file as a whole once first.\n\nhttps://chromium-review.googlesource.com/c/chromium/src/+/5538391",
+      "revId": "63f9864605d72c067936781e56df0857dfa7d4e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
