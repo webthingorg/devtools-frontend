@@ -1045,6 +1045,7 @@
     {
       name: "transition-behavior",
       property_methods: ["ParseSingleValue", "CSSValueFromComputedStyleInternal", "InitialValue"],
+      keywords: ["normal", "allow-discrete"],
       typedom_types: ["Keyword"],
       separator: ",",
       style_builder_template: "transition",
