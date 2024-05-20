@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "50bf9888_c972f133",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-05-20T16:22:49Z",
+      "side": 1,
+      "message": "Is this auto-generated? If not, the next autogen CI run will remove it.",
+      "revId": "63f9864605d72c067936781e56df0857dfa7d4e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "168bbed3_9960a58b",
