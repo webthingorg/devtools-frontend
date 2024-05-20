@@ -1539,7 +1539,7 @@ export class TimelineUIUtils {
         break;
       }
 
-      case TraceEngine.Types.TraceEvents.KnownEventName.LayoutShift: {
+      case TraceEngine.Types.TraceEvents.SyntheticEventName.LayoutShift: {
         if (!TraceEngine.Types.TraceEvents.isSyntheticLayoutShift(event)) {
           console.error('Unexpected type for LayoutShift event');
           break;

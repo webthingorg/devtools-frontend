@@ -49,7 +49,7 @@ export class LayoutShiftsTrackAppender implements TrackAppender {
       return trackStartLevel;
     }
     this.#appendTrackHeaderAtLevel(trackStartLevel, expanded);
-    return this.#appendLayoutShiftsAtLevel(trackStartLevel);
+    return this.#appendSyntheticLayoutShiftsAtLevel(trackStartLevel);
   }
 
   /**
@@ -77,7 +77,7 @@ export class LayoutShiftsTrackAppender implements TrackAppender {
    * @returns the next level after the last occupied by the appended
    * layout shifts (the first available level to append more data).
    */
-  #appendLayoutShiftsAtLevel(currentLevel: number): number {
+  #appendSyntheticLayoutShiftsAtLevel(currentLevel: number): number {
     const allLayoutShifts = this.#traceParsedData.LayoutShifts.clusters.flatMap(cluster => cluster.events);
     const msDuration = TraceEngine.Types.Timing.MicroSeconds(5_000);
     const setFlameChartEntryTotalTime =
@@ -113,7 +113,9 @@ export class LayoutShiftsTrackAppender implements TrackAppender {
    * Gets the title an event added by this appender should be rendered with.
    */
   titleForEvent(event: TraceEngine.Types.TraceEvents.TraceEventData): string {
-    if (TraceEngine.Types.TraceEvents.isTraceEventLayoutShift(event)) {
+    if (TraceEngine.Types.TraceEvents.isSyntheticLayoutShift(event)) {
+      // Check for SyntheticLayoutShift events as we only render those - we
+      // don't render raw LayoutShift events.
       return 'Layout shift';
     }
     return event.name;
@@ -123,7 +125,7 @@ export class LayoutShiftsTrackAppender implements TrackAppender {
    * Returns the info shown when an event added by this appender
    * is hovered in the timeline.
    */
-  highlightedEntryInfo(event: TraceEngine.Types.TraceEvents.TraceEventLayoutShift): HighlightedEntryInfo {
+  highlightedEntryInfo(event: TraceEngine.Types.TraceEvents.SyntheticLayoutShift): HighlightedEntryInfo {
     const title = this.titleForEvent(event);
     return {title, formattedTime: getFormattedTime(event.dur)};
   }

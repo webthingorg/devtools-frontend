@@ -25,7 +25,8 @@ export class TimelineVisibleEventsFilter extends TimelineModelFilter {
     return this.visibleTypes.has(TimelineVisibleEventsFilter.eventType(event));
   }
 
-  static eventType(event: TraceEngine.Types.TraceEvents.TraceEventData): TraceEngine.Types.TraceEvents.KnownEventName {
+  static eventType(event: TraceEngine.Types.TraceEvents.TraceEventData):
+      TraceEngine.Types.TraceEvents.RenderedEventName {
     // Any blink.console category events are treated as ConsoleTime events
     if (TraceEngine.Helpers.Trace.eventHasCategory(event, 'blink.console')) {
       return TraceEngine.Types.TraceEvents.KnownEventName.ConsoleTime;
@@ -34,12 +35,12 @@ export class TimelineVisibleEventsFilter extends TimelineModelFilter {
     if (TraceEngine.Helpers.Trace.eventHasCategory(event, 'blink.user_timing')) {
       return TraceEngine.Types.TraceEvents.KnownEventName.UserTiming;
     }
-    return event.name as TraceEngine.Types.TraceEvents.KnownEventName;
+    return event.name as TraceEngine.Types.TraceEvents.RenderedEventName;
   }
 }
 
 export class TimelineInvisibleEventsFilter extends TimelineModelFilter {
-  #invisibleTypes: Set<TraceEngine.Types.TraceEvents.KnownEventName>;
+  #invisibleTypes: Set<TraceEngine.Types.TraceEvents.RenderedEventName>;
 
   constructor(invisibleTypes: TraceEngine.Types.TraceEvents.KnownEventName[]) {
     super();
@@ -52,13 +53,13 @@ export class TimelineInvisibleEventsFilter extends TimelineModelFilter {
 }
 
 export class ExclusiveNameFilter extends TimelineModelFilter {
-  #excludeNames: Set<TraceEngine.Types.TraceEvents.KnownEventName>;
-  constructor(excludeNames: TraceEngine.Types.TraceEvents.KnownEventName[]) {
+  #excludeNames: Set<TraceEngine.Types.TraceEvents.RenderedEventName>;
+  constructor(excludeNames: TraceEngine.Types.TraceEvents.RenderedEventName[]) {
     super();
     this.#excludeNames = new Set(excludeNames);
   }
 
   accept(event: TraceEngine.Types.TraceEvents.TraceEventData): boolean {
-    return !this.#excludeNames.has(event.name as TraceEngine.Types.TraceEvents.KnownEventName);
+    return !this.#excludeNames.has(event.name as TraceEngine.Types.TraceEvents.RenderedEventName);
   }
 }
