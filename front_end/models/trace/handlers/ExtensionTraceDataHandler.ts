@@ -88,14 +88,25 @@ export function extensionDataInTiming(timing: Types.TraceEvents.SyntheticUserTim
   if (!timingDetail) {
     return null;
   }
-  const detailObj = JSON.parse(timingDetail);
-  if (!('devtools' in detailObj)) {
+  try {
+    // Attempt to parse the detail as an object that might be coming from a
+    // DevTools Perf extension.
+    // Wrapped in a try-catch because timingDetail could be a regular string
+    // and not necessarily JSON.
+    const detailObj = JSON.parse(timingDetail);
+    if (!('devtools' in detailObj)) {
+      return null;
+    }
+    if (!('metadata' in detailObj['devtools'])) {
+      return null;
+    }
+    return detailObj.devtools;
+  } catch (e) {
+    // The detail did not represent some obj that was JSON.stringified(), so
+    // return null as that means it is irrelevant for the purposes of this
+    // handler.
     return null;
   }
-  if (!('metadata' in detailObj['devtools'])) {
-    return null;
-  }
-  return detailObj.devtools;
 }
 
 export function data(): ExtensionTraceData {
