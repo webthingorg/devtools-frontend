@@ -150,10 +150,13 @@ export class MainImpl {
     const prefs = await new Promise<{[key: string]: string}>(resolve => {
       Host.InspectorFrontendHost.InspectorFrontendHostInstance.getPreferences(resolve);
     });
+    const config = await new Promise<Root.Runtime.HostConfig>(resolve => {
+      Host.InspectorFrontendHost.InspectorFrontendHostInstance.getHostConfig(resolve);
+    });
 
     console.timeStamp('Main._gotPreferences');
     this.#initializeGlobalsForLayoutTests();
-    this.createSettings(prefs);
+    this.createSettings(prefs, config);
     await this.requestAndRegisterLocaleData();
 
     Host.userMetrics.syncSetting(Common.Settings.Settings.instance().moduleSetting<boolean>('sync-preferences').get());
@@ -209,9 +212,11 @@ export class MainImpl {
     }
   }
 
-  createSettings(prefs: {
-    [x: string]: string,
-  }): void {
+  createSettings(
+      prefs: {
+        [x: string]: string,
+      },
+      config: Root.Runtime.HostConfig): void {
     this.#initializeExperiments();
     let storagePrefix = '';
     if (Host.Platform.isCustomDevtoolsFrontend()) {
@@ -255,7 +260,7 @@ export class MainImpl {
     // setting can't change storage buckets during a single DevTools session.
     const syncedStorage = new Common.Settings.SettingsStorage(prefs, hostSyncedStorage, storagePrefix);
     const globalStorage = new Common.Settings.SettingsStorage(prefs, hostUnsyncedStorage, storagePrefix);
-    Common.Settings.Settings.instance({forceNew: true, syncedStorage, globalStorage, localStorage});
+    Common.Settings.Settings.instance({forceNew: true, syncedStorage, globalStorage, localStorage, config});
 
     // Needs to be created after Settings are available.
     new SettingTracker();
