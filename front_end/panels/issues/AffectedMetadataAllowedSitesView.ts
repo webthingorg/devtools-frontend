@@ -27,14 +27,24 @@ export class AffectedMetadataAllowedSitesView extends AffectedResourcesView {
 
   override update(): void {
     this.clear();
-    const allowedSites = this.issue.getMetadataAllowedSites();
+    const issues = this.issue.getCookieDeprecationMetadataIssues();
     let count = 0;
 
-    for (const site of allowedSites) {
+    for (const issueData of issues) {
       const row = document.createElement('tr');
       row.classList.add('affected-resource-directive');
 
-      this.appendIssueDetailCell(row, site);
+      let text: string;
+      text = issueData.details().allowedSites.join(', ');
+      if (!issueData.details().isOptOutTopLevel && issueData.details().optOutPercentage > 0) {
+        text += ' (opt-out: ' + issueData.details().optOutPercentage +
+            '%  - <a href="https://github.com/amaliev/3pcd-exemption-heuristics/blob/main/explainer.md">learn more</a>)';
+      }
+
+      // appendIssueDetailCell sets the text as a Node.textContent, which doesn't parse the HTML link.
+      // Adding the text in the innerHTML field instead.
+      const cell = this.appendIssueDetailCell(row, '');
+      cell.innerHTML = text;
       this.affectedResources.appendChild(row);
       count++;
     }
