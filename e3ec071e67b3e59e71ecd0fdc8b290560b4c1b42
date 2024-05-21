@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "701e117f_893737f7",
+        "filename": "front_end/models/issues_manager/CookieDeprecationMetadataIssue.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1521939
+      },
+      "writtenOn": "2024-05-21T15:26:11Z",
+      "side": 1,
+      "message": "Should we include an explainer link somewhere in the issue if there\u0027s an opt-out present?",
+      "revId": "e3ec071e67b3e59e71ecd0fdc8b290560b4c1b42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf68a6d0_7a33e430",
+        "filename": "front_end/models/issues_manager/CookieDeprecationMetadataIssue.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1521939
+      },
+      "writtenOn": "2024-05-21T15:26:11Z",
+      "side": 1,
+      "message": "nit: would defer to the devtools reviewer for final say on this, but maybe this should say something like \"Top-level site opt-out:\". \n\nAlso, I don\u0027t have a preference for one or the other, but feel like we may want to match the formats of this opt-out string and the one in the allowed sites view.",
+      "range": {
+        "startLine": 38,
+        "startChar": 26,
+        "endLine": 38,
+        "endChar": 44
+      },
+      "revId": "e3ec071e67b3e59e71ecd0fdc8b290560b4c1b42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
