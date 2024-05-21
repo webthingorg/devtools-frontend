@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "50d89c7a_62e94125",
+        "filename": "front_end/models/issues_manager/CookieDeprecationMetadataIssue.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579342
+      },
+      "writtenOn": "2024-05-21T18:43:48Z",
+      "side": 1,
+      "message": "Good idea. Added a \"learn more\" link in both the description and sites view fields. Updated the screenshots in the description as well.",
+      "parentUuid": "701e117f_893737f7",
+      "revId": "e3ec071e67b3e59e71ecd0fdc8b290560b4c1b42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cf68a6d0_7a33e430",
