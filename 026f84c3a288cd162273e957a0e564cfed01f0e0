@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b482ac5d_b02ef726",
+        "filename": "front_end/panels/elements/DOMLinkifier.test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-05-21T11:19:14Z",
+      "side": 1,
+      "message": "why have an extra describe here?",
+      "revId": "026f84c3a288cd162273e957a0e564cfed01f0e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
