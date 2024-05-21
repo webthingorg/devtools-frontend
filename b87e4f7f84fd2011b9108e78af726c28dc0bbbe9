@@ -50,6 +50,24 @@
       "message": "\"pointer events: none\" also prevents the built-in tooltip (the title attribute) from showing",
       "revId": "b87e4f7f84fd2011b9108e78af726c28dc0bbbe9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2908bc56_9f7f73be",
+        "filename": "front_end/ui/legacy/toolbar.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-05-21T13:12:35Z",
+      "side": 1,
+      "message": "That\u0027s fine. There\u0027s no point in a tooltip showing up while the menu is open.",
+      "parentUuid": "ba826bf9_12cb3433",
+      "revId": "b87e4f7f84fd2011b9108e78af726c28dc0bbbe9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
