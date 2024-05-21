@@ -16,6 +16,24 @@
       "message": "why have an extra describe here?",
       "revId": "026f84c3a288cd162273e957a0e564cfed01f0e0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a912d49_a7e2a5e5",
+        "filename": "front_end/panels/elements/DOMLinkifier.test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-05-21T11:22:45Z",
+      "side": 1,
+      "message": "there were two tests related to rendering of view transition pseudos; after special casing the behavior in the implementation, wanted to separate tests for that too :)",
+      "parentUuid": "b482ac5d_b02ef726",
+      "revId": "026f84c3a288cd162273e957a0e564cfed01f0e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
