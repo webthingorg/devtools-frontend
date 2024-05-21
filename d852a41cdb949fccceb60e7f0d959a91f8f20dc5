@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12c01232_34429332",
+        "filename": "scripts/deps/set_lpac_acls.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-05-21T09:04:48Z",
+      "side": 1,
+      "message": "While we\u0027re here, is this different from tempfile.TemporaryFile?",
+      "revId": "d852a41cdb949fccceb60e7f0d959a91f8f20dc5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
