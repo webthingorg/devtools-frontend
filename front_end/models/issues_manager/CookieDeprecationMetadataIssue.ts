@@ -33,8 +33,16 @@ export class CookieDeprecationMetadataIssue extends Issue {
   }
 
   getDescription(): MarkdownIssueDescription {
+    let optOutText = '';
+    if (this.#issueDetails.isOptOutTopLevel && this.#issueDetails.optOutPercentage >= 0) {
+      optOutText = '\n\n (Top level site opt-out: ' + this.#issueDetails.optOutPercentage + '%)';
+    }
+
     return {
       file: 'cookieWarnMetadataGrantRead.md',
+      substitutions: new Map([
+        ['PLACEHOLDER_topleveloptout', optOutText],
+      ]),
       links: [
         {
           link: 'https://developer.chrome.com/docs/privacy-sandbox/third-party-cookie-phase-out/',
@@ -54,13 +62,6 @@ export class CookieDeprecationMetadataIssue extends Issue {
 
   primaryKey(): string {
     return JSON.stringify(this.#issueDetails);
-  }
-
-  override metadataAllowedSites(): Iterable<string> {
-    if (this.#issueDetails.allowedSites) {
-      return this.#issueDetails.allowedSites;
-    }
-    return [];
   }
 
   static fromInspectorIssue(issuesModel: SDK.IssuesModel.IssuesModel, inspectorIssue: Protocol.Audits.InspectorIssue):
