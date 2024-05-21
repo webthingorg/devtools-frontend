@@ -22,6 +22,30 @@
       },
       "revId": "ebced63adc9064c879c4fa634032de26dc1dbe71",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35a11667_f80e96ea",
+        "filename": "front_end/panels/issues/AffectedMetadataAllowedSitesView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1579342
+      },
+      "writtenOn": "2024-05-21T14:18:59Z",
+      "side": 1,
+      "message": "This wouldn\u0027t currently happen, because each issue is only filled with one site (https://source.chromium.org/chromium/chromium/src/+/main:chrome/browser/tpcd/metadata/devtools_observer.cc;l\u003d64;drc\u003d4e7b46824eb3cbeb68a147cfe473774428934097). In retrospect we probably only needed one string rather than a list in the struct - but it\u0027s available if we need it in the future.",
+      "parentUuid": "818036ee_79396ca0",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 38,
+        "endChar": 57
+      },
+      "revId": "ebced63adc9064c879c4fa634032de26dc1dbe71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
