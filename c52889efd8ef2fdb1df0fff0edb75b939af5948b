@@ -87,6 +87,24 @@
       "parentUuid": "1fdcee84_1d521851",
       "revId": "c52889efd8ef2fdb1df0fff0edb75b939af5948b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fd83f36_f212306c",
+        "filename": "front_end/core/sdk/SourceMapScopes.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-05-22T08:28:16Z",
+      "side": 1,
+      "message": "`line` is kinda special for generated ranges. Basically every `;` in the string represents a new line. For original scopes the line number is VLQ encoded.\n\nThe reasoning here is that generated code normally only has a handful of lines, and we wanna skip encoding unnecessary 0s.\n\nWe can\u0027t really delegate the incrementing to the consumer, as we produce start/end items. We could produce start, end and line items though. But that seems somewhat convoluted?",
+      "parentUuid": "2fb9fb92_e90422db",
+      "revId": "c52889efd8ef2fdb1df0fff0edb75b939af5948b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
