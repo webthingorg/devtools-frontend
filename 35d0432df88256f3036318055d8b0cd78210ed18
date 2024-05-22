@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "106a22e4_5101abd1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2024-05-22T21:56:31Z",
+      "side": 1,
+      "message": "Hey Paul, PTAL at this CL that consumes websocket send and receive events from tracing. Thank you!",
+      "revId": "35d0432df88256f3036318055d8b0cd78210ed18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
