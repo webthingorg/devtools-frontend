@@ -168,13 +168,14 @@ function*
 }
 
 export function decodeGeneratedRanges(
-    encodedGeneratedRange: string, _originalScopes: OriginalScope[], _names: string[]): GeneratedRange {
+    encodedGeneratedRange: string, originalScopes: OriginalScope[], _names: string[]): GeneratedRange {
   const rangeStack: GeneratedRange[] = [];
   const rangeToStartItem = new Map<GeneratedRange, EncodedGeneratedRangeStart>();
+  const flattenedOriginalScopes = originalScopes.map(s => flattenOriginalScopes(s));
 
   for (const item of decodeGeneratedRangeItems(encodedGeneratedRange)) {
     if (isRangeStart(item)) {
-      // TODO(crbug.com/40277685): Decode definition, callsite and bindings.
+      // TODO(crbug.com/40277685): Decode callsite and bindings.
 
       const range: GeneratedRange = {
         start: {line: item.line, column: item.column},
@@ -182,6 +183,19 @@ export function decodeGeneratedRanges(
         values: [],
         children: [],
       };
+
+      if (item.definition) {
+        const {scopeIdx, sourceIdx} = item.definition;
+        if (!flattenedOriginalScopes[sourceIdx]) {
+          throw new Error('Invalid source index!');
+        }
+        const originalScope = flattenedOriginalScopes[sourceIdx][scopeIdx];
+        if (!originalScope) {
+          throw new Error('Invalid original scope index!');
+        }
+        range.originalScope = originalScope;
+      }
+
       rangeToStartItem.set(range, item);
       rangeStack.push(range);
     } else {
@@ -201,10 +215,32 @@ export function decodeGeneratedRanges(
   throw new Error('Malformed generated range encoding');
 }
 
+/**
+ * Flattens out an original scope in pre-order, with inserting `null` to mark "scope end".
+ *
+ * This allows easy resolution of original scope indices by indexing into the resulting array.
+ */
+function flattenOriginalScopes(
+    originalScope: OriginalScope, result: (OriginalScope|null)[] = []): (OriginalScope|null)[] {
+  result.push(originalScope);
+
+  for (const child of originalScope.children) {
+    flattenOriginalScopes(child, result);
+  }
+
+  result.push(null);
+
+  return result;
+}
+
 interface EncodedGeneratedRangeStart {
   line: number;
   column: number;
   flags: number;
+  definition?: {
+    sourceIdx: number,
+    scopeIdx: number,
+  };
   // TODO(crbug.com/40277685): Add the rest.
 }
 
@@ -223,10 +259,13 @@ function*
   const iter = new TokenIterator(encodedGeneratedRange);
   let line = 0;
 
-  // The state is the line/column of the last produced item.
-  let state = {
+  // The state are the fields of the last produced item, tracked because many
+  // are relative to the preceeding item.
+  const state = {
     line: 0,
     column: 0,
+    defSourceIdx: 0,
+    defScopeIdx: 0,
   };
 
   while (iter.hasNext()) {
@@ -239,20 +278,29 @@ function*
       continue;
     }
 
-    const column = iter.nextVLQ() + (line === state.line ? state.column : 0);
-    state = {line, column};
+    state.column = iter.nextVLQ() + (line === state.line ? state.column : 0);
+    state.line = line;
     if (iter.peekVLQ() === null) {
-      yield {line, column};
+      yield {line, column: state.column};
       continue;
     }
 
     const startItem: EncodedGeneratedRangeStart = {
       line,
-      column,
+      column: state.column,
       flags: iter.nextVLQ(),
     };
 
-    // TODO(crbug.com/40277685): Decode the rest.
+    if (startItem.flags & 0x1) {
+      const sourceIdx = iter.nextVLQ();
+      const scopeIdx = iter.nextVLQ();
+      state.defScopeIdx = scopeIdx + (sourceIdx === 0 ? state.defScopeIdx : 0);
+      state.defSourceIdx += sourceIdx;
+      startItem.definition = {
+        sourceIdx: state.defSourceIdx,
+        scopeIdx: state.defScopeIdx,
+      };
+    }
 
     yield startItem;
   }
