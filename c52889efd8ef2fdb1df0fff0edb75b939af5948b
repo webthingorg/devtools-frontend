@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6d49e3a_f84e3cf7",
+        "filename": "front_end/core/sdk/SourceMapScopes.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-05-22T08:19:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca737354_720af8ab",
+      "revId": "c52889efd8ef2fdb1df0fff0edb75b939af5948b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5f20ad4c_31e33731",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-05-22T08:04:40Z",
       "side": 1,
       "message": "Why not do the column number incrementation here, too? Then nobody needs to remember that a range\u0027s column is incremental, but line isn\u0027t.",
+      "revId": "c52889efd8ef2fdb1df0fff0edb75b939af5948b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1fdcee84_1d521851",
+        "filename": "front_end/core/sdk/SourceMapScopes.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-05-22T08:19:18Z",
+      "side": 1,
+      "message": "I proposed something similar for the original scope generator, but in the end we decided that the generators should produce the items \"as-is\" (only VLQ decoded), and the consumer handles the semantics.",
+      "parentUuid": "5f20ad4c_31e33731",
       "revId": "c52889efd8ef2fdb1df0fff0edb75b939af5948b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
