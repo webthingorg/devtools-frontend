@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1eef6329_be59c044",
+        "filename": "front_end/panels/timeline/components/BreadcrumbsUI.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-22T08:22:03Z",
+      "side": 1,
+      "message": "Sorry I didn\u0027t mention this because I forgot until just now when reviewing the CL - we have a `preciseMillisToString` function in `i18n/time-utilities.ts`. We should use that - it puts the space in and also makes sure we are consistent with the rest of the panel which uses that function.",
+      "range": {
+        "startLine": 77,
+        "startChar": 10,
+        "endLine": 78,
+        "endChar": 49
+      },
+      "revId": "da150e27449620ef62960783de85177922735262",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
