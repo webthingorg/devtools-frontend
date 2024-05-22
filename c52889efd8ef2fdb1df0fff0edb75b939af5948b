@@ -159,6 +159,24 @@
       "parentUuid": "dc994591_bd325f8f",
       "revId": "c52889efd8ef2fdb1df0fff0edb75b939af5948b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6243d5b0_9ecd70a7",
+        "filename": "front_end/core/sdk/SourceMapScopes.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-05-22T08:50:48Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "13406532_dc4fcc2f",
+      "revId": "c52889efd8ef2fdb1df0fff0edb75b939af5948b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
