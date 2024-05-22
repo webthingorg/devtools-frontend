@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4545ab00_ffcaf92d",
+        "filename": "front_end/panels/issues/AffectedMetadataAllowedSitesView.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-05-22T16:52:08Z",
+      "side": 1,
+      "message": "Is it necessary to add the link to every item on this list? If a single link outside of the list was enough, setting `innerHTML` could be avoided.",
+      "range": {
+        "startLine": 41,
+        "startChar": 18,
+        "endLine": 42,
+        "endChar": 7
+      },
+      "revId": "0245374a01c94c2a7ff43e1925206ba31797f82c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
