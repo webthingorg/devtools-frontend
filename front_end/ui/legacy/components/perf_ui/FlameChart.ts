@@ -2227,7 +2227,10 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
         const entryStartTime = entryStartTimes[entryIndex];
         const entryOffsetRight = entryStartTime + duration;
         if (entryOffsetRight <= this.chartViewport.windowLeftTime()) {
-          break;
+          if (!(timelineData.groups.length > 0 && timelineData.groups[0].name === 'Network')) {
+            // need to have a force draw level  for websocket...
+            break;
+          }
         }
 
         const barX = this.timeToPositionClipped(entryStartTime);
