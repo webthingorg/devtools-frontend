@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf92ff8e_6aebd0d5",
+        "filename": "front_end/core/sdk/SourceMapScopes.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-05-22T10:48:06Z",
+      "side": 1,
+      "message": "Leaving this up to you, but I\u0027d say we should retain the original scope array on decoding instead of flattening it (which shouldn\u0027t be more than a single Array.from). Less for performance, rather to save us some complexity and maintenance cost.",
+      "revId": "216a4124a60a21013112fb38cef791e28f040cf1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "992d8678_46d59e8a",
+        "filename": "front_end/core/sdk/SourceMapScopes.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-05-22T10:48:06Z",
+      "side": 1,
+      "message": "How about an enum for the 0x1?",
+      "revId": "216a4124a60a21013112fb38cef791e28f040cf1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
