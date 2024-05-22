@@ -69,6 +69,24 @@
       "parentUuid": "5f20ad4c_31e33731",
       "revId": "c52889efd8ef2fdb1df0fff0edb75b939af5948b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fb9fb92_e90422db",
+        "filename": "front_end/core/sdk/SourceMapScopes.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-05-22T08:23:34Z",
+      "side": 1,
+      "message": "It does increment the line in line 236, though. For the original scopes that\u0027s done in the consumer. I don\u0027t have super strong opinions on whether incrementing should happen in the decoder or the consumer, but I\u0027d prefer line and column to be treated the same.",
+      "parentUuid": "1fdcee84_1d521851",
+      "revId": "c52889efd8ef2fdb1df0fff0edb75b939af5948b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
