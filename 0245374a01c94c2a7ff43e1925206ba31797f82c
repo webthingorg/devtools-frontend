@@ -22,6 +22,30 @@
       },
       "revId": "0245374a01c94c2a7ff43e1925206ba31797f82c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f338ffe_4870bc99",
+        "filename": "front_end/panels/issues/AffectedMetadataAllowedSitesView.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1579342
+      },
+      "writtenOn": "2024-05-22T16:58:16Z",
+      "side": 1,
+      "message": "Usually the extra text and link wouldn\u0027t appear on every item. It only appears for sites which have set an opt-out percentage, which will very rarely be more than one site on the list. (Sorry, the screenshot is a bit misleading there.)\n\nI wanted to add the link here to locate it near the opt-out value text for clarity. If overriding `innerHTML` is a no-go, I can move it to the description instead.",
+      "parentUuid": "4545ab00_ffcaf92d",
+      "range": {
+        "startLine": 41,
+        "startChar": 18,
+        "endLine": 42,
+        "endChar": 7
+      },
+      "revId": "0245374a01c94c2a7ff43e1925206ba31797f82c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
