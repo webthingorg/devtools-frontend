@@ -123,6 +123,24 @@
       "parentUuid": "9fd83f36_f212306c",
       "revId": "c52889efd8ef2fdb1df0fff0edb75b939af5948b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc994591_bd325f8f",
+        "filename": "front_end/core/sdk/SourceMapScopes.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-05-22T08:46:23Z",
+      "side": 1,
+      "message": "Done. Generated ranges will get a couple more fields (definition, bindings), some of which are calculated relative. Should I calculate them also in the generator or resolve them in the consumer?",
+      "parentUuid": "06c58596_65725b8a",
+      "revId": "c52889efd8ef2fdb1df0fff0edb75b939af5948b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
