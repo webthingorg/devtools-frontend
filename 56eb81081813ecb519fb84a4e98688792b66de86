@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0fc5d46_4fe04513",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-22T10:43:08Z",
+      "side": 1,
+      "message": "@andoli PTAL - I took this over as Alina is OOO and I want to have the basic sidebar landed.\n\nI made the decision to create a new experiment for this rather than overload the annotations experiment - as this sidebar will also have some WIP Insights in so it is weird to gate it behind annotations. The CL for the backend is here: crrev.com/c/5557123. I will find some other Chromium reviewers once you are happy with this CL 😊",
+      "revId": "56eb81081813ecb519fb84a4e98688792b66de86",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

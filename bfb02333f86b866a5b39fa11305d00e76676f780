@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dcbf7283_6c80df73",
+        "filename": "front_end/panels/timeline/components/Sidebar.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-22T10:43:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "195a63bc_f379c8b9",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 38
+      },
+      "revId": "bfb02333f86b866a5b39fa11305d00e76676f780",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8dfad5f9_6ad9cb55",
@@ -82,6 +106,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba115a1d_e2731659",
+        "filename": "front_end/panels/timeline/components/Sidebar.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-22T10:43:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8dfad5f9_6ad9cb55",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 39
+      },
+      "revId": "bfb02333f86b866a5b39fa11305d00e76676f780",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "108d5a1f_6f0b30b3",
@@ -95,6 +143,30 @@
       "writtenOn": "2024-05-17T13:32:08Z",
       "side": 1,
       "message": "out of interest for my understanding: why do we track this twice / what do the two values refer to ?",
+      "range": {
+        "startLine": 413,
+        "startChar": 0,
+        "endLine": 414,
+        "endChar": 37
+      },
+      "revId": "bfb02333f86b866a5b39fa11305d00e76676f780",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4008c446_c70ce1a0",
+        "filename": "front_end/ui/legacy/SplitWidget.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 414,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-22T10:43:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "108d5a1f_6f0b30b3",
       "range": {
         "startLine": 413,
         "startChar": 0,
