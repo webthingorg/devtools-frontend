@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca737354_720af8ab",
+        "filename": "front_end/core/sdk/SourceMapScopes.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-05-22T08:04:40Z",
+      "side": 1,
+      "message": "What does `undefined` mean here? Maybe add it to the comment.",
+      "revId": "c52889efd8ef2fdb1df0fff0edb75b939af5948b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f20ad4c_31e33731",
+        "filename": "front_end/core/sdk/SourceMapScopes.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-05-22T08:04:40Z",
+      "side": 1,
+      "message": "Why not do the column number incrementation here, too? Then nobody needs to remember that a range\u0027s column is incremental, but line isn\u0027t.",
+      "revId": "c52889efd8ef2fdb1df0fff0edb75b939af5948b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
