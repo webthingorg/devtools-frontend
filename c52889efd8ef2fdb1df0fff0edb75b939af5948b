@@ -141,6 +141,24 @@
       "parentUuid": "06c58596_65725b8a",
       "revId": "c52889efd8ef2fdb1df0fff0edb75b939af5948b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13406532_dc4fcc2f",
+        "filename": "front_end/core/sdk/SourceMapScopes.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-05-22T08:50:11Z",
+      "side": 1,
+      "message": "I think that would be nice for consistency as well, yes.",
+      "parentUuid": "dc994591_bd325f8f",
+      "revId": "c52889efd8ef2fdb1df0fff0edb75b939af5948b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
