@@ -285,6 +285,36 @@ describeWithDevtoolsExtension('Extensions', {}, context => {
     assert.isTrue(reloadStub.calledOnce);
     assert.isTrue(secondReloadStub.notCalled);
   });
+
+  it('correcly installs blocked extensions after navigation', async () => {
+    const target = SDK.TargetManager.TargetManager.instance().primaryPageTarget();
+    assert.isOk(target);
+    target.setInspectedURL('chrome://version' as Platform.DevToolsPath.UrlString);
+    const extensionServer = Extensions.ExtensionServer.ExtensionServer.instance();
+
+    const addExtensionSpy = sinon.spy(extensionServer, 'addExtension');
+
+    assert.isUndefined(extensionServer.addExtension({
+      startPage: 'about:blank',
+      name: 'ext',
+      exposeExperimentalAPIs: false,
+    }));
+    target.setInspectedURL('http://example.com' as Platform.DevToolsPath.UrlString);
+
+    assert.deepStrictEqual(addExtensionSpy.returnValues, [undefined, true]);
+  });
+
+  it('correcly reenables extensions after navigation', async () => {
+    const target = SDK.TargetManager.TargetManager.instance().primaryPageTarget();
+    assert.isOk(target);
+    const extensionServer = Extensions.ExtensionServer.ExtensionServer.instance();
+
+    assert.isTrue(extensionServer.isEnabled);
+    target.setInspectedURL('chrome://version' as Platform.DevToolsPath.UrlString);
+    assert.isFalse(extensionServer.isEnabled);
+    target.setInspectedURL('http://example.com' as Platform.DevToolsPath.UrlString);
+    assert.isTrue(extensionServer.isEnabled);
+  });
 });
 
 const allowedUrl = FRAME_URL;
