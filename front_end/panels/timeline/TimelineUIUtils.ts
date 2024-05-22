@@ -1215,6 +1215,7 @@ export class TimelineUIUtils {
       }
     }
 
+    console.log({event});
     const recordTypes = TimelineModel.TimelineModel.RecordType;
 
     if (event.name === recordTypes.LayoutShift) {

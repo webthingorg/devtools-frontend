@@ -46,7 +46,17 @@ function findInitiatorDataPredecessors(
 
   // Build event initiator data up to the selected one
   while (currentEvent) {
-    const currentInitiator = traceEngineData.Initiators.eventToInitiator.get(currentEvent);
+    let currentInitiator = traceEngineData.Initiators.eventToInitiator.get(currentEvent);
+
+    const currentInitiatorByFlow = traceEngineData.Renderer.endToBeginViaFlow.get(currentEvent);
+    if (currentInitiatorByFlow) {
+      if (currentEvent.ts < currentInitiatorByFlow.ts) {
+        console.warn('these are in the wrong order...');
+      } else {
+        console.log('initiator match', `${currentInitiatorByFlow.name}  ➵ ➛ ➲ ➤ ${currentEvent.name}`);
+        currentInitiator = currentInitiatorByFlow;
+      }
+    }
 
     if (currentInitiator) {
       // Store the current initiator data, and then set the initiator to
