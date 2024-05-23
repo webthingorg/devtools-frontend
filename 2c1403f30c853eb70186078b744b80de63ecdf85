@@ -16,6 +16,24 @@
       "message": "I do not think we will need pages because there is an explicit action for sharing the data after the UI is opened, unlike, console insights",
       "revId": "2c1403f30c853eb70186078b744b80de63ecdf85",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d44ff945_f93de2c1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-05-23T15:17:18Z",
+      "side": 1,
+      "message": "I\u0027m not sure how the UI flow will look like there, let\u0027s go with this way and after clarifying the exact flow we can make it prod ready :)",
+      "parentUuid": "ed94596a_44e86f00",
+      "revId": "2c1403f30c853eb70186078b744b80de63ecdf85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
