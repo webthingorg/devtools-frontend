@@ -16,6 +16,24 @@
       "message": "nit: 2023",
       "revId": "2c35d50f6ae4adc4ed46a832db0f09dbbcdf447a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "625112f4_7b494378",
+        "filename": "front_end/panels/freestyler/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-05-23T10:38:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ae46b57_c9127d5e",
+      "revId": "2c35d50f6ae4adc4ed46a832db0f09dbbcdf447a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
