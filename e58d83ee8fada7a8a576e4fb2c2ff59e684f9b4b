@@ -16,6 +16,23 @@
       "message": "WDYT? Do you see any risks?",
       "revId": "e58d83ee8fada7a8a576e4fb2c2ff59e684f9b4b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b5807e5_381f5a1e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-05-23T11:09:31Z",
+      "side": 1,
+      "message": "caseq@: PTAL, do you see any risks with this?",
+      "revId": "e58d83ee8fada7a8a576e4fb2c2ff59e684f9b4b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
