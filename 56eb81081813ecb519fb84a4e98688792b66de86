@@ -60,6 +60,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "64224e15_231e700c",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-05-23T11:34:14Z",
+      "side": 1,
+      "message": "do we also need to attach the sidebar to the panel itself?",
+      "range": {
+        "startLine": 438,
+        "startChar": 10,
+        "endLine": 438,
+        "endChar": 17
+      },
+      "revId": "56eb81081813ecb519fb84a4e98688792b66de86",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d7ee20dc_f17f707f",
         "filename": "front_end/panels/timeline/components/Sidebar.ts",
         "patchSetId": 13
