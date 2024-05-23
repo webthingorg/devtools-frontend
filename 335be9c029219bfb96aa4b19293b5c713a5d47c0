@@ -69,6 +69,24 @@
       "parentUuid": "fb6ef32f_fde61930",
       "revId": "335be9c029219bfb96aa4b19293b5c713a5d47c0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba7c5699_046fa271",
+        "filename": "extensions/cxx_debugging/src/CustomFormatters.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 623,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-05-23T14:17:53Z",
+      "side": 1,
+      "message": "I like it! I think this allows for much better local reasoning. Readers don\u0027t have to keep in mind that they\u0027re holding an identifier that needs to be resolved against some cache.",
+      "parentUuid": "3783c1c4_b28be861",
+      "revId": "335be9c029219bfb96aa4b19293b5c713a5d47c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
