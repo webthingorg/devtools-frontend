@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ac24c2ff_69a1aab5",
+        "filename": "front_end/panels/freestyler/FreestylerPanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-05-23T14:33:36Z",
+      "side": 1,
+      "message": "As discussed offline, to not block on WidgetElement; I have made this a pure function and moved toolbar creation out of the view function.",
+      "parentUuid": "6286037e_6379d9c8",
+      "revId": "83ff05707025a3acb1cdd07e9e7ba27609a3da45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "76230b3d_82ee409e",
         "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
         "patchSetId": 1
@@ -136,6 +154,24 @@
       "writtenOn": "2024-05-23T14:10:52Z",
       "side": 1,
       "message": "nit: drop .freestyler-chat prefixes?",
+      "revId": "83ff05707025a3acb1cdd07e9e7ba27609a3da45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2c3ea6b_f3041d2b",
+        "filename": "front_end/panels/freestyler/components/freestylerChatUi.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-05-23T14:33:36Z",
+      "side": 1,
+      "message": "I think `chat` prefix still adds something to the name, so kept it and removed `freestyler-` WDYT?",
+      "parentUuid": "35c40a0f_5b6f8b43",
       "revId": "83ff05707025a3acb1cdd07e9e7ba27609a3da45",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
