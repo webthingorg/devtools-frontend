@@ -121,7 +121,23 @@ describe('LoggingEvents', () => {
     VisualLogging.LoggingState.getLoggingState(element)!.config.track = {keydown: 'Enter|Escape'};
     void VisualLogging.LoggingEvents.logKeyDown(throttler)(element, event);
     await assertThrottled(recordKeyDown);
+<<<<<<< HEAD   (978978 ExtensionTraceDataHandler ignores non-obj perf marks)
     assert.deepStrictEqual(stabilizeEvent(recordKeyDown.firstCall.firstArg), {veid: 0, context: 513111094});
+=======
+    assert.deepStrictEqual(recordKeyDown.firstCall.firstArg, {veid, context: 513111094});
+  });
+
+  it('calls UI binding to log a keydown with a matching key', async () => {
+    const recordKeyDown = sinon.stub(
+        Host.InspectorFrontendHost.InspectorFrontendHostInstance,
+        'recordKeyDown',
+    );
+    const event = new KeyboardEvent('keydown', {code: 'Period', key: '>'});
+    VisualLogging.LoggingState.getLoggingState(element)!.config.track = {keydown: '>'};
+    void VisualLogging.LoggingEvents.logKeyDown(throttler)(element, event);
+    await assertThrottled(recordKeyDown);
+    assert.deepStrictEqual(recordKeyDown.firstCall.firstArg, {veid: getVeId(element), context: -1098575095});
+>>>>>>> CHANGE (eb583f [ve] Ensure we log only int32 values.)
   });
 
   it('calls UI binding to log a keydown with an provided context', async () => {

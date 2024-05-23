@@ -178,7 +178,11 @@ describe('LoggingDriver', () => {
 
     await VisualLoggingTesting.LoggingDriver.startLogging();
     assert.isTrue(recordImpression.calledOnce);
+<<<<<<< HEAD   (978978 ExtensionTraceDataHandler ignores non-obj perf marks)
     assert.strictEqual(stabilizeImpressions(recordImpression.firstCall.firstArg.impressions)[0]?.context, 4191634312);
+=======
+    assert.strictEqual(recordImpression.firstCall.firstArg.impressions[0]?.context, -103332984);
+>>>>>>> CHANGE (eb583f [ve] Ensure we log only int32 values.)
   });
 
   it('logs clicks', async () => {
