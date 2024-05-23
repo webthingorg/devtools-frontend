@@ -33,6 +33,40 @@
       "message": "caseq@: PTAL, do you see any risks with this?",
       "revId": "e58d83ee8fada7a8a576e4fb2c2ff59e684f9b4b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c929da4_d5cb366d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2024-05-23T15:00:40Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "e58d83ee8fada7a8a576e4fb2c2ff59e684f9b4b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fa0bf71_53756afc",
+        "filename": "front_end/models/extensions/ExtensionServer.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1115876
+      },
+      "writtenOn": "2024-05-23T15:00:40Z",
+      "side": 1,
+      "message": "`isEnabledForTests()`?",
+      "revId": "e58d83ee8fada7a8a576e4fb2c2ff59e684f9b4b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
