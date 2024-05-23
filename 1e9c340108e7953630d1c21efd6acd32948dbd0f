@@ -33,6 +33,24 @@
       "message": "protocol might not be rolled out yet?\nAlthough there is https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/public/devtools_protocol/browser_protocol.pdl;l\u003d5594;drc\u003d8b531e3ab880ae47deda409fd93e26aa8c3baebc, \n\nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/generated/protocol.ts;l\u003d8391;drc\u003d50b6d6025d292d466dcaa152f8472ba7d7c907fe looks not have that.\n\nYou might need to write a CL like:\nhttps://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/5048632",
       "revId": "1e9c340108e7953630d1c21efd6acd32948dbd0f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2c39767_5bf149b9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1107806
+      },
+      "writtenOn": "2024-05-23T08:38:26Z",
+      "side": 1,
+      "message": "I am not 100% confident, but https://chromium.googlesource.com/devtools/devtools-frontend/+/HEAD/docs/devtools-protocol.md may help?",
+      "parentUuid": "11010646_cdee8fa1",
+      "revId": "1e9c340108e7953630d1c21efd6acd32948dbd0f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
