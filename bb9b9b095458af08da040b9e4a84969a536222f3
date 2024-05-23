@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d5724e2_be26e0a0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-05-23T16:30:25Z",
+      "side": 1,
+      "message": "thx",
+      "revId": "bb9b9b095458af08da040b9e4a84969a536222f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b12aa9fa_f5c5bf60",
@@ -72,6 +89,30 @@
           ]
         }
       ],
+      "revId": "bb9b9b095458af08da040b9e4a84969a536222f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fcb3478d_8d120f2c",
+        "filename": "front_end/panels/timeline/TimelineSelectorStatsView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-05-23T16:30:25Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "b12aa9fa_f5c5bf60",
+      "range": {
+        "startLine": 421,
+        "startChar": 0,
+        "endLine": 421,
+        "endChar": 51
+      },
       "revId": "bb9b9b095458af08da040b9e4a84969a536222f3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
