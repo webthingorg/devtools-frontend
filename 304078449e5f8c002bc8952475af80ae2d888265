@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c8dd6955_d36a43c5",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-05-23T13:28:24Z",
+      "side": 1,
+      "message": "The previous approach wasn\u0027t correct, though. That\u0027s what the referenced bug is about. E.g., consider\n`border: 1px hsl(45deg 50% 50%)`\nThe whole expression means nothing to the angle Swatch for 45deg.\n\nWhat I like about this solution is that it makes the background rendering explicitly contextual. Have a different kind of expression containing an angle that would be cool to show as a background in the wheel? Hook its Renderer up with the angleswatch.",
+      "parentUuid": "5d74dace_1e613947",
+      "revId": "304078449e5f8c002bc8952475af80ae2d888265",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f838d0d3_5ec29af6",
         "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
         "patchSetId": 3
@@ -31,6 +49,24 @@
       "writtenOn": "2024-05-23T13:08:04Z",
       "side": 1,
       "message": "I think this `substitions` logic would give the caller another responsibility to keep track of the substitions. This would cause the `getComputedText` to be not resolving correctly in some situations:\n\n* I have an angle match.\n* Its computed value is updated via `ValueChanged` event and we called `getComputedText` with the substitions which returned the correct computed text.\n\nHowever, since we didn\u0027t update the `matchedResult` with this computed text, now if anyone calls `context.matchedResult.getComputedText` without substitutions, they will get the wrong value.\n\nI\u0027m not sure if there is a use case for this but from the API/contract perspective, it feels erroneous 😅\n\nSo I think we need a way to persist the substitutions. WDYT?",
+      "revId": "304078449e5f8c002bc8952475af80ae2d888265",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c37fad22_39a84c4d",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-05-23T13:28:24Z",
+      "side": 1,
+      "message": "not persisting the substitutions was somewhat the point. `matchedResult` represents the parsed result from a CSS expression, it\u0027s stateful in that sense. When spinning the angle wheel the original CSS expression is never changed. Persisting substitutions would cause the computed text to converge from the original expression, so we\u0027d have to keep track of state.\n\nThat being said, I not extremely happy about the `substitutions` API myself, but it lets us manipulate the computed text without messing with any state.",
+      "parentUuid": "f838d0d3_5ec29af6",
       "revId": "304078449e5f8c002bc8952475af80ae2d888265",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
