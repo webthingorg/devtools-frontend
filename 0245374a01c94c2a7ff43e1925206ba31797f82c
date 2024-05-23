@@ -46,6 +46,30 @@
       },
       "revId": "0245374a01c94c2a7ff43e1925206ba31797f82c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "428ba2ab_cf050bc5",
+        "filename": "front_end/panels/issues/AffectedMetadataAllowedSitesView.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-05-23T16:12:52Z",
+      "side": 1,
+      "message": "I understand - it would only be the case rarely.\n\nI\u0027m afraid setting `innerHTML` might be a security risk. I\u0027d propose:\n1) modify `appendIssueDetailCell()` to accept either a string or an HTMLElement (something very similar is done in [1])\n2) Create an HTMLElement which includes the link here, and pass it to `appendIssueDetailCell()`.\n\nI haven\u0027t tried this myself, please let me know if you encounter any problems with that approach.\n\n[1] https://crsrc.org/c/third_party/devtools-frontend/src/inspector_overlay/css_grid_label_helpers.ts;l\u003d514",
+      "parentUuid": "8f338ffe_4870bc99",
+      "range": {
+        "startLine": 41,
+        "startChar": 18,
+        "endLine": 42,
+        "endChar": 7
+      },
+      "revId": "0245374a01c94c2a7ff43e1925206ba31797f82c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
