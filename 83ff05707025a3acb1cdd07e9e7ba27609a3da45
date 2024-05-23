@@ -54,6 +54,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "eefacc8e_7ef7e591",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-05-23T13:11:42Z",
+      "side": 1,
+      "message": "Ah I see, it makes sense to move this `#state` out of this custom element and calling `view()` in a pure fashion in the panel.\n\nThough I believe this can\u0027t be a function directly and it should remain as a web component because of the styling. Otherwise we\u0027d need to include only one `.css` `FreestylerPanel` but I prefer to have a way to keep the styles encapsulated from the whole panel. WDYT?",
+      "parentUuid": "76230b3d_82ee409e",
+      "revId": "83ff05707025a3acb1cdd07e9e7ba27609a3da45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "57c5252e_ad40cf91",
         "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
         "patchSetId": 1
@@ -65,6 +83,24 @@
       "writtenOn": "2024-05-23T13:00:28Z",
       "side": 1,
       "message": "Let\u0027s not carry over the console insights flow for now as it is going to change and we can display the consent differently.",
+      "revId": "83ff05707025a3acb1cdd07e9e7ba27609a3da45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e69cebf_b9d969b3",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-05-23T13:11:42Z",
+      "side": 1,
+      "message": "Cool, I\u0027ll add a placeholder there for now.",
+      "parentUuid": "57c5252e_ad40cf91",
       "revId": "83ff05707025a3acb1cdd07e9e7ba27609a3da45",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
