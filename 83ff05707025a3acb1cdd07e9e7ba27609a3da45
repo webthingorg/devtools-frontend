@@ -16,6 +16,57 @@
       "message": "I\u0027ll follow up with implementing:\n* Opening the panel from different entrypoints\n* Metrics",
       "revId": "83ff05707025a3acb1cdd07e9e7ba27609a3da45",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6286037e_6379d9c8",
+        "filename": "front_end/panels/freestyler/FreestylerPanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-05-23T13:00:28Z",
+      "side": 1,
+      "message": "I believe we want this rendered using lithtml",
+      "revId": "83ff05707025a3acb1cdd07e9e7ba27609a3da45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76230b3d_82ee409e",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-05-23T13:00:28Z",
+      "side": 1,
+      "message": "If this is a view and the panel being a presenter, I believe it can be a done as a pure function instead of a component?",
+      "revId": "83ff05707025a3acb1cdd07e9e7ba27609a3da45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57c5252e_ad40cf91",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-05-23T13:00:28Z",
+      "side": 1,
+      "message": "Let\u0027s not carry over the console insights flow for now as it is going to change and we can display the consent differently.",
+      "revId": "83ff05707025a3acb1cdd07e9e7ba27609a3da45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
