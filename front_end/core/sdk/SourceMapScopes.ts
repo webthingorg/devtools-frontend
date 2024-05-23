@@ -72,11 +72,17 @@ export interface OriginalPosition extends Position {
   sourceIndex: number;
 }
 
-export function decodeOriginalScopes(encodedOriginalScopes: string[], names: string[]): OriginalScope[] {
+interface OriginalScopeTree {
+  readonly root: OriginalScope;
+  readonly flattenedTree: (OriginalScope|null)[];
+}
+
+export function decodeOriginalScopes(encodedOriginalScopes: string[], names: string[]): OriginalScopeTree[] {
   return encodedOriginalScopes.map(scope => decodeOriginalScope(scope, names));
 }
 
-function decodeOriginalScope(encodedOriginalScope: string, names: string[]): OriginalScope {
+function decodeOriginalScope(encodedOriginalScope: string, names: string[]): OriginalScopeTree {
+  const flattenedTree: (OriginalScope|null)[] = [];
   const scopeStack: OriginalScope[] = [];
   let line = 0;
 
@@ -87,8 +93,11 @@ function decodeOriginalScope(encodedOriginalScope: string, names: string[]): Ori
       const kind = decodeKind(item.kind);
       const name = resolveName(item.name, names);
       const variables = item.variables.map(idx => names[idx]);
-      scopeStack.push({start: {line, column}, end: {line, column}, kind, name, variables, children: []});
+      const scope: OriginalScope = {start: {line, column}, end: {line, column}, kind, name, variables, children: []};
+      scopeStack.push(scope);
+      flattenedTree.push(scope);
     } else {
+      flattenedTree.push(null);
       const scope = scopeStack.pop();
       if (!scope) {
         throw new Error('Scope items not nested properly: encountered "end" item without "start" item');
@@ -97,7 +106,7 @@ function decodeOriginalScope(encodedOriginalScope: string, names: string[]): Ori
 
       if (scopeStack.length === 0) {
         // We are done. There might be more top-level scopes but we only allow one.
-        return scope;
+        return {root: scope, flattenedTree};
       }
       scopeStack[scopeStack.length - 1].children.push(scope);
     }

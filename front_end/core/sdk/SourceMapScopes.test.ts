@@ -35,9 +35,10 @@ describe('decodeOriginalScopes', () => {
     const originalScopes = decodeOriginalScopes([scope], []);
 
     assert.lengthOf(originalScopes, 1);
-    assert.deepEqual(originalScopes[0].start, {line: 0, column: 0});
-    assert.deepEqual(originalScopes[0].end, {line: 5, column: 0});
-    assert.strictEqual(originalScopes[0].kind, 'global');
+    const {root} = originalScopes[0];
+    assert.deepEqual(root.start, {line: 0, column: 0});
+    assert.deepEqual(root.end, {line: 5, column: 0});
+    assert.strictEqual(root.kind, 'global');
   });
 
   it('ignores all but the first global scope (multiple top-level siblings)', () => {
@@ -46,9 +47,10 @@ describe('decodeOriginalScopes', () => {
     const originalScopes = decodeOriginalScopes([scope], []);
 
     assert.lengthOf(originalScopes, 1);
-    assert.deepEqual(originalScopes[0].start, {line: 0, column: 0});
-    assert.deepEqual(originalScopes[0].end, {line: 5, column: 0});
-    assert.lengthOf(originalScopes[0].children, 0);
+    const {root} = originalScopes[0];
+    assert.deepEqual(root.start, {line: 0, column: 0});
+    assert.deepEqual(root.end, {line: 5, column: 0});
+    assert.lengthOf(root.children, 0);
   });
 
   it('decodes nested scopes', () => {
@@ -64,10 +66,11 @@ describe('decodeOriginalScopes', () => {
     const originalScopes = decodeOriginalScopes([scope], []);
 
     assert.lengthOf(originalScopes, 1);
-    assert.lengthOf(originalScopes[0].children, 1);
-    assert.lengthOf(originalScopes[0].children[0].children, 1);
+    const {root} = originalScopes[0];
+    assert.lengthOf(root.children, 1);
+    assert.lengthOf(root.children[0].children, 1);
 
-    const innerMost = originalScopes[0].children[0].children[0];
+    const innerMost = root.children[0].children[0];
     assert.deepEqual(innerMost.start, {line: 4, column: 10});
     assert.deepEqual(innerMost.end, {line: 6, column: 5});
     assert.strictEqual(innerMost.kind, 'block');
@@ -86,9 +89,10 @@ describe('decodeOriginalScopes', () => {
     const originalScopes = decodeOriginalScopes([scope], []);
 
     assert.lengthOf(originalScopes, 1);
-    assert.lengthOf(originalScopes[0].children, 2);
-    assert.strictEqual(originalScopes[0].children[0].kind, 'function');
-    assert.strictEqual(originalScopes[0].children[1].kind, 'function');
+    const {root} = originalScopes[0];
+    assert.lengthOf(root.children, 2);
+    assert.strictEqual(root.children[0].kind, 'function');
+    assert.strictEqual(root.children[1].kind, 'function');
   });
 
   it('decodes scope names', () => {
@@ -104,11 +108,12 @@ describe('decodeOriginalScopes', () => {
     const originalScopes = decodeOriginalScopes([scope], ['FooClass', 'fooMethod']);
 
     assert.lengthOf(originalScopes, 1);
-    assert.lengthOf(originalScopes[0].children, 1);
-    assert.strictEqual(originalScopes[0].children[0].name, 'FooClass');
+    const {root} = originalScopes[0];
+    assert.lengthOf(root.children, 1);
+    assert.strictEqual(root.children[0].name, 'FooClass');
 
-    assert.lengthOf(originalScopes[0].children[0].children, 1);
-    assert.strictEqual(originalScopes[0].children[0].children[0].name, 'fooMethod');
+    assert.lengthOf(root.children[0].children, 1);
+    assert.strictEqual(root.children[0].children[0].name, 'fooMethod');
   });
 
   it('decodes variable names', () => {
@@ -125,11 +130,12 @@ describe('decodeOriginalScopes', () => {
         decodeOriginalScopes([scope], ['fooFunction', 'functionVarFoo', 'blockVarFoo', 'blockVarBar']);
 
     assert.lengthOf(originalScopes, 1);
-    assert.lengthOf(originalScopes[0].children, 1);
-    assert.deepEqual(originalScopes[0].children[0].variables, ['functionVarFoo']);
+    const {root} = originalScopes[0];
+    assert.lengthOf(root.children, 1);
+    assert.deepEqual(root.children[0].variables, ['functionVarFoo']);
 
-    assert.lengthOf(originalScopes[0].children[0].children, 1);
-    assert.deepEqual(originalScopes[0].children[0].children[0].variables, ['blockVarFoo', 'blockVarBar']);
+    assert.lengthOf(root.children[0].children, 1);
+    assert.deepEqual(root.children[0].children[0].variables, ['blockVarFoo', 'blockVarBar']);
   });
 });
 
