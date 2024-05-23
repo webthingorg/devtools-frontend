@@ -16,6 +16,23 @@
       "message": "dsv@\nCould you please review this?\n\nThank you.",
       "revId": "d354ced784b6decd002f5d2bb3274c1b1b1178ce",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a27860c2_f46fbd7f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000781
+      },
+      "writtenOn": "2024-05-23T08:32:23Z",
+      "side": 1,
+      "message": "Thank you.",
+      "revId": "d354ced784b6decd002f5d2bb3274c1b1b1178ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
