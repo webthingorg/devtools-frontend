@@ -92,6 +92,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "18dd379b_325630a2",
+        "filename": "front_end/core/sdk/SourceMapScopes.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-05-23T09:09:53Z",
+      "side": 1,
+      "message": "Btw if we wanna use a map we have to manually count the raw items.",
+      "parentUuid": "ed0318e6_e4edd4d6",
+      "revId": "216a4124a60a21013112fb38cef791e28f040cf1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "992d8678_46d59e8a",
         "filename": "front_end/core/sdk/SourceMapScopes.ts",
         "patchSetId": 1
