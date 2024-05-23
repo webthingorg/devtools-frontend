@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8bfa4637_8b396a40",
+        "filename": "front_end/core/sdk/SourceMapScopes.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-05-23T09:04:14Z",
+      "side": 1,
+      "message": "I think I missed the part where the raw items aren\u0027t good enough, but still, I think the prototype looks a bit simpler than re-flattening the tree. Using a map might be even simpler, also from an API perspective (returning the nulls as end markers just for indexing purposes is a little awkward). Realistically, lets not block on this though :)",
+      "parentUuid": "7b68eca3_2ae240fb",
+      "revId": "216a4124a60a21013112fb38cef791e28f040cf1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "992d8678_46d59e8a",
         "filename": "front_end/core/sdk/SourceMapScopes.ts",
         "patchSetId": 1
