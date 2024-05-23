@@ -70,6 +70,30 @@
       },
       "revId": "0245374a01c94c2a7ff43e1925206ba31797f82c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8b7594e_f96dc130",
+        "filename": "front_end/panels/issues/AffectedMetadataAllowedSitesView.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1579342
+      },
+      "writtenOn": "2024-05-23T19:15:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "428ba2ab_cf050bc5",
+      "range": {
+        "startLine": 41,
+        "startChar": 18,
+        "endLine": 42,
+        "endChar": 7
+      },
+      "revId": "0245374a01c94c2a7ff43e1925206ba31797f82c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
