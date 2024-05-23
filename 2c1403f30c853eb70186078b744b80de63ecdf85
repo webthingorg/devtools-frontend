@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed94596a_44e86f00",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-05-23T15:04:02Z",
+      "side": 1,
+      "message": "I do not think we will need pages because there is an explicit action for sharing the data after the UI is opened, unlike, console insights",
+      "revId": "2c1403f30c853eb70186078b744b80de63ecdf85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
