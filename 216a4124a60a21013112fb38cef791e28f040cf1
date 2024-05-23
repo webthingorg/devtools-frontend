@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1db2fe78_2eabd765",
+        "filename": "front_end/core/sdk/SourceMapScopes.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-05-23T05:30:15Z",
+      "side": 1,
+      "message": "Just to clarify, we need some way to resolve final original scopes. Not the raw items (which are an array). Since we construct the original scope tree in place, we would also have to construct the flattened original scopes as we decode.\n\nWe could change `decodeOriginalScope` to return an array. The first element is the root, if you are interested in the tree form. And the rest of the array is the falttened tree structure in pre-order. Or we hand out the root and the flattened structure separately. Wdyt?",
+      "parentUuid": "bf92ff8e_6aebd0d5",
+      "revId": "216a4124a60a21013112fb38cef791e28f040cf1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "992d8678_46d59e8a",
         "filename": "front_end/core/sdk/SourceMapScopes.ts",
         "patchSetId": 1
