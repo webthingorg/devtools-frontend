@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d74dace_1e613947",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-05-23T13:08:04Z",
+      "side": 1,
+      "message": "I wonder if there can be other properties that would use the angle swatch.\n\nFrankly, because of this reason; I\u0027d prefer the previous approach: calculating the computed value of the whole expression after a re-render through CSSAngleSwatch and calling `updateProperty` there.",
+      "revId": "304078449e5f8c002bc8952475af80ae2d888265",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f838d0d3_5ec29af6",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-05-23T13:08:04Z",
+      "side": 1,
+      "message": "I think this `substitions` logic would give the caller another responsibility to keep track of the substitions. This would cause the `getComputedText` to be not resolving correctly in some situations:\n\n* I have an angle match.\n* Its computed value is updated via `ValueChanged` event and we called `getComputedText` with the substitions which returned the correct computed text.\n\nHowever, since we didn\u0027t update the `matchedResult` with this computed text, now if anyone calls `context.matchedResult.getComputedText` without substitutions, they will get the wrong value.\n\nI\u0027m not sure if there is a use case for this but from the API/contract perspective, it feels erroneous 😅\n\nSo I think we need a way to persist the substitutions. WDYT?",
+      "revId": "304078449e5f8c002bc8952475af80ae2d888265",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
