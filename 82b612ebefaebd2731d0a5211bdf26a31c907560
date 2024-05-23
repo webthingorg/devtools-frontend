@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6cb40d8a_f1b67181",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-05-23T14:28:07Z",
+      "side": 1,
+      "message": "This is awesome, just some nits!",
+      "revId": "82b612ebefaebd2731d0a5211bdf26a31c907560",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "338d3d11_91a097ec",
+        "filename": "front_end/core/sdk/CSSMatchedStyles.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 916,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-05-23T14:28:07Z",
+      "side": 1,
+      "message": "Do we still need the callback? Is the implementation here different from the renderer\u0027s?",
+      "revId": "82b612ebefaebd2731d0a5211bdf26a31c907560",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b56c5cf2_4a1edeb7",
+        "filename": "front_end/core/sdk/CSSMatchedStyles.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 926,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-05-23T14:28:07Z",
+      "side": 1,
+      "message": "nit: WDYT about using hasUnresolvedVarsRange() instead?",
+      "revId": "82b612ebefaebd2731d0a5211bdf26a31c907560",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d20783bf_6ef46d23",
+        "filename": "front_end/core/sdk/CSSMatchedStyles.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 929,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-05-23T14:28:07Z",
+      "side": 1,
+      "message": "Could also use the range version here.",
+      "revId": "82b612ebefaebd2731d0a5211bdf26a31c907560",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
