@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6cb696b5_8577f488",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-05-23T13:51:31Z",
+      "side": 1,
+      "message": "Whoa now I see, that makes a lot of sense and thanks for the explanation! :)",
+      "parentUuid": "c8dd6955_d36a43c5",
+      "revId": "304078449e5f8c002bc8952475af80ae2d888265",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f838d0d3_5ec29af6",
@@ -67,6 +85,24 @@
       "side": 1,
       "message": "not persisting the substitutions was somewhat the point. `matchedResult` represents the parsed result from a CSS expression, it\u0027s stateful in that sense. When spinning the angle wheel the original CSS expression is never changed. Persisting substitutions would cause the computed text to converge from the original expression, so we\u0027d have to keep track of state.\n\nThat being said, I not extremely happy about the `substitutions` API myself, but it lets us manipulate the computed text without messing with any state.",
       "parentUuid": "f838d0d3_5ec29af6",
+      "revId": "304078449e5f8c002bc8952475af80ae2d888265",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e80a3ba5_f26076e1",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-05-23T13:51:31Z",
+      "side": 1,
+      "message": "That also makes sense to me, now I see :)",
+      "parentUuid": "c37fad22_39a84c4d",
       "revId": "304078449e5f8c002bc8952475af80ae2d888265",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
