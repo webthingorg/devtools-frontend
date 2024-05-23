@@ -72,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ba154087_1e6b0500",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-05-23T14:10:52Z",
+      "side": 1,
+      "message": "We could use css nesting to scope down the CSS styles",
+      "parentUuid": "eefacc8e_7ef7e591",
+      "revId": "83ff05707025a3acb1cdd07e9e7ba27609a3da45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "57c5252e_ad40cf91",
         "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
         "patchSetId": 1
@@ -101,6 +119,23 @@
       "side": 1,
       "message": "Cool, I\u0027ll add a placeholder there for now.",
       "parentUuid": "57c5252e_ad40cf91",
+      "revId": "83ff05707025a3acb1cdd07e9e7ba27609a3da45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35c40a0f_5b6f8b43",
+        "filename": "front_end/panels/freestyler/components/freestylerChatUi.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-05-23T14:10:52Z",
+      "side": 1,
+      "message": "nit: drop .freestyler-chat prefixes?",
       "revId": "83ff05707025a3acb1cdd07e9e7ba27609a3da45",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
