@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1506cf54_816251ed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1565770
+      },
+      "writtenOn": "2024-05-23T12:58:01Z",
+      "side": 1,
+      "message": "The extension is going to fail at the very same place, when attempting to serialize a value it does not support in function `serializeWasmValue` in file `WasmTypes.ts`.",
+      "parentUuid": "05d0d999_691c6a9a",
+      "revId": "335be9c029219bfb96aa4b19293b5c713a5d47c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fb6ef32f_fde61930",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-05-17T15:00:26Z",
       "side": 1,
       "message": "I think we can get by without a cache: Have you considered packing the reftype value into an i64? Effectively as a fat pointer with the high 32 bits being the value class and the low 32 bits being the index.",
+      "revId": "335be9c029219bfb96aa4b19293b5c713a5d47c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3783c1c4_b28be861",
+        "filename": "extensions/cxx_debugging/src/CustomFormatters.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 623,
+      "author": {
+        "id": 1565770
+      },
+      "writtenOn": "2024-05-23T12:58:01Z",
+      "side": 1,
+      "message": "I have implemented this suggestion. I\u0027m not sure it is much simpler. Note that the cache is very short-lived, just the time of evaluating an expression.",
+      "parentUuid": "fb6ef32f_fde61930",
       "revId": "335be9c029219bfb96aa4b19293b5c713a5d47c0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
