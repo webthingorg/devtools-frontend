@@ -435,7 +435,7 @@ export class ContrastDetails extends Common.ObjectWrapper.ObjectWrapper<EventTyp
   }
 
   backgroundColorPickerEnabled(): boolean {
-    return this.bgColorPickerButton.toggled();
+    return this.bgColorPickerButton.isToggled();
   }
 
   toggleBackgroundColorPicker(enabled: boolean): void {
@@ -444,7 +444,7 @@ export class ContrastDetails extends Common.ObjectWrapper.ObjectWrapper<EventTyp
 
   private toggleBackgroundColorPickerInternal(enabled?: boolean, shouldTriggerEvent: boolean|undefined = true): void {
     if (enabled === undefined) {
-      enabled = !this.bgColorPickerButton.toggled();
+      enabled = !this.bgColorPickerButton.isToggled();
     }
     this.bgColorPickerButton.setToggled(enabled);
 

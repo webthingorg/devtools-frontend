@@ -195,16 +195,17 @@ export class SearchableView extends VBox {
     const toolbar = new Toolbar('toolbar-search-options', firstRowButtons);
 
     if (this.searchProvider.supportsCaseSensitiveSearch()) {
-      this.caseSensitiveButton = new ToolbarToggle(i18nString(UIStrings.matchCase), undefined, undefined, 'match-case');
-      this.caseSensitiveButton.setText('Aa');
+      this.caseSensitiveButton =
+          new ToolbarToggle(i18nString(UIStrings.matchCase), 'match-case', undefined, 'match-case');
+      // this.caseSensitiveButton.setText('Aa');
       this.caseSensitiveButton.addEventListener(ToolbarButton.Events.Click, this.toggleCaseSensitiveSearch, this);
       toolbar.appendToolbarItem(this.caseSensitiveButton);
     }
 
     if (this.searchProvider.supportsRegexSearch()) {
-      this.regexButton =
-          new ToolbarToggle(i18nString(UIStrings.useRegularExpression), undefined, undefined, 'regex-search');
-      this.regexButton.setText('.*');
+      this.regexButton = new ToolbarToggle(
+          i18nString(UIStrings.useRegularExpression), 'regular-expression', undefined, 'regex-search');
+      // this.regexButton.setText('.*');
       this.regexButton.addEventListener(ToolbarButton.Events.Click, this.toggleRegexSearch, this);
       toolbar.appendToolbarItem(this.regexButton);
     }
@@ -246,7 +247,7 @@ export class SearchableView extends VBox {
 
   private toggleCaseSensitiveSearch(): void {
     if (this.caseSensitiveButton) {
-      this.caseSensitiveButton.setToggled(!this.caseSensitiveButton.toggled());
+      this.caseSensitiveButton.setToggled(!this.caseSensitiveButton.isToggled());
     }
     this.saveSetting();
     this.performSearch(false, true);
@@ -254,14 +255,14 @@ export class SearchableView extends VBox {
 
   private toggleRegexSearch(): void {
     if (this.regexButton) {
-      this.regexButton.setToggled(!this.regexButton.toggled());
+      this.regexButton.setToggled(!this.regexButton.isToggled());
     }
     this.saveSetting();
     this.performSearch(false, true);
   }
 
   private toggleReplace(): void {
-    this.replaceToggleButton.setToggled(!this.replaceToggleButton.toggled());
+    this.replaceToggleButton.setToggled(!this.replaceToggleButton.isToggled());
     this.updateSecondRowVisibility();
   }
 
@@ -271,10 +272,10 @@ export class SearchableView extends VBox {
     }
     const settingValue = this.setting.get() || {};
     if (this.caseSensitiveButton) {
-      settingValue.caseSensitive = this.caseSensitiveButton.toggled();
+      settingValue.caseSensitive = this.caseSensitiveButton.isToggled();
     }
     if (this.regexButton) {
-      settingValue.isRegex = this.regexButton.toggled();
+      settingValue.isRegex = this.regexButton.isToggled();
     }
     this.setting.set(settingValue);
   }
@@ -526,13 +527,13 @@ export class SearchableView extends VBox {
 
   private currentSearchConfig(): SearchConfig {
     const query = this.searchInputElement.value;
-    const caseSensitive = this.caseSensitiveButton ? this.caseSensitiveButton.toggled() : false;
-    const isRegex = this.regexButton ? this.regexButton.toggled() : false;
+    const caseSensitive = this.caseSensitiveButton ? this.caseSensitiveButton.isToggled() : false;
+    const isRegex = this.regexButton ? this.regexButton.isToggled() : false;
     return new SearchConfig(query, caseSensitive, isRegex);
   }
 
   private updateSecondRowVisibility(): void {
-    const secondRowVisible = this.replaceToggleButton.toggled();
+    const secondRowVisible = this.replaceToggleButton.isToggled();
     this.footerElementContainer.classList.toggle('replaceable', secondRowVisible);
     this.secondRowButtons.classList.toggle('hidden', !secondRowVisible);
     this.replaceInputElement.classList.toggle('hidden', !secondRowVisible);

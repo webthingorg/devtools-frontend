@@ -235,6 +235,18 @@ redToggleIconButton.data = {
 };
 appendButton(redToggleIconButton);
 
+// Red Toggle
+const dotToggleIconButton = new Buttons.Button.Button();
+dotToggleIconButton.style.width = '24px';
+dotToggleIconButton.data = {
+  variant: Buttons.Button.Variant.ICON_TOGGLE,
+  toggleType: Buttons.Button.ToggleType.DOT,
+  iconName: testIcon,
+  toggledIconName: toggledIconName,
+  toggled: true,
+};
+appendButton(dotToggleIconButton);
+
 // Small Primary Icon
 const smallPrimaryIconButton = new Buttons.Button.Button();
 smallPrimaryIconButton.innerText = 'Click me';

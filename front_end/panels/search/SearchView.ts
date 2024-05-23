@@ -165,9 +165,10 @@ export class SearchView extends UI.Widget.VBox {
 
     const toolbar = new UI.Toolbar.Toolbar('search-toolbar', this.searchPanelElement);
     toolbar.element.setAttribute('jslog', `${VisualLogging.toolbar()}`);
-    this.matchCaseButton = SearchView.appendToolbarToggle(toolbar, 'Aa', i18nString(UIStrings.matchCase), 'match-case');
-    this.regexButton =
-        SearchView.appendToolbarToggle(toolbar, '.*', i18nString(UIStrings.useRegularExpression), 'use-regex');
+    this.matchCaseButton =
+        SearchView.appendToolbarToggle(toolbar, 'match-case', i18nString(UIStrings.matchCase), 'match-case');
+    this.regexButton = SearchView.appendToolbarToggle(
+        toolbar, 'regular-expression', i18nString(UIStrings.useRegularExpression), 'use-regex');
     toolbar.appendToolbarItem(searchItem);
     const refreshButton =
         new UI.Toolbar.ToolbarButton(i18nString(UIStrings.refresh), 'refresh', undefined, 'search.refresh');
@@ -192,18 +193,18 @@ export class SearchView extends UI.Widget.VBox {
     this.searchScope = null;
   }
 
-  private static appendToolbarToggle(toolbar: UI.Toolbar.Toolbar, text: string, tooltip: string, jslogContext: string):
-      UI.Toolbar.ToolbarToggle {
-    const toggle = new UI.Toolbar.ToolbarToggle(tooltip, undefined, undefined, jslogContext);
-    toggle.setText(text);
-    toggle.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, () => toggle.setToggled(!toggle.toggled()));
+  private static appendToolbarToggle(
+      toolbar: UI.Toolbar.Toolbar, iconName: string, tooltip: string, jslogContext: string): UI.Toolbar.ToolbarToggle {
+    const toggle = new UI.Toolbar.ToolbarToggle(tooltip, iconName, undefined, jslogContext);
+    // toggle.setText(text);
+    toggle.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, () => toggle.setToggled(!toggle.isToggled()));
     toolbar.appendToolbarItem(toggle);
     return toggle;
   }
 
   private buildSearchConfig(): Workspace.SearchConfig.SearchConfig {
     return new Workspace.SearchConfig.SearchConfig(
-        this.search.value, !this.matchCaseButton.toggled(), this.regexButton.toggled());
+        this.search.value, !this.matchCaseButton.isToggled(), this.regexButton.isToggled());
   }
 
   toggle(queryCandidate: string, searchImmediately?: boolean): void {
