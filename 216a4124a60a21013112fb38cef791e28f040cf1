@@ -108,6 +108,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "48ae6bdb_3c93b8af",
+        "filename": "front_end/core/sdk/SourceMapScopes.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-05-24T06:29:55Z",
+      "side": 1,
+      "message": "Done in a preceding CL.",
+      "parentUuid": "18dd379b_325630a2",
+      "revId": "216a4124a60a21013112fb38cef791e28f040cf1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "992d8678_46d59e8a",
@@ -121,6 +139,24 @@
       "writtenOn": "2024-05-22T10:48:06Z",
       "side": 1,
       "message": "How about an enum for the 0x1?",
+      "revId": "216a4124a60a21013112fb38cef791e28f040cf1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a88ebb7a_44757f4b",
+        "filename": "front_end/core/sdk/SourceMapScopes.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-05-24T06:29:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "992d8678_46d59e8a",
       "revId": "216a4124a60a21013112fb38cef791e28f040cf1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
