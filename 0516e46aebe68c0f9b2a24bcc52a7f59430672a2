@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aae13962_76e6118e",
+        "filename": "front_end/panels/event_listeners/eventListenersView.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-05-24T09:42:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d071e716_d13a8a7f",
+      "revId": "0516e46aebe68c0f9b2a24bcc52a7f59430672a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "14599fe7_85e2a020",
@@ -52,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "684f1810_964796e0",
+        "filename": "front_end/ui/components/buttons/button.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-05-24T09:42:50Z",
+      "side": 1,
+      "message": "We have sizes for 24 or 28px, but none for 26px",
+      "parentUuid": "14599fe7_85e2a020",
+      "revId": "0516e46aebe68c0f9b2a24bcc52a7f59430672a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "87b7ac2e_3a653c9b",
@@ -65,6 +101,24 @@
       "writtenOn": "2024-05-15T20:48:47Z",
       "side": 1,
       "message": "Super nit: I know you didn\u0027t write this, but could we make this comment into a sentence, i.e. capitalize the first letter and add a `.` at the end. Thanks!",
+      "revId": "0516e46aebe68c0f9b2a24bcc52a7f59430672a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9fd87a21_3712f3fb",
+        "filename": "test/e2e/elements/sidebar-event-listeners-remove_test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-05-24T09:42:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "87b7ac2e_3a653c9b",
       "revId": "0516e46aebe68c0f9b2a24bcc52a7f59430672a2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
