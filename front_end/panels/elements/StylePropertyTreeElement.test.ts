@@ -689,6 +689,13 @@ describeWithRealConnection('StylePropertyTreeElement', () => {
       angleSwatch.updateAngle({value: 130, unit: InlineEditor.CSSAngleUtils.AngleUnit.Deg});
       assert.strictEqual(colorSwatch.getColor()?.asString(Common.Color.Format.HSL), 'hsl(130deg 50% 25%)');
     });
+
+    it('renders relative colors', () => {
+      const stylePropertyTreeElement = getTreeElement('color', 'hsl(    from var(--blue) r calc(g/2) b / alpha)');
+      stylePropertyTreeElement.updateTitle();
+      const colorSwatch = stylePropertyTreeElement.valueElement?.querySelector('devtools-color-swatch');
+      assert.strictEqual(colorSwatch?.getColor()?.asString(), 'blue');
+    });
   });
 
   describe('BezierRenderer', () => {
