@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c6d2882_644ef5f4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-05-24T05:49:32Z",
+      "side": 1,
+      "message": "As discussed, I changed it to a Map. The generator produces the index as well so it works kind of like `Array.prototype.entries`. PTAL",
+      "revId": "868f68ee8c97cf8ba800c6539a52da56a987eac9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
