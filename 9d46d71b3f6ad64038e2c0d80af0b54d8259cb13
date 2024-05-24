@@ -1,0 +1,62 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6de60f3d_6364896b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-24T12:12:56Z",
+      "side": 1,
+      "message": "lgtm with one thought (non blocking)",
+      "revId": "9d46d71b3f6ad64038e2c0d80af0b54d8259cb13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d63360de_e6d3018e",
+        "filename": "front_end/core/root/Runtime.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-24T12:12:56Z",
+      "side": 1,
+      "message": "how do you feel about this being:\n\n```\nTIMELINE_WRITE_MODIFICATIONS_TO_DISK\n```\n\nfirstly to bring it inline with the other experiments which use Timeline, and also to be explicit about what this is?\n\nI know we probably will gate annotations behind an experiment...but thinking about it I want that to be a new distinct experiment, because annotations as in the RPP epic is distinct from saving modifications (a superset of annotations) to disk.",
+      "range": {
+        "startLine": 292,
+        "startChar": 11,
+        "endLine": 292,
+        "endChar": 26
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "c5e96ff9_4bc85763",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/core/root/Runtime.ts",
+              "range": {
+                "startLine": 292,
+                "startChar": 0,
+                "endLine": 293,
+                "endChar": 0
+              },
+              "replacement": "  TIMELINE_WRITE_MODIFICATIONS_TO_DISK \u003d \u0027timeline-write-modifications-to-disk\u0027,\n"
+            }
+          ]
+        }
+      ],
+      "revId": "9d46d71b3f6ad64038e2c0d80af0b54d8259cb13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
