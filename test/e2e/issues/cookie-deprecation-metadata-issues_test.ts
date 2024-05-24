@@ -27,6 +27,9 @@ describe('Cookie Deprecation Metadata issue', () => {
         'details': {
           'cookieDeprecationMetadataIssueDetails': {
             'allowedSites': ['example_1.test'],
+            'optOutPercentage': 25,
+            'isOptOutTopLevel': true,
+            'operation': 'ReadCookie',
           },
         },
       };
@@ -37,6 +40,9 @@ describe('Cookie Deprecation Metadata issue', () => {
         'details': {
           'cookieDeprecationMetadataIssueDetails': {
             'allowedSites': ['example_2.test'],
+            'optOutPercentage': 50,
+            'isOptOutTopLevel': false,
+            'operation': 'ReadCookie',
           },
         },
       };
@@ -49,8 +55,8 @@ describe('Cookie Deprecation Metadata issue', () => {
     const section = await getResourcesElement('2 websites allowed to access cookies', issueElement);
     await ensureResourceSectionIsExpanded(section);
     const expectedTableRows = [
-      ['example_1.test'],
-      ['example_2.test'],
+      ['example_1.test (opt-out: 25% - learn more)'],
+      ['example_2.test (opt-out: 50% - learn more)'],
     ];
     await waitForTableFromResourceSectionContents(section.content, expectedTableRows);
   });
