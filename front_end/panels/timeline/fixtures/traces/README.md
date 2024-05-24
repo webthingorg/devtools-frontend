@@ -178,3 +178,7 @@ Contains the following requests in the document body:
 - `script.js?beforeImage`: a script fetched before the image
 - `chrome.jpeg`: a normal image
 - `script.js?afterImage`: a script fetched after the image
+
+### iframe-shift
+
+Generated from the shift-attribution page in https://github.com/GoogleChrome/lighthouse/blob/main/cli/test/fixtures/shift-attribution.html. Contains an iframe and layout shifts.

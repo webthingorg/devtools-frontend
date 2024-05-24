@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 import * as Helpers from '../helpers/helpers.js';
-import type * as Types from '../types/types.js';
+import * as Types from '../types/types.js';
 
 import {
   type InsightResult,
@@ -11,8 +11,8 @@ import {
   type RequiredData,
 } from './types.js';
 
-export function deps(): ['Meta', 'Animations'] {
-  return ['Meta', 'Animations'];
+export function deps(): ['Meta', 'Animations', 'LayoutShifts', 'NetworkRequests'] {
+  return ['Meta', 'Animations', 'LayoutShifts', 'NetworkRequests'];
 }
 
 export const enum AnimationFailureReasons {
@@ -73,6 +73,11 @@ const ACTIONABLE_FAILURE_REASONS = [
   },
 ];
 
+export interface LayoutShiftRootCausesData {
+  iframes: Types.TraceEvents.TraceEventRenderFrameImplCreateChildFrame[];
+  fontRequests: Types.TraceEvents.SyntheticNetworkRequest[];
+}
+
 /**
  * Returns a list of NoncompositedAnimationFailures.
  */
@@ -106,15 +111,67 @@ function getNonCompositedAnimations(animations: readonly Types.TraceEvents.Synth
   return failures;
 }
 
-export function generateInsight(traceParsedData: RequiredData<typeof deps>, context: NavigationInsightContext):
-    InsightResult<{animationFailures?: readonly NoncompositedAnimationFailure[]}> {
+/**
+ * Given a list of layout shifts, match their root causes to them.
+ */
+function getRootCausesPerShift(
+    layoutShifts: Types.TraceEvents.TraceEventLayoutShift[],
+    networkRequests: Types.TraceEvents.SyntheticNetworkRequest[],
+    iframeCreatedEvents: readonly Types.TraceEvents.TraceEventRenderFrameImplCreateChildFrame[]):
+    Map<Types.TraceEvents.TraceEventLayoutShift, LayoutShiftRootCausesData> {
+  const rootCausesByShift = new Map<Types.TraceEvents.TraceEventLayoutShift, LayoutShiftRootCausesData>();
+  const iframeEvents = [...iframeCreatedEvents].sort((a, b) => a.ts - b.ts);
+
+  // 500ms window.
+  const INVALIDATION_WINDOW = Helpers.Timing.secondsToMicroseconds(Types.Timing.Seconds(0.5));
+
+  for (const shift of layoutShifts) {
+    // Iframes
+    // Iframes are potentially a root cause if they happen within a window of 500ms before a layout shift event.
+    const iframeCauses = iframeEvents.filter(event => {
+      const iframeEndTime = event.dur ? event.ts + event.dur : event.ts;
+      return iframeEndTime < shift.ts && iframeEndTime >= shift.ts - INVALIDATION_WINDOW;
+    });
+
+    // Font requests
+    const fontRequestCauses = networkRequests.filter(req => {
+      const reqEndTime = req.ts + req.dur;
+      const reqInWindow = reqEndTime < shift.ts && reqEndTime >= shift.ts - INVALIDATION_WINDOW;
+      return req.args.data.mimeType.startsWith('font') && req.args.data.resourceType === 'Font' && reqInWindow;
+    });
+
+    rootCausesByShift.set(shift, {iframes: iframeCauses, fontRequests: fontRequestCauses});
+  }
+  return rootCausesByShift;
+}
+
+export function generateInsight(
+    traceParsedData: RequiredData<typeof deps>, context: NavigationInsightContext): InsightResult<{
+  animationFailures?: readonly NoncompositedAnimationFailure[],
+  shifts?: Map<Types.TraceEvents.TraceEventLayoutShift, LayoutShiftRootCausesData>,
+}> {
   const compositeAnimationEvents = traceParsedData.Animations.animations.filter(event => {
     const nav =
         Helpers.Trace.getNavigationForTraceEvent(event, context.frameId, traceParsedData.Meta.navigationsByFrameId);
     return nav?.args.data?.navigationId === context.navigationId;
   });
   const animationFailures = getNonCompositedAnimations(compositeAnimationEvents);
+
+  // Get root causes
+  const iframeEvents = traceParsedData.LayoutShifts.renderFrameImplCreateChildFrameEvents;
+  const networkRequests = traceParsedData.NetworkRequests.byTime.sort((a, b) => {
+    const req1EndTime = a.ts + b.dur;
+    const req2EndTime = a.ts + b.dur;
+    return req1EndTime - req2EndTime;
+  });
+
+  const layoutShifts =
+      traceParsedData.LayoutShifts.clusters.flatMap(cluster => cluster.events).sort((a, b) => a.ts - b.ts);
+
+  const shifts = getRootCausesPerShift(layoutShifts, networkRequests, iframeEvents);
+
   return {
     animationFailures,
+    shifts,
   };
 }
