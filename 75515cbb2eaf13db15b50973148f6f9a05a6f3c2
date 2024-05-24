@@ -57,6 +57,30 @@
       ],
       "revId": "75515cbb2eaf13db15b50973148f6f9a05a6f3c2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b5f615d_67b0d3b0",
+        "filename": "front_end/services/modifications_manager/modifications_manager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-05-24T13:22:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0f753c4e_d5ddd6e1",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 2
+      },
+      "revId": "75515cbb2eaf13db15b50973148f6f9a05a6f3c2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
