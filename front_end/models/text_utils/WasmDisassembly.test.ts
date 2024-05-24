@@ -2,9 +2,9 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import * as Common from './common.js';
+import * as TextUtils from './text_utils.js';
 
-const WasmDisassembly = Common.WasmDisassembly.WasmDisassembly;
+const WasmDisassembly = TextUtils.WasmDisassembly.WasmDisassembly;
 
 describe('WasmDisassembly', () => {
   const LINES = ['A', 'B', 'C', 'D', 'E', 'F', 'G', ' H', 'I'];
@@ -33,5 +33,18 @@ describe('WasmDisassembly', () => {
   it('yields non-breakable line numbers correctly', () => {
     const disassembly = new WasmDisassembly(LINES, BYTECODE_OFFSETS, FUNCTION_BODY_OFFSETS);
     assert.deepEqual([...disassembly.nonBreakableLineNumbers()], [0, 1, 2, 3, 8]);
+  });
+
+  it('can be converted to a DeferredContent', () => {
+    const disassembly = new WasmDisassembly(LINES, BYTECODE_OFFSETS, FUNCTION_BODY_OFFSETS);
+    const content = disassembly.asDeferedContent();
+
+    if ('wasmDisassemblyInfo' in content) {
+      assert.strictEqual(content.wasmDisassemblyInfo, disassembly);
+    } else {
+      assert.fail('wasmDissasembly not set on DeferredContent');
+    }
+    assert.isEmpty(content.content);
+    assert.isFalse(content.isEncoded);
   });
 });
