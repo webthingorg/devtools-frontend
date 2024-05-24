@@ -27,14 +27,35 @@ export class AffectedMetadataAllowedSitesView extends AffectedResourcesView {
 
   override update(): void {
     this.clear();
-    const allowedSites = this.issue.getMetadataAllowedSites();
+    const issues = this.issue.getCookieDeprecationMetadataIssues();
     let count = 0;
 
-    for (const site of allowedSites) {
+    for (const issueData of issues) {
       const row = document.createElement('tr');
       row.classList.add('affected-resource-directive');
 
-      this.appendIssueDetailCell(row, site);
+      const textContentElement = document.createElement('div');
+      const textElement = document.createElement('span');
+      textElement.textContent = issueData.details().allowedSites.join(', ');
+      textContentElement.appendChild(textElement);
+
+      if (!issueData.details().isOptOutTopLevel && issueData.details().optOutPercentage > 0) {
+        const optOutTextElement = document.createElement('span');
+        optOutTextElement.textContent = ' (opt-out: ' + issueData.details().optOutPercentage + '% - ';
+        textContentElement.appendChild(optOutTextElement);
+
+        const linkElement = document.createElement('a') as HTMLAnchorElement;
+        linkElement.textContent = 'learn more';
+        linkElement.href = 'https://github.com/amaliev/3pcd-exemption-heuristics/blob/main/explainer.md';
+        linkElement.target = '_blank';
+        textContentElement.appendChild(linkElement);
+
+        const endTextElement = document.createElement('span');
+        endTextElement.textContent = ')';
+        textContentElement.appendChild(endTextElement);
+      }
+
+      this.appendIssueDetailCell(row, textContentElement);
       this.affectedResources.appendChild(row);
       count++;
     }
