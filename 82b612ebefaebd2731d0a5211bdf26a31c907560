@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d91340b7_1f70e4fc",
+        "filename": "front_end/core/sdk/CSSMatchedStyles.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 916,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-05-24T15:42:33Z",
+      "side": 1,
+      "message": "I think there is a slight difference:\n* in the renderer ones, we\u0027re directly calling `computeCSSVariable`\n* in the `computeCSSVariableOne`, we first need to access the declaration of the initial variable name and then call `computeCSSVariable` on this.  We don\u0027t have this need in the renderer one.\n\nIt seems like if we want to do this, we need a method from `CSSMatchedStyles` `getVariableValue` which will return the initial declaration \u0026 the value of the variable; then we\u0027ll call `cssMatchedStyles.computeCSSVariable` on this declaration\u0027s style.\n\nI think we can skip for now and think about this later as this CL already is quite sized, WDYT? :)",
+      "parentUuid": "338d3d11_91a097ec",
+      "revId": "82b612ebefaebd2731d0a5211bdf26a31c907560",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b56c5cf2_4a1edeb7",
         "filename": "front_end/core/sdk/CSSMatchedStyles.ts",
         "patchSetId": 2
@@ -54,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9e607f2e_da8e331e",
+        "filename": "front_end/core/sdk/CSSMatchedStyles.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 926,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-05-24T15:42:33Z",
+      "side": 1,
+      "message": "Done! LMK if it looks good to you :)",
+      "parentUuid": "b56c5cf2_4a1edeb7",
+      "revId": "82b612ebefaebd2731d0a5211bdf26a31c907560",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d20783bf_6ef46d23",
         "filename": "front_end/core/sdk/CSSMatchedStyles.ts",
         "patchSetId": 2
@@ -65,6 +101,24 @@
       "writtenOn": "2024-05-23T14:28:07Z",
       "side": 1,
       "message": "Could also use the range version here.",
+      "revId": "82b612ebefaebd2731d0a5211bdf26a31c907560",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "505f23aa_33a28d14",
+        "filename": "front_end/core/sdk/CSSMatchedStyles.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 929,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-05-24T15:42:33Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "d20783bf_6ef46d23",
       "revId": "82b612ebefaebd2731d0a5211bdf26a31c907560",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
