@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc633756_042d2463",
+        "filename": "front_end/ui/legacy/components/inline_editor/FontEditorUtils.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-05-24T13:44:23Z",
+      "side": 1,
+      "message": "Can we update the comment too? :)",
+      "revId": "d1dd740c683c0f4ea37593435350085242de887e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
