@@ -2,9 +2,9 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import * as Common from './common.js';
+import * as TextUtils from './text_utils.js';
 
-const WasmDisassembly = Common.WasmDisassembly.WasmDisassembly;
+const WasmDisassembly = TextUtils.WasmDisassembly.WasmDisassembly;
 
 describe('WasmDisassembly', () => {
   const LINES = ['A', 'B', 'C', 'D', 'E', 'F', 'G', ' H', 'I'];
