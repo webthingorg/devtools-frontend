@@ -16,6 +16,24 @@
       "message": "Can we update the comment too? :)",
       "revId": "d1dd740c683c0f4ea37593435350085242de887e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5635496_e5e64e8b",
+        "filename": "front_end/ui/legacy/components/inline_editor/FontEditorUtils.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-05-24T13:48:16Z",
+      "side": 1,
+      "message": "Would you like me to add anything? I believe the new version matches the description and the old version was a mistake. (I may be wrong, you know the saying, if comment and code disagree, both are incorrect)",
+      "parentUuid": "fc633756_042d2463",
+      "revId": "d1dd740c683c0f4ea37593435350085242de887e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
