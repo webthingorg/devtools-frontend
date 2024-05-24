@@ -1,24 +1,27 @@
-// Copyright 2020 The Chromium Authors. All rights reserved.
+// Copyright 2024 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import * as Platform from '../platform/platform.js';
+import * as Platform from '../../core/platform/platform.js';
 
-/**
- * Metadata to map between bytecode #offsets and line numbers in the
- * disassembly for WebAssembly modules.
- */
+import {ContentData} from './ContentData.js';
 
 interface FunctionBodyOffset {
   start: number;
   end: number;
 }
-export class WasmDisassembly {
+
+/**
+ * Metadata to map between bytecode #offsets and line numbers in the
+ * disassembly for WebAssembly modules.
+ */
+export class WasmDisassembly extends ContentData {
   readonly lines: string[];
   readonly #offsets: number[];
   #functionBodyOffsets: FunctionBodyOffset[];
 
   constructor(lines: string[], offsets: number[], functionBodyOffsets: FunctionBodyOffset[]) {
+    super(lines.join('\n'), /* isBase64 */ false, 'text/x-wast', 'utf-8');
     if (lines.length !== offsets.length) {
       throw new Error('Lines and offsets don\'t match');
     }
