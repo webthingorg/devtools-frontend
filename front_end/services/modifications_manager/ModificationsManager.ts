@@ -59,7 +59,7 @@ export class ModificationsManager {
   /**
    * Builds all annotations and returns the object written into the 'annotations' trace file metada field.
    */
-  getAnnotations(): TraceEngine.Types.File.Annotations {
+  getModifications(): TraceEngine.Types.File.Modifications {
     const indexesOfSynteticEntries: number[] = [];
     const hiddenEntries = this.#entriesFilter.invisibleEntries();
     if (hiddenEntries) {
@@ -77,7 +77,7 @@ export class ModificationsManager {
     }
 
     return {
-      entriesFilterAnnotations: {
+      entriesFilterModifications: {
         hiddenEntriesIndexes: indexesOfSynteticEntries,
         modifiedEntriesIndexes: indexesOfModifiedEntries,
       },
@@ -85,14 +85,14 @@ export class ModificationsManager {
     };
   }
 
-  applyAnnotations(annotations: TraceEngine.Types.File.Annotations): void {
-    this.applyEntriesFilterAnnotations(
-        annotations.entriesFilterAnnotations.hiddenEntriesIndexes,
-        annotations.entriesFilterAnnotations.modifiedEntriesIndexes);
-    this.#timelineBreadcrumbs.setInitialBreadcrumbFromLoadedAnnotations(annotations.initialBreadcrumb);
+  applyModifications(annotations: TraceEngine.Types.File.Modifications): void {
+    this.applyEntriesFilterModifications(
+        annotations.entriesFilterModifications.hiddenEntriesIndexes,
+        annotations.entriesFilterModifications.modifiedEntriesIndexes);
+    this.#timelineBreadcrumbs.setInitialBreadcrumbFromLoadedModifications(annotations.initialBreadcrumb);
   }
 
-  applyEntriesFilterAnnotations(hiddenEntriesIndexes: number[], modifiedEntriesIndexes: number[]): void {
+  applyEntriesFilterModifications(hiddenEntriesIndexes: number[], modifiedEntriesIndexes: number[]): void {
     // Build the hidden events array by getting the entries by their index in the allEntries array.
     const hiddenEntries: TraceEngine.Types.TraceEvents.SyntheticTraceEntry[] = [];
     hiddenEntriesIndexes.map(hiddenEntryHash => {
