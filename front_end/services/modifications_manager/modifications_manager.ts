@@ -2,8 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import * as AnnotationsManager from './AnnotationsManager.js';
+import * as ModificationsManager from './ModificationsManager.js';
 
 export {
-  AnnotationsManager,
+  ModificationsManager,
 };
