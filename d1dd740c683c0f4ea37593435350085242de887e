@@ -34,6 +34,24 @@
       "parentUuid": "fc633756_042d2463",
       "revId": "d1dd740c683c0f4ea37593435350085242de887e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e760049_6369d5bd",
+        "filename": "front_end/ui/legacy/components/inline_editor/FontEditorUtils.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-05-24T13:52:32Z",
+      "side": 1,
+      "message": "I think I\u0027d like to understand why marking the start and end parts of the regex fixed the issue in a natural language description and it\u0027d be cool if that description is also part of the code comment :)",
+      "parentUuid": "b5635496_e5e64e8b",
+      "revId": "d1dd740c683c0f4ea37593435350085242de887e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
