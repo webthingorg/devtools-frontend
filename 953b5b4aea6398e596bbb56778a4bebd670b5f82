@@ -16,6 +16,23 @@
       "message": "Changhao, could you please kindly take a look?:)",
       "revId": "953b5b4aea6398e596bbb56778a4bebd670b5f82",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cf38ca3_a031697a",
+        "filename": "front_end/panels/application/components/stackTraceRow.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-05-24T15:54:18Z",
+      "side": 1,
+      "message": "Just curious, are these `none` values here to reset UA styles?",
+      "revId": "953b5b4aea6398e596bbb56778a4bebd670b5f82",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
