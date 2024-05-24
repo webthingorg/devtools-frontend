@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a878ee3_744085a0",
+        "filename": "front_end/models/text_utils/WasmDisassembly.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-05-24T09:27:22Z",
+      "side": 1,
+      "message": "wasm text get\u0027s quite big quite fast, eagerly joining here is for sure going to crash. Can we make ContentData take an array maybe?",
+      "revId": "85a6ed8f9011377f11e5972a253155ee3b9edb4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
