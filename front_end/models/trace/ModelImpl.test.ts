@@ -108,7 +108,7 @@ describeWithEnvironment('TraceModel', function() {
     await model.parse(file1);
 
     // Make sure there are no annotations before any are added
-    assert.isUndefined(model.metadata(0)?.annotations);
+    assert.isUndefined(model.metadata(0)?.modifications);
 
     const initialBreadcrumb = {
       window: {
@@ -129,9 +129,9 @@ describeWithEnvironment('TraceModel', function() {
       initialBreadcrumb,
     };
 
-    model.overrideAnnotations(0, annotations);
+    model.overrideModifications(0, annotations);
     // Make sure metadata contains overwritten annotations
-    assert.strictEqual(model.metadata(0)?.annotations, annotations);
+    assert.strictEqual(model.metadata(0)?.modifications, annotations);
   });
 
 });

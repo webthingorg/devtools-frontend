@@ -123,7 +123,7 @@ const REGISTERED_EXPERIMENTS = [
   Root.Runtime.ExperimentName.NETWORK_PANEL_FILTER_BAR_REDESIGN,
   Root.Runtime.ExperimentName.INDENTATION_MARKERS_TEMP_DISABLE,
   Root.Runtime.ExperimentName.AUTOFILL_VIEW,
-  Root.Runtime.ExperimentName.PERF_PANEL_ANNOTATIONS,
+  Root.Runtime.ExperimentName.PERF_PANEL_MODIFICATIONS,
   Root.Runtime.ExperimentName.TIMELINE_RPP_SIDEBAR,
   Root.Runtime.ExperimentName.TIMELINE_EXTENSIONS,
   Root.Runtime.ExperimentName.TIMELINE_DEBUG_MODE,
