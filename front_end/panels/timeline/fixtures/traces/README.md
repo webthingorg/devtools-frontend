@@ -168,3 +168,7 @@ Contains a navigation to a page with a `in_body_parser_blocking` request `script
 ### postmessage-initiators
 
 Contains a `postMessage.Handler`, and associating `postMessage.Dispatch` call.
+
+### iframe-shift
+
+Generated from the shift-attribution page in https://github.com/GoogleChrome/lighthouse/blob/main/cli/test/fixtures/shift-attribution.html. Contains an iframe and layout shifts.

@@ -1075,6 +1075,19 @@ export function isTraceEventScheduleStyleRecalculation(event: TraceEventData):
   return event.name === KnownEventName.ScheduleStyleRecalculation;
 }
 
+export interface TraceEventRenderFrameImplCreateChildFrame extends TraceEventData {
+  name: KnownEventName.RenderFrameImplCreateChildFrame;
+  /* eslint-disable @typescript-eslint/naming-convention */
+  args: TraceEventArgs&{
+    child_frame_token: string,
+    frame_token: string,
+  };
+}
+export function isTraceEventRenderFrameImplCreateChildFrame(event: TraceEventData):
+    event is TraceEventRenderFrameImplCreateChildFrame {
+  return event.name === KnownEventName.RenderFrameImplCreateChildFrame;
+}
+
 export interface TraceEventPrePaint extends TraceEventComplete {
   name: 'PrePaint';
 }
@@ -2482,4 +2495,6 @@ export const enum KnownEventName {
 
   SchedulePostMessage = 'SchedulePostMessage',
   HandlePostMessage = 'HandlePostMessage',
+
+  RenderFrameImplCreateChildFrame = 'RenderFrameImpl::createChildFrame',
 }
