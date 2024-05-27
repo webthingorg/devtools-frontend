@@ -16,6 +16,24 @@
       "message": "Implemented the suggested approach. PTAL again",
       "revId": "4567cf8d4c6401536bfd692170613ff7552e1b0e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d17e7281_b001a08a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-05-27T18:02:00Z",
+      "side": 1,
+      "message": "Failing web_tests should pass once the Chromium BE CL has landed.",
+      "parentUuid": "0c4bace2_46fba8f7",
+      "revId": "4567cf8d4c6401536bfd692170613ff7552e1b0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
