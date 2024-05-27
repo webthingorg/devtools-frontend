@@ -159,7 +159,7 @@ describe('UISourceCode', () => {
 
     const result = await sutObject.sut.requestContent();
 
-    assert.strictEqual(result, deferredContentStub);
+    assert.deepEqual(result, deferredContentStub);
   });
 
   it('check if the content is encoded', async () => {
@@ -219,7 +219,7 @@ describe('UISourceCode', () => {
     const sutObject = setupMockedUISourceCode();
     sutObject.projectStub.workspace.returns(sinon.createStubInstance(Workspace.Workspace.WorkspaceImpl));
 
-    sutObject.sut.setContent('New Content', true);
+    sutObject.sut.setContent('New Content', false);
     const result = await sutObject.sut.requestContent();
 
     assert.deepEqual(result, {content: 'New Content', isEncoded: false});
@@ -273,7 +273,7 @@ describe('UISourceCode', () => {
   it('can return content', async () => {
     const sutObject = setupMockedUISourceCode();
     sutObject.projectStub.workspace.returns(sinon.createStubInstance(Workspace.Workspace.WorkspaceImpl));
-    sutObject.sut.setContent('Example Content', true);
+    sutObject.sut.setContent('Example Content', false);
 
     const result = sutObject.sut.content();
 
@@ -296,7 +296,7 @@ describe('UISourceCode', () => {
   it('can search content', async () => {
     const sutObject = setupMockedUISourceCode();
     sutObject.projectStub.workspace.returns(sinon.createStubInstance(Workspace.Workspace.WorkspaceImpl));
-    sutObject.sut.setContent('Example Content', true);
+    sutObject.sut.setContent('Example Content', false);
 
     const result = await sutObject.sut.searchInContent('Content', true, false);
 
