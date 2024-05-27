@@ -16,6 +16,23 @@
       "message": "lgtm, thanks!",
       "revId": "99a1b2890f15af567012d39da848ecba92b3e056",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ed0532a_05274b6d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3362409
+      },
+      "writtenOn": "2024-05-27T01:11:57Z",
+      "side": 1,
+      "message": "Hi,\nThis CL adds SW static routing API related timing info to devtools.\nIt adds the following:\n\n- `workerRouterEvaluationStart` and `workerCacheLookupStart` fields to section `ServiceWorker` in Network timing panel.\n- Both fields may come before `requestStart`, which is the origin value for timing info, and all the other timing information are calculated relative to this time. For this reason, both fields become negative number, which is currently not supported in `addOffsetRange` function. To workaround this issue, we add a new function `addMaybeNegativeOffsetRange` to deal with cases that are a valid timestamp, but comes before the requestStart.\n\nPTAL,\nThanks!",
+      "revId": "99a1b2890f15af567012d39da848ecba92b3e056",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
