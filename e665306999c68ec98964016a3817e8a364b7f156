@@ -16,6 +16,57 @@
       "message": "Changhao, could you please take a look?:)",
       "revId": "e665306999c68ec98964016a3817e8a364b7f156",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "950d2025_99ddc85f",
+        "filename": "front_end/panels/elements/ElementsTreeOutline.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1786,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-05-27T18:29:29Z",
+      "side": 1,
+      "message": "I suppose this style cannot be shared with `devtools-icon`, which is defined in `elementsTreeOutline.css`, because it\u0027s under its own shadow DOM?",
+      "revId": "e665306999c68ec98964016a3817e8a364b7f156",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "702edc30_62956760",
+        "filename": "front_end/panels/elements/components/elementsTreeExpandButton.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-05-27T18:29:29Z",
+      "side": 1,
+      "message": "I think we might be able to share a lot of the styles by combining all but the last declarations for ::after and ::before, e.g.\n```\n\u0026:hover::after,\n\u0026:active::before {\n    content: \"\";\n    height: 100%;\n    width: 100%;\n    border-radius: inherit;\n    position: absolute;\n    top: 0;\n    left: 0;\n}\n\n\u0026:hover::after {\n    background-color: var(--sys-color-state-hover-on-subtle);\n}\n\n\u0026:active::before {\n    background-color: var(--sys-color-state-ripple-neutral-on-subtle);\n}\n\n```",
+      "revId": "e665306999c68ec98964016a3817e8a364b7f156",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c47a9a81_33b0294a",
+        "filename": "front_end/ui/components/adorners/adorner.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-05-27T18:29:29Z",
+      "side": 1,
+      "message": "If these two variables are only defined for easily updating the before and after pseudo elements\u0027 background color, how about directly doing:\n```\n\u0026:hover::after {\n /* previous lines*/\n ...\n \n :host([aria-pressed\u003d\"true\"]) \u0026 {\n   background-color: var(--sys-color-state-hover-on-prominent);\n }\n \n\n}\n\n```",
+      "revId": "e665306999c68ec98964016a3817e8a364b7f156",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
