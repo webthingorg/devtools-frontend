@@ -769,6 +769,10 @@ experimental domain Audits
       WriteErrorTooLongIdField
       WriteErrorUnsupportedType
 
+  type EarlyHintsError extends string
+    enum
+      EarlyHintsHeadersInSubResources
+
   # Details for issues around "Attribution Reporting API" usage.
   # Explainer: https://github.com/WICG/attribution-reporting-api
   type AttributionReportingIssueDetails extends object
@@ -798,6 +802,11 @@ experimental domain Audits
   type SharedDictionaryIssueDetails extends object
     properties
       SharedDictionaryError sharedDictionaryError
+      AffectedRequest request
+
+  type EarlyHintsIssueDetails extends object
+    properties
+      EarlyHintsError earlyHintsError
       AffectedRequest request
 
   type GenericIssueErrorType extends string
@@ -1010,6 +1019,7 @@ experimental domain Audits
       FederatedAuthUserInfoRequestIssue
       PropertyRuleIssue
       SharedDictionaryIssue
+      EarlyHintsIssue
 
   # This struct holds a list of optional fields with additional information
   # specific to the kind of issue. When adding a new issue code, please also
@@ -1037,6 +1047,7 @@ experimental domain Audits
       optional PropertyRuleIssueDetails propertyRuleIssueDetails
       optional FederatedAuthUserInfoRequestIssueDetails federatedAuthUserInfoRequestIssueDetails
       optional SharedDictionaryIssueDetails sharedDictionaryIssueDetails
+      optional EarlyHintsIssueDetails earlyHintsIssueDetails
 
   # A unique id for a DevTools inspector issue. Allows other entities (e.g.
   # exceptions, CDP message, console messages, etc.) to reference an issue.

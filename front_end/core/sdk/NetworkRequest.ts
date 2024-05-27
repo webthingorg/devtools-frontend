@@ -1160,6 +1160,11 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
     this.earlyHintsHeaders = headers;
   }
 
+  canAcceptEarlyHints(): boolean {
+    const initiator = this.initiator();
+    return initiator === null || initiator.type === Protocol.Network.InitiatorType.Other;
+  }
+
   get responseCookies(): Cookie[] {
     if (!this.#responseCookiesInternal) {
       this.#responseCookiesInternal =

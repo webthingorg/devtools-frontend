@@ -21,6 +21,7 @@ devtools_module("issues_manager") {
     "CorsIssue.ts",
     "CrossOriginEmbedderPolicyIssue.ts",
     "DeprecationIssue.ts",
+    "EarlyHintsIssue.ts",
     "FederatedAuthRequestIssue.ts",
     "FederatedAuthUserInfoRequestIssue.ts",
     "GenericIssue.ts",
@@ -106,6 +107,7 @@ devtools_issue_description_files = [
   "cspTrustedTypesSinkViolation.md",
   "cspURLViolation.md",
   "deprecation.md",
+  "earlyHintsHeadersInSubResources.md",
   "genericCrossOriginPortalPostMessageError.md",
   "genericFormLabelForNameError.md",
   "genericFormDuplicateIdForInputError.md",
@@ -238,6 +240,7 @@ ts_library("unittests") {
   sources = [
     "CheckFormsIssuesTrigger.test.ts",
     "DeprecationIssue.test.ts",
+    "EarlyHintsIssue.test.ts",
     "FederatedAuthUserInfoRequestIssue.test.ts",
     "GenericIssue.test.ts",
     "Issue.test.ts",

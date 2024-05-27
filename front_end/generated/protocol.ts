@@ -1045,6 +1045,10 @@ export namespace Audits {
     WriteErrorUnsupportedType = 'WriteErrorUnsupportedType',
   }
 
+  export const enum EarlyHintsError {
+    EarlyHintsHeadersInSubResources = 'EarlyHintsHeadersInSubResources',
+  }
+
   /**
    * Details for issues around "Attribution Reporting API" usage.
    * Explainer: https://github.com/WICG/attribution-reporting-api
@@ -1079,6 +1083,11 @@ export namespace Audits {
 
   export interface SharedDictionaryIssueDetails {
     sharedDictionaryError: SharedDictionaryError;
+    request: AffectedRequest;
+  }
+
+  export interface EarlyHintsIssueDetails {
+    earlyHintsError: EarlyHintsError;
     request: AffectedRequest;
   }
 
@@ -1326,6 +1335,7 @@ export namespace Audits {
     FederatedAuthUserInfoRequestIssue = 'FederatedAuthUserInfoRequestIssue',
     PropertyRuleIssue = 'PropertyRuleIssue',
     SharedDictionaryIssue = 'SharedDictionaryIssue',
+    EarlyHintsIssue = 'EarlyHintsIssue',
   }
 
   /**
@@ -1355,6 +1365,7 @@ export namespace Audits {
     propertyRuleIssueDetails?: PropertyRuleIssueDetails;
     federatedAuthUserInfoRequestIssueDetails?: FederatedAuthUserInfoRequestIssueDetails;
     sharedDictionaryIssueDetails?: SharedDictionaryIssueDetails;
+    earlyHintsIssueDetails?: EarlyHintsIssueDetails;
   }
 
   /**

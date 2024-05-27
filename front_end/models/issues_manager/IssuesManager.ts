@@ -15,6 +15,7 @@ import {CookieIssue} from './CookieIssue.js';
 import {CorsIssue} from './CorsIssue.js';
 import {CrossOriginEmbedderPolicyIssue, isCrossOriginEmbedderPolicyIssue} from './CrossOriginEmbedderPolicyIssue.js';
 import {DeprecationIssue} from './DeprecationIssue.js';
+import {EarlyHintsIssue} from './EarlyHintsIssue.js';
 import {FederatedAuthRequestIssue} from './FederatedAuthRequestIssue.js';
 import {GenericIssue} from './GenericIssue.js';
 import {HeavyAdIssue} from './HeavyAdIssue.js';
@@ -122,6 +123,10 @@ const issueCodeHandlers = new Map<
   [
     Protocol.Audits.InspectorIssueCode.CookieDeprecationMetadataIssue,
     CookieDeprecationMetadataIssue.fromInspectorIssue,
+  ],
+  [
+    Protocol.Audits.InspectorIssueCode.EarlyHintsIssue,
+    EarlyHintsIssue.fromInspectorIssue,
   ],
 ]);
 
@@ -308,6 +313,12 @@ export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper<EventTypes
       if (message) {
         issuesModel.target().model(SDK.ConsoleModel.ConsoleModel)?.addMessage(message);
       }
+    }
+  }
+
+  addIssueForAllModels(issue: Issue): void {
+    for (const issuesModel of SDK.TargetManager.TargetManager.instance().models(SDK.IssuesModel.IssuesModel)) {
+      this.addIssue(issuesModel, issue);
     }
   }
 

@@ -60,11 +60,52 @@ describeWithMockConnection('MultitargetNetworkManager', () => {
   });
 });
 
+class MockIssuesModelListener {
+  #addedIssue: Protocol.Audits.IssueAddedEvent|null;
+
+  issueAdded(issueAddedEvent: Protocol.Audits.IssueAddedEvent): void {
+    this.#addedIssue = issueAddedEvent
+  }
+
+  getAddedIssue(): Protocol.Audits.IssueAddedEvent|null {
+    return this.#addedIssue;
+  }
+};
+
 describe('NetworkDispatcher', () => {
   const requestWillBeSentEvent = {requestId: 'mockId', request: {url: 'example.com'}} as
       Protocol.Network.RequestWillBeSentEvent;
   const loadingFinishedEvent = {requestId: 'mockId', timestamp: 42, encodedDataLength: 42} as
       Protocol.Network.LoadingFinishedEvent;
+  const responseReceivedEvent = {
+        requestId: 'mockId',
+        loaderId: 'mockLoaderId',
+        frameId: 'mockFrameId',
+        timestamp: 581734.083213,
+        type: Protocol.Network.ResourceType.Document,
+        response: {
+          url: 'example.com',
+          status: 200,
+          statusText: '',
+          headers: {
+            'test-header': 'first',
+          } as Protocol.Network.Headers,
+          mimeType: 'text/html',
+          connectionReused: true,
+          connectionId: 12345,
+          encodedDataLength: 100,
+          securityState: 'secure',
+          fromEarlyHints: true,
+        } as Protocol.Network.Response,
+      } as Protocol.Network.ResponseReceivedEvent;
+  const earlyHintsEvent = {
+    requestId: 'mockId' as Protocol.Network.RequestId,
+    headers: {
+      'link': '</style.css>; as=style;',
+    } as Protocol.Network.Headers,
+  };
+  const mockIssuesModelListener = new MockIssuesModelListener();
+
   describeWithEnvironment('request', () => {
     let networkDispatcher: SDK.NetworkManager.NetworkDispatcher;
 
@@ -72,7 +113,7 @@ describe('NetworkDispatcher', () => {
       const networkManager: Common.ObjectWrapper.ObjectWrapper<unknown>&{target?: () => void} =
           new Common.ObjectWrapper.ObjectWrapper();
       networkManager.target = () => ({
-        model: () => null,
+        model: () => mockIssuesModelListener,
       });
       networkDispatcher = new SDK.NetworkManager.NetworkDispatcher(networkManager as SDK.NetworkManager.NetworkManager);
     });
@@ -183,28 +224,6 @@ describe('NetworkDispatcher', () => {
     });
 
     it('Correctly set early hints properties on receivedResponse event', () => {
-      const responseReceivedEvent = {
-        requestId: 'mockId',
-        loaderId: 'mockLoaderId',
-        frameId: 'mockFrameId',
-        timestamp: 581734.083213,
-        type: Protocol.Network.ResourceType.Document,
-        response: {
-          url: 'example.com',
-          status: 200,
-          statusText: '',
-          headers: {
-            'test-header': 'first',
-          } as Protocol.Network.Headers,
-          mimeType: 'text/html',
-          connectionReused: true,
-          connectionId: 12345,
-          encodedDataLength: 100,
-          securityState: 'secure',
-          fromEarlyHints: true,
-        } as Protocol.Network.Response,
-      } as Protocol.Network.ResponseReceivedEvent;
-
       networkDispatcher.requestWillBeSent(requestWillBeSentEvent);
       networkDispatcher.responseReceived(responseReceivedEvent);
 
@@ -212,12 +231,6 @@ describe('NetworkDispatcher', () => {
     });
 
     it('has populated early hints headers after receiving \'repsonseReceivedEarlyHints\'', () => {
-      const earlyHintsEvent = {
-        requestId: 'mockId' as Protocol.Network.RequestId,
-        headers: {
-          'link': '</style.css>; as=style;',
-        } as Protocol.Network.Headers,
-      };
       networkDispatcher.requestWillBeSent(requestWillBeSentEvent);
       networkDispatcher.loadingFinished(loadingFinishedEvent);
       networkDispatcher.responseReceivedEarlyHints(earlyHintsEvent);
@@ -225,6 +238,24 @@ describe('NetworkDispatcher', () => {
       assert.deepEqual(networkDispatcher.requestForId('mockId')?.earlyHintsHeaders, [
         {name: 'link', value: '</style.css>; as=style;'},
       ]);
+    });
+
+    it('sends Issue for EarlyHints in subresources', () => {
+      const subresourceRequestWillBeSentEvent = {
+        requestId: 'mockId',
+        request: {url: 'example.com'},
+        initiator: {type: 'script'},
+      }
+      networkDispatcher.requestWillBeSent(subresourceRequestWillBeSentEvent);
+      networkDispatcher.loadingFinished(loadingFinishedEvent);
+      networkDispatcher.responseReceivedEarlyHints(earlyHintsEvent);
+      const addedIssue = mockIssuesModelListener.getAddedIssue();
+      assert.deepEqual(addedIssue.issue.code, Protocol.Audits.InspectorIssueCode.EarlyHintsIssue);
+      const earlyHintsIssueDetails = addedIssue.issue.details.earlyHintsIssueDetails;
+      assert.deepEqual(earlyHintsIssueDetails.request.url, 'example.com');
+      assert.deepEqual(earlyHintsIssueDetails.request.requestId, 'mockId');
+      assert.deepEqual(earlyHintsIssueDetails.earlyHintsError,
+                       Protocol.Audits.EarlyHintsError.EarlyHintsHeadersInSubResources);
     });
   });
 
