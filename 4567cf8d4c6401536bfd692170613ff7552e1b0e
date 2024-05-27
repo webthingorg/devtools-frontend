@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c4bace2_46fba8f7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-05-27T18:00:25Z",
+      "side": 1,
+      "message": "Implemented the suggested approach. PTAL again",
+      "revId": "4567cf8d4c6401536bfd692170613ff7552e1b0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
