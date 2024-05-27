@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "efaff92d_7ebec31a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1565770
+      },
+      "writtenOn": "2024-05-27T14:12:18Z",
+      "side": 1,
+      "message": "Indeed! I have updated the commit message.",
+      "parentUuid": "471e50b8_ce6cf5cc",
+      "revId": "9c3280e2d236ef268e2b57f4e15d6d2e0ed3a044",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "cd2a12a1_5f34a77e",
         "filename": "/COMMIT_MSG",
         "patchSetId": 7

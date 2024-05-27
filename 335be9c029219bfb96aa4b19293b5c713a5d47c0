@@ -87,6 +87,24 @@
       "parentUuid": "3783c1c4_b28be861",
       "revId": "335be9c029219bfb96aa4b19293b5c713a5d47c0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c87607c_fbd71598",
+        "filename": "extensions/cxx_debugging/src/CustomFormatters.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 623,
+      "author": {
+        "id": 1565770
+      },
+      "writtenOn": "2024-05-27T14:12:18Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "ba7c5699_046fa271",
+      "revId": "335be9c029219bfb96aa4b19293b5c713a5d47c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
