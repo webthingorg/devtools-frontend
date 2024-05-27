@@ -1,0 +1,95 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c21961fb_4f101618",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 24
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-05-27T15:28:06Z",
+      "side": 1,
+      "message": "I tried to manually test this locally, but for me DevTools didn\u0027t receive the CookieDeprecationMetadataIssue when navigating to the site in the screenshots. Do I need a flag on the Chromium side for the issue to be generated?",
+      "revId": "1adca540632ebe776ad720530a8af9e06ec01a20",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86b4d5d8_863fe1f5",
+        "filename": "front_end/panels/issues/AffectedMetadataAllowedSitesView.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-05-27T15:28:06Z",
+      "side": 1,
+      "message": "Please use the DevTools\u0027 custom link: `UI.XLink.XLink.create(...)`",
+      "range": {
+        "startLine": 47,
+        "startChar": 6,
+        "endLine": 51,
+        "endChar": 52
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "b652d755_28af4a72",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/issues/AffectedMetadataAllowedSitesView.ts",
+              "range": {
+                "startLine": 7,
+                "startChar": 0,
+                "endLine": 7,
+                "endChar": 0
+              },
+              "replacement": "import * as UI from \u0027../../ui/legacy/legacy.js\u0027;\n"
+            },
+            {
+              "path": "front_end/panels/issues/AffectedMetadataAllowedSitesView.ts",
+              "range": {
+                "startLine": 47,
+                "startChar": 0,
+                "endLine": 51,
+                "endChar": 0
+              },
+              "replacement": "        const linkElement \u003d UI.XLink.XLink.create(\u0027https://github.com/amaliev/3pcd-exemption-heuristics/blob/main/explainer.md\u0027, \u0027learn more\u0027);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "1adca540632ebe776ad720530a8af9e06ec01a20",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8454b9ea_2c89fd2f",
+        "filename": "front_end/ui/components/markdown_view/MarkdownLinksMap.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-05-27T15:28:06Z",
+      "side": 1,
+      "message": "The more \"official\" the URL, the better. Will this maybe be available at a non-personal github URL in the future? (not a blocker, just asking)",
+      "range": {
+        "startLine": 55,
+        "startChar": 41,
+        "endLine": 55,
+        "endChar": 116
+      },
+      "revId": "1adca540632ebe776ad720530a8af9e06ec01a20",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
