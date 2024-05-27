@@ -1517,6 +1517,13 @@
                     ]
                 },
                 {
+                    "id": "EarlyHintsError",
+                    "type": "string",
+                    "enum": [
+                        "EarlyHintsHeadersInSubResources"
+                    ]
+                },
+                {
                     "id": "AttributionReportingIssueDetails",
                     "description": "Details for issues around \"Attribution Reporting API\" usage.\nExplainer: https://github.com/WICG/attribution-reporting-api",
                     "type": "object",
@@ -1593,6 +1600,20 @@
                         {
                             "name": "sharedDictionaryError",
                             "$ref": "SharedDictionaryError"
+                        },
+                        {
+                            "name": "request",
+                            "$ref": "AffectedRequest"
+                        }
+                    ]
+                },
+                {
+                    "id": "EarlyHintsIssueDetails",
+                    "type": "object",
+                    "properties": [
+                        {
+                            "name": "earlyHintsError",
+                            "$ref": "EarlyHintsError"
                         },
                         {
                             "name": "request",
@@ -1928,7 +1949,8 @@
                         "StylesheetLoadingIssue",
                         "FederatedAuthUserInfoRequestIssue",
                         "PropertyRuleIssue",
-                        "SharedDictionaryIssue"
+                        "SharedDictionaryIssue",
+                        "EarlyHintsIssue"
                     ]
                 },
                 {
@@ -2041,6 +2063,11 @@
                             "name": "sharedDictionaryIssueDetails",
                             "optional": true,
                             "$ref": "SharedDictionaryIssueDetails"
+                        },
+                        {
+                            "name": "earlyHintsIssueDetails",
+                            "optional": true,
+                            "$ref": "EarlyHintsIssueDetails"
                         }
                     ]
                 },
@@ -7069,6 +7096,31 @@
                             "items": {
                                 "$ref": "NodeId"
                             }
+                        }
+                    ]
+                },
+                {
+                    "name": "getAnchorElement",
+                    "description": "Returns the target anchor element of the given anchor query according to\nhttps://www.w3.org/TR/css-anchor-position-1/#target.",
+                    "experimental": true,
+                    "parameters": [
+                        {
+                            "name": "nodeId",
+                            "description": "Id of the positioned element from which to find the anchor.",
+                            "$ref": "NodeId"
+                        },
+                        {
+                            "name": "anchorSpecifier",
+                            "description": "An optional anchor specifier, as defined in\nhttps://www.w3.org/TR/css-anchor-position-1/#anchor-specifier.\nIf not provided, it will return the implicit anchor element for\nthe given positioned element.",
+                            "optional": true,
+                            "type": "string"
+                        }
+                    ],
+                    "returns": [
+                        {
+                            "name": "nodeId",
+                            "description": "The anchor element of the given anchor query.",
+                            "$ref": "NodeId"
                         }
                     ]
                 }

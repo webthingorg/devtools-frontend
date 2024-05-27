@@ -33,6 +33,8 @@
  */
 
 import * as Protocol from '../../generated/protocol.js';
+import {EarlyHintsIssue} from '../../models/issues_manager/EarlyHintsIssue.js';
+import {IssuesManager} from '../../models/issues_manager/IssuesManager.js';
 import * as TextUtils from '../../models/text_utils/text_utils.js';
 import * as Common from '../common/common.js';
 import * as i18n from '../i18n/i18n.js';
@@ -1157,6 +1159,20 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
   }
 
   setEarlyHintsHeaders(headers: NameValue[]): void {
+    const initiator = this.initiator();
+    if (headers?.length && initiator !== null && initiator.type !== Protocol.Network.InitiatorType.Other) {
+      IssuesManager.instance().addIssueForAllModels(EarlyHintsIssue.fromInspectorIssue(null, {
+        details: {
+          earlyHintsIssueDetails: {
+            request: {
+              url: this.url(),
+              requestId: this.requestId(),
+            },
+            earlyHintsError: Protocol.Audits.EarlyHintsError.EarlyHintsHeadersInSubResources,
+          },
+        },
+      } as Protocol.Audits.InspectorIssue)[0]);
+    }
     this.earlyHintsHeaders = headers;
   }
 

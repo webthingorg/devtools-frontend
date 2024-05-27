@@ -311,6 +311,12 @@ export class IssuesManager extends Common.ObjectWrapper.ObjectWrapper<EventTypes
     }
   }
 
+  addIssueForAllModels(issue: Issue): void {
+    for (const issuesModel of SDK.TargetManager.TargetManager.instance().models(SDK.IssuesModel.IssuesModel)) {
+      this.addIssue(issuesModel, issue);
+    }
+  }
+
   addIssue(issuesModel: SDK.IssuesModel.IssuesModel, issue: Issue): void {
     // Ignore issues without proper description; they are invisible to the user and only cause confusion.
     if (!issue.getDescription()) {
