@@ -398,6 +398,10 @@ export class InspectorFrontendHostStub implements InspectorFrontendHostAPI {
     });
   }
 
+  getHostConfig(callback: (arg0: Root.Runtime.HostConfig) => void): void {
+    callback({});
+  }
+
   upgradeDraggedFileSystemPermissions(fileSystem: FileSystem): void {
   }
 
