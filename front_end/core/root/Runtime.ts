@@ -81,6 +81,7 @@ export class Runtime {
   static isDescriptorEnabled(descriptor: {
     experiment: ((string | undefined)|null),
     condition?: Condition,
+    config?: HostConfig,
   }): boolean {
     const {experiment} = descriptor;
     if (experiment === '*') {
@@ -92,8 +93,8 @@ export class Runtime {
     if (experiment && !experiment.startsWith('!') && !experiments.isEnabled(experiment)) {
       return false;
     }
-    const {condition} = descriptor;
-    return condition ? condition() : true;
+    const {condition, config} = descriptor;
+    return condition ? condition(config) : true;
   }
 
   loadLegacyModule(modulePath: string): Promise<void> {
@@ -294,11 +295,20 @@ export const enum ExperimentName {
   TIMELINE_DEBUG_MODE = 'timeline-debug-mode',
 }
 
+export interface FeatureInfo {
+  enabled: boolean;
+  [key: string]: string|boolean;
+}
+
+export interface HostConfig {
+  [key: string]: FeatureInfo;
+}
+
 /**
  * When defining conditions make sure that objects used by the function have
  * been instantiated.
  */
-export type Condition = () => boolean;
+export type Condition = (config?: HostConfig) => boolean;
 
 export const conditions = {
   canDock: () => Boolean(Runtime.queryParam('can_dock')),

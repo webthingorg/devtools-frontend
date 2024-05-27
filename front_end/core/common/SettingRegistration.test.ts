@@ -106,4 +106,34 @@ describe('SettingRegistration', () => {
       });
     });
   });
+
+  it('can handle settings with condition which depends on host config', () => {
+    const configSettingName = 'mock-setting-with-host-config';
+    Common.Settings.registerSettingExtension({
+      settingName: configSettingName,
+      settingType: Common.Settings.SettingType.BOOLEAN,
+      defaultValue: false,
+      condition: config => {
+        return config?.mock?.enabled === true;
+      },
+    });
+    assert.strictEqual(
+        Common.Settings.Settings.instance()
+            .getRegisteredSettings()
+            .filter(setting => setting.settingName === configSettingName)
+            .length,
+        0);
+
+    const dummyStorage = new Common.Settings.SettingsStorage({});
+    const settingsWithConfig = Common.Settings.Settings.instance({
+      forceNew: true,
+      syncedStorage: dummyStorage,
+      globalStorage: dummyStorage,
+      localStorage: dummyStorage,
+      config: {mock: {enabled: true}},
+    });
+    assert.strictEqual(
+        settingsWithConfig.getRegisteredSettings().filter(setting => setting.settingName === configSettingName).length,
+        1);
+  });
 });
