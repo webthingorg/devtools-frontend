@@ -40,6 +40,7 @@ describeWithMockConnection('LayoutPane', () => {
       syncedStorage: dummyStorage,
       globalStorage: dummyStorage,
       localStorage: dummyStorage,
+      config: {},
     });
   });
 

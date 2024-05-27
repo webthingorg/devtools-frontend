@@ -282,7 +282,7 @@ export async function initializeGlobalVars({reset = true} = {}) {
   // Instantiate the storage.
   const storage = new Common.Settings.SettingsStorage({}, Common.Settings.NOOP_STORAGE, 'test');
   Common.Settings.Settings.instance(
-      {forceNew: reset, syncedStorage: storage, globalStorage: storage, localStorage: storage});
+      {forceNew: reset, syncedStorage: storage, globalStorage: storage, localStorage: storage, config: {}});
 
   Root.Runtime.experiments.clearForTest();
   for (const experimentName of REGISTERED_EXPERIMENTS) {
