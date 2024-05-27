@@ -1517,6 +1517,13 @@
                     ]
                 },
                 {
+                    "id": "EarlyHintsError",
+                    "type": "string",
+                    "enum": [
+                        "EarlyHintsHeadersInSubResources"
+                    ]
+                },
+                {
                     "id": "AttributionReportingIssueDetails",
                     "description": "Details for issues around \"Attribution Reporting API\" usage.\nExplainer: https://github.com/WICG/attribution-reporting-api",
                     "type": "object",
@@ -1593,6 +1600,20 @@
                         {
                             "name": "sharedDictionaryError",
                             "$ref": "SharedDictionaryError"
+                        },
+                        {
+                            "name": "request",
+                            "$ref": "AffectedRequest"
+                        }
+                    ]
+                },
+                {
+                    "id": "EarlyHintsIssueDetails",
+                    "type": "object",
+                    "properties": [
+                        {
+                            "name": "earlyHintsError",
+                            "$ref": "EarlyHintsError"
                         },
                         {
                             "name": "request",
@@ -1928,7 +1949,8 @@
                         "StylesheetLoadingIssue",
                         "FederatedAuthUserInfoRequestIssue",
                         "PropertyRuleIssue",
-                        "SharedDictionaryIssue"
+                        "SharedDictionaryIssue",
+                        "EarlyHintsIssue"
                     ]
                 },
                 {
@@ -2041,6 +2063,11 @@
                             "name": "sharedDictionaryIssueDetails",
                             "optional": true,
                             "$ref": "SharedDictionaryIssueDetails"
+                        },
+                        {
+                            "name": "earlyHintsIssueDetails",
+                            "optional": true,
+                            "$ref": "EarlyHintsIssueDetails"
                         }
                     ]
                 },

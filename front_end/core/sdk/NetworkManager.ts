@@ -32,6 +32,7 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
+import * as SDK from '../../core/sdk/sdk.js';
 import type * as ProtocolProxyApi from '../../generated/protocol-proxy-api.js';
 import * as Protocol from '../../generated/protocol.js';
 import * as TextUtils from '../../models/text_utils/text_utils.js';
@@ -918,7 +919,28 @@ export class NetworkDispatcher implements ProtocolProxyApi.NetworkDispatcher {
     requestId,
     headers,
   }: Protocol.Network.ResponseReceivedEarlyHintsEvent): void {
-    this.getExtraInfoBuilder(requestId).setEarlyHintsHeaders(this.headersMapToHeadersArray(headers));
+    const extraInfoBuilder = this.getExtraInfoBuilder(requestId);
+    extraInfoBuilder.setEarlyHintsHeaders(this.headersMapToHeadersArray(headers));
+    const networkRequest = this.#requestsById.get(requestId);
+    if (networkRequest && !networkRequest.canAcceptEarlyHints()) {
+      const issueAddedEvent = {
+        issue: {
+          details: {
+            earlyHintsIssueDetails: {
+              request: {
+                url: networkRequest.url(),
+                requestId: networkRequest.requestId(),
+              },
+              earlyHintsError: Protocol.Audits.EarlyHintsError.EarlyHintsHeadersInSubResources,
+            },
+          },
+          code: Protocol.Audits.InspectorIssueCode.EarlyHintsIssue,
+        },
+      } as Protocol.Audits.IssueAddedEvent;
+      for (const issuesModel of SDK.TargetManager.TargetManager.instance().models(SDK.IssuesModel.IssuesModel)) {
+        issuesModel.issueAdded(issueAddedEvent);
+      }
+    }
   }
 
   responseReceivedExtraInfo({
