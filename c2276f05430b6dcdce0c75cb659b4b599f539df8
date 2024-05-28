@@ -22,6 +22,30 @@
       },
       "revId": "c2276f05430b6dcdce0c75cb659b4b599f539df8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "578595eb_210d2fb3",
+        "filename": "front_end/models/workspace/UISourceCode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-05-28T09:30:14Z",
+      "side": 1,
+      "message": "We need to match what `this.#decodeContent` is doing, which is `atob`. Whereas `Content.text()` does decode either Utf-8 or a specified charset.\n\nWe\u0027ll be able to simplify this again once `ProjectStore.requestFileContent` also returns a `ContentData`. Then we can simply compare two `ContentData`.\n\nBut there is still a bug in here somewhere because of the failing tests. Could easily be this, I\u0027ll do some more debugging.",
+      "parentUuid": "0ed4dfc2_9d827410",
+      "range": {
+        "startLine": 274,
+        "startChar": 39,
+        "endLine": 274,
+        "endChar": 66
+      },
+      "revId": "c2276f05430b6dcdce0c75cb659b4b599f539df8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
