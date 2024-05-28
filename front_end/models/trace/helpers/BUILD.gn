@@ -11,6 +11,7 @@ devtools_module("helpers") {
   sources = [
     "Extensions.ts",
     "SamplesIntegrator.ts",
+    "SyntheticEvents.ts",
     "Timing.ts",
     "Trace.ts",
     "TreeHelpers.ts",
