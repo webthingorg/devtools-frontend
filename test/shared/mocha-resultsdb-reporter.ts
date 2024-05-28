@@ -46,6 +46,10 @@ interface TestRetry {
   currentRetry(): number;
 }
 
+interface TestWithContext {
+  ctx: {currentTest: Mocha.Test|undefined};
+}
+
 class ResultsDbReporter extends Mocha.reporters.Spec {
   // The max length of the summary is 4000, but we need to leave some room for
   // the rest of the HTML formatting (e.g. <pre> and </pre>).
@@ -84,6 +88,10 @@ class ResultsDbReporter extends Mocha.reporters.Spec {
   }
 
   private onTestFail(test: Mocha.Test, error: Error|ScreenshotError|unknown) {
+    if (this.isAfterHook(test)) {
+      return;
+    }
+
     const testResult = this.buildDefaultTestResultFrom(test);
     testResult.status = 'FAIL';
     testResult.expected = false;
@@ -103,6 +111,15 @@ class ResultsDbReporter extends Mocha.reporters.Spec {
       this.htmlResult.write('<hr>');
     }
     ResultsDb.sendTestResult(testResult);
+  }
+
+  private isAfterHook(test: Mocha.Test): boolean {
+    if (!(test instanceof Mocha.Hook)) {
+      return false;
+    }
+    const withContext = (test as unknown) as TestWithContext;
+    // `Before` hooks have a currentTest property in the context.
+    return !withContext.ctx.currentTest;
   }
 
   private onTestSkip(test: Mocha.Test) {
