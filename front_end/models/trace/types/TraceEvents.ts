@@ -387,6 +387,23 @@ export interface SyntheticNetworkRequest extends TraceEventComplete, SyntheticEv
   tid: ThreadID;
 }
 
+export interface SyntheticWebSocketConnectionEvent extends TraceEventInstant {
+  args: TraceEventArgs&{
+    data: TraceEventArgsData & {
+      identifier: number,
+    },
+  };
+  cat: string;
+  name: 'SyntheticWebSocketConnectionEvent';
+  ph: Phase.INSTANT;
+  dur: MicroSeconds;
+  ts: MicroSeconds;
+  pid: ProcessID;
+  tid: ThreadID;
+}
+
+export type SyntheticCompleteEventType = SyntheticWebSocketConnectionEvent;
+
 export const enum AuctionWorkletType {
   BIDDER = 'bidder',
   SELLER = 'seller',
@@ -1900,6 +1917,12 @@ export function isSyntheticNetworkRequestDetailsEvent(
   return traceEventData.name === 'SyntheticNetworkRequest';
 }
 
+export function isSyntheticWebSocketConnectionEvent(
+    traceEventData: TraceEventData,
+    ): traceEventData is SyntheticWebSocketConnectionEvent {
+  return traceEventData.name === 'SyntheticWebSocketConnectionEvent';
+}
+
 export function isTraceEventPrePaint(
     traceEventData: TraceEventData,
     ): traceEventData is TraceEventPrePaint {
@@ -2218,6 +2241,7 @@ export interface TraceEventWebSocketCreate extends TraceEventInstant {
       identifier: number,
       url: string,
       frame?: string,
+      workerId?: string,
       websocketProtocol?: string,
       stackTrace?: TraceEventCallFrame,
     },
@@ -2225,6 +2249,70 @@ export interface TraceEventWebSocketCreate extends TraceEventInstant {
 }
 export function isTraceEventWebSocketCreate(event: TraceEventData): event is TraceEventWebSocketCreate {
   return event.name === KnownEventName.WebSocketCreate;
+}
+
+export interface TraceEventWebSocketInfo extends TraceEventInstant {
+  name: KnownEventName.WebSocketDestroy|KnownEventName.WebSocketReceiveHandshake|
+      KnownEventName.WebSocketReceiveHandshakeResponse;
+  args: TraceEventArgs&{
+    data: TraceEventArgsData & {
+      identifier: number,
+      url: string,
+      frame?: string,
+      workerId?: string,
+    },
+  };
+}
+export interface TraceEventWebSocketTransfer extends TraceEventInstant {
+  name: KnownEventName.WebSocketSend|KnownEventName.WebSocketReceive;
+  args: TraceEventArgs&{
+    data: TraceEventArgsData & {
+      identifier: number,
+      url: string,
+      frame?: string,
+      workerId?: string, dataLength: number,
+    },
+  };
+}
+export function isTraceEventWebSocketInfo(traceEventData: TraceEventData): traceEventData is TraceEventWebSocketInfo {
+  return traceEventData.name === 'WebSocketSendHandshakeRequest' ||
+      traceEventData.name === 'WebSocketReceiveHandshakeResponse' || traceEventData.name === 'WebSocketDestroy';
+}
+
+export function isTraceEventWebSocketTransfer(traceEventData: TraceEventData):
+    traceEventData is TraceEventWebSocketTransfer {
+  return traceEventData.name === 'WebSocketSend' || traceEventData.name === 'WebSocketReceive';
+}
+
+export interface TraceEventWebSocketSend extends TraceEventInstant {
+  name: KnownEventName.WebSocketSend;
+  args: TraceEventArgs&{
+    data: TraceEventArgsData & {
+      identifier: number,
+      url: string,
+      frame?: string,
+      workerId?: string, dataLength: number,
+    },
+  };
+}
+
+export function isTraceEventWebSocketSend(event: TraceEventData): event is TraceEventWebSocketSend {
+  return event.name === KnownEventName.WebSocketSend;
+}
+
+export interface TraceEventWebSocketReceive extends TraceEventInstant {
+  name: KnownEventName.WebSocketReceive;
+  args: TraceEventArgs&{
+    data: TraceEventArgsData & {
+      identifier: number,
+      url: string,
+      frame?: string,
+      workerId?: string, dataLength: number,
+    },
+  };
+}
+export function isTraceEventWebSocketReceive(event: TraceEventData): event is TraceEventWebSocketReceive {
+  return event.name === KnownEventName.WebSocketReceive;
 }
 
 export interface TraceEventWebSocketSendHandshakeRequest extends TraceEventInstant {
@@ -2269,10 +2357,11 @@ export function isTraceEventWebSocketDestroy(event: TraceEventData): event is Tr
 }
 
 export function isWebSocketTraceEvent(event: TraceEventData): event is TraceEventWebSocketCreate|
-    TraceEventWebSocketDestroy|TraceEventWebSocketReceiveHandshakeResponse|TraceEventWebSocketSendHandshakeRequest {
-  return isTraceEventWebSocketCreate(event) || isTraceEventWebSocketDestroy(event) ||
-      isTraceEventWebSocketReceiveHandshakeResponse(event) || isTraceEventWebSocketSendHandshakeRequest(event);
+    TraceEventWebSocketInfo|TraceEventWebSocketTransfer {
+  return isTraceEventWebSocketCreate(event) || isTraceEventWebSocketInfo(event) || isTraceEventWebSocketTransfer(event);
 }
+export type WebSocketEvent =
+    TraceEventWebSocketCreate|TraceEventWebSocketInfo|TraceEventWebSocketTransfer|SyntheticWebSocketConnectionEvent;
 
 export interface TraceEventV8Compile extends TraceEventComplete {
   name: KnownEventName.Compile;
@@ -2392,6 +2481,8 @@ export const enum KnownEventName {
   WebSocketSendHandshake = 'WebSocketSendHandshakeRequest',
   WebSocketReceiveHandshake = 'WebSocketReceiveHandshakeResponse',
   WebSocketDestroy = 'WebSocketDestroy',
+  WebSocketSend = 'WebSocketSend',
+  WebSocketReceive = 'WebSocketReceive',
   CryptoDoEncrypt = 'DoEncrypt',
   CryptoDoEncryptReply = 'DoEncryptReply',
   CryptoDoDecrypt = 'DoDecrypt',
