@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ed4dfc2_9d827410",
+        "filename": "front_end/models/workspace/UISourceCode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2024-05-28T09:24:31Z",
+      "side": 1,
+      "message": "If it\u0027s only for comparison, is there any reason to decode it? Or would it work to `return content.createdFromBase64 ? content.base64 : \u0027text:\u0027 + content.text;`?",
+      "range": {
+        "startLine": 274,
+        "startChar": 39,
+        "endLine": 274,
+        "endChar": 66
+      },
+      "revId": "c2276f05430b6dcdce0c75cb659b4b599f539df8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
