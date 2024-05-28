@@ -33,6 +33,24 @@
       "message": "This doesn\u0027t fix the test failure related to `assertThrottled`, right?",
       "revId": "d55cba4c972674ba884fc1f28037ae2705c6b611",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "926ec4d0_4c8d96cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-05-28T11:50:39Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "9108bda1_e57e609f",
+      "revId": "d55cba4c972674ba884fc1f28037ae2705c6b611",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
