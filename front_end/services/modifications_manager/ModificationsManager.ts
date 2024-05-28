@@ -69,7 +69,7 @@ export class ModificationsManager {
     }
 
     const indexesOfModifiedEntries: number[] = [];
-    const modifiedEntries = this.#entriesFilter.modifiedEntries();
+    const modifiedEntries = this.#entriesFilter.expandableEntries();
     if (modifiedEntries) {
       for (const entry of modifiedEntries) {
         indexesOfModifiedEntries.push(this.getEntryIndex(entry));
@@ -108,6 +108,6 @@ export class ModificationsManager {
         modifiedEntries.push(modifiedEntry);
       }
     });
-    this.#entriesFilter.setInvisibleAndModifiedEntries(hiddenEntries, modifiedEntries);
+    this.#entriesFilter.setHiddenAndExpandableEntries(hiddenEntries, modifiedEntries);
   }
 }
