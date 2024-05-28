@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c5f9643_34d77f74",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2024-05-28T20:40:09Z",
+      "side": 1,
+      "message": "Hi Alex, please help review this CL to update the postcss and nanoid packages.\n\nThanks,\nGavin",
+      "revId": "b70d998544245d7f5e6aca97a8510e77e0aa3f54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
