@@ -4,7 +4,6 @@
 
 import * as Common from '../../../core/common/common.js';
 import * as Platform from '../../../core/platform/platform.js';
-import type * as CPUProfile from '../../cpu_profile/cpu_profile.js';
 import * as Types from '../types/types.js';
 
 import {SyntheticEventsManager} from './SyntheticEvents.js';
@@ -185,37 +184,6 @@ export function activeURLForFrameAtTime(
     }
   }
   return null;
-}
-
-/**
- * @param node the node attached to the profile call. Here a node represents a function in the call tree.
- * @param profileId the profile ID that the sample came from that backs this call.
- * @param sampleIndex the index of the sample in the given profile that this call was created from
- * @param ts the timestamp of the profile call
- * @param pid the process ID of the profile call
- * @param tid the thread ID of the profile call
- *
- * See `panels/timeline/docs/profile_calls.md` for more context on how these events are created.
- */
-export function makeProfileCall(
-    node: CPUProfile.ProfileTreeModel.ProfileNode, profileId: Types.TraceEvents.ProfileID, sampleIndex: number,
-    ts: Types.Timing.MicroSeconds, pid: Types.TraceEvents.ProcessID,
-    tid: Types.TraceEvents.ThreadID): Types.TraceEvents.SyntheticProfileCall {
-  return {
-    cat: '',
-    name: 'ProfileCall',
-    nodeId: node.id,
-    args: {},
-    ph: Types.TraceEvents.Phase.COMPLETE,
-    pid,
-    tid,
-    ts,
-    dur: Types.Timing.MicroSeconds(0),
-    selfTime: Types.Timing.MicroSeconds(0),
-    callFrame: node.callFrame,
-    sampleIndex,
-    profileId,
-  };
 }
 
 export function makeSyntheticTraceEntry(
