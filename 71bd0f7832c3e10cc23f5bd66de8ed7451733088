@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5435cc6_e2c77227",
+        "filename": "front_end/models/workspace/UISourceCode.test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-05-28T12:04:16Z",
+      "side": 1,
+      "message": "deepStrictEqual?",
+      "revId": "71bd0f7832c3e10cc23f5bd66de8ed7451733088",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
