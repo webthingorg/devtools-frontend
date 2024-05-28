@@ -399,6 +399,11 @@ export class MainImpl {
         true,
     );
 
+    Root.Runtime.experiments.register(
+        Root.Runtime.ExperimentName.PERF_PANEL_OBSERVATIONS,
+        'Enable new Performance panel landing page which includes live metrics and field data',
+    );
+
     Root.Runtime.experiments.enableExperimentsByDefault([
       'css-type-component-length-deprecate',
       Root.Runtime.ExperimentName.OUTERMOST_TARGET_SELECTOR,
