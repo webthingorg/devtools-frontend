@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97d97cf5_a4aee9fa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-05-28T15:45:46Z",
+      "side": 1,
+      "message": "Will need to land a Chromium CL to add the new histogram entry but wanted to ensure the direction was good before doing that",
+      "revId": "74de4dd19cb1093c6165053edc78fe96c668684a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
