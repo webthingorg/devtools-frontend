@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "49864e6c_59874bc2",
+        "filename": "front_end/panels/elements/ElementsTreeOutline.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1786,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-05-28T12:28:03Z",
+      "side": 1,
+      "message": "Actually this works, thanks for noticing!:) removed this for top layer container adorner too",
+      "parentUuid": "950d2025_99ddc85f",
+      "revId": "e665306999c68ec98964016a3817e8a364b7f156",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "702edc30_62956760",
@@ -52,6 +70,42 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "df9350e4_1178882d",
+        "filename": "front_end/panels/elements/components/elementsTreeExpandButton.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-05-28T12:28:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "702edc30_62956760",
+      "revId": "e665306999c68ec98964016a3817e8a364b7f156",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4dd8fb6b_edb34192",
+        "filename": "front_end/panels/elements/components/elementsTreeExpandButton.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-05-28T12:28:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "702edc30_62956760",
+      "revId": "e665306999c68ec98964016a3817e8a364b7f156",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c47a9a81_33b0294a",
@@ -65,6 +119,24 @@
       "writtenOn": "2024-05-27T18:29:29Z",
       "side": 1,
       "message": "If these two variables are only defined for easily updating the before and after pseudo elements\u0027 background color, how about directly doing:\n```\n\u0026:hover::after {\n /* previous lines*/\n ...\n \n :host([aria-pressed\u003d\"true\"]) \u0026 {\n   background-color: var(--sys-color-state-hover-on-prominent);\n }\n \n\n}\n\n```",
+      "revId": "e665306999c68ec98964016a3817e8a364b7f156",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f7cb2e1_f5acf06b",
+        "filename": "front_end/ui/components/adorners/adorner.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-05-28T12:28:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c47a9a81_33b0294a",
       "revId": "e665306999c68ec98964016a3817e8a364b7f156",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
