@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa86c8cd_d05b597d",
+        "filename": "front_end/core/root/Runtime.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-05-28T20:08:10Z",
+      "side": 1,
+      "message": "Damn I picked the wrong one to copy haha",
+      "parentUuid": "443c96a4_046626cc",
+      "range": {
+        "startLine": 296,
+        "startChar": 2,
+        "endLine": 296,
+        "endChar": 25
+      },
+      "revId": "74de4dd19cb1093c6165053edc78fe96c668684a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b973a664_1c7e53ff",
@@ -71,6 +95,30 @@
       "writtenOn": "2024-05-28T15:54:36Z",
       "side": 1,
       "message": "let\u0027s use actual private fields (`#target`) (and same for any private methods too)",
+      "range": {
+        "startLine": 26,
+        "startChar": 2,
+        "endLine": 26,
+        "endChar": 37
+      },
+      "revId": "74de4dd19cb1093c6165053edc78fe96c668684a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4ed6d60_cc64e46a",
+        "filename": "front_end/models/live-metrics/LiveMetrics.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-05-28T20:08:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b973a664_1c7e53ff",
       "range": {
         "startLine": 26,
         "startChar": 2,
@@ -104,6 +152,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "26fb5f28_5242b3c0",
+        "filename": "front_end/models/live-metrics/LiveMetrics.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-05-28T20:08:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "949e6146_3614061b",
+      "range": {
+        "startLine": 41,
+        "startChar": 36,
+        "endLine": 41,
+        "endChar": 79
+      },
+      "revId": "74de4dd19cb1093c6165053edc78fe96c668684a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9c68d7e4_661a769f",
@@ -117,6 +189,30 @@
       "writtenOn": "2024-05-28T15:54:36Z",
       "side": 1,
       "message": "again, should we early exit if these don\u0027t exist? (I know they should, but...)",
+      "range": {
+        "startLine": 71,
+        "startChar": 4,
+        "endLine": 72,
+        "endChar": 89
+      },
+      "revId": "74de4dd19cb1093c6165053edc78fe96c668684a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b15a90a_be02d0c2",
+        "filename": "front_end/models/live-metrics/LiveMetrics.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-05-28T20:08:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c68d7e4_661a769f",
       "range": {
         "startLine": 71,
         "startChar": 4,
@@ -150,6 +246,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "19c7dc9f_b585e658",
+        "filename": "front_end/models/live-metrics/web-vitals-injected/BUILD.gn",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-05-28T20:08:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b3474397_2a6859f4",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 59
+      },
+      "revId": "74de4dd19cb1093c6165053edc78fe96c668684a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "434c82bc_27a27fba",
@@ -163,6 +283,30 @@
       "writtenOn": "2024-05-28T15:54:36Z",
       "side": 1,
       "message": "happy with this for this CL given it\u0027s going to change a bunch, but long term I think maybe we should use a custom element to contain all the UI for the landing page + field data + live data etc.",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 71
+      },
+      "revId": "74de4dd19cb1093c6165053edc78fe96c668684a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c62189e_c7613748",
+        "filename": "front_end/panels/timeline/TimelineLandingPage.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-05-28T20:08:10Z",
+      "side": 1,
+      "message": "Agree 100% on a proper custom element/component for the future",
+      "parentUuid": "434c82bc_27a27fba",
       "range": {
         "startLine": 66,
         "startChar": 0,
