@@ -46,6 +46,15 @@ interface TestRetry {
   currentRetry(): number;
 }
 
+interface HookWithParent {
+  parent: {
+    // eslint-disable-next-line @typescript-eslint/naming-convention
+    _afterEach: Mocha.Hook[],
+    // eslint-disable-next-line @typescript-eslint/naming-convention
+    _afterAll: Mocha.Hook[],
+  };
+}
+
 class ResultsDbReporter extends Mocha.reporters.Spec {
   // The max length of the summary is 4000, but we need to leave some room for
   // the rest of the HTML formatting (e.g. <pre> and </pre>).
@@ -84,6 +93,10 @@ class ResultsDbReporter extends Mocha.reporters.Spec {
   }
 
   private onTestFail(test: Mocha.Test, error: Error|ScreenshotError|unknown) {
+    if (this.isAfterHook(test)) {
+      return;
+    }
+
     const testResult = this.buildDefaultTestResultFrom(test);
     testResult.status = 'FAIL';
     testResult.expected = false;
@@ -103,6 +116,15 @@ class ResultsDbReporter extends Mocha.reporters.Spec {
       this.htmlResult.write('<hr>');
     }
     ResultsDb.sendTestResult(testResult);
+  }
+
+  private isAfterHook(test: Mocha.Test): boolean {
+    if (!(test instanceof Mocha.Hook)) {
+      return false;
+    }
+    const hook = (test as unknown) as HookWithParent;
+    const suite = hook.parent;
+    return suite._afterEach.includes(test) || suite._afterAll.includes(test);
   }
 
   private onTestSkip(test: Mocha.Test) {
