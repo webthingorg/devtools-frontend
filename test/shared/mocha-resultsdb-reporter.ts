@@ -84,6 +84,10 @@ class ResultsDbReporter extends Mocha.reporters.Spec {
   }
 
   private onTestFail(test: Mocha.Test, error: Error|ScreenshotError|unknown) {
+    if (test instanceof Mocha.Hook) {
+      return;
+    }
+
     const testResult = this.buildDefaultTestResultFrom(test);
     testResult.status = 'FAIL';
     testResult.expected = false;
