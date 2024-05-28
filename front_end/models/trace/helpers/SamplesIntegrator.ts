@@ -6,8 +6,9 @@ import type * as Protocol from '../../../generated/protocol.js';
 import type * as CPUProfile from '../../cpu_profile/cpu_profile.js';
 import * as Types from '../types/types.js';
 
+import {SyntheticEventsManager} from './SyntheticEvents.js';
 import {millisecondsToMicroseconds} from './Timing.js';
-import {makeProfileCall, mergeEventsInOrder} from './Trace.js';
+import {mergeEventsInOrder} from './Trace.js';
 
 /**
  * This is a helper that integrates CPU profiling data coming in the
@@ -52,7 +53,7 @@ export class SamplesIntegrator {
    * stack in them) but also with trace events (in which case we would
    * update the duration of the events we are tracking at the moment).
    */
-  #currentJSStack: Types.TraceEvents.SyntheticProfileCall[] = [];
+  #currentJSStack: PartialProfileCall[] = [];
   /**
    * Process holding the CPU profile and trace events.
    */
@@ -91,7 +92,7 @@ export class SamplesIntegrator {
    * infer information about the duration of the executed code when a
    * GC node is sampled.
    */
-  #nodeForGC = new Map<Types.TraceEvents.SyntheticProfileCall, CPUProfile.ProfileTreeModel.ProfileNode>();
+  #nodeForGC = new Map<PartialProfileCall, CPUProfile.ProfileTreeModel.ProfileNode>();
 
   #engineConfig: Types.Configuration.Configuration;
   #profileId: Types.TraceEvents.ProfileID;
@@ -230,14 +231,14 @@ export class SamplesIntegrator {
    * that they can be traversed in order with them and their duration
    * can be updated as the SampleIntegrator callbacks are invoked.
    */
-  callsFromProfileSamples(): Types.TraceEvents.SyntheticProfileCall[] {
+  callsFromProfileSamples(): PartialProfileCall[] {
     const samples = this.#profileModel.samples;
     const timestamps = this.#profileModel.timestamps;
     const debugModeEnabled = this.#engineConfig.debugMode;
     if (!samples) {
       return [];
     }
-    const calls: Types.TraceEvents.SyntheticProfileCall[] = [];
+    const calls: PartialProfileCall[] = [];
     let prevNode;
     for (let i = 0; i < samples.length; i++) {
       const node = this.#profileModel.nodeByIndex(i);
@@ -245,7 +246,7 @@ export class SamplesIntegrator {
       if (!node) {
         continue;
       }
-      const call = makeProfileCall(node, this.#profileId, i, timestamp, this.#processId, this.#threadId);
+      const call = makePartialProfileCall(node, this.#profileId, i, timestamp, this.#processId, this.#threadId);
       calls.push(call);
 
       if (debugModeEnabled) {
@@ -263,8 +264,7 @@ export class SamplesIntegrator {
     return calls;
   }
 
-  #makeProfileCallsForStack(profileCall: Types.TraceEvents.SyntheticProfileCall):
-      Types.TraceEvents.SyntheticProfileCall[] {
+  #makeProfileCallsForStack(profileCall: PartialProfileCall): PartialProfileCall[] {
     let node = this.#profileModel.nodeById(profileCall.nodeId);
     const isGarbageCollection = node?.id === this.#profileModel.gcNode?.id;
     if (isGarbageCollection) {
@@ -277,7 +277,7 @@ export class SamplesIntegrator {
     }
     // `node.depth` is 0 based, so to set the size of the array we need
     // to add 1 to its value.
-    const callFrames = new Array<Types.TraceEvents.SyntheticProfileCall>(node.depth + 1 + Number(isGarbageCollection));
+    const callFrames = new Array<PartialProfileCall>(node.depth + 1 + Number(isGarbageCollection));
     // Add the stack trace in reverse order (bottom first).
     let i = callFrames.length - 1;
     if (isGarbageCollection) {
@@ -288,7 +288,7 @@ export class SamplesIntegrator {
     // Many of these ProfileCalls will be GC'd later when we estimate the frame
     // durations
     while (node) {
-      callFrames[i--] = makeProfileCall(
+      callFrames[i--] = makePartialProfileCall(
           node, profileCall.profileId, profileCall.sampleIndex, profileCall.ts, this.#processId, this.#threadId);
       node = node.parent;
     }
@@ -362,7 +362,8 @@ export class SamplesIntegrator {
         continue;
       }
       this.#currentJSStack.push(call);
-      this.#constructedProfileCalls.push(call);
+      const syntheticCall = SyntheticEventsManager.getManagerForTrace().registerProfileCall(call);
+      this.#constructedProfileCalls.push(syntheticCall);
     }
   }
 
@@ -395,7 +396,7 @@ export class SamplesIntegrator {
     this.#currentJSStack.length = depth;
   }
 
-  #makeJSSampleEvent(call: Types.TraceEvents.SyntheticProfileCall, timestamp: Types.Timing.MicroSeconds):
+  #makeJSSampleEvent(call: PartialProfileCall, timestamp: Types.Timing.MicroSeconds):
       Types.TraceEvents.SyntheticJSSample {
     const JSSampleEvent: Types.TraceEvents.SyntheticJSSample = {
       name: Types.TraceEvents.KnownEventName.JSSample,
@@ -435,8 +436,7 @@ export class SamplesIntegrator {
     return frame.url === 'native V8Runtime';
   }
 
-  static filterStackFrames(
-      stack: Types.TraceEvents.SyntheticProfileCall[], engineConfig: Types.Configuration.Configuration): void {
+  static filterStackFrames(stack: PartialProfileCall[], engineConfig: Types.Configuration.Configuration): void {
     const showAllEvents = engineConfig.showAllEvents;
     if (showAllEvents) {
       return;
@@ -460,3 +460,30 @@ export class SamplesIntegrator {
     stack.length = j;
   }
 }
+export function makePartialProfileCall(
+    node: CPUProfile.ProfileTreeModel.ProfileNode, profileId: Types.TraceEvents.ProfileID, sampleIndex: number,
+    ts: Types.Timing.MicroSeconds, pid: Types.TraceEvents.ProcessID,
+    tid: Types.TraceEvents.ThreadID): PartialProfileCall {
+  return {
+    cat: '',
+    name: 'ProfileCall',
+    nodeId: node.id,
+    args: {},
+    ph: Types.TraceEvents.Phase.COMPLETE,
+    pid,
+    tid,
+    ts,
+    dur: Types.Timing.MicroSeconds(0),
+    selfTime: Types.Timing.MicroSeconds(0),
+    callFrame: node.callFrame,
+    sampleIndex,
+    profileId,
+  };
+}
+/**
+ * An auxiliary type used to represent interim profile calls that may
+ * not make it to the trace event and samples integration. We don't type
+ * these as SyntheticProfileCalls because we don't want to register them
+ * temporary profile calls into the SyntheticEventsManager.
+ */
+type PartialProfileCall = Omit<Types.TraceEvents.SyntheticProfileCall, '_tag'>;

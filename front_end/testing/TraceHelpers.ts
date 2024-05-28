@@ -365,7 +365,7 @@ export function makeProfileCall(
       columnNumber: -1,
     },
     args: {},
-  };
+  } as TraceEngine.Types.TraceEvents.SyntheticProfileCall;
 }
 export const DevToolsTimelineCategory = 'disabled-by-default-devtools.timeline';
 
