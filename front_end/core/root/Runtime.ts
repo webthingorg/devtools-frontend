@@ -293,6 +293,7 @@ export const enum ExperimentName {
   TIMELINE_SIDEBAR = 'timeline-rpp-sidebar',
   TIMELINE_EXTENSIONS = 'timeline-extensions',
   TIMELINE_DEBUG_MODE = 'timeline-debug-mode',
+  PERF_PANEL_OBSERVATIONS = 'perf-panel-observations',
 }
 
 /**
