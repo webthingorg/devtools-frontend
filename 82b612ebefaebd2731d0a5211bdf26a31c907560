@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0372832_e3350789",
+        "filename": "front_end/core/sdk/CSSMatchedStyles.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 916,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-05-28T12:08:54Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "d91340b7_1f70e4fc",
+      "revId": "82b612ebefaebd2731d0a5211bdf26a31c907560",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b56c5cf2_4a1edeb7",
@@ -84,6 +102,24 @@
       "side": 1,
       "message": "Done! LMK if it looks good to you :)",
       "parentUuid": "b56c5cf2_4a1edeb7",
+      "revId": "82b612ebefaebd2731d0a5211bdf26a31c907560",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0bde9b4_e2ad9baa",
+        "filename": "front_end/core/sdk/CSSMatchedStyles.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 926,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-05-28T12:08:54Z",
+      "side": 1,
+      "message": "Looks good!",
+      "parentUuid": "9e607f2e_da8e331e",
       "revId": "82b612ebefaebd2731d0a5211bdf26a31c907560",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
