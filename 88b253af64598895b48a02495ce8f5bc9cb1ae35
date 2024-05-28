@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "78b0808a_882c359b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2024-05-28T12:14:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f88d4827_7be98a7a",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 26
+      },
+      "revId": "88b253af64598895b48a02495ce8f5bc9cb1ae35",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "f96ea779_f0e6c789",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 4
@@ -54,6 +78,30 @@
       "writtenOn": "2024-05-28T12:03:31Z",
       "side": 1,
       "message": "Maybe keep at seven days to not falsely close the bug over a (long) weekend?",
+      "range": {
+        "startLine": 45,
+        "startChar": 8,
+        "endLine": 45,
+        "endChar": 21
+      },
+      "revId": "88b253af64598895b48a02495ce8f5bc9cb1ae35",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d4254c8_526119e9",
+        "filename": "generated/luci-analysis.cfg",
+        "patchSetId": 4
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2024-05-28T12:14:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "987ac486_8373fa9c",
       "range": {
         "startLine": 45,
         "startChar": 8,
