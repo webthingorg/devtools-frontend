@@ -22,6 +22,30 @@
       },
       "revId": "7488c8d0c26aed3f6ce68f9b2d87b2c2365ffdbe",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6bf53bf6_1fc24f77",
+        "filename": "luci-analysis.cfg",
+        "patchSetId": 5
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1524899
+      },
+      "writtenOn": "2024-05-28T04:55:29Z",
+      "side": 1,
+      "message": "I\u0027d expect 10+ failures within 3 days to open a bug, and 5- failures within 7 days to fix a bug.",
+      "parentUuid": "890affc8_6fe191e9",
+      "range": {
+        "startLine": 42,
+        "startChar": 19,
+        "endLine": 42,
+        "endChar": 21
+      },
+      "revId": "7488c8d0c26aed3f6ce68f9b2d87b2c2365ffdbe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
