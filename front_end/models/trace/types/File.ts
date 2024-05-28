@@ -1,7 +1,6 @@
 // Copyright 2023 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
-
 import {type TraceWindowMicroSeconds} from './Timing.js';
 import {type TraceEventData} from './TraceEvents.js';
 
@@ -19,6 +18,7 @@ export const enum DataOrigin {
   CPUProfile = 'CPUProfile',
   TraceEvents = 'TraceEvents',
 }
+
 export interface Modifications {
   entriesFilterModifications: {
     hiddenEntriesIndexes: number[],
