@@ -295,10 +295,6 @@ export class Toolbar {
     this.contentElement.classList.add('toolbar-blue-on-hover');
   }
 
-  makeToggledGray(): void {
-    this.contentElement.classList.add('toolbar-toggled-gray');
-  }
-
   renderAsLinks(): void {
     this.contentElement.classList.add('toolbar-render-as-links');
   }
@@ -553,45 +549,67 @@ export class ToolbarText extends ToolbarItem<void> {
 }
 
 export class ToolbarButton extends ToolbarItem<ToolbarButton.EventTypes> {
-  private readonly glyphElement: IconButton.Icon.Icon;
-  private textElement: HTMLElement;
+  private button: Buttons.Button.Button;
   private text?: string;
   private glyph?: string;
   private adorner?: HTMLElement;
 
   constructor(title: string, glyphOrAdorner?: string|Adorners.Adorner.Adorner, text?: string, jslogContext?: string) {
-    const element = document.createElement('button');
-    element.classList.add('toolbar-button');
-    super(element);
+    const button = new Buttons.Button.Button();
+    button.classList.add('toolbar-button');
+    super(button);
     this.element.addEventListener('click', this.clicked.bind(this), false);
     this.element.addEventListener('mousedown', this.mouseDown.bind(this), false);
-
-    this.glyphElement = new IconButton.Icon.Icon();
-    this.glyphElement.className = 'toolbar-glyph hidden';
-    this.element.appendChild(this.glyphElement);
-    this.textElement = this.element.createChild('div', 'toolbar-text hidden');
-
-    this.setTitle(title);
+    button.variant = text ? Buttons.Button.Variant.TEXT : Buttons.Button.Variant.ICON;
+    button.textContent = text || '';
+    button.title = title;
+    this.button = button;
     if (glyphOrAdorner) {
       this.setGlyphOrAdorner(glyphOrAdorner);
     }
-    this.setText(text || '');
     if (jslogContext) {
-      this.element.setAttribute('jslog', `${VisualLogging.action().track({click: true}).context(jslogContext)}`);
+      button.jslogContext = jslogContext;
     }
-    this.title = '';
   }
 
   focus(): void {
     this.element.focus();
   }
 
+  checked(checked: boolean): void {
+    this.button.checked = checked;
+  }
+
+  toggleOnClick(toggleOnClick: boolean): void {
+    this.button.toggleOnClick = toggleOnClick;
+  }
+
+  isToggled(): boolean {
+    return this.button.toggled;
+  }
+
+  toggled(toggled: boolean): void {
+    this.button.toggled = toggled;
+  }
+
+  setToggleType(type: Buttons.Button.ToggleType): void {
+    this.button.toggleType = type;
+  }
+
+  setSize(size: Buttons.Button.Size): void {
+    this.button.size = size;
+  }
+
   setText(text: string): void {
     if (this.text === text) {
       return;
     }
-    this.textElement.textContent = text;
-    this.textElement.classList.toggle('hidden', !text);
+    this.button.textContent = text;
+    if (text) {
+      this.button.variant = Buttons.Button.Variant.TEXT;
+    } else {
+      this.button.variant = Buttons.Button.Variant.ICON;
+    }
     this.text = text;
   }
 
@@ -609,13 +627,12 @@ export class ToolbarButton extends ToolbarItem<ToolbarButton.EventTypes> {
   }
 
   setGlyph(glyph: string): void {
-    if (this.glyph === glyph) {
-      return;
-    }
-    this.glyphElement.name = !glyph ? null : glyph;
-    this.glyphElement.classList.toggle('hidden', !glyph);
-    this.element.classList.toggle('toolbar-has-glyph', Boolean(glyph));
-    this.glyph = glyph;
+    this.button.iconName = !glyph ? '' : glyph;
+  }
+
+  setToggledIcon(toggledIconName: string): void {
+    this.button.variant = Buttons.Button.Variant.ICON_TOGGLE;
+    this.button.toggledIconName = toggledIconName;
   }
 
   setBackgroundImage(iconURL: string): void {
@@ -809,49 +826,52 @@ export namespace ToolbarInput {
 }
 
 export class ToolbarToggle extends ToolbarButton {
-  private toggledInternal: boolean;
   private readonly untoggledGlyph: string|undefined;
   private readonly toggledGlyph: string|undefined;
 
-  constructor(title: string, glyph?: string, toggledGlyph?: string, jslogContext?: string) {
+  constructor(title: string, glyph?: string, toggledGlyph?: string, jslogContext?: string, toggleOnClick?: boolean) {
     super(title, glyph, '');
-    this.toggledInternal = false;
     this.untoggledGlyph = glyph;
-    this.toggledGlyph = toggledGlyph;
-    this.element.classList.add('toolbar-state-off');
+    this.toggledGlyph = toggledGlyph ? toggledGlyph : glyph;
+    this.setToggledIcon(this.toggledGlyph || '');
+    this.setToggleType(Buttons.Button.ToggleType.PRIMARY);
+    this.toggled(false);
+
     ARIAUtils.setPressed(this.element, false);
     if (jslogContext) {
       this.element.setAttribute('jslog', `${VisualLogging.toggle().track({click: true}).context(jslogContext)}`);
     }
+    if (toggleOnClick !== undefined) {
+      this.setToggleOnClick(toggleOnClick);
+    }
   }
 
-  toggled(): boolean {
-    return this.toggledInternal;
+  setToggleOnClick(toggleOnClick: boolean): void {
+    this.toggleOnClick(toggleOnClick);
   }
 
   setToggled(toggled: boolean): void {
-    if (this.toggledInternal === toggled) {
-      return;
-    }
-    this.toggledInternal = toggled;
-    this.element.classList.toggle('toolbar-state-on', toggled);
-    this.element.classList.toggle('toolbar-state-off', !toggled);
+    this.toggled(toggled);
     ARIAUtils.setPressed(this.element, toggled);
-    if (this.toggledGlyph && this.untoggledGlyph) {
-      this.setGlyph(toggled ? this.toggledGlyph : this.untoggledGlyph);
-    }
+  }
+
+  setChecked(checked: boolean): void {
+    this.checked(checked);
   }
 
   setDefaultWithRedColor(withRedColor: boolean): void {
-    this.element.classList.toggle('toolbar-default-with-red-color', withRedColor);
+    if (withRedColor) {
+      this.setToggleType(Buttons.Button.ToggleType.RED);
+      this.setGlyph(this.toggledGlyph || '');
+      this.setToggledIcon(this.untoggledGlyph || '');
+      this.toggled(true);
+    }
   }
 
   setToggleWithRedColor(toggleWithRedColor: boolean): void {
-    this.element.classList.toggle('toolbar-toggle-with-red-color', toggleWithRedColor);
-  }
-
-  setToggleWithDot(toggleWithDot: boolean): void {
-    this.element.classList.toggle('toolbar-toggle-with-dot', toggleWithDot);
+    if (toggleWithRedColor) {
+      this.setToggleType(Buttons.Button.ToggleType.RED);
+    }
   }
 }
 
@@ -933,7 +953,7 @@ export class ToolbarSettingToggle extends ToolbarToggle {
 
   override clicked(event: Event): void {
     this.willAnnounceState = true;
-    this.setting.set(!this.toggled());
+    this.setting.set(this.isToggled());
     super.clicked(event);
   }
 }
