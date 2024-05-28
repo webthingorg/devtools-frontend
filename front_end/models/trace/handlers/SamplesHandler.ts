@@ -62,9 +62,24 @@ function buildProfileCalls(): void {
         }
         const ts = Helpers.Timing.millisecondsToMicroseconds(Types.Timing.MilliSeconds(timeStampMilliseconds));
         const nodeId = node.id as Helpers.TreeHelpers.TraceEntryNodeId;
-
-        const profileCall = Helpers.Trace.makeProfileCall(node, profileId, sampleIndex, ts, processId, threadId);
-        finalizedData.profileCalls.push(profileCall);
+        const profileCall = {
+          cat: '',
+          name: 'ProfileCall',
+          nodeId: node.id,
+          args: {},
+          ph: Types.TraceEvents.Phase.COMPLETE,
+          pid: processId,
+          tid: threadId,
+          ts,
+          dur: Types.Timing.MicroSeconds(0),
+          selfTime: Types.Timing.MicroSeconds(0),
+          callFrame: node.callFrame,
+          sampleIndex,
+          profileId,
+        };
+        const brandedProfileCall =
+            Helpers.SyntheticEvents.SyntheticEventsManager.getManagerForTrace().registerProfileCall(profileCall);
+        finalizedData.profileCalls.push(brandedProfileCall);
         indexStack.push(finalizedData.profileCalls.length - 1);
         const traceEntryNode = Helpers.TreeHelpers.makeEmptyTraceEntryNode(profileCall, nodeId);
         entryToNode.set(profileCall, traceEntryNode);
