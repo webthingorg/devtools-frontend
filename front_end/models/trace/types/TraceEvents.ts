@@ -1361,11 +1361,12 @@ export interface SyntheticTraceEntry extends TraceEventData {
  * point in time that the sample was created, we also have to store the ID of
  * the Node that points to the function call that this profile call represents.
  */
-export interface SyntheticProfileCall extends SyntheticTraceEntry {
+export interface SyntheticProfileCall extends SyntheticEntry {
   callFrame: Protocol.Runtime.CallFrame;
   nodeId: Protocol.integer;
   sampleIndex: number;
   profileId: ProfileID;
+  selfTime: MicroSeconds;
 }
 
 /**
@@ -1676,6 +1677,15 @@ export type CallFrameID = number&CallFrameIdTag;
 // eslint-disable-next-line @typescript-eslint/naming-convention
 export function CallFrameID(value: number): CallFrameID {
   return value as CallFrameID;
+}
+
+class SampleIndexTag {
+  readonly #sampleIndexTag: (symbol|undefined);
+}
+export type SampleIndex = number&SampleIndexTag;
+// eslint-disable-next-line @typescript-eslint/naming-convention
+export function SampleIndex(value: number): SampleIndex {
+  return value as SampleIndex;
 }
 
 class ProcessIdTag {

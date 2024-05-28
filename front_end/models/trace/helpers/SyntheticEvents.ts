@@ -2,20 +2,25 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import type * as Types from '../types/types.js';
+import * as Types from '../types/types.js';
 
 const syntheticEventsManagerByTraceIndex: SyntheticEventsManager[] = [];
 
 export class SyntheticEventsManager {
   /**
-   * All synthetic entries created in a trace from a corresponding trace events.
-   * (ProfileCalls are excluded because)
+   * All synthetic entries created in a trace based on a corresponding
+   * raw trace event. The array is indexed based on the position of the
+   * raw event in the original raw data in Model#rawEvents.
    */
   #syntheticTraceEvents: Types.TraceEvents.SyntheticBasedEvent[] = [];
   /**
    * All raw entries from a trace.
    */
   #rawTraceEvents: readonly Types.TraceEvents.TraceEventData[] = [];
+  /**
+   * All profile calls created for a trace.
+   */
+  #profileCallsByKey = new Map<Types.File.ProfileCallKey, Types.TraceEvents.SyntheticProfileCall>();
 
   /**
    * Initializes a SyntheticEventsManager for a trace. This needs to be
@@ -55,7 +60,7 @@ export class SyntheticEventsManager {
   }
 
   /**
-   * Registers and returns a branded synthetic event. Synthetic events need to
+   * Registers and returns a branded based synthetic event. Synthetic events need to
    * be created with this method to ensure they are registered and made
    * available to load events using serialized keys.
    */
@@ -69,11 +74,36 @@ export class SyntheticEventsManager {
     return eventAsSynthetic;
   }
 
+  /**
+   * Registers and returns a branded profile call.
+   */
+  registerProfileCall(profileCall: Omit<Types.TraceEvents.SyntheticProfileCall, '_tag'>):
+      Types.TraceEvents.SyntheticProfileCall {
+    const key: Types.File.ProfileCallKey = [
+      'p',
+      profileCall.pid,
+      profileCall.tid,
+      Types.TraceEvents.SampleIndex(profileCall.sampleIndex),
+      profileCall.nodeId,
+    ];
+    const eventAsProfileCall = profileCall as Types.TraceEvents.SyntheticProfileCall;
+    this.#profileCallsByKey.set(key, eventAsProfileCall);
+    return eventAsProfileCall;
+  }
+
   syntheticEventForRawEventIndex(rawEventIndex: number): Types.TraceEvents.SyntheticBasedEvent {
     const syntheticEvent = this.#syntheticTraceEvents.at(rawEventIndex);
     if (!syntheticEvent) {
       throw new Error(`Attempted to get a synthetic event from an unknown raw event index: ${rawEventIndex}`);
     }
     return syntheticEvent;
+  }
+
+  profileCallForKey(key: Types.File.ProfileCallKey): Types.TraceEvents.SyntheticProfileCall {
+    const profileCall = this.#profileCallsByKey.get(key);
+    if (!profileCall) {
+      throw new Error(`Attempted to get a profile call from an unknown key: ${key.join('-')}`);
+    }
+    return profileCall;
   }
 }
