@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3efba575_762329e4",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-05-29T13:31:34Z",
+      "side": 1,
+      "message": "Makes sense! initialized to [] instead",
+      "parentUuid": "0deada10_0851dc45",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 75
+      },
+      "revId": "1f172a3dc56ce90cd0b71a796f33f92154bbf690",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "204598ca_4258982f",
@@ -78,6 +102,30 @@
           ]
         }
       ],
+      "revId": "1f172a3dc56ce90cd0b71a796f33f92154bbf690",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1aa6e3f2_2c278c83",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 1029,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-05-29T13:31:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "204598ca_4258982f",
+      "range": {
+        "startLine": 1024,
+        "startChar": 3,
+        "endLine": 1029,
+        "endChar": 5
+      },
       "revId": "1f172a3dc56ce90cd0b71a796f33f92154bbf690",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
