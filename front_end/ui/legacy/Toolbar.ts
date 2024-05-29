@@ -887,7 +887,7 @@ export class ToolbarMenuButton extends ToolbarButton {
       useSoftMenu: this.useSoftMenu,
       x: this.element.getBoundingClientRect().left,
       y: this.element.getBoundingClientRect().top + this.element.offsetHeight,
-      onSoftMenuClosed: () => this.element.removeAttribute('aria-expanded'),
+      onSoftMenuClosed: () => requestAnimationFrame(() => this.element.removeAttribute('aria-expanded')),
     });
     this.contextMenuHandler(contextMenu);
     this.element.setAttribute('aria-expanded', 'true');
