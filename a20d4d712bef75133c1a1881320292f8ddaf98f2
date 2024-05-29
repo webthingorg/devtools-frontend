@@ -34,6 +34,24 @@
       "parentUuid": "3f843c6c_fca45af5",
       "revId": "a20d4d712bef75133c1a1881320292f8ddaf98f2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "364710d2_72a0847b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2024-05-29T07:44:39Z",
+      "side": 1,
+      "message": "Sure: https://ci.chromium.org/ui/p/devtools-frontend/builders/ci/Stand-alone%20Win/12468/test-results?sortby\u003d\u0026groupby\u003d . \n\nThere is bug in the exoneration procedure that will consider everything to be be fine just because the exoneration run did not fail. This is wrong because need to make sure that we did manage to run the tests that failed and it happened that we actually did not run anything in some case (grep mismatches). \n\nOnce we fix the bug by querying rbd for final test results that \u0027after\u0027 hook will only show as failed. \n\nAs a bit of extra context a hook gets reported to rdb only in case of a failure. \n\nSo an exoneration run will simply not report the hook as passing even if it does.",
+      "parentUuid": "85d2d917_142bd1bd",
+      "revId": "a20d4d712bef75133c1a1881320292f8ddaf98f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
