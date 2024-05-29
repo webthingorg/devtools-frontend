@@ -124,12 +124,14 @@ export class SettingsScreen extends UI.Widget.VBox implements UI.View.ViewLocati
 
     UI.ARIAUtils.markAsHeading(settingsTitleElement, 1);
     settingsTitleElement.textContent = i18nString(UIStrings.settings);
+    const icon = IconButton.Icon.create('devtools');
+    settingsTitleElement.prepend(icon);
 
     this.tabbedLocation = UI.ViewManager.ViewManager.instance().createTabbedLocation(
         () => SettingsScreen.revealSettingsScreen(), 'settings-view');
     const tabbedPane = this.tabbedLocation.tabbedPane();
     tabbedPane.registerCSSFiles([settingsScreenStyles]);
-    tabbedPane.leftToolbar().appendToolbarItem(new UI.Toolbar.ToolbarItem(settingsLabelElement));
+    tabbedPane.headerElement().prepend(settingsLabelElement);
     tabbedPane.setShrinkableTabs(false);
     tabbedPane.makeVerticalTabLayout();
     const keyBindsView = UI.ViewManager.ViewManager.instance().view('keybinds');
