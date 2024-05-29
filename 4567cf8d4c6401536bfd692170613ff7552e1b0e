@@ -76,6 +76,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "be9be699_a00a8529",
+        "filename": "front_end/core/common/SettingRegistration.test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-05-29T12:01:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a7905c5a_e68df88d",
+      "range": {
+        "startLine": 120,
+        "startChar": 0,
+        "endLine": 125,
+        "endChar": 11
+      },
+      "revId": "4567cf8d4c6401536bfd692170613ff7552e1b0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7b274486_fab7dc57",
@@ -101,6 +125,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "203cf980_9c326244",
+        "filename": "front_end/core/common/SettingRegistration.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-05-29T12:01:29Z",
+      "side": 1,
+      "message": "Good idea! I\u0027ll take a stab at this in a follow-up CL.",
+      "parentUuid": "7b274486_fab7dc57",
+      "range": {
+        "startLine": 92,
+        "startChar": 16,
+        "endLine": 92,
+        "endChar": 37
+      },
+      "revId": "4567cf8d4c6401536bfd692170613ff7552e1b0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "391b36cb_6dcdf748",
         "filename": "front_end/core/root/Runtime.ts",
         "patchSetId": 7
@@ -112,6 +160,30 @@
       "writtenOn": "2024-05-28T05:39:25Z",
       "side": 1,
       "message": "I think it might be clearer to make `config` a second argument. Otherwise it looks like it\u0027s part of the `SettingsRegistration` descriptor.",
+      "range": {
+        "startLine": 84,
+        "startChar": 4,
+        "endLine": 84,
+        "endChar": 24
+      },
+      "revId": "4567cf8d4c6401536bfd692170613ff7552e1b0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c5eea73_c9c7d93c",
+        "filename": "front_end/core/root/Runtime.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-05-29T12:01:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "391b36cb_6dcdf748",
       "range": {
         "startLine": 84,
         "startChar": 4,
@@ -147,6 +219,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1fd4d0f1_ac78480a",
+        "filename": "front_end/core/root/Runtime.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 306,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-05-29T12:01:29Z",
+      "side": 1,
+      "message": "I wasn\u0027t sure whether to type the sub-objects optional or not, decided against optionality for now. PTAL.",
+      "parentUuid": "f1cf0e04_b70de9d1",
+      "range": {
+        "startLine": 299,
+        "startChar": 0,
+        "endLine": 306,
+        "endChar": 1
+      },
+      "revId": "4567cf8d4c6401536bfd692170613ff7552e1b0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "743ef818_0013ac58",
         "filename": "front_end/entrypoints/main/MainImpl.ts",
         "patchSetId": 7
@@ -158,6 +254,24 @@
       "writtenOn": "2024-05-28T05:51:25Z",
       "side": 1,
       "message": "nit: let\u0027s request in parallel with getPreferences?",
+      "revId": "4567cf8d4c6401536bfd692170613ff7552e1b0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "586003ff_34f3c97e",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-05-29T12:01:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "743ef818_0013ac58",
       "revId": "4567cf8d4c6401536bfd692170613ff7552e1b0e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
