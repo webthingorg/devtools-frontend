@@ -16,6 +16,23 @@
       "message": "Addressed comments. PTAL again.",
       "revId": "40435fbc49c9cee0f6135018b50a9d016f6c87a8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32d0d3b5_567549cb",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-05-29T12:07:04Z",
+      "side": 1,
+      "message": "is it possible that getHostConfig is not available/throws/rejects? E.g., if this CL lands before the Chromium change or in some other way the frontend is used with the wrong version of Chromium? should we handle it gracefully?",
+      "revId": "40435fbc49c9cee0f6135018b50a9d016f6c87a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
