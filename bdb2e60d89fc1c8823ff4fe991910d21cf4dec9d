@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "25711e88_9c889e9d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-05-29T09:39:37Z",
+      "side": 1,
+      "message": "Looking nice! LGTM",
+      "revId": "bdb2e60d89fc1c8823ff4fe991910d21cf4dec9d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16cb15e6_b701aae2",
+        "filename": "front_end/models/workspace/UISourceCode.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-05-29T09:39:37Z",
+      "side": 1,
+      "message": "Nice :)!",
+      "revId": "bdb2e60d89fc1c8823ff4fe991910d21cf4dec9d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
