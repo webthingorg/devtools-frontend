@@ -16,6 +16,24 @@
       "message": "add this and the next import to BUILD.gn?",
       "revId": "ad2975c70bc9998895e44657464120731d06bad9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d1ec36b_7ecff758",
+        "filename": "front_end/panels/freestyler/FreestylerPanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-05-29T13:43:59Z",
+      "side": 1,
+      "message": "Good catch, updated it; thanks!",
+      "parentUuid": "2f3f6042_986be682",
+      "revId": "ad2975c70bc9998895e44657464120731d06bad9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
