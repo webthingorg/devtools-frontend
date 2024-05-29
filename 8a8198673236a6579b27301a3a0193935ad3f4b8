@@ -16,6 +16,57 @@
       "message": "lgtm (gerrit took away my last lgtm!)",
       "revId": "8a8198673236a6579b27301a3a0193935ad3f4b8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "980a93a4_789d7466",
+        "filename": "front_end/models/live-metrics/LiveMetrics.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-05-29T15:58:33Z",
+      "side": 1,
+      "message": "Ah automatically? because its the same frameid and worldname? that\u0027s convenient.",
+      "revId": "8a8198673236a6579b27301a3a0193935ad3f4b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15e856bf_818ba1fb",
+        "filename": "front_end/models/live-metrics/LiveMetrics.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-05-29T15:58:33Z",
+      "side": 1,
+      "message": "why not `runtimeModel.addBinding` ?",
+      "revId": "8a8198673236a6579b27301a3a0193935ad3f4b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ab69b77_7f782be3",
+        "filename": "front_end/models/live-metrics/web-vitals-injected/rollup.config.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-05-29T15:58:33Z",
+      "side": 1,
+      "message": "drop the ! and swap the two cases?",
+      "revId": "8a8198673236a6579b27301a3a0193935ad3f4b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

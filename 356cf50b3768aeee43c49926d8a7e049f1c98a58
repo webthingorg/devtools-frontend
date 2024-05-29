@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "671a3905_4d571f49",
+        "filename": "front_end/models/live-metrics/web-vitals-injected/spec/spec.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-05-29T15:58:33Z",
+      "side": 1,
+      "message": "i guess this file could also be called types?\n\ni don\u0027t mind spec, it\u0027s just not a devtools convention.",
+      "revId": "356cf50b3768aeee43c49926d8a7e049f1c98a58",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
