@@ -76,10 +76,12 @@ function defaultView(input: ViewInput, output: ViewOutput, target: HTMLElement):
 
 let freestylerPanelInstance: FreestylerPanel;
 export class FreestylerPanel extends UI.Panel.Panel {
+  static panelName = 'freestyler';
+
   #contentContainer: HTMLElement;
   state = FreestylerChatUiState.CONSENT_VIEW;
   private constructor(private view: View = defaultView) {
-    super('freestyler');
+    super(FreestylerPanel.panelName);
 
     createToolbar(this.contentElement);
     this.#contentContainer = this.contentElement.createChild('div', 'freestyler-chat-ui-container');
@@ -105,6 +107,10 @@ export class FreestylerPanel extends UI.Panel.Panel {
     this.view(this, this, this.#contentContainer);
   }
 
+  handleAction(): void {
+    // TODO(nvitkov): Handle on new node ask
+  }
+
   onTextSubmit = (): void => {
     // TODO(ergunsh): Handle submit here.
   };
@@ -113,4 +119,33 @@ export class FreestylerPanel extends UI.Panel.Panel {
     this.state = FreestylerChatUiState.CHAT_VIEW;
     this.doUpdate();
   };
+}
+
+export class ActionDelegate implements UI.ActionRegistration.ActionDelegate {
+  handleAction(
+      _context: UI.Context.Context,
+      actionId: string,
+      ): boolean {
+    switch (actionId) {
+      case 'freestyler.element-panel-context': {
+        void (async () => {
+          const view = UI.ViewManager.ViewManager.instance().view(
+              FreestylerPanel.panelName,
+          );
+
+          if (view) {
+            await UI.ViewManager.ViewManager.instance().showView(
+                FreestylerPanel.panelName,
+            );
+            const widget = (await view.widget()) as FreestylerPanel;
+            // TODO: Add UMA
+            widget.handleAction();
+          }
+        })();
+        return true;
+      }
+    }
+
+    return false;
+  }
 }
