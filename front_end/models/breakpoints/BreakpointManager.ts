@@ -808,7 +808,7 @@ export class Breakpoint implements SDK.TargetManager.SDKModelObserver<SDK.Debugg
       return `${condition}\n\n//# sourceURL=${sourceUrl}` as SDK.DebuggerModel.BackendCondition;
     };
 
-    if (location) {
+    if (location && location.script()?.isJavaScript()) {
       return SourceMapScopes.NamesResolver.allVariablesAtPosition(location)
           .then(
               nameMap => nameMap.size > 0 ?
