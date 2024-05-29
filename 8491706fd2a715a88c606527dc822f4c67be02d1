@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e40ee4fa_7690abd3",
+        "filename": "front_end/panels/elements/PropertyMatchers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 576,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-05-29T13:29:57Z",
+      "side": 1,
+      "message": "that\u0027s sad but alright 😊",
+      "parentUuid": "ae6c1619_fac72c76",
+      "revId": "8491706fd2a715a88c606527dc822f4c67be02d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cc199507_97f0141c",
@@ -119,6 +137,24 @@
       "side": 1,
       "message": "I think there is a confusion in our `Icon` implementation as it lives under `IconButton` namespace but it is not an actual button.\n\nUsing the GM3 buttons is not really possible here as this is in the context of a swatch in the styles tab and the constraints for rendering it is different (smaller space, we don\u0027t want the hover interaction etc.).\n\nUsing the `button` element comes with its own styling issues that I wasn\u0027t able to fully solve: the line height gets bigger, the alignment of the icon was not exactly perfect and there are some default styles applying from the user agent stylesheets like background.\n\nSo, decided to go with adding an `icon` with `button` role which didn\u0027t have styling issues.\n\n---\n\nahh, using the string directly makes sense; updated it :)",
       "parentUuid": "d6fcace6_13eb2297",
+      "revId": "8491706fd2a715a88c606527dc822f4c67be02d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28a8529b_d94fb68f",
+        "filename": "front_end/panels/elements/components/AnchorFunctionLinkSwatch.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-05-29T13:29:57Z",
+      "side": 1,
+      "message": "Thanks for the explanation! I was mainly just curious as why a descendant of IconButton is not a Button by default. I guess it\u0027s legacy issues.",
+      "parentUuid": "9086f0d5_de662616",
       "revId": "8491706fd2a715a88c606527dc822f4c67be02d1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
