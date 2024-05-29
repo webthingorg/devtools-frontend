@@ -142,6 +142,24 @@
       "parentUuid": "9ac75993_5de5c264",
       "revId": "a20d4d712bef75133c1a1881320292f8ddaf98f2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de2ccccd_d04e2309",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-05-29T08:11:49Z",
+      "side": 1,
+      "message": "In the build log you linked above the afterAll hook reports an actual issue, for example.",
+      "parentUuid": "3c803994_f62feacc",
+      "revId": "a20d4d712bef75133c1a1881320292f8ddaf98f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
