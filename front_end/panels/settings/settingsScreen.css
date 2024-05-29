@@ -115,9 +115,15 @@ label {
 }
 
 .settings-window-title {
-  font-size: 18px;
+  display: flex;
+  align-items: center;
+  font-size: var(--sys-size-9);
   color: var(--sys-color-on-surface);
-  padding: 0 0 5px 13px;
+  margin: 0 var(--sys-size-7) var(--sys-size-8) var(--sys-size-7);
+
+  & > devtools-icon {
+    margin-right: var(--sys-size-6);
+  }
 }
 
 .settings-container-wrapper {
