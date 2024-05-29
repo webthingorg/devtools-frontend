@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf5caf93_d08a4d37",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-05-29T12:57:57Z",
+      "side": 1,
+      "message": "Mostly LGTM with a few questions.",
+      "revId": "8491706fd2a715a88c606527dc822f4c67be02d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "512c9a19_f5cbbf29",
+        "filename": "front_end/panels/elements/PropertyMatchers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 576,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-05-29T12:57:57Z",
+      "side": 1,
+      "message": "nit: why this? ^",
+      "revId": "8491706fd2a715a88c606527dc822f4c67be02d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc199507_97f0141c",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1093,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-05-29T12:57:57Z",
+      "side": 1,
+      "message": "What\u0027s left for the frontend to do with default anchor case?",
+      "revId": "8491706fd2a715a88c606527dc822f4c67be02d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6fcace6_13eb2297",
+        "filename": "front_end/panels/elements/components/AnchorFunctionLinkSwatch.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-05-29T12:57:57Z",
+      "side": 1,
+      "message": "wait, just curious, since this `Icon` is from `IconButton`, I would suppose that it is considered a type of `IconButton`, and from the name of it, it should be a `button`, a11y-role-wise, already? Otherwise it seems confusing that it\u0027s called XXButton but still requires this manual setting of `role\u003dbutton`.\n\nAnother question is, what\u0027s the difference between writing\n```\nrole\u003d${\u0027button\u0027}\n```\nvs.\n```\nrole\u003d\"button\"\n```,\nand similarly for the class attribute later?",
+      "revId": "8491706fd2a715a88c606527dc822f4c67be02d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab1b4ccb_4d33955d",
+        "filename": "front_end/panels/elements/components/anchorFunctionLinkSwatch.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-05-29T12:57:57Z",
+      "side": 1,
+      "message": "Why is this `sys-color-primary`, not `text-link`? Is there something special about this link that differs from variable links?",
+      "revId": "8491706fd2a715a88c606527dc822f4c67be02d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
