@@ -22,6 +22,30 @@
       },
       "revId": "da150e27449620ef62960783de85177922735262",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "179945fb_a1277d4f",
+        "filename": "front_end/panels/timeline/components/BreadcrumbsUI.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-05-29T19:05:10Z",
+      "side": 1,
+      "message": "Got it! thanksss! Done",
+      "parentUuid": "1eef6329_be59c044",
+      "range": {
+        "startLine": 77,
+        "startChar": 10,
+        "endLine": 78,
+        "endChar": 49
+      },
+      "revId": "da150e27449620ef62960783de85177922735262",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
