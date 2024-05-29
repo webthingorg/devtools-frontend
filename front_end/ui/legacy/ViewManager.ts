@@ -70,6 +70,10 @@ export class PreRegisteredView implements View {
     return Boolean(this.viewRegistration.isPreviewFeature);
   }
 
+  iconName(): string|undefined {
+    return this.viewRegistration.iconName;
+  }
+
   isTransient(): boolean {
     return this.viewRegistration.persistence === ViewPersistence.TRANSIENT;
   }
@@ -712,7 +716,12 @@ class TabbedLocation extends Location implements TabbedViewLocation {
   private appendTab(view: View, index?: number): void {
     this.tabbedPaneInternal.appendTab(
         view.viewId(), view.title(), new ContainerWidget(view), undefined, false,
-        view.isCloseable() || view.isTransient(), view.isPreviewFeature(), index);
+        view.isCloseable() || view.isTransient(), view.isPreviewFeature(), index, undefined);
+    const iconName = view.iconName();
+    if (iconName) {
+      const icon = IconButton.Icon.create(iconName);
+      this.tabbedPaneInternal.setTabIcon(view.viewId(), icon);
+    }
   }
 
   appendView(view: View, insertBefore?: View|null): void {
