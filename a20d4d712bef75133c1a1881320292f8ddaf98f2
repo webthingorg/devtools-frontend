@@ -124,6 +124,24 @@
       "parentUuid": "616c76d3_c3ca4bfa",
       "revId": "a20d4d712bef75133c1a1881320292f8ddaf98f2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c803994_f62feacc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2024-05-29T08:08:33Z",
+      "side": 1,
+      "message": "Sure. I am working on making exoneration more precise and robust. Still I wonder why report the aterAll failure if you eventually ignore it?",
+      "parentUuid": "9ac75993_5de5c264",
+      "revId": "a20d4d712bef75133c1a1881320292f8ddaf98f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
