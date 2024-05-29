@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0cc219a8_1dd4f1ed",
+        "filename": "front_end/panels/elements/ElementStatePaneWidget.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-05-29T13:26:58Z",
+      "side": 0,
+      "message": "I suppose this is changing this button from using `:hov` as text to using an svg. Does this have accessibility concerns?",
+      "revId": "e1a2708901f554da8010a3b6f10d285920296880",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
