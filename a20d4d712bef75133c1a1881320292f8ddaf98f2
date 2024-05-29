@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f843c6c_fca45af5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-05-29T05:08:53Z",
+      "side": 1,
+      "message": "Philip, is this something we want to do? Failing after hooks still hint at problems. The unit tests\u0027 async instrumentation will report any problems in the after hook as well (IIRC).",
+      "revId": "a20d4d712bef75133c1a1881320292f8ddaf98f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
