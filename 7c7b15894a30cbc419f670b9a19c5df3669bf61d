@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b6b00f8_e7bba621",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-29T08:26:40Z",
+      "side": 1,
+      "message": "this is looking great! I have a few comments but nothing major. Thanks!",
+      "revId": "7c7b15894a30cbc419f670b9a19c5df3669bf61d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2cc46096_a4441166",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-29T08:26:40Z",
+      "side": 1,
+      "message": "if we move this into the top level of the CumulativeLayoutShift module, we can refer to that value here rather than redefine it.",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 95
+      },
+      "revId": "7c7b15894a30cbc419f670b9a19c5df3669bf61d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3db9dd07_bcc9730d",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-29T08:26:40Z",
+      "side": 1,
+      "message": "do we not sort these already in the handler? I\u0027m not sure if this extra sort is necessary.",
+      "range": {
+        "startLine": 123,
+        "startChar": 0,
+        "endLine": 123,
+        "endChar": 76
+      },
+      "revId": "7c7b15894a30cbc419f670b9a19c5df3669bf61d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7653a12f_97d3a593",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-29T08:26:40Z",
+      "side": 1,
+      "message": "nit: move this outside of this function so it\u0027s only defined once",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 94
+      },
+      "revId": "7c7b15894a30cbc419f670b9a19c5df3669bf61d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2be23558_f138adf2",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-29T08:26:40Z",
+      "side": 1,
+      "message": "nit: let\u0027s move this check first in this conditional - means we can early exit if the request wasn\u0027t in the window without first checking the mime type and resource type",
+      "range": {
+        "startLine": 140,
+        "startChar": 99,
+        "endLine": 140,
+        "endChar": 110
+      },
+      "revId": "7c7b15894a30cbc419f670b9a19c5df3669bf61d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a59351b_26964da2",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-29T08:26:40Z",
+      "side": 1,
+      "message": "can layout shift clusters ever span across a navigation? I would expect that perhaps not (although worth checking). If so I\u0027m wondering if rather than check every event we could check one, or in the handler set a start/end time on the cluster and use that here.\n\nAlso: not sure we need to sort them here",
+      "range": {
+        "startLine": 172,
+        "startChar": 0,
+        "endLine": 174,
+        "endChar": 59
+      },
+      "revId": "7c7b15894a30cbc419f670b9a19c5df3669bf61d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4b52ab2_0fc37d79",
+        "filename": "front_end/panels/timeline/TimelineController.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-29T08:26:40Z",
+      "side": 1,
+      "message": "is it the iframe creation events that need these categories? Is there a reason we need both of these?\n\n(not against adding them just curious to understand why!)",
+      "range": {
+        "startLine": 102,
+        "startChar": 14,
+        "endLine": 104,
+        "endChar": 6
+      },
+      "revId": "7c7b15894a30cbc419f670b9a19c5df3669bf61d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
