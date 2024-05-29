@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb915a94_7637112e",
+        "filename": "front_end/models/trace/helpers/SyntheticEvents.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-29T08:53:37Z",
+      "side": 1,
+      "message": "sorry, I know that you have not got this CL ready for review but a thought popped into my head that I wanted to note down...\n\nWe know that for a large trace we could have LOTS of profile calls created. Therefore, working up front to calculate and store a key is a reasonable amount of work to do.\n\nThe whole goal of the ProfileCall having a key like it does is to enable look-ups of key\u003d\u003eprofile call without having to generate the huge map of keys in advance.\n\nI always pictured that if we called `getEventByKey` and passed a profile call, what we would do is look through the traceParsedData, finding the right PID, TID, etc, and then find the right event based on the node ID and sample Index (we could alter the data structures of the handlers to make this look-up cheap).\n\nThat way we don\u0027t up front calculate a bunch of keys for profile calls that we might never serialize data against.\n\nwdyt?",
+      "range": {
+        "startLine": 79,
+        "startChar": 1,
+        "endLine": 92,
+        "endChar": 3
+      },
+      "revId": "b9c7cd7f226fd7c3a75daae35a19670328a3bbe5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
