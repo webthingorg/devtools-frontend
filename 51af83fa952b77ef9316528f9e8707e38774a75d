@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9fa6b5f_4d8e3364",
+        "filename": "front_end/models/text_utils/ContentData.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-05-29T07:52:28Z",
+      "side": 1,
+      "message": "super nit: It doesn\u0027t entirely ignore mime type, if we check if it is of text mime type to convert it if we only had a base64 string. Maybe it is worth adding a bit to this comment? Leaving it to you to decide.",
+      "revId": "51af83fa952b77ef9316528f9e8707e38774a75d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
