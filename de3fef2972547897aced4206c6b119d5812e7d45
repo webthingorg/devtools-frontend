@@ -16,6 +16,23 @@
       "message": "Hi!\n\nNot sure if this is the ideal way to fix the bug, but it does the trick.\n\nIf this patch is the appropriate way to solve the bug, please run try jobs.",
       "revId": "de3fef2972547897aced4206c6b119d5812e7d45",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e642fe6f_6282c0ce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-05-29T08:19:32Z",
+      "side": 1,
+      "message": "Thanks for fixing this bug!\n\nI think we should land the fix as-is. We might have to change this again once we properly support source maps for Wasm (e.g. Kotlin debugging). But for now this is the right, pragmatic fix.",
+      "revId": "de3fef2972547897aced4206c6b119d5812e7d45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
