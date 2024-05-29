@@ -55,6 +55,7 @@ import * as MobileThrottling from '../mobile_throttling/mobile_throttling.js';
 import {ActiveFilters} from './ActiveFilters.js';
 import {TraceLoadEvent} from './BenchmarkEvents.js';
 import {SHOULD_SHOW_EASTER_EGG} from './EasterEgg.js';
+import {EnhancedTracesEngine} from './EnhancedTraces.js';
 import {Tracker} from './FreshRecording.js';
 import historyToolbarButtonStyles from './historyToolbarButton.css.js';
 import {IsolateSelector} from './IsolateSelector.js';
@@ -743,6 +744,12 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
       } else {
         const formattedTraceIter = traceJsonGenerator(traceEvents, metadata);
         traceAsString = Array.from(formattedTraceIter).join('');
+        // Create enhanced traces here
+        const enhancedTracesEngine = new EnhancedTracesEngine(traceEvents);
+        traceAsString = EnhancedTracesEngine.generateEnhancedTraces(
+            enhancedTracesEngine.captureTargetsFromTraces(), enhancedTracesEngine.captureExecutionContextFromTraces(),
+            enhancedTracesEngine.captureScriptFromTraces(), enhancedTracesEngine.getEnhancedTracesMetaData(),
+            traceEvents, metadata);
       }
       if (!traceAsString) {
         throw new Error('Trace content empty');
