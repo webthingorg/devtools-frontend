@@ -46,6 +46,30 @@
       },
       "revId": "b9c7cd7f226fd7c3a75daae35a19670328a3bbe5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be83eec0_a48e59ae",
+        "filename": "front_end/models/trace/helpers/SyntheticEvents.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-29T10:58:47Z",
+      "side": 1,
+      "message": "Last week we talked about the renderer handler exposing some map that could be:\n\n`Map\u003cProcessID, Map\u003cThreadID, Map\u003cSampleIndex, Map\u003cNodeID, ProfileCall\u003e\u003e\u003e\u003e\u003e`\n\nThat feels rough to me...but what if we did:\n\n`Map\u003cProcessID, Map\u003cThreadID, Map\u003cSampleNodeIdKey, ProfileCall\u003e\u003e\u003e`\n\nWhere `SampleNodeIdKey` is just `nodeId + sampleIndex` as a string? That would save the loop + cache that you are suggesting.",
+      "parentUuid": "6aa5fff3_3d6e74d6",
+      "range": {
+        "startLine": 79,
+        "startChar": 1,
+        "endLine": 92,
+        "endChar": 3
+      },
+      "revId": "b9c7cd7f226fd7c3a75daae35a19670328a3bbe5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
