@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48ff52a5_09414d5f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-05-29T14:50:33Z",
+      "side": 1,
+      "message": "Benedikt, PTAL.\n\nThis fixes the immediate bug, but context menus behave differently on Windows vs MacOS.\n\n1) perform action to open native context menu\n2) click on button (or any other \"active\" element) unrelated to the context menu\n\nMacOS: context menu is closed, nothing else happens\nWindows: context menu is closed, and the button\u0027s action is performed\n\nThis is not limited to DevTools, I assume it\u0027s WAI?",
+      "revId": "1a55dda59f34a02a3e6bb35cac9d99705f5ada48",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
