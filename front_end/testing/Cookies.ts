@@ -17,7 +17,7 @@ export interface CookieExpectation {
   expires?: null|number|string;
   size?: number;
   priority?: Protocol.Network.CookiePriority;
-  partitionKey?: string;
+  partitionKey?: Protocol.Network.CookiePartitionKey;
   partitionKeyOpaque?: boolean;
 }
 

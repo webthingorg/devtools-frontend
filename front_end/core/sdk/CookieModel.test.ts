@@ -27,7 +27,7 @@ describeWithMockConnection('CookieModel', () => {
     priority: Protocol.Network.CookiePriority.Medium,
     sourcePort: 80,
     sourceScheme: Protocol.Network.CookieSourceScheme.NonSecure,
-    partitionKey: '',
+    partitionKey: undefined,
   };
 
   const PROTOCOL_COOKIE_PARTITIONED = {
@@ -44,7 +44,7 @@ describeWithMockConnection('CookieModel', () => {
     priority: Protocol.Network.CookiePriority.Medium,
     sourcePort: 80,
     sourceScheme: Protocol.Network.CookieSourceScheme.NonSecure,
-    partitionKey: 'https://example.net',
+    partitionKey: {topLevelSite: 'https://example.net', hasCrossSiteAncestor: false},
   };
 
   it('can retrieve cookies', async () => {
@@ -71,7 +71,8 @@ describeWithMockConnection('CookieModel', () => {
     assert.strictEqual(cookies[0].priority(), Protocol.Network.CookiePriority.Medium);
     assert.strictEqual(cookies[0].sourcePort(), 80);
     assert.strictEqual(cookies[0].sourceScheme(), Protocol.Network.CookieSourceScheme.NonSecure);
-    assert.strictEqual(cookies[0].partitionKey(), 'https://example.net');
+    assert.strictEqual(cookies[0].partitionKey().topLevelSite, 'https://example.net');
+    assert.strictEqual(cookies[0].partitionKey().hasCrossSiteAncestor, false);
   });
 
   it('clears stored blocked cookies on primary page change', async () => {
@@ -131,6 +132,7 @@ describeWithMockConnection('CookieModel', () => {
     assert.lengthOf(cookies2, 1);
     assert.strictEqual(cookies2[0].domain(), '.example.com');
     assert.strictEqual(cookies2[0].name(), 'name');
-    assert.strictEqual(cookies2[0].partitionKey(), 'https://example.net');
+    assert.strictEqual(cookies2[0].partitionKey().topLevelSite, 'https://example.net');
+    assert.strictEqual(cookies2[0].partitionKey().hasCrossSiteAncestor, true);
   });
 });

@@ -47,7 +47,7 @@ describe('Cookie', () => {
       priority: Protocol.Network.CookiePriority.High,
       sourcePort: 443,
       sourceScheme: Protocol.Network.CookieSourceScheme.Secure,
-      partitionKey: 'https://a.com',
+      partitionKey: {topLevelSite: 'https://a.com', hasCrossSiteAncestor: false},
       partitionKeyOpaque: false,
     });
 
@@ -69,7 +69,8 @@ describe('Cookie', () => {
     assert.strictEqual(cookie.getCookieLine(), null);
     assert.strictEqual(cookie.sourcePort(), 443);
     assert.strictEqual(cookie.sourceScheme(), Protocol.Network.CookieSourceScheme.Secure);
-    assert.strictEqual(cookie.partitionKey(), 'https://a.com');
+    assert.strictEqual(cookie.partitionKey().topLevelSite, 'https://a.com');
+    assert.strictEqual(cookie.partitionKey().hasCrossSiteAncestor, false);
     assert.strictEqual(cookie.partitionKeyOpaque(), false);
     assert.strictEqual(cookie.partitioned(), true);
   });
