@@ -16,6 +16,24 @@
       "message": "Philip, is this something we want to do? Failing after hooks still hint at problems. The unit tests\u0027 async instrumentation will report any problems in the after hook as well (IIRC).",
       "revId": "a20d4d712bef75133c1a1881320292f8ddaf98f2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85d2d917_142bd1bd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-05-29T07:02:41Z",
+      "side": 1,
+      "message": "@liviurau@google.com Do you have examples for after-hook failures that aren\u0027t actionable?\n\nI think I agree wis Simon, while I get that such failures aren\u0027t exonorable, there\u0027s still value in reporting to rdb, for instance for luci analysis.",
+      "parentUuid": "3f843c6c_fca45af5",
+      "revId": "a20d4d712bef75133c1a1881320292f8ddaf98f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
