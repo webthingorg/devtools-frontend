@@ -1,0 +1,93 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f429d4c_ebe1963f",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-05-29T14:21:46Z",
+      "side": 1,
+      "message": "nit `iframe` -\u003e `font`",
+      "revId": "d1f82b11ccd4a6c372fe132349026ab68fb9bfec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42df471e_342f8ab4",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-05-29T14:21:46Z",
+      "side": 1,
+      "message": "nit: This operation is going to be pretty common for root causes. WDYT about making a `isInInvalidationWindow` helper function or something\n\n(AI generated suggestion btw)",
+      "fixSuggestions": [
+        {
+          "fixId": "0bf36fca_45ab4279",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/models/trace/insights/CumulativeLayoutShift.ts",
+              "range": {
+                "startLine": 113,
+                "startChar": 0,
+                "endLine": 113,
+                "endChar": 0
+              },
+              "replacement": "\nfunction isInInvalidationWindow(event: Types.TraceEvents.TraceEvent, shift: Types.TraceEvents.TraceEventLayoutShift): boolean {\n  const eventEndTime \u003d event.dur ? event.ts + event.dur : event.ts;\n  return eventEndTime \u003c shift.ts \u0026\u0026 eventEndTime \u003e\u003d shift.ts - INVALIDATION_WINDOW;\n}\n"
+            },
+            {
+              "path": "front_end/models/trace/insights/CumulativeLayoutShift.ts",
+              "range": {
+                "startLine": 132,
+                "startChar": 0,
+                "endLine": 134,
+                "endChar": 0
+              },
+              "replacement": "      return isInInvalidationWindow(event, shift);\n"
+            },
+            {
+              "path": "front_end/models/trace/insights/CumulativeLayoutShift.ts",
+              "range": {
+                "startLine": 138,
+                "startChar": 0,
+                "endLine": 141,
+                "endChar": 0
+              },
+              "replacement": "      return req.args.data.mimeType.startsWith(\u0027font\u0027) \u0026\u0026 req.args.data.resourceType \u003d\u003d\u003d \u0027Font\u0027 \u0026\u0026 isInInvalidationWindow(req, shift);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "d1f82b11ccd4a6c372fe132349026ab68fb9bfec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7339c28_d165ecaa",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-05-29T14:21:46Z",
+      "side": 1,
+      "message": "(Copying jack\u0027s comments) Does this need to be sorted by end time (or even sorted at all for that matter)? Seems like if the request is within the target navigation it\u0027s position in the array doesn\u0027t matter when this gets used in `getRootCausesPerShift`",
+      "revId": "d1f82b11ccd4a6c372fe132349026ab68fb9bfec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
