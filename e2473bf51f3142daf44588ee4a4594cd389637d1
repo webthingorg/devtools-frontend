@@ -16,6 +16,46 @@
       "message": "Hi Kateryna,\n\nI\u0027m adding colors for navigation drawers to themeColors.css, ptal!",
       "revId": "e2473bf51f3142daf44588ee4a4594cd389637d1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9cdd23c_4439d5be",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-05-29T11:55:00Z",
+      "side": 1,
+      "message": "Thank you, Kim! Added some questions:)",
+      "revId": "e2473bf51f3142daf44588ee4a4594cd389637d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58a79817_05028782",
+        "filename": "front_end/ui/legacy/themeColors.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 435,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-05-29T11:55:00Z",
+      "side": 1,
+      "message": "Do these need to be fixed blue disregarding of the theme or maybe primary (e.g. blue/pink/green depending on the theme)? Also is there any system color that we can reference here instead of a palette color (which we shouldn\u0027t do, unless really needed)?",
+      "range": {
+        "startLine": 434,
+        "startChar": 0,
+        "endLine": 435,
+        "endChar": 79
+      },
+      "revId": "e2473bf51f3142daf44588ee4a4594cd389637d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
