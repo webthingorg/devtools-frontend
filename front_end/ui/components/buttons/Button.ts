@@ -46,6 +46,8 @@ interface ButtonState {
   size?: Size;
   disabled: boolean;
   toggled?: boolean;
+  toggleOnClick?: boolean;
+  checked?: boolean;
   active: boolean;
   spinner?: boolean;
   type: ButtonType;
@@ -63,9 +65,11 @@ interface CommonButtonData {
   iconName?: string;
   toggledIconName?: string;
   toggleType?: ToggleType;
+  toggleOnClick?: boolean;
   size?: Size;
   disabled?: boolean;
   toggled?: boolean;
+  checked?: boolean;
   active?: boolean;
   spinner?: boolean;
   type?: ButtonType;
@@ -98,6 +102,7 @@ export class Button extends HTMLElement {
   readonly #boundOnClick = this.#onClick.bind(this);
   readonly #props: ButtonState = {
     size: Size.REGULAR,
+    toggleOnClick: true,
     disabled: false,
     active: false,
     spinner: false,
@@ -121,6 +126,7 @@ export class Button extends HTMLElement {
     this.#props.iconUrl = data.iconUrl;
     this.#props.iconName = data.iconName;
     this.#props.toggledIconName = data.toggledIconName;
+    this.#props.toggleOnClick = data.toggleOnClick !== undefined ? data.toggleOnClick : true;
     this.#props.size = Size.REGULAR;
 
     if ('size' in data && data.size) {
@@ -136,6 +142,7 @@ export class Button extends HTMLElement {
     }
     this.#props.toggled = data.toggled;
     this.#props.toggleType = data.toggleType;
+    this.#props.checked = data.checked;
     this.#setDisabledProperty(data.disabled || false);
     this.#props.title = data.title;
     this.#props.jslogContext = data.jslogContext;
@@ -185,6 +192,11 @@ export class Button extends HTMLElement {
     void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
   }
 
+  set toggleOnClick(toggleOnClick: boolean) {
+    this.#props.toggleOnClick = toggleOnClick;
+    void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
+  }
+
   set toggled(toggled: boolean) {
     this.#props.toggled = toggled;
     void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
@@ -192,6 +204,11 @@ export class Button extends HTMLElement {
 
   get toggled(): boolean {
     return Boolean(this.#props.toggled);
+  }
+
+  set checked(checked: boolean) {
+    this.#props.checked = checked;
+    void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
   }
 
   set active(active: boolean) {
@@ -247,7 +264,7 @@ export class Button extends HTMLElement {
       event.preventDefault();
       this.form.reset();
     }
-    if (this.#props.variant === Variant.ICON_TOGGLE && this.#props.iconName) {
+    if (this.#props.toggleOnClick && this.#props.variant === Variant.ICON_TOGGLE && this.#props.iconName) {
       this.toggled = !this.#props.toggled;
     }
   }
@@ -298,6 +315,7 @@ export class Button extends HTMLElement {
       'primary-toggle': this.#props.toggleType === ToggleType.PRIMARY,
       'red-toggle': this.#props.toggleType === ToggleType.RED,
       toggled: Boolean(this.#props.toggled),
+      checked: Boolean(this.#props.checked),
       'text-with-icon': hasIcon && !this.#isEmpty,
       'only-icon': hasIcon && this.#isEmpty,
       'only-text': !hasIcon && !this.#isEmpty,
