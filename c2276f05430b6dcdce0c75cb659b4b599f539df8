@@ -54,6 +54,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6590deb2_cf9af3e4",
+        "filename": "front_end/models/workspace/UISourceCode.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 240,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-05-29T06:11:18Z",
+      "side": 1,
+      "message": "Benedikt remove DCHECK with https://crrev.com/c/5319500 so I\u0027d like to keep it as is to get the type narrowing.",
+      "parentUuid": "989ea308_ec613e06",
+      "revId": "c2276f05430b6dcdce0c75cb659b4b599f539df8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0ed4dfc2_9d827410",
