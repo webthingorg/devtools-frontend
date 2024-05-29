@@ -2,8 +2,10 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as i18n from '../../../core/i18n/i18n.js';
 import * as TraceEngine from '../../../models/trace/trace.js';
 import {renderElementIntoDOM} from '../../../testing/DOMHelpers.js';
+import {describeWithEnvironment} from '../../../testing/EnvironmentHelpers.js';
 import * as Coordinator from '../../../ui/components/render_coordinator/render_coordinator.js';
 
 import * as TimelineComponents from './components.js';
@@ -14,7 +16,7 @@ function milliToMicro(x: number): TraceEngine.Types.Timing.MicroSeconds {
   );
 }
 
-describe('BreadcrumbsUI', () => {
+describeWithEnvironment('BreadcrumbsUI', () => {
   const {BreadcrumbsUI} = TimelineComponents.BreadcrumbsUI;
 
   function queryBreadcrumbs(component: HTMLElement): (string)[] {
@@ -48,7 +50,7 @@ describe('BreadcrumbsUI', () => {
     const breadcrumbsRanges = queryBreadcrumbs(component);
 
     assert.deepStrictEqual(breadcrumbsRanges.length, 1);
-    assert.deepStrictEqual(breadcrumbsRanges, ['Full range (9.00ms)']);
+    assert.deepStrictEqual(breadcrumbsRanges, [`Full range (${i18n.TimeUtilities.preciseMillisToString(9, 2)})`]);
   });
 
   it('renders all the breadcrumbs provided', async () => {
@@ -85,6 +87,9 @@ describe('BreadcrumbsUI', () => {
     const breadcrumbsRanges = queryBreadcrumbs(component);
 
     assert.deepStrictEqual(breadcrumbsRanges.length, 2);
-    assert.deepStrictEqual(breadcrumbsRanges, ['Full range (9.00ms)', '7.00ms']);
+    assert.deepStrictEqual(breadcrumbsRanges, [
+      `Full range (${i18n.TimeUtilities.preciseMillisToString(9, 2)})`,
+      `${i18n.TimeUtilities.preciseMillisToString(7, 2)}`,
+    ]);
   });
 });
