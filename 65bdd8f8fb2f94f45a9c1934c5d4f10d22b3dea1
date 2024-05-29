@@ -16,6 +16,23 @@
       "message": "PTAL (again since I lost the vote after removing files with no ops",
       "revId": "65bdd8f8fb2f94f45a9c1934c5d4f10d22b3dea1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5969d8c_40f904ea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-29T10:05:26Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "65bdd8f8fb2f94f45a9c1934c5d4f10d22b3dea1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
