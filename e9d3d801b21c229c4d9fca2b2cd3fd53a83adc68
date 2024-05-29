@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f52fb48_fb0cd945",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-05-29T08:48:12Z",
+      "side": 1,
+      "message": "PTAL, the failing web tests needs to be disabled and then rebaselined.",
+      "revId": "e9d3d801b21c229c4d9fca2b2cd3fd53a83adc68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
