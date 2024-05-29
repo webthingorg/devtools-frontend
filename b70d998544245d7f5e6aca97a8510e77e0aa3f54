@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1fcd022_a605f4ca",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-05-29T06:24:48Z",
+      "side": 1,
+      "message": "it does not look like this was a critical vulnerability in nanoid?",
+      "revId": "b70d998544245d7f5e6aca97a8510e77e0aa3f54",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "0c5f9643_34d77f74",
