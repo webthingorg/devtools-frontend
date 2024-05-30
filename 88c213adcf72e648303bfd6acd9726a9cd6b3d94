@@ -126,6 +126,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c36deaf8_0fa61f07",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.test.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-05-30T22:01:21Z",
+      "side": 1,
+      "message": "i like this!",
+      "parentUuid": "035bb7da_43e992b5",
+      "range": {
+        "startLine": 102,
+        "startChar": 23,
+        "endLine": 102,
+        "endChar": 48
+      },
+      "revId": "88c213adcf72e648303bfd6acd9726a9cd6b3d94",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "123cdfd8_fcae039a",
@@ -139,6 +163,24 @@
       "writtenOn": "2024-05-30T16:26:12Z",
       "side": 1,
       "message": "Will `cluster.events` ever be empty here?",
+      "revId": "88c213adcf72e648303bfd6acd9726a9cd6b3d94",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88d7f94d_13f68872",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-05-30T22:01:21Z",
+      "side": 1,
+      "message": "iiuc clusters are built off of the layout shift events - so if there were no events, there\u0027d be no clusters",
+      "parentUuid": "123cdfd8_fcae039a",
       "revId": "88c213adcf72e648303bfd6acd9726a9cd6b3d94",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
