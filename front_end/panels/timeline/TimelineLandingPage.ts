@@ -9,6 +9,10 @@ import * as Root from '../../core/root/root.js';
 import * as LiveMetrics from '../../models/live-metrics/live-metrics.js';
 import * as PanelFeedback from '../../ui/components/panel_feedback/panel_feedback.js';
 import * as UI from '../../ui/legacy/legacy.js';
+import * as LitHtml from '../../ui/lit-html/lit-html.js';
+
+const {html, Decorators, LitElement, nothing} = LitHtml;
+const {customElement, state} = Decorators;
 
 const UIStrings = {
   /**
@@ -47,61 +51,85 @@ interface Options {
   isNode?: boolean;
 }
 
+@customElement('devtools-live-metric-view')
+class LiveMetricView extends LitElement {
+  private liveMetrics: LiveMetrics.LiveMetrics = new LiveMetrics.LiveMetrics();
+
+  @state() declare private lcpValue?: LiveMetrics.LCPChangeEvent;
+  @state() declare private clsValue?: LiveMetrics.CLSChangeEvent;
+  @state() declare private inpValue?: LiveMetrics.INPChangeEvent;
+
+  @state() declare private lcpElemLink?: Node;
+
+  override connectedCallback(): void {
+    super.connectedCallback();
+    this.liveMetrics.addEventListener(LiveMetrics.Events.Reset, () => {
+      this.lcpValue = undefined;
+      this.clsValue = undefined;
+      this.inpValue = undefined;
+      this.lcpElemLink = undefined;
+    });
+    this.liveMetrics.addEventListener(LiveMetrics.Events.LCPChanged, async event => {
+      if (event.data.node) {
+        this.lcpElemLink = await Common.Linkifier.Linkifier.linkify(event.data.node);
+      } else {
+        this.lcpElemLink = undefined;
+      }
+      this.lcpValue = event.data;
+    });
+    this.liveMetrics.addEventListener(LiveMetrics.Events.CLSChanged, event => {
+      this.clsValue = event.data;
+    });
+    this.liveMetrics.addEventListener(LiveMetrics.Events.INPChanged, event => {
+      this.inpValue = event.data;
+    });
+  }
+
+  override render(): LitHtml.LitTemplate {
+    return html`
+      <div class="live-lcp">
+        ${this.lcpValue ? html`<div class="lcp-data">LCP: ${this.lcpValue.value} ${this.lcpElemLink}</div>` : nothing}
+      </div>
+      <div class="live-cls">
+        ${this.clsValue ? html`<div class="cls-data">CLS: ${this.clsValue.value}</div>` : nothing}
+
+      </div>
+      <div class="live-inp">
+        ${this.inpValue ? html`<div class="inp-data">INP: ${this.inpValue.value}</div>` : nothing}
+      </div>
+    `;
+  }
+}
+
 export class TimelineLandingPage extends UI.Widget.VBox {
   private readonly toggleRecordAction: UI.ActionRegistration.Action;
-  private liveMetrics?: LiveMetrics.LiveMetrics;
 
   constructor(toggleRecordAction: UI.ActionRegistration.Action, options?: Options) {
     super();
 
     this.toggleRecordAction = toggleRecordAction;
-    this.renderLegacyLandingPage(options);
 
+    this.contentElement.classList.add('timeline-landing-page', 'fill');
     if (Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.TIMELINE_OBSERVATIONS)) {
-      this.installLiveMetrics();
+      this.renderLandingPage();
+    } else {
+      this.renderLegacyLandingPage(options);
     }
   }
 
-  /**
-   * TODO: Create a separate component/element for the new landing page.
-   */
-  private installLiveMetrics(): void {
-    const lcpElem = this.contentElement.createChild('div', 'live-lcp');
-    const clsElem = this.contentElement.createChild('div', 'live-cls');
-    const inpElem = this.contentElement.createChild('div', 'live-inp');
-    this.liveMetrics = new LiveMetrics.LiveMetrics();
-    this.liveMetrics.addEventListener(LiveMetrics.Events.LCPChanged, event => {
-      lcpElem.textContent = '';
-      const lcpDataElem = lcpElem.createChild('div', 'lcp-data');
-      lcpDataElem.textContent = `LCP: ${Math.round(event.data.value)} `;
-      const node = event.data.node;
-      if (node) {
-        void Common.Linkifier.Linkifier.linkify(node).then(link => {
-          lcpDataElem.append(link);
-        });
-      }
-    });
-    this.liveMetrics.addEventListener(LiveMetrics.Events.CLSChanged, event => {
-      clsElem.textContent = '';
-      const clsDataElem = clsElem.createChild('div', 'cls-data');
-      clsDataElem.textContent = `CLS: ${event.data.value.toFixed(0.001)}`;
-    });
-    this.liveMetrics.addEventListener(LiveMetrics.Events.INPChanged, event => {
-      inpElem.textContent = '';
-      const inpDataElem = inpElem.createChild('div', 'inp-data');
-      inpDataElem.textContent = `INP: ${event.data.value} (${event.data.interactionType}) `;
-      const node = event.data.node;
-      if (node) {
-        void Common.Linkifier.Linkifier.linkify(node).then(link => {
-          inpDataElem.append(link);
-        });
-      }
-    });
-    this.liveMetrics.addEventListener(LiveMetrics.Events.Reset, () => {
-      lcpElem.textContent = '';
-      clsElem.textContent = '';
-      inpElem.textContent = '';
-    });
+  private renderLandingPage(): void {
+    const mainWidget = new UI.Widget.Widget();
+    mainWidget.contentElement.append(new LiveMetricView());
+
+    const sidebarWidget = new UI.Widget.Widget();
+    const nextSteps = sidebarWidget.contentElement.createChild('div');
+    nextSteps.textContent = 'Next steps';
+
+    const splitView = new UI.SplitWidget.SplitWidget(true, true);
+    splitView.setMainWidget(mainWidget);
+    splitView.setSidebarWidget(sidebarWidget);
+
+    splitView.show(this.contentElement);
   }
 
   private renderLegacyLandingPage(options?: Options): void {
@@ -122,7 +150,7 @@ export class TimelineLandingPage extends UI.Widget.VBox {
         'b', UI.ShortcutRegistry.ShortcutRegistry.instance().shortcutsForAction('timeline.record-reload')[0].title());
     const navigateNode = encloseWithTag('b', i18nString(UIStrings.wasd));
 
-    this.contentElement.classList.add('timeline-landing-page', 'fill');
+    this.contentElement.classList.add('legacy');
     const centered = this.contentElement.createChild('div');
 
     const recordButton = UI.UIUtils.createInlineButton(UI.Toolbar.Toolbar.createActionButton(this.toggleRecordAction));

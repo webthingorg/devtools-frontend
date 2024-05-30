@@ -17,7 +17,7 @@ import {
 
 describe('The Performance panel landing page', () => {
   beforeEach(async () => {
-    await enableExperiment('perf-panel-observations');
+    await enableExperiment('timeline-observations');
   });
 
   it('displays live metrics', async () => {
