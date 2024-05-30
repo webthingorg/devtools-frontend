@@ -305,6 +305,8 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.revealDescendantsArrowHighlightElement =
         this.viewportElement.createChild('div', 'reveal-descendants-arrow-highlight-element');
     this.selectedElement = this.viewportElement.createChild('div', 'flame-chart-selected-element');
+    // TODO: remove this and remove the selected element entirely.
+    this.selectedElement.style.display = 'none';
     this.canvas.addEventListener('focus', () => {
       this.dispatchEventToListeners(Events.CanvasFocused);
     }, false);
@@ -2202,7 +2204,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     const colorBuckets = new Map<string, {indexes: number[]}>();
     for (let level = 0; level < this.dataProvider.maxStackDepth(); ++level) {
       // Since tracks can be reordered the |visibleLevelOffsets| is not necessarily sorted, so we need to check all levels.
-      if (this.levelToOffset(level) < top || this.levelToOffset(level) > top + height) {
+      if (this.levelToOffset(level) + this.levelHeight(level) < top || this.levelToOffset(level) > top + height) {
         continue;
       }
       if (!this.visibleLevels || !this.visibleLevels[level]) {
@@ -3384,6 +3386,10 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     return false;
   }
 
+  getMarkerPixelsForEntryIndex(entryIndex: number): {x: number, width: number}|null {
+    return this.markerPositions.get(entryIndex) ?? null;
+  }
+
   /**
    * Update position of an Element. By default, the element is treated as a full entry and it's dimentions are set to the full entry width/length/height.
    * If isDecoration parameter is set to true, the element will be positioned on the right side of the entry and have a square shape where width == height of the entry.
@@ -3502,7 +3508,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     return this.visibleLevelOffsets[level];
   }
 
-  private levelHeight(level: number): number {
+  levelHeight(level: number): number {
     if (!this.visibleLevelHeights) {
       throw new Error('No visible level heights');
     }

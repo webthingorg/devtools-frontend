@@ -389,6 +389,11 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
   }
 
   setSelection(selection: TimelineSelection|null): void {
+    const mainIndex = this.mainDataProvider.entryIndexForSelection(selection);
+    const networkIndex = this.networkDataProvider.entryIndexForSelection(selection);
+    this.mainFlameChart.setSelectedEntry(mainIndex);
+    this.networkFlameChart.setSelectedEntry(networkIndex);
+
     let index = this.mainDataProvider.entryIndexForSelection(selection);
     this.mainFlameChart.setSelectedEntry(index);
     index = this.networkDataProvider.entryIndexForSelection(selection);
@@ -397,17 +402,39 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
       // TODO(crbug.com/1459265):  Change to await after migration work.
       void this.detailsView.setSelection(selection);
     }
+
+    // TODO: if we already have an overlay for this entry, do nothing
+    // Need to create the EntrySelected overlay for this event.
+    if (selection &&
+        (TimelineSelection.isTraceEventSelection(selection.object) ||
+         TimelineSelection.isSyntheticNetworkRequestDetailsEventSelection(selection.object))) {
+      const existingSelectedOverlayForEvent =
+          this.#overlays.overlaysForEntry(selection.object).some(overlay => overlay.type === 'ENTRY_SELECTED');
+      if (existingSelectedOverlayForEvent) {
+        // We don't need to add a new overlay because it already exists.
+        return;
+      }
+      // Clear the ENTRY_SELECTED for the previous selected event.
+      this.#overlays.removeOverlaysOfType('ENTRY_SELECTED');
+      const chart =
+          TraceEngine.Types.TraceEvents.isSyntheticNetworkRequestDetailsEvent(selection.object) ? 'network' : 'main';
+      this.#overlays.addOverlay({
+        type: 'ENTRY_SELECTED',
+        entry: selection.object,
+        entryChart: chart,
+      });
+      this.#overlays.update();
+    }
   }
 
   private onEntrySelected(
-      dataProvider: PerfUI.FlameChart.FlameChartDataProvider,
+      dataProvider: TimelineFlameChartDataProvider|TimelineFlameChartNetworkDataProvider,
       event: Common.EventTarget.EventTargetEvent<number>): void {
     const entryIndex = event.data;
     if (dataProvider === this.mainDataProvider) {
       this.mainDataProvider.buildFlowForInitiator(entryIndex);
     }
-    this.delegate.select((dataProvider as TimelineFlameChartNetworkDataProvider | TimelineFlameChartDataProvider)
-                             .createSelection(entryIndex));
+    this.delegate.select(dataProvider.createSelection(entryIndex));
   }
 
   resizeToPreferredHeights(): void {
