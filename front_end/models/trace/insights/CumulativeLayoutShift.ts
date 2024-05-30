@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 import * as Helpers from '../helpers/helpers.js';
-import type * as Types from '../types/types.js';
+import * as Types from '../types/types.js';
 
 import {
   type InsightResult,
@@ -11,8 +11,8 @@ import {
   type RequiredData,
 } from './types.js';
 
-export function deps(): ['Meta', 'Animations'] {
-  return ['Meta', 'Animations'];
+export function deps(): ['Meta', 'Animations', 'LayoutShifts', 'NetworkRequests'] {
+  return ['Meta', 'Animations', 'LayoutShifts', 'NetworkRequests'];
 }
 
 export const enum AnimationFailureReasons {
@@ -73,6 +73,21 @@ const ACTIONABLE_FAILURE_REASONS = [
   },
 ];
 
+// 500ms window.
+// Use this window to consider events and requests that may have caused a layout shift.
+const INVALIDATION_WINDOW = Helpers.Timing.secondsToMicroseconds(Types.Timing.Seconds(0.5));
+
+export interface LayoutShiftRootCausesData {
+  iframes: Types.TraceEvents.TraceEventRenderFrameImplCreateChildFrame[];
+  fontRequests: Types.TraceEvents.SyntheticNetworkRequest[];
+}
+
+function isInInvalidationWindow(
+    event: Types.TraceEvents.TraceEventData, shift: Types.TraceEvents.TraceEventLayoutShift): boolean {
+  const iframeEndTime = event.dur ? event.ts + event.dur : event.ts;
+  return iframeEndTime < shift.ts && iframeEndTime >= shift.ts - INVALIDATION_WINDOW;
+}
+
 /**
  * Returns a list of NoncompositedAnimationFailures.
  */
@@ -106,15 +121,59 @@ function getNonCompositedAnimations(animations: readonly Types.TraceEvents.Synth
   return failures;
 }
 
-export function generateInsight(traceParsedData: RequiredData<typeof deps>, context: NavigationInsightContext):
-    InsightResult<{animationFailures?: readonly NoncompositedAnimationFailure[]}> {
-  const compositeAnimationEvents = traceParsedData.Animations.animations.filter(event => {
+/**
+ * Given a list of layout shifts, match their root causes to them.
+ */
+function getRootCausesPerShift(
+    layoutShifts: Types.TraceEvents.TraceEventLayoutShift[],
+    networkRequests: Types.TraceEvents.SyntheticNetworkRequest[],
+    iframeCreatedEvents: readonly Types.TraceEvents.TraceEventRenderFrameImplCreateChildFrame[]):
+    Map<Types.TraceEvents.TraceEventLayoutShift, LayoutShiftRootCausesData> {
+  const rootCausesByShift = new Map<Types.TraceEvents.TraceEventLayoutShift, LayoutShiftRootCausesData>();
+
+  for (const shift of layoutShifts) {
+    // Iframes
+    const iframeCauses = iframeCreatedEvents.filter(event => isInInvalidationWindow(event, shift));
+
+    // Font requests
+    const fontRequestCauses = networkRequests.filter(
+        req => isInInvalidationWindow(req, shift) && req.args.data.mimeType.startsWith('font') &&
+            req.args.data.resourceType === 'Font');
+
+    rootCausesByShift.set(shift, {iframes: iframeCauses, fontRequests: fontRequestCauses});
+  }
+  return rootCausesByShift;
+}
+
+export function generateInsight(
+    traceParsedData: RequiredData<typeof deps>, context: NavigationInsightContext): InsightResult<{
+  animationFailures?: readonly NoncompositedAnimationFailure[],
+  shifts?: Map<Types.TraceEvents.TraceEventLayoutShift, LayoutShiftRootCausesData>,
+}> {
+  const isWithinSameNavigation = ((event: Types.TraceEvents.TraceEventData): boolean => {
     const nav =
         Helpers.Trace.getNavigationForTraceEvent(event, context.frameId, traceParsedData.Meta.navigationsByFrameId);
     return nav?.args.data?.navigationId === context.navigationId;
   });
+
+  const compositeAnimationEvents = traceParsedData.Animations.animations.filter(isWithinSameNavigation);
   const animationFailures = getNonCompositedAnimations(compositeAnimationEvents);
+
+  const iframeEvents =
+      traceParsedData.LayoutShifts.renderFrameImplCreateChildFrameEvents.filter(isWithinSameNavigation);
+  const networkRequests = traceParsedData.NetworkRequests.byTime.filter(isWithinSameNavigation);
+
+  const layoutShifts = traceParsedData.LayoutShifts.clusters.flatMap(
+      cluster =>
+          // Use one of the events in the cluster to determine if within the same navigation.
+      isWithinSameNavigation(cluster.events[0]) ? cluster.events : [],
+  );
+
+  // Get root causes.
+  const shifts = getRootCausesPerShift(layoutShifts, networkRequests, iframeEvents);
+
   return {
     animationFailures,
+    shifts,
   };
 }
