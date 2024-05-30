@@ -1,0 +1,112 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28fe55f3_e7d214af",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-30T07:23:09Z",
+      "side": 1,
+      "message": "This is LGTM - I have one thought about the tests. Feel free to land as far as I am concerned after resolving that - I don\u0027t need to review again. Thanks!",
+      "revId": "88c213adcf72e648303bfd6acd9726a9cd6b3d94",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "035bb7da_43e992b5",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.test.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-30T07:23:09Z",
+      "side": 1,
+      "message": "I\u0027m wondering if:\n\n```\nconst layoutShiftEvents \u003d Array.from(shifts.entries())\nconst shift2 \u003d layoutShiftEvents.at(1)\nassert.isOk(shift2)\n```\n\nMight be a bit clearer here. Also the `assert.isOk` will error if the value is not present, which means if that case ever happens the test output will be clearer and point us to exactly which value is not defined as expected. wdyt?",
+      "range": {
+        "startLine": 102,
+        "startChar": 23,
+        "endLine": 102,
+        "endChar": 48
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "363e2b70_8b2d12e0",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/models/trace/insights/CumulativeLayoutShift.test.ts",
+              "range": {
+                "startLine": 74,
+                "startChar": 0,
+                "endLine": 75,
+                "endChar": 0
+              },
+              "replacement": "        const shift1 \u003d Array.from(shifts.keys())[0];\n"
+            },
+            {
+              "path": "front_end/models/trace/insights/CumulativeLayoutShift.test.ts",
+              "range": {
+                "startLine": 85,
+                "startChar": 0,
+                "endLine": 86,
+                "endChar": 0
+              },
+              "replacement": "        const shift2 \u003d Array.from(shifts.keys())[1];\n"
+            },
+            {
+              "path": "front_end/models/trace/insights/CumulativeLayoutShift.test.ts",
+              "range": {
+                "startLine": 87,
+                "startChar": 0,
+                "endLine": 88,
+                "endChar": 0
+              },
+              "replacement": "        const shift3 \u003d Array.from(shifts.keys())[2];\n"
+            },
+            {
+              "path": "front_end/models/trace/insights/CumulativeLayoutShift.test.ts",
+              "range": {
+                "startLine": 102,
+                "startChar": 0,
+                "endLine": 103,
+                "endChar": 0
+              },
+              "replacement": "        const shift2 \u003d Array.from(shifts.keys())[1];\n"
+            },
+            {
+              "path": "front_end/models/trace/insights/CumulativeLayoutShift.test.ts",
+              "range": {
+                "startLine": 113,
+                "startChar": 0,
+                "endLine": 114,
+                "endChar": 0
+              },
+              "replacement": "        const shift1 \u003d Array.from(shifts.keys())[0];\n"
+            },
+            {
+              "path": "front_end/models/trace/insights/CumulativeLayoutShift.test.ts",
+              "range": {
+                "startLine": 115,
+                "startChar": 0,
+                "endLine": 116,
+                "endChar": 0
+              },
+              "replacement": "        const shift3 \u003d Array.from(shifts.keys())[2];\n"
+            }
+          ]
+        }
+      ],
+      "revId": "88c213adcf72e648303bfd6acd9726a9cd6b3d94",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
