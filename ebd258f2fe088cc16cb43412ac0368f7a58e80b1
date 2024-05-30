@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b46ce30d_1e6d6912",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-30T09:50:28Z",
+      "side": 1,
+      "message": "PTAL (Danil, including you as although this change is Perf motiviated it obviously impacts DevTools more widely).",
+      "revId": "ebd258f2fe088cc16cb43412ac0368f7a58e80b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5441d562_80ceddef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-30T09:50:28Z",
+      "side": 1,
+      "message": "PTAL (Danil, including you as although this change is Perf motivated it obviously impacts DevTools more widely).",
+      "revId": "ebd258f2fe088cc16cb43412ac0368f7a58e80b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
