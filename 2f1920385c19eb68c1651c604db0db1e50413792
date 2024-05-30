@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7e8b3bb_05d41828",
+        "filename": "front_end/panels/timeline/components/BreadcrumbsUI.test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-30T07:16:37Z",
+      "side": 0,
+      "message": "is there any reason you changed this? I would prefer to keep the assertion to a string - otherwise we aren\u0027t really testing the resulting user string and instead we are testing that our code calls the `preciseMillisToString` function.",
+      "range": {
+        "startLine": 51,
+        "startChar": 45,
+        "endLine": 51,
+        "endChar": 71
+      },
+      "revId": "2f1920385c19eb68c1651c604db0db1e50413792",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
