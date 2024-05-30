@@ -11,6 +11,7 @@ import * as Bindings from '../../models/bindings/bindings.js';
 import * as TimelineModel from '../../models/timeline_model/timeline_model.js';
 import * as TraceEngine from '../../models/trace/trace.js';
 
+import {type EnhancedTraces} from './EnhancedTraces.js';
 import {type Client} from './TimelineController.js';
 
 const UIStrings = {
@@ -38,6 +39,7 @@ export class TimelineLoader implements Common.StringOutputStream.OutputStream {
   private totalSize!: number;
   private filter: TimelineModel.TimelineModelFilter.TimelineModelFilter|null;
   #traceIsCPUProfile: boolean;
+  #isEnhancedTraces: boolean;
   #collectedEvents: TraceEngine.Types.TraceEvents.TraceEventData[] = [];
   #metadata: TraceEngine.Types.File.MetaData|null;
 
@@ -51,6 +53,7 @@ export class TimelineLoader implements Common.StringOutputStream.OutputStream {
     this.firstRawChunk = true;
     this.filter = null;
     this.#traceIsCPUProfile = false;
+    this.#isEnhancedTraces = false;
     this.#metadata = null;
 
     this.#traceFinalizedPromiseForTest = new Promise<void>(resolve => {
@@ -131,16 +134,21 @@ export class TimelineLoader implements Common.StringOutputStream.OutputStream {
       const items = Array.isArray(trace) ? trace : trace.traceEvents;
 
       this.#collectEvents(items);
-    } else if (trace.nodes) {
+    } else if ('nodes' in trace) {
       // We know it's a raw Protocol CPU Profile.
       this.#parseCPUProfileFormatFromFile(trace);
       this.#traceIsCPUProfile = true;
+    } else if ('payload' in trace && trace.payload) {
+      const items = trace.payload.traceEvents;
+      this.#isEnhancedTraces = true;
+      this.#collectEvents(items);
+      this.#metadata = trace.payload.metadata;
     } else {
       this.reportErrorAndCancelLoading(i18nString(UIStrings.malformedTimelineDataS));
       return;
     }
 
-    if ('metadata' in trace) {
+    if ('metadata' in trace && !this.#isEnhancedTraces) {
       this.#metadata = trace.metadata;
     }
   }
@@ -257,4 +265,4 @@ export class TimelineLoader implements Common.StringOutputStream.OutputStream {
 /**
  * Used when we parse the input, but do not yet know if it is a raw CPU Profile or a Trace
  **/
-type ParsedJSONFile = TraceEngine.Types.File.Contents|Protocol.Profiler.Profile;
+type ParsedJSONFile = TraceEngine.Types.File.Contents|Protocol.Profiler.Profile|EnhancedTraces;
