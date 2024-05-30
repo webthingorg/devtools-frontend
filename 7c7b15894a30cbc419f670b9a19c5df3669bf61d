@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9d4bbc7_ee6f53be",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-05-30T00:41:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2cc46096_a4441166",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 95
+      },
+      "revId": "7c7b15894a30cbc419f670b9a19c5df3669bf61d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3db9dd07_bcc9730d",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-05-29T08:26:40Z",
       "side": 1,
       "message": "do we not sort these already in the handler? I\u0027m not sure if this extra sort is necessary.",
+      "range": {
+        "startLine": 123,
+        "startChar": 0,
+        "endLine": 123,
+        "endChar": 76
+      },
+      "revId": "7c7b15894a30cbc419f670b9a19c5df3669bf61d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85d7e3fe_b33709ae",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-05-30T00:41:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3db9dd07_bcc9730d",
       "range": {
         "startLine": 123,
         "startChar": 0,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c12e5f9e_5ef5842e",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-05-30T00:41:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7653a12f_97d3a593",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 94
+      },
+      "revId": "7c7b15894a30cbc419f670b9a19c5df3669bf61d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2be23558_f138adf2",
@@ -100,6 +172,30 @@
       "writtenOn": "2024-05-29T08:26:40Z",
       "side": 1,
       "message": "nit: let\u0027s move this check first in this conditional - means we can early exit if the request wasn\u0027t in the window without first checking the mime type and resource type",
+      "range": {
+        "startLine": 140,
+        "startChar": 99,
+        "endLine": 140,
+        "endChar": 110
+      },
+      "revId": "7c7b15894a30cbc419f670b9a19c5df3669bf61d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24d583b4_77be3e90",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-05-30T00:41:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2be23558_f138adf2",
       "range": {
         "startLine": 140,
         "startChar": 99,
@@ -133,6 +229,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d887ac51_5e42bdda",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-05-30T00:41:40Z",
+      "side": 1,
+      "message": "Im not well versed on the details quite yet.. but it definitely makes sense that they wouldn\u0027t! I like the idea of checking one!",
+      "parentUuid": "1a59351b_26964da2",
+      "range": {
+        "startLine": 172,
+        "startChar": 0,
+        "endLine": 174,
+        "endChar": 59
+      },
+      "revId": "7c7b15894a30cbc419f670b9a19c5df3669bf61d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d4b52ab2_0fc37d79",
@@ -146,6 +266,30 @@
       "writtenOn": "2024-05-29T08:26:40Z",
       "side": 1,
       "message": "is it the iframe creation events that need these categories? Is there a reason we need both of these?\n\n(not against adding them just curious to understand why!)",
+      "range": {
+        "startLine": 102,
+        "startChar": 14,
+        "endLine": 104,
+        "endChar": 6
+      },
+      "revId": "7c7b15894a30cbc419f670b9a19c5df3669bf61d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc8f48e7_91be7cc9",
+        "filename": "front_end/panels/timeline/TimelineController.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-05-30T00:41:40Z",
+      "side": 1,
+      "message": "yeah exactly! when a `RenderFrameImpl::createChildFrame` event gets emitted it gets put in the `navigation,rail` categories. i imagine because of this we *have to* reference both\n\nhttps://source.chromium.org/chromium/chromium/src/+/main:content/renderer/render_frame_impl.cc;l\u003d3616?q\u003d%22RenderFrameImpl::createChildFrame%22\u0026ss\u003dchromium%2Fchromium%2Fsrc\u0026start\u003d1",
+      "parentUuid": "d4b52ab2_0fc37d79",
       "range": {
         "startLine": 102,
         "startChar": 14,

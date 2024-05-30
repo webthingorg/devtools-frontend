@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6805950e_5b785582",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-05-30T00:41:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f429d4c_ebe1963f",
+      "revId": "d1f82b11ccd4a6c372fe132349026ab68fb9bfec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "42df471e_342f8ab4",
@@ -73,6 +91,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "950a41b1_170544a0",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-05-30T00:41:40Z",
+      "side": 1,
+      "message": "yessss i like this.. AI did so well 👀",
+      "parentUuid": "42df471e_342f8ab4",
+      "revId": "d1f82b11ccd4a6c372fe132349026ab68fb9bfec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c7339c28_d165ecaa",
@@ -86,6 +122,24 @@
       "writtenOn": "2024-05-29T14:21:46Z",
       "side": 1,
       "message": "(Copying jack\u0027s comments) Does this need to be sorted by end time (or even sorted at all for that matter)? Seems like if the request is within the target navigation it\u0027s position in the array doesn\u0027t matter when this gets used in `getRootCausesPerShift`",
+      "revId": "d1f82b11ccd4a6c372fe132349026ab68fb9bfec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f27af71_0dd7d39f",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-05-30T00:41:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c7339c28_d165ecaa",
       "revId": "d1f82b11ccd4a6c372fe132349026ab68fb9bfec",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
