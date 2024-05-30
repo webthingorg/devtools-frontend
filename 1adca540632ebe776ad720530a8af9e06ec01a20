@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0efd8e2e_79257b19",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 24
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1579342
+      },
+      "writtenOn": "2024-05-30T05:38:15Z",
+      "side": 1,
+      "message": "Yes, you will need the following flags to enable 3PCD with mitigations:\n- #test-third-party-cookie-phaseout\n- #tracking-protection-3pcd\n\nLet me know if you are having issues!",
+      "parentUuid": "c21961fb_4f101618",
+      "revId": "1adca540632ebe776ad720530a8af9e06ec01a20",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "86b4d5d8_863fe1f5",
         "filename": "front_end/panels/issues/AffectedMetadataAllowedSitesView.ts",
         "patchSetId": 24
@@ -69,6 +87,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5125a67_6a76d0ba",
+        "filename": "front_end/panels/issues/AffectedMetadataAllowedSitesView.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1579342
+      },
+      "writtenOn": "2024-05-30T05:38:15Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "86b4d5d8_863fe1f5",
+      "range": {
+        "startLine": 47,
+        "startChar": 6,
+        "endLine": 51,
+        "endChar": 52
+      },
+      "revId": "1adca540632ebe776ad720530a8af9e06ec01a20",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8454b9ea_2c89fd2f",
@@ -82,6 +124,30 @@
       "writtenOn": "2024-05-27T15:28:06Z",
       "side": 1,
       "message": "The more \"official\" the URL, the better. Will this maybe be available at a non-personal github URL in the future? (not a blocker, just asking)",
+      "range": {
+        "startLine": 55,
+        "startChar": 41,
+        "endLine": 55,
+        "endChar": 116
+      },
+      "revId": "1adca540632ebe776ad720530a8af9e06ec01a20",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "868feb49_cff4b81d",
+        "filename": "front_end/ui/components/markdown_view/MarkdownLinksMap.ts",
+        "patchSetId": 24
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1579342
+      },
+      "writtenOn": "2024-05-30T05:38:15Z",
+      "side": 1,
+      "message": "Acknowledged. I will check whether it will be possible to migrate to a Chrome shared repo.",
+      "parentUuid": "8454b9ea_2c89fd2f",
       "range": {
         "startLine": 55,
         "startChar": 41,
