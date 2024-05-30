@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4b630bc_b84f5c8c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1588602
+      },
+      "writtenOn": "2024-05-30T17:22:16Z",
+      "side": 1,
+      "message": "Initial implementation of the front-end changes associated with changing the partition key in the browser_protocol.pdl. \n\nhttps://chromium-review.googlesource.com/c/chromium/src/+/5503675",
+      "revId": "fe219c7049652b100b753e98d49b4b9545e72873",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
