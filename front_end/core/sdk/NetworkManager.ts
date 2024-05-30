@@ -81,11 +81,15 @@ const UIStrings = {
   /**
    *@description Text in Network Manager
    */
-  slowG: 'Slow 3G',
+  slow3G: 'Slow 3G',
   /**
    *@description Text in Network Manager
    */
-  fastG: 'Fast 3G',
+  slow4G: 'Slow 4G',
+  /**
+   *@description Text in Network Manager
+   */
+  fast4G: 'Fast 4G',
   /**
    *@description Text in Network Manager
    *@example {https://example.com} PH1
@@ -379,6 +383,12 @@ export type EventTypes = {
   [Events.ReportingApiEndpointsChangedForOrigin]: Protocol.Network.ReportingApiEndpointsChangedForOriginEvent,
 };
 
+/**
+ * Define some built-in DevTools throttling presets.
+ * Note that for the download, upload and RTT values we multiply them by adjustment factors to make DevTools' emulation more accurate.
+ * @see https://docs.google.com/document/d/10lfVdS1iDWCRKQXPfbxEn4Or99D64mvNlugP1AQuFlE/edit for historical context.
+ */
+
 export const NoThrottlingConditions: Conditions = {
   title: i18nLazyString(UIStrings.noThrottling),
   i18nTitleKey: UIStrings.noThrottling,
@@ -396,19 +406,38 @@ export const OfflineConditions: Conditions = {
 };
 
 export const Slow3GConditions: Conditions = {
-  title: i18nLazyString(UIStrings.slowG),
-  i18nTitleKey: UIStrings.slowG,
+  title: i18nLazyString(UIStrings.slow3G),
+  i18nTitleKey: UIStrings.slow3G,
+  // ~500Kbps down
   download: 500 * 1000 / 8 * .8,
+  // ~500Kbps up
   upload: 500 * 1000 / 8 * .8,
+  // 400ms RTT (multiplied by a DevTools adjustment factor)
   latency: 400 * 5,
 };
 
-export const Fast3GConditions: Conditions = {
-  title: i18nLazyString(UIStrings.fastG),
-  i18nTitleKey: UIStrings.fastG,
+// Note for readers: this used to be called "Fast 3G" but it was renamed in May
+// 2024 to align with LH (crbug.com/342406608).
+export const Slow4GConditions: Conditions = {
+  title: i18nLazyString(UIStrings.slow4G),
+  i18nTitleKey: UIStrings.slow4G,
+  // ~1.6 Mbps down
   download: 1.6 * 1000 * 1000 / 8 * .9,
+  // ~0.75 Mbps up
   upload: 750 * 1000 / 8 * .9,
+  // 150ms RTT (multiplied by a DevTools adjustment factor)
   latency: 150 * 3.75,
+};
+
+export const Fast4GConditions: Conditions = {
+  title: i18nLazyString(UIStrings.fast4G),
+  i18nTitleKey: UIStrings.fast4G,
+  // 9 Mbps down
+  download: 9 * 1000 * 1000 / 8 * .9,
+  // 1.5 Mbps up
+  upload: 1.5 * 1000 * 1000 / 8 * .9,
+  // 170ms RTT (multipled by a DevTools adjustment factor)
+  latency: 170,
 };
 
 const MAX_EAGER_POST_REQUEST_BODY_LENGTH = 64 * 1024;  // bytes
