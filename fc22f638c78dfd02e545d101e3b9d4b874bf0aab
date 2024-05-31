@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9fe5c50f_2b81cb4f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1106555
+      },
+      "writtenOn": "2024-05-31T14:48:41Z",
+      "side": 1,
+      "message": "I have updated the tests in devtools-frontend but it seems like I\u0027d need to update tests in the `chromium/third_party/blink/web_tests/http/tests/devtools/` which is outside this repo.\n\nI\u0027m not sure how to go about that. Should I open a different patch from the full chromium repo or transfer somehow?",
+      "revId": "fc22f638c78dfd02e545d101e3b9d4b874bf0aab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
