@@ -1002,6 +1002,20 @@ export class DOMNode {
     }
     return lowerCaseName;
   }
+
+  async getAnchorBySpecifier(): Promise<DOMNode|null> {
+    return Promise.resolve(null);
+    // const response = await this.#agent.invoke_getAnchorElement({
+    //   nodeId: this.id,
+    //   anchorSpecifier: specifier,
+    // });
+
+    // if (response.getError()) {
+    //   return null;
+    // }
+
+    // return this.domModel().nodeForId(response.nodeId);
+  }
 }
 
 export namespace DOMNode {
