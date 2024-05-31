@@ -4,8 +4,12 @@
 
 import type * as SDK from '../../core/sdk/sdk.js';
 import type * as Protocol from '../../generated/protocol.js';
-import {createTarget} from '../../testing/EnvironmentHelpers.js';
-import {describeWithRealConnection} from '../../testing/RealConnection.js';
+import {
+  createTarget,
+  deinitializeGlobalVars,
+  initializeGlobalVars,
+} from '../../testing/EnvironmentHelpers.js';
+import {describeWithMockConnection} from '../../testing/MockConnection.js';
 import * as Adorners from '../../ui/components/adorners/adorners.js';
 
 import * as Elements from './elements.js';
@@ -24,7 +28,15 @@ const stubElementsTreeElement = () => {
   } as Elements.ElementsTreeElement.ElementsTreeElement;
 };
 
-describeWithRealConnection('TopLayerContainer', () => {
+describeWithMockConnection('TopLayerContainer', () => {
+  before(async () => {
+    await initializeGlobalVars();
+  });
+
+  after(async () => {
+    await deinitializeGlobalVars();
+  });
+
   it('should update top layer elements correctly', async () => {
     const stubDocument = {} as SDK.DOMModel.DOMDocument;
     const topLayerDOMNode1 = stubTopLayerDOMNode('dialog', 1, stubDocument);

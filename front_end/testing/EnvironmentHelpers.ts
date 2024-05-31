@@ -109,6 +109,7 @@ export function registerNoopActions(actionIds: string[]): void {
 
 const REGISTERED_EXPERIMENTS = [
   Root.Runtime.ExperimentName.CAPTURE_NODE_CREATION_STACKS,
+  Root.Runtime.ExperimentName.FULL_ACCESSIBILITY_TREE,
   Root.Runtime.ExperimentName.PROTOCOL_MONITOR,
   'timeline-show-all-events',
   'timeline-v8-runtime-call-stats',
@@ -277,6 +278,14 @@ export async function initializeGlobalVars({reset = true} = {}) {
     createSettingValue(
         Common.Settings.SettingCategory.ELEMENTS, 'show-css-property-documentation-on-hover', false,
         Common.Settings.SettingType.BOOLEAN),
+    createSettingValue(
+        Common.Settings.SettingCategory.ELEMENTS, 'sidebar-position', 'auto', Common.Settings.SettingType.ENUM),
+    createSettingValue(
+        Common.Settings.SettingCategory.ELEMENTS, 'show-html-comments', true, Common.Settings.SettingType.BOOLEAN),
+    createSettingValue(
+        Common.Settings.SettingCategory.ELEMENTS, 'show-ua-shadow-dom', false, Common.Settings.SettingType.BOOLEAN),
+    createSettingValue(
+        Common.Settings.SettingCategory.ELEMENTS, 'adorner-settings', [], Common.Settings.SettingType.ARRAY),
   ];
 
   Common.Settings.registerSettingsForTest(settings, reset);
