@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17b5aa8d_89b4d70a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-05-31T09:00:54Z",
+      "side": 1,
+      "message": "LGTM with some comments :)",
+      "revId": "3f40142d7e72534297b2f3624760f46a909f287e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1472959_ae238d0a",
+        "filename": "front_end/panels/freestyler/FreestylerPanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-05-31T09:00:54Z",
+      "side": 1,
+      "message": "(nit): Can we reference to the bug as well like `TODO(340805362)`",
+      "revId": "3f40142d7e72534297b2f3624760f46a909f287e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5cc696a2_dfac6ce9",
+        "filename": "front_end/panels/freestyler/freestyler-meta.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-05-31T09:00:54Z",
+      "side": 1,
+      "message": "Let\u0027s change this to \"Enable Freestyler\" so that the language is in-line with the other settings.",
+      "revId": "3f40142d7e72534297b2f3624760f46a909f287e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a30a0e5b_0cf8c29e",
+        "filename": "front_end/panels/freestyler/freestyler-meta.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-05-31T09:00:54Z",
+      "side": 1,
+      "message": "Let\u0027s for now, keep it as \"Ask Freestyler\" and we can update all the strings at once if we want to change the reference.",
+      "revId": "3f40142d7e72534297b2f3624760f46a909f287e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "969eb5de_b2b90f79",
+        "filename": "front_end/panels/freestyler/freestyler-meta.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-05-31T09:00:54Z",
+      "side": 1,
+      "message": "I think we can put this under `Global` setting so that users will be able to change it manually from the settings page.\n\nWe should also make the setting available only for the dogfooders through `condition: isFeatureAvailable` for that case. WDYT?",
+      "revId": "3f40142d7e72534297b2f3624760f46a909f287e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9a236a4_346918d5",
+        "filename": "front_end/panels/freestyler/freestyler-meta.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-05-31T09:00:54Z",
+      "side": 1,
+      "message": "(nit): Can we use a common variable for this setting name as it is used in the below action registration too.",
+      "revId": "3f40142d7e72534297b2f3624760f46a909f287e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e197d442_5b88c2f6",
+        "filename": "front_end/panels/freestyler/freestyler-meta.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-05-31T09:00:54Z",
+      "side": 1,
+      "message": "Why do we need this `contextTypes` function that returns an empty array?",
+      "revId": "3f40142d7e72534297b2f3624760f46a909f287e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
