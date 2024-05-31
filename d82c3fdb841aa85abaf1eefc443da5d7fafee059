@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b28e1c6_6b2ae708",
+        "filename": "front_end/panels/timeline/Overlays.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-31T10:21:00Z",
+      "side": 1,
+      "message": "For now yes, but we\u0027ll track the width for each one separately just in case in the future it changes.",
+      "parentUuid": "0ad332d4_bd31105d",
+      "range": {
+        "startLine": 36,
+        "startChar": 2,
+        "endLine": 36,
+        "endChar": 13
+      },
+      "revId": "d82c3fdb841aa85abaf1eefc443da5d7fafee059",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b12eb84e_89a4d0a8",
@@ -138,6 +162,30 @@
           ]
         }
       ],
+      "revId": "d82c3fdb841aa85abaf1eefc443da5d7fafee059",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e2bbfb3_fa9782d6",
+        "filename": "front_end/panels/timeline/Overlays.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-31T10:21:00Z",
+      "side": 1,
+      "message": "I thought that too, but if you do that when the visible window is changing rapidly, the overlays will lag slightly and not get updated at the right time. We have to make sure that the position of the overlays is updated in the same frame as the FlameChart is redrawn, and I think that when we listen to events and dispatch changes via the bounds manager that some of that code is async and therefore when the overlays get updated they have a slightly old trace window value.\n\nSo by using the values that the FlameChart has at the time that it\u0027s drawing them, we ensure the overlays re-position themselves in sync with the canvas redrawing.",
+      "parentUuid": "b12eb84e_89a4d0a8",
+      "range": {
+        "startLine": 100,
+        "startChar": 2,
+        "endLine": 100,
+        "endChar": 21
+      },
       "revId": "d82c3fdb841aa85abaf1eefc443da5d7fafee059",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
