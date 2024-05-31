@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e78b19d8_b73cf1f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-31T16:09:12Z",
+      "side": 1,
+      "message": "lgtm with a couple of thoughts. thank you! (and sorry for the time to convert from LitElement, I know it\u0027s frustrating that we don\u0027t have a clear story there just now)",
+      "revId": "2111f7a06e885dfabfe926a4589ac41f75cf34a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d31b814c_b9cd450d",
+        "filename": "front_end/panels/timeline/components/LiveMetricsView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-31T16:09:12Z",
+      "side": 1,
+      "message": "do we need to worry about disconnecting these? \n\nI guess once the component is destroyed they will be tidied up too...so we should be OK.",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 3
+      },
+      "revId": "2111f7a06e885dfabfe926a4589ac41f75cf34a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67d0bada_6b603ab5",
+        "filename": "front_end/panels/timeline/components/LiveMetricsView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-31T16:09:12Z",
+      "side": 1,
+      "message": "I think I would avoid making this async, and then use the LitHTML until directive (https://lit.dev/docs/api/directives/#until) within the code.\n\nI don\u0027t want to block this CL on this as I know the UI is all going to change, but one for a follow-up or to do as we implement the UI fully once the UX is clarified.",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 39
+      },
+      "revId": "2111f7a06e885dfabfe926a4589ac41f75cf34a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
