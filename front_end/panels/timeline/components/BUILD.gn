@@ -21,6 +21,7 @@ devtools_module("components") {
     "BreadcrumbsUI.ts",
     "DetailsView.ts",
     "InteractionBreakdown.ts",
+    "LiveMetricsView.ts",
     "Sidebar.ts",
   ]
 
