@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd7cbade_8ee27fc8",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-05-31T03:20:21Z",
+      "side": 1,
+      "message": "rename to eventEnd ?   since you\u0027re using this for non-iframe case..",
+      "range": {
+        "startLine": 87,
+        "startChar": 8,
+        "endLine": 87,
+        "endChar": 21
+      },
+      "revId": "f24b9b6847ad4e9840c4eae553bcf2781261c7b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59220721_7df672dc",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-05-31T03:20:21Z",
+      "side": 1,
+      "message": "I was expecting that we were considering the time between the LayoutShift events as the invalidation window.  In other works... all root causes are attributable to the next Shift, chronologically.\n\nDoes that logic work with these cases?  Also did I forget some previous convo where we decided on this 500ms direction?",
+      "revId": "f24b9b6847ad4e9840c4eae553bcf2781261c7b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36f38f10_c0d410fa",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-05-31T03:20:21Z",
+      "side": 1,
+      "message": "not a huge deal but i like to do the obviously faster operations first when they\u0027re being \u0026\u0026\u0027d   .. so i\u0027d go with:\n\ntype \u003d\u003d str \u0026\u0026 mimetype.startsWith(str) \u0026\u0026 fn(req,shift)\n\nthis way we\u0027ll get significantly invocations of isInInvalidationWindow.  \n\n\nbut... one could make the argument that .startsWith is slower than the math operations. shrug! i\u0027m good either way on that.",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 141,
+        "endChar": 49
+      },
+      "revId": "f24b9b6847ad4e9840c4eae553bcf2781261c7b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
