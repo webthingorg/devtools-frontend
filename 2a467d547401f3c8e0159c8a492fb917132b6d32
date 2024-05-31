@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2542ea10_d6cb0434",
+        "filename": "front_end/core/sdk/NetworkRequest.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1164,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-05-31T10:33:52Z",
+      "side": 1,
+      "message": "I think this is a layering violation, as `core` is directly talking to `models`. Also the issue should only be added for the target / model that the network request belongs to and not all targets.\n\n@dsv@chromium.org can you suggest a better place to put this logic?",
+      "revId": "2a467d547401f3c8e0159c8a492fb917132b6d32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3b6fc3f_d508fe77",
+        "filename": "third_party/blink/public/devtools_protocol/browser_protocol.pdl",
+        "patchSetId": 1
+      },
+      "lineNbr": 805,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-05-31T10:33:52Z",
+      "side": 1,
+      "message": "Nit: It\u0027d be good to separate the roll of the protocol changes from the CL that actually adds the issues code.",
+      "revId": "2a467d547401f3c8e0159c8a492fb917132b6d32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
