@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "05df01cc_ad146a4f",
+        "filename": "front_end/panels/timeline/components/LiveMetricsView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-05-31T16:13:17Z",
+      "side": 1,
+      "message": "Yeah, let\u0027s play it safe and add disconnect stuff",
+      "parentUuid": "d31b814c_b9cd450d",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 3
+      },
+      "revId": "2111f7a06e885dfabfe926a4589ac41f75cf34a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "67d0bada_6b603ab5",
         "filename": "front_end/panels/timeline/components/LiveMetricsView.ts",
         "patchSetId": 6
@@ -54,6 +78,30 @@
       "writtenOn": "2024-05-31T16:09:12Z",
       "side": 1,
       "message": "I think I would avoid making this async, and then use the LitHTML until directive (https://lit.dev/docs/api/directives/#until) within the code.\n\nI don\u0027t want to block this CL on this as I know the UI is all going to change, but one for a follow-up or to do as we implement the UI fully once the UX is clarified.",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 39
+      },
+      "revId": "2111f7a06e885dfabfe926a4589ac41f75cf34a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00131012_9586cc28",
+        "filename": "front_end/panels/timeline/components/LiveMetricsView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-05-31T16:13:17Z",
+      "side": 1,
+      "message": "Haha I was using `until` with `LitElement` before but thought `async` rendering would be useful once I switched to `HTMLElement`. Happy to go back",
+      "parentUuid": "67d0bada_6b603ab5",
       "range": {
         "startLine": 52,
         "startChar": 0,
