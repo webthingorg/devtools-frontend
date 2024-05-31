@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f54cbb3d_6b990090",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-31T16:14:04Z",
+      "side": 1,
+      "message": "PTAL",
+      "revId": "1f315d8b97028ad3a5721fb43c6b4c617e62de7f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ff78805_17362176",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-31T16:14:04Z",
+      "side": 1,
+      "message": "this is currently a no-op as we don\u0027t render or do anything with this element. That will come in the follow-up CL.",
+      "range": {
+        "startLine": 135,
+        "startChar": 1,
+        "endLine": 144,
+        "endChar": 0
+      },
+      "revId": "1f315d8b97028ad3a5721fb43c6b4c617e62de7f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
