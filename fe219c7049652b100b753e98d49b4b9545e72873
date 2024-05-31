@@ -16,6 +16,57 @@
       "message": "Initial implementation of the front-end changes associated with changing the partition key in the browser_protocol.pdl. \n\nhttps://chromium-review.googlesource.com/c/chromium/src/+/5503675",
       "revId": "fe219c7049652b100b753e98d49b4b9545e72873",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0842439_3e183381",
+        "filename": "front_end/core/sdk/Cookie.test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-05-31T06:31:01Z",
+      "side": 1,
+      "message": "This is supposed to read as a sentence. \n\n\"It exercise methods associated...\" doesn\u0027t make much sense to me.\n\nHow about `it(\u0027can modify partition key\u0027, ...`?\n\nAlso below",
+      "range": {
+        "startLine": 245,
+        "startChar": 0,
+        "endLine": 245,
+        "endChar": 62
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "2b719360_9abbb814",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/core/sdk/Cookie.test.ts",
+              "range": {
+                "startLine": 245,
+                "startChar": 0,
+                "endLine": 246,
+                "endChar": 0
+              },
+              "replacement": "  it(\u0027can modify partition key\u0027, () \u003d\u003e {\n"
+            },
+            {
+              "path": "front_end/core/sdk/Cookie.test.ts",
+              "range": {
+                "startLine": 260,
+                "startChar": 0,
+                "endLine": 261,
+                "endChar": 0
+              },
+              "replacement": "  it(\u0027can compare partition keys\u0027, () \u003d\u003e {\n"
+            }
+          ]
+        }
+      ],
+      "revId": "fe219c7049652b100b753e98d49b4b9545e72873",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
