@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4326a13a_bdbe0f0f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-05-31T13:53:29Z",
+      "side": 1,
+      "message": "I have 0 idea how this change broke tests with `describeWithRealConnection`...",
+      "revId": "6410a39fb07665f221fa8f3b7f47ec8d4e0b9c39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
