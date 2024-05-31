@@ -764,6 +764,12 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     }
     let menuItem;
 
+    if (Common.Settings.Settings.instance().moduleSetting('freestyler-enabled').get()) {
+      contextMenu.headerSection().appendAction(
+          'freestyler.element-panel-context',
+      );
+    }
+
     menuItem = contextMenu.clipboardSection().appendItem(
         i18nString(UIStrings.cut), treeOutline.performCopyOrCut.bind(treeOutline, true, this.nodeInternal),
         {disabled: !this.hasEditableNode(), jslogContext: 'cut'});
