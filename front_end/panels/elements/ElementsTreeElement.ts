@@ -36,6 +36,7 @@ import * as Common from '../../core/common/common.js';
 import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
+import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Protocol from '../../generated/protocol.js';
 import type * as IssuesManager from '../../models/issues_manager/issues_manager.js';
@@ -763,6 +764,13 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
       return;
     }
     let menuItem;
+
+    if (Root.Runtime.Runtime.queryParam('freestyler_dogfood') === 'true' &&
+        Common.Settings.Settings.instance().moduleSetting('freestyler-enabled').get()) {
+      contextMenu.headerSection().appendAction(
+          'freestyler.element-panel-context',
+      );
+    }
 
     menuItem = contextMenu.clipboardSection().appendItem(
         i18nString(UIStrings.cut), treeOutline.performCopyOrCut.bind(treeOutline, true, this.nodeInternal),
