@@ -160,6 +160,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "995b7b88_314a0c1b",
+        "filename": "front_end/panels/freestyler/freestyler-meta.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-05-31T09:30:21Z",
+      "side": 1,
+      "message": "Though I think this is the behavior we want:\n* If the user is in dogfood, we\u0027re going to show the setting.\n* If the user is not in dogfood, we won\u0027t show the setting.\n\nIn this way, we\u0027re not showing the setting in any case; right?",
+      "parentUuid": "3b24290e_00b29bc0",
+      "revId": "3f40142d7e72534297b2f3624760f46a909f287e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e9a236a4_346918d5",
         "filename": "front_end/panels/freestyler/freestyler-meta.ts",
         "patchSetId": 2
@@ -224,6 +242,24 @@
       "side": 1,
       "message": "If `undefined` it will always show when you do Ctrl + Shift + P, and we don\u0027t want it to show there at all.",
       "parentUuid": "e197d442_5b88c2f6",
+      "revId": "3f40142d7e72534297b2f3624760f46a909f287e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88ec013c_178d0f46",
+        "filename": "front_end/panels/freestyler/freestyler-meta.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-05-31T09:30:21Z",
+      "side": 1,
+      "message": "Ah good catch! I think it\u0027d be cool to add it as a comment here, WDYT?",
+      "parentUuid": "7b278f50_098d5816",
       "revId": "3f40142d7e72534297b2f3624760f46a909f287e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
