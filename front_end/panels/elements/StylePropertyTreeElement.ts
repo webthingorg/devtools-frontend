@@ -469,9 +469,9 @@ export class LightDarkColorRenderer implements MatchRenderer<LightDarkColorMatch
 }
 
 export class ColorMixRenderer implements MatchRenderer<ColorMixMatch> {
-  #pane: StylesSidebarPane;
+  pane: StylesSidebarPane;
   constructor(pane: StylesSidebarPane) {
-    this.#pane = pane;
+    this.pane = pane;
   }
 
   render(match: ColorMixMatch, context: RenderingContext): Node[] {
@@ -518,7 +518,7 @@ export class ColorMixRenderer implements MatchRenderer<ColorMixMatch> {
     swatch.setColorMixText(`color-mix(${space}, ${color1Text}, ${color2Text})`);
     swatch.setRegisterPopoverCallback(swatch => {
       if (swatch.icon) {
-        this.#pane.addPopover(swatch.icon, {
+        this.pane.addPopover(swatch.icon, {
           contents: () => {
             const color = swatch.mixedColor();
             if (!color) {
