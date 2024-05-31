@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff084754_541d8d8f",
+        "filename": "front_end/panels/timeline/TimelineLandingPage.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-05-31T08:15:50Z",
+      "side": 1,
+      "message": "we haven\u0027t actually committed to using LitELement in this codebase - in fact latest plan is probably that we won\u0027t. The places where it is used were experimental places to gain an understanding of what it would look like.\n\nFor now we should use regular web components with LitHtml for the templating layer, rather than LitElement. I know it\u0027s a bit more boilerplate but we decided we were happy with that vs a bigger dependency. Please could you update accordingly? Thanks!",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 56,
+        "endChar": 41
+      },
+      "revId": "64f3d4e70171e316a36b48214a75e29cd1443f3b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
