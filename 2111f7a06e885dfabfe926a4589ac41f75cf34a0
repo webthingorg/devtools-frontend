@@ -65,6 +65,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0921577e_f190489f",
+        "filename": "front_end/panels/timeline/components/LiveMetricsView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-05-31T16:22:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "05df01cc_ad146a4f",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 3
+      },
+      "revId": "2111f7a06e885dfabfe926a4589ac41f75cf34a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "67d0bada_6b603ab5",
@@ -102,6 +126,30 @@
       "side": 1,
       "message": "Haha I was using `until` with `LitElement` before but thought `async` rendering would be useful once I switched to `HTMLElement`. Happy to go back",
       "parentUuid": "67d0bada_6b603ab5",
+      "range": {
+        "startLine": 52,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 39
+      },
+      "revId": "2111f7a06e885dfabfe926a4589ac41f75cf34a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0db228fe_234abd22",
+        "filename": "front_end/panels/timeline/components/LiveMetricsView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-05-31T16:22:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "00131012_9586cc28",
       "range": {
         "startLine": 52,
         "startChar": 0,
