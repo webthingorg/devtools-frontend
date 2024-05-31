@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5a5b79e_a5667f10",
+        "filename": "front_end/panels/freestyler/FreestylerPanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-05-31T09:28:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1472959_ae238d0a",
+      "revId": "3f40142d7e72534297b2f3624760f46a909f287e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5cc696a2_dfac6ce9",
@@ -48,6 +66,24 @@
       "writtenOn": "2024-05-31T09:00:54Z",
       "side": 1,
       "message": "Let\u0027s change this to \"Enable Freestyler\" so that the language is in-line with the other settings.",
+      "revId": "3f40142d7e72534297b2f3624760f46a909f287e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "574d34be_3b5e04bc",
+        "filename": "front_end/panels/freestyler/freestyler-meta.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-05-31T09:28:31Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "5cc696a2_dfac6ce9",
       "revId": "3f40142d7e72534297b2f3624760f46a909f287e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -69,6 +105,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2447d55a_6b89e122",
+        "filename": "front_end/panels/freestyler/freestyler-meta.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-05-31T09:28:31Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "a30a0e5b_0cf8c29e",
+      "revId": "3f40142d7e72534297b2f3624760f46a909f287e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "969eb5de_b2b90f79",
@@ -82,6 +136,24 @@
       "writtenOn": "2024-05-31T09:00:54Z",
       "side": 1,
       "message": "I think we can put this under `Global` setting so that users will be able to change it manually from the settings page.\n\nWe should also make the setting available only for the dogfooders through `condition: isFeatureAvailable` for that case. WDYT?",
+      "revId": "3f40142d7e72534297b2f3624760f46a909f287e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b24290e_00b29bc0",
+        "filename": "front_end/panels/freestyler/freestyler-meta.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-05-31T09:28:31Z",
+      "side": 1,
+      "message": "We can\u0027t use the condition as that controls if the setting is created or not.\nSo we can\u0027t use it in other places, as it will throw.",
+      "parentUuid": "969eb5de_b2b90f79",
       "revId": "3f40142d7e72534297b2f3624760f46a909f287e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -103,6 +175,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d62258c3_f71d8c58",
+        "filename": "front_end/panels/freestyler/freestyler-meta.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-05-31T09:28:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e9a236a4_346918d5",
+      "revId": "3f40142d7e72534297b2f3624760f46a909f287e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e197d442_5b88c2f6",
@@ -116,6 +206,24 @@
       "writtenOn": "2024-05-31T09:00:54Z",
       "side": 1,
       "message": "Why do we need this `contextTypes` function that returns an empty array?",
+      "revId": "3f40142d7e72534297b2f3624760f46a909f287e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b278f50_098d5816",
+        "filename": "front_end/panels/freestyler/freestyler-meta.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-05-31T09:28:31Z",
+      "side": 1,
+      "message": "If `undefined` it will always show when you do Ctrl + Shift + P, and we don\u0027t want it to show there at all.",
+      "parentUuid": "e197d442_5b88c2f6",
       "revId": "3f40142d7e72534297b2f3624760f46a909f287e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
