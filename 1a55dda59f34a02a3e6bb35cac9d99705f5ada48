@@ -34,6 +34,24 @@
       "parentUuid": "48ff52a5_09414d5f",
       "revId": "1a55dda59f34a02a3e6bb35cac9d99705f5ada48",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6eb52fa_d8feb94b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-05-31T05:40:37Z",
+      "side": 1,
+      "message": "I\u0027m going to abandon this and create a revert at https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/5580880, thanks for investigating this Wolfgang!",
+      "parentUuid": "c01c4e3b_6d4512b9",
+      "revId": "1a55dda59f34a02a3e6bb35cac9d99705f5ada48",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
