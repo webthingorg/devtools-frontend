@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb0efb37_18c07609",
+        "filename": "front_end/panels/timeline/TimelineTreeView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-05-31T13:41:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ade09dc9_fc7ee71b",
+      "revId": "f398ff559505e3862ba8b5f6e3fb9189a8aacbc1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b256e0a9_b2cc5812",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-05-29T13:26:58Z",
       "side": 1,
       "message": "A general question here: why are some of the properties here optional, e.g. toggled, checked? Can they be non-optional and be false by default?",
+      "revId": "f398ff559505e3862ba8b5f6e3fb9189a8aacbc1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99f87a89_82fa2771",
+        "filename": "front_end/ui/components/buttons/Button.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-05-31T13:41:48Z",
+      "side": 1,
+      "message": "Let\u0027s do it in a follow-up CL? this one is quite big already",
+      "parentUuid": "b256e0a9_b2cc5812",
       "revId": "f398ff559505e3862ba8b5f6e3fb9189a8aacbc1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -52,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d706b01_b0fd816c",
+        "filename": "front_end/ui/components/buttons/button.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-05-31T13:41:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0afc41b6_8a62bc45",
+      "revId": "f398ff559505e3862ba8b5f6e3fb9189a8aacbc1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7bcbd74f_099d8453",
@@ -65,6 +119,24 @@
       "writtenOn": "2024-05-29T13:26:58Z",
       "side": 1,
       "message": "nit: can this be simplified a little bit to `... \u003d glyph || \u0027\u0027`?",
+      "revId": "f398ff559505e3862ba8b5f6e3fb9189a8aacbc1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b03fd3b_44cf5705",
+        "filename": "front_end/ui/legacy/Toolbar.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 630,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-05-31T13:41:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7bcbd74f_099d8453",
       "revId": "f398ff559505e3862ba8b5f6e3fb9189a8aacbc1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
