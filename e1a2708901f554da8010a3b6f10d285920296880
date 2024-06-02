@@ -34,6 +34,24 @@
       "parentUuid": "0cc219a8_1dd4f1ed",
       "revId": "e1a2708901f554da8010a3b6f10d285920296880",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8746e855_e8b2f01f",
+        "filename": "front_end/panels/elements/ElementStatePaneWidget.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-06-02T18:19:40Z",
+      "side": 0,
+      "message": "That should be fine. Thanks for checking!",
+      "parentUuid": "9834d15f_5cc7ad1a",
+      "revId": "e1a2708901f554da8010a3b6f10d285920296880",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
