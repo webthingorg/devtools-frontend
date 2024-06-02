@@ -71,6 +71,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "20f20efe_5358b81e",
+        "filename": "front_end/ui/components/buttons/Button.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-06-02T18:19:53Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "99f87a89_82fa2771",
+      "revId": "f398ff559505e3862ba8b5f6e3fb9189a8aacbc1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0afc41b6_8a62bc45",
