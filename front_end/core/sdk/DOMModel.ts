@@ -1002,6 +1002,22 @@ export class DOMNode {
     }
     return lowerCaseName;
   }
+
+  async getAnchorBySpecifier(specifier?: string): Promise<DOMNode|null> {
+    const stack = new Error().stack;
+    // eslint-disable-next-line no-console
+    console.log('getAnchorBySpecifierCall', stack);
+    const response = await this.#agent.invoke_getAnchorElement({
+      nodeId: this.id,
+      anchorSpecifier: specifier,
+    });
+
+    if (response.getError()) {
+      return null;
+    }
+
+    return this.domModel().nodeForId(response.nodeId);
+  }
 }
 
 export namespace DOMNode {

@@ -449,6 +449,15 @@ export class SessionRouter {
   }
 
   private hasOutstandingNonLongPollingRequests(): boolean {
+    // eslint-disable-next-line no-console
+    console.log('this.#pendingResponsesCount', this.#pendingResponsesCount);
+    const session = this.#sessions.get('');
+    if (session) {
+      for (const entry of session.callbacks.entries()) {
+        // eslint-disable-next-line no-console
+        console.log(entry[0], entry[1].method);
+      }
+    }
     return this.#pendingResponsesCount - this.#pendingLongPollingMessageIds.size > 0;
   }
 
