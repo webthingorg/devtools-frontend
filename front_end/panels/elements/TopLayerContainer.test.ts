@@ -24,7 +24,7 @@ const stubElementsTreeElement = () => {
   } as Elements.ElementsTreeElement.ElementsTreeElement;
 };
 
-describeWithRealConnection('TopLayerContainer', () => {
+describeWithRealConnection.only('TopLayerContainer', () => {
   it('should update top layer elements correctly', async () => {
     const stubDocument = {} as SDK.DOMModel.DOMDocument;
     const topLayerDOMNode1 = stubTopLayerDOMNode('dialog', 1, stubDocument);
