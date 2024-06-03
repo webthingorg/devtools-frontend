@@ -68,6 +68,24 @@
       ],
       "revId": "cd6d3bb38c678cbea21004d62c14dad04f97f671",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "afac52c6_70a452f6",
+        "filename": "front_end/ui/legacy/Toolbar.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 890,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-06-03T11:34:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb0c780e_b83819d8",
+      "revId": "cd6d3bb38c678cbea21004d62c14dad04f97f671",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
