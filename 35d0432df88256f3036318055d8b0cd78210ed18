@@ -71,6 +71,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ccb5744b_1f92791b",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 2261,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-06-03T08:37:34Z",
+      "side": 1,
+      "message": "Is it possible to use `KnownEventName.WebSocketSend` here, just like L2277 later, and possibly for other strings as well?",
+      "revId": "35d0432df88256f3036318055d8b0cd78210ed18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a6cb2fa1_93e66a24",
         "filename": "front_end/models/trace/types/TraceEvents.ts",
         "patchSetId": 9
