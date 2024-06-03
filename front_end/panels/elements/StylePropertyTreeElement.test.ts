@@ -8,6 +8,7 @@ import * as Protocol from '../../generated/protocol.js';
 import * as TextUtils from '../../models/text_utils/text_utils.js';
 import {renderElementIntoDOM} from '../../testing/DOMHelpers.js';
 import {createTarget} from '../../testing/EnvironmentHelpers.js';
+import {expectCall} from '../../testing/ExpectStubCall.js';
 import {describeWithRealConnection} from '../../testing/RealConnection.js';
 import * as CodeMirror from '../../third_party/codemirror.next/codemirror.next.js';
 import * as InlineEditor from '../../ui/legacy/components/inline_editor/inline_editor.js';
@@ -1084,6 +1085,108 @@ describeWithRealConnection('StylePropertyTreeElement', () => {
       model.renderContents(container);
       assert.strictEqual(container.textContent, '10px y 12px spread');
       assert.deepStrictEqual(properties.map(p => p.source), [null, null, null, null]);
+    });
+  });
+
+  // Causes some other tests with RealConnection to fail.
+  describe.skip('[crbug.com/330306231] AnchorFunctionRenderer', () => {
+    let anchorDecoratedForTestStub: sinon.SinonStub;
+    let getAnchorBySpecifierStub: sinon.SinonStub;
+    let revealStub: sinon.SinonStub;
+    let hideDOMNodeHighlightStub: sinon.SinonStub;
+    let highlightMock: sinon.SinonExpectation;
+    let fakeDOMNode: SDK.DOMModel.DOMNode;
+
+    beforeEach(() => {
+      fakeDOMNode = {
+        localName() {
+          return 'span';
+        },
+        isSVGNode() {
+          return false;
+        },
+        highlight() {
+          highlightMock();
+        },
+      } as SDK.DOMModel.DOMNode;
+      highlightMock = sinon.mock();
+      anchorDecoratedForTestStub =
+          sinon.stub(Elements.StylePropertyTreeElement.AnchorFunctionRenderer.prototype, 'anchorDecoratedForTest');
+      getAnchorBySpecifierStub =
+          sinon.stub(SDK.DOMModel.DOMNode.prototype, 'getAnchorBySpecifier').resolves(fakeDOMNode);
+      revealStub = sinon.stub(Common.Revealer.RevealerRegistry.prototype, 'reveal');
+      hideDOMNodeHighlightStub = sinon.stub(SDK.OverlayModel.OverlayModel, 'hideDOMNodeHighlight');
+    });
+
+    afterEach(() => {
+      anchorDecoratedForTestStub.restore();
+      getAnchorBySpecifierStub.restore();
+      revealStub.restore();
+      hideDOMNodeHighlightStub.restore();
+    });
+
+    it('renders anchor() function correctly', async () => {
+      const stylePropertyTreeElement = getTreeElement('left', 'anchor(top)');
+
+      stylePropertyTreeElement.updateTitle();
+
+      assert.strictEqual(stylePropertyTreeElement.valueElement!.textContent, 'anchor(top)');
+    });
+
+    it('renders `AnchorFunctionLinkSwatch` after decorating the element', async () => {
+      const waitForDecorationPromise = expectCall(anchorDecoratedForTestStub);
+      const stylePropertyTreeElement = getTreeElement('left', 'anchor(--identifier top)');
+
+      stylePropertyTreeElement.updateTitle();
+      await waitForDecorationPromise;
+      const anchorFunctionLinkSwatch =
+          stylePropertyTreeElement.valueElement!.querySelector('devtools-anchor-function-link-swatch')! as
+          ElementsComponents.AnchorFunctionLinkSwatch.AnchorFunctionLinkSwatch;
+
+      assert.strictEqual(anchorFunctionLinkSwatch.dataForTest().identifier, '--identifier');
+    });
+
+    it('should highlight node when `onMouseEnter` triggered from `AnchorFunctionLinkSwatch`', async () => {
+      const waitForDecorationPromise = expectCall(anchorDecoratedForTestStub);
+      const stylePropertyTreeElement = getTreeElement('left', 'anchor(--identifier top)');
+
+      stylePropertyTreeElement.updateTitle();
+      await waitForDecorationPromise;
+      const anchorFunctionLinkSwatch =
+          stylePropertyTreeElement.valueElement!.querySelector('devtools-anchor-function-link-swatch')! as
+          ElementsComponents.AnchorFunctionLinkSwatch.AnchorFunctionLinkSwatch;
+      anchorFunctionLinkSwatch.dataForTest().onMouseEnter();
+
+      assert.isTrue(highlightMock.calledOnce);
+    });
+
+    it('should clear DOM highlight when `onMouseLeave` triggered from `AnchorFunctionLinkSwatch`', async () => {
+      const waitForDecorationPromise = expectCall(anchorDecoratedForTestStub);
+      const stylePropertyTreeElement = getTreeElement('left', 'anchor(--identifier top)');
+
+      stylePropertyTreeElement.updateTitle();
+      await waitForDecorationPromise;
+      const anchorFunctionLinkSwatch =
+          stylePropertyTreeElement.valueElement!.querySelector('devtools-anchor-function-link-swatch')! as
+          ElementsComponents.AnchorFunctionLinkSwatch.AnchorFunctionLinkSwatch;
+      anchorFunctionLinkSwatch.dataForTest().onMouseLeave();
+
+      assert.isTrue(hideDOMNodeHighlightStub.calledOnce);
+    });
+
+    it('should reveal anchor node when `onLinkActivate` triggered from `AnchorFunctionLinkSwatch`', async () => {
+      const waitForDecorationPromise = expectCall(anchorDecoratedForTestStub);
+      const stylePropertyTreeElement = getTreeElement('left', 'anchor(--identifier top)');
+
+      stylePropertyTreeElement.updateTitle();
+      await waitForDecorationPromise;
+      const anchorFunctionLinkSwatch =
+          stylePropertyTreeElement.valueElement!.querySelector('devtools-anchor-function-link-swatch')! as
+          ElementsComponents.AnchorFunctionLinkSwatch.AnchorFunctionLinkSwatch;
+      anchorFunctionLinkSwatch.dataForTest().onLinkActivate();
+
+      assert.isTrue(revealStub.calledOnce);
+      assert.isTrue(revealStub.calledWith(fakeDOMNode));
     });
   });
 
