@@ -16,6 +16,24 @@
       "message": "lgtm\n\nKim, the link in the CL shows a failure in a Recorder e2e test, not the e2e test in this CL. Just to check is that correct?",
       "revId": "f3ef96e207ff638862a3be77219d9ffb7ad27bd0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1e775a5_5afd50b9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-06-03T08:44:04Z",
+      "side": 1,
+      "message": "Yes that\u0027s correct, but the error that I\u0027m referring to is the `afterAll` hook error (maybe that also led to the recorder error, at least with the CL it was the first time that it appeared). See here the bot on the original CL passed the CQ bots, but there was already this `afterAll` error: https://ci.chromium.org/ui/p/devtools-frontend/builders/try/devtools_frontend_mac_rel/b8746405765293345137/overview",
+      "parentUuid": "a9b0c157_e098837e",
+      "revId": "f3ef96e207ff638862a3be77219d9ffb7ad27bd0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
