@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b32a017_94ec2bc3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-06-03T09:45:09Z",
+      "side": 1,
+      "message": "I think we need `No-Tree-Checks: true`",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 9
+      },
+      "revId": "11c4ba4503bb60f6ad3c3b94c255ee9ba320b257",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
