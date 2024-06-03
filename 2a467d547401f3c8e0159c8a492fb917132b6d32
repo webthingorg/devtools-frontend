@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b3c17a2d_7d350589",
+        "filename": "front_end/core/sdk/NetworkRequest.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1164,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-06-03T06:29:08Z",
+      "side": 1,
+      "message": "I\u0027d suggest to send an event from `NetworkManager`, listen to it in the `IssuesManager` and add an issue there.",
+      "parentUuid": "2542ea10_d6cb0434",
+      "revId": "2a467d547401f3c8e0159c8a492fb917132b6d32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a3b6fc3f_d508fe77",
         "filename": "third_party/blink/public/devtools_protocol/browser_protocol.pdl",
         "patchSetId": 1
