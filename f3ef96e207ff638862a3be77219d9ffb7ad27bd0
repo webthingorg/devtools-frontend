@@ -34,6 +34,23 @@
       "parentUuid": "a9b0c157_e098837e",
       "revId": "f3ef96e207ff638862a3be77219d9ffb7ad27bd0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4776b87_c7e40018",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-06-03T09:37:35Z",
+      "side": 1,
+      "message": "Taking the revert back - this CL triggered the errors but wasn\u0027t the culprit, the underlying issue will be fixed by: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/5592570",
+      "revId": "f3ef96e207ff638862a3be77219d9ffb7ad27bd0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
