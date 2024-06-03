@@ -16,6 +16,24 @@
       "message": "So far the command line arg doesn\u0027t do anything, what\u0027s the goal there?",
       "revId": "cf5b61e63a7edee9b106def6f51e8a3c3ff713d0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a525783a_4aee936e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2024-06-03T19:39:33Z",
+      "side": 1,
+      "message": "What do you mean? I tested this on local and I get it to bail. The goal is to use this on the shuffled runner and get the shortest test shuffle that fails consistently then investigate the failure reason.",
+      "parentUuid": "86697d03_626f282f",
+      "revId": "cf5b61e63a7edee9b106def6f51e8a3c3ff713d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
