@@ -20,6 +20,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b760781c_905b56e3",
+        "filename": "front_end/panels/timeline/Overlays.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-06-03T09:24:09Z",
+      "side": 1,
+      "message": "I wonder if at the point we expect to call this function we would have the index of the event, like we do when calling the data provider for event colors, titles, etc. If so, that could spare us from using `indexForEvent` each time we call it.",
+      "range": {
+        "startLine": 179,
+        "startChar": 53,
+        "endLine": 179,
+        "endChar": 58
+      },
+      "revId": "1f315d8b97028ad3a5721fb43c6b4c617e62de7f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4ff78805_17362176",
         "filename": "front_end/panels/timeline/TimelineFlameChartView.ts",
         "patchSetId": 3
