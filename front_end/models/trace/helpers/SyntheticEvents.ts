@@ -93,4 +93,8 @@ export class SyntheticEventsManager {
   allSyntheticEvents(): Types.TraceEvents.SyntheticBasedEvent[] {
     return this.#syntheticTraceEvents;
   }
+
+  getRawTraceEvents(): readonly Types.TraceEvents.TraceEventData[] {
+    return this.#rawTraceEvents;
+  }
 }
