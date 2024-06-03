@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "75089e29_fd81c7a8",
+        "filename": "front_end/panels/timeline/Overlays.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-03T10:03:37Z",
+      "side": 1,
+      "message": "To check my understanding: are you suggesting that in the overlays, we could eagerly look up an event\u0027s index and then cache it to avoid repeated `indexForEvent` calls?\n\nI like that idea, and will let this CL land, but do that in a follow-up, if that\u0027s what you mean. Thanks!",
+      "parentUuid": "b760781c_905b56e3",
+      "range": {
+        "startLine": 179,
+        "startChar": 53,
+        "endLine": 179,
+        "endChar": 58
+      },
+      "revId": "1f315d8b97028ad3a5721fb43c6b4c617e62de7f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4ff78805_17362176",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-05-31T16:14:04Z",
       "side": 1,
       "message": "this is currently a no-op as we don\u0027t render or do anything with this element. That will come in the follow-up CL.",
+      "range": {
+        "startLine": 135,
+        "startChar": 1,
+        "endLine": 144,
+        "endChar": 0
+      },
+      "revId": "1f315d8b97028ad3a5721fb43c6b4c617e62de7f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "061f7c87_70055aad",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-03T10:03:37Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "4ff78805_17362176",
       "range": {
         "startLine": 135,
         "startChar": 1,
