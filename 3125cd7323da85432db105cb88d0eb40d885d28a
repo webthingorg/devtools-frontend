@@ -16,6 +16,40 @@
       "message": "PTAL",
       "revId": "3125cd7323da85432db105cb88d0eb40d885d28a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a58d14cf_a2d99be8",
+        "filename": "front_end/panels/explain/explain-meta.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-06-03T09:31:19Z",
+      "side": 1,
+      "message": "I think we still might want to test the locale restrictions even if you are a dogfooder",
+      "revId": "3125cd7323da85432db105cb88d0eb40d885d28a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "365f187d_242f7dad",
+        "filename": "front_end/panels/explain/explain-meta.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-06-03T09:31:19Z",
+      "side": 1,
+      "message": "isDogfooder looks redundant since it\u0027s already in the isActionAvailable?",
+      "revId": "3125cd7323da85432db105cb88d0eb40d885d28a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
