@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "764d6b36_75d9b52b",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-06-03T08:50:00Z",
+      "side": 1,
+      "message": "nit: move to line 9 to avoid newline in the beginning",
+      "revId": "94bfe8a7e8624afa4f348789e3983d032aa23293",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
