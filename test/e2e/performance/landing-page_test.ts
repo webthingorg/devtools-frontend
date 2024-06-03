@@ -21,13 +21,25 @@ describe('The Performance panel landing page', () => {
   });
 
   // Flaky on mac
-  it.skipOnPlatforms(['mac'], '[crbug.com/344543189] displays live metrics', async () => {
+  it('displays live metrics', async () => {
     const {target, frontend} = await getBrowserAndPages();
 
     await navigateToPerformanceTab();
 
     await target.bringToFront();
+
+    const targetSession = await target.createCDPSession();
+    await targetSession.send('PerformanceTimeline.enable', {eventTypes: ['largest-contentful-paint']});
+    const lcpPromise = new Promise<void>(resolve => {
+      targetSession.on('PerformanceTimeline.timelineEventAdded', (data) => {
+        if (data.event.lcpDetails) {
+          resolve();
+        }
+      });
+    });
+
     await goToResource('performance/fake-website.html');
+    await lcpPromise;
     await target.click('div.container');
     await target.evaluate(() => new Promise(r => requestAnimationFrame(r)));
     await target.evaluate(() => new Promise(r => requestAnimationFrame(r)));
