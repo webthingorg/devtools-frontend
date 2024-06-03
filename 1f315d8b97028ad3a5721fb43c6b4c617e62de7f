@@ -89,6 +89,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7aba1a7_917d2eae",
+        "filename": "front_end/panels/timeline/Overlays.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-03T12:47:33Z",
+      "side": 1,
+      "message": "Ah OK understood. I will explore in a follow-up. Thanks!",
+      "parentUuid": "bf87e9bb_552e0556",
+      "range": {
+        "startLine": 179,
+        "startChar": 53,
+        "endLine": 179,
+        "endChar": 58
+      },
+      "revId": "1f315d8b97028ad3a5721fb43c6b4c617e62de7f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4ff78805_17362176",
