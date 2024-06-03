@@ -65,6 +65,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf87e9bb_552e0556",
+        "filename": "front_end/panels/timeline/Overlays.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 179,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-06-03T11:13:15Z",
+      "side": 1,
+      "message": "I was suggesting we pass the entry index if it\u0027s already available by the time we call this (w/o having to resolve it at all). For example, when calling TimelineFlameChartDataProvider::entryColor we pass the entry index, since that\u0027s what we get from the FlameChart. If this index is available beforehand I think we are better off having it as param instead of the event, but I don\u0027t know if it will be available.",
+      "parentUuid": "75089e29_fd81c7a8",
+      "range": {
+        "startLine": 179,
+        "startChar": 53,
+        "endLine": 179,
+        "endChar": 58
+      },
+      "revId": "1f315d8b97028ad3a5721fb43c6b4c617e62de7f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4ff78805_17362176",
