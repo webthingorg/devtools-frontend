@@ -16,6 +16,58 @@
       "message": "PTAL",
       "revId": "cd6d3bb38c678cbea21004d62c14dad04f97f671",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b583d0f6_26c68956",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-06-03T11:13:44Z",
+      "side": 1,
+      "message": "LGTM modulo comment, thanks Wolfgang!",
+      "revId": "cd6d3bb38c678cbea21004d62c14dad04f97f671",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb0c780e_b83819d8",
+        "filename": "front_end/ui/legacy/Toolbar.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 890,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-06-03T11:13:44Z",
+      "side": 1,
+      "message": "Please add a comment why we need rAF here.",
+      "fixSuggestions": [
+        {
+          "fixId": "57d9b92a_dfcadd93",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/ui/legacy/Toolbar.ts",
+              "range": {
+                "startLine": 890,
+                "startChar": 0,
+                "endLine": 890,
+                "endChar": 0
+              },
+              "replacement": "      // The menu is closed asynchronously, so we need to wait for the next\n      // animation frame before removing the aria-expanded attribute.\n"
+            }
+          ]
+        }
+      ],
+      "revId": "cd6d3bb38c678cbea21004d62c14dad04f97f671",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
