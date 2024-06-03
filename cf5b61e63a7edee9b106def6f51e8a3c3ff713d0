@@ -34,6 +34,24 @@
       "parentUuid": "86697d03_626f282f",
       "revId": "cf5b61e63a7edee9b106def6f51e8a3c3ff713d0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6265bdc5_869b680f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2024-06-03T19:43:16Z",
+      "side": 1,
+      "message": "Karma reporter stops because of the thrown error and mocha already supports the option. \n\nI will land this to test the latest recipe change. Feel free to revert if you do not agree with the change.",
+      "parentUuid": "a525783a_4aee936e",
+      "revId": "cf5b61e63a7edee9b106def6f51e8a3c3ff713d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
