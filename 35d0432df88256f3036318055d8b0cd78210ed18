@@ -69,6 +69,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "150b7d6b_b5ec0955",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2024-06-03T20:58:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a976364_91e27008",
+      "revId": "35d0432df88256f3036318055d8b0cd78210ed18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ccb5744b_1f92791b",
@@ -104,6 +122,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a475357a_7e8e4d23",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 2261,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2024-06-03T20:58:31Z",
+      "side": 1,
+      "message": "good call!",
+      "parentUuid": "25d7fe7c_ba88007b",
+      "revId": "35d0432df88256f3036318055d8b0cd78210ed18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a6cb2fa1_93e66a24",
@@ -117,6 +153,24 @@
       "writtenOn": "2024-05-31T03:08:46Z",
       "side": 1,
       "message": "are these other ones still things?  if SendHandshakeRequest ReceiveHandshakeRequest and Destroy are no longer real events i\u0027d love to nuke them from this file too. :)",
+      "revId": "35d0432df88256f3036318055d8b0cd78210ed18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db7fca18_971e333b",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 2295,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2024-06-03T20:58:31Z",
+      "side": 1,
+      "message": "Ah those are still real events, wrapped them together for easier references.",
+      "parentUuid": "a6cb2fa1_93e66a24",
       "revId": "35d0432df88256f3036318055d8b0cd78210ed18",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
