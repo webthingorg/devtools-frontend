@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9b0c157_e098837e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-03T08:38:58Z",
+      "side": 1,
+      "message": "lgtm\n\nKim, the link in the CL shows a failure in a Recorder e2e test, not the e2e test in this CL. Just to check is that correct?",
+      "revId": "f3ef96e207ff638862a3be77219d9ffb7ad27bd0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
