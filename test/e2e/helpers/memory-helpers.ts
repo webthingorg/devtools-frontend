@@ -20,7 +20,7 @@ import {
   waitForNone,
 } from '../../shared/helper.js';
 
-const NEW_HEAP_SNAPSHOT_BUTTON = 'button[aria-label="Take heap snapshot"]';
+const NEW_HEAP_SNAPSHOT_BUTTON = 'button[title="Take heap snapshot"]';
 const MEMORY_PANEL_CONTENT = 'div[aria-label="Memory panel"]';
 const PROFILE_TREE_SIDEBAR = 'div.profiles-tree-sidebar';
 export const MEMORY_TAB_ID = '#tab-heap-profiler';

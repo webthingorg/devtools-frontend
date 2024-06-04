@@ -103,7 +103,7 @@ export async function selectStorageItemAtIndex(index: number) {
 }
 
 export async function deleteSelectedStorageItem() {
-  await click('[aria-label="Delete Selected"]');
+  await click('[title="Delete Selected"]');
 }
 
 export async function selectCookieByName(name: string) {
