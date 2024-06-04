@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c1028ed_6f8a52f4",
+        "filename": "front_end/core/sdk/NetworkManager.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-04T12:28:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "056919d6_b9706159",
+      "revId": "c8128d1115b35070ced275d24b09c409b0412b82",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fd1b04a7_ceb0a104",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-05-31T22:01:06Z",
       "side": 1,
       "message": "its not because of packet loss, but its because the devtools traffic shaping affects 1 single http transaction whereas in reality the shaping should affect each TCP/UDP frame. The significance of probably isn\u0027t too huge and chenwilliam\u0027s investigation found that yeah, it\u0027s not too far off. So.. just a small tweak.\n\nRTT, on the other hand, is much more affected by the throttling layer. So the big 3.75-5 times adjustment makes sense.\n\nrelevant: go/devtools-throttling",
+      "revId": "c8128d1115b35070ced275d24b09c409b0412b82",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0cd9298a_c8d84afa",
+        "filename": "front_end/core/sdk/NetworkManager.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-04T12:28:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd1b04a7_ceb0a104",
       "revId": "c8128d1115b35070ced275d24b09c409b0412b82",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -65,6 +101,24 @@
       "writtenOn": "2024-05-31T22:01:06Z",
       "side": 1,
       "message": "elaborated here but https://issues.chromium.org/issues/342406608#comment10 …\n\n\nhow about `60 * 2.75` ? its the same but .. more consistent with the dumb way we define these :)",
+      "revId": "c8128d1115b35070ced275d24b09c409b0412b82",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f0c6267_6055b800",
+        "filename": "front_end/core/sdk/NetworkManager.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-04T12:28:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2da46fe9_4c5cb856",
       "revId": "c8128d1115b35070ced275d24b09c409b0412b82",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
