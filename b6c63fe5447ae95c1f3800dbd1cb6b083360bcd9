@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50649be5_10494f87",
+        "filename": "front_end/panels/elements/StylePropertyHighlighter.test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-06-04T11:05:16Z",
+      "side": 0,
+      "message": "The tests pass with a stubbed out DOMNode instead of a real document node reported by the actual backend. Is the real document really needed?",
+      "range": {
+        "startLine": 22,
+        "startChar": 4,
+        "endLine": 22,
+        "endChar": 95
+      },
+      "revId": "b6c63fe5447ae95c1f3800dbd1cb6b083360bcd9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
