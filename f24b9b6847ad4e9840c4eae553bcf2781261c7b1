@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c7c80c3_a0b5a859",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-06-04T00:21:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd7cbade_8ee27fc8",
+      "range": {
+        "startLine": 87,
+        "startChar": 8,
+        "endLine": 87,
+        "endChar": 21
+      },
+      "revId": "f24b9b6847ad4e9840c4eae553bcf2781261c7b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "59220721_7df672dc",
@@ -43,6 +67,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "34cba780_5a1f8a95",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-06-04T00:21:26Z",
+      "side": 1,
+      "message": "clarifie this offline - \n\nto be accurate, in addition to using layoutShift events as a reference, we want to also use prepaint events. What I\u0027ve gone ahead and added in the cl:\n- An event is considered a root cause if it precedes a prePaint event that has a layoutshift occurring within it\n- for iframes this condition is sufficient ^ and don\u0027t need the `INVALIDATION_WINDOW`\n- for fonts on top of the condition we do use this `INVALIDATION_WINDOW`\n\nthis shuffled things a bit, @asraine@chromium.org @jacktfranklin@chromium.org please feel free to take a second look at this",
+      "parentUuid": "59220721_7df672dc",
+      "revId": "f24b9b6847ad4e9840c4eae553bcf2781261c7b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "36f38f10_c0d410fa",
         "filename": "front_end/models/trace/insights/CumulativeLayoutShift.ts",
         "patchSetId": 11
@@ -54,6 +96,30 @@
       "writtenOn": "2024-05-31T03:20:21Z",
       "side": 1,
       "message": "not a huge deal but i like to do the obviously faster operations first when they\u0027re being \u0026\u0026\u0027d   .. so i\u0027d go with:\n\ntype \u003d\u003d str \u0026\u0026 mimetype.startsWith(str) \u0026\u0026 fn(req,shift)\n\nthis way we\u0027ll get significantly invocations of isInInvalidationWindow.  \n\n\nbut... one could make the argument that .startsWith is slower than the math operations. shrug! i\u0027m good either way on that.",
+      "range": {
+        "startLine": 140,
+        "startChar": 0,
+        "endLine": 141,
+        "endChar": 49
+      },
+      "revId": "f24b9b6847ad4e9840c4eae553bcf2781261c7b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d095cd1e_cd75094a",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-06-04T00:21:26Z",
+      "side": 1,
+      "message": "sgtm :) Done",
+      "parentUuid": "36f38f10_c0d410fa",
       "range": {
         "startLine": 140,
         "startChar": 0,
