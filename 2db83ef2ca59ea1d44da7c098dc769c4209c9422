@@ -34,6 +34,24 @@
       "parentUuid": "59db4c47_ed0efdfd",
       "revId": "2db83ef2ca59ea1d44da7c098dc769c4209c9422",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "53720340_614b5218",
+        "filename": "front_end/core/common/SettingRegistration.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-06-04T08:44:56Z",
+      "side": 1,
+      "message": "That makes sense but at the same time it makes it harder to check that all the right places pass on the right config.",
+      "parentUuid": "e6486436_091b26f8",
+      "revId": "2db83ef2ca59ea1d44da7c098dc769c4209c9422",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
