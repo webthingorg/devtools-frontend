@@ -16,6 +16,24 @@
       "message": "Not sure if we want to have config provided or if perhaps the check function should get it (not feeling strongly either way).",
       "revId": "2db83ef2ca59ea1d44da7c098dc769c4209c9422",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6486436_091b26f8",
+        "filename": "front_end/core/common/SettingRegistration.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-06-04T08:43:46Z",
+      "side": 1,
+      "message": "I\u0027d find it much cleaner for these conditions to be pure functions that don\u0027t depend on external state but compute their result only from arguments.\n\nThat makes it easier to test and to reason about.",
+      "parentUuid": "59db4c47_ed0efdfd",
+      "revId": "2db83ef2ca59ea1d44da7c098dc769c4209c9422",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
