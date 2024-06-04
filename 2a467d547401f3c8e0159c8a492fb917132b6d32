@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "660862ee_0f07e709",
+        "filename": "front_end/core/sdk/NetworkRequest.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1164,
+      "author": {
+        "id": 1343440
+      },
+      "writtenOn": "2024-06-04T08:47:24Z",
+      "side": 1,
+      "message": "The code has been modified to pass the issue via events. PTAL.",
+      "parentUuid": "b3c17a2d_7d350589",
+      "revId": "2a467d547401f3c8e0159c8a492fb917132b6d32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a3b6fc3f_d508fe77",
@@ -49,6 +67,24 @@
       "writtenOn": "2024-05-31T10:33:52Z",
       "side": 1,
       "message": "Nit: It\u0027d be good to separate the roll of the protocol changes from the CL that actually adds the issues code.",
+      "revId": "2a467d547401f3c8e0159c8a492fb917132b6d32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6fb1f46_f7d7a8b7",
+        "filename": "third_party/blink/public/devtools_protocol/browser_protocol.pdl",
+        "patchSetId": 1
+      },
+      "lineNbr": 805,
+      "author": {
+        "id": 1343440
+      },
+      "writtenOn": "2024-06-04T08:47:24Z",
+      "side": 1,
+      "message": "A separate CL has been created at https://chromium-review.googlesource.com/c/chromium/src/+/5595499 to add the protocol change.",
+      "parentUuid": "a3b6fc3f_d508fe77",
       "revId": "2a467d547401f3c8e0159c8a492fb917132b6d32",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
