@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "953f0b31_335b203a",
+        "filename": "front_end/core/sdk/NetworkManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 923,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-06-04T08:55:51Z",
+      "side": 1,
+      "message": "We use sinon for stubbing. The easiest way would be to stub methods of a real model.",
+      "parentUuid": "14685660_74f34ba8",
+      "revId": "72178c6a258c45ec7ff29cd1a203c9aa79e5dff7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9c3ff8ed_e9a2ae2c",
         "filename": "front_end/models/issues_manager/EarlyHintsIssue.ts",
         "patchSetId": 2

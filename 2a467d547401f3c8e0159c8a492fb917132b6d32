@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "38095f06_9f260983",
+        "filename": "front_end/core/sdk/NetworkRequest.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1164,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-06-04T08:55:51Z",
+      "side": 1,
+      "message": "This also works. However, as Benedikt pointed out, this probably shouldn\u0027t need to go to all the models, just the one corresponding to the request target: `this.#manager.target.model(SDK.IssuesModel.IssuesModel)`",
+      "parentUuid": "660862ee_0f07e709",
+      "revId": "2a467d547401f3c8e0159c8a492fb917132b6d32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a3b6fc3f_d508fe77",
         "filename": "third_party/blink/public/devtools_protocol/browser_protocol.pdl",
         "patchSetId": 1
