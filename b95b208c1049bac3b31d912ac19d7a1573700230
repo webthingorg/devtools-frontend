@@ -16,6 +16,40 @@
       "message": "PTAL.",
       "revId": "b95b208c1049bac3b31d912ac19d7a1573700230",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c91c246_1fbc4c02",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-04T12:13:23Z",
+      "side": 1,
+      "message": "LGTM!",
+      "revId": "b95b208c1049bac3b31d912ac19d7a1573700230",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad10bdb7_710fad6d",
+        "filename": "front_end/panels/timeline/Overlays.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-04T12:13:23Z",
+      "side": 1,
+      "message": "will we ever need to remove all overlays of the same type? I can imagine we will have some way to track selected overlay since they will be selectable. Maybe we can just pass a specific overlay to remove in the future?",
+      "revId": "b95b208c1049bac3b31d912ac19d7a1573700230",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
