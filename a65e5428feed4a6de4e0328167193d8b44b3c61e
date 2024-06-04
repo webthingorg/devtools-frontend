@@ -95,6 +95,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3edfc8c9_2f0cbec8",
+        "filename": "front_end/models/trace/types/File.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-04T12:56:56Z",
+      "side": 1,
+      "message": "Ah sorry yes that\u0027s me misunderstanding.\n\nSo `SerializableKey` is the array form? I wonder if we should create a new branded type `SerializedEventKey` (maybe we can come up with a better name) just to avoid confusion. wdyt?\n\nI agree we should use the string form most of the time because it\u0027s easier to use as a key without having to worry about object references.",
+      "parentUuid": "9b00fa4c_4566ca76",
+      "range": {
+        "startLine": 36,
+        "startChar": 19,
+        "endLine": 36,
+        "endChar": 25
+      },
+      "revId": "a65e5428feed4a6de4e0328167193d8b44b3c61e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fd72e372_c8a8c3ff",
         "filename": "front_end/panels/timeline/TimelineFlameChartView.test.ts",
         "patchSetId": 4
@@ -130,6 +154,30 @@
       "side": 1,
       "message": "good catch, I think we should be able to remove these calls (the ones below too), since they do not initialize the manager.",
       "parentUuid": "fd72e372_c8a8c3ff",
+      "range": {
+        "startLine": 149,
+        "startChar": 0,
+        "endLine": 149,
+        "endChar": 86
+      },
+      "revId": "a65e5428feed4a6de4e0328167193d8b44b3c61e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4392838f_2d6bf10b",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-04T12:56:56Z",
+      "side": 1,
+      "message": "Yeah, doesn\u0027t seem like this method does create it, so I think these are no-ops in this file",
+      "parentUuid": "9050aa9f_3527d425",
       "range": {
         "startLine": 149,
         "startChar": 0,
@@ -235,6 +283,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cde6f3e5_39b33ab1",
+        "filename": "front_end/services/events_serializer/EventsSerializer.test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-04T12:56:56Z",
+      "side": 1,
+      "message": "cna we prefer `assert.isOk(rawEntryKey)` in that case? Avoids the cast and makes sure we get a useful error should it be null",
+      "parentUuid": "da1dbe60_3c7a7223",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 108
+      },
+      "revId": "a65e5428feed4a6de4e0328167193d8b44b3c61e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "aa6963a6_e9f31af2",
         "filename": "front_end/services/events_serializer/EventsSerializer.ts",
         "patchSetId": 4
@@ -270,6 +342,30 @@
       "side": 1,
       "message": "this should be called only for the keys found in a file, so it should be relatively cheap.",
       "parentUuid": "aa6963a6_e9f31af2",
+      "range": {
+        "startLine": 27,
+        "startChar": 9,
+        "endLine": 27,
+        "endChar": 36
+      },
+      "revId": "a65e5428feed4a6de4e0328167193d8b44b3c61e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "faecee91_acc26d09",
+        "filename": "front_end/services/events_serializer/EventsSerializer.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-04T12:56:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2dc58b17_b0e796b6",
       "range": {
         "startLine": 27,
         "startChar": 9,
