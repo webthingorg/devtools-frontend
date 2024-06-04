@@ -33,6 +33,24 @@
       "message": "When trying this out locally, after clicking on the resizer, pressing left cursor works, but pressing right cursor does not have any effect (or sometimes it does, but only the first time it\u0027s pressed)",
       "revId": "9d6a49752a1750007f5834be5a9b4d402dd200db",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e486936_e05e00f5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2024-06-04T21:05:40Z",
+      "side": 1,
+      "message": "Hey Wolfgang, thank you so much for testing it! I think the issues came from the resizer position calculation, where small pixel shift may result in noOp because the number is rounded after calculation. I increased the number from 2 to 3px and the issues seems to be fixed on my end. Could you try and let me know if it works? Thanks!",
+      "parentUuid": "1068d681_114e7c1d",
+      "revId": "9d6a49752a1750007f5834be5a9b4d402dd200db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
