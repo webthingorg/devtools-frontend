@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "caad430b_e7f3aa5f",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-06-04T19:08:14Z",
+      "side": 1,
+      "message": "ah this comment could be confusing. should stay a `break`! if the condition is met, we want to break out of this inner layoutShifts loop and continue with the outer prePaintEvents loop",
+      "parentUuid": "6323d798_46ce3a15",
+      "revId": "9affbd9819af226af31f36979084fc965d4b2f96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7ebc6922_482cda10",
@@ -48,6 +66,24 @@
       "writtenOn": "2024-06-04T18:13:16Z",
       "side": 1,
       "message": "optional nit: I don\u0027t think we need this split out into a helper. Just one more function to wire parameters through IMO.",
+      "revId": "9affbd9819af226af31f36979084fc965d4b2f96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f46886a_b80596b8",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-06-04T19:08:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7ebc6922_482cda10",
       "revId": "9affbd9819af226af31f36979084fc965d4b2f96",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
