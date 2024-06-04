@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e5af935_121ad048",
+        "filename": "front_end/core/common/Throttler.test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-04T11:15:41Z",
+      "side": 1,
+      "message": "Why do we need this `clock.tick(100)`? I see that when we remove this only the last test fails, can we move this to the start of the test that needs this?",
+      "revId": "e0ddd2d33689352f082ee21060888f10506d7e32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3638aab_383e6acf",
+        "filename": "front_end/core/common/Throttler.test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-04T11:15:41Z",
+      "side": 1,
+      "message": "Why do we need this empty schedule call before actually scheduling the process we test?\n\nand why do we need the `tickAsync(10)` before scheduling the `process` call?\n\nThe test passes without these two statements too.",
+      "revId": "e0ddd2d33689352f082ee21060888f10506d7e32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a40ac6e_6b58b193",
+        "filename": "front_end/core/common/Throttler.test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-04T11:15:41Z",
+      "side": 1,
+      "message": "whoa, I didn\u0027t know this was the actual behavior, thanks a lot for writing these tests!",
+      "revId": "e0ddd2d33689352f082ee21060888f10506d7e32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
