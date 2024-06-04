@@ -16,6 +16,23 @@
       "message": "Hey Wolfgang, could you take a look at this small accessibility fix? Thank you!",
       "revId": "9d6a49752a1750007f5834be5a9b4d402dd200db",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1068d681_114e7c1d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-06-04T13:36:40Z",
+      "side": 1,
+      "message": "When trying this out locally, after clicking on the resizer, pressing left cursor works, but pressing right cursor does not have any effect (or sometimes it does, but only the first time it\u0027s pressed)",
+      "revId": "9d6a49752a1750007f5834be5a9b4d402dd200db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
