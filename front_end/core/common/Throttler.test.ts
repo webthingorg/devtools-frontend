@@ -4,7 +4,7 @@
 
 import * as Common from './common.js';
 
-const Throttler = Common.Throttler.Throttler;
+const {Throttler, Scheduling} = Common.Throttler;
 
 describe('Throttler class', () => {
   let clock: sinon.SinonFakeTimers;
@@ -24,7 +24,7 @@ describe('Throttler class', () => {
     const throttler = new Throttler(10);
     void throttler.schedule(async () => {});
     await clock.tickAsync(10);
-    void throttler.schedule(process, true);
+    void throttler.schedule(process, Scheduling.AsSoonAsPossible);
 
     assert.isFalse(process.called);
     await clock.tickAsync(0);
@@ -38,8 +38,8 @@ describe('Throttler class', () => {
     const throttler = new Throttler(10);
     void throttler.schedule(async () => {});
     await clock.tickAsync(10);
-    const promiseTest = throttler.schedule(process1, true);
-    void throttler.schedule(process2, true);
+    const promiseTest = throttler.schedule(process1, Scheduling.AsSoonAsPossible);
+    void throttler.schedule(process2, Scheduling.AsSoonAsPossible);
 
     assert.isFalse(process1.called);
     assert.isFalse(process2.called);

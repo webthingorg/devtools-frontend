@@ -63,14 +63,15 @@ export class Throttler {
     this.#process = null;
   }
 
-  schedule(process: () => (Promise<unknown>), asSoonAsPossible?: boolean): Promise<void> {
+  schedule(process: () => (Promise<unknown>), scheduling = Scheduling.Default): Promise<void> {
     // Deliberately skip previous #process.
     this.#process = process;
 
     // Run the first scheduled task instantly.
     const hasScheduledTasks = Boolean(this.#processTimeout) || this.#isRunningProcess;
     const okToFire = this.getTime() - this.#lastCompleteTime > this.#timeout;
-    asSoonAsPossible = Boolean(asSoonAsPossible) || (!hasScheduledTasks && okToFire);
+    const asSoonAsPossible = scheduling === Scheduling.AsSoonAsPossible ||
+        (scheduling === Scheduling.Default && !hasScheduledTasks && okToFire);
 
     const forceTimerUpdate = asSoonAsPossible && !this.#asSoonAsPossible;
     this.#asSoonAsPossible = this.#asSoonAsPossible || asSoonAsPossible;
@@ -106,4 +107,10 @@ export class Throttler {
   private getTime(): number {
     return window.performance.now();
   }
+}
+
+export const enum Scheduling {
+  Default = 'Default',
+  AsSoonAsPossible = 'AsSoonAsPossible',
+  Delayed = 'Delayed',
 }
