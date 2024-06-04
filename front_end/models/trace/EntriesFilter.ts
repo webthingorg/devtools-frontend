@@ -230,10 +230,20 @@ export class EntriesFilter {
   // The direct parent might be hidden by other actions, therefore we look for the next visible parent.
   #findNextVisibleParent(node: Helpers.TreeHelpers.TraceEntryNode): Helpers.TreeHelpers.TraceEntryNode|null {
     let parent = node.parent;
-    while (parent && this.#invisibleEntries.includes(parent.entry)) {
+    while (parent && (this.#invisibleEntries.includes(parent.entry) || !this.#entryIsVisibleInTimeline(parent.entry))) {
       parent = parent.parent;
     }
     return parent;
+  }
+
+  #entryIsVisibleInTimeline(entry: Types.TraceEvents.TraceEventData): boolean {
+    // Default styles are globally defined for each event name. Some
+    // events are hidden by default.
+    const eventStyle = Helpers.EventUICategory.getEventStyle(entry.name as Types.TraceEvents.KnownEventName);
+    const eventIsTiming = Types.TraceEvents.isTraceEventConsoleTime(entry) ||
+        Types.TraceEvents.isTraceEventPerformanceMeasure(entry) || Types.TraceEvents.isTraceEventPerformanceMark(entry);
+
+    return (eventStyle && !eventStyle.hidden) || eventIsTiming;
   }
 
   #findAllDescendantsOfNode(root: Helpers.TreeHelpers.TraceEntryNode): Types.TraceEvents.TraceEventData[] {
