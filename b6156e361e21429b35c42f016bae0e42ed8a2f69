@@ -16,6 +16,41 @@
       "message": "PTAL, the reported key/values are the same but the linkified URL lost the `http://` prefix. I\u0027m not sure if that\u0027s fine or not.",
       "revId": "b6156e361e21429b35c42f016bae0e42ed8a2f69",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "620c58d3_1a7e938a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-06-04T13:50:55Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "b6156e361e21429b35c42f016bae0e42ed8a2f69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d0ab88c_38d0f6b2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-06-04T13:50:55Z",
+      "side": 1,
+      "message": "I think that should be fine.",
+      "parentUuid": "3db20e74_7388c6c6",
+      "revId": "b6156e361e21429b35c42f016bae0e42ed8a2f69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
