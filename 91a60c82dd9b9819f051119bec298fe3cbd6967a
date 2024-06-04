@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "716a4644_977bbe0e",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-06-04T21:42:57Z",
+      "side": 1,
+      "message": "Added additional types and type guard functions in TraceEvents.ts",
+      "parentUuid": "c96800e2_2b5a66f0",
+      "revId": "91a60c82dd9b9819f051119bec298fe3cbd6967a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b7de885a_c0693c59",
@@ -48,6 +66,24 @@
       "writtenOn": "2024-06-03T19:54:07Z",
       "side": 1,
       "message": "It would be preferable to strengthen the properties that are not optional here. If you want a type that can represent all of the properties but you\u0027re not sure if they are present, use `Partial\u003cScript\u003e`.\n\nSame for the rest of the types.",
+      "revId": "91a60c82dd9b9819f051119bec298fe3cbd6967a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd4af5cf_b391e9e1",
+        "filename": "front_end/panels/timeline/EnhancedTraces.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-06-04T21:42:57Z",
+      "side": 1,
+      "message": "Specify optional and required types in the interface based off CDP interface on target, execution context and scripts.",
+      "parentUuid": "b7de885a_c0693c59",
       "revId": "91a60c82dd9b9819f051119bec298fe3cbd6967a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -69,6 +105,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e87d942_87d7cbba",
+        "filename": "front_end/panels/timeline/EnhancedTraces.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-06-04T21:42:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2c81ae17_81211f73",
+      "revId": "91a60c82dd9b9819f051119bec298fe3cbd6967a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "018feadf_e1584734",
@@ -82,6 +136,24 @@
       "writtenOn": "2024-06-03T19:54:07Z",
       "side": 1,
       "message": "Consider replacing `#traceIsCPUProfile` and `#isEnhancedTraces` with a single mode type:\n\n```\ntype LoadedTimelineKind \u003d \u0027basic\u0027|\u0027cpuProfile\u0027|\u0027enhanced\u0027;\n\n// \n  #kind: LoadedTimelineKind \u003d \u0027basic\u0027;\n```\n\nAs written presently, it would be valid to have these two fields both be true, but semantically it is not.",
+      "revId": "91a60c82dd9b9819f051119bec298fe3cbd6967a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f901ed4_619fcbee",
+        "filename": "front_end/panels/timeline/TimelineLoader.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-06-04T21:42:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "018feadf_e1584734",
       "revId": "91a60c82dd9b9819f051119bec298fe3cbd6967a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -103,6 +175,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca9329b6_8302b1de",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-06-04T21:42:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "92aabae2_3ed4f906",
+      "revId": "91a60c82dd9b9819f051119bec298fe3cbd6967a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "51ca017e_c76f03e7",
@@ -116,6 +206,24 @@
       "writtenOn": "2024-06-03T19:54:07Z",
       "side": 1,
       "message": "It feels like it would be preferable to be able to do something like....\n\n```\nconst jsonGenerator \u003d enhancedTraces ? (new EnhancedTracesEngine(traceEvents)).generator() : traceJsonGenerator;\nconst formattedTraceIter \u003d traceJsonGenerator(traceEvents, metadata);\ntraceAsString \u003d Array.from(formattedTraceIter).join(\u0027\u0027);\n```\n\nThen we don\u0027t need to have a block specific to this configuration.",
+      "revId": "91a60c82dd9b9819f051119bec298fe3cbd6967a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8339528_ca59e159",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 774,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-06-04T21:42:57Z",
+      "side": 1,
+      "message": "I\u0027d prefer keeping enhanced traces generator function static and agnostic to the data available in the class so it\u0027s reusable elsewhere if needed. In this case I\u0027d need to pass in data such as targets, execution contexts which makes\n``` \nconst formattedTraceIter \u003d jsonGenerator(traceEvents, metadata); \n```\nmentioned above not doable, so a separate block may still be needed.",
+      "parentUuid": "51ca017e_c76f03e7",
       "revId": "91a60c82dd9b9819f051119bec298fe3cbd6967a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
