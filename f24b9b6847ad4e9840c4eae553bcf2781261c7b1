@@ -83,6 +83,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e93098f5_d3e6ff56",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-06-04T02:39:30Z",
+      "side": 1,
+      "message": "nice. looks great thanks!",
+      "parentUuid": "34cba780_5a1f8a95",
+      "revId": "f24b9b6847ad4e9840c4eae553bcf2781261c7b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "36f38f10_c0d410fa",
