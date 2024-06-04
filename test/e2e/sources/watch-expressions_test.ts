@@ -20,7 +20,7 @@ describe('Watch Expression Pane', () => {
 
     // Create watch expression "Text"
     await click('[aria-label="Watch"]');
-    await click('[aria-label="Add watch expression"]');
+    await click('[title="Add watch expression"]');
     await typeText('Text');
     await frontend.keyboard.press('Enter');
 
