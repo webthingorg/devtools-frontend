@@ -86,6 +86,24 @@
       "parentUuid": "365f187d_242f7dad",
       "revId": "3125cd7323da85432db105cb88d0eb40d885d28a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8202c291_e50f2045",
+        "filename": "front_end/panels/explain/explain-meta.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-06-04T08:45:02Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "48f89225_1ae11a39",
+      "revId": "3125cd7323da85432db105cb88d0eb40d885d28a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
