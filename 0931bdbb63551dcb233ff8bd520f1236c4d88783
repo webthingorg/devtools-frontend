@@ -16,6 +16,24 @@
       "message": "Isn\u0027t it called sourceIdx in the interface below?",
       "revId": "0931bdbb63551dcb233ff8bd520f1236c4d88783",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2542e1a9_d51a7d18",
+        "filename": "front_end/core/sdk/SourceMapScopes.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-06-04T09:47:25Z",
+      "side": 1,
+      "message": "Yes, in the \"item\" it\u0027s called `sourceIdx`, but in the \"spec\" an `OriginalPosition` has a `sourceIndex`.",
+      "parentUuid": "7e4e7183_fa25fb65",
+      "revId": "0931bdbb63551dcb233ff8bd520f1236c4d88783",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
