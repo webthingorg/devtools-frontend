@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0133a74f_18a3370b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-04T11:18:12Z",
+      "side": 1,
+      "message": "This is an awesome cleanup, I love it! :)",
+      "revId": "cb376eba6532873582fabfbbaa496df446425122",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f09856aa_ee23e551",
+        "filename": "front_end/core/common/Throttler.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-04T11:18:12Z",
+      "side": 1,
+      "message": "Can we add a comment here to describe the behavior of each option? -- Delayed and AsSoonAsPossible is somewhat self evident but Default needs explanation I think.",
+      "revId": "cb376eba6532873582fabfbbaa496df446425122",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
