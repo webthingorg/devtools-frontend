@@ -34,6 +34,24 @@
       "parentUuid": "7e4e7183_fa25fb65",
       "revId": "0931bdbb63551dcb233ff8bd520f1236c4d88783",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e9f898e_450b78e1",
+        "filename": "front_end/core/sdk/SourceMapScopes.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-06-04T09:52:00Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "2542e1a9_d51a7d18",
+      "revId": "0931bdbb63551dcb233ff8bd520f1236c4d88783",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
