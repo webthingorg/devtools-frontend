@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b69d6020_ed8157bf",
+        "filename": "front_end/core/common/Throttler.test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-06-04T11:37:35Z",
+      "side": 1,
+      "message": "Added a comment and extracted a function.",
+      "parentUuid": "2e5af935_121ad048",
+      "revId": "e0ddd2d33689352f082ee21060888f10506d7e32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b3638aab_383e6acf",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-06-04T11:15:41Z",
       "side": 1,
       "message": "Why do we need this empty schedule call before actually scheduling the process we test?\n\nand why do we need the `tickAsync(10)` before scheduling the `process` call?\n\nThe test passes without these two statements too.",
+      "revId": "e0ddd2d33689352f082ee21060888f10506d7e32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52b2254d_b3ceb979",
+        "filename": "front_end/core/common/Throttler.test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-06-04T11:37:35Z",
+      "side": 1,
+      "message": "It is needed for test to fail, if we replace true with false below. So that the test actually verifies what it claims.\n\nThe reason is the default behavior tested below. Without scheduling and completing another task, any process will be scheduled immediately, regardless of the parameter.\n\nExtracting this logic into a named function, to make things clearer.",
+      "parentUuid": "b3638aab_383e6acf",
       "revId": "e0ddd2d33689352f082ee21060888f10506d7e32",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
