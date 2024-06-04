@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3db20e74_7388c6c6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-06-04T11:04:30Z",
+      "side": 1,
+      "message": "PTAL, the reported key/values are the same but the linkified URL lost the `http://` prefix. I\u0027m not sure if that\u0027s fine or not.",
+      "revId": "b6156e361e21429b35c42f016bae0e42ed8a2f69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
