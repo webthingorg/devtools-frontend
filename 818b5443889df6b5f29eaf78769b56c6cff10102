@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2067c9de_122162c6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-06-04T10:55:07Z",
+      "side": 1,
+      "message": "I am very sorry! I didn\u0027t mean to add a patchset to your CL. I\u0027m reverting my changes. Very sorry!",
+      "revId": "818b5443889df6b5f29eaf78769b56c6cff10102",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
