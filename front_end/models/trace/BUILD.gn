@@ -19,6 +19,7 @@ devtools_module("trace") {
     "../../core/common:bundle",
     "../../core/platform:bundle",
     "../../core/sdk:bundle",
+    "../../panels/timeline:bundle",
     "extras:bundle",
     "handlers:bundle",
     "helpers:bundle",
