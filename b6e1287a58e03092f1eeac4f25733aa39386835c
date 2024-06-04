@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82c9ac37_e5c8f134",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-06-04T13:19:49Z",
+      "side": 1,
+      "message": "Sorry for the interference. The CL should be in its previous state now (+ rebased).\n\nFrom what I can tell, the failing tests depend on your reverted Chromium CL. Once it\u0027s re-landed, Chrome for Testing (in which the e2e tests are run) needs to be rolled to a version which includes your Chromium changes (roll CLs: https://chromium-review.googlesource.com/q/owner:devtools-ci-autoroll-builder@chops-service-accounts.iam.gserviceaccount.com). This should fix the `afterAll` error, but I believe the actual test itself will need an additional fix.",
+      "revId": "b6e1287a58e03092f1eeac4f25733aa39386835c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
