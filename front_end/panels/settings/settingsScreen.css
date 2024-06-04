@@ -114,10 +114,24 @@ label {
   margin: 1px 7px 1px 2px;
 }
 
+.settings-window-label-element {
+  flex: none;
+}
+
 .settings-window-title {
-  font-size: 18px;
+  display: flex;
+  align-items: center;
+  font-size: var(--sys-size-9);
   color: var(--sys-color-on-surface);
-  padding: 0 0 5px 13px;
+  margin: 5px var(--sys-size-7) var(--sys-size-8) var(--sys-size-7);
+
+  &::before {
+    content: "";
+    width: var(--sys-size-9);
+    height: var(--sys-size-9);
+    margin-right: var(--sys-size-6);
+    background-image: var(--image-file-devtools);
+  }
 }
 
 .settings-container-wrapper {

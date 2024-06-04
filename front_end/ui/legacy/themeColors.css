@@ -427,6 +427,12 @@
    * Colors for menus.
    */
   --app-color-menu-background: var(--sys-color-surface);
+
+  /**
+   * Colors for navigation drawers.
+   */
+  --app-color-navigation-drawer-label-selected: var(--sys-color-primary);
+  --app-color-navigation-drawer-background-selected: var(--ref-palette-primary95);
 }
 
 :root.baseline-default {
@@ -844,4 +850,9 @@
    * Colors for menus.
    */
   --app-color-menu-background: var(--sys-color-surface3);
+
+  /**
+   * Colors for navigation drawers.
+   */
+  --app-color-navigation-drawer-background-selected: var(--ref-palette-neutral25);
 }
