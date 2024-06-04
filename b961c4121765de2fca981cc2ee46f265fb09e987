@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cd77b1c_e09de495",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2024-06-04T22:36:25Z",
+      "side": 1,
+      "message": "I left a couple nits here, but it\u0027s looking good.",
+      "revId": "b961c4121765de2fca981cc2ee46f265fb09e987",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4cbd1c5_4ad14e90",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 2022,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2024-06-04T22:36:25Z",
+      "side": 1,
+      "message": "Nit: Many of these type guard functions are adjacent to their corresponding type definitions, and as you\u0027ve observed here, some are not. I think being near would be better, but I don\u0027t want to push hard on it. Just take one more look and we\u0027ll call it good.",
+      "revId": "b961c4121765de2fca981cc2ee46f265fb09e987",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

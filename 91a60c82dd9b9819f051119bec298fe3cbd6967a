@@ -226,6 +226,24 @@
       "parentUuid": "51ca017e_c76f03e7",
       "revId": "91a60c82dd9b9819f051119bec298fe3cbd6967a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02b986ac_29490043",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 774,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2024-06-04T22:36:25Z",
+      "side": 1,
+      "message": "That\u0027s fine, it just feels like we\u0027re venturing closely to DRY territory here.  We have a \"serialize if it\u0027s a CPU profile,\" \"serialize if it\u0027s enhanced,\" \"serialize if it\u0027s not enhanced\" -- this feels very much like a good opportunity for some kind of polymorphic single code path here.",
+      "parentUuid": "e8339528_ca59e159",
+      "revId": "91a60c82dd9b9819f051119bec298fe3cbd6967a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
