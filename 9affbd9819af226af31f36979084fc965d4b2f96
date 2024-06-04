@@ -16,6 +16,40 @@
       "message": "didnt get into the details too close but it hits the marks for me.",
       "revId": "9affbd9819af226af31f36979084fc965d4b2f96",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6323d798_46ce3a15",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-06-04T18:13:16Z",
+      "side": 1,
+      "message": "Did you mean to use `continue` here?",
+      "revId": "9affbd9819af226af31f36979084fc965d4b2f96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ebc6922_482cda10",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-06-04T18:13:16Z",
+      "side": 1,
+      "message": "optional nit: I don\u0027t think we need this split out into a helper. Just one more function to wire parameters through IMO.",
+      "revId": "9affbd9819af226af31f36979084fc965d4b2f96",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
