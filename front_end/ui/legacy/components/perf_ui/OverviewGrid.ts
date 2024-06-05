@@ -195,6 +195,7 @@ export class Window extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
     UI.ARIAUtils.markAsSlider(this.leftResizeElement);
     const leftKeyDown = (event: Event): void => this.handleKeyboardResizing(event, false);
     this.leftResizeElement.addEventListener('keydown', leftKeyDown);
+    this.leftResizeElement.addEventListener('click', this.onResizerClicked);
 
     UI.ARIAUtils.setLabel(this.rightResizeElement, i18nString(UIStrings.rightResizer));
     UI.ARIAUtils.markAsSlider(this.rightResizeElement);
@@ -202,6 +203,8 @@ export class Window extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
     const rightKeyDown = (event: Event): void => this.handleKeyboardResizing(event, true);
     this.rightResizeElement.addEventListener('keydown', rightKeyDown);
     this.rightResizeElement.addEventListener('focus', this.onRightResizeElementFocused.bind(this));
+    this.rightResizeElement.addEventListener('click', this.onResizerClicked);
+
     this.leftCurtainElement = (parentElement.createChild('div', 'window-curtain-left') as HTMLElement);
     this.rightCurtainElement = (parentElement.createChild('div', 'window-curtain-right') as HTMLElement);
 
@@ -257,6 +260,12 @@ export class Window extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
       this.breadcrumbButtonContainerElement.classList.toggle('is-breadcrumb-button-visible', false);
       this.#mouseOverGridOverview = false;
     });
+  }
+
+  private onResizerClicked(event: Event): void {
+    if (event.target) {
+      (event.target as HTMLElement).focus();
+    }
   }
 
   private onRightResizeElementFocused(): void {
@@ -324,9 +333,12 @@ export class Window extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
 
   private getNewResizerPosition(offset: number, increment?: boolean, ctrlPressed?: boolean): number {
     let newPos;
-    // We shift by 10px if the ctrlKey is pressed and 2 otherwise.  1px shifts result in noOp due to rounding in updateCurtains
+    // We shift by 10px if the ctrlKey is pressed and 2 otherwise.  1 px shifts result in noOp due to rounding in updateCurtains
     let pixelsToShift: number|(2 | 10) = ctrlPressed ? 10 : 2;
-    pixelsToShift = increment ? pixelsToShift : -Math.abs(pixelsToShift);
+    // The distance of shifting is calculate by percentage of pixel against window in updateCurtains, which CSS would only accept up to certain decimal points.
+    // This results in faster movement of decrementing (left arrow) and slower movement of incrementing (right arrow).
+    // We added a 2px shift for incrementing to balance the speed of both directions.
+    pixelsToShift = increment ? pixelsToShift + 2 : -Math.abs(pixelsToShift);
     const offsetLeft = offset + ResizerOffset;
     newPos = offsetLeft + pixelsToShift;
     if (increment && newPos < OffsetFromWindowEnds) {
