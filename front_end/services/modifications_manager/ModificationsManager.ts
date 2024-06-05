@@ -96,16 +96,12 @@ export class ModificationsManager {
    * the 'modifications' trace file metadata field.
    */
   toJSON(): TraceEngine.Types.File.Modifications {
-    const hiddenEntries = this.#entriesFilter.invisibleEntries()
-                              .map(entry => this.#eventsSerializer.keyForEvent(entry))
-                              .filter(key => key !== null) as TraceEngine.Types.File.TraceEventSerializableKey[];
-    const expandableEntries = this.#entriesFilter.expandableEntries()
-                                  .map(entry => this.#eventsSerializer.keyForEvent(entry))
-                                  .filter(key => key !== null) as TraceEngine.Types.File.TraceEventSerializableKey[];
+    const hiddenEntries = this.#entriesFilter.invisibleEntries().map(entry => this.#eventsSerializer.keyForEvent(entry)).filter(entry => entry !== null) as TraceEngine.Types.File.TraceEventSerializableKey[];
+    const expandableEntries = this.#entriesFilter.expandableEntries().map(entry => this.#eventsSerializer.keyForEvent(entry)).filter(entry => entry !== null) as TraceEngine.Types.File.TraceEventSerializableKey[];
     this.#modifications = {
       entriesModifications: {
-        hiddenEntries: hiddenEntries.map(key => key.join('-')),
-        expandableEntries: expandableEntries.map(key => key.join('-')),
+        hiddenEntries: hiddenEntries,
+        expandableEntries: expandableEntries,
       },
       initialBreadcrumb: this.#timelineBreadcrumbs.initialBreadcrumb,
     };
@@ -118,20 +114,16 @@ export class ModificationsManager {
       return;
     }
     const hiddenEntries = modifications.entriesModifications.hiddenEntries.map(
-        key => key.split('-').map(item => isNaN(parseInt(item, 10)) ? item : parseInt(item, 10)));
+        key => this.#eventsSerializer.traceEventKeyToValues(key));
     const expandableEntries = modifications.entriesModifications.expandableEntries.map(
-        key => key.split('-').map(item => isNaN(parseInt(item, 10)) ? item : parseInt(item, 10)));
-    if (!hiddenEntries.every(EventsSerializer.EventsSerializer.isTraceEventSerializableKey) ||
-        !expandableEntries.every(EventsSerializer.EventsSerializer.isTraceEventSerializableKey)) {
-      throw new Error('Invalid event key found in JSON modifications');
-    }
+        key => this.#eventsSerializer.traceEventKeyToValues(key));
     this.applyEntriesFilterModifications(hiddenEntries, expandableEntries);
     this.#timelineBreadcrumbs.setInitialBreadcrumbFromLoadedModifications(modifications.initialBreadcrumb);
   }
 
   applyEntriesFilterModifications(
-      hiddenEntriesKeys: TraceEngine.Types.File.TraceEventSerializableKey[],
-      expandableEntriesKeys: TraceEngine.Types.File.TraceEventSerializableKey[]): void {
+      hiddenEntriesKeys: TraceEngine.Types.File.TraceEventSerializableKeyValues[],
+      expandableEntriesKeys: TraceEngine.Types.File.TraceEventSerializableKeyValues[]): void {
     const hiddenEntries = hiddenEntriesKeys.map(key => this.#eventsSerializer.eventForKey(key, this.#traceParsedData));
     const expandableEntries =
         expandableEntriesKeys.map(key => this.#eventsSerializer.eventForKey(key, this.#traceParsedData));
