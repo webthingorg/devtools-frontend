@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1249ea8_d4d70a6b",
+        "filename": "buckets/try.star",
+        "patchSetId": 3
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1524899
+      },
+      "writtenOn": "2024-06-05T10:49:19Z",
+      "side": 1,
+      "message": "In V8, we call the recipes `orchestrator` (light bot), and `compilator` (artifact builder). Maybe align with those?\n\nThe builder name itself is type-less for the orchestrator, e.g. `devtools_frontend_linux_rel`, while the compilator includes `compile`, e.g. `devtools_frontend_linux_compile_rel`.",
+      "range": {
+        "startLine": 197,
+        "startChar": 28,
+        "endLine": 197,
+        "endChar": 36
+      },
+      "revId": "aba009b365e4b6cb849a87ef1985cd5dca2602cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
