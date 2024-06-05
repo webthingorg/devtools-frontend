@@ -69,6 +69,24 @@
       "parentUuid": "6e486936_e05e00f5",
       "revId": "9d6a49752a1750007f5834be5a9b4d402dd200db",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdd9f13b_223c99cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2024-06-05T20:43:37Z",
+      "side": 1,
+      "message": "Thank you for testing! I took a close look, the distance of shifting is calculated by percentage of pixel against window in updateCurtains(), which CSS would only accept up to a certain decimal point. This results in faster movement of decrementing (left arrow) and slower movement of incrementing (right arrow). I added a 2px shift for incrementing to balance the speed of both directions.\nI added some comments in the code. Let me know if this works!",
+      "parentUuid": "aeb491cd_c7fe148f",
+      "revId": "9d6a49752a1750007f5834be5a9b4d402dd200db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
