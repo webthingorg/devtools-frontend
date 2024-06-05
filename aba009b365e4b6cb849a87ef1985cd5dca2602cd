@@ -22,6 +22,30 @@
       },
       "revId": "aba009b365e4b6cb849a87ef1985cd5dca2602cd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5618505_46add969",
+        "filename": "buckets/try.star",
+        "patchSetId": 3
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2024-06-05T10:55:45Z",
+      "side": 1,
+      "message": "While the recipe does orchestration, the main goal will remains to test after compilation. I plan to not follow the V8\u0027s and Chromium\u0027s model where every flavor of test is crammed in the same recipe and have multiple recipes that do different kinds of testing (2 as far I can see right now: full \u0026 shuffled) while still orchestrating the compilation.",
+      "parentUuid": "a1249ea8_d4d70a6b",
+      "range": {
+        "startLine": 197,
+        "startChar": 28,
+        "endLine": 197,
+        "endChar": 36
+      },
+      "revId": "aba009b365e4b6cb849a87ef1985cd5dca2602cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
