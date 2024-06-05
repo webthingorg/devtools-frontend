@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f36f68f8_852d3406",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-06-05T09:12:22Z",
+      "side": 1,
+      "message": "Yay!! Thanks Changhao for the review :)!",
+      "parentUuid": "667a73c1_e21f4268",
+      "revId": "767dabe86ed668304d343034945be1cb16cee22e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0e789bd1_a45d5f03",
@@ -48,6 +66,24 @@
       "writtenOn": "2024-06-05T08:40:07Z",
       "side": 1,
       "message": "Just curious, why the top margin here is not some sys-size?",
+      "revId": "767dabe86ed668304d343034945be1cb16cee22e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c909c1ab_f5a755fc",
+        "filename": "front_end/panels/settings/settingsScreen.css",
+        "patchSetId": 8
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-06-05T09:12:22Z",
+      "side": 1,
+      "message": "Good question! Before there were different pre-existing paddings that led to a padding which wasn\u0027t defined in as a sys-size padding. I\u0027ve removed them, and this simplified it, now we only use sys-sized ones. Thanks for the comment and spotting, Changhao :)!",
+      "parentUuid": "0e789bd1_a45d5f03",
       "revId": "767dabe86ed668304d343034945be1cb16cee22e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
