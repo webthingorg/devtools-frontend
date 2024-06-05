@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a8daa27_2301e480",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-06-05T20:45:57Z",
+      "side": 1,
+      "message": "See: https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/renderer/core/inspector/inspector_trace_events.cc;l\u003d939;drc\u003dac83a5a2d3c04763d86ce16d92f3904cc9566d3a?q\u003d%22ResourceReceiveResponse%22%20f:.cc%20-f:out%20\u0026ss\u003dchromium",
+      "revId": "1ac8fac420f3141c2fdcee9af60d8338e088d3a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
