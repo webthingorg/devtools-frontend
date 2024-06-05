@@ -16,6 +16,41 @@
       "message": "See: https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/renderer/core/inspector/inspector_trace_events.cc;l\u003d939;drc\u003dac83a5a2d3c04763d86ce16d92f3904cc9566d3a?q\u003d%22ResourceReceiveResponse%22%20f:.cc%20-f:out%20\u0026ss\u003dchromium",
       "revId": "1ac8fac420f3141c2fdcee9af60d8338e088d3a9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e67b9fc_d2c43e79",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 883,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-06-05T20:46:34Z",
+      "side": 1,
+      "message": "nit: separate lines",
+      "fixSuggestions": [
+        {
+          "fixId": "0cab7877_757a6e2b",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/models/trace/types/TraceEvents.ts",
+              "range": {
+                "startLine": 883,
+                "startChar": 0,
+                "endLine": 884,
+                "endChar": 0
+              },
+              "replacement": "      isLinkPreload?: boolean,\n      connectionId: number,\n      connectionReused: boolean,\n"
+            }
+          ]
+        }
+      ],
+      "revId": "1ac8fac420f3141c2fdcee9af60d8338e088d3a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
