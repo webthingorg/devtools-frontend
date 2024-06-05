@@ -34,6 +34,24 @@
       "parentUuid": "32a033f6_6fe03134",
       "revId": "927938879962084f3addaca487a5e33323030275",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53343dae_3ab3afc3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-06-05T08:25:32Z",
+      "side": 1,
+      "message": "You won\u0027t be able to merge this CL as long as the blink test is failing. You\u0027ll need 3 CLs:\n1) Chromium CL which temporarily disables the test (similar to https://crrev.com/c/5176972)\n2) This CL\n3) Chromium CL which updates and re-enables the test",
+      "parentUuid": "3c2ee48e_f7ef911f",
+      "revId": "927938879962084f3addaca487a5e33323030275",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
