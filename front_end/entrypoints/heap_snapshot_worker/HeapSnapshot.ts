@@ -716,6 +716,7 @@ export abstract class HeapSnapshot {
   #ignoredNodesInRetainersView: Set<number>;
   #ignoredEdgesInRetainersView: Set<number>;
   #nodeDistancesForRetainersView: Int32Array|undefined;
+  #syntheticClassNames: Map<string, number>;
 
   constructor(profile: Profile, progress: HeapSnapshotProgress) {
     this.nodes = profile.nodes;
@@ -741,6 +742,7 @@ export abstract class HeapSnapshot {
     this.#profile = profile;
     this.#ignoredNodesInRetainersView = new Set();
     this.#ignoredEdgesInRetainersView = new Set();
+    this.#syntheticClassNames = new Map();
   }
 
   initialize(): void {
@@ -1343,7 +1345,7 @@ export abstract class HeapSnapshot {
           self: selfSize,
           maxRet: 0,
           type: nodeType,
-          name: nameMatters ? node.name() : null,
+          name: nameMatters ? node.className() : null,
           idxs: [nodeIndex],
         };
         aggregates[classIndex] = value;
@@ -2296,6 +2298,15 @@ export abstract class HeapSnapshot {
   isEdgeIgnoredInRetainersView(edgeIndex: number): boolean {
     return this.#ignoredEdgesInRetainersView.has(edgeIndex);
   }
+
+  getIndexForSyntheticClassName(className: string): number {
+    let index = this.#syntheticClassNames.get(className);
+    if (index === undefined) {
+      index = this.addString(className);
+      this.#syntheticClassNames.set(className, index);
+    }
+    return index;
+  }
 }
 
 class HeapSnapshotMetainfo {
@@ -3128,8 +3139,21 @@ export class JSHeapSnapshotNode extends HeapSnapshotNode {
       case 'hidden':
         return '(system)';
       case 'object':
-      case 'native':
-        return this.name();
+      case 'native': {
+        let name = this.name();
+        if (name.startsWith('<')) {
+          const firstSpace = name.indexOf(' ');
+          if (firstSpace !== -1) {
+            name = name.substring(0, firstSpace) + '>';
+          }
+        } else if (name.startsWith('Detached <')) {
+          const firstSpace = name.indexOf(' ', 10);
+          if (firstSpace !== -1) {
+            name = name.substring(0, firstSpace) + '>';
+          }
+        }
+        return name;
+      }
       case 'code':
         return '(compiled code)';
       case 'closure':
@@ -3146,7 +3170,10 @@ export class JSHeapSnapshotNode extends HeapSnapshotNode {
     const nodes = snapshot.nodes;
     const type = nodes.getValue(this.nodeIndex + snapshot.nodeTypeOffset);
     if (type === snapshot.nodeObjectType || type === snapshot.nodeNativeType) {
-      return nodes.getValue(this.nodeIndex + snapshot.nodeNameOffset);
+      const name = this.name();
+      const useSyntheticClassName = name.startsWith('<') || name.startsWith('Detached <');
+      return useSyntheticClassName ? snapshot.getIndexForSyntheticClassName(this.className()) :
+                                     nodes.getValue(this.nodeIndex + snapshot.nodeNameOffset);
     }
     return -1 - type;
   }
