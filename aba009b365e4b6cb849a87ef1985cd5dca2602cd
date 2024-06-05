@@ -3,6 +3,75 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "edc51da0_4e043830",
+        "filename": "buckets/try.star",
+        "patchSetId": 3
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2024-06-05T11:04:59Z",
+      "side": 1,
+      "message": "I\u0027d call this already now:\ndtf_linux_rel\n\nThis will later be the main bot that developers see on their CLs. Once it\u0027s stable it can be just switched in CQ configs. The infix _tester might be confusing if this bot also triggers the compilator with the orchestrator pattern.",
+      "range": {
+        "startLine": 187,
+        "startChar": 12,
+        "endLine": 187,
+        "endChar": 46
+      },
+      "revId": "aba009b365e4b6cb849a87ef1985cd5dca2602cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8e7058f_c3b4006e",
+        "filename": "buckets/try.star",
+        "patchSetId": 3
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2024-06-05T11:04:59Z",
+      "side": 1,
+      "message": "Is this understood yet?",
+      "range": {
+        "startLine": 192,
+        "startChar": 4,
+        "endLine": 192,
+        "endChar": 12
+      },
+      "revId": "aba009b365e4b6cb849a87ef1985cd5dca2602cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "746e6182_a5a56345",
+        "filename": "buckets/try.star",
+        "patchSetId": 3
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2024-06-05T11:04:59Z",
+      "side": 1,
+      "message": "nit: dtf_compiler_linux_rel",
+      "range": {
+        "startLine": 196,
+        "startChar": 12,
+        "endLine": 196,
+        "endChar": 48
+      },
+      "revId": "aba009b365e4b6cb849a87ef1985cd5dca2602cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a1249ea8_d4d70a6b",
         "filename": "buckets/try.star",
         "patchSetId": 3
