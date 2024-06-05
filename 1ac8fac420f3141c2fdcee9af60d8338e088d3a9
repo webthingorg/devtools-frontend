@@ -86,6 +86,24 @@
       "parentUuid": "8e67b9fc_d2c43e79",
       "revId": "1ac8fac420f3141c2fdcee9af60d8338e088d3a9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87254780_2bdf1389",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 883,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-06-05T20:49:54Z",
+      "side": 1,
+      "message": "https://g-issues.chromium.org/issues/338453175",
+      "parentUuid": "5c39a973_78686c1e",
+      "revId": "1ac8fac420f3141c2fdcee9af60d8338e088d3a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
