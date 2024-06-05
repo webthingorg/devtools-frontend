@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8494c5cd_98683e61",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-06-05T07:22:20Z",
+      "side": 1,
+      "message": "Not sure if this will be sufficient. AFAIK node DEPS in devtools-frontend will also be moved from a hook to a \"normal\" deps in the future. At which point the node_linux64 hook will also be gone.\n\nContext: https://groups.google.com/a/google.com/g/chromium-dev-internal/c/XGZ1BiLiu_M/m/dFbtyE5dAwAJ?utm_medium\u003demail\u0026utm_source\u003dfooter",
+      "revId": "cc0cc3f8f95e9ba43159e8471983a150e7e495a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
