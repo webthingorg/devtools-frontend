@@ -187,6 +187,30 @@
       },
       "revId": "aba009b365e4b6cb849a87ef1985cd5dca2602cd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "569b434c_33cae7c9",
+        "filename": "buckets/try.star",
+        "patchSetId": 3
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1524899
+      },
+      "writtenOn": "2024-06-05T12:08:42Z",
+      "side": 1,
+      "message": "Afaict, the main idea here is the split into three builders: a lightweight orchestrator, a compilator, and a tester. This setup will do the same, but with different names. Keeping names consistent might make it less confusing when working on V8, DevTools or in Chromium.\n\nImo, the naming scheme is independent of how many configurations are covered by a single recipe.",
+      "parentUuid": "b5618505_46add969",
+      "range": {
+        "startLine": 197,
+        "startChar": 28,
+        "endLine": 197,
+        "endChar": 36
+      },
+      "revId": "aba009b365e4b6cb849a87ef1985cd5dca2602cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
