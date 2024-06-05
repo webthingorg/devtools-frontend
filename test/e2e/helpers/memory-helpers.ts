@@ -20,7 +20,7 @@ import {
   waitForNone,
 } from '../../shared/helper.js';
 
-const NEW_HEAP_SNAPSHOT_BUTTON = 'button[aria-label="Take heap snapshot"]';
+const NEW_HEAP_SNAPSHOT_BUTTON = 'button[title="Take heap snapshot"]';
 const MEMORY_PANEL_CONTENT = 'div[aria-label="Memory panel"]';
 const PROFILE_TREE_SIDEBAR = 'div.profiles-tree-sidebar';
 export const MEMORY_TAB_ID = '#tab-heap-profiler';
@@ -36,9 +36,9 @@ export async function navigateToMemoryTab() {
 export async function takeAllocationProfile() {
   const radioButton = await $('//label[text()="Allocation sampling"]', undefined, 'xpath');
   await clickElement(radioButton);
-  await click('button[aria-label="Start heap profiling"]');
+  await click('button[title="Start heap profiling"]');
   await new Promise(r => setTimeout(r, 200));
-  await click('button[aria-label="Stop heap profiling"]');
+  await click('button[title="Stop heap profiling"]');
   await waitForNone('.heap-snapshot-sidebar-tree-item.wait');
   await waitFor('.heap-snapshot-sidebar-tree-item.selected');
 }
@@ -51,9 +51,9 @@ export async function takeAllocationTimelineProfile({recordStacks}: {recordStack
   if (recordStacks) {
     await click('[title="Record stack traces of allocations (extra performance overhead)"]');
   }
-  await click('button[aria-label="Start recording heap profile"]');
+  await click('button[title="Start recording heap profile"]');
   await new Promise(r => setTimeout(r, 200));
-  await click('button[aria-label="Stop recording heap profile"]');
+  await click('button[title="Stop recording heap profile"]');
   await waitForNone('.heap-snapshot-sidebar-tree-item.wait');
   await waitFor('.heap-snapshot-sidebar-tree-item.selected');
 }
@@ -339,7 +339,7 @@ export async function clickOnContextMenuForRetainer(retainerName: string, menuIt
 }
 
 export async function restoreIgnoredRetainers() {
-  const element = await waitFor('button[aria-label="Restore ignored retainers"]');
+  const element = await waitFor('button[title="Restore ignored retainers"]');
   await clickElement(element);
 }
 

@@ -9,6 +9,7 @@ import {type BrowserAndPages} from '../../conductor/puppeteer-state.js';
 import {
   click,
   getBrowserAndPages,
+  hasClass,
   pressKey,
   step,
   waitFor,
@@ -161,11 +162,9 @@ describe('The Network Tab', function() {
     // Open the raw response HTML
     await click('[aria-label="Response"]');
     // Disable pretty printing
-    await waitFor('[aria-label="Pretty print"]');
-    await Promise.all([
-      click('[aria-label="Pretty print"]'),
-      waitFor('[aria-label="Pretty print"][aria-pressed="true"]'),
-    ]);
+    const prettyPrintButton = await waitFor('[title="Pretty print"]');
+    await click('[title="Pretty print"]');
+    assert.isFalse(await hasClass(prettyPrintButton, 'toggled'));
     // Wait for the raw response editor to show up
     const codeMirrorEditor = await waitFor('[aria-label="Code editor"]');
 
@@ -173,7 +172,7 @@ describe('The Network Tab', function() {
 
     assert.strictEqual(
         htmlRawResponse,
-        '<html>    <body>The following word is written using cyrillic letters and should look like "SUCCESS": SU\u0421\u0421\u0415SS.</body></html>');
+        '<html><body>The following word is written using cyrillic letters and should look like "SUCCESS": SU\u0421\u0421\u0415SS.</body></html>');
   });
 
   it('the correct MIME type when resources came from HTTP cache', async () => {

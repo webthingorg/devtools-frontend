@@ -29,7 +29,7 @@ import {
   openSourcesPanel,
 } from '../helpers/sources-helpers.js';
 
-const ENABLE_OVERRIDES_SELECTOR = '[aria-label="Select folder for overrides"]';
+const ENABLE_OVERRIDES_SELECTOR = '[title="Select folder for overrides"]';
 const OVERRIDES_FILESYSTEM_SELECTOR = '[aria-label="overrides, fs"]';
 const FILE_TREE_HEADERS_FILE_SELECTOR = '[aria-label=".headers, file"] .tree-element-title';
 const NETWORK_VIEW_SELECTOR = '.network-item-view';
@@ -93,7 +93,7 @@ describe('The Overrides Panel', function() {
   afterEach(async () => {
     await openSourcesPanel();
     await openOverridesSubPane();
-    await click('[aria-label="Clear configuration"]');
+    await click('[title="Clear configuration"]');
     await waitFor(ENABLE_OVERRIDES_SELECTOR);
   });
 

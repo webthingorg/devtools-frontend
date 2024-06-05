@@ -8,7 +8,7 @@ import {$, click, getBrowserAndPages, waitFor, waitForFunction, waitForNone} fro
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {openSourceCodeEditorForFile, PAUSE_INDICATOR_SELECTOR, RESUME_BUTTON} from '../helpers/sources-helpers.js';
 
-const PRETTY_PRINT_BUTTON = '[aria-label="Pretty print"]';
+const PRETTY_PRINT_BUTTON = '[title="Pretty print"]';
 const PRETTY_PRINTED_TOGGLE = 'devtools-text-editor.pretty-printed';
 
 describe('The Sources tab', () => {

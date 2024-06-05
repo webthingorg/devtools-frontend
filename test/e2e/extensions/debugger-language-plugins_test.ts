@@ -917,13 +917,13 @@ describe('The Debugger Language Plugins', () => {
       await click('.title-expand-icon', {root: watchPane});
     }
 
-    await click('[aria-label="Add watch expression"]');
+    await click('[title="Add watch expression"]');
     await waitFor('.watch-expression-editing');
     await pasteText('foo');
     await frontend.keyboard.press('Enter');
     await waitForNone('.watch-expression-editing');
 
-    await click('[aria-label="Add watch expression"]');
+    await click('[title="Add watch expression"]');
     await waitFor('.watch-expression-editing');
     await pasteText('bar');
     await frontend.keyboard.press('Enter');

@@ -148,7 +148,7 @@ describe('Custom devices', () => {
     const firstDevice = await waitFor('.devices-list-item');
     await firstDevice.focus();
 
-    const editButton = await waitFor('.toolbar-button[aria-label="Edit"]');
+    const editButton = await waitFor('button[title="Edit"]');
     await editButton.click();
 
     // Make sure the device name field is what's focused.
