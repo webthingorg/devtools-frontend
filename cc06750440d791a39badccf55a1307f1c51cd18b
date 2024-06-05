@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae138ba6_405d6031",
+        "filename": "buckets/try.star",
+        "patchSetId": 5
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2024-06-05T11:35:23Z",
+      "side": 1,
+      "message": "nit, fyi: The v8 convention for naming is dtf_linux_compile_rel. If you want to reuse the same methods for mapping from ochestrator to compilator name, you need to follow that convention, or create your own methods.",
+      "range": {
+        "startLine": 194,
+        "startChar": 12,
+        "endLine": 194,
+        "endChar": 34
+      },
+      "revId": "cc06750440d791a39badccf55a1307f1c51cd18b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e535f3f7_f94b7921",
+        "filename": "buckets/try.star",
+        "patchSetId": 5
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2024-06-05T11:35:23Z",
+      "side": 1,
+      "message": "nit: maybe wait with the experiment until later when you have self tested this sufficiently.",
+      "range": {
+        "startLine": 217,
+        "startChar": 9,
+        "endLine": 217,
+        "endChar": 22
+      },
+      "revId": "cc06750440d791a39badccf55a1307f1c51cd18b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
