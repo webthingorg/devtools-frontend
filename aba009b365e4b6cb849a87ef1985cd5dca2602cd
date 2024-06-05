@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d09867a9_450835fb",
+        "filename": "buckets/try.star",
+        "patchSetId": 3
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2024-06-05T11:27:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "edc51da0_4e043830",
+      "range": {
+        "startLine": 187,
+        "startChar": 12,
+        "endLine": 187,
+        "endChar": 46
+      },
+      "revId": "aba009b365e4b6cb849a87ef1985cd5dca2602cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f8e7058f_c3b4006e",
@@ -47,6 +71,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b11b4a6_56b2354f",
+        "filename": "buckets/try.star",
+        "patchSetId": 3
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2024-06-05T11:27:37Z",
+      "side": 1,
+      "message": "Seems to be; but I was wrong about needing it.",
+      "parentUuid": "f8e7058f_c3b4006e",
+      "range": {
+        "startLine": 192,
+        "startChar": 4,
+        "endLine": 192,
+        "endChar": 12
+      },
+      "revId": "aba009b365e4b6cb849a87ef1985cd5dca2602cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "746e6182_a5a56345",
@@ -60,6 +108,30 @@
       "writtenOn": "2024-06-05T11:04:59Z",
       "side": 1,
       "message": "nit: dtf_compiler_linux_rel",
+      "range": {
+        "startLine": 196,
+        "startChar": 12,
+        "endLine": 196,
+        "endChar": 48
+      },
+      "revId": "aba009b365e4b6cb849a87ef1985cd5dca2602cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c04de3e9_73fb524a",
+        "filename": "buckets/try.star",
+        "patchSetId": 3
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2024-06-05T11:27:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "746e6182_a5a56345",
       "range": {
         "startLine": 196,
         "startChar": 12,
