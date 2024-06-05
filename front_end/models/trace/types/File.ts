@@ -25,17 +25,37 @@ export const enum DataOrigin {
 // references to timeline events in a trace file. These keys enable
 // user modifications that can be saved. See go/cpq:event-data-json for
 // more details on the key format.
-export type RawEventKey = ['r', number];
-export type ProfileCallKey = ['p', ProcessID, ThreadID, SampleIndex, Protocol.integer];
-export type SyntheticEventKey = ['s', number];
+export type RawEventKeyValues = {
+  type: 'r',
+  number: number,
+};
+
+export type SyntheticEventKeyValues = {
+  type: 's',
+  number: number,
+};
+
+export type ProfileCallKeyValues = {
+  type: 'p',
+  processID: ProcessID,
+  shreadID: ThreadID,
+  sampleIndex: SampleIndex,
+  protocol: Protocol.integer,
+};
+
+export type TraceEventSerializableKeyValues = RawEventKeyValues|ProfileCallKeyValues|SyntheticEventKeyValues;
+
+export type RawEventKey = `r-${number}`;
+export type SyntheticEventKey = `s-${number}`;
+export type ProfileCallKey = `p-${ProcessID}-${ThreadID}-${SampleIndex}-${Protocol.integer}`;
 export type TraceEventSerializableKey = RawEventKey|ProfileCallKey|SyntheticEventKey;
 
 export interface Modifications {
   entriesModifications: {
     // Entries hidden by the user
-    hiddenEntries: string[],
+    hiddenEntries: TraceEventSerializableKey[],
     // Entries that parent a hiddenEntry
-    expandableEntries: string[],
+    expandableEntries: TraceEventSerializableKey[],
   };
   initialBreadcrumb: Breadcrumb;
 }
