@@ -183,6 +183,20 @@ builder_coverage(
     execution_timeout = 2 * time.hour,
 )
 
+try_builder(
+    name = "dtf_linux_rel",
+    recipe_name = "devtools/tester",
+    dimensions = dimensions.multibot,
+    build_numbers = True,
+)
+
+try_builder(
+    name = "dtf_compiler_linux_rel",
+    recipe_name = "devtools/compilator",
+    dimensions = dimensions.default_ubuntu,
+    build_numbers = True,
+)
+
 luci.list_view(
     name = "tryserver",
     title = "Tryserver",
@@ -200,6 +214,7 @@ cq_main = struct(
         "devtools_frontend_mac_rel",
         "devtools_frontend_mac_arm64_rel",
         "devtools_frontend_win64_rel",
+        "dtf_linux_rel",
         "dtf_presubmit_linux",
         "dtf_presubmit_win64",
     ],
@@ -207,6 +222,7 @@ cq_main = struct(
         # Quarantine a builder here
         # This will make them experiment 100%
         "devtools_frontend_mac_arm64_rel",
+        "dtf_linux_rel",
     ],
     includable_only_builders = [
         "devtools_frontend_linux_blink_light_rel",
