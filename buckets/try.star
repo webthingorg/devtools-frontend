@@ -183,6 +183,23 @@ builder_coverage(
     execution_timeout = 2 * time.hour,
 )
 
+try_builder(
+    name = "devtools_tester_linux_rel",
+    recipe_name = "devtools/tester",
+    dimensions = dimensions.multibot,
+    execution_timeout = 2 * time.hour,
+    build_numbers = True,
+    triggers = ["devtools_compiler_linux_rel"],
+)
+
+try_builder(
+    name = "devtools_compiler_linux_rel",
+    recipe_name = "devtools/compiler",
+    dimensions = dimensions.default_ubuntu,
+    execution_timeout = 2 * time.hour,
+    build_numbers = True,
+)
+
 luci.list_view(
     name = "tryserver",
     title = "Tryserver",
@@ -207,6 +224,7 @@ cq_main = struct(
         # Quarantine a builder here
         # This will make them experiment 100%
         "devtools_frontend_mac_arm64_rel",
+        "devtools_tester_linux_rel",
     ],
     includable_only_builders = [
         "devtools_frontend_linux_blink_light_rel",
