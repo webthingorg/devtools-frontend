@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "abf27a00_cb9eb8ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-06-05T09:16:33Z",
+      "side": 1,
+      "message": "LGTM with new unit test suggestion",
+      "revId": "87d51156405d668e9d0ca43641fd8c89f32703e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43ecf34e_5b2f71c9",
+        "filename": "front_end/models/trace/EntriesFilter.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-06-05T09:16:33Z",
+      "side": 1,
+      "message": "worth adding a test case for the new behaviour",
+      "range": {
+        "startLine": 235,
+        "startChar": 13,
+        "endLine": 235,
+        "endChar": 75
+      },
+      "revId": "87d51156405d668e9d0ca43641fd8c89f32703e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
