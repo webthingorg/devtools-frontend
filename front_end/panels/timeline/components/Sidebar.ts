@@ -8,6 +8,7 @@ import * as UI from '../../../ui/legacy/legacy.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 
 import sidebarStyles from './sidebar.css.js';
+import * as SidebarInsight from './SidebarInsight.js';
 
 const COLLAPSED_WIDTH = 40;
 const DEFAULT_EXPANDED_WIDTH = 240;
@@ -58,6 +59,10 @@ export class SidebarUI extends HTMLElement {
 
   render(expanded: boolean): void {
     const toggleIcon = expanded ? 'left-panel-close' : 'left-panel-open';
+    const showLCPPhases = true;
+    const lcpTitle = 'LCP by Phase';
+    const lcpText =
+        'Each phase has specific recommendations to improve. In an ideal load, the two delay phases should be quite short.';
     // clang-format off
     const output = LitHtml.html`<div class=${LitHtml.Directives.classMap({
       sidebar: true,
@@ -67,6 +72,14 @@ export class SidebarUI extends HTMLElement {
       <div class="tab-bar">
         <${IconButton.Icon.Icon.litTagName} name=${toggleIcon} @click=${this.#toggleButtonClick} class="sidebar-toggle-button">
         </${IconButton.Icon.Icon.litTagName}>
+      </div>
+      <div class="insights">
+        ${expanded && showLCPPhases ? LitHtml.html`
+          <${SidebarInsight.SidebarInsight.litTagName} .data=${{
+            title: lcpTitle,
+            text: lcpText,
+          } as SidebarInsight.InsightDetails}></${SidebarInsight.SidebarInsight}>
+        ` : null}
       </div>
     </div>`;
     // clang-format on
