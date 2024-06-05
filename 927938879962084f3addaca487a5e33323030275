@@ -16,6 +16,24 @@
       "message": "LGTM",
       "revId": "927938879962084f3addaca487a5e33323030275",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c2ee48e_f7ef911f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1554938
+      },
+      "writtenOn": "2024-06-05T08:01:39Z",
+      "side": 1,
+      "message": "Verified this change is causing a blink web test failure since the element\u0027s label changed. We might need to rebaseline the test expectations accordingly. This is the [Text diff](https://ci.chromium.org/ui/artifact/text-diff/invocations/task-chromium-swarm.appspot.com-69fd1e1087220711/tests/ninja:%2F%2F:blink_web_tests%2Fhttp%2Ftests%2Fdevtools%2Fconsole%2Fviewport-testing%2Fconsole-clicking-messages.js/results/0982dec3-00058/artifacts/text_diff)  Do you want me to check this in for now and rebaseline afterwards?",
+      "parentUuid": "32a033f6_6fe03134",
+      "revId": "927938879962084f3addaca487a5e33323030275",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
