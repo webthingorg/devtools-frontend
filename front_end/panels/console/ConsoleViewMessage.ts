@@ -1609,6 +1609,19 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
       const scriptLocationLink = this.linkifier.linkifyScriptLocation(
           debuggerModel.target(), null, url, lineNumber, {columnNumber, inlineFrameIndex: f});
       scriptLocationLink.tabIndex = -1;
+
+      const uiLocation = Components.Linkifier.Linkifier.uiLocation(scriptLocationLink);
+      let ignoreListHide = false;
+      if (uiLocation &&
+          Bindings.IgnoreListManager.IgnoreListManager.instance().isUserOrSourceMapIgnoreListedUISourceCode(
+              uiLocation.uiSourceCode)) {
+        ignoreListHide = true;
+      }
+
+      if (ignoreListHide) {
+        continue;
+      }
+
       this.selectableChildren.push({element: scriptLocationLink, forceSelect: () => scriptLocationLink.focus()});
       formattedLine.appendChild(scriptLocationLink);
       formattedLine.appendChild(this.linkifyStringAsFragment(suffix));
@@ -1659,6 +1672,8 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
     const debuggerModel = runtimeModel.debuggerModel();
     const formattedResult = document.createElement('div');
 
+    const stackFrames: {link: HTMLElement, line: HTMLElement}[] = [];
+
     for (let i = 0; i < linkInfos.length; ++i) {
       const newline = i < linkInfos.length - 1 ? '\n' : '';
       const {line, link} = linkInfos[i];
@@ -1693,7 +1708,25 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
       this.selectableChildren.push({element: scriptLocationLink, forceSelect: () => scriptLocationLink.focus()});
       formattedLine.appendChild(scriptLocationLink);
       formattedLine.appendChild(this.linkifyStringAsFragment(suffix));
+
+      const uiLocation = Components.Linkifier.Linkifier.uiLocation(scriptLocationLink);
+      let ignoreListHide = false;
+      if (uiLocation &&
+          Bindings.IgnoreListManager.IgnoreListManager.instance().isUserOrSourceMapIgnoreListedUISourceCode(
+              uiLocation.uiSourceCode)) {
+        ignoreListHide = true;
+      }
+
+      if (ignoreListHide) {
+        continue;
+      }
+
       formattedResult.appendChild(formattedLine);
+
+      stackFrames.push({
+        link: scriptLocationLink,
+        line: formattedLine,
+      });
 
       if (!link.enclosedInBraces) {
         continue;
@@ -1710,11 +1743,31 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
               formattedResult, formattedLine)
           .then(modified => {
             if (modified) {
-              formattedResult.removeChild(formattedLine);
+              formattedLine.remove();
               this.selectableChildren.splice(selectableChildIndex, 1);
             }
           });
     }
+
+    const throttler = new Common.Throttler.Throttler(100);
+    this.linkifier.addEventListener(Components.Linkifier.Events.LiveLocationUpdated, () => {
+      void throttler.schedule(async () => {
+        for (let i = 0; i < stackFrames.length; i++) {
+          const stackFrame = stackFrames[i];
+          const uiLocation = Components.Linkifier.Linkifier.uiLocation(stackFrame.link);
+          let ignoreListHide = false;
+          if (uiLocation &&
+              Bindings.IgnoreListManager.IgnoreListManager.instance().isUserOrSourceMapIgnoreListedUISourceCode(
+                  uiLocation.uiSourceCode)) {
+            ignoreListHide = true;
+          }
+
+          if (ignoreListHide) {
+            stackFrame.line.remove();
+          }
+        }
+      });
+    });
 
     return formattedResult;
   }
