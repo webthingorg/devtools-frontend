@@ -185,3 +185,7 @@ Contains a recording of web-dev with the following modifications:
 
 - One entry with hidden children
 - A child breadcrumb under the total trace window.
+
+### primary-page-frame
+
+Created from the speculation-rules demo page (https://speculative-rules.glitch.me/common-fruits.html). Contains a trace that includes the `isInPrimaryPageFrame` flag added to Chromium in crrev.com/c/5595033, which allows the trace engine to more accurately identify the main thread via the primary frame.
