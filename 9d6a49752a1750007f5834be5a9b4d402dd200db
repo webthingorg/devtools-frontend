@@ -51,6 +51,24 @@
       "parentUuid": "1068d681_114e7c1d",
       "revId": "9d6a49752a1750007f5834be5a9b4d402dd200db",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aeb491cd_c7fe148f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-06-05T10:49:30Z",
+      "side": 1,
+      "message": "For me, right-arrow moves the bar by 1px, and left-arrow by 5px. These values change slightly with window width, but shouldn\u0027t the values be the same for left and right?",
+      "parentUuid": "6e486936_e05e00f5",
+      "revId": "9d6a49752a1750007f5834be5a9b4d402dd200db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
