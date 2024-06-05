@@ -117,6 +117,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "40cb731a_3bc3f093",
+        "filename": "front_end/models/trace/types/File.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-05T08:33:06Z",
+      "side": 1,
+      "message": "Yes, `SerializableKey` is an array where the first member is a letter representing the `type` of event and the other values are the event values.\n\nI agree that some type to represent the serialized array as a string would be great. This CL introducing a lot of changes already so I will merge it and make a follow-up CL proposing something like `SerializedEventKey`.",
+      "parentUuid": "3edfc8c9_2f0cbec8",
+      "range": {
+        "startLine": 36,
+        "startChar": 19,
+        "endLine": 36,
+        "endChar": 25
+      },
+      "revId": "a65e5428feed4a6de4e0328167193d8b44b3c61e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fd72e372_c8a8c3ff",
@@ -190,6 +214,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "79cf6149_02fdd7c0",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-05T08:33:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4392838f_2d6bf10b",
+      "range": {
+        "startLine": 149,
+        "startChar": 0,
+        "endLine": 149,
+        "endChar": 86
+      },
+      "revId": "a65e5428feed4a6de4e0328167193d8b44b3c61e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "5017f81e_57f75b07",
         "filename": "front_end/panels/timeline/TimelinePanel.ts",
         "patchSetId": 4
@@ -224,6 +272,30 @@
       "writtenOn": "2024-06-04T09:20:37Z",
       "side": 1,
       "message": "this already exists in `TraceHelpers.ts`",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 3
+      },
+      "revId": "a65e5428feed4a6de4e0328167193d8b44b3c61e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a741b422_fb51510a",
+        "filename": "front_end/services/events_serializer/EventsSerializer.test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-05T08:33:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ebd66e6f_8b7ecb6f",
       "range": {
         "startLine": 10,
         "startChar": 0,
@@ -295,6 +367,30 @@
       "side": 1,
       "message": "cna we prefer `assert.isOk(rawEntryKey)` in that case? Avoids the cast and makes sure we get a useful error should it be null",
       "parentUuid": "da1dbe60_3c7a7223",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 108
+      },
+      "revId": "a65e5428feed4a6de4e0328167193d8b44b3c61e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac75dbea_83b3f44d",
+        "filename": "front_end/services/events_serializer/EventsSerializer.test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-05T08:33:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cde6f3e5_39b33ab1",
       "range": {
         "startLine": 64,
         "startChar": 0,
@@ -399,6 +495,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b4517f4_1ee71626",
+        "filename": "front_end/services/events_serializer/events_serializer.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-05T08:33:06Z",
+      "side": 1,
+      "message": "Great point. It worked, removed another level of nesting",
+      "parentUuid": "89fc2701_90d0b737",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 2
+      },
+      "revId": "a65e5428feed4a6de4e0328167193d8b44b3c61e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0e8af33f_9527823c",
@@ -412,6 +532,30 @@
       "writtenOn": "2024-06-04T09:20:37Z",
       "side": 1,
       "message": "don\u0027t think we need this check: if we are using the entire trace bounds, let\u0027s just grab it direct from the traceParsedData. No need to call into this.",
+      "range": {
+        "startLine": 57,
+        "startChar": 23,
+        "endLine": 57,
+        "endChar": 108
+      },
+      "revId": "a65e5428feed4a6de4e0328167193d8b44b3c61e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db8dcf7e_ea210737",
+        "filename": "front_end/services/modifications_manager/ModificationsManager.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-05T08:33:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e8af33f_9527823c",
       "range": {
         "startLine": 57,
         "startChar": 23,
