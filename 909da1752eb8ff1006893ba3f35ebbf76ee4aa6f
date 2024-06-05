@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef878b7a_8ce6cf86",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-06-05T09:56:41Z",
+      "side": 1,
+      "message": "Is there a specific reason for a manual roll at this point in time?",
+      "revId": "909da1752eb8ff1006893ba3f35ebbf76ee4aa6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
