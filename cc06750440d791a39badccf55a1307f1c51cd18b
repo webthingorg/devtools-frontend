@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd528d6d_29363a27",
+        "filename": "buckets/try.star",
+        "patchSetId": 5
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2024-06-05T12:09:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ae138ba6_405d6031",
+      "range": {
+        "startLine": 194,
+        "startChar": 12,
+        "endLine": 194,
+        "endChar": 34
+      },
+      "revId": "cc06750440d791a39badccf55a1307f1c51cd18b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e535f3f7_f94b7921",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-06-05T11:35:23Z",
       "side": 1,
       "message": "nit: maybe wait with the experiment until later when you have self tested this sufficiently.",
+      "range": {
+        "startLine": 217,
+        "startChar": 9,
+        "endLine": 217,
+        "endChar": 22
+      },
+      "revId": "cc06750440d791a39badccf55a1307f1c51cd18b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58121a56_9e8bde78",
+        "filename": "buckets/try.star",
+        "patchSetId": 5
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2024-06-05T12:09:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e535f3f7_f94b7921",
       "range": {
         "startLine": 217,
         "startChar": 9,
