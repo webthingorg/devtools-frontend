@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17cb51ed_1081565f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-06-05T07:55:19Z",
+      "side": 1,
+      "message": "Hi Changhao,\n\nI\u0027m updating the Settings page sidebar for GM3, ptal!",
+      "revId": "767dabe86ed668304d343034945be1cb16cee22e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
