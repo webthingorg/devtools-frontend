@@ -19,7 +19,7 @@ import {
 
 export const FILTER_TEXTBOX_SELECTOR = '[aria-label="Filter"]';
 export const RECORD_BUTTON_SELECTOR = '[aria-label="Record"]';
-export const RELOAD_AND_RECORD_BUTTON_SELECTOR = '[aria-label="Start profiling and reload page"]';
+export const RELOAD_AND_RECORD_BUTTON_SELECTOR = '[title*="Start profiling and reload page"]';
 export const STOP_BUTTON_SELECTOR = '[aria-label="Stop"]';
 export const SUMMARY_TAB_SELECTOR = '[aria-label="Summary"]';
 export const BOTTOM_UP_SELECTOR = '[aria-label="Bottom-Up"]';
@@ -81,7 +81,7 @@ export async function toggleCaseSensitive() {
 }
 
 export async function toggleRegExButtonBottomUp() {
-  const regexButton = await waitForAria('Use Regular Expression');
+  const regexButton = await waitFor('[title="Use Regular Expression"]');
   await regexButton.click();
 }
 

@@ -20,7 +20,7 @@ import {
   retrieveCodeMirrorEditorContent,
 } from '../helpers/sources-helpers.js';
 
-const PRETTY_PRINT_BUTTON = '[aria-label="Pretty print"]';
+const PRETTY_PRINT_BUTTON = '[title="Pretty print"]';
 
 describe('The Network Tab', function() {
   it('can pretty print an inline json subtype file', async () => {

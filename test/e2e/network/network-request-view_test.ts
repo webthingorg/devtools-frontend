@@ -311,7 +311,7 @@ describe('The Network Request view', () => {
     const messagesView = await navigateToEventStreamMessages();
     await assertBaseState(messagesView);
 
-    await click('[aria-label="Clear all"]', {
+    await click('[title="Clear all"]', {
       root: messagesView,
     });
     await waitForMessages(messagesView, 0);

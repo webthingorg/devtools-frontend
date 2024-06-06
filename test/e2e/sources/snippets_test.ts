@@ -24,7 +24,7 @@ describe('Snippets', function() {
     await clickMoreTabsButton();
     await click(SNIPPETS_TAB_SELECTOR);
 
-    await click('[aria-label="New snippet"]');
+    await click('[title="New snippet"]');
     await typeText('file@name\n');
 
     let treeItems = await $$('.navigator-file-tree-item');

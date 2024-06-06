@@ -128,7 +128,7 @@ export async function getMenuItemTitleAtPosition(position: number) {
 }
 
 export const closeDrawer = async () => {
-  await click('[aria-label="Close drawer"]');
+  await click('[title="Close drawer"]');
 };
 
 export const getSelectedItemText = async () => {

@@ -36,11 +36,11 @@ const COMPUTED_STYLES_PANEL_SELECTOR = '[aria-label="Computed panel"]';
 const COMPUTED_STYLES_SHOW_ALL_SELECTOR = '[title="Show all"]';
 const COMPUTED_STYLES_GROUP_SELECTOR = '[title="Group"]';
 export const ELEMENTS_PANEL_SELECTOR = '.panel[aria-label="elements"]';
-const FONT_EDITOR_SELECTOR = '[aria-label="Font Editor"]';
+const FONT_EDITOR_SELECTOR = '[title="Font Editor"]';
 const HIDDEN_FONT_EDITOR_SELECTOR = '.font-toolbar-hidden';
 export const SECTION_SUBTITLE_SELECTOR = '.styles-section-subtitle';
 const CLS_PANE_SELECTOR = '.styles-sidebar-toolbar-pane';
-const CLS_BUTTON_SELECTOR = '[aria-label="Element Classes"]';
+const CLS_BUTTON_SELECTOR = '[title="Element Classes"]';
 const CLS_INPUT_SELECTOR = '[aria-placeholder="Add new class"]';
 const LAYOUT_PANE_TAB_SELECTOR = '[aria-label="Layout"]';
 const LAYOUT_PANE_TABPANEL_SELECTOR = '[aria-label="Layout panel"]';
@@ -288,7 +288,7 @@ export const expandSelectedNodeRecursively = async () => {
 
 export const forcePseudoState = async (pseudoState: string) => {
   // Open element & page state pane and wait for it to be loaded asynchronously
-  await click('[aria-label="Toggle Element State"]');
+  await click('[title="Toggle Element State"]');
 
   const stateEl = await waitForAria(pseudoState);
   // FIXME(crbug/1112692): Refactor test to remove the timeout.

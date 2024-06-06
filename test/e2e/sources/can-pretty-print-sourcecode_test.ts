@@ -29,7 +29,7 @@ import {
   waitForHighlightedLine,
 } from '../helpers/sources-helpers.js';
 
-const PRETTY_PRINT_BUTTON = '[aria-label="Pretty print"]';
+const PRETTY_PRINT_BUTTON = '[title="Pretty print"]';
 const PRETTY_PRINTED_TOGGLE = 'devtools-text-editor.pretty-printed';
 
 describe('The Sources Tab', function() {

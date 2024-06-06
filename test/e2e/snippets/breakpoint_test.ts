@@ -33,7 +33,7 @@ describe('Snippets subpane', () => {
     let decorators = await getBreakpointDecorators();
     assert.deepEqual(decorators, [2]);
 
-    await click('[aria-label="Run snippet"]');
+    await click('[title*="Run snippet"]');
 
     // We stop on the breakpoint
     await waitFor(RESUME_BUTTON);

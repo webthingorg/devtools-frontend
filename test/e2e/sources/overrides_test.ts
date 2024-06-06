@@ -55,7 +55,7 @@ describe('Overrides panel', function() {
   afterEach(async () => {
     await openSourcesPanel();
     await click('[aria-label="Overrides"]');
-    await click('[aria-label="Clear configuration"]');
+    await click('[title="Clear configuration"]');
     await waitFor(ENABLE_OVERRIDES_SELECTOR);
   });
 
@@ -481,7 +481,7 @@ describe('Overrides panel > Delete context menus', () => {
   });
 
   afterEach(async () => {
-    await click('[aria-label="Clear configuration"]');
+    await click('[title="Clear configuration"]');
     await waitFor(ENABLE_OVERRIDES_SELECTOR);
   });
 
