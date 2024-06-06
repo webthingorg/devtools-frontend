@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad366fb0_044308b9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-06T11:06:27Z",
+      "side": 1,
+      "message": "I am afraid we might need to revisit this, for two reasons:\n\n1. It doesn\u0027t feel clean that the TraceEngine needs to care about visibility or categories, which is a UI concern.\n\nI could probably live with that, but the more major concern is:\n\n2. models/trace needs to be isolated from the rest of DevTools, because it is packaged up into an npm package that Lighthouse depends on, and in the future more tools might use. This CL means that that package has to include a bunch of DevTools (i18n, ThemeSupport, Root) which we do not want. Nothing inside models/trace should import from outside of it (we do have some exceptions to this around CPU Profiling IIRC, but this needs to be fixed).\n\nIf you want we can chat about the problem here and how else we could solve it, but we will need to resolve this fairly swiftly please (or revert this for now if we think another fix will take a longer time).\n\nPlease let me know what you think!",
+      "revId": "54723fa2c4ed1b9f702d17234b4b93d361f0ff71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
