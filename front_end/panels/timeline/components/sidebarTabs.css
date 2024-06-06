@@ -1,0 +1,36 @@
+/*
+ * Copyright 2024 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file.
+ */
+
+:host {
+  /* This is same as the sidebar expansion toggle button */
+  --tabs-header-height: 20px;
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.tabs-header {
+  overflow: hidden;
+  display: flex;
+  justify-content: space-evenly;
+  border-bottom: 1px solid var(--sys-color-divider);
+  height: var(--tabs-header-height);
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.tabs-header input {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  box-sizing: border-box;
+}
+
+.tabs-header input[active] {
+  color: var(--sys-color-state-focus-ring);
+  border-bottom-color: var(--sys-color-state-focus-ring);
+}

@@ -8,6 +8,7 @@ import * as UI from '../../../ui/legacy/legacy.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 
 import sidebarStyles from './sidebar.css.js';
+import {SidebarTabs} from './SidebarTabs.js';
 
 const COLLAPSED_WIDTH = 40;
 const DEFAULT_EXPANDED_WIDTH = 240;
@@ -65,6 +66,7 @@ export class SidebarUI extends HTMLElement {
       'is-closed': !expanded,
     })}>
       <div class="tab-bar">
+        ${expanded? LitHtml.html`<${SidebarTabs.litTagName}></${SidebarTabs.litTagName}>` :LitHtml.nothing}
         <${IconButton.Icon.Icon.litTagName} name=${toggleIcon} @click=${this.#toggleButtonClick} class="sidebar-toggle-button">
         </${IconButton.Icon.Icon.litTagName}>
       </div>

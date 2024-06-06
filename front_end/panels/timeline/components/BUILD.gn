@@ -12,6 +12,7 @@ generate_css("css_files") {
     "breadcrumbsUI.css",
     "interactionBreakdown.css",
     "sidebar.css",
+    "sidebarTabs.css",
   ]
 }
 
@@ -23,6 +24,7 @@ devtools_module("components") {
     "InteractionBreakdown.ts",
     "LiveMetricsView.ts",
     "Sidebar.ts",
+    "SidebarTabs.ts",
   ]
 
   deps = [
