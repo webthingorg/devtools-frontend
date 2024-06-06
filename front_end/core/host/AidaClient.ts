@@ -7,6 +7,18 @@ import * as Root from '../root/root.js';
 import {InspectorFrontendHostInstance} from './InspectorFrontendHost.js';
 import {bindOutputStream} from './ResourceLoader.js';
 
+const PREAMBLE = `You are an experienced Web developer.
+The user is observing an warning or error in their web app in the console.
+You are helping the user understand and fix this error.
+The user already has Chrome DevTools opened.
+Associated code or stack trace may not be available.
+Provide a step-by-step explanation of what might have caused the error, titled 'Hypothesis'.
+Provide ways to confirm the hypothesis using Chrome DevTools, titled 'How to verify'.
+Optionally, provide a section to either fix the error or diagnose the problem, titled 'Suggested changes'.
+If the change involves less than 5 lines of code, list the changed code in a single block.
+If the changes are more complex, incorporate the changes in the existing code and restate the edited code
+in full for the user to copy. Any explanation should be provided in comments within the code block.`;
+
 export interface AidaRequest {
   input: string;
   client: string;
@@ -19,6 +31,7 @@ export interface AidaRequest {
     // eslint-disable-next-line @typescript-eslint/naming-convention
     disable_user_content_logging: boolean,
   };
+  preamble?: string;
 }
 
 export interface AidaResponse {
@@ -34,11 +47,9 @@ export class AidaClient {
       input,
       client: 'CHROME_DEVTOOLS',
     };
-    const temperature = parseFloat(Root.Runtime.Runtime.queryParam('aidaTemperature') || '');
-    if (!isNaN(temperature)) {
-      request.options ??= {};
-      request.options.temperature = temperature;
-    }
+    request.preamble = PREAMBLE;
+    request.options = {};
+    request.options.temperature = 0.0;
     const modelId = Root.Runtime.Runtime.queryParam('aidaModelId');
     if (modelId) {
       request.options ??= {};
@@ -73,18 +84,19 @@ export class AidaClient {
       };
     })();
     const streamId = bindOutputStream(stream);
-    InspectorFrontendHostInstance.doAidaConversation(
-        JSON.stringify(AidaClient.buildApiRequest(input)), streamId, result => {
-          if (result.statusCode === 403) {
-            stream.fail(new Error('Server responded: permission denied'));
-          } else if (result.error) {
-            stream.fail(new Error(`Cannot send request: ${result.error} ${result.detail || ''}`));
-          } else if (result.statusCode !== 200) {
-            stream.fail(new Error(`Request failed: ${JSON.stringify(result)}`));
-          } else {
-            void stream.close();
-          }
-        });
+    const prompt = JSON.stringify(AidaClient.buildApiRequest(input));
+    console.log(prompt);
+    InspectorFrontendHostInstance.doAidaConversation(prompt, streamId, result => {
+      if (result.statusCode === 403) {
+        stream.fail(new Error('Server responded: permission denied'));
+      } else if (result.error) {
+        stream.fail(new Error(`Cannot send request: ${result.error} ${result.detail || ''}`));
+      } else if (result.statusCode !== 200) {
+        stream.fail(new Error(`Request failed: ${JSON.stringify(result)}`));
+      } else {
+        void stream.close();
+      }
+    });
     let chunk;
     const text = [];
     let inCodeChunk = false;

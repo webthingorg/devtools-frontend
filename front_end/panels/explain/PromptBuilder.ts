@@ -130,12 +130,14 @@ export class PromptBuilder {
 
   formatPrompt({message, relatedCode, relatedRequest}: {message: string, relatedCode: string, relatedRequest: string}):
       string {
-    let prompt = `Why does browser show an error
-${message}`;
+    let prompt = `The error or warning message:
+\`\`\`
+${message}
+\`\`\``;
 
     if (relatedCode) {
       prompt += `
-For the following code in my web app
+For the following code
 
 \`\`\`
 ${relatedCode}
@@ -144,7 +146,7 @@ ${relatedCode}
 
     if (relatedRequest) {
       prompt += `
-For the following network request in my web app
+For the following network request
 
 \`\`\`
 ${relatedRequest}
