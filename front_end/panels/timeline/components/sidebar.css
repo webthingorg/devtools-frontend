@@ -29,3 +29,7 @@
     margin-right: 4px;
   }
 }
+
+.link {
+  color: var(--sys-color-primary);
+}
