@@ -87,6 +87,24 @@
       "parentUuid": "aeb491cd_c7fe148f",
       "revId": "9d6a49752a1750007f5834be5a9b4d402dd200db",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c1d339c_56e1b91b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-06-06T17:11:40Z",
+      "side": 1,
+      "message": "Hm, ideally such an arbitrary offset wouldn\u0027t be needed. It\u0027s not yet clear to me how `updateCurtains()` works and how these relative changes come about. I\u0027ll take a closer look tomorrow and maybe we can come up with an alternative.",
+      "parentUuid": "bdd9f13b_223c99cf",
+      "revId": "9d6a49752a1750007f5834be5a9b4d402dd200db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
