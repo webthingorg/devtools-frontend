@@ -39,6 +39,30 @@
       },
       "revId": "87d51156405d668e9d0ca43641fd8c89f32703e7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "26532f33_d5b722be",
+        "filename": "front_end/models/trace/EntriesFilter.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-06T10:14:30Z",
+      "side": 1,
+      "message": "good point. Added a test, naturally the +1 disappeared 😄",
+      "parentUuid": "43ecf34e_5b2f71c9",
+      "range": {
+        "startLine": 235,
+        "startChar": 13,
+        "endLine": 235,
+        "endChar": 75
+      },
+      "revId": "87d51156405d668e9d0ca43641fd8c89f32703e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
