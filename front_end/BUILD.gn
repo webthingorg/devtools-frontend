@@ -189,6 +189,7 @@ group("unittests") {
     "panels/utils:unittests",
     "panels/web_audio:unittests",
     "panels/webauthn:unittests",
+    "services/events_serializer:unittests",
     "services/modifications_manager:unittests",
     "services/trace_bounds:unittests",
     "testing",
