@@ -34,6 +34,24 @@
       "parentUuid": "ef878b7a_8ce6cf86",
       "revId": "909da1752eb8ff1006893ba3f35ebbf76ee4aa6f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16a0908a_eb219532",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-06-06T15:04:59Z",
+      "side": 1,
+      "message": "none of this is actually used, is the point here to remove any mention of goma from the codebase?",
+      "parentUuid": "4e0c17e2_9f1f3ceb",
+      "revId": "909da1752eb8ff1006893ba3f35ebbf76ee4aa6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
