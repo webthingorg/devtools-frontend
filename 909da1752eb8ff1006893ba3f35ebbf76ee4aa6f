@@ -16,6 +16,24 @@
       "message": "Is there a specific reason for a manual roll at this point in time?",
       "revId": "909da1752eb8ff1006893ba3f35ebbf76ee4aa6f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e0c17e2_9f1f3ceb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1161379
+      },
+      "writtenOn": "2024-06-06T05:13:30Z",
+      "side": 1,
+      "message": "Yes, this is a part of goma cleanup which is removing references to goma from\nhttps://source.chromium.org/search?q\u003d(%5E%7C%5B%5Ea-z0-9%5D)goma(%5B%5Ea-z%5D%7Ccc%7C$)%20-f:%5Ethird_party%2F%5B%5E%2F%5D*%2Fthird_party%20-f:%5Ethird_party%2Fwayland-protocols%20-f:%5Ethird_party%2Fhunspell_dictionaries%20-f:%5C.xtb$%20f:devtools-frontend.*llvm\u0026ss\u003dchromium%2Fchromium%2Fsrc",
+      "parentUuid": "ef878b7a_8ce6cf86",
+      "revId": "909da1752eb8ff1006893ba3f35ebbf76ee4aa6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
