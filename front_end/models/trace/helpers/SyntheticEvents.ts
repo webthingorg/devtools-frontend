@@ -63,6 +63,18 @@ export class SyntheticEventsManager {
     syntheticEventsManagerByTraceIndex.length = 0;
   }
 
+  static registerSyntheticBasedEvent<T extends Types.TraceEvents.SyntheticBasedEvent>(syntheticEvent: Omit<T, '_tag'>):
+      T {
+    try {
+      return SyntheticEventsManager.getActiveManager().registerSyntheticBasedEvent(syntheticEvent);
+    } catch (e) {
+      // If no active manager has been initialized, we assume the trace engine is
+      // not running as part of the Performance panel so we don't register synthetic
+      // events because we don't need to support modifications serialization.
+      return syntheticEvent as T;
+    }
+  }
+
   private constructor(rawEvents: readonly Types.TraceEvents.TraceEventData[]) {
     this.#rawTraceEvents = rawEvents;
   }
