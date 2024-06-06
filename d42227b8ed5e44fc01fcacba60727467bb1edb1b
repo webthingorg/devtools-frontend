@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d130f1e_76be7bde",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1106555
+      },
+      "writtenOn": "2024-06-06T13:52:32Z",
+      "side": 1,
+      "message": "@wolfi@chromium.org This should be good to land now that the tests are disabled.",
+      "revId": "d42227b8ed5e44fc01fcacba60727467bb1edb1b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
