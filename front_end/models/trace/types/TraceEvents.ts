@@ -387,6 +387,23 @@ export interface SyntheticNetworkRequest extends TraceEventComplete, SyntheticBa
   tid: ThreadID;
 }
 
+export interface SyntheticWebSocketConnectionEvent extends TraceEventInstant {
+  args: TraceEventArgs&{
+    data: TraceEventArgsData & {
+      identifier: number,
+    },
+  };
+  cat: string;
+  name: 'SyntheticWebSocketConnectionEvent';
+  ph: Phase.INSTANT;
+  dur: MicroSeconds;
+  ts: MicroSeconds;
+  pid: ProcessID;
+  tid: ThreadID;
+}
+
+export type SyntheticCompleteEventType = SyntheticWebSocketConnectionEvent;
+
 export const enum AuctionWorkletType {
   BIDDER = 'bidder',
   SELLER = 'seller',
@@ -1910,6 +1927,12 @@ export function isSyntheticNetworkRequestDetailsEvent(
   return traceEventData.name === 'SyntheticNetworkRequest';
 }
 
+export function isSyntheticWebSocketConnectionEvent(
+    traceEventData: TraceEventData,
+    ): traceEventData is SyntheticWebSocketConnectionEvent {
+  return traceEventData.name === 'SyntheticWebSocketConnectionEvent';
+}
+
 export function isTraceEventPrePaint(
     traceEventData: TraceEventData,
     ): traceEventData is TraceEventPrePaint {
@@ -2349,7 +2372,8 @@ export function isWebSocketTraceEvent(event: TraceEventData): event is TraceEven
     TraceEventWebSocketInfo|TraceEventWebSocketTransfer {
   return isTraceEventWebSocketCreate(event) || isTraceEventWebSocketInfo(event) || isTraceEventWebSocketTransfer(event);
 }
-export type WebSocketEvent = TraceEventWebSocketCreate|TraceEventWebSocketInfo|TraceEventWebSocketTransfer;
+export type WebSocketEvent =
+    TraceEventWebSocketCreate|TraceEventWebSocketInfo|TraceEventWebSocketTransfer|SyntheticWebSocketConnectionEvent;
 
 export interface TraceEventV8Compile extends TraceEventComplete {
   name: KnownEventName.Compile;
