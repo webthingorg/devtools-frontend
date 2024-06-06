@@ -33,6 +33,29 @@
       "message": "Nice idea! I didn\u0027t think about just asking the user to create the manager if they want it, rather than have it be configuration in the model.\n\nLGTM",
       "revId": "51d9692905c183eb83e4644c050588495c9b1cf9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f2cb8e2_2398baeb",
+        "filename": "front_end/models/trace/handlers/UserInteractionsHandler.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-06T14:21:02Z",
+      "side": 1,
+      "message": "thanks clang format !",
+      "range": {
+        "startLine": 328,
+        "startChar": 29,
+        "endLine": 329,
+        "endChar": 36
+      },
+      "revId": "51d9692905c183eb83e4644c050588495c9b1cf9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
