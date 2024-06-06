@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "51d9692905c183eb83e4644c050588495c9b1cf9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e21dc845_510c1543",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-06T14:20:40Z",
+      "side": 1,
+      "message": "Nice idea! I didn\u0027t think about just asking the user to create the manager if they want it, rather than have it be configuration in the model.\n\nLGTM",
+      "revId": "51d9692905c183eb83e4644c050588495c9b1cf9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
