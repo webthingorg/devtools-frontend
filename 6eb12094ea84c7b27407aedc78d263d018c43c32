@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "45a8ad74_4a1e7c19",
+        "filename": "front_end/panels/console/ConsoleViewMessage.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1623,
+      "author": {
+        "id": 1106555
+      },
+      "writtenOn": "2024-06-06T19:12:28Z",
+      "side": 1,
+      "message": "Yea, I just left it at the same structure as JSPresentationUtils in case you wanted to do something more with it. It seems like maybe this is worth extracting to a helper function but JSPresentationUtils didn\u0027t neither so I figured I\u0027d wait for that feedback.",
+      "parentUuid": "92f368ed_ad591445",
+      "range": {
+        "startLine": 1614,
+        "startChar": 0,
+        "endLine": 1623,
+        "endChar": 7
+      },
+      "revId": "6eb12094ea84c7b27407aedc78d263d018c43c32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "492e8697_a1d672ab",
         "filename": "front_end/panels/console/ConsoleViewMessage.ts",
         "patchSetId": 1
