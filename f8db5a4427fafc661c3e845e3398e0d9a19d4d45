@@ -50,6 +50,24 @@
       "message": "Should we set the type to `TraceEngine.Types.TraceEvents.TraceEventData` directly since selected entry cannot be TimelineFrame?",
       "revId": "f8db5a4427fafc661c3e845e3398e0d9a19d4d45",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7022fc44_39f80285",
+        "filename": "front_end/panels/timeline/Overlays.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-06T09:21:51Z",
+      "side": 1,
+      "message": "No - the frames are selectable, so this is correct as is 😊",
+      "parentUuid": "b9888815_d8f5d51a",
+      "revId": "f8db5a4427fafc661c3e845e3398e0d9a19d4d45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
