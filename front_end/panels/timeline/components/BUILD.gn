@@ -12,6 +12,7 @@ generate_css("css_files") {
     "breadcrumbsUI.css",
     "interactionBreakdown.css",
     "sidebar.css",
+    "sidebarinsight.css",
   ]
 }
 
@@ -23,6 +24,7 @@ devtools_module("components") {
     "InteractionBreakdown.ts",
     "LiveMetricsView.ts",
     "Sidebar.ts",
+    "SidebarInsight.ts",
   ]
 
   deps = [
@@ -63,6 +65,7 @@ ts_library("unittests") {
     "BreadcrumbsUI.test.ts",
     "InteractionBreakdown.test.ts",
     "Invalidations.test.ts",
+    "SidebarInsight.test.ts",
   ]
 
   deps = [
