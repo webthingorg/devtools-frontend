@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c66d5a8_ce02b584",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-06-06T16:44:52Z",
+      "side": 1,
+      "message": "Added a suggestion, but I mainly defer to Eric\u0027s expertise with ignore lists and stack traces.",
+      "revId": "6eb12094ea84c7b27407aedc78d263d018c43c32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92f368ed_ad591445",
+        "filename": "front_end/panels/console/ConsoleViewMessage.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1623,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-06-06T16:44:52Z",
+      "side": 1,
+      "message": "How about just\n```\nif (uiLocation \u0026\u0026 Bindings.IgnoreListManager.IgnoreListManager.instance().isUserOrSourceMapIgnoreListedUISourceCode(uiLocation.uiSourceCode)) {\n  continue;\n}\n```\n?",
+      "range": {
+        "startLine": 1614,
+        "startChar": 0,
+        "endLine": 1623,
+        "endChar": 7
+      },
+      "revId": "6eb12094ea84c7b27407aedc78d263d018c43c32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "492e8697_a1d672ab",
+        "filename": "front_end/panels/console/ConsoleViewMessage.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1722,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-06-06T16:44:52Z",
+      "side": 1,
+      "message": "same as above",
+      "range": {
+        "startLine": 1713,
+        "startChar": 0,
+        "endLine": 1722,
+        "endChar": 7
+      },
+      "revId": "6eb12094ea84c7b27407aedc78d263d018c43c32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c65be7e1_ea9e02de",
+        "filename": "front_end/panels/console/ConsoleViewMessage.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1767,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-06-06T16:44:52Z",
+      "side": 1,
+      "message": "same as above",
+      "range": {
+        "startLine": 1758,
+        "startChar": 0,
+        "endLine": 1767,
+        "endChar": 11
+      },
+      "revId": "6eb12094ea84c7b27407aedc78d263d018c43c32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
