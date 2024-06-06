@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e277b99b_08606709",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-06-06T14:13:55Z",
+      "side": 1,
+      "message": "Danil, PTAL.\n\nI don\u0027t love that I had to move the `FrontendMessageSource` enum from `core/sdk/ConsoleModelTypes` to `core/common/Console`. Please let me know if you don\u0027t think that\u0027s a good idea.",
+      "revId": "44c862c6c40144c372081547b217738d9a1e4e2a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
