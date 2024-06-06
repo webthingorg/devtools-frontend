@@ -56,6 +56,7 @@ import {ActiveFilters} from './ActiveFilters.js';
 import {TraceLoadEvent} from './BenchmarkEvents.js';
 import * as TimelineComponents from './components/components.js';
 import {SHOULD_SHOW_EASTER_EGG} from './EasterEgg.js';
+import {EnhancedTracesEngine} from './EnhancedTraces.js';
 import {Tracker} from './FreshRecording.js';
 import historyToolbarButtonStyles from './historyToolbarButton.css.js';
 import {IsolateSelector} from './IsolateSelector.js';
@@ -243,6 +244,16 @@ const UIStrings = {
    *@example {2.12} PH1
    */
   ssec: '{PH1} sec',
+  /**
+   *
+   * @description Text for exporting basic traces
+   */
+  exportNormalTraces: '.json (Basic Performance Traces)',
+  /**
+   *
+   * @description Text for exporting enhanced traces
+   */
+  exportEnhancedTraces: '.devtools (Enhanced Performance Traces)',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/timeline/TimelinePanel.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -571,6 +582,25 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
       Host.userMetrics.actionTaken(Host.UserMetrics.Action.PerfPanelTraceExported);
       void this.saveToFile();
     });
+    this.saveButton.element.addEventListener('contextmenu', event => {
+      event.preventDefault();
+      event.stopPropagation();
+
+      if (event.ctrlKey || event.button === 2) {
+        const contextMenu = new UI.ContextMenu.ContextMenu(event);
+        contextMenu.saveSection().appendItem(i18nString(UIStrings.exportNormalTraces), () => {
+          void this.saveToFile();
+        });
+        contextMenu.saveSection().appendItem(i18nString(UIStrings.exportEnhancedTraces), () => {
+          void this.saveToFile(/* EnhancedTraces */ true);
+        });
+
+        void contextMenu.show();
+      } else {
+        void this.saveToFile();
+      }
+    });
+
     this.panelToolbar.appendSeparator();
     this.panelToolbar.appendToolbarItem(this.loadButton);
     this.panelToolbar.appendToolbarItem(this.saveButton);
@@ -704,7 +734,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     void contextMenu.show();
   }
 
-  async saveToFile(): Promise<void> {
+  async saveToFile(enhancedTraces: boolean = false): Promise<void> {
     if (this.state !== State.Idle) {
       return;
     }
@@ -725,7 +755,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     if (metadata?.dataOrigin === TraceEngine.Types.File.DataOrigin.CPUProfile) {
       fileName = `CPU-${traceStart}.cpuprofile` as Platform.DevToolsPath.RawPathString;
     } else {
-      fileName = `Trace-${traceStart}.json` as Platform.DevToolsPath.RawPathString;
+      fileName = `Trace-${traceStart}.` + (enhancedTraces ? 'devtools' : 'json') as Platform.DevToolsPath.RawPathString;
     }
 
     try {
@@ -748,8 +778,16 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
           traceAsString = cpuprofileJsonGenerator(profile as Protocol.Profiler.Profile);
         }
       } else {
-        const formattedTraceIter = traceJsonGenerator(traceEvents, metadata);
-        traceAsString = Array.from(formattedTraceIter).join('');
+        if (enhancedTraces) {
+          const enhancedTracesEngine = new EnhancedTracesEngine(traceEvents);
+          traceAsString = EnhancedTracesEngine.generateEnhancedTraces(
+              enhancedTracesEngine.captureTargetsFromTraces(), enhancedTracesEngine.captureExecutionContextFromTraces(),
+              enhancedTracesEngine.captureScriptFromTraces(), enhancedTracesEngine.getEnhancedTracesMetadata(),
+              traceEvents, metadata);
+        } else {
+          const formattedTraceIter = traceJsonGenerator(traceEvents, metadata);
+          traceAsString = Array.from(formattedTraceIter).join('');
+        }
       }
       if (!traceAsString) {
         throw new Error('Trace content empty');

@@ -11,6 +11,7 @@ import * as Bindings from '../../models/bindings/bindings.js';
 import * as TimelineModel from '../../models/timeline_model/timeline_model.js';
 import * as TraceEngine from '../../models/trace/trace.js';
 
+import {type EnhancedTraces} from './EnhancedTraces.js';
 import {type Client} from './TimelineController.js';
 
 const UIStrings = {
@@ -37,7 +38,7 @@ export class TimelineLoader implements Common.StringOutputStream.OutputStream {
   private firstRawChunk: boolean;
   private totalSize!: number;
   private filter: TimelineModel.TimelineModelFilter.TimelineModelFilter|null;
-  #traceIsCPUProfile: boolean;
+  #loadedTraceType: LoadedTraceType;
   #collectedEvents: TraceEngine.Types.TraceEvents.TraceEventData[] = [];
   #metadata: TraceEngine.Types.File.MetaData|null;
 
@@ -50,7 +51,7 @@ export class TimelineLoader implements Common.StringOutputStream.OutputStream {
     this.buffer = '';
     this.firstRawChunk = true;
     this.filter = null;
-    this.#traceIsCPUProfile = false;
+    this.#loadedTraceType = 'basic';
     this.#metadata = null;
 
     this.#traceFinalizedPromiseForTest = new Promise<void>(resolve => {
@@ -85,7 +86,7 @@ export class TimelineLoader implements Common.StringOutputStream.OutputStream {
 
   static loadFromCpuProfile(profile: Protocol.Profiler.Profile, client: Client): TimelineLoader {
     const loader = new TimelineLoader(client);
-    loader.#traceIsCPUProfile = true;
+    loader.#loadedTraceType = 'cpuProfile';
 
     try {
       const events = TimelineModel.TimelineJSProfile.TimelineJSProfileProcessor.createFakeTraceFromCpuProfile(
@@ -131,16 +132,21 @@ export class TimelineLoader implements Common.StringOutputStream.OutputStream {
       const items = Array.isArray(trace) ? trace : trace.traceEvents;
 
       this.#collectEvents(items);
-    } else if (trace.nodes) {
+    } else if ('nodes' in trace) {
       // We know it's a raw Protocol CPU Profile.
       this.#parseCPUProfileFormatFromFile(trace);
-      this.#traceIsCPUProfile = true;
+      this.#loadedTraceType = 'cpuProfile';
+    } else if ('payload' in trace && trace.payload) {
+      const items = trace.payload.traceEvents;
+      this.#loadedTraceType = 'enhanced';
+      this.#collectEvents(items);
+      this.#metadata = trace.payload.metadata;
     } else {
       this.reportErrorAndCancelLoading(i18nString(UIStrings.malformedTimelineDataS));
       return;
     }
 
-    if ('metadata' in trace) {
+    if ('metadata' in trace && this.#loadedTraceType !== 'enhanced') {
       this.#metadata = trace.metadata;
     }
   }
@@ -228,7 +234,7 @@ export class TimelineLoader implements Common.StringOutputStream.OutputStream {
   }
 
   private isCpuProfile(): boolean {
-    return this.#traceIsCPUProfile;
+    return this.#loadedTraceType === 'cpuProfile';
   }
 
   private async finalizeTrace(): Promise<void> {
@@ -257,4 +263,9 @@ export class TimelineLoader implements Common.StringOutputStream.OutputStream {
 /**
  * Used when we parse the input, but do not yet know if it is a raw CPU Profile or a Trace
  **/
-type ParsedJSONFile = TraceEngine.Types.File.Contents|Protocol.Profiler.Profile;
+type ParsedJSONFile = TraceEngine.Types.File.Contents|Protocol.Profiler.Profile|EnhancedTraces;
+
+/**
+ * Used to determine the loaded trace type.
+ */
+type LoadedTraceType = 'basic'|'cpuProfile'|'enhanced';
