@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "997fba92_67f477d0",
+        "filename": "front_end/panels/timeline/components/Sidebar.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-06-07T23:27:21Z",
+      "side": 1,
+      "message": "gotcha, thanks!",
+      "parentUuid": "bf6df27a_bab98e6b",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 59
+      },
+      "revId": "7ebe48e35c259e7d8fba3c7b856b135a1714e479",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "57a0de45_524575f7",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-06-07T08:44:00Z",
       "side": 1,
       "message": "I think a description list (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl) would be a better element to use here",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 94,
+        "endChar": 21
+      },
+      "revId": "7ebe48e35c259e7d8fba3c7b856b135a1714e479",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cdd7ab45_11d5172d",
+        "filename": "front_end/panels/timeline/components/Sidebar.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-06-07T23:27:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "57a0de45_524575f7",
       "range": {
         "startLine": 94,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc401387_ed4dbe83",
+        "filename": "front_end/panels/timeline/components/SidebarInsight.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-06-07T23:27:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d4d7aaf5_512cb7ab",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 3
+      },
+      "revId": "7ebe48e35c259e7d8fba3c7b856b135a1714e479",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b3a3c542_0277a01f",
@@ -83,6 +155,30 @@
       "writtenOn": "2024-06-07T08:44:00Z",
       "side": 1,
       "message": "this is what I was expecting - but I wouldn\u0027t expect sidebar.ts to also do this.",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 61
+      },
+      "revId": "7ebe48e35c259e7d8fba3c7b856b135a1714e479",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a5cec64_1de9316c",
+        "filename": "front_end/panels/timeline/components/SidebarInsight.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-06-07T23:27:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b3a3c542_0277a01f",
       "range": {
         "startLine": 29,
         "startChar": 0,
