@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7aaad59d_711dedbd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2024-06-07T09:21:07Z",
+      "side": 1,
+      "message": "I like the general idea but I think there should at least be an indication that information was hidden. I will try to get back to you early next week. I want to discuss the user experience with our team first.",
+      "revId": "6eb12094ea84c7b27407aedc78d263d018c43c32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "92f368ed_ad591445",
         "filename": "front_end/panels/console/ConsoleViewMessage.ts",
         "patchSetId": 1
