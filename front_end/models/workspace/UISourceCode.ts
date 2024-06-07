@@ -250,21 +250,6 @@ export class UISourceCode extends Common.ObjectWrapper.ObjectWrapper<EventTypes>
     return this.contentInternal;
   }
 
-  #decodeContent(content: TextUtils.ContentProvider.DeferredContent|null): string|null {
-    if (!content) {
-      return null;
-    }
-    return content.isEncoded && content.content ? window.atob(content.content) : content.content;
-  }
-
-  /** Only used to compare whether content changed */
-  #unsafeDecodeContentData(content: TextUtils.ContentData.ContentDataOrError|null): string|null {
-    if (!content || TextUtils.ContentData.ContentData.isError(content)) {
-      return null;
-    }
-    return content.createdFromBase64 ? window.atob(content.base64) : content.text;
-  }
-
   async checkContentUpdated(): Promise<void> {
     if (!this.contentInternal && !this.forceLoadOnCheckContentInternal) {
       return;
@@ -275,29 +260,26 @@ export class UISourceCode extends Common.ObjectWrapper.ObjectWrapper<EventTypes>
     }
 
     this.checkingContent = true;
-    const updatedContent =
-        TextUtils.ContentData.ContentData.asDeferredContent(await this.projectInternal.requestFileContent(this));
-    if ('error' in updatedContent) {
-      return;
-    }
+    const updatedContent = await this.projectInternal.requestFileContent(this);
     this.checkingContent = false;
-    if (updatedContent.content === null) {
+    if (TextUtils.ContentData.ContentData.isError(updatedContent)) {
       const workingCopy = this.workingCopy();
       this.contentCommitted('', false);
       this.setWorkingCopy(workingCopy);
       return;
     }
-    if (this.lastAcceptedContent === updatedContent.content) {
+    if (this.lastAcceptedContent === updatedContent.text) {
       return;
     }
 
-    if (this.#unsafeDecodeContentData(this.contentInternal) === this.#decodeContent(updatedContent)) {
+    if (this.contentInternal && !TextUtils.ContentData.ContentData.isError(this.contentInternal) &&
+        this.contentInternal.contentEqualTo(updatedContent)) {
       this.lastAcceptedContent = null;
       return;
     }
 
-    if (!this.isDirty() || this.workingCopyInternal === updatedContent.content) {
-      this.contentCommitted(updatedContent.content as string, false);
+    if (!this.isDirty() || this.workingCopyInternal === updatedContent.text) {
+      this.contentCommitted(updatedContent.text, false);
       return;
     }
 
@@ -308,9 +290,9 @@ export class UISourceCode extends Common.ObjectWrapper.ObjectWrapper<EventTypes>
 
     const shouldUpdate = window.confirm(i18nString(UIStrings.thisFileWasChangedExternally));
     if (shouldUpdate) {
-      this.contentCommitted(updatedContent.content as string, false);
+      this.contentCommitted(updatedContent.text, false);
     } else {
-      this.lastAcceptedContent = updatedContent.content;
+      this.lastAcceptedContent = updatedContent.text;
     }
   }
 
