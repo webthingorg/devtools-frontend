@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "450bab32_a59a12dd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-06-07T18:33:06Z",
+      "side": 1,
+      "message": "Same here :) Very excited to start bringing this feature to chromium!",
+      "parentUuid": "13ba438b_0ca02868",
+      "revId": "3ae44a0489458d595b69a1b1b0a9c9f3fcf0f71d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "752915ff_5ab5546d",
@@ -86,6 +104,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "16be9cc1_8207a1fa",
+        "filename": "front_end/panels/timeline/EnhancedTraces.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-06-07T18:33:06Z",
+      "side": 1,
+      "message": "That\u0027s the correct understanding 😊",
+      "parentUuid": "90a85f65_67f7aade",
+      "revId": "3ae44a0489458d595b69a1b1b0a9c9f3fcf0f71d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f12fc84e_cf5cd91b",
@@ -123,6 +159,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2e5cc61f_989bb5be",
+        "filename": "front_end/panels/timeline/EnhancedTraces.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-06-07T18:33:06Z",
+      "side": 1,
+      "message": "Currently the TraceFile looks like\n```\nexport type TraceFile \u003d {\n  traceEvents: readonly TraceEventData[],\n  metadata: MetaData,\n};\n```\n\nPerhaps we could keep the information extractable from traceEvents (target, execution context, script) within traceEvent and do that part of rehydration after we import the trace. When we start adding memory tooling data, which is not extractable from trace event, we could add `memory?: MemoryData` in `TraceFile` so we don\u0027t need to change the export file format entirely. What do y\u0027all think about this?",
+      "parentUuid": "a9debadf_f6b044f2",
+      "revId": "3ae44a0489458d595b69a1b1b0a9c9f3fcf0f71d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9bb6ffea_35980030",
         "filename": "front_end/panels/timeline/TimelinePanel.ts",
         "patchSetId": 9
@@ -152,6 +206,24 @@
       "side": 1,
       "message": "I think the option about the sources being saved here are going to be determined by which categories are enabled for tracing, right Jayson?",
       "parentUuid": "9bb6ffea_35980030",
+      "revId": "3ae44a0489458d595b69a1b1b0a9c9f3fcf0f71d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23b10b39_9a91f18a",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 787,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-06-07T18:33:06Z",
+      "side": 1,
+      "message": "Yes since the source text trace category will only be captured if it\u0027s enabled, it should be fine to keep it in the traceEvents.",
+      "parentUuid": "c117b9b7_fd1344f4",
       "revId": "3ae44a0489458d595b69a1b1b0a9c9f3fcf0f71d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
