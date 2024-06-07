@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf6df27a_bab98e6b",
+        "filename": "front_end/panels/timeline/components/Sidebar.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-07T08:44:00Z",
+      "side": 1,
+      "message": "I would expect `SidebarInsight.ts` to adopt these styles, not the sidebar component itself. That way all the sidebar insight styles are applied only within that component\u0027s shadow DOM and don\u0027t leak out\n\nedit: I think you are doing this because you want to style the contents within the slot: that\u0027s fine but I\u0027d just put those styles into sidebar.css rather than re-use the sidebarInsights css (which should only be applied to the SidebarInsights component)",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 59
+      },
+      "revId": "7ebe48e35c259e7d8fba3c7b856b135a1714e479",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57a0de45_524575f7",
+        "filename": "front_end/panels/timeline/components/Sidebar.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-07T08:44:00Z",
+      "side": 1,
+      "message": "I think a description list (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl) would be a better element to use here",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 94,
+        "endChar": 21
+      },
+      "revId": "7ebe48e35c259e7d8fba3c7b856b135a1714e479",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4d7aaf5_512cb7ab",
+        "filename": "front_end/panels/timeline/components/SidebarInsight.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-07T08:44:00Z",
+      "side": 1,
+      "message": "nitpick: you don\u0027t need this if all it does is call super()",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 3
+      },
+      "revId": "7ebe48e35c259e7d8fba3c7b856b135a1714e479",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3a3c542_0277a01f",
+        "filename": "front_end/panels/timeline/components/SidebarInsight.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-07T08:44:00Z",
+      "side": 1,
+      "message": "this is what I was expecting - but I wouldn\u0027t expect sidebar.ts to also do this.",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 61
+      },
+      "revId": "7ebe48e35c259e7d8fba3c7b856b135a1714e479",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
