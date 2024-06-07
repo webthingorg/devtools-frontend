@@ -16,6 +16,108 @@
       "message": "Hi Paul, here\u0027s the CL for exporting enhanced traces. Could you help me review it when you get a chance? Thank you!",
       "revId": "3ae44a0489458d595b69a1b1b0a9c9f3fcf0f71d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13ba438b_0ca02868",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-06-07T01:47:01Z",
+      "side": 1,
+      "message": "We\u0027re very excited about this feature. :)\n\nDo have some larger thoughts about the workflow",
+      "revId": "3ae44a0489458d595b69a1b1b0a9c9f3fcf0f71d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "752915ff_5ab5546d",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 1183,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-06-07T01:47:01Z",
+      "side": 1,
+      "message": "put the scriptId above these two optional ones... mostly so the silly formatter doesn\u0027t do this. :)",
+      "revId": "3ae44a0489458d595b69a1b1b0a9c9f3fcf0f71d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8dbac7f5_abffce08",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 1189,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-06-07T01:47:01Z",
+      "side": 1,
+      "message": "We typically just check whatever minimum we need to safely confirm it\u0027s good.\nIn this case I think its fine to only check the `cat`. We can skip the rest.\n\nBut if you plan on changing these trace events args a bit, then sure.. you could keep the rest.",
+      "revId": "3ae44a0489458d595b69a1b1b0a9c9f3fcf0f71d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90a85f65_67f7aade",
+        "filename": "front_end/panels/timeline/EnhancedTraces.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-06-07T01:47:01Z",
+      "side": 1,
+      "message": "Just capturing my current understanding…  \n\nWe have the new trace events coming from these 3 categories\n\n- `v8-source-rundown`: script metadata\n- `v8-source-rundown-sources`: script sourceText for the same scripts. \n   - (This is captured separately as it\u0027s off by default for reasons shared in https://crrev.com/c/5463910 comments)\n- `target-rundown`: script metadata relevant to the page in blink (frame, etc)\n\nThis data is joinable via scriptId, isolate, v8context, executionContext.\n\n\nUltimately we want to join this data up to form the `Target`, `ExecutionContext` and `Script` arrays that are typed at the bottom of this file.  This class does that resolving/matching work and it\u0027s invoked as the enhanced trace prepped for saving to disk.\n\nUltimately, the .devtools file has this structure: https://gist.github.com/paulirish/c5f84c62f0aa2ce193deaaeb50945b40",
+      "revId": "3ae44a0489458d595b69a1b1b0a9c9f3fcf0f71d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f12fc84e_cf5cd91b",
+        "filename": "front_end/panels/timeline/EnhancedTraces.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-06-07T01:47:01Z",
+      "side": 1,
+      "message": "I can see why this file format is how it is, as it\u0027s an evolution of the Edge enhanced trace format.\n\nBut, without any explicit goal of backwards compatibility, I don\u0027t think it serves us well to, essentially, partially rehydrate the trace, right before saving.  All the data captured in the targets/executionContexts/scripts is still  within the traceEvents. \n\nThe natural alternative, to me, is to do this work only when we\u0027re *importing* this trace. \nAs we import, we look for the enhancedTrace signals, to know if we load in a new window.  That signal could be in the `metadata` block.  Anyway, after that we\u0027d parse all traceEvents and pull out these details so we can hydrate the rest of the devtools state.\n\nWDYT?",
+      "revId": "3ae44a0489458d595b69a1b1b0a9c9f3fcf0f71d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9bb6ffea_35980030",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 787,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-06-07T01:47:01Z",
+      "side": 1,
+      "message": "FWIW the sources-rundown-sources are still saved to this file. If the idea of keeping that bit off by default was for PII, I suppose we\u0027ll need to exclude them from the traceEvents array around here..",
+      "revId": "3ae44a0489458d595b69a1b1b0a9c9f3fcf0f71d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
