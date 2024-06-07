@@ -224,3 +224,44 @@ export function traceWindowFromMicroSeconds(
   };
   return traceWindow;
 }
+
+export interface BoundsIncludeTimeRange {
+  timeRange: Types.Timing.TraceWindowMicroSeconds;
+  bounds: Types.Timing.TraceWindowMicroSeconds;
+}
+
+/**
+ * Checks to see if the timeRange is within the bounds. By "within" we mean
+ * "has any overlap":
+ *         |------------------------|
+ *      ==                                     no overlap (entirely before)
+ *       =========                             overlap
+ *            =========                        overlap
+ *                             =========       overlap
+ *                                     ====    no overlap (entirely after)
+ *        ==============================       overlap (time range is larger than bounds)
+ *         |------------------------|
+ */
+export function boundsIncludeTimeRange(data: BoundsIncludeTimeRange): boolean {
+  const {min: visibleMin, max: visibleMax} = data.bounds;
+  const {min: rangeMin, max: rangeMax} = data.timeRange;
+
+  // 1. Time Range max is within the visible window => there is overlap
+  if (rangeMax >= visibleMin && rangeMax <= visibleMax) {
+    return true;
+  }
+  // 2. Time range min is within the visible window => there is overlap
+  if (rangeMin >= visibleMin && rangeMin <= visibleMax) {
+    return true;
+  }
+
+  // 3. Time range min is before the visible window and the time range max is
+  //    after => there is overlap
+  //    (the time range is larger than the visible window)
+  if (rangeMin <= visibleMin && rangeMax >= visibleMax) {
+    return true;
+  }
+
+  // Must be invisible as none of the conditions above are true
+  return false;
+}
