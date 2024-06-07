@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as WebVitals from '../../../third_party/web-vitals/web-vitals.js';
+import {onEachInteraction} from './OnEachInteraction.js';
 
 import * as Spec from './spec/spec.js';
 
@@ -93,5 +94,20 @@ function initialize(): void {
     }
     sendEventToDevTools(event);
   }, {reportAllChanges: true});
+
+  onEachInteraction(interaction => {
+    const event: Spec.InteractionEvent = {
+      name: 'Interaction',
+      duration: interaction.value,
+      rating: interaction.rating,
+      interactionId: interaction.attribution.interactionId,
+      interactionType: interaction.attribution.interactionType,
+    };
+    const node = interaction.attribution.interactionTargetElement;
+    if (node) {
+      event.nodeIndex = establishNodeIndex(node);
+    }
+    sendEventToDevTools(event);
+  })
 }
 initialize();
