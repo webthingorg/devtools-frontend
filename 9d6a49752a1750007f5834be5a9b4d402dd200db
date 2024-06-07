@@ -123,6 +123,24 @@
       "parentUuid": "0c1d339c_56e1b91b",
       "revId": "9d6a49752a1750007f5834be5a9b4d402dd200db",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfeba79b_6d3f1278",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-06-07T08:44:01Z",
+      "side": 1,
+      "message": "This now seems to work perfectly, thanks!\nI still don\u0027t understand the full logic behind how this file does these calculations, but I guess that\u0027s beyond the scope of this change.",
+      "parentUuid": "f45a9590_72041e86",
+      "revId": "9d6a49752a1750007f5834be5a9b4d402dd200db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
