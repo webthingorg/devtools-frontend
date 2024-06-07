@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74023472_e2f3d01b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 22
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2024-06-07T01:24:29Z",
+      "side": 1,
+      "message": "Adding websocket connection to Network track, appreciate if you can have a look. Thank you!",
+      "revId": "9e795af8ff614114ead40b2419b27312bf799c31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
