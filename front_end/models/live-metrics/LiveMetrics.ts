@@ -69,6 +69,14 @@ export class LiveMetrics extends Common.ObjectWrapper.ObjectWrapper<EventTypes> 
     if (data.name !== Spec.EVENT_BINDING_NAME) {
       return;
     }
+
+    // This function can perform async tasks while handling events.
+    // "Reset" events could be issued during these async tasks which can lead to metric events
+    // being dispatched *after* the reset event that was supposed to invalidate them.
+    // To prevent this, check if "Reset" was triggered during handling and stop the event dispatch if it was.
+    let didResetWhileHandling = false;
+    this.once(Events.Reset).then(() => didResetWhileHandling = true);
+
     const webVitalsEvent = JSON.parse(data.payload) as Spec.WebVitalsEvent;
     switch (webVitalsEvent.name) {
       case 'LCP': {
@@ -82,10 +90,19 @@ export class LiveMetrics extends Common.ObjectWrapper.ObjectWrapper<EventTypes> 
             lcpEvent.node = node;
           }
         }
+
+        if (didResetWhileHandling) {
+          break;
+        }
+
         this.dispatchEventToListeners(Events.LCPChanged, lcpEvent);
         break;
       }
       case 'CLS': {
+        if (didResetWhileHandling) {
+          break;
+        }
+
         this.dispatchEventToListeners(Events.CLSChanged, {
           value: webVitalsEvent.value,
           rating: webVitalsEvent.rating,
@@ -104,7 +121,29 @@ export class LiveMetrics extends Common.ObjectWrapper.ObjectWrapper<EventTypes> 
             inpEvent.node = node;
           }
         }
+
+        if (didResetWhileHandling) {
+          break;
+        }
+
         this.dispatchEventToListeners(Events.INPChanged, inpEvent);
+        break;
+      }
+      case 'Interaction': {
+        const {nodeIndex, ...rest} = webVitalsEvent;
+        const interactionEvent: InteractionEvent = rest;
+        if (nodeIndex !== undefined) {
+          const node = await this.#resolveDomNode(nodeIndex, data.executionContextId);
+          if (node) {
+            interactionEvent.node = node;
+          }
+        }
+
+        if (didResetWhileHandling) {
+          break;
+        }
+
+        this.dispatchEventToListeners(Events.Interaction, interactionEvent);
         break;
       }
       case 'reset': {
@@ -187,6 +226,7 @@ export const enum Events {
   LCPChanged = 'lcp_changed',
   CLSChanged = 'cls_changed',
   INPChanged = 'inp_changed',
+  Interaction = 'interaction',
   Reset = 'reset',
 }
 
@@ -205,9 +245,14 @@ export interface INPChangeEvent extends MetricChangeEvent {
 
 export type CLSChangeEvent = MetricChangeEvent;
 
+export type InteractionEvent = Omit<Spec.InteractionEvent, 'nodeIndex'> & {
+  node?: SDK.DOMModel.DOMNode;
+}
+
 type EventTypes = {
   [Events.LCPChanged]: LCPChangeEvent,
   [Events.CLSChanged]: CLSChangeEvent,
   [Events.INPChanged]: INPChangeEvent,
+  [Events.Interaction]: InteractionEvent,
   [Events.Reset]: void,
 };

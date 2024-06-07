@@ -46,6 +46,7 @@ export class LiveMetricsView extends HTMLElement {
   #lcpValue?: LiveMetrics.LCPChangeEvent;
   #clsValue?: LiveMetrics.CLSChangeEvent;
   #inpValue?: LiveMetrics.INPChangeEvent;
+  #interactions: LiveMetrics.InteractionEvent[] = [];
 
   constructor() {
     super();
@@ -56,6 +57,7 @@ export class LiveMetricsView extends HTMLElement {
     this.#lcpValue = undefined;
     this.#clsValue = undefined;
     this.#inpValue = undefined;
+    this.#interactions = [];
     void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#render);
   };
 
@@ -74,12 +76,18 @@ export class LiveMetricsView extends HTMLElement {
     void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#render);
   };
 
+  #onInteraction = (event: {data: LiveMetrics.InteractionEvent}): void => {
+    this.#interactions.push(event.data);
+    void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#render);
+  }
+
   connectedCallback(): void {
     this.#shadow.adoptedStyleSheets = [liveMetricsViewStyles];
     this.#liveMetrics.addEventListener(LiveMetrics.Events.Reset, this.#onReset);
     this.#liveMetrics.addEventListener(LiveMetrics.Events.LCPChanged, this.#onLcpChange);
     this.#liveMetrics.addEventListener(LiveMetrics.Events.CLSChanged, this.#onClsChange);
     this.#liveMetrics.addEventListener(LiveMetrics.Events.INPChanged, this.#onInpChange);
+    this.#liveMetrics.addEventListener(LiveMetrics.Events.Interaction, this.#onInteraction);
   }
 
   disconnectedCallback(): void {
@@ -87,6 +95,7 @@ export class LiveMetricsView extends HTMLElement {
     this.#liveMetrics.removeEventListener(LiveMetrics.Events.LCPChanged, this.#onLcpChange);
     this.#liveMetrics.removeEventListener(LiveMetrics.Events.CLSChanged, this.#onClsChange);
     this.#liveMetrics.removeEventListener(LiveMetrics.Events.INPChanged, this.#onInpChange);
+    this.#liveMetrics.removeEventListener(LiveMetrics.Events.Interaction, this.#onInteraction);
   }
 
   #renderLiveLcp(lcpValue: LiveMetrics.LCPChangeEvent|undefined): LitHtml.LitTemplate {
@@ -126,7 +135,6 @@ export class LiveMetricsView extends HTMLElement {
         title,
         i18n.TimeUtilities.millisToString(inpValue.value),
         inpValue.rating,
-        inpValue.node,
     );
   }
 
@@ -170,6 +178,15 @@ export class LiveMetricsView extends HTMLElement {
           </div>
         </div>
         <h3>Interactions</h3>
+        <div class="interactions-list">
+          ${this.#interactions.map((interaction, index) => html`
+            ${index === 0 ? html`<hr class="divider">` : nothing}
+            <div class="interaction-type">${interaction.interactionType}</div>
+            <div class="interaction-node">${interaction.node && until(Common.Linkifier.Linkifier.linkify(interaction.node))}</div>
+            <div class=${interaction.rating}>${i18n.TimeUtilities.millisToString(interaction.duration)}</div>
+            <hr class="divider">
+          `)}
+        </div>
       </div>
     `;
     LitHtml.render(output, this.#shadow, {host: this});
