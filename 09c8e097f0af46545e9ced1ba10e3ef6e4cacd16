@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "921facba_da74e411",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-07T08:49:06Z",
+      "side": 1,
+      "message": "the screenshot doesn\u0027t quite align with the mocks\n\nThe border under the two tabs needs to span 100% of the width (you might need to move how the button is positioned to put it within the tabs)\n\nAlso the selected border doesn\u0027t go above the lower border but over it. You might need to play around with how to achieve this; you might need to give the container a bottom border and then move its children down a pixel or two so that their active border overlaps it",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 61
+      },
+      "revId": "09c8e097f0af46545e9ced1ba10e3ef6e4cacd16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "783b67c6_1434b0d6",
+        "filename": "front_end/panels/timeline/components/SidebarTabs.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-07T08:49:06Z",
+      "side": 1,
+      "message": "up to you, but I\u0027m not sure if it\u0027s going to be easier to not have these in a separate component, and put them directly into Sidebar.ts. It might make it easier to style with the toggle button (which I think needs to be in the same container to make sure the border goes across them all like in Yuin\u0027s mocks)",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 60
+      },
+      "revId": "09c8e097f0af46545e9ced1ba10e3ef6e4cacd16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
