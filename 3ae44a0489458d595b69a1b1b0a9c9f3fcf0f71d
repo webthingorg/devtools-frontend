@@ -105,6 +105,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a9debadf_f6b044f2",
+        "filename": "front_end/panels/timeline/EnhancedTraces.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2024-06-07T17:32:32Z",
+      "side": 1,
+      "message": "You\u0027re right about that, and I don\u0027t have a strong desire to have backwards compatibility with what Edge has already produced.\n\nHowever, we have a *strong* desire to support the rehydration mechanism for memory tooling as well. (Consider a Node or CEF application that is slowly leaking memory; after it achieves a total memory consumption of 3gb, the host application can force itself to take a heap snapshot. The Memory tool doesn\u0027t even /try/ to bind memory nodes to source locations when loading a heap snapshot from a file.)\n\nThis has been a game changer for many of our partners looking into why their apps are failing in production. I don\u0027t care about the exact layout; what I want us to be able to do is support rehydration for both the performance and the memory tools.",
+      "parentUuid": "f12fc84e_cf5cd91b",
+      "revId": "3ae44a0489458d595b69a1b1b0a9c9f3fcf0f71d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9bb6ffea_35980030",
         "filename": "front_end/panels/timeline/TimelinePanel.ts",
         "patchSetId": 9
@@ -116,6 +134,24 @@
       "writtenOn": "2024-06-07T01:47:01Z",
       "side": 1,
       "message": "FWIW the sources-rundown-sources are still saved to this file. If the idea of keeping that bit off by default was for PII, I suppose we\u0027ll need to exclude them from the traceEvents array around here..",
+      "revId": "3ae44a0489458d595b69a1b1b0a9c9f3fcf0f71d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c117b9b7_fd1344f4",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 787,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2024-06-07T17:32:32Z",
+      "side": 1,
+      "message": "I think the option about the sources being saved here are going to be determined by which categories are enabled for tracing, right Jayson?",
+      "parentUuid": "9bb6ffea_35980030",
       "revId": "3ae44a0489458d595b69a1b1b0a9c9f3fcf0f71d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
