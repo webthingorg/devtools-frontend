@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a9c4a84_6cec7f50",
+        "filename": "front_end/models/workspace/UISourceCode.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-06-07T06:27:02Z",
+      "side": 0,
+      "message": "This was erronously added in the TypeScript-ification work here https://crrev.com/c/2108155. The `updateContent.contet \u003d\u003d\u003d null` check does essentially the same. That is, check if there is an error. But currently we skip resetting the UISourceCode to the empty content, which we probably don\u0027t want.",
+      "range": {
+        "startLine": 280,
+        "startChar": 0,
+        "endLine": 282,
+        "endChar": 5
+      },
+      "revId": "b575e24540e0a4c3cee4446984cd2af74a31fe81",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
