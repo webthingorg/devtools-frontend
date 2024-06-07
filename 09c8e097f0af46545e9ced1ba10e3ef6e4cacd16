@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9fbddf0b_344ec152",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-06-07T16:29:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "921facba_da74e411",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 61
+      },
+      "revId": "09c8e097f0af46545e9ced1ba10e3ef6e4cacd16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "783b67c6_1434b0d6",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-06-07T08:49:06Z",
       "side": 1,
       "message": "up to you, but I\u0027m not sure if it\u0027s going to be easier to not have these in a separate component, and put them directly into Sidebar.ts. It might make it easier to style with the toggle button (which I think needs to be in the same container to make sure the border goes across them all like in Yuin\u0027s mocks)",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 60
+      },
+      "revId": "09c8e097f0af46545e9ced1ba10e3ef6e4cacd16",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f18ddbdf_4e31e871",
+        "filename": "front_end/panels/timeline/components/SidebarTabs.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-06-07T16:29:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "783b67c6_1434b0d6",
       "range": {
         "startLine": 1,
         "startChar": 0,
