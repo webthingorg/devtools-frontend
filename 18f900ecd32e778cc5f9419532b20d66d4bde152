@@ -16,6 +16,24 @@
       "message": "thrice?",
       "revId": "18f900ecd32e778cc5f9419532b20d66d4bde152",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "301eedb6_075a0817",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-06-07T07:46:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a86a61a0_214c0a8e",
+      "revId": "18f900ecd32e778cc5f9419532b20d66d4bde152",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
