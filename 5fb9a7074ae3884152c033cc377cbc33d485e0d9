@@ -33,6 +33,24 @@
       "message": "I think we can simplify this to:\n`return visibleMin \u003c\u003d rangeMax \u0026\u0026 visibleMax \u003e\u003d rangeMin`",
       "revId": "5fb9a7074ae3884152c033cc377cbc33d485e0d9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2aaadd5_064508d2",
+        "filename": "front_end/models/trace/helpers/Timing.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-07T11:18:58Z",
+      "side": 1,
+      "message": ":facepalm: talk about over complicating it and not realising the simplification!",
+      "parentUuid": "b2391af4_0b40ef36",
+      "revId": "5fb9a7074ae3884152c033cc377cbc33d485e0d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
