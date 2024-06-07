@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "65d6413b_893a0292",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-06-07T19:38:23Z",
+      "side": 1,
+      "message": "Yeah sounds great! love it thanks",
+      "parentUuid": "23d93664_c837582b",
+      "range": {
+        "startLine": 192,
+        "startChar": 1,
+        "endLine": 197,
+        "endChar": 19
+      },
+      "revId": "ef26764d850792730b542ad0b1c14535788acc57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5a9553e1_7df3a385",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-06-07T08:04:57Z",
       "side": 1,
       "message": "if we are only exposing this for its length, should we just expose `entryCount(): number` ?",
+      "range": {
+        "startLine": 353,
+        "startChar": 0,
+        "endLine": 355,
+        "endChar": 3
+      },
+      "revId": "ef26764d850792730b542ad0b1c14535788acc57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d2fb0c1_44a20fe7",
+        "filename": "front_end/panels/timeline/ThreadAppender.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-06-07T19:38:23Z",
+      "side": 1,
+      "message": "I did do exactly this.. but then realized I want these entries to feed to `MainThreadActivity.calculateWindow`.",
+      "parentUuid": "5a9553e1_7df3a385",
       "range": {
         "startLine": 353,
         "startChar": 0,
