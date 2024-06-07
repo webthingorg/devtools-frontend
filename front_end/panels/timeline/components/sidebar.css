@@ -4,17 +4,16 @@
  * found in the LICENSE file.
  */
 
-.sidebar {
-  padding-top: 8px;
-}
-
-.toggle-sidebar-button {
+.sidebar-toggle-button {
   width: 24px;
   height: 24px;
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
 
 .tab-bar {
   display: flex;
+  border-bottom: 1px solid var(--sys-color-divider);
 
   /* When the sidebar is collapsed, position the expand icon in the
    * center of it */
@@ -28,4 +27,28 @@
     margin-left: auto;
     margin-right: 4px;
   }
+}
+
+.tabs-header {
+  overflow: hidden;
+  display: flex;
+  justify-content: space-evenly;
+  /* This is same as the sidebar expansion toggle button */
+  height: 40px;
+  margin-left: 4px;
+  margin-right: auto;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.tabs-header input {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  box-sizing: border-box;
+}
+
+.tabs-header input[active] {
+  color: var(--sys-color-state-focus-ring);
+  border-bottom-color: var(--sys-color-state-focus-ring);
 }
