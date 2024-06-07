@@ -105,6 +105,24 @@
       "parentUuid": "bdd9f13b_223c99cf",
       "revId": "9d6a49752a1750007f5834be5a9b4d402dd200db",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f45a9590_72041e86",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2024-06-07T01:38:03Z",
+      "side": 1,
+      "message": "Spent more time one this today, I think the issue does not actually come from updateCurtains, sorry if I\u0027m making this really confusing! I found that if I update the ResizerOffset to 5px, the right and left shift are now balanced, but to be honest I\u0027m not sure where the initial 3.5px value came from. I think this was used to make up some of CSS value set for the resizer component, but when CSS file got updated, this value didnt get updated along with it, hence the regression. Let me know if you have a better fix or any insights on this. Thank you so much!",
+      "parentUuid": "0c1d339c_56e1b91b",
+      "revId": "9d6a49752a1750007f5834be5a9b4d402dd200db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
