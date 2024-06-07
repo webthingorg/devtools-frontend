@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35a4866d_a91c8a8f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-07T09:37:56Z",
+      "side": 1,
+      "message": "PTAL\n\n(I will use this helper in follow-up CLs)",
+      "revId": "5fb9a7074ae3884152c033cc377cbc33d485e0d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
