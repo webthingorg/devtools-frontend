@@ -29,3 +29,22 @@
     margin-right: 4px;
   }
 }
+
+.table-container dl {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-top: 5px;
+}
+
+.table-container dt {
+  padding: 3px;
+}
+
+.insight-description {
+  border-bottom: 1px solid var(--color-input-outline);
+  padding-bottom: 10px;
+}
+
+.link {
+  color: var(--sys-color-primary);
+}
