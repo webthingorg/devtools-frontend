@@ -33,6 +33,24 @@
       "message": "Wow nice! Thanks for making a CL. I know it\u0027s not the most straightforward.\n\nI am fixing https://github.com/GoogleChrome/lighthouse/pull/16028 downstream in Lighthouse.  I\u0027ll probably land this when that does as well.",
       "revId": "2e9d91406111a80384d67bcdefd10afc022cdfc5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "457e0058_290e8796",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3435425
+      },
+      "writtenOn": "2024-06-07T06:16:18Z",
+      "side": 1,
+      "message": "Happy I can help to fix this typo. Let me know if/when I need to rebase the changes 😊",
+      "parentUuid": "a6dfe530_2db2135c",
+      "revId": "2e9d91406111a80384d67bcdefd10afc022cdfc5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
