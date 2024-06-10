@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc822a6f_962021f3",
+        "filename": "front_end/models/live-metrics/web-vitals-injected/OnEachInteraction.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-06-10T23:00:14Z",
+      "side": 1,
+      "message": "rename to longestEntry ?\nI see it\u0027s a copypaste but.. still.",
+      "revId": "7d629316451b66d49b555262967df168cb3a3c7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ca9f4a1_cbf32b71",
+        "filename": "front_end/models/live-metrics/web-vitals-injected/OnEachInteraction.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-06-10T23:00:14Z",
+      "side": 1,
+      "message": "This is 40ms.\nAnd here\u0027s why: https://github.com/GoogleChrome/web-vitals/blob/538cdf59be90c78a9da5c54baa471860dae61477/src/onINP.ts#L203-L209\n\nmeanwhile, the extension uses 0: https://github.com/GoogleChrome/web-vitals-extension/blob/5c638ab024db48750d493e3be7aa070221d076f2/src/browser_action/on-each-interaction.js#L85-L88\n\nI think we want zero and have this be verbose as its about reflecting reality and not saving notable events for analytics.",
+      "revId": "7d629316451b66d49b555262967df168cb3a3c7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe1d4478_9574997a",
+        "filename": "test/e2e/performance/landing-page_test.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-06-10T23:00:14Z",
+      "side": 1,
+      "message": "```suggestion\n        assert.match(interactionText, /pointer.*[\\d.]+ (s|ms)/);\n```\n\nmost notably you don\u0027t need to escape the . within brackets.\n0-9 to \\d is whatever\n\nbut also what\u0027s with the /s flag?  Matching newlines with dot seems unlikely but.. also.. scary.",
+      "range": {
+        "startLine": 127,
+        "startChar": 49,
+        "endLine": 127,
+        "endChar": 54
+      },
+      "revId": "7d629316451b66d49b555262967df168cb3a3c7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
