@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "13b59bee_a0afabc3",
+        "filename": "front_end/panels/timeline/components/Sidebar.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-06-10T12:35:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a7b84de6_a27f196a",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 49
+      },
+      "revId": "512ae91690cf8a2d5031d94ece7219d8ed13f860",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5b2992ca_5ed8b521",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-06-10T08:33:30Z",
       "side": 1,
       "message": "this brace here looks wrong",
+      "range": {
+        "startLine": 76,
+        "startChar": 28,
+        "endLine": 76,
+        "endChar": 32
+      },
+      "revId": "512ae91690cf8a2d5031d94ece7219d8ed13f860",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc51d3c2_66c56b5b",
+        "filename": "front_end/panels/timeline/components/Sidebar.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-06-10T12:35:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b2992ca_5ed8b521",
       "range": {
         "startLine": 76,
         "startChar": 28,
@@ -70,6 +118,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9e383e6_cea4f48a",
+        "filename": "front_end/panels/timeline/components/Sidebar.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-06-10T12:35:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53728322_ff660e0f",
+      "range": {
+        "startLine": 164,
+        "startChar": 50,
+        "endLine": 164,
+        "endChar": 56
+      },
+      "revId": "512ae91690cf8a2d5031d94ece7219d8ed13f860",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a3923c03_01541d6f",
@@ -83,6 +155,30 @@
       "writtenOn": "2024-06-10T08:33:30Z",
       "side": 1,
       "message": "let\u0027s not call this render as it is already rendered, let\u0027s call this #updateActiveIndicatorPosition",
+      "range": {
+        "startLine": 169,
+        "startChar": 0,
+        "endLine": 169,
+        "endChar": 28
+      },
+      "revId": "512ae91690cf8a2d5031d94ece7219d8ed13f860",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b82c2fb_fb5261a1",
+        "filename": "front_end/panels/timeline/components/Sidebar.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-06-10T12:35:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3923c03_01541d6f",
       "range": {
         "startLine": 169,
         "startChar": 0,
