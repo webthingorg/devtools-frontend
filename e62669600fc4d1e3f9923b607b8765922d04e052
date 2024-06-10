@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ab6d860_69a97c12",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-06-10T12:57:51Z",
+      "side": 1,
+      "message": "Hi Changhao,\n\nI\u0027m editing some colors for navigation sidebars for dark mode. PTAL!",
+      "revId": "e62669600fc4d1e3f9923b607b8765922d04e052",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
