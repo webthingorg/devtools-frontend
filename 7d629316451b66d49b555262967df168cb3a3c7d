@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e3b452a5_a2bde100",
+        "filename": "front_end/models/live-metrics/web-vitals-injected/OnEachInteraction.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-06-10T23:17:09Z",
+      "side": 1,
+      "message": "I think I will drop the 40ms threshold here but I want us to be aware of the potential confusion this may cause:\n\nImagine the first event has a delay of 8ms and the second has a delay of 24ms. We always count the first input regardless of how small the delay so the INP becomes 8ms. The second interaction would not change the INP to 24ms but it would show up in the event log with a delay of 24ms. This may seem like not a huge deal to us but I noticed it happening a lot and it confused me at first.\n\nI guess I\u0027m just worried this makes the panel seem untrustworthy if it reports 2 different numbers for longest interaction, even if we\u0027re just splitting hairs over 4ms \u0026 25ms.",
+      "parentUuid": "0ca9f4a1_cbf32b71",
+      "revId": "7d629316451b66d49b555262967df168cb3a3c7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fe1d4478_9574997a",
         "filename": "test/e2e/performance/landing-page_test.ts",
         "patchSetId": 10
@@ -48,6 +66,30 @@
       "writtenOn": "2024-06-10T23:00:14Z",
       "side": 1,
       "message": "```suggestion\n        assert.match(interactionText, /pointer.*[\\d.]+ (s|ms)/);\n```\n\nmost notably you don\u0027t need to escape the . within brackets.\n0-9 to \\d is whatever\n\nbut also what\u0027s with the /s flag?  Matching newlines with dot seems unlikely but.. also.. scary.",
+      "range": {
+        "startLine": 127,
+        "startChar": 49,
+        "endLine": 127,
+        "endChar": 54
+      },
+      "revId": "7d629316451b66d49b555262967df168cb3a3c7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0caa7e8_0d666b3a",
+        "filename": "test/e2e/performance/landing-page_test.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-06-10T23:17:09Z",
+      "side": 1,
+      "message": "There are newlines within this element (I think because of the linkified node). I can probably get rid of the `/s` by matching the exact # of newlines though so it\u0027s less scary.",
+      "parentUuid": "fe1d4478_9574997a",
       "range": {
         "startLine": 127,
         "startChar": 49,
