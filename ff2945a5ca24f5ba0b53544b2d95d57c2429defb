@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "622b5d27_3b69c657",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1237795
+      },
+      "writtenOn": "2024-06-10T18:58:05Z",
+      "side": 1,
+      "message": "non_git_source is set to true in https://chromium.googlesource.com/chromium/src/+/refs/heads/main/DEPS#524\n\nThis condition allowlists this deps for http://shortn/_cF7glj3DP3",
+      "revId": "ff2945a5ca24f5ba0b53544b2d95d57c2429defb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
