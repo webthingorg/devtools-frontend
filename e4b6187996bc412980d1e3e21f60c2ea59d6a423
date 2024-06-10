@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "75bf1d30_e56c9159",
+        "filename": "front_end/models/trace/types/File.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-10T07:55:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a5762784_83017b2e",
+      "range": {
+        "startLine": 30,
+        "startChar": 2,
+        "endLine": 30,
+        "endChar": 8
+      },
+      "revId": "e4b6187996bc412980d1e3e21f60c2ea59d6a423",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "76a21654_7b8836e5",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-06-06T09:30:34Z",
       "side": 1,
       "message": "typo here",
+      "range": {
+        "startLine": 61,
+        "startChar": 8,
+        "endLine": 61,
+        "endChar": 16
+      },
+      "revId": "e4b6187996bc412980d1e3e21f60c2ea59d6a423",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2cf8eb00_f95c91fa",
+        "filename": "front_end/models/trace/types/File.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-10T07:55:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76a21654_7b8836e5",
       "range": {
         "startLine": 61,
         "startChar": 8,
@@ -83,6 +131,30 @@
       "writtenOn": "2024-06-06T09:30:34Z",
       "side": 1,
       "message": "threadID",
+      "range": {
+        "startLine": 76,
+        "startChar": 79,
+        "endLine": 76,
+        "endChar": 87
+      },
+      "revId": "e4b6187996bc412980d1e3e21f60c2ea59d6a423",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41746afa_50fc6105",
+        "filename": "front_end/services/events_serializer/EventsSerializer.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-10T07:55:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "475f9be3_8573e23d",
       "range": {
         "startLine": 76,
         "startChar": 79,
