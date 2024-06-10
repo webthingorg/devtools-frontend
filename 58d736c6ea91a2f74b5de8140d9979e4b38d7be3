@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36e492a4_447f9d50",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-06-10T07:07:57Z",
+      "side": 1,
+      "message": "PTAL, unit tests for the two decoding functions are in \"SourceMapScopes.test.ts\" and have already landed as part of the general impl work.",
+      "revId": "58d736c6ea91a2f74b5de8140d9979e4b38d7be3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
