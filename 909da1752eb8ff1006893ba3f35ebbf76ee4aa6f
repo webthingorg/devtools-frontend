@@ -106,6 +106,24 @@
       "parentUuid": "b0bfff68_32b33f79",
       "revId": "909da1752eb8ff1006893ba3f35ebbf76ee4aa6f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02052b8b_36939168",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1161379
+      },
+      "writtenOn": "2024-06-10T07:08:29Z",
+      "side": 1,
+      "message": "Oh, I thought this is checked by CQ. Let me try to build locally then.",
+      "parentUuid": "b3c86d75_1b805f66",
+      "revId": "909da1752eb8ff1006893ba3f35ebbf76ee4aa6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
