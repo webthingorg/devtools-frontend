@@ -1,0 +1,65 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7c03421_dc140c0b",
+        "filename": "front_end/core/sdk/NetworkManager.test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-06-10T08:59:08Z",
+      "side": 1,
+      "message": "`const mockIssuesModelListener \u003d new {issueAdded: sinon.spy()};`",
+      "range": {
+        "startLine": 107,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 64
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "58bac171_8b1051b1",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/core/sdk/NetworkManager.test.ts",
+              "range": {
+                "startLine": 63,
+                "startChar": 0,
+                "endLine": 75,
+                "endChar": 0
+              },
+              "replacement": ""
+            },
+            {
+              "path": "front_end/core/sdk/NetworkManager.test.ts",
+              "range": {
+                "startLine": 107,
+                "startChar": 0,
+                "endLine": 108,
+                "endChar": 0
+              },
+              "replacement": "  const mockIssuesModelListener \u003d {issueAdded: sinon.spy()};\n"
+            },
+            {
+              "path": "front_end/core/sdk/NetworkManager.test.ts",
+              "range": {
+                "startLine": 252,
+                "startChar": 0,
+                "endLine": 253,
+                "endChar": 0
+              },
+              "replacement": "      const addedIssue \u003d mockIssuesModelListener.issueAdded.firstCall.args[0];\n"
+            }
+          ]
+        }
+      ],
+      "revId": "08718bcf9cff112a9be5d4a6b1a47939f8813a9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
