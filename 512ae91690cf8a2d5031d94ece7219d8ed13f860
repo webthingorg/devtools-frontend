@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7b84de6_a27f196a",
+        "filename": "front_end/panels/timeline/components/Sidebar.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-10T08:33:30Z",
+      "side": 1,
+      "message": "let\u0027s not cache this, we don\u0027t typically need to do this unless generating this list is very expensive which it won\u0027t be, and also it means we don\u0027t have to worry about clearing the cache when the user makes new annotations etc",
+      "range": {
+        "startLine": 57,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 49
+      },
+      "revId": "512ae91690cf8a2d5031d94ece7219d8ed13f860",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b2992ca_5ed8b521",
+        "filename": "front_end/panels/timeline/components/Sidebar.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-10T08:33:30Z",
+      "side": 1,
+      "message": "this brace here looks wrong",
+      "range": {
+        "startLine": 76,
+        "startChar": 28,
+        "endLine": 76,
+        "endChar": 32
+      },
+      "revId": "512ae91690cf8a2d5031d94ece7219d8ed13f860",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53728322_ff660e0f",
+        "filename": "front_end/panels/timeline/components/Sidebar.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-10T08:33:30Z",
+      "side": 1,
+      "message": "I think you might have some extra closing div tags here",
+      "range": {
+        "startLine": 164,
+        "startChar": 50,
+        "endLine": 164,
+        "endChar": 56
+      },
+      "revId": "512ae91690cf8a2d5031d94ece7219d8ed13f860",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3923c03_01541d6f",
+        "filename": "front_end/panels/timeline/components/Sidebar.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-10T08:33:30Z",
+      "side": 1,
+      "message": "let\u0027s not call this render as it is already rendered, let\u0027s call this #updateActiveIndicatorPosition",
+      "range": {
+        "startLine": 169,
+        "startChar": 0,
+        "endLine": 169,
+        "endChar": 28
+      },
+      "revId": "512ae91690cf8a2d5031d94ece7219d8ed13f860",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
