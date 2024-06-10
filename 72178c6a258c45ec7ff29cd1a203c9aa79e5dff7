@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7145181a_b0e91e01",
+        "filename": "front_end/core/sdk/NetworkManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 923,
+      "author": {
+        "id": 1343440
+      },
+      "writtenOn": "2024-06-10T08:53:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "953f0b31_335b203a",
+      "revId": "72178c6a258c45ec7ff29cd1a203c9aa79e5dff7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9c3ff8ed_e9a2ae2c",
@@ -49,6 +67,24 @@
       "writtenOn": "2024-06-04T08:48:57Z",
       "side": 1,
       "message": "Add test for this file.",
+      "revId": "72178c6a258c45ec7ff29cd1a203c9aa79e5dff7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "29d25b8d_5489f79b",
+        "filename": "front_end/models/issues_manager/EarlyHintsIssue.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1343440
+      },
+      "writtenOn": "2024-06-10T08:53:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c3ff8ed_e9a2ae2c",
       "revId": "72178c6a258c45ec7ff29cd1a203c9aa79e5dff7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

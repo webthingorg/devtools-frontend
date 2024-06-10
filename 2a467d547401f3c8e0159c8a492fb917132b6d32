@@ -72,6 +72,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "988789bf_cebc549a",
+        "filename": "front_end/core/sdk/NetworkRequest.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1164,
+      "author": {
+        "id": 1343440
+      },
+      "writtenOn": "2024-06-10T08:53:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "38095f06_9f260983",
+      "revId": "2a467d547401f3c8e0159c8a492fb917132b6d32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a3b6fc3f_d508fe77",
