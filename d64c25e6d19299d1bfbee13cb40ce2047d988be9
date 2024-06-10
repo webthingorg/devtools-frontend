@@ -16,6 +16,46 @@
       "message": "the worker-track.png cuts off the bottom-most track fyi. \n\nall 3 get more useful now. :)",
       "revId": "d64c25e6d19299d1bfbee13cb40ce2047d988be9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f3f8e75_ec735ac8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-10T08:37:03Z",
+      "side": 1,
+      "message": "lgtm but",
+      "revId": "d64c25e6d19299d1bfbee13cb40ce2047d988be9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c253a636_28c4923d",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-10T08:37:03Z",
+      "side": 1,
+      "message": "not sure if you want to resolve this before we land this CL or not (I don\u0027t feel strongly)",
+      "range": {
+        "startLine": 316,
+        "startChar": 0,
+        "endLine": 316,
+        "endChar": 99
+      },
+      "revId": "d64c25e6d19299d1bfbee13cb40ce2047d988be9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

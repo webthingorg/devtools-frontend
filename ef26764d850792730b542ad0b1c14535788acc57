@@ -93,6 +93,30 @@
       },
       "revId": "ef26764d850792730b542ad0b1c14535788acc57",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a6518b9_1b762074",
+        "filename": "front_end/panels/timeline/ThreadAppender.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-10T08:37:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d2fb0c1_44a20fe7",
+      "range": {
+        "startLine": 353,
+        "startChar": 0,
+        "endLine": 355,
+        "endChar": 3
+      },
+      "revId": "ef26764d850792730b542ad0b1c14535788acc57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
