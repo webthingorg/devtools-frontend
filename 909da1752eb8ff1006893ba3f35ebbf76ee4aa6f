@@ -88,6 +88,24 @@
       "parentUuid": "0b5b1244_cf4bb154",
       "revId": "909da1752eb8ff1006893ba3f35ebbf76ee4aa6f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3c86d75_1b805f66",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-06-10T06:53:26Z",
+      "side": 1,
+      "message": "This fails to build for me. Have you tried? We don\u0027t have CQ coverage for the extension, let me try and see if we can get this added.",
+      "parentUuid": "b0bfff68_32b33f79",
+      "revId": "909da1752eb8ff1006893ba3f35ebbf76ee4aa6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
