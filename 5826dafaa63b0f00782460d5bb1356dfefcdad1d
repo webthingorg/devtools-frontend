@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a81cc85f_09b1c564",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524899
+      },
+      "writtenOn": "2024-06-11T11:11:36Z",
+      "side": 1,
+      "message": "lgtm \u0026 thanks",
+      "revId": "5826dafaa63b0f00782460d5bb1356dfefcdad1d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0775d246_fd72ec3c",
+        "filename": "buckets/try.star",
+        "patchSetId": 3
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1524899
+      },
+      "writtenOn": "2024-06-11T11:11:36Z",
+      "side": 1,
+      "message": "nit: You could use a dedicated variable for less repitition.",
+      "range": {
+        "startLine": 199,
+        "startChar": 15,
+        "endLine": 199,
+        "endChar": 47
+      },
+      "revId": "5826dafaa63b0f00782460d5bb1356dfefcdad1d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
