@@ -16,6 +16,29 @@
       "message": "ptal",
       "revId": "4bf1143ba5b74df44e59594ba47ead78be3225ab",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff2953dd_7bb1d718",
+        "filename": "front_end/core/i18n/time-utilities.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-11T17:57:53Z",
+      "side": 1,
+      "message": "deliberate change to be more precise for values less than 1 millisecond, rather than show 0.5ms, we show 500mms. The vast majority of these usages are in the perf panel so I don\u0027t expect this to have much impact",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 3
+      },
+      "revId": "4bf1143ba5b74df44e59594ba47ead78be3225ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
