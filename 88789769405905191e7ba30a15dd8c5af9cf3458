@@ -16,6 +16,23 @@
       "message": "we need to upgrade to getHostConfig instead of query params",
       "revId": "88789769405905191e7ba30a15dd8c5af9cf3458",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d76313c8_9caa37e9",
+        "filename": "front_end/panels/freestyler/freestyler-meta.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-06-11T11:53:04Z",
+      "side": 1,
+      "message": "this will never run since isFeatureAvailable is also a condition for showing the setting, right?",
+      "revId": "88789769405905191e7ba30a15dd8c5af9cf3458",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
