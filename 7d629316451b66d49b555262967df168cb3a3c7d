@@ -109,6 +109,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "36ea1e05_b469ede1",
+        "filename": "front_end/models/live-metrics/web-vitals-injected/OnEachInteraction.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-06-11T02:16:26Z",
+      "side": 1,
+      "message": "The `durationThreshold` for INP event tracking in web-vitals.js is set to 40ms (except for the first interaction). In the scenario I mentioned, the second interaction would not meet the 40ms threshold even though it would be the longest interaction so far.",
+      "parentUuid": "0e9af814_9a3131f3",
+      "revId": "7d629316451b66d49b555262967df168cb3a3c7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fe1d4478_9574997a",
         "filename": "test/e2e/performance/landing-page_test.ts",
         "patchSetId": 10
