@@ -176,6 +176,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5455cf0_e942bc0d",
+        "filename": "front_end/panels/freestyler/freestyler-meta.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-06-11T14:03:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "995b7b88_314a0c1b",
+      "revId": "3f40142d7e72534297b2f3624760f46a909f287e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e9a236a4_346918d5",
@@ -260,6 +278,24 @@
       "side": 1,
       "message": "Ah good catch! I think it\u0027d be cool to add it as a comment here, WDYT?",
       "parentUuid": "7b278f50_098d5816",
+      "revId": "3f40142d7e72534297b2f3624760f46a909f287e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee3557a3_1f90928c",
+        "filename": "front_end/panels/freestyler/freestyler-meta.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-06-11T14:03:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "88ec013c_178d0f46",
       "revId": "3f40142d7e72534297b2f3624760f46a909f287e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
