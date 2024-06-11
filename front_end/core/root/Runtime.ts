@@ -312,16 +312,8 @@ export interface HostConfigConsoleInsights {
   optIn: boolean;
 }
 
-export interface HostConfigConsoleInsightsDogfood {
-  aidaModelId: string;
-  aidaTemperature: number;
-  enabled: boolean;
-  optIn: boolean;
-}
-
 export interface HostConfig {
   devToolsConsoleInsights: HostConfigConsoleInsights;
-  devToolsConsoleInsightsDogfood: HostConfigConsoleInsightsDogfood;
 }
 
 /**

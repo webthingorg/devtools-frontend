@@ -221,9 +221,6 @@ describeWithEnvironment('ConsoleInsight', () => {
           enabled: true,
           disallowLogging: true,
         } as Root.Runtime.HostConfigConsoleInsights,
-        devToolsConsoleInsightsDogfood: {
-          enabled: false,
-        } as Root.Runtime.HostConfigConsoleInsightsDogfood,
       });
 
       const component = await renderInsight();
