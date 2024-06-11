@@ -35,3 +35,31 @@
     border-bottom: none;
   }
 }
+
+.overlay-type-ENTRY_LABEL {
+  display: flex;
+  flex-direction: column;
+  pointer-events: none;
+  color: #ffffff;
+  align-items: center;
+  
+  &.cut-off-top {
+    background-color: transparent;
+  }
+    
+  &.cut-off-bottom {
+    background-color: transparent;
+    }
+      
+  .label-element {
+    background-color: black;
+    border-radius: 4px;
+    font-family: var(--monospace-font-family);
+    font-weight: bold;
+  }
+
+  .entry-wrap {
+    border: 2px solid black;
+    background-color: var(--sys-color-state-ripple-primary);
+  }
+}

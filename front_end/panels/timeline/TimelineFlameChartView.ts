@@ -428,6 +428,11 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
           type: 'ENTRY_SELECTED',
           entry: selection.object,
         });
+        this.#overlays.addOverlay({
+          type: 'ENTRY_LABEL',
+          entry: selection.object,
+          label: 'labely'
+        });
         this.#overlays.update();
       }
     }
