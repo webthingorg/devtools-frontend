@@ -91,6 +91,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0e9af814_9a3131f3",
+        "filename": "front_end/models/live-metrics/web-vitals-injected/OnEachInteraction.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-06-11T00:53:02Z",
+      "side": 1,
+      "message": "hmm why doesn\u0027t INP change to 24 after the second one hits?",
+      "parentUuid": "477fa28f_6f2b0130",
+      "revId": "7d629316451b66d49b555262967df168cb3a3c7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fe1d4478_9574997a",
         "filename": "test/e2e/performance/landing-page_test.ts",
         "patchSetId": 10
