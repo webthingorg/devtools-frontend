@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0791ec7c_1f54473c",
+        "filename": "front_end/panels/freestyler/freestyler-meta.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-06-11T13:53:04Z",
+      "side": 1,
+      "message": "I guess the data extractor is name based so TempUIStrings won\u0027t be picked up.",
+      "parentUuid": "aec9df70_60a7c915",
+      "revId": "88789769405905191e7ba30a15dd8c5af9cf3458",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "24c67743_1503df72",
         "filename": "front_end/panels/freestyler/freestyler-meta.ts",
         "patchSetId": 5
