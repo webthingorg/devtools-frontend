@@ -35,6 +35,41 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "62e66f19_d1e644e8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2024-06-11T12:20:48Z",
+      "side": 1,
+      "message": "As noted in the linked bug, we believe that deleting the lines with no indication that anything has been removed is a regression. We\u0027d happily accept contributions in line with the proposal in the design doc (linked in the bug), but if that\u0027s more than you signed up for, a good first step would be to change this CL to apply a class to ignore listed lines (instead of deleting them) and add a similar style to this one: https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/ui/legacy/components/utils/jsUtils.css;drc\u003d845d45d3341c4178ed48be4785d9071edee8a041;l\u003d26",
+      "revId": "6eb12094ea84c7b27407aedc78d263d018c43c32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dce4b212_4a4a2dbb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2024-06-11T12:20:48Z",
+      "side": 1,
+      "message": "As noted in the linked bug, we believe that deleting the lines with no indication that anything has been removed is a regression. We\u0027d happily accept contributions in line with the proposal in the design doc (linked in the bug), but if that\u0027s more than you signed up for, a good first step would be to change this CL to apply a class to ignore listed lines (instead of deleting them) and add a similar style to this one: https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/ui/legacy/components/utils/jsUtils.css;drc\u003d845d45d3341c4178ed48be4785d9071edee8a041;l\u003d26",
+      "parentUuid": "7aaad59d_711dedbd",
+      "revId": "6eb12094ea84c7b27407aedc78d263d018c43c32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "92f368ed_ad591445",
