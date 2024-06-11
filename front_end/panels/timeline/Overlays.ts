@@ -39,10 +39,16 @@ export interface EntrySelected {
   entry: OverlayEntry;
 }
 
+export interface EntryLabel {
+  type: 'ENTRY_LABEL',
+  entry: OverlayEntry,
+  label: string,
+}
+
 /**
  * All supported overlay types. Expected to grow in time!
  */
-export type TimelineOverlay = EntrySelected;
+export type TimelineOverlay = EntrySelected|EntryLabel;
 
 /**
  * To be able to draw overlays accurately at the correct pixel position, we
@@ -265,10 +271,153 @@ export class Overlays {
         }
         break;
       }
-      default: {
-        console.error(`Unknown overlay type: ${overlay.type}`);
+      case 'ENTRY_LABEL': {
+        if (this.entryIsVisibleOnChart(overlay.entry)) {
+          element.style.visibility = 'visible';
+          this.#positionEntryLabelOverlay(overlay, element);
+        } else {
+          element.style.visibility = 'hidden';
+        }
+        break;
       }
     }
+  }
+
+  /**
+   * Positions an EntrySelected overlay. As we extend the list of overlays,
+   * some of the code in here around positioning may be re-used elsewhere.
+   * @param overlay - the EntrySelected overlay that we need to position.
+   * @param element - the DOM element representing the overlay
+   */
+  #positionEntryLabelOverlay(overlay: EntryLabel, element: HTMLElement): void {
+    const chartName = this.#chartForOverlayEntry(overlay.entry);
+    let x = this.xPixelForEventOnChart(overlay.entry);
+    let y = this.yPixelForEventOnChart(overlay.entry);
+
+    if (x === null || y === null) {
+      return;
+    }
+
+    // ENTRY END X
+    const {endTime, duration} = this.#timingsForOverlayEntry(overlay.entry);
+    const endX = this.#xPixelForMicroSeconds(chartName, endTime);
+    if (endX === null) {
+      return;
+    }
+
+    // ENTRY HEIGHT
+    const totalHeight = this.pixelHeightForEventOnChart(overlay.entry) ?? 0;
+
+    // We might modify the height we use when drawing the overlay, hence copying the totalHeight.
+    // LABEL HEIGHT
+    let height = totalHeight;
+    if (height === null) {
+      return;
+    }
+
+    // The width of the overlay is by default the width of the entry. However
+    // we modify that for instant events like LCP markers, and also ensure a
+    // minimum width.
+    // STILL LABEL WIDTH 
+    let widthPixels = endX - x;
+
+    if (!duration) {
+      // No duration = instant event, so we check in case it's a marker.
+      const provider = chartName === 'main' ? this.#charts.mainProvider : this.#charts.networkProvider;
+      const chart = chartName === 'main' ? this.#charts.mainChart : this.#charts.networkChart;
+      // It could be a marker event, in which case we need to know the
+      // exact position the marker was rendered. This is because markers
+      // which have the same timestamp are rendered next to each other, so
+      // the timestamp is not necessarily exactly where the marker was
+      // rendered.
+      const index = provider.indexForEvent(overlay.entry);
+      const markerPixels = chart.getMarkerPixelsForEntryIndex(index ?? -1);
+      if (markerPixels) {
+        x = markerPixels.x;
+        widthPixels = markerPixels.width;
+      }
+    }
+
+    // The entry selected overlay is always at least 2px wide.
+    const finalWidth = Math.max(2, widthPixels);
+    // element.style.width = `${finalWidth}px`;
+
+    // If the event is on the main chart, we need to adjust its selected border
+    // if the event is cut off the top of the screen, because we need to ensure
+    // that it does not overlap the resize element. Unfortunately we cannot
+    // z-index our way out of this, so instead we calculate if the event is cut
+    // off, and if it is, we draw the partial selected outline and do not draw
+    // the top border, making it appear like it is going behind the resizer.
+    // We don't need to worry about it going off the bottom, because in that
+    // case we don't draw the overlay anyway.
+    if (chartName === 'main') {
+      const chartTopPadding = this.#networkChartOffsetHeight();
+      // We now calculate the available height: if the entry is cut off we don't
+      // show the border for the part that is cut off.
+      const cutOffTop = y < chartTopPadding;
+
+      height = cutOffTop ? Math.abs(y + height - chartTopPadding) : height;
+      element.classList.toggle('cut-off-top', cutOffTop);
+      if (cutOffTop) {
+        // Adjust the y position: we need to move it down from the top Y
+        // position to the Y position of the first visible pixel. The
+        // adjustment is totalHeight - height because if the totalHeight is 17,
+        // and the visibleHeight is 5, we need to draw the overay at 17-5=12px
+        // vertically from the top of the event.
+        y = y + totalHeight - height;
+      }
+    } else {
+      // If the event is on the network chart, we use the same logic as above
+      // for the main chart, but to check if the event is cut off the bottom of
+      // the network track and only part of the overlay is visible.
+      // We don't need to worry about the even going off the top of the panel
+      // as we can show the full overlay and it gets cut off by the minimap UI.
+      const networkHeight = this.#dimensions.charts.network?.heightPixels ?? 0;
+      const lastVisibleY = y + totalHeight;
+      const cutOffBottom = lastVisibleY > networkHeight;
+      element.classList.toggle('cut-off-bottom', cutOffBottom);
+      if (cutOffBottom) {
+        // Adjust the height of the overlay to be the amount of visible pixels.
+        height = networkHeight - y;
+      }
+    }
+
+    const connectcorHeight = 18;
+
+    // the top is exact pixel?
+    element.style.top = `${y - height-connectcorHeight}px`;
+    element.style.height = `${height + connectcorHeight}px`;
+    // position in the middle of the entry
+    element.style.left = `${x + finalWidth/2}px`;
+    // We set the beginning of the element to the middle of the entry it belongs to.
+    // Move element by half of it's own width to poision it in the middle of the entry it belongs to.
+    element.style.transform = 'translate(-50%)';
+    
+    const labelElement = element.querySelector(".label-element") as HTMLElement;
+    labelElement.style.height = `${height}px`;
+    // labelElement.style.backgroundColor = `#000000`;
+    labelElement.innerHTML = "labbb";
+
+    const line = element.querySelector(".connector") as HTMLElement;
+
+
+    // const x1 = x + finalWidth/2;
+    const x1 = x + finalWidth/2;
+    const y1 = y;
+    const x2 = x + finalWidth/2;
+    const y2 = y - connectcorHeight;
+
+    
+    const length = Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
+    const angle = Math.atan2(y2 - y1, x2 - x1) * (180 / Math.PI);
+    
+    line.style.width = length + "px";
+    line.style.transform = `rotate(${angle}deg)`;
+    line.style.top = y1 + "px";
+    line.style.left = x1 + "px";
+    line.style.backgroundColor = "black";
+    line.style.height = "2px";
+
   }
 
   /**
@@ -372,9 +521,20 @@ export class Overlays {
   }
 
   #createElementForNewOverlay(overlay: TimelineOverlay): HTMLElement {
-    const div = document.createElement('div');
-    div.classList.add('overlay-item', `overlay-type-${overlay.type}`);
-    return div;
+    switch (overlay.type) {
+      case 'ENTRY_LABEL': {
+        const div = document.createElement('div');
+        div.classList.add('overlay-item', `overlay-type-${overlay.type}`);
+        div.createChild("div", "label-element")
+        div.createChild("div", "connector")
+        return div;
+      }
+      default: {
+        const div = document.createElement('div');
+        div.classList.add('overlay-item', `overlay-type-${overlay.type}`);
+        return div;
+      }
+    }
   }
 
   /**

@@ -35,3 +35,21 @@
     border-bottom: none;
   }
 }
+
+.overlay-type-ENTRY_LABEL {
+  pointer-events: none;
+  background-color: #00eeff;
+  color: aliceblue;
+
+  &.cut-off-top {
+    background-color: transparent;
+  }
+
+  &.cut-off-bottom {
+    background-color: transparent;
+  }
+  
+  &.label-element {
+    /* background-color: #00000026; */
+  }
+}
