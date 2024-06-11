@@ -18,10 +18,6 @@ describeWithEnvironment('AidaClient', () => {
         enabled: false,
         aidaTemperature: 0.2,
       } as Root.Runtime.HostConfigConsoleInsights,
-      devToolsConsoleInsightsDogfood: {
-        enabled: false,
-        aidaTemperature: 0.3,
-      } as Root.Runtime.HostConfigConsoleInsightsDogfood,
     });
     const request = Host.AidaClient.AidaClient.buildConsoleInsightsRequest('foo');
     assert.deepStrictEqual(request, {
@@ -39,11 +35,6 @@ describeWithEnvironment('AidaClient', () => {
         aidaModelId: '',
         aidaTemperature: 0.5,
       } as Root.Runtime.HostConfigConsoleInsights,
-      devToolsConsoleInsightsDogfood: {
-        enabled: false,
-        aidaModelId: '',
-        aidaTemperature: 0.3,
-      } as Root.Runtime.HostConfigConsoleInsightsDogfood,
     });
     const request = Host.AidaClient.AidaClient.buildConsoleInsightsRequest('foo');
     assert.deepStrictEqual(request, {
@@ -61,12 +52,8 @@ describeWithEnvironment('AidaClient', () => {
     const stub = sinon.stub(settings, 'getHostConfig').returns({
       devToolsConsoleInsights: {
         enabled: true,
-        aidaTemperature: 0.5,
-      } as Root.Runtime.HostConfigConsoleInsights,
-      devToolsConsoleInsightsDogfood: {
-        enabled: true,
         aidaTemperature: 0,
-      } as Root.Runtime.HostConfigConsoleInsightsDogfood,
+      } as Root.Runtime.HostConfigConsoleInsights,
     });
     const request = Host.AidaClient.AidaClient.buildConsoleInsightsRequest('foo');
     assert.deepStrictEqual(request, {
@@ -87,9 +74,6 @@ describeWithEnvironment('AidaClient', () => {
         aidaModelId: TEST_MODEL_ID,
         aidaTemperature: 0.5,
       } as Root.Runtime.HostConfigConsoleInsights,
-      devToolsConsoleInsightsDogfood: {
-        enabled: false,
-      } as Root.Runtime.HostConfigConsoleInsightsDogfood,
     });
 
     const request = Host.AidaClient.AidaClient.buildConsoleInsightsRequest('foo');
@@ -113,9 +97,6 @@ describeWithEnvironment('AidaClient', () => {
         aidaTemperature: 0.5,
         disallowLogging: true,
       } as Root.Runtime.HostConfigConsoleInsights,
-      devToolsConsoleInsightsDogfood: {
-        enabled: false,
-      } as Root.Runtime.HostConfigConsoleInsightsDogfood,
     });
 
     const request = Host.AidaClient.AidaClient.buildConsoleInsightsRequest('foo');
