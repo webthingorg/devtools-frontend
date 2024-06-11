@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e864af6d_60c77622",
+        "filename": "front_end/ui/legacy/themeColors.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 450,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-06-11T16:18:23Z",
+      "side": 1,
+      "message": "nit: why does this class begin with `-`? Is there something special about this class?",
+      "revId": "09c94b3872c8aaf513f2d8f82f4bef3a24a604d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
