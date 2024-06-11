@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "12ff0a06_11bd97b1",
+        "filename": "front_end/panels/freestyler/freestyler-meta.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-11T13:49:37Z",
+      "side": 1,
+      "message": "sgtm! let\u0027s not add new strings to UIStrings but to a `TempUIStrings` object so that we can track them in the future and move them at once to `UIStrings` when needed, WDYT?",
+      "parentUuid": "24aa7b7c_579b3e2b",
+      "revId": "88789769405905191e7ba30a15dd8c5af9cf3458",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "24c67743_1503df72",
         "filename": "front_end/panels/freestyler/freestyler-meta.ts",
         "patchSetId": 5
