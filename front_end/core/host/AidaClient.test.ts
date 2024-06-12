@@ -22,6 +22,9 @@ describeWithEnvironment('AidaClient', () => {
         enabled: false,
         aidaTemperature: 0.3,
       } as Root.Runtime.HostConfigConsoleInsightsDogfood,
+      devToolsFreestylerDogfood: {
+        enabled: false,
+      },
     });
     const request = Host.AidaClient.AidaClient.buildConsoleInsightsRequest('foo');
     assert.deepStrictEqual(request, {
@@ -44,6 +47,9 @@ describeWithEnvironment('AidaClient', () => {
         aidaModelId: '',
         aidaTemperature: 0.3,
       } as Root.Runtime.HostConfigConsoleInsightsDogfood,
+      devToolsFreestylerDogfood: {
+        enabled: false,
+      },
     });
     const request = Host.AidaClient.AidaClient.buildConsoleInsightsRequest('foo');
     assert.deepStrictEqual(request, {
@@ -67,6 +73,9 @@ describeWithEnvironment('AidaClient', () => {
         enabled: true,
         aidaTemperature: 0,
       } as Root.Runtime.HostConfigConsoleInsightsDogfood,
+      devToolsFreestylerDogfood: {
+        enabled: false,
+      },
     });
     const request = Host.AidaClient.AidaClient.buildConsoleInsightsRequest('foo');
     assert.deepStrictEqual(request, {
@@ -90,6 +99,9 @@ describeWithEnvironment('AidaClient', () => {
       devToolsConsoleInsightsDogfood: {
         enabled: false,
       } as Root.Runtime.HostConfigConsoleInsightsDogfood,
+      devToolsFreestylerDogfood: {
+        enabled: false,
+      },
     });
 
     const request = Host.AidaClient.AidaClient.buildConsoleInsightsRequest('foo');
@@ -116,6 +128,9 @@ describeWithEnvironment('AidaClient', () => {
       devToolsConsoleInsightsDogfood: {
         enabled: false,
       } as Root.Runtime.HostConfigConsoleInsightsDogfood,
+      devToolsFreestylerDogfood: {
+        enabled: false,
+      },
     });
 
     const request = Host.AidaClient.AidaClient.buildConsoleInsightsRequest('foo');

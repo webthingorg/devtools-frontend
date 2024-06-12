@@ -224,6 +224,9 @@ describeWithEnvironment('ConsoleInsight', () => {
         devToolsConsoleInsightsDogfood: {
           enabled: false,
         } as Root.Runtime.HostConfigConsoleInsightsDogfood,
+        devToolsFreestylerDogfood: {
+          enabled: false,
+        },
       });
 
       const component = await renderInsight();
