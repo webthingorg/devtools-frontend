@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "36a65be5_35443b8d",
+        "filename": "front_end/panels/timeline/components/BUILD.gn",
+        "patchSetId": 13
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-06-12T18:50:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "caf9a5d3_41c50002",
+      "range": {
+        "startLine": 16,
+        "startChar": 5,
+        "endLine": 16,
+        "endChar": 19
+      },
+      "revId": "2e740ff56b1a5c4682884019c8d85ed42d8427fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "06f7f75f_3792e250",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-06-12T09:00:50Z",
       "side": 1,
       "message": "once crrev.com/c/5625249 you will need to rebase this CL again (sorry!) but I realised that the way we are doing it in this implementation (passing the expanded state into the public render method) is not consistent and not what we do elsewhere, so my CL fixes that.\n\nOnce that lands, I would expect this code to look like:\n\n```\nthis.#sidebarUI.insights \u003d insights\n```\n\nAnd then within the SidebarUI component you would define the setter:\n\n```\nset insights(insights) {\n  this.#insights \u003d insights;\n  scheduleRender()\n}\n```\n\nroughly - does that make sense?",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 3
+      },
+      "revId": "2e740ff56b1a5c4682884019c8d85ed42d8427fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ab1ae3c_87607f19",
+        "filename": "front_end/panels/timeline/components/Sidebar.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-06-12T18:50:40Z",
+      "side": 1,
+      "message": "Gotcha! Done :)",
+      "parentUuid": "06f7f75f_3792e250",
       "range": {
         "startLine": 54,
         "startChar": 0,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7db3d8d4_98884477",
+        "filename": "front_end/panels/timeline/components/Sidebar.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-06-12T18:50:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36e317dc_a8d3fe3d",
+      "range": {
+        "startLine": 80,
+        "startChar": 4,
+        "endLine": 83,
+        "endChar": 43
+      },
+      "revId": "2e740ff56b1a5c4682884019c8d85ed42d8427fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bdd929dc_11d792c5",
@@ -100,6 +172,30 @@
       "writtenOn": "2024-06-12T09:00:50Z",
       "side": 1,
       "message": "style these using CSS, not inline styles",
+      "range": {
+        "startLine": 154,
+        "startChar": 1,
+        "endLine": 155,
+        "endChar": 56
+      },
+      "revId": "2e740ff56b1a5c4682884019c8d85ed42d8427fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "365a31b7_0f6d29da",
+        "filename": "front_end/panels/timeline/components/Sidebar.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-06-12T18:50:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bdd929dc_11d792c5",
       "range": {
         "startLine": 154,
         "startChar": 1,
@@ -177,6 +273,30 @@
           ]
         }
       ],
+      "revId": "2e740ff56b1a5c4682884019c8d85ed42d8427fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dceb85c0_608f4069",
+        "filename": "front_end/panels/timeline/components/Sidebar.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-06-12T18:50:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a04f5c9f_3164d028",
+      "range": {
+        "startLine": 162,
+        "startChar": 0,
+        "endLine": 163,
+        "endChar": 42
+      },
       "revId": "2e740ff56b1a5c4682884019c8d85ed42d8427fb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
