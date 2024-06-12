@@ -147,7 +147,7 @@ let BidiFrame = (() => {
             frame.#initialize();
             return frame;
         }
-        #parent = (__runInitializers(this, _instanceExtraInitializers), void 0);
+        #parent = __runInitializers(this, _instanceExtraInitializers);
         browsingContext;
         #frames = new WeakMap();
         realms;
