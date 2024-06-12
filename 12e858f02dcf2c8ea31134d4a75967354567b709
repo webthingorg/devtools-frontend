@@ -54,6 +54,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "452d9dd5_dc0258ba",
+        "filename": "front_end/panels/freestyler/FreestylerEvaluateAction.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-06-12T13:46:14Z",
+      "side": 1,
+      "message": "Do we expect the model to return data with cycles? would it be better to throw an error in this case and let the model reformulate the query?",
+      "parentUuid": "a33a6348_66500ad3",
+      "revId": "12e858f02dcf2c8ea31134d4a75967354567b709",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ef5b8583_040cb04c",
         "filename": "front_end/panels/freestyler/FreestylerEvaluateAction.ts",
         "patchSetId": 1
