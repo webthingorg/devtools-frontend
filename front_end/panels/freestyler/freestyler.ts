@@ -4,3 +4,4 @@
 
 export * from './components/FreestylerChatUi.js';
 export * from './FreestylerPanel.js';
+export * from './FreestylerEvaluateAction.js';
