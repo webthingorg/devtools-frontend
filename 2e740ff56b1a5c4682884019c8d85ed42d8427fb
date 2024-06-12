@@ -1,0 +1,184 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7eb8f569_fef5cedf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-12T09:00:50Z",
+      "side": 1,
+      "message": "this is looking good!",
+      "revId": "2e740ff56b1a5c4682884019c8d85ed42d8427fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "caf9a5d3_41c50002",
+        "filename": "front_end/panels/timeline/components/BUILD.gn",
+        "patchSetId": 13
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-12T09:00:50Z",
+      "side": 1,
+      "message": "tiny nitpick: `sidebarInsight`",
+      "range": {
+        "startLine": 16,
+        "startChar": 5,
+        "endLine": 16,
+        "endChar": 19
+      },
+      "revId": "2e740ff56b1a5c4682884019c8d85ed42d8427fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06f7f75f_3792e250",
+        "filename": "front_end/panels/timeline/components/Sidebar.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-12T09:00:50Z",
+      "side": 1,
+      "message": "once crrev.com/c/5625249 you will need to rebase this CL again (sorry!) but I realised that the way we are doing it in this implementation (passing the expanded state into the public render method) is not consistent and not what we do elsewhere, so my CL fixes that.\n\nOnce that lands, I would expect this code to look like:\n\n```\nthis.#sidebarUI.insights \u003d insights\n```\n\nAnd then within the SidebarUI component you would define the setter:\n\n```\nset insights(insights) {\n  this.#insights \u003d insights;\n  scheduleRender()\n}\n```\n\nroughly - does that make sense?",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 3
+      },
+      "revId": "2e740ff56b1a5c4682884019c8d85ed42d8427fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36e317dc_a8d3fe3d",
+        "filename": "front_end/panels/timeline/components/Sidebar.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-12T09:00:50Z",
+      "side": 1,
+      "message": "nitpick, I would probably do:\n\n```\nconst {ttfb, loadDelay, loadTime, renderDelay} \u003d phases\n```",
+      "range": {
+        "startLine": 80,
+        "startChar": 4,
+        "endLine": 83,
+        "endChar": 43
+      },
+      "revId": "2e740ff56b1a5c4682884019c8d85ed42d8427fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdd929dc_11d792c5",
+        "filename": "front_end/panels/timeline/components/Sidebar.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-12T09:00:50Z",
+      "side": 1,
+      "message": "style these using CSS, not inline styles",
+      "range": {
+        "startLine": 154,
+        "startChar": 1,
+        "endLine": 155,
+        "endChar": 56
+      },
+      "revId": "2e740ff56b1a5c4682884019c8d85ed42d8427fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a04f5c9f_3164d028",
+        "filename": "front_end/panels/timeline/components/Sidebar.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-12T09:00:50Z",
+      "side": 1,
+      "message": "you might want to wrap this block in:\n\n```\n// clang-format off\n(code here)\n// clang-format on\n```\n\nand manually format the HTML part - clang does a dreadful job of it 😞",
+      "range": {
+        "startLine": 162,
+        "startChar": 0,
+        "endLine": 163,
+        "endChar": 42
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "c2c6bc3d_48739660",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/components/Sidebar.ts",
+              "range": {
+                "startLine": 142,
+                "startChar": 0,
+                "endLine": 144,
+                "endChar": 0
+              },
+              "replacement": "    // clang-format off\n    return LitHtml.html`${showLCPPhases ? LitHtml.html`\n"
+            },
+            {
+              "path": "front_end/panels/timeline/components/Sidebar.ts",
+              "range": {
+                "startLine": 145,
+                "startChar": 0,
+                "endLine": 147,
+                "endChar": 0
+              },
+              "replacement": "        title: lcpTitle,\n      } as SidebarInsight.InsightDetails}\u003e\n"
+            },
+            {
+              "path": "front_end/panels/timeline/components/Sidebar.ts",
+              "range": {
+                "startLine": 148,
+                "startChar": 0,
+                "endLine": 151,
+                "endChar": 0
+              },
+              "replacement": "          Each\n          \u003cx-link class\u003d\"link\" href\u003d\"https://web.dev/articles/optimize-lcp#lcp-breakdown\"\u003ephase has specific recommendations to improve.\u003c/x-link\u003e\n          In an ideal load, the two delay phases should be quite short.\n"
+            },
+            {
+              "path": "front_end/panels/timeline/components/Sidebar.ts",
+              "range": {
+                "startLine": 162,
+                "startChar": 0,
+                "endLine": 164,
+                "endChar": 0
+              },
+              "replacement": "      \u003c/${SidebarInsight.SidebarInsight}\u003e` : LitHtml.nothing}`;\n    // clang-format on\n"
+            }
+          ]
+        }
+      ],
+      "revId": "2e740ff56b1a5c4682884019c8d85ed42d8427fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
