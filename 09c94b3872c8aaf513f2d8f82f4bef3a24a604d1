@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "05ec8e71_18f7f275",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-06-12T10:58:02Z",
+      "side": 1,
+      "message": "Thanks Changhao and Jack!\n\nI\u0027m submitting, Peter confirmed we don\u0027t need to change anything for greyscale, and since the open issue is not directly related and can be taken care of separately.",
+      "revId": "09c94b3872c8aaf513f2d8f82f4bef3a24a604d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e864af6d_60c77622",
@@ -67,6 +84,24 @@
       "side": 1,
       "message": "No idea! It was like that when I found it so I just maintained it...nothing special about it though and we could easily drop.",
       "parentUuid": "b1692991_3a2eab07",
+      "revId": "09c94b3872c8aaf513f2d8f82f4bef3a24a604d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38bf3046_287fb5c8",
+        "filename": "front_end/ui/legacy/themeColors.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 450,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-06-12T10:58:02Z",
+      "side": 1,
+      "message": "Thanks for your answer, Jack! Changhao, do you want us to drop it?",
+      "parentUuid": "13c149dd_cb62c809",
       "revId": "09c94b3872c8aaf513f2d8f82f4bef3a24a604d1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
