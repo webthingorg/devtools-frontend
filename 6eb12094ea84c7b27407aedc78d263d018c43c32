@@ -72,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dd77db5f_654b3d96",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1106555
+      },
+      "writtenOn": "2024-06-12T15:53:40Z",
+      "side": 1,
+      "message": "Yea, the full thing is beyond what I have time for. I can add the styling but it\u0027s not really sufficient nor helping that much since it still covers up things below the fold and is noisy.\n\nI might just hide it by stripping error stacks manually in React instead before printing (mutating the .stack property) but then there\u0027s still no way to recover the information from DevTools.\n\nAnother question. The current design in the stack preview container only dims the links in the stack trace - not the name and `@`. The proposed design dims the whole row. Are you suggesting I stick to the current design of dimming only the link or change the design of stack preview container too, or keep it inconsistent?\n\nI think I\u0027ll leave it to you to figure out how you want it.",
+      "parentUuid": "62e66f19_d1e644e8",
+      "revId": "6eb12094ea84c7b27407aedc78d263d018c43c32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "92f368ed_ad591445",
         "filename": "front_end/panels/console/ConsoleViewMessage.ts",
         "patchSetId": 1
