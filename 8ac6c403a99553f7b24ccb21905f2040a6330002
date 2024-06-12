@@ -69,6 +69,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9b9cf1c_48f839a5",
+        "filename": "front_end/panels/timeline/components/TimeRangeOverlay.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-12T13:29:02Z",
+      "side": 1,
+      "message": "Love it!",
+      "parentUuid": "3511fc70_329820b7",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 3
+      },
+      "revId": "8ac6c403a99553f7b24ccb21905f2040a6330002",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a4d1fe58_5eb8cdff",
@@ -82,6 +106,30 @@
       "writtenOn": "2024-06-12T13:12:59Z",
       "side": 1,
       "message": "I would remove or reduce this number. It doesn\u0027t show the label for pretty big time ranges with this min-width. It can show up right when it fits which is checked in `visibleOverlayWidth`",
+      "range": {
+        "startLine": 22,
+        "startChar": 2,
+        "endLine": 22,
+        "endChar": 19
+      },
+      "revId": "8ac6c403a99553f7b24ccb21905f2040a6330002",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac06dc93_04576233",
+        "filename": "front_end/panels/timeline/components/timeRangeOverlay.css",
+        "patchSetId": 7
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-12T13:29:02Z",
+      "side": 1,
+      "message": "Ah nice spot, this was left from my work testing longer labels, I agree we can remove it.",
+      "parentUuid": "a4d1fe58_5eb8cdff",
       "range": {
         "startLine": 22,
         "startChar": 2,
