@@ -3,11 +3,14 @@
 // found in the LICENSE file.
 
 import * as Root from '../../../core/root/root.js';
+import type * as Handlers from '../../../models/trace/handlers/handlers.js';
+import type * as TraceEngine from '../../../models/trace/trace.js';
 import * as IconButton from '../../../ui/components/icon_button/icon_button.js';
 import * as UI from '../../../ui/legacy/legacy.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 
 import sidebarStyles from './sidebar.css.js';
+import * as SidebarInsight from './SidebarInsight.js';
 
 const COLLAPSED_WIDTH = 40;
 const DEFAULT_EXPANDED_WIDTH = 240;
@@ -47,12 +50,57 @@ export class SidebarWidget extends UI.SplitWidget.SplitWidget {
       this.#sidebarUI.render(this.#sidebarExpanded);
     });
   }
+
+  set data(insights: TraceEngine.Insights.Types.TraceInsightData<typeof Handlers.ModelHandlers>) {
+    this.#sidebarUI.getLCPInsightData(insights);
+    this.#sidebarUI.render(this.#sidebarExpanded);
+  }
 }
 
 export class SidebarUI extends HTMLElement {
   static readonly litTagName = LitHtml.literal`devtools-performance-sidebar`;
   readonly #shadow = this.attachShadow({mode: 'open'});
   #activeTab: SidebarTabsName = SidebarTabsName.INSIGHTS;
+  #phaseData: Array<{phase: string, timing: number|TraceEngine.Types.Timing.MilliSeconds, percent: string}> = [];
+
+  getLCPInsightData(insights: TraceEngine.Insights.Types.TraceInsightData<typeof Handlers.ModelHandlers>): void {
+    const [firstNav] = insights.values();
+    const lcpInsight = firstNav.LargestContentfulPaint;
+    if (lcpInsight instanceof Error) {
+      return;
+    }
+
+    const timing = lcpInsight.lcpMs;
+    const phases = lcpInsight.phases;
+
+    if (!timing || !phases) {
+      return;
+    }
+
+    const ttfb = phases.ttfb;
+    const loadDelay = phases.loadDelay;
+    const loadTime = phases.loadTime;
+    const renderDelay = phases.renderDelay;
+
+    if (loadDelay && loadTime) {
+      const phaseData = [
+        {phase: 'Time to first byte', timing: ttfb, percent: `${(100 * ttfb / timing).toFixed(0)}%`},
+        {phase: 'Resource load delay', timing: loadDelay, percent: `${(100 * loadDelay / timing).toFixed(0)}%`},
+        {phase: 'Resource load duration', timing: loadTime, percent: `${(100 * loadTime / timing).toFixed(0)}%`},
+        {phase: 'Resource render delay', timing: renderDelay, percent: `${(100 * ttfb / timing).toFixed(0)}%`},
+      ];
+      this.#phaseData = phaseData;
+      return;
+    }
+
+    // If the lcp is text, we only have ttfb and render delay.
+    const phaseData = [
+      {phase: 'Time to first byte', timing: ttfb, percent: `${(100 * ttfb / timing).toFixed(0)}%`},
+      {phase: 'Resource render delay', timing: renderDelay, percent: `${(100 * ttfb / timing).toFixed(0)}%`},
+    ];
+    this.#phaseData = phaseData;
+    return;
+  }
 
   connectedCallback(): void {
     this.#shadow.adoptedStyleSheets = [sidebarStyles];
@@ -87,11 +135,40 @@ export class SidebarUI extends HTMLElement {
     // clang-format on
   }
 
+  #renderLCPPhases(): LitHtml.LitTemplate {
+    const lcpTitle = 'LCP by Phase';
+    const showLCPPhases = this.#phaseData ? this.#phaseData.length > 0 : false;
+
+    return LitHtml.html`${
+        showLCPPhases ? LitHtml.html`
+      <${SidebarInsight.SidebarInsight.litTagName} .data=${{
+          title: lcpTitle,
+        } as SidebarInsight.InsightDetails}>
+        <div slot="insight-description" class="insight-description">
+            Each
+            <x-link class="link" href="https://web.dev/articles/optimize-lcp#lcp-breakdown">phase has specific recommendations to improve.</x-link>
+            In an ideal load, the two delay phases should be quite short.
+        </div>
+        <div slot="insight-content" class="table-container">
+          <dl>
+            <dt style="font-weight: bold;">Phase</dt>
+            <dd style="font-weight: bold;">% of LCP</dd>
+            ${this.#phaseData?.map(phase => LitHtml.html`
+              <dt>${phase.phase}</dt>
+              <dd style="font-weight: bold;">${phase.percent}</dd>
+            `)}
+          </dl>
+        </div>
+      </${SidebarInsight.SidebarInsight}>` :
+                        LitHtml.nothing}`;
+  }
+
   #renderInsightsTabContent(): LitHtml.TemplateResult {
     // clang-format off
     return LitHtml.html`
       <h2>Content for Insights Tab</h2>
       <p>This is the content of the Insights tab.</p>
+      <div class="insights">${this.#renderLCPPhases()}</div>
     `;
     // clang-format on
   }
@@ -139,6 +216,7 @@ export class SidebarUI extends HTMLElement {
 
   render(expanded: boolean): void {
     const toggleIcon = expanded ? 'left-panel-close' : 'left-panel-open';
+
     // clang-format off
     const output = LitHtml.html`<div class=${LitHtml.Directives.classMap({
       sidebar: true,
@@ -152,7 +230,7 @@ export class SidebarUI extends HTMLElement {
       </div>
       <div class="tab-slider" ?hidden=${!expanded}></div>
       <div class="tab-headers-bottom-line" ?hidden=${!expanded}></div>
-      ${expanded ? LitHtml.html`<div class="sidebar-body">${this.#renderContent()}</div>` : LitHtml.nothing}
+        ${expanded ? LitHtml.html`<div class="sidebar-body">${this.#renderContent()}</div>` : LitHtml.nothing}
     </div>`;
     // clang-format on
     LitHtml.render(output, this.#shadow, {host: this});

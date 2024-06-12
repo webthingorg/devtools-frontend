@@ -13,6 +13,7 @@ generate_css("css_files") {
     "interactionBreakdown.css",
     "liveMetricsView.css",
     "sidebar.css",
+    "sidebarinsight.css",
   ]
 }
 
@@ -24,6 +25,7 @@ devtools_module("components") {
     "InteractionBreakdown.ts",
     "LiveMetricsView.ts",
     "Sidebar.ts",
+    "SidebarInsight.ts",
   ]
 
   deps = [
@@ -65,6 +67,7 @@ ts_library("unittests") {
     "InteractionBreakdown.test.ts",
     "Invalidations.test.ts",
     "LiveMetricsView.test.ts",
+    "SidebarInsight.test.ts",
   ]
 
   deps = [
