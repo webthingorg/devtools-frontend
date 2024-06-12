@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "52e8d6c0_2e67eb87",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-06-12T05:15:18Z",
+      "side": 1,
+      "message": "Thanks Changhao!\n\nI\u0027m holding off a little bit with this CL, I noticed that we we may need these colors also for greyscale and in that case I\u0027d edit this one.\n\n@jacktfranklin@chromium.org Changhao was wondering why we use `-` as a start for the dark mode theme class. Do you maybe remember what was the context as to why this was chosen?",
+      "revId": "09c94b3872c8aaf513f2d8f82f4bef3a24a604d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e864af6d_60c77622",
@@ -14,6 +31,24 @@
       "writtenOn": "2024-06-11T16:18:23Z",
       "side": 1,
       "message": "nit: why does this class begin with `-`? Is there something special about this class?",
+      "revId": "09c94b3872c8aaf513f2d8f82f4bef3a24a604d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1692991_3a2eab07",
+        "filename": "front_end/ui/legacy/themeColors.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 450,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-06-12T05:15:18Z",
+      "side": 1,
+      "message": "Good question, and I\u0027m not entirely sure why it starts with `-`. I found this design doc, but there wasn\u0027t an explanation: https://docs.google.com/document/d/1QrSSRsJRzaQBY3zz73ZL84bTcFUV60yMtE5cuu6ED14\n\nI\u0027m CC\u0027ing Jack here, maybe he can give some context!",
+      "parentUuid": "e864af6d_60c77622",
       "revId": "09c94b3872c8aaf513f2d8f82f4bef3a24a604d1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
