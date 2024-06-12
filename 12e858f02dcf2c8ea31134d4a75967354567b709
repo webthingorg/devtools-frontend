@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "33a4da56_02c4dcb0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-12T15:49:30Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "acd9759c_65a51c7f",
+      "revId": "12e858f02dcf2c8ea31134d4a75967354567b709",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9a975258_87b4fdce",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-06-12T13:44:55Z",
       "side": 1,
       "message": "remove `` since the whole expression is a string.",
+      "revId": "12e858f02dcf2c8ea31134d4a75967354567b709",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a96c924f_c3364743",
+        "filename": "front_end/panels/freestyler/FreestylerEvaluateAction.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-12T15:49:30Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "9a975258_87b4fdce",
       "revId": "12e858f02dcf2c8ea31134d4a75967354567b709",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -72,6 +108,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a98ca80a_405079bf",
+        "filename": "front_end/panels/freestyler/FreestylerEvaluateAction.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-12T15:49:30Z",
+      "side": 1,
+      "message": "I think saying \"(cycle)\" would provide more information to the model:\n- They\u0027ll have access to the other properties that are not in the cycle.\n- They\u0027ll know that there is a cycle here, so they might also think reformulating the query.\n\nSo, I think showing the `(cycle)` is a better strategy. WDYT?",
+      "parentUuid": "452d9dd5_dc0258ba",
+      "revId": "12e858f02dcf2c8ea31134d4a75967354567b709",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ef5b8583_040cb04c",
         "filename": "front_end/panels/freestyler/FreestylerEvaluateAction.ts",
         "patchSetId": 1
@@ -83,6 +137,24 @@
       "writtenOn": "2024-06-12T13:44:55Z",
       "side": 1,
       "message": "Could you clarify why we cannot wrap the code into a function and JSON.stringify the result on the script side or do any serialization we need on the script side? I think it would be easier than serializing though SDK, WDYT?",
+      "revId": "12e858f02dcf2c8ea31134d4a75967354567b709",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58ee1998_2ed024c5",
+        "filename": "front_end/panels/freestyler/FreestylerEvaluateAction.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-12T15:49:30Z",
+      "side": 1,
+      "message": "Oh yes, I think I missed it previously. Updated it to do the stringification on the script side, PTAL :)",
+      "parentUuid": "ef5b8583_040cb04c",
       "revId": "12e858f02dcf2c8ea31134d4a75967354567b709",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
