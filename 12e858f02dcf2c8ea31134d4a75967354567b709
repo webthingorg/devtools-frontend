@@ -3,6 +3,40 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "acd9759c_65a51c7f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-06-12T13:44:55Z",
+      "side": 1,
+      "message": "s/Seperate/Separate",
+      "revId": "12e858f02dcf2c8ea31134d4a75967354567b709",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a975258_87b4fdce",
+        "filename": "front_end/panels/freestyler/FreestylerEvaluateAction.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-06-12T13:44:55Z",
+      "side": 1,
+      "message": "remove `` since the whole expression is a string.",
+      "revId": "12e858f02dcf2c8ea31134d4a75967354567b709",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a33a6348_66500ad3",
         "filename": "front_end/panels/freestyler/FreestylerEvaluateAction.ts",
         "patchSetId": 1
@@ -14,6 +48,23 @@
       "writtenOn": "2024-06-12T13:39:45Z",
       "side": 1,
       "message": "Do you know if we have a way to know whether a reference to a variable points to the same object or not? @alexrudenko@chromium.org It\u0027s needed for identifying the circles:\n```\nconst a \u003d {b: 1};\na.itself \u003d a;\n```\n\nwhile stringifying this, it\u0027d have been nice to have `{b: 1, itself: (cycle)}`.\n\nThough, even if not, I think it\u0027s not super important as we:\n* Don\u0027t expect cycles in eval results.\n* Don\u0027t expect deep object structures.",
+      "revId": "12e858f02dcf2c8ea31134d4a75967354567b709",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef5b8583_040cb04c",
+        "filename": "front_end/panels/freestyler/FreestylerEvaluateAction.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-06-12T13:44:55Z",
+      "side": 1,
+      "message": "Could you clarify why we cannot wrap the code into a function and JSON.stringify the result on the script side or do any serialization we need on the script side? I think it would be easier than serializing though SDK, WDYT?",
       "revId": "12e858f02dcf2c8ea31134d4a75967354567b709",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
