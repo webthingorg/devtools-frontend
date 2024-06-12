@@ -307,7 +307,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
         this.viewportElement.createChild('div', 'reveal-descendants-arrow-highlight-element');
     this.selectedElement = this.viewportElement.createChild('div', 'flame-chart-selected-element');
 
-    if (Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.TIMELINE_WRITE_MODIFICATIONS_TO_DISK)) {
+    if (Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.TIMELINE_ANNOTATIONS_OVERLAYS)) {
       // When this experiment is enabled the new Overlays system is
       // used to render the selected entry outline, so hide this one.
       // Once the overlay is ready we can remove this.selectedElement
