@@ -395,7 +395,7 @@ export class MainImpl {
     );
 
     Root.Runtime.experiments.register(
-        Root.Runtime.ExperimentName.TIMELINE_WRITE_MODIFICATIONS_TO_DISK,
+        Root.Runtime.ExperimentName.TIMELINE_ANNOTATIONS_OVERLAYS,
         'Enable saving and loading traces with modifications in the Performance panel',
     );
 
