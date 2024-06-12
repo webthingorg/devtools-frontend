@@ -16,6 +16,46 @@
       "message": "PTAL!",
       "revId": "51b6e9e255e3565f47749cfb83dfb39a1413def1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1bf274b3_f665581c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-06-12T18:45:43Z",
+      "side": 1,
+      "message": "This is so great, thank you for this! :D \n\nWhile the color is an improvement, it\u0027s still tough to detect changes when asserting a larger object. My example from before, but with this CL: https://screenshot.googleplex.com/4vUdP7VqnZcv5mo\n\nI\u0027ve left a suggestion below that would resolve that. I\u0027m happy to put up a CL to discuss that though, if you prefer.",
+      "revId": "51b6e9e255e3565f47749cfb83dfb39a1413def1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6dfee3b6_3732e744",
+        "filename": "test/conductor/karma-resultsdb-reporter.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-06-12T18:45:43Z",
+      "side": 1,
+      "message": "```suggestion\n  if (assertionErrors?.length \u003d\u003d\u003d 0) {\n    return [];\n  }\n  const err \u003d assertionErrors[0];\n  // If actual/expected look like JSON, parse into JSON for easier multiline diffs. https://github.com/litixsoft/karma-mocha-reporter/pull/62\n  if (String(err.actual).match(/^\".*\"$/) \u0026\u0026 String(err.expected).match(/^\".*\"$/)) {\n    try {\n      err.actual \u003d JSON.parse(err.actual);\n      err.expected \u003d JSON.parse(err.expected);\n    } catch (e) {\n    }\n  }\n\n  return diff.diffLines(`${err.expected}`, `${err.actual}`);\n```",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 9
+      },
+      "revId": "51b6e9e255e3565f47749cfb83dfb39a1413def1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
