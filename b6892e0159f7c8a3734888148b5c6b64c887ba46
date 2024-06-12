@@ -1,0 +1,39 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d109dd36_2379ee10",
+        "filename": "front_end/panels/network/NetworkDataGridNode.test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1552597
+      },
+      "writtenOn": "2024-06-12T13:08:16Z",
+      "side": 1,
+      "message": "This doesn\u0027t actually test the value of --icon-file-document which is what the original bug was about, but it looks like the test suite doesn\u0027t load those (as defined in applicationColorTokens.css).\n\nEven then it may not be a great test as it depends on the dynamic theming and the default one (Blue) matches the one it should be, but think testing that is beyond me.\n\nWDYT? Remove this test? Leave as is, as still a good test? Or actually take it all the way to test dynamic theming (in which case I\u0027ll need some help on how to do this).",
+      "fixSuggestions": [
+        {
+          "fixId": "195028bc_61a614b3",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/network/NetworkDataGridNode.test.ts",
+              "range": {
+                "startLine": 148,
+                "startChar": 0,
+                "endLine": 149,
+                "endChar": 0
+              },
+              "replacement": "    assert.strictEqual(backgroundColorOfIcon, \u0027var(--icon-file-document-color)\u0027);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "b6892e0159f7c8a3734888148b5c6b64c887ba46",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
