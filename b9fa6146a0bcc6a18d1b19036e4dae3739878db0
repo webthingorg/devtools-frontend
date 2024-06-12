@@ -16,6 +16,40 @@
       "message": "PTAL",
       "revId": "b9fa6146a0bcc6a18d1b19036e4dae3739878db0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4c842f4_1f7d7881",
+        "filename": "front_end/core/host/AidaClient.test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-06-12T17:58:08Z",
+      "side": 1,
+      "message": "let\u0027s create a helper to stub accepting a Partial\u003cHostConfig\u003e so that that only parts relevant for the test had to be defined?",
+      "revId": "b9fa6146a0bcc6a18d1b19036e4dae3739878db0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c01bad3_2cad1ec8",
+        "filename": "front_end/panels/freestyler/freestyler-meta.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-06-12T17:58:08Z",
+      "side": 1,
+      "message": "can we make the config non-optional and pass the  isFeatureAvailable directly to conditions?",
+      "revId": "b9fa6146a0bcc6a18d1b19036e4dae3739878db0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
