@@ -16,6 +16,23 @@
       "message": "Hi Simon, would you please review this change?",
       "revId": "08cabf5ab9c079abb60eee63977113f1a8906e68",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c6f92ef_f649d9b1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1325508
+      },
+      "writtenOn": "2024-06-12T17:13:41Z",
+      "side": 1,
+      "message": "Thanks for the quick review! I\u0027m delaying landing this change until the corresponding changes in V8 and Blink have been reviewed, to reduce the time during which these tests are disabled.",
+      "revId": "08cabf5ab9c079abb60eee63977113f1a8906e68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
