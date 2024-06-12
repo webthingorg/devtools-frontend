@@ -126,6 +126,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c4a6d4c9_ebadbccd",
+        "filename": "front_end/panels/freestyler/FreestylerEvaluateAction.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-06-12T15:54:09Z",
+      "side": 1,
+      "message": "Could you please create examples using (cycle) and the errors in the eval tool so that we can have some data to support the claim? I worry that the model will just say, the cycle is the issue because it is not something that is probably common in the training data",
+      "parentUuid": "a98ca80a_405079bf",
+      "revId": "12e858f02dcf2c8ea31134d4a75967354567b709",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ef5b8583_040cb04c",
         "filename": "front_end/panels/freestyler/FreestylerEvaluateAction.ts",
         "patchSetId": 1
