@@ -185,10 +185,10 @@ builder_coverage(
     execution_timeout = 2 * time.hour,
 )
 
-def try_pair(name, suffix, compiler_dimensions):
+def try_pair(name, suffix, compiler_dimensions, swatming_target_os, swarming_target_arch):
     try_builder(
         name = "%s_%s" % (name, suffix),
-        recipe_name = "devtools/tester",
+        recipe_name = "devtools/trybot_tester",
         dimensions = dimensions.multibot,
         build_numbers = True,
         properties = {
@@ -202,9 +202,9 @@ def try_pair(name, suffix, compiler_dimensions):
         build_numbers = True,
     )
 
-try_pair("dtf_linux", "rel", dimensions.default_ubuntu)
-try_pair("dtf_win", "rel", dimensions.win10)
-try_pair("dtf_mac", "rel", dimensions.mac)
+try_pair("dtf_linux", "rel", dimensions.default_ubuntu, "Ubuntu-22.04", "x86_64")
+try_pair("dtf_win", "rel", dimensions.win10, "Mac-14", "arm64")
+try_pair("dtf_mac", "rel", dimensions.mac, "Windows-10-19045", "x86_64")
 
 luci.list_view(
     name = "tryserver",
