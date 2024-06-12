@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e30c6e0_a00b5695",
+        "filename": "buckets/cpp_debugging_extension.star",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2024-06-12T12:53:14Z",
+      "side": 1,
+      "message": "nit: not sure where this is used, but can it get some more dashes? also below",
+      "range": {
+        "startLine": 56,
+        "startChar": 12,
+        "endLine": 56,
+        "endChar": 33
+      },
+      "revId": "fa05e673902dd6303ccaf986d24c1f1a5f3c73d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0aa8c96a_c56c7c41",
+        "filename": "buckets/try.star",
+        "patchSetId": 2
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2024-06-12T12:53:14Z",
+      "side": 1,
+      "message": "For a follow up: Could this move to the public directories too please?",
+      "range": {
+        "startLine": 223,
+        "startChar": 38,
+        "endLine": 223,
+        "endChar": 45
+      },
+      "revId": "fa05e673902dd6303ccaf986d24c1f1a5f3c73d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
