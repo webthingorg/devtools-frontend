@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b706137_20ec15b8",
+        "filename": "buckets/try.star",
+        "patchSetId": 5
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2024-06-12T10:04:17Z",
+      "side": 1,
+      "message": "nit: As in other CL, I\u0027d call this target_cpu.",
+      "range": {
+        "startLine": 188,
+        "startChar": 77,
+        "endLine": 188,
+        "endChar": 88
+      },
+      "revId": "90912a8bec8b9089668b9c8c543bb7a12e2caf97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f65f160_8853ed1c",
+        "filename": "buckets/try.star",
+        "patchSetId": 5
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2024-06-12T10:04:17Z",
+      "side": 1,
+      "message": "swarming",
+      "range": {
+        "startLine": 188,
+        "startChar": 48,
+        "endLine": 188,
+        "endChar": 66
+      },
+      "revId": "90912a8bec8b9089668b9c8c543bb7a12e2caf97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
