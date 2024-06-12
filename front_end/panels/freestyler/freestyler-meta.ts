@@ -4,7 +4,7 @@
 
 import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
-import * as Root from '../../core/root/root.js';
+import type * as Root from '../../core/root/root.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 import type * as Freestyler from './freestyler.js';
@@ -50,8 +50,8 @@ async function loadFreestylerModule(): Promise<typeof Freestyler> {
   return loadedFreestylerModule;
 }
 
-function isFeatureAvailable(): boolean {
-  return Root.Runtime.Runtime.queryParam('freestyler_dogfood') === 'true';
+function isFeatureAvailable(config?: Root.Runtime.HostConfig): boolean {
+  return config?.devToolsFreestylerDogfood?.enabled === true;
 }
 
 UI.ViewManager.registerViewExtension({
@@ -74,9 +74,9 @@ Common.Settings.registerSettingExtension({
   settingName: setting,
   settingType: Common.Settings.SettingType.BOOLEAN,
   title: i18n.i18n.lockedLazyString(TempUIStrings.enableFreestyler),
-  defaultValue: isFeatureAvailable() ? true : false,
+  defaultValue: (config: Root.Runtime.HostConfig): boolean => isFeatureAvailable(config),
   reloadRequired: true,
-  condition: isFeatureAvailable,
+  condition: config => isFeatureAvailable(config),
 });
 
 UI.ActionRegistration.registerActionExtension({
@@ -91,5 +91,5 @@ UI.ActionRegistration.registerActionExtension({
     const Freestyler = await loadFreestylerModule();
     return new Freestyler.ActionDelegate();
   },
-  condition: isFeatureAvailable,
+  condition: config => isFeatureAvailable(config),
 });
