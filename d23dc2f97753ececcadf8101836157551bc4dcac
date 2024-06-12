@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22a053a7_6a8a3916",
+        "filename": "DEPS",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-06-12T10:34:25Z",
+      "side": 1,
+      "message": "Just double checking if the `2@` is intentional?",
+      "range": {
+        "startLine": 34,
+        "startChar": 27,
+        "endLine": 34,
+        "endChar": 30
+      },
+      "revId": "d23dc2f97753ececcadf8101836157551bc4dcac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
