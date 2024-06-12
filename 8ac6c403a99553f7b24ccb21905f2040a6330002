@@ -1,0 +1,95 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "589666ab_b9208704",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-12T13:12:59Z",
+      "side": 1,
+      "message": "LGTM with suggestions 😊",
+      "revId": "8ac6c403a99553f7b24ccb21905f2040a6330002",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3511fc70_329820b7",
+        "filename": "front_end/panels/timeline/components/TimeRangeOverlay.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-12T13:12:59Z",
+      "side": 1,
+      "message": "I think we can simplify this method by doing something like:\n\n`  #visibleOverlayWidth(overlayRect: DOMRect): number {\n    if (!this.#canvasRect) {\n      return 0;\n    }\n\n    const {x: startX, width} \u003d overlayRect;\n    const endX \u003d startX + width;\n\n    const canvasStartX \u003d this.#canvasRect.x;\n    const canvasEndX \u003d this.#canvasRect.x + this.#canvasRect.width;\n\n    const leftVisible \u003d Math.max(canvasStartX, startX);\n    const rightVisible \u003d Math.min(canvasEndX, endX);\n\n    return rightVisible - leftVisible;`",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 3
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "28352bc7_bb82f3bc",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/components/TimeRangeOverlay.ts",
+              "range": {
+                "startLine": 53,
+                "startChar": 0,
+                "endLine": 54,
+                "endChar": 0
+              },
+              "replacement": "    const {x: startX, width} \u003d this.getBoundingClientRect();\n    const {x: canvasStartX, width: canvasWidth} \u003d this.#canvasRect;\n"
+            },
+            {
+              "path": "front_end/panels/timeline/components/TimeRangeOverlay.ts",
+              "range": {
+                "startLine": 55,
+                "startChar": 0,
+                "endLine": 76,
+                "endChar": 0
+              },
+              "replacement": "    const canvasEndX \u003d canvasStartX + canvasWidth;\n    return Math.min(endX, canvasEndX) - Math.max(startX, canvasStartX);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "8ac6c403a99553f7b24ccb21905f2040a6330002",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4d1fe58_5eb8cdff",
+        "filename": "front_end/panels/timeline/components/timeRangeOverlay.css",
+        "patchSetId": 7
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-12T13:12:59Z",
+      "side": 1,
+      "message": "I would remove or reduce this number. It doesn\u0027t show the label for pretty big time ranges with this min-width. It can show up right when it fits which is checked in `visibleOverlayWidth`",
+      "range": {
+        "startLine": 22,
+        "startChar": 2,
+        "endLine": 22,
+        "endChar": 19
+      },
+      "revId": "8ac6c403a99553f7b24ccb21905f2040a6330002",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
