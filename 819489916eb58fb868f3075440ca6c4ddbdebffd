@@ -51,6 +51,24 @@
       ],
       "revId": "819489916eb58fb868f3075440ca6c4ddbdebffd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41ec6e85_907402bc",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1466,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-06-13T11:24:21Z",
+      "side": 1,
+      "message": "Ops, nice spot. Thanks!",
+      "parentUuid": "b493f12a_08132925",
+      "revId": "819489916eb58fb868f3075440ca6c4ddbdebffd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
