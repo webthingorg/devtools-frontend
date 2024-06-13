@@ -129,12 +129,12 @@ export class FreestylerPanel extends UI.Panel.Panel {
   handleAction(actionId: string): void {
     switch (actionId) {
       case 'freestyler.element-panel-context': {
-        // TODO(340805362): Add UMA
+        Host.userMetrics.actionTaken(Host.UserMetrics.Action.FreestylerOpenedFromElementsPanel);
         this.#handleClearClick();
         break;
       }
       case 'freestyler.style-tab-context': {
-        // TODO(340805362): Add UMA
+        Host.userMetrics.actionTaken(Host.UserMetrics.Action.FreestylerOpenedFromStylesTab);
         this.#handleClearClick();
         break;
       }
