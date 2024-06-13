@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8acca4e0_5054032d",
+        "filename": "buckets/cpp_debugging_extension.star",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2024-06-13T08:52:33Z",
+      "side": 1,
+      "message": "Thanks!",
+      "parentUuid": "a90c4859_241c4828",
+      "range": {
+        "startLine": 26,
+        "startChar": 29,
+        "endLine": 26,
+        "endChar": 46
+      },
+      "revId": "8e8637f9377fdd5eb8f83479a0445fa89aa4d77c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7862a000_d5ed0541",
@@ -47,6 +71,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f3477bb_e956f7b7",
+        "filename": "buckets/cpp_debugging_extension.star",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2024-06-13T08:52:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7862a000_d5ed0541",
+      "range": {
+        "startLine": 38,
+        "startChar": 29,
+        "endLine": 38,
+        "endChar": 46
+      },
+      "revId": "8e8637f9377fdd5eb8f83479a0445fa89aa4d77c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ea6d3ff9_17fc1476",
@@ -60,6 +108,30 @@
       "writtenOn": "2024-06-13T08:35:11Z",
       "side": 1,
       "message": "devtools\n```suggestion\n        executable \u003d recipe(\"devtools/backend\"),\n```",
+      "range": {
+        "startLine": 222,
+        "startChar": 29,
+        "endLine": 222,
+        "endChar": 46
+      },
+      "revId": "8e8637f9377fdd5eb8f83479a0445fa89aa4d77c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c25bdb1_d0eb3ad9",
+        "filename": "buckets/try.star",
+        "patchSetId": 2
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2024-06-13T08:52:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea6d3ff9_17fc1476",
       "range": {
         "startLine": 222,
         "startChar": 29,
