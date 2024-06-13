@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c5ea3f4_a988fb83",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-06-13T18:31:35Z",
+      "side": 1,
+      "message": "Note that it currently would always stop on the first iteration without parsing.",
+      "revId": "86d622b0418a1415fd9a42f110a4b099fb9b49f6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
