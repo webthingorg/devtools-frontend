@@ -54,6 +54,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ecda1fcf_a5aa3210",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-13T09:46:18Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "e747f510_46c51f0e",
+      "revId": "2ab1210b47af1581f1dcbeb3f965471fffc10862",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c6500e8f_a06e2962",
@@ -85,6 +103,24 @@
       "side": 1,
       "message": "I would prefer snapshots (if we could use them), to make sure nothing gets changed by in things that are not yet explicitly covered by a test",
       "parentUuid": "c6500e8f_a06e2962",
+      "revId": "2ab1210b47af1581f1dcbeb3f965471fffc10862",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa156bb7_8d8f8488",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-13T09:46:18Z",
+      "side": 1,
+      "message": "I think that would be a separate test \"input structure not changes\" where we give all the possible inputs and assert the snapshot.\n\nThough I don\u0027t think it\u0027s super important enough to block, so lgtm! :)",
+      "parentUuid": "062d4c82_4bddecd3",
       "revId": "2ab1210b47af1581f1dcbeb3f965471fffc10862",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
