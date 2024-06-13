@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c6c55d5_ebba0f13",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-13T09:36:41Z",
+      "side": 1,
+      "message": "Can we move `mockHostConfig` to beforeEach call?",
+      "revId": "2ab1210b47af1581f1dcbeb3f965471fffc10862",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6500e8f_a06e2962",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-13T09:36:41Z",
+      "side": 1,
+      "message": "Instead of writing assertions similar to snapshot tests, WDYT of executing more specific assertions? (like the `test input` existing on the built request)",
+      "revId": "2ab1210b47af1581f1dcbeb3f965471fffc10862",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
