@@ -159,9 +159,7 @@ def main():
         ] + [
             name
             for name in members if name.startswith(f'package/{library_dir}/')
-            and name not in excluded_sources and
-            (name.endswith('.js') or name.endswith('.js.map')
-             or name.endswith('.d.ts') or name.endswith('.d.ts.map'))
+            and name not in excluded_sources and name.endswith('.js')
         ])
 
     # Update devtools_grd_files.gni
