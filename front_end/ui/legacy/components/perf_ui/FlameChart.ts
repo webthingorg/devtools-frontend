@@ -31,7 +31,6 @@
 import * as Common from '../../../../core/common/common.js';
 import * as i18n from '../../../../core/i18n/i18n.js';
 import * as Platform from '../../../../core/platform/platform.js';
-import * as Root from '../../../../core/root/root.js';
 import * as Bindings from '../../../../models/bindings/bindings.js';
 import * as TraceEngine from '../../../../models/trace/trace.js';
 import * as Buttons from '../../../components/buttons/buttons.js';
@@ -217,7 +216,6 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
   private readonly markerHighlighElement: HTMLElement;
   readonly highlightElement: HTMLElement;
   readonly revealDescendantsArrowHighlightElement: HTMLElement;
-  private readonly selectedElement: HTMLElement;
   private rulerEnabled: boolean;
   private barHeight: number;
   // Additional space around an entry that is added for operations with entry.
@@ -308,15 +306,6 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.highlightElement = this.viewportElement.createChild('div', 'flame-chart-highlight-element');
     this.revealDescendantsArrowHighlightElement =
         this.viewportElement.createChild('div', 'reveal-descendants-arrow-highlight-element');
-    this.selectedElement = this.viewportElement.createChild('div', 'flame-chart-selected-element');
-
-    if (Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.TIMELINE_ANNOTATIONS_OVERLAYS)) {
-      // When this experiment is enabled the new Overlays system is
-      // used to render the selected entry outline, so hide this one.
-      // Once the overlay is ready we can remove this.selectedElement
-      // entirely.
-      this.selectedElement.style.display = 'none';
-    }
 
     this.canvas.addEventListener('focus', () => {
       this.dispatchEventToListeners(Events.CanvasFocused);
@@ -1985,7 +1974,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     }
 
     this.updateElementPosition(this.highlightElement, this.highlightedEntryIndex);
-    this.updateElementPosition(this.selectedElement, this.selectedEntryIndex);
+
     if (this.#searchResultEntryIndex !== -1) {
       this.showPopoverForSearchResult(this.#searchResultEntryIndex);
     }
@@ -3398,7 +3387,6 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     }
     this.selectedEntryIndex = entryIndex;
     this.revealEntry(entryIndex);
-    this.updateElementPosition(this.selectedElement, this.selectedEntryIndex);
     this.update();
   }
 
@@ -3518,9 +3506,8 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
   /**
    * Returns the visibility of a level in the.
    * flame chart.
-   * Now this function is only used for tests.
    */
-  levelVisibilityForTest(level: number): boolean {
+  levelIsVisible(level: number): boolean {
     if (!this.visibleLevels) {
       throw new Error('No level visiblibities');
     }
