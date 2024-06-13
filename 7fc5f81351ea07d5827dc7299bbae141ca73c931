@@ -33,6 +33,24 @@
       "message": "Hey there! I clicked \"Submit to CQ\", but I\u0027m getting the following error:\n\n\"CV cannot start a Run for ldebeasi@gmail.com because the user is not a committer.\". Should I be doing something differently?",
       "revId": "7fc5f81351ea07d5827dc7299bbae141ca73c931",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "999e8bf4_f9e0af4a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-06-13T09:44:17Z",
+      "side": 1,
+      "message": "Hey Liam, sorry for a delay, I was on vacation. I will submit it for you now!",
+      "parentUuid": "c988a932_3fc2b36c",
+      "revId": "7fc5f81351ea07d5827dc7299bbae141ca73c931",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
