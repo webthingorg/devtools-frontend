@@ -129,6 +129,12 @@ export class FreestylerPanel extends UI.Panel.Panel {
   handleAction(actionId: string): void {
     switch (actionId) {
       case 'freestyler.element-panel-context': {
+        Host.userMetrics.actionTaken(Host.UserMetrics.Action.FreestylerOpenedFromElementsPanel);
+        this.#handleClearClick();
+        break;
+      }
+      case 'freestyler.style-tab-context': {
+        Host.userMetrics.actionTaken(Host.UserMetrics.Action.FreestylerOpenedFromStylesTab);
         this.#handleClearClick();
         break;
       }
@@ -178,7 +184,8 @@ export class ActionDelegate implements UI.ActionRegistration.ActionDelegate {
       actionId: string,
       ): boolean {
     switch (actionId) {
-      case 'freestyler.element-panel-context': {
+      case 'freestyler.element-panel-context':
+      case 'freestyler.style-tab-context': {
         void (async () => {
           const view = UI.ViewManager.ViewManager.instance().view(
               FreestylerPanel.panelName,
@@ -189,7 +196,6 @@ export class ActionDelegate implements UI.ActionRegistration.ActionDelegate {
                 FreestylerPanel.panelName,
             );
             const widget = (await view.widget()) as FreestylerPanel;
-            // TODO(340805362): Add UMA
             widget.handleAction(actionId);
           }
         })();
