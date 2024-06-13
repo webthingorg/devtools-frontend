@@ -50,6 +50,24 @@
       "message": "Nice, LGTM 😄",
       "revId": "ff8ec517cb6a09a4f2fdfea2b6aa12fc964fb7f2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3855e657_88692d1d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-13T10:02:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c026c30d_79413627",
+      "revId": "ff8ec517cb6a09a4f2fdfea2b6aa12fc964fb7f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
