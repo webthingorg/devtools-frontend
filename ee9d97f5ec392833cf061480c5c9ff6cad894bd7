@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4f31814_a4b6882f",
+        "filename": "front_end/panels/freestyler/BUILD.gn",
+        "patchSetId": 3
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-13T08:28:53Z",
+      "side": 1,
+      "message": "Removed it",
+      "parentUuid": "a670540e_992729c2",
+      "revId": "ee9d97f5ec392833cf061480c5c9ff6cad894bd7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "37e098e5_17a154fc",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-06-12T18:04:01Z",
       "side": 1,
       "message": "it looks like these two imports might not be in BUILD.gn?",
+      "revId": "ee9d97f5ec392833cf061480c5c9ff6cad894bd7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38e46a91_7bee5ca6",
+        "filename": "front_end/panels/freestyler/FreestylerEvaluateAction.test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-13T08:28:53Z",
+      "side": 1,
+      "message": "Ah, good catch; fixed it.",
+      "parentUuid": "37e098e5_17a154fc",
       "revId": "ee9d97f5ec392833cf061480c5c9ff6cad894bd7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
