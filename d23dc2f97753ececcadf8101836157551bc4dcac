@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d2fe140b_653c7d8e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1161379
+      },
+      "writtenOn": "2024-06-13T04:42:34Z",
+      "side": 1,
+      "message": "I confirmed that `./tools/bootstrap.py -debug ../../out` worked without error.\n\nIs that what you would like me to check?",
+      "parentUuid": "e467d2a3_8d17a118",
+      "revId": "d23dc2f97753ececcadf8101836157551bc4dcac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "22a053a7_6a8a3916",
         "filename": "DEPS",
         "patchSetId": 4
@@ -31,6 +49,30 @@
       "writtenOn": "2024-06-12T10:34:25Z",
       "side": 1,
       "message": "Just double checking if the `2@` is intentional?",
+      "range": {
+        "startLine": 34,
+        "startChar": 27,
+        "endLine": 34,
+        "endChar": 30
+      },
+      "revId": "d23dc2f97753ececcadf8101836157551bc4dcac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7cc98d2_77b3e143",
+        "filename": "DEPS",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1161379
+      },
+      "writtenOn": "2024-06-13T04:42:34Z",
+      "side": 1,
+      "message": "Yes.\nref: http://g/luci-announce/9hly6mi_pEI/DgrqryLYCwAJ",
+      "parentUuid": "22a053a7_6a8a3916",
       "range": {
         "startLine": 34,
         "startChar": 27,
