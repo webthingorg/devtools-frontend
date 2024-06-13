@@ -9,6 +9,7 @@ import type * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Protocol from '../../generated/protocol.js';
 import * as NetworkForward from '../../panels/network/forward/forward.js';
+import * as IconButton from '../../ui/components/icon_button/icon_button.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as VisualLogging from '../../ui/visual_logging/visual_logging.js';
 
@@ -489,6 +490,56 @@ const SignatureSchemeStrings = new Map([
   [0x0806, 'RSA-PSS with SHA-512'],
 ]);
 
+const LOCK_ICON_NAME = 'lock';
+const WARNING_ICON_NAME = 'warning';
+const INFO_ICON_NAME = 'info';
+const INDETERMINATE_ICON_NAME = 'indeterminate-question-box';
+
+function getSecurityStateIconForDetailedView(
+    securityState: Protocol.Security.SecurityState, className: string): IconButton.Icon.Icon {
+  let iconName: string;
+
+  switch (securityState) {
+    case Protocol.Security.SecurityState.Unknown:
+      iconName = INDETERMINATE_ICON_NAME;
+      break;
+    case Protocol.Security.SecurityState.Neutral:   // fallthrough
+    case Protocol.Security.SecurityState.Insecure:  // fallthrough
+    case Protocol.Security.SecurityState.InsecureBroken:
+      iconName = WARNING_ICON_NAME;
+      break;
+    case Protocol.Security.SecurityState.Secure:
+      iconName = LOCK_ICON_NAME;
+      break;
+    case Protocol.Security.SecurityState.Info:
+      iconName = INFO_ICON_NAME;
+      break;
+  }
+
+  return IconButton.Icon.create(iconName, className);
+}
+
+function getSecurityStateIconForOverview(
+    securityState: Protocol.Security.SecurityState, className: string): IconButton.Icon.Icon {
+  let iconName: string;
+  switch (securityState) {
+    case Protocol.Security.SecurityState.Unknown:  // fallthrough
+    case Protocol.Security.SecurityState.Neutral:
+      iconName = INDETERMINATE_ICON_NAME;
+      break;
+    case Protocol.Security.SecurityState.Insecure:  // fallthrough
+    case Protocol.Security.SecurityState.InsecureBroken:
+      iconName = WARNING_ICON_NAME;
+      break;
+    case Protocol.Security.SecurityState.Secure:
+      iconName = LOCK_ICON_NAME;
+      break;
+    case Protocol.Security.SecurityState.Info:
+      throw new Error(`Unexpected security state ${securityState}`);
+  }
+  return IconButton.Icon.create(iconName, className);
+}
+
 export class SecurityPanel extends UI.Panel.PanelWithSidebar implements
     SDK.TargetManager.SDKModelObserver<SecurityModel> {
   readonly mainView: SecurityMainView;
@@ -509,8 +560,8 @@ export class SecurityPanel extends UI.Panel.PanelWithSidebar implements
     const title = document.createElement('span');
     title.classList.add('title');
     title.textContent = i18nString(UIStrings.overview);
-    this.sidebarMainViewElement = new SecurityPanelSidebarTreeElement(
-        title, this.setVisibleView.bind(this, this.mainView), 'security-main-view-sidebar-tree-item', 'lock-icon');
+    this.sidebarMainViewElement =
+        new SecurityPanelSidebarOverviewTreeElement(title, this.setVisibleView.bind(this, this.mainView));
     this.sidebarMainViewElement.tooltip = title.textContent;
     this.sidebarTree = new SecurityPanelSidebarTree(this.sidebarMainViewElement, this.showOrigin.bind(this));
     this.panelSidebarElement().appendChild(this.sidebarTree.element);
@@ -865,9 +916,8 @@ export class SecurityPanelSidebarTree extends UI.TreeOutline.TreeOutlineInShadow
 
   addOrigin(origin: Platform.DevToolsPath.UrlString, securityState: Protocol.Security.SecurityState): void {
     this.mainViewReloadMessage.hidden = true;
-    const originElement = new SecurityPanelSidebarTreeElement(
-        SecurityPanel.createHighlightedUrl(origin, securityState), this.showOriginInPanel.bind(this, origin),
-        'security-sidebar-tree-item', 'security-property');
+    const originElement = new SecurityPanelSidebarDetailTreeElement(
+        SecurityPanel.createHighlightedUrl(origin, securityState), this.showOriginInPanel.bind(this, origin));
     originElement.tooltip = origin;
     this.elementsByOrigin.set(origin, originElement);
     this.updateOrigin(origin, securityState);
@@ -948,31 +998,24 @@ export enum OriginGroup {
   Unknown = 'Unknown',
 }
 
-export class SecurityPanelSidebarTreeElement extends UI.TreeOutline.TreeElement {
+abstract class SecurityPanelSidebarTreeElement extends UI.TreeOutline.TreeElement {
   private readonly selectCallback: () => void;
-  private readonly cssPrefix: string;
-  private readonly iconElement: HTMLElement;
   private securityStateInternal: Protocol.Security.SecurityState|null;
 
-  constructor(textElement: Element, selectCallback: () => void, className: string, cssPrefix: string) {
+  constructor(textElement: Element, selectCallback: () => void) {
     super('', false);
     this.selectCallback = selectCallback;
-    this.cssPrefix = cssPrefix;
-    this.listItemElement.classList.add(className);
-    this.iconElement = this.listItemElement.createChild('div', 'icon');
-    this.iconElement.classList.add(this.cssPrefix);
     this.listItemElement.appendChild(textElement);
     this.securityStateInternal = null;
     this.setSecurityState(Protocol.Security.SecurityState.Unknown);
   }
 
   setSecurityState(newSecurityState: Protocol.Security.SecurityState): void {
-    if (this.securityStateInternal) {
-      this.iconElement.classList.remove(this.cssPrefix + '-' + this.securityStateInternal);
-    }
-
     this.securityStateInternal = newSecurityState;
-    this.iconElement.classList.add(this.cssPrefix + '-' + newSecurityState);
+    const icon = this.getIconForSecurityState(newSecurityState);
+    if (icon) {
+      this.setLeadingIcons([icon]);
+    }
   }
 
   securityState(): Protocol.Security.SecurityState|null {
@@ -982,6 +1025,30 @@ export class SecurityPanelSidebarTreeElement extends UI.TreeOutline.TreeElement 
   override onselect(): boolean {
     this.selectCallback();
     return true;
+  }
+
+  abstract getIconForSecurityState(newSecurityState: Protocol.Security.SecurityState): IconButton.Icon.Icon;
+}
+
+class SecurityPanelSidebarOverviewTreeElement extends SecurityPanelSidebarTreeElement {
+  constructor(textElement: Element, selectCallback: () => void) {
+    super(textElement, selectCallback);
+    this.listItemElement.classList.add('security-main-view-sidebar-tree-item');
+  }
+
+  override getIconForSecurityState(securityState: Protocol.Security.SecurityState): IconButton.Icon.Icon {
+    return getSecurityStateIconForOverview(securityState, `lock-icon lock-icon-${securityState}`);
+  }
+}
+
+class SecurityPanelSidebarDetailTreeElement extends SecurityPanelSidebarTreeElement {
+  constructor(textElement: Element, selectCallback: () => void) {
+    super(textElement, selectCallback);
+    this.listItemElement.classList.add('security-sidebar-tree-item');
+  }
+
+  override getIconForSecurityState(securityState: Protocol.Security.SecurityState): IconButton.Icon.Icon {
+    return getSecurityStateIconForDetailedView(securityState, `security-property security-property-${securityState}`);
   }
 }
 
@@ -1019,9 +1086,21 @@ export class SecurityMainView extends UI.Widget.VBox {
 
     const lockSpectrum = this.summarySection.createChild('div', 'lock-spectrum');
     this.lockSpectrum = new Map([
-      [Protocol.Security.SecurityState.Secure, lockSpectrum.createChild('div', 'lock-icon lock-icon-secure')],
-      [Protocol.Security.SecurityState.Neutral, lockSpectrum.createChild('div', 'lock-icon lock-icon-neutral')],
-      [Protocol.Security.SecurityState.Insecure, lockSpectrum.createChild('div', 'lock-icon lock-icon-insecure')],
+      [
+        Protocol.Security.SecurityState.Secure,
+        lockSpectrum.appendChild(
+            getSecurityStateIconForOverview(Protocol.Security.SecurityState.Secure, 'lock-icon lock-icon-secure')),
+      ],
+      [
+        Protocol.Security.SecurityState.Neutral,
+        lockSpectrum.appendChild(
+            getSecurityStateIconForOverview(Protocol.Security.SecurityState.Neutral, 'lock-icon lock-icon-neutral')),
+      ],
+      [
+        Protocol.Security.SecurityState.Insecure,
+        lockSpectrum.appendChild(
+            getSecurityStateIconForOverview(Protocol.Security.SecurityState.Insecure, 'lock-icon lock-icon-insecure')),
+      ],
     ]);
     UI.Tooltip.Tooltip.install(
         this.getLockSpectrumDiv(Protocol.Security.SecurityState.Secure), i18nString(UIStrings.secure));
@@ -1054,8 +1133,9 @@ export class SecurityMainView extends UI.Widget.VBox {
     const explanationSection = parent.createChild('div', 'security-explanation');
     explanationSection.classList.add('security-explanation-' + explanation.securityState);
 
-    explanationSection.createChild('div', 'security-property')
-        .classList.add('security-property-' + explanation.securityState);
+    const icon = getSecurityStateIconForDetailedView(
+        explanation.securityState, 'security-property security-property-' + explanation.securityState);
+    explanationSection.appendChild(icon);
     const text = explanationSection.createChild('div', 'security-explanation-text');
 
     const explanationHeader = text.createChild('div', 'security-explanation-title');
@@ -1453,8 +1533,10 @@ export class SecurityOriginView extends UI.Widget.VBox {
     UI.ARIAUtils.markAsHeading(titleDiv, 1);
 
     const originDisplay = titleSection.createChild('div', 'origin-display');
-    this.originLockIcon = originDisplay.createChild('span', 'security-property');
-    this.originLockIcon.classList.add('security-property-' + originState.securityState);
+    this.originLockIcon = originDisplay.createChild('span');
+    const icon = getSecurityStateIconForDetailedView(
+        originState.securityState, `security-property security-property-${originState.securityState}`);
+    this.originLockIcon.appendChild(icon);
 
     originDisplay.appendChild(SecurityPanel.createHighlightedUrl(origin, originState.securityState));
 
@@ -1695,14 +1777,12 @@ export class SecurityOriginView extends UI.Widget.VBox {
   }
 
   setSecurityState(newSecurityState: Protocol.Security.SecurityState): void {
-    for (const className of Array.prototype.slice.call(this.originLockIcon.classList)) {
-      if (className.startsWith('security-property-')) {
-        this.originLockIcon.classList.remove(className);
-      }
-    }
-
-    this.originLockIcon.classList.add('security-property-' + newSecurityState);
+    this.originLockIcon.removeChildren();
+    const icon = getSecurityStateIconForDetailedView(
+        newSecurityState, `security-property security-property-${newSecurityState}`);
+    this.originLockIcon.appendChild(icon);
   }
+
   override wasShown(): void {
     super.wasShown();
     this.registerCSSFiles([originViewStyles, lockIconStyles]);
