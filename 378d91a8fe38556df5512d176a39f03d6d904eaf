@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf84ab76_fbc442db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-06-13T22:48:25Z",
+      "side": 1,
+      "message": "This works, but I\u0027m not sure if there is a better pattern that for DevTools to handle nodes that could be invalidated by a document update. Please advise if this solution isn\u0027t ideal.",
+      "revId": "378d91a8fe38556df5512d176a39f03d6d904eaf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
