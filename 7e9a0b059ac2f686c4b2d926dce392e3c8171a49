@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "694d1ff8_c74e4281",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-06-13T04:32:24Z",
+      "side": 1,
+      "message": "LGTM, thanks Changhao!",
+      "revId": "7e9a0b059ac2f686c4b2d926dce392e3c8171a49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
