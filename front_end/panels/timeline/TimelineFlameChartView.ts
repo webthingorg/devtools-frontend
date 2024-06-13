@@ -12,6 +12,7 @@ import * as TraceEngine from '../../models/trace/trace.js';
 import * as TraceBounds from '../../services/trace_bounds/trace_bounds.js';
 import * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 import * as UI from '../../ui/legacy/legacy.js';
+import * as VisualLogging from '../../ui/visual_logging/visual_logging.js';
 
 import {CountersGraph} from './CountersGraph.js';
 import {SHOULD_SHOW_EASTER_EGG} from './EasterEgg.js';
@@ -473,7 +474,38 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
   private onEntrySelected(
       dataProvider: TimelineFlameChartDataProvider|TimelineFlameChartNetworkDataProvider,
       event: Common.EventTarget.EventTargetEvent<number>): void {
+    const data = dataProvider.timelineData();
+    if (!data) {
+      return;
+    }
     const entryIndex = event.data;
+
+    const entryLevel = data.entryLevels[entryIndex];
+    const groupForLevel = data.groups.find((group, groupIndex) => {
+      const nextGroup = data.groups.at(groupIndex + 1);
+      if (group.startLevel > entryLevel) {
+        return false;
+      }
+
+      if (nextGroup) {
+        if (nextGroup.startLevel <= entryLevel) {
+          return false;
+        }
+        return true;
+      }
+
+      return true;
+    });
+    console.log('here', groupForLevel, entryLevel, data.groups);
+
+    const loggableForEntrySelected = {};
+    VisualLogging.registerLoggable(
+        loggableForEntrySelected, `${VisualLogging.action('performance.entry-selected')}`, groupForLevel ?? null);
+
+    if (groupForLevel) {
+      VisualLogging.logClick(loggableForEntrySelected, new MouseEvent('click'));
+    }
+
     if (dataProvider === this.mainDataProvider) {
       this.mainDataProvider.buildFlowForInitiator(entryIndex);
     }

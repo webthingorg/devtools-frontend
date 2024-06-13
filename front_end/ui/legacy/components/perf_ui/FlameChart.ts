@@ -3871,6 +3871,7 @@ export interface Group {
   style: GroupStyle;
   /** Should be turned on if the track supports user editable stacks. */
   showStackContextMenu?: boolean;
+  jsLogContext?: string;
 }
 
 export interface GroupStyle {

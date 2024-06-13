@@ -1,10 +1,12 @@
 // Copyright 2023 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
+import type * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as TraceEngine from '../../models/trace/trace.js';
 import type * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 import * as ThemeSupport from '../../ui/legacy/theme_support/theme_support.js';
+import * as VisualLogging from '../../ui/visual_logging/visual_logging.js';
 
 const UIStrings = {
   /**
@@ -53,7 +55,17 @@ export function buildGroupStyle(extra?: Partial<PerfUI.FlameChart.GroupStyle>): 
 export function buildTrackHeader(
     startLevel: number, name: string, style: PerfUI.FlameChart.GroupStyle, selectable: boolean, expanded?: boolean,
     showStackContextMenu?: boolean): PerfUI.FlameChart.Group {
-  const group = ({startLevel, name, style, selectable, expanded, showStackContextMenu} as PerfUI.FlameChart.Group);
+  const group: PerfUI.FlameChart.Group = {
+    startLevel,
+    name: name as Common.UIString.LocalizedString,
+    style,
+    selectable,
+    expanded,
+    showStackContextMenu,
+    jsLogContext: name,
+  };
+  console.log('registered group loggable', group);
+  VisualLogging.registerLoggable(group, `${VisualLogging.action().context(group.jsLogContext)}`, null);
   return group;
 }
 
