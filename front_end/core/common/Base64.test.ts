@@ -15,6 +15,7 @@ describe('Base64 decoder', () => {
   }
 
   it('decodes correctly with double padding', () => {
+    throw new Error('Not implemented');
     decode('ABCDEFG');  // Double-equals padded: QUJDREVGRw==
   });
 
