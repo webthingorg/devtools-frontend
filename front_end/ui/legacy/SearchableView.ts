@@ -353,7 +353,7 @@ export class SearchableView extends VBox {
   }
 
   private toggleReplace(): void {
-    const replaceEnabled = !this.replaceToggleButton.toggled();
+    const replaceEnabled = !this.replaceToggleButton.isToggled();
     this.replaceToggleButton.setToggled(replaceEnabled);
     const label =
         replaceEnabled ? i18nString(UIStrings.disableFindAndReplace) : i18nString(UIStrings.enableFindAndReplace);
@@ -631,7 +631,7 @@ export class SearchableView extends VBox {
   }
 
   private updateSecondRowVisibility(): void {
-    const secondRowVisible = this.replaceToggleButton.toggled();
+    const secondRowVisible = this.replaceToggleButton.isToggled();
     this.footerElementContainer.classList.toggle('replaceable', secondRowVisible);
 
     if (secondRowVisible) {

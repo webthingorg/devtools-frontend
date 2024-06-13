@@ -49,7 +49,6 @@ export const SELECTED_THREAD_SELECTOR = 'div.thread-item.selected > div.thread-i
 export const STEP_INTO_BUTTON = '[aria-label="Step into next function call"]';
 export const STEP_OVER_BUTTON = '[aria-label="Step over next function call"]';
 export const STEP_OUT_BUTTON = '[aria-label="Step out of current function"]';
-export const TURNED_OFF_PAUSE_BUTTON_SELECTOR = 'button.toolbar-state-off';
 export const TURNED_ON_PAUSE_BUTTON_SELECTOR = 'button.toolbar-state-on';
 export const DEBUGGER_PAUSED_EVENT = 'DevTools.DebuggerPaused';
 const WATCH_EXPRESSION_VALUE_SELECTOR = '.watch-expression-tree-item .object-value-string.value';
@@ -864,7 +863,7 @@ export async function waitForLines(lineCount: number): Promise<void> {
 }
 
 export async function isPrettyPrinted(): Promise<boolean> {
-  const prettyButton = await waitFor('[aria-label="Pretty print"]');
-  const isPretty = await prettyButton.evaluate(e => e.ariaPressed);
-  return isPretty === 'true';
+  const prettyButton = await waitFor('[title="Pretty print"]');
+  const isPretty = await prettyButton.evaluate(e => e.classList.contains('toggled'));
+  return isPretty === true;
 }
