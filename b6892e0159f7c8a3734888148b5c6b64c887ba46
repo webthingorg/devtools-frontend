@@ -34,6 +34,24 @@
       ],
       "revId": "b6892e0159f7c8a3734888148b5c6b64c887ba46",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4faa7c3_e110a780",
+        "filename": "front_end/panels/network/NetworkDataGridNode.test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-06-13T07:23:35Z",
+      "side": 1,
+      "message": "Hmm, would it help if we use `UIUtils.createSHadowRootWithCoreStyles` or `UIUtils.injectCoreStyles` in the test and render the cell as a child of that so the core styles are applied?",
+      "parentUuid": "d109dd36_2379ee10",
+      "revId": "b6892e0159f7c8a3734888148b5c6b64c887ba46",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
