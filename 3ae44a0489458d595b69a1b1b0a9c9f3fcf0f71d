@@ -177,6 +177,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "97eba5c8_0802ae29",
+        "filename": "front_end/panels/timeline/EnhancedTraces.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-06-13T22:58:08Z",
+      "side": 1,
+      "message": "\u003e Perhaps we could keep the information extractable from traceEvents (target, execution context, script) within traceEvent and do that part of rehydration after we import the trace. When we start adding memory tooling data, which is not extractable from trace event, we could add `memory?: MemoryData` in `TraceFile` so we don\u0027t need to change the export file format entirely. What do y\u0027all think about this?\n\nlove it.",
+      "parentUuid": "2e5cc61f_989bb5be",
+      "revId": "3ae44a0489458d595b69a1b1b0a9c9f3fcf0f71d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9bb6ffea_35980030",
         "filename": "front_end/panels/timeline/TimelinePanel.ts",
         "patchSetId": 9
