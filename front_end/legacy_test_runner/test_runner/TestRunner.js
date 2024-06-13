@@ -446,7 +446,7 @@ export async function _evaluateInPage(code) {
     code += `//# sourceURL=${sourceURL}`;
   }
   const response = await TestRunner.RuntimeAgent.invoke_evaluate({expression: code, objectGroup: 'console'});
-  const error = response[ProtocolClient.InspectorBackend.ProtocolError];
+  const error = response.getError();
   if (error) {
     addResult('Error: ' + error);
     completeTest();
@@ -465,12 +465,12 @@ export async function _evaluateInPage(code) {
 export async function evaluateInPageAnonymously(code, userGesture) {
   const response =
       await TestRunner.RuntimeAgent.invoke_evaluate({expression: code, objectGroup: 'console', userGesture});
-  if (!response[ProtocolClient.InspectorBackend.ProtocolError]) {
+  if (response && !response.exceptionDetails && !response.getError()) {
     return response.result.value;
   }
   addResult(
       'Error: ' +
-      (response.exceptionDetails && response.exceptionDetails.text || 'exception from evaluateInPageAnonymously.'));
+      (response.getError() || response.exceptionDetails?.text || 'exception from evaluateInPageAnonymously.'));
   completeTest();
 }
 
@@ -490,13 +490,12 @@ export async function evaluateInPageAsync(code) {
   const response = await TestRunner.RuntimeAgent.invoke_evaluate(
       {expression: code, objectGroup: 'console', includeCommandLineAPI: false, awaitPromise: true});
 
-  const error = response[ProtocolClient.InspectorBackend.ProtocolError];
-  if (!error && !response.exceptionDetails) {
+  if (response && !response.exceptionDetails && !response.getError()) {
     return response.result.value;
   }
   let errorMessage = 'Error: ';
-  if (error) {
-    errorMessage += error;
+  if (response.getError()) {
+    errorMessage += error.getError();
   } else if (response.exceptionDetails) {
     errorMessage += response.exceptionDetails.text;
     if (response.exceptionDetails.exception) {
