@@ -16,6 +16,24 @@
       "message": "Let\u0027s update the codeblock tests for this https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/ui/components/markdown_view/CodeBlock.test.ts",
       "revId": "4dd8b5ac3e642755f83fb90ba9b10e50624c72fa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6df8e176_9eac88fd",
+        "filename": "front_end/ui/components/markdown_view/CodeBlock.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-13T13:47:29Z",
+      "side": 1,
+      "message": "Updated them, thanks!",
+      "parentUuid": "bcf3469f_548f7b8e",
+      "revId": "4dd8b5ac3e642755f83fb90ba9b10e50624c72fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
