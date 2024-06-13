@@ -59,6 +59,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1fc87538_880ee0c0",
+        "filename": "front_end/panels/timeline/components/Sidebar.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-06-13T19:17:53Z",
+      "side": 1,
+      "message": "This did the trick, thanks !",
+      "parentUuid": "f5f688b2_91bd32e0",
+      "range": {
+        "startLine": 74,
+        "startChar": 2,
+        "endLine": 75,
+        "endChar": 55
+      },
+      "revId": "5227c0669cd9839eb831fb5eb707367871724f8f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dc3f17b2_1205e5c5",
