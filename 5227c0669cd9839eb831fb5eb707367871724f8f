@@ -20,6 +20,47 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f5f688b2_91bd32e0",
+        "filename": "front_end/panels/timeline/components/Sidebar.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-13T08:46:41Z",
+      "side": 1,
+      "message": "const firstNav \u003d this.#insights.values().next().value;\nif(!firstNav) { return}",
+      "range": {
+        "startLine": 74,
+        "startChar": 2,
+        "endLine": 75,
+        "endChar": 55
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "2fa82994_e5caf55d",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/components/Sidebar.ts",
+              "range": {
+                "startLine": 74,
+                "startChar": 0,
+                "endLine": 75,
+                "endChar": 0
+              },
+              "replacement": "    const firstNav \u003d this.#insights.values().next().value;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "5227c0669cd9839eb831fb5eb707367871724f8f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dc3f17b2_1205e5c5",
         "filename": "front_end/panels/timeline/components/Sidebar.ts",
         "patchSetId": 14
