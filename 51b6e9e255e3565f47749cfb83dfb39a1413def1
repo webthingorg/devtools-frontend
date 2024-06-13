@@ -80,6 +80,30 @@
       },
       "revId": "51b6e9e255e3565f47749cfb83dfb39a1413def1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "887f836c_1a24483f",
+        "filename": "test/conductor/karma-resultsdb-reporter.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-06-13T22:55:49Z",
+      "side": 1,
+      "message": "Well, deepStrictEqual is already doing the object comparison. I do get your point that building a diff out of the parsed result isn\u0027t guaranteed to be meaningful though.\n\nBut... no big deal. This test is SaveFileFormatter.test.ts... and and one of the few places where we are asserting on actual JSON strings.   Given how infrequent that is, I\u0027m fine leaving this alone. :)",
+      "parentUuid": "e29e8358_06d1602f",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 9
+      },
+      "revId": "51b6e9e255e3565f47749cfb83dfb39a1413def1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
