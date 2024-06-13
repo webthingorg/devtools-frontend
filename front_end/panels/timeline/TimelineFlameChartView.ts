@@ -259,6 +259,30 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     );
   }
 
+  createRangeOverlay(startTime: number, endTime: number): void {
+    this.delegate.select(TimelineSelection.fromRange(startTime, endTime));
+    if (Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.TIMELINE_ANNOTATIONS_OVERLAYS)) {
+      const bounds = TraceEngine.Helpers.Timing.traceWindowFromMilliSeconds(
+          TraceEngine.Types.Timing.MilliSeconds(0),
+          TraceEngine.Types.Timing.MilliSeconds(500000),
+      );
+
+      if (this.#timeRangeSelectionOverlay) {
+        this.#overlays.updateExisting(this.#timeRangeSelectionOverlay, {
+          bounds,
+        });
+      } else {
+        this.#timeRangeSelectionOverlay = this.#overlays.add({
+          type: 'TIME_RANGE',
+          label: '',
+          showDuration: true,
+          bounds,
+        });
+      }
+      this.#overlays.update();
+    }
+  }
+
   /**
    * @param startTime - the start time of the selection in MilliSeconds
    * @param endTime - the end time of the selection in MilliSeconds
@@ -317,10 +341,15 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     this.mainDataProvider.setModel(newTraceEngineData, isCpuProfile);
     this.networkDataProvider.setModel(newTraceEngineData);
     ExtensionDataGatherer.instance().modelChanged(newTraceEngineData);
+
     this.#reset();
     this.updateSearchResults(false, false);
     this.refreshMainFlameChart();
     this.#updateFlameCharts();
+    // TODO: add overlay here?
+    if (newTraceEngineData !== null) {
+      this.createRangeOverlay(TraceEngine.Types.Timing.MilliSeconds(400), TraceEngine.Types.Timing.MilliSeconds(1000));
+    }
   }
 
   #reset(): void {
