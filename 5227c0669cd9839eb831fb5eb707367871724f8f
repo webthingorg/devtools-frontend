@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cbb958c_8633a7d7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-13T08:28:47Z",
+      "side": 1,
+      "message": "nice this is looking great! Going to plus one so that you can land whilst I am offline, but please check the comment - and also dig into the tests. Thanks!",
+      "revId": "5227c0669cd9839eb831fb5eb707367871724f8f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc3f17b2_1205e5c5",
+        "filename": "front_end/panels/timeline/components/Sidebar.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-13T08:28:47Z",
+      "side": 1,
+      "message": "nit: let\u0027s make this return the value and store it here for clarity:\n\n```\nthis.#phaseData \u003d this.getLCPInsightData()\n```\n\nAlso, I think we could also add an early exit of:\n\n```\nif(insights \u003d\u003d\u003d this.#insights) {\n  return; // data is identical, so no need to recalculate the phases\n  }\n```",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 125,
+        "endChar": 29
+      },
+      "revId": "5227c0669cd9839eb831fb5eb707367871724f8f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
