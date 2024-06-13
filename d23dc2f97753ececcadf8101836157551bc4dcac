@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1eb82e81_44c1f554",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2024-06-13T12:46:35Z",
+      "side": 1,
+      "message": "Yes pls ignore the non-e2e failures. Those bots just got removed.",
+      "parentUuid": "bc406c99_c36205e4",
+      "revId": "d23dc2f97753ececcadf8101836157551bc4dcac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "22a053a7_6a8a3916",
         "filename": "DEPS",
         "patchSetId": 4
