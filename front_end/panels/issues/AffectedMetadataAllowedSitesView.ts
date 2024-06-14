@@ -40,13 +40,13 @@ export class AffectedMetadataAllowedSitesView extends AffectedResourcesView {
       textElement.textContent = issueData.details().allowedSites.join(', ');
       textContentElement.appendChild(textElement);
 
-      if (!issueData.details().isOptOutTopLevel && issueData.details().optOutPercentage > 0) {
+      if (!issueData.details().isOptOutTopLevel) {
         const optOutTextElement = document.createElement('span');
         optOutTextElement.textContent = ' (opt-out: ' + issueData.details().optOutPercentage + '% - ';
         textContentElement.appendChild(optOutTextElement);
 
-        const linkElement = UI.XLink.XLink.create(
-            'https://github.com/amaliev/3pcd-exemption-heuristics/blob/main/explainer.md', 'learn more');
+        const linkElement =
+            UI.XLink.XLink.create('https://github.com/explainers-by-googlers/3pcd-grace-period-opt-out', 'learn more');
         textContentElement.appendChild(linkElement);
 
         const endTextElement = document.createElement('span');
