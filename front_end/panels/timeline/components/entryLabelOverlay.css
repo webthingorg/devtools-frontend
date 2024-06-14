@@ -1,0 +1,30 @@
+/*
+ * Copyright 2024 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file.
+ */
+
+:host {
+  top: 0;
+  bottom: 0;
+}
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  pointer-events: none;
+  color: #fff;
+  align-items: center;
+}
+
+.label-element {
+  background-color: #000;
+  border-radius: 4px;
+  font-family: var(--monospace-font-family);
+  font-weight: bold;
+}
+
+.entry-wrap {
+  border: 2px solid #000;
+  background-color: var(--sys-color-state-ripple-primary);
+}
