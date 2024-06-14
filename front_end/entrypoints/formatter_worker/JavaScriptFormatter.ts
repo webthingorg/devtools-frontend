@@ -217,6 +217,10 @@ export class JavaScriptFormatter {
       if (AT.keyword(token, 'function')) {
         return node.id ? 'ts' : 't';
       }
+    } else if (nodeType === 'ArrowFunctionExpression') {
+      if (AT.punctuator(token, '')) {
+        return 'sts';
+      }
     } else if (nodeType === 'WithStatement') {
       if (AT.punctuator(token, ')')) {
         return node.body && node.body.type === 'BlockStatement' ? 'ts' : 'tn>';
