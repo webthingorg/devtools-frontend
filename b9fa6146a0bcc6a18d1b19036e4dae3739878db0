@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f817066f_ee44a41e",
+        "filename": "front_end/core/host/AidaClient.test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-06-14T09:08:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4c842f4_1f7d7881",
+      "revId": "b9fa6146a0bcc6a18d1b19036e4dae3739878db0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0c01bad3_2cad1ec8",
@@ -48,6 +66,24 @@
       "writtenOn": "2024-06-12T17:58:08Z",
       "side": 1,
       "message": "can we make the config non-optional and pass the  isFeatureAvailable directly to conditions?",
+      "revId": "b9fa6146a0bcc6a18d1b19036e4dae3739878db0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b7ae905_fdfcb850",
+        "filename": "front_end/panels/freestyler/freestyler-meta.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-06-14T09:08:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c01bad3_2cad1ec8",
       "revId": "b9fa6146a0bcc6a18d1b19036e4dae3739878db0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
