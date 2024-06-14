@@ -72,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "55b8e428_e0440b55",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 23
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2024-06-14T23:20:06Z",
+      "side": 1,
+      "message": "Thank you so much for the inputs!\nI like the direction you are going in the refactor diff, though I was having a hard time making that work today... Typescript just wasnt happy about what I was trying to do here 😂, I\u0027ll spend more time on Monday.\nI think your approach can remove the forceDrawableLevel() hack I put in, which was needed because the flamechart assumes there\u0027s no stacking of the events (which make sense :), so it wont draw the synth event when zoomed in without that check.\n\nAnyways, I\u0027ll try and see if I can incorporate as much as your feedback and make the change less invasive.",
+      "parentUuid": "2884daba_db60061c",
+      "revId": "6090d28929b49fc8d5f4caeceee7a140a9e61c5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3b68559a_b40c7d1b",
         "filename": "front_end/models/trace/handlers/WebSocketsHandler.ts",
         "patchSetId": 23
