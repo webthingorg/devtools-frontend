@@ -16,6 +16,40 @@
       "message": "PTAL again",
       "revId": "2a431b423a0bad94d953f298893a285b1dbf946c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0688764_c2d88217",
+        "filename": "front_end/core/host/AidaClient.test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-06-14T09:40:21Z",
+      "side": 1,
+      "message": "Let\u0027s re-use this helper in other tests that stub the host config?",
+      "revId": "2a431b423a0bad94d953f298893a285b1dbf946c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "304d4872_f84c5696",
+        "filename": "front_end/core/host/AidaClient.test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-06-14T09:40:21Z",
+      "side": 1,
+      "message": "let\u0027s also make it accept the entire HostConfig class and not only HostConfigConsoleInsights.",
+      "revId": "2a431b423a0bad94d953f298893a285b1dbf946c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
