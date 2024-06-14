@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e805d938_00e9e99f",
+        "filename": "front_end/panels/timeline/components/Sidebar.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-06-14T17:17:54Z",
+      "side": 1,
+      "message": "@aixba@google.com FYI some small change to your work here",
+      "range": {
+        "startLine": 279,
+        "startChar": 10,
+        "endLine": 284,
+        "endChar": 64
+      },
+      "revId": "4285566df5613717f5fb71cb5cc9614b239d9084",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
