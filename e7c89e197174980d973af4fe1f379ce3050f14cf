@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1164570d_936342ef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-06-14T03:31:30Z",
+      "side": 1,
+      "message": "I verified this fix with mac and linux stressor jobs (x50).",
+      "revId": "e7c89e197174980d973af4fe1f379ce3050f14cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
