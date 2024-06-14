@@ -88,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b77a58d_e465ef29",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-06-14T11:00:35Z",
+      "side": 1,
+      "message": "Will handle that separately, we could do that but I am not sure how often are back-ticks can happen in the code itself.",
+      "parentUuid": "abbbe076_03498109",
+      "revId": "70e76d796d8f300116508589f23e90ada044c019",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "628692e5_942936b0",
@@ -101,6 +119,24 @@
       "writtenOn": "2024-06-14T10:49:57Z",
       "side": 1,
       "message": "It seems like `ANSWER:` can be multiline too, can we handle this as well?\nHere is an example: https://paste.googleplex.com/5907844214030336",
+      "revId": "70e76d796d8f300116508589f23e90ada044c019",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "542d2490_d1dc7b46",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-06-14T11:00:35Z",
+      "side": 1,
+      "message": "Right, there is a todo for this. I will tackle it next.",
+      "parentUuid": "628692e5_942936b0",
       "revId": "70e76d796d8f300116508589f23e90ada044c019",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -171,6 +207,24 @@
       "side": 1,
       "message": "I think it should be from the system since the user is not entering it actively.",
       "parentUuid": "055c684d_8fa1db80",
+      "revId": "70e76d796d8f300116508589f23e90ada044c019",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7f9e988_ed1a42c7",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-06-14T11:00:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c99a9e4_322dcc7e",
       "revId": "70e76d796d8f300116508589f23e90ada044c019",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
