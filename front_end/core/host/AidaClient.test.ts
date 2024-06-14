@@ -10,19 +10,28 @@ import * as Host from './host.js';
 
 const TEST_MODEL_ID = 'testModelId';
 
+function getGetHostConfigStub(consoleInsightsConfig: Partial<Root.Runtime.HostConfigConsoleInsights>): sinon.SinonStub {
+  const settings = Common.Settings.Settings.instance();
+  return sinon.stub(settings, 'getHostConfig').returns({
+    devToolsConsoleInsights: {
+      enabled: false,
+      aidaModelId: '',
+      aidaTemperature: 0.2,
+      ...consoleInsightsConfig,
+    } as Root.Runtime.HostConfigConsoleInsights,
+    devToolsConsoleInsightsDogfood: {
+      enabled: false,
+      aidaTemperature: 0.3,
+    } as Root.Runtime.HostConfigConsoleInsightsDogfood,
+    devToolsFreestylerDogfood: {
+      enabled: false,
+    },
+  });
+}
+
 describeWithEnvironment('AidaClient', () => {
   it('adds no model temperature if console insights is not enabled', () => {
-    const settings = Common.Settings.Settings.instance();
-    const stub = sinon.stub(settings, 'getHostConfig').returns({
-      devToolsConsoleInsights: {
-        enabled: false,
-        aidaTemperature: 0.2,
-      } as Root.Runtime.HostConfigConsoleInsights,
-      devToolsConsoleInsightsDogfood: {
-        enabled: false,
-        aidaTemperature: 0.3,
-      } as Root.Runtime.HostConfigConsoleInsightsDogfood,
-    });
+    const stub = getGetHostConfigStub({});
     const request = Host.AidaClient.AidaClient.buildConsoleInsightsRequest('foo');
     assert.deepStrictEqual(request, {
       input: 'foo',
@@ -32,18 +41,9 @@ describeWithEnvironment('AidaClient', () => {
   });
 
   it('adds a model temperature', () => {
-    const settings = Common.Settings.Settings.instance();
-    const stub = sinon.stub(settings, 'getHostConfig').returns({
-      devToolsConsoleInsights: {
-        enabled: true,
-        aidaModelId: '',
-        aidaTemperature: 0.5,
-      } as Root.Runtime.HostConfigConsoleInsights,
-      devToolsConsoleInsightsDogfood: {
-        enabled: false,
-        aidaModelId: '',
-        aidaTemperature: 0.3,
-      } as Root.Runtime.HostConfigConsoleInsightsDogfood,
+    const stub = getGetHostConfigStub({
+      enabled: true,
+      aidaTemperature: 0.5,
     });
     const request = Host.AidaClient.AidaClient.buildConsoleInsightsRequest('foo');
     assert.deepStrictEqual(request, {
@@ -57,16 +57,9 @@ describeWithEnvironment('AidaClient', () => {
   });
 
   it('adds a model temperature of 0', () => {
-    const settings = Common.Settings.Settings.instance();
-    const stub = sinon.stub(settings, 'getHostConfig').returns({
-      devToolsConsoleInsights: {
-        enabled: true,
-        aidaTemperature: 0.5,
-      } as Root.Runtime.HostConfigConsoleInsights,
-      devToolsConsoleInsightsDogfood: {
-        enabled: true,
-        aidaTemperature: 0,
-      } as Root.Runtime.HostConfigConsoleInsightsDogfood,
+    const stub = getGetHostConfigStub({
+      enabled: true,
+      aidaTemperature: 0,
     });
     const request = Host.AidaClient.AidaClient.buildConsoleInsightsRequest('foo');
     assert.deepStrictEqual(request, {
@@ -80,18 +73,11 @@ describeWithEnvironment('AidaClient', () => {
   });
 
   it('adds a model id and temperature', () => {
-    const settings = Common.Settings.Settings.instance();
-    const stub = sinon.stub(settings, 'getHostConfig').returns({
-      devToolsConsoleInsights: {
-        enabled: true,
-        aidaModelId: TEST_MODEL_ID,
-        aidaTemperature: 0.5,
-      } as Root.Runtime.HostConfigConsoleInsights,
-      devToolsConsoleInsightsDogfood: {
-        enabled: false,
-      } as Root.Runtime.HostConfigConsoleInsightsDogfood,
+    const stub = getGetHostConfigStub({
+      enabled: true,
+      aidaModelId: TEST_MODEL_ID,
+      aidaTemperature: 0.5,
     });
-
     const request = Host.AidaClient.AidaClient.buildConsoleInsightsRequest('foo');
     assert.deepStrictEqual(request, {
       input: 'foo',
@@ -105,19 +91,11 @@ describeWithEnvironment('AidaClient', () => {
   });
 
   it('adds metadata to disallow logging', () => {
-    const settings = Common.Settings.Settings.instance();
-    const stub = sinon.stub(settings, 'getHostConfig').returns({
-      devToolsConsoleInsights: {
-        enabled: true,
-        aidaModelId: '',
-        aidaTemperature: 0.5,
-        disallowLogging: true,
-      } as Root.Runtime.HostConfigConsoleInsights,
-      devToolsConsoleInsightsDogfood: {
-        enabled: false,
-      } as Root.Runtime.HostConfigConsoleInsightsDogfood,
+    const stub = getGetHostConfigStub({
+      enabled: true,
+      aidaTemperature: 0.5,
+      disallowLogging: true,
     });
-
     const request = Host.AidaClient.AidaClient.buildConsoleInsightsRequest('foo');
     assert.deepStrictEqual(request, {
       input: 'foo',
