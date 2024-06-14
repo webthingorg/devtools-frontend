@@ -54,6 +54,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3f1f2338_928e01df",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 23
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-06-14T23:10:58Z",
+      "side": 1,
+      "message": "\u003e  Slightly less invasive.\n\u003e I did a quick spike to explore the idea and curious for your thoughts.\n\nIn retrospect, I think much of the improvement in my attempt is worthwhile effects of merging WebsocketsHandler into NetworkRequestshandler.\n\nSo, feel free to gently ignore the details of that patch if it\u0027s annoying :)",
+      "parentUuid": "2884daba_db60061c",
+      "revId": "6090d28929b49fc8d5f4caeceee7a140a9e61c5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3b68559a_b40c7d1b",
         "filename": "front_end/models/trace/handlers/WebSocketsHandler.ts",
         "patchSetId": 23
