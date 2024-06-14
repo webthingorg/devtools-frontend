@@ -33,6 +33,143 @@
       "message": "Hi Christy, I think Jack would be the expert here to look at this, along with Paul.",
       "revId": "6090d28929b49fc8d5f4caeceee7a140a9e61c5a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2884daba_db60061c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 23
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-06-14T02:14:42Z",
+      "side": 1,
+      "message": "First up, I realize I basically handed you an impossible task. \n\"Let\u0027s have the instant events be part of a larger websocket event!\"   \nAs if that\u0027s trivial. :p  Anyhow, you\u0027re right that we\u0027ve never done that before.\n\nCreating a synthetic event for the overall websocket is perfect. Nailed that. :D\n\nI think there may be another direction to get the websocket events drawn on top of the synthetic one. Slightly less invasive.\nI did a quick spike to explore the idea and curious for your thoughts. This a diff on top of your CL: https://gist.github.com/paulirish/9542af86037e08ec513e684be11f34b1\n\nI am hoping you can tell me if this direction makes the forceDrawableLevel() method moot. I\u0027m still unsure of what behavior that check is fixing.\n\nI\u0027ll add that a bunch of your (and my) edits to TimelineFlameChartNetworkDataProvider.ts are because the real websocket trace events don\u0027t have args like SynNetworkRequest. We could create Syn events for each of those websocket events that do have a mimetype/url/priority/etc... But.. I agree with your impl that it feels kinda unnecessary. I could go either way, though. \n\nRegardless, you had a tough task here, as the infrastructure is not built well to suit this use case. Appreciate you giving it an honest go. :)",
+      "revId": "6090d28929b49fc8d5f4caeceee7a140a9e61c5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b68559a_b40c7d1b",
+        "filename": "front_end/models/trace/handlers/WebSocketsHandler.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-06-14T02:14:42Z",
+      "side": 1,
+      "message": "let\u0027s move this implementation into NetworkRequestHandler.\n\nConceptually it sorta belongs. (no strong feelings.)\n\nBut, more importantly, the main thing I noticed... Right now when we do the `this.#events.push` in networkdataprovider...  the events end up unsorted. And appendEventsAtLevel needs sorted.  Otherwise the level placement is incorrect and inefficient.. something i noticed with a trace.\nThe existing `traceEngineData.NetworkRequests.byTime` already takes care of the sort. So..  moving into there would address that bug. :)",
+      "revId": "6090d28929b49fc8d5f4caeceee7a140a9e61c5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e2060bb_0d87e7d2",
+        "filename": "front_end/models/trace/handlers/WebSocketsHandler.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-06-14T02:14:42Z",
+      "side": 1,
+      "message": "use Phase.COMPLETE, as this synth event has duration.",
+      "revId": "6090d28929b49fc8d5f4caeceee7a140a9e61c5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecbe469c_a06ba319",
+        "filename": "front_end/panels/timeline/NetworkTrackAppender.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-06-14T02:14:42Z",
+      "side": 1,
+      "message": "is the word `connection` needed on these strings?   I don\u0027t care strongly but i\u0027m happy to reduce words if possible :)",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 2
+      },
+      "revId": "6090d28929b49fc8d5f4caeceee7a140a9e61c5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa9141a8_fee94fe7",
+        "filename": "front_end/panels/timeline/TimelineFlameChartNetworkDataProvider.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-06-14T02:14:42Z",
+      "side": 1,
+      "message": "Probably want something with `ThemeSupport.ThemeSupport.instance().getComputedValue` so that it changes in dark mode.",
+      "revId": "6090d28929b49fc8d5f4caeceee7a140a9e61c5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "439b0972_fb58662b",
+        "filename": "front_end/panels/timeline/TimelineFlameChartNetworkDataProvider.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-06-14T02:14:42Z",
+      "side": 1,
+      "message": "how about\n\n```suggestion\n    context.setLineDash([3, 2]);\n    context.moveTo(start, lineY - 1);\n    context.lineTo(end, lineY - 1);\n    context.moveTo(start, lineY + 1);\n    context.lineTo(end, lineY + 1);\n```\n\ngoing double gives me more of a \u0027socket\u0027 feeling. and i think it needs the tighter spacing to help allow the tiny instant events to stand out.",
+      "range": {
+        "startLine": 338,
+        "startChar": 0,
+        "endLine": 340,
+        "endChar": 31
+      },
+      "revId": "6090d28929b49fc8d5f4caeceee7a140a9e61c5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7337415_6bf10c29",
+        "filename": "front_end/panels/timeline/TimelineFlameChartNetworkDataProvider.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-06-14T02:14:42Z",
+      "side": 1,
+      "message": "might as well set the args.data.priority to low in the synthetic event. can then avoid this special case.",
+      "range": {
+        "startLine": 374,
+        "startChar": 2,
+        "endLine": 375,
+        "endChar": 33
+      },
+      "revId": "6090d28929b49fc8d5f4caeceee7a140a9e61c5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
