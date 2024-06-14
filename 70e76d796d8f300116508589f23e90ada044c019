@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "14bbe0f3_25b90df3",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-06-14T10:58:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f449763_c4ac3e9f",
+      "revId": "70e76d796d8f300116508589f23e90ada044c019",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8854d7c2_885c31ed",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-06-14T10:49:57Z",
       "side": 1,
       "message": "(nit): s/miltiline/multiline\n\nApplies to the below comment too.",
+      "revId": "70e76d796d8f300116508589f23e90ada044c019",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e924f1e3_c3d25343",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-06-14T10:58:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8854d7c2_885c31ed",
       "revId": "70e76d796d8f300116508589f23e90ada044c019",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -86,6 +122,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "939e4762_751d9d85",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-06-14T10:58:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a829295_9af96dbe",
+      "revId": "70e76d796d8f300116508589f23e90ada044c019",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "055c684d_8fa1db80",
@@ -99,6 +153,24 @@
       "writtenOn": "2024-06-14T10:49:57Z",
       "side": 1,
       "message": "Should `OBSERVATION` message be from USER or SYSTEM? I was thinking it should be from USER as we\u0027re supplying that part. WDYT?",
+      "revId": "70e76d796d8f300116508589f23e90ada044c019",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c99a9e4_322dcc7e",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-06-14T10:58:56Z",
+      "side": 1,
+      "message": "I think it should be from the system since the user is not entering it actively.",
+      "parentUuid": "055c684d_8fa1db80",
       "revId": "70e76d796d8f300116508589f23e90ada044c019",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
