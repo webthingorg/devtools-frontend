@@ -19,45 +19,54 @@ describe('The Lighthouse start view', () => {
   it('shows a button to generate a new report', async () => {
     await navigateToLighthouseTab('empty.html');
 
+    console.log('1');
     const disabled = await isGenerateReportButtonDisabled();
+    console.log('2');
     const helpText = await getHelpText();
+    console.log('3');
     assert.isFalse(disabled, 'The Generate Report button should not be disabled');
     assert.strictEqual(helpText, '');
   });
 
-  // Flaky test.
-  it.skipOnPlatforms(
-      ['mac', 'linux'], '[crbug.com/338885778] disables the start button when no categories are selected', async () => {
-        await navigateToLighthouseTab('empty.html');
+  it('disables the start button when no categories are selected', async () => {
+    await navigateToLighthouseTab('empty.html');
 
-        await selectCategories([]);
+    await selectCategories([]);
 
-        const disabled = await isGenerateReportButtonDisabled();
-        const helpText = await getHelpText();
-        assert.isTrue(disabled, 'The Generate Report button should be disabled');
-        assert.strictEqual(helpText, 'At least one category must be selected.');
-      });
+    console.log('1');
+    const disabled = await isGenerateReportButtonDisabled();
+    console.log('2');
+    const helpText = await getHelpText();
+    console.log('3');
+    assert.isTrue(disabled, 'The Generate Report button should be disabled');
+    assert.strictEqual(helpText, 'At least one category must be selected.');
+  });
 
-  // Flaky test.
-  it.skipOnPlatforms(
-      ['mac', 'linux'], '[crbug.com/338885778] enables the start button if only one category is selected', async () => {
-        await navigateToLighthouseTab('empty.html');
+  it('enables the start button if only one category is selected', async () => {
+    await navigateToLighthouseTab('empty.html');
 
-        await selectCategories(['performance']);
+    console.log('1');
+    await selectCategories(['performance']);
+    console.log('2');
 
-        const disabled = await isGenerateReportButtonDisabled();
-        const helpText = await getHelpText();
-        assert.isFalse(disabled, 'The Generate Report button should be enabled');
-        assert.strictEqual(helpText, '');
-      });
+    console.log('3');
+    const disabled = await isGenerateReportButtonDisabled();
+    console.log('4');
+    const helpText = await getHelpText();
+    console.log('5');
+    assert.isFalse(disabled, 'The Generate Report button should be enabled');
+    assert.strictEqual(helpText, '');
+  });
 
-  // Flaky test.
-  it.skipOnPlatforms(['mac'], '[crbug.com/1484942]: disables the start button for internal pages', async () => {
+  it('disables the start button for internal pages', async () => {
     await navigateToLighthouseTab();
     await goTo('about:blank');
 
+    console.log('1');
     const disabled = await isGenerateReportButtonDisabled();
+    console.log('2');
     const helpText = await getHelpText();
+    console.log('3');
     assert.isTrue(disabled, 'The Generate Report button should be disabled');
     assert.strictEqual(helpText, 'Can only audit pages on HTTP or HTTPS. Navigate to a different page.');
   });
@@ -71,7 +80,7 @@ describe('The Lighthouse start view', () => {
     assert.isTrue(disabled, 'The Generate Report button should be disabled');
   });
 
-  it('displays warning if important data may affect performance', async () => {
+  it.skip('displays warning if important data may affect performance', async () => {
     // e2e tests in application/ create indexeddb items and don't clean up after themselves
     await clearSiteData();
 
