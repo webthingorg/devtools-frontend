@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f449763_c4ac3e9f",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-14T10:49:57Z",
+      "side": 1,
+      "message": "Can we add a test case where the response include both `THOUGHT :` and `ACTION: ` at the same time?",
+      "revId": "70e76d796d8f300116508589f23e90ada044c019",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8854d7c2_885c31ed",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-14T10:49:57Z",
+      "side": 1,
+      "message": "(nit): s/miltiline/multiline\n\nApplies to the below comment too.",
+      "revId": "70e76d796d8f300116508589f23e90ada044c019",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "628692e5_942936b0",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-14T10:49:57Z",
+      "side": 1,
+      "message": "It seems like `ANSWER:` can be multiline too, can we handle this as well?\nHere is an example: https://paste.googleplex.com/5907844214030336",
+      "revId": "70e76d796d8f300116508589f23e90ada044c019",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a829295_9af96dbe",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-14T10:49:57Z",
+      "side": 1,
+      "message": "s/\u0027THOUGHT:\u0027.length/\u0027ANSWER:\u0027.length",
+      "revId": "70e76d796d8f300116508589f23e90ada044c019",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "055c684d_8fa1db80",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-14T10:49:57Z",
+      "side": 1,
+      "message": "Should `OBSERVATION` message be from USER or SYSTEM? I was thinking it should be from USER as we\u0027re supplying that part. WDYT?",
+      "revId": "70e76d796d8f300116508589f23e90ada044c019",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
