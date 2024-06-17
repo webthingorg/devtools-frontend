@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9973104c_c1003d40",
+        "filename": "front_end/panels/freestyler/freestyler-meta.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-06-17T10:35:09Z",
+      "side": 1,
+      "message": "nit: put the bug into TODO and you can use crbug.com: `TODO(crbug.com/346933425): what to do`",
+      "revId": "cfd7b678f76ca21710c81ffc9ba249480b43df9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
