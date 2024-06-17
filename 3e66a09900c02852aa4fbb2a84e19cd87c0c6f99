@@ -16,6 +16,23 @@
       "message": "Changhao, please kindly take a look?:)",
       "revId": "3e66a09900c02852aa4fbb2a84e19cd87c0c6f99",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d73504e2_4688a0df",
+        "filename": "front_end/ui/components/settings/settingCheckbox.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-06-17T10:05:06Z",
+      "side": 1,
+      "message": "Is this `margin: 6px` related to the `-6px`s for its `::after` and `::before` pseudo elements? If so, is it possible to use a local css variable to define this `6px` together?",
+      "revId": "3e66a09900c02852aa4fbb2a84e19cd87c0c6f99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
