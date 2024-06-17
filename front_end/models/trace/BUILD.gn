@@ -23,6 +23,7 @@ devtools_module("trace") {
     "handlers:bundle",
     "helpers:bundle",
     "insights:bundle",
+    "lantern:bundle",
     "root-causes:bundle",
     "types:bundle",
   ]
