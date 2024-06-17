@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a415f18_dfaa43ed",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-17T12:47:49Z",
+      "side": 1,
+      "message": "Done! (adding the example in the meantime)",
+      "parentUuid": "7cf286cc_c00d0059",
+      "revId": "16b5de2131f8436f213f238b185183ee4a08cf02",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "998326c4_d560d645",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-06-17T12:38:49Z",
       "side": 1,
       "message": "Could you please add a test for this?",
+      "revId": "16b5de2131f8436f213f238b185183ee4a08cf02",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d1b2a75_092403cb",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-17T12:47:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "998326c4_d560d645",
       "revId": "16b5de2131f8436f213f238b185183ee4a08cf02",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
