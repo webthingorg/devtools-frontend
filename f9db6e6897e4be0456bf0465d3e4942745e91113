@@ -16,6 +16,69 @@
       "message": "PTAL. Thanks",
       "revId": "f9db6e6897e4be0456bf0465d3e4942745e91113",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "247b51e7_4af7892e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-06-17T05:59:59Z",
+      "side": 1,
+      "message": "Thanks for the contribution! Left a comment.",
+      "revId": "f9db6e6897e4be0456bf0465d3e4942745e91113",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f8a0f8b_7d549de6",
+        "filename": "front_end/entrypoints/formatter_worker/JavaScriptFormatter.test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-06-17T05:59:59Z",
+      "side": 1,
+      "message": "This change seems to break the parameter list formatting. See here and below.",
+      "range": {
+        "startLine": 17,
+        "startChar": 17,
+        "endLine": 17,
+        "endChar": 18
+      },
+      "revId": "f9db6e6897e4be0456bf0465d3e4942745e91113",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "267b9d59_236e4133",
+        "filename": "front_end/entrypoints/formatter_worker/JavaScriptFormatter.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-06-17T05:59:59Z",
+      "side": 1,
+      "message": "I think you want to check here for the `\u003d\u003e` token specifically. You might not be able to use the `AT.punctuator` helper here but may have to inline the relevant bits directly.",
+      "range": {
+        "startLine": 221,
+        "startChar": 10,
+        "endLine": 221,
+        "endChar": 34
+      },
+      "revId": "f9db6e6897e4be0456bf0465d3e4942745e91113",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
