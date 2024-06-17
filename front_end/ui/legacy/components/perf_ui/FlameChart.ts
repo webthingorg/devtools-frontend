@@ -800,6 +800,8 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
             const start = timelineData.entryStartTimes[this.highlightedEntryIndex];
             const end = start + timelineData.entryTotalTimes[this.highlightedEntryIndex];
             this.chartViewport.setRangeSelection(start, end);
+          } else if (mouseEvent.metaKey && this.highlightedEntryIndex !== -1 && timelineData) {
+            this.dispatchEventToListeners(Events.AnnotateEntry, this.highlightedEntryIndex);
           } else {
             this.chartViewport.onClick(mouseEvent);
             this.dispatchEventToListeners(Events.EntryInvoked, this.highlightedEntryIndex);
@@ -3835,6 +3837,8 @@ export const enum Events {
    * away from any events)
    */
   EntryInvoked = 'EntryInvoked',
+  // Emmited when annotate entry shortcut is clicked.
+  AnnotateEntry = 'AnnotateEntry',
   /**
    * Emitted when an event is selected via keyboard navigation using the arrow
    * keys.
@@ -3857,6 +3861,7 @@ export const enum Events {
 }
 
 export type EventTypes = {
+  [Events.AnnotateEntry]: number,
   [Events.CanvasFocused]: number|void,
   [Events.EntryInvoked]: number,
   [Events.EntrySelected]: number,
