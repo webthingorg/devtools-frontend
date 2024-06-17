@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "881ea50c_d32aa149",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-06-17T04:25:32Z",
+      "side": 1,
+      "message": "Hi Ergün,\n\nI\u0027m updating the security panel for GM3, ptal! I\u0027ll disable the web tests in the meantime.",
+      "revId": "674595c04a46f674c86ec6b334c759736e679c28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
