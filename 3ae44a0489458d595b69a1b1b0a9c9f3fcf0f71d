@@ -70,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d60d4c01_804f46f6",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 1183,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-06-17T17:31:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "752915ff_5ab5546d",
+      "revId": "3ae44a0489458d595b69a1b1b0a9c9f3fcf0f71d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8dbac7f5_abffce08",
@@ -83,6 +101,24 @@
       "writtenOn": "2024-06-07T01:47:01Z",
       "side": 1,
       "message": "We typically just check whatever minimum we need to safely confirm it\u0027s good.\nIn this case I think its fine to only check the `cat`. We can skip the rest.\n\nBut if you plan on changing these trace events args a bit, then sure.. you could keep the rest.",
+      "revId": "3ae44a0489458d595b69a1b1b0a9c9f3fcf0f71d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "08dc7367_13c7b5ab",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 1189,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-06-17T17:31:31Z",
+      "side": 1,
+      "message": "May change these trace vents args, so will keep these checks for now.",
+      "parentUuid": "8dbac7f5_abffce08",
       "revId": "3ae44a0489458d595b69a1b1b0a9c9f3fcf0f71d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -189,6 +225,24 @@
       "side": 1,
       "message": "\u003e Perhaps we could keep the information extractable from traceEvents (target, execution context, script) within traceEvent and do that part of rehydration after we import the trace. When we start adding memory tooling data, which is not extractable from trace event, we could add `memory?: MemoryData` in `TraceFile` so we don\u0027t need to change the export file format entirely. What do y\u0027all think about this?\n\nlove it.",
       "parentUuid": "2e5cc61f_989bb5be",
+      "revId": "3ae44a0489458d595b69a1b1b0a9c9f3fcf0f71d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fac159ac_fd424797",
+        "filename": "front_end/panels/timeline/EnhancedTraces.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-06-17T17:31:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "97eba5c8_0802ae29",
       "revId": "3ae44a0489458d595b69a1b1b0a9c9f3fcf0f71d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
