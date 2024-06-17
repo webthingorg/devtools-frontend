@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd815c64_7d12627c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-06-17T10:35:59Z",
+      "side": 1,
+      "message": "Thanks, Changhao!",
+      "revId": "3e66a09900c02852aa4fbb2a84e19cd87c0c6f99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d73504e2_4688a0df",
@@ -31,6 +48,24 @@
       "writtenOn": "2024-06-17T10:05:06Z",
       "side": 1,
       "message": "Is this `margin: 6px` related to the `-6px`s for its `::after` and `::before` pseudo elements? If so, is it possible to use a local css variable to define this `6px` together?",
+      "revId": "3e66a09900c02852aa4fbb2a84e19cd87c0c6f99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0feb0c0a_72db48e0",
+        "filename": "front_end/ui/components/settings/settingCheckbox.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-06-17T10:35:59Z",
+      "side": 1,
+      "message": "No, it is related to the ::after, ::before\u0027s width and height (24px), and the fact that 24px - 12px (checkbox\u0027s width and height) divided by 2 is 6",
+      "parentUuid": "d73504e2_4688a0df",
       "revId": "3e66a09900c02852aa4fbb2a84e19cd87c0c6f99",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
