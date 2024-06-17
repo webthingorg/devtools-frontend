@@ -16,6 +16,23 @@
       "message": "Hi Ergün,\n\nI\u0027m updating the security panel for GM3, ptal! I\u0027ll disable the web tests in the meantime.",
       "revId": "674595c04a46f674c86ec6b334c759736e679c28",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b328a29_6029a866",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-17T14:47:55Z",
+      "side": 1,
+      "message": "Hey hey, I have one comment for now and I\u0027ll complete review after that.\n\nFor small widths, the radius of the right side is not visible: https://g-issues.chromium.org/issues/40248266#comment32",
+      "revId": "674595c04a46f674c86ec6b334c759736e679c28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
