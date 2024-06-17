@@ -16,6 +16,24 @@
       "message": "nit: put the bug into TODO and you can use crbug.com: `TODO(crbug.com/346933425): what to do`",
       "revId": "cfd7b678f76ca21710c81ffc9ba249480b43df9a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75a68231_5f11358f",
+        "filename": "front_end/panels/freestyler/freestyler-meta.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-06-17T13:46:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9973104c_c1003d40",
+      "revId": "cfd7b678f76ca21710c81ffc9ba249480b43df9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
