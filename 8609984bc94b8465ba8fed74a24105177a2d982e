@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e3958ce_4a83b7bd",
+        "filename": "front_end/models/trace/lantern/types/lantern.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-06-17T01:31:23Z",
+      "side": 1,
+      "message": "Someone either knowledgable about software licenses, or at least with an opinion, please weigh in on if I should simply delete these License comments from the original source files.\n\nA potential option might be to put the license in a LICENSE file in the `lantern` folder.\n\nI think outright deleting it is not correct, because Chromium !\u003d Google, right? So while the CLA we have LH contributors sign assigns ownership to Google, does that mean a Chromium tree can treat it like it owns it? shrug.",
+      "revId": "8609984bc94b8465ba8fed74a24105177a2d982e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
