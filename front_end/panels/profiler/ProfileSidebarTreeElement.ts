@@ -67,7 +67,7 @@ export class ProfileSidebarTreeElement extends UI.TreeOutline.TreeElement {
   updateStatus(event: Common.EventTarget.EventTargetEvent<StatusUpdate>): void {
     const statusUpdate = event.data;
     if (statusUpdate.subtitle !== null) {
-      this.subtitleElement.textContent = statusUpdate.subtitle || '';
+      this.subtitleElement.textContent = statusUpdate.subtitle.length > 0 ? `(${statusUpdate.subtitle})` : '';
       this.titlesElement.classList.toggle('no-subtitle', !statusUpdate.subtitle);
       UI.ARIAUtils.setLabel(this.listItemElement, `${this.profile.title}, ${statusUpdate.subtitle}`);
     }
