@@ -7,6 +7,7 @@ import * as Extras from './extras/extras.js';
 import * as Handlers from './handlers/handlers.js';
 import * as Helpers from './helpers/helpers.js';
 import * as Insights from './insights/insights.js';
+import * as Lantern from './lantern/lantern.js';
 import * as TraceModel from './ModelImpl.js';
 import * as Processor from './Processor.js';
 import * as RootCauses from './root-causes/root-causes.js';
@@ -19,6 +20,7 @@ export {
   Handlers,
   Helpers,
   Insights,
+  Lantern,
   Processor,
   RootCauses,
   TraceModel,
