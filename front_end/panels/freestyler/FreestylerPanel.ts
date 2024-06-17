@@ -17,7 +17,12 @@ import {
 import {FreestylerAgent, type StepData} from './FreestylerAgent.js';
 import freestylerPanelStyles from './freestylerPanel.css.js';
 
-const UIStrings = {
+/*
+  * TODO(nvitkov): b/346933425
+  * Temporary string that should not be translated
+  * as they may change often during development.
+  */
+const TempUIStrings = {
   /**
    *@description Freestyler UI text for clearing messages.
    */
@@ -27,8 +32,10 @@ const UIStrings = {
    */
   sendFeedback: 'Send feedback',
 };
-const str_ = i18n.i18n.registerUIStrings('panels/freestyler/FreestylerPanel.ts', UIStrings);
-const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
+
+// TODO(nvitkov): b/346933425
+// const str_ = i18n.i18n.registerUIStrings('panels/freestyler/FreestylerPanel.ts', UIStrings);
+// const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 type ViewOutput = {
   freestylerChatUi?: FreestylerChatUi,
@@ -41,16 +48,16 @@ function createToolbar(target: HTMLElement, {onClearClick}: {onClearClick: () =>
   const leftToolbar = new UI.Toolbar.Toolbar('', toolbarContainer);
   const rightToolbar = new UI.Toolbar.Toolbar('freestyler-right-toolbar', toolbarContainer);
 
-  const clearButton =
-      new UI.Toolbar.ToolbarButton(i18nString(UIStrings.clearMessages), 'clear', undefined, 'freestyler.clear');
+  const clearButton = new UI.Toolbar.ToolbarButton(
+      i18n.i18n.lockedString(TempUIStrings.clearMessages), 'clear', undefined, 'freestyler.clear');
   clearButton.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, onClearClick);
   leftToolbar.appendToolbarItem(clearButton);
 
   rightToolbar.appendSeparator();
-  const feedbackButton =
-      new UI.Toolbar.ToolbarButton(i18nString(UIStrings.sendFeedback), 'bug', undefined, 'freestyler.feedback');
-  const helpButton =
-      new UI.Toolbar.ToolbarButton(i18nString(UIStrings.sendFeedback), 'help', undefined, 'freestyler.help');
+  const feedbackButton = new UI.Toolbar.ToolbarButton(
+      i18n.i18n.lockedString(TempUIStrings.sendFeedback), 'bug', undefined, 'freestyler.feedback');
+  const helpButton = new UI.Toolbar.ToolbarButton(
+      i18n.i18n.lockedString(TempUIStrings.sendFeedback), 'help', undefined, 'freestyler.help');
   rightToolbar.appendToolbarItem(feedbackButton);
   rightToolbar.appendToolbarItem(helpButton);
 }

@@ -9,7 +9,12 @@ import * as UI from '../../ui/legacy/legacy.js';
 
 import type * as Freestyler from './freestyler.js';
 
-const UIStrings = {
+/*
+  * TODO(nvitkov): b/346933425
+  * Temporary string that should not be translated
+  * as they may change often during development.
+  */
+const TempUIStrings = {
   /**
    * @description The title of the action for showing Freestyler panel.
    */
@@ -18,14 +23,6 @@ const UIStrings = {
    * @description The title of the Freestyler panel.
    */
   freestyler: 'Freestyler',
-};
-
-/*
-  * TODO(nvitkov): b/346933425
-  * Temporary string that should not be translated
-  * as they may change often during development.
-  */
-const TempUIStrings = {
   /**
    * @description The setting title to enable the freestyler via
    * the settings tab.
@@ -38,8 +35,9 @@ const TempUIStrings = {
   askFreestyler: 'Ask Freestyler',
 };
 
-const str_ = i18n.i18n.registerUIStrings('panels/freestyler/freestyler-meta.ts', UIStrings);
-const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
+// TODO(nvitkov): b/346933425
+// const str_ = i18n.i18n.registerUIStrings('panels/freestyler/freestyler-meta.ts', UIStrings);
+// const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 
 const setting = 'freestyler-enabled';
 
@@ -58,8 +56,8 @@ function isFeatureAvailable(config?: Root.Runtime.HostConfig): boolean {
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.DRAWER_VIEW,
   id: 'freestyler',
-  commandPrompt: i18nLazyString(UIStrings.showFreestyler),
-  title: i18nLazyString(UIStrings.freestyler),
+  commandPrompt: i18n.i18n.lockedLazyString(TempUIStrings.showFreestyler),
+  title: i18n.i18n.lockedLazyString(TempUIStrings.freestyler),
   order: 10,
   persistence: UI.ViewManager.ViewPersistence.CLOSEABLE,
   hasToolbar: false,
