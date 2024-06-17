@@ -86,7 +86,7 @@ c`;
         thought: undefined,
         answer: payload,
       });
-      assert.deepStrictEqual(FreestylerAgent.parseResponse(`ANSWER: ${payload}\nACTION\naction\nSTOP`), {
+      assert.deepStrictEqual(FreestylerAgent.parseResponse(`ANSWER: ${payload}\nINFORMATION_RETRIEVAL\naction\nSTOP`), {
         action: 'action',
         thought: undefined,
         answer: payload,
@@ -96,17 +96,17 @@ c`;
       const payload = `const data = {
   someKey: "value",
 }`;
-      assert.deepStrictEqual(FreestylerAgent.parseResponse(`ACTION\n${payload}\nSTOP`), {
+      assert.deepStrictEqual(FreestylerAgent.parseResponse(`INFORMATION_RETRIEVAL\n${payload}\nSTOP`), {
         action: payload,
         thought: undefined,
         answer: undefined,
       });
-      assert.deepStrictEqual(FreestylerAgent.parseResponse(`ACTION\n${payload}`), {
+      assert.deepStrictEqual(FreestylerAgent.parseResponse(`INFORMATION_RETRIEVAL\n${payload}`), {
         action: payload,
         thought: undefined,
         answer: undefined,
       });
-      assert.deepStrictEqual(FreestylerAgent.parseResponse(`ACTION\n\n${payload}\n\nSTOP`), {
+      assert.deepStrictEqual(FreestylerAgent.parseResponse(`INFORMATION_RETRIEVAL\n\n${payload}\n\nSTOP`), {
         action: payload,
         thought: undefined,
         answer: undefined,
@@ -117,7 +117,7 @@ c`;
       const payload = `const data = {
   someKey: "value",
 }`;
-      assert.deepStrictEqual(FreestylerAgent.parseResponse(`ACTION\n\`\`\`\n${payload}\n\`\`\`\nSTOP`), {
+      assert.deepStrictEqual(FreestylerAgent.parseResponse(`INFORMATION_RETRIEVAL\n\`\`\`\n${payload}\n\`\`\`\nSTOP`), {
         action: payload,
         thought: undefined,
         answer: undefined,
@@ -130,7 +130,7 @@ c`;
 }`;
       const thoughtPayload = 'thought';
       assert.deepStrictEqual(
-          FreestylerAgent.parseResponse(`THOUGHT:${thoughtPayload}\nACTION\n${actionPayload}\nSTOP`), {
+          FreestylerAgent.parseResponse(`THOUGHT:${thoughtPayload}\nINFORMATION_RETRIEVAL\n${actionPayload}\nSTOP`), {
             action: actionPayload,
             thought: thoughtPayload,
             answer: undefined,
