@@ -16,6 +16,24 @@
       "message": "Let\u0027s revert the prompt changes and I will do the prompt evaluation afterwards. So far this version has not been evaluated.",
       "revId": "9af410999899f90e48c53783ffabc3acc1d3aaee",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7705650b_3364c8ff",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-06-17T12:27:15Z",
+      "side": 1,
+      "message": "if you have a case where it is not working, please add the case to the examples",
+      "parentUuid": "58507b74_dbf45278",
+      "revId": "9af410999899f90e48c53783ffabc3acc1d3aaee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
