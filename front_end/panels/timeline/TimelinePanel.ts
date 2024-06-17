@@ -56,6 +56,7 @@ import {ActiveFilters} from './ActiveFilters.js';
 import {TraceLoadEvent} from './BenchmarkEvents.js';
 import * as TimelineComponents from './components/components.js';
 import {SHOULD_SHOW_EASTER_EGG} from './EasterEgg.js';
+import {EnhancedTracesEngine} from './EnhancedTraces.js';
 import {Tracker} from './FreshRecording.js';
 import historyToolbarButtonStyles from './historyToolbarButton.css.js';
 import {IsolateSelector} from './IsolateSelector.js';
@@ -243,6 +244,16 @@ const UIStrings = {
    *@example {2.12} PH1
    */
   ssec: '{PH1} sec',
+  /**
+   *
+   * @description Text for exporting basic traces
+   */
+  exportNormalTraces: 'Basic Performance Traces',
+  /**
+   *
+   * @description Text for exporting enhanced traces
+   */
+  exportEnhancedTraces: 'Enhanced Performance Traces',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/timeline/TimelinePanel.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -574,6 +585,28 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
       Host.userMetrics.actionTaken(Host.UserMetrics.Action.PerfPanelTraceExported);
       void this.saveToFile();
     });
+
+    if (Root.Runtime.experiments.isEnabled('timeline-enhanced-traces')) {
+      this.saveButton.element.addEventListener('contextmenu', event => {
+        event.preventDefault();
+        event.stopPropagation();
+
+        if (event.ctrlKey || event.button === 2) {
+          const contextMenu = new UI.ContextMenu.ContextMenu(event);
+          contextMenu.saveSection().appendItem(i18nString(UIStrings.exportNormalTraces), () => {
+            void this.saveToFile();
+          });
+          contextMenu.saveSection().appendItem(i18nString(UIStrings.exportEnhancedTraces), () => {
+            void this.saveToFile(/* isEnhancedTraces */ true);
+          });
+
+          void contextMenu.show();
+        } else {
+          void this.saveToFile();
+        }
+      });
+    }
+
     this.panelToolbar.appendSeparator();
     this.panelToolbar.appendToolbarItem(this.loadButton);
     this.panelToolbar.appendToolbarItem(this.saveButton);
@@ -707,7 +740,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     void contextMenu.show();
   }
 
-  async saveToFile(): Promise<void> {
+  async saveToFile(isEnhancedTraces: boolean = false): Promise<void> {
     if (this.state !== State.Idle) {
       return;
     }
@@ -717,6 +750,9 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     if (Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.TIMELINE_ANNOTATIONS_OVERLAYS) && metadata) {
       metadata.modifications = ModificationsManager.ModificationsManager.ModificationsManager.activeManager()?.toJSON();
     }
+    if (metadata && isEnhancedTraces) {
+      metadata.enhancedTraceVersion = EnhancedTracesEngine.enhancedTracesVersion;
+    }
     if (!traceEvents) {
       return;
     }
@@ -725,6 +761,8 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     let fileName: Platform.DevToolsPath.RawPathString;
     if (metadata?.dataOrigin === TraceEngine.Types.File.DataOrigin.CPUProfile) {
       fileName = `CPU-${traceStart}.cpuprofile` as Platform.DevToolsPath.RawPathString;
+    } else if (metadata && metadata.enhancedTraceVersion) {
+      fileName = `EnhancedTraces-${traceStart}.json` as Platform.DevToolsPath.RawPathString;
     } else {
       fileName = `Trace-${traceStart}.json` as Platform.DevToolsPath.RawPathString;
     }
