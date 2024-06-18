@@ -33,6 +33,41 @@
       "message": "Hey hey, I have one comment for now and I\u0027ll complete review after that.\n\nFor small widths, the radius of the right side is not visible: https://g-issues.chromium.org/issues/40248266#comment32",
       "revId": "674595c04a46f674c86ec6b334c759736e679c28",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60f6b8c7_6922cf82",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-06-18T03:48:11Z",
+      "side": 1,
+      "message": "Thanks for the comment, Ergün!\n\nWhat would you expect to happen in that case? \n\nMy thoughts right now: \n\n1. the radius of the right side should be visible for all or none of them, I think. Otherwise we have different lengths of the blue background for different lines, which I think would look weird. (I.e. showing the rounded edges for the \"Overview\" but not for the long origins.\n\n2. We could \"crop\" with \"...\" for the too long origins, and show the round edges for all of them. I\u0027m not sure whether this looks nice, but I think I could see that happen.\n\nPeter is not available, so I cannot check right now with him (he\u0027s OOO for 3 weeks), but I could potentially update this as a follow up.",
+      "parentUuid": "4b328a29_6029a866",
+      "revId": "674595c04a46f674c86ec6b334c759736e679c28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d32ead27_cc1ff872",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-06-18T03:48:11Z",
+      "side": 1,
+      "message": "Hi Ergün,\n\nThanks for the comment, I\u0027ve added my thoughts :)!",
+      "revId": "674595c04a46f674c86ec6b334c759736e679c28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
