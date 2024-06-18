@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2bdcfe6_7967f486",
+        "filename": "front_end/models/trace/handlers/UserInteractionsHandler.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-18T09:10:26Z",
+      "side": 1,
+      "message": "can we add a unit test or two for this please? thanks!",
+      "range": {
+        "startLine": 369,
+        "startChar": 0,
+        "endLine": 369,
+        "endChar": 118
+      },
+      "revId": "f84b85e2d5e8c05939bfa835cceb83529fcf88c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ede26e69_afe5097e",
+        "filename": "front_end/models/trace/handlers/UserInteractionsHandler.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-18T09:10:26Z",
+      "side": 1,
+      "message": "these are defined in milliseconds, but you take microseconds, so this comparison is broken.\n\nalso, let\u0027s define the values outside of this function so we don\u0027t repeatedly define them",
+      "range": {
+        "startLine": 370,
+        "startChar": 0,
+        "endLine": 371,
+        "endChar": 59
+      },
+      "revId": "f84b85e2d5e8c05939bfa835cceb83529fcf88c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7019a90c_93797fe8",
+        "filename": "front_end/panels/timeline/components/Sidebar.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-18T09:10:26Z",
+      "side": 1,
+      "message": "could this be undefined?",
+      "range": {
+        "startLine": 180,
+        "startChar": 12,
+        "endLine": 180,
+        "endChar": 25
+      },
+      "revId": "f84b85e2d5e8c05939bfa835cceb83529fcf88c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f0ffb3e_3ad8347e",
+        "filename": "front_end/panels/timeline/components/Sidebar.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-18T09:10:26Z",
+      "side": 1,
+      "message": "we should name this function the same as the method we are adding to the user interactions handler to calculate the INP classification\n\n(I don\u0027t mind what name we want to use, but any method that takes a score and calculates a comparison should be named similarly to aid understanding)",
+      "range": {
+        "startLine": 187,
+        "startChar": 78,
+        "endLine": 187,
+        "endChar": 102
+      },
+      "revId": "f84b85e2d5e8c05939bfa835cceb83529fcf88c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
