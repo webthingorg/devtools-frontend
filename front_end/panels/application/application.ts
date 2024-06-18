@@ -7,6 +7,7 @@ import * as AppManifestView from './AppManifestView.js';
 import * as BackgroundServiceModel from './BackgroundServiceModel.js';
 import * as BackgroundServiceView from './BackgroundServiceView.js';
 import * as BounceTrackingMitigationsTreeElement from './BounceTrackingMitigationsTreeElement.js';
+import * as CompressionDictionariesTreeParentElement from './CompressionDictionariesTreeElement.js';
 import * as CookieItemsView from './CookieItemsView.js';
 import * as DOMStorageItemsView from './DOMStorageItemsView.js';
 import * as DOMStorageModel from './DOMStorageModel.js';
@@ -40,6 +41,7 @@ export {
   BackgroundServiceModel,
   BackgroundServiceView,
   BounceTrackingMitigationsTreeElement,
+  CompressionDictionariesTreeParentElement,
   CookieItemsView,
   DOMStorageItemsView,
   DOMStorageModel,
