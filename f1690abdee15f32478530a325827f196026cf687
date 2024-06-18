@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "63349b5f_6074f72d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1462162
+      },
+      "writtenOn": "2024-06-18T14:50:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48fcaad4_b7373718",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 0
+      },
+      "revId": "f1690abdee15f32478530a325827f196026cf687",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "352b1db9_2d4ad632",
@@ -54,6 +78,24 @@
       "writtenOn": "2024-06-18T13:19:10Z",
       "side": 1,
       "message": "lgtm, but please remove the build, buildtools, depot_tools git subrepo updates.",
+      "revId": "f1690abdee15f32478530a325827f196026cf687",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "124af68e_3c000e74",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1462162
+      },
+      "writtenOn": "2024-06-18T14:50:14Z",
+      "side": 1,
+      "message": "Not sure why my .gitignore did not ignore these files",
+      "parentUuid": "50725436_e31c910c",
       "revId": "f1690abdee15f32478530a325827f196026cf687",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
