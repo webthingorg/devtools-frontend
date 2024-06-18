@@ -16,6 +16,80 @@
       "message": "@Andoli, PTAL at the perf panel specific implementation and if you are happy with the logic for calculating the group names for logging.\n\n@Danil, PTAL at the logging specifically and make sure I am holding it right. Thanks!",
       "revId": "784f466eae45c8a4ff17ed78cca0f4215036edb4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fbe72932_bf43ecfe",
+        "filename": "front_end/panels/timeline/AppenderUtils.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-06-18T12:59:06Z",
+      "side": 1,
+      "message": "This is fine but in the rest of the codebase we call this `jslogContext`",
+      "range": {
+        "startLine": 61,
+        "startChar": 4,
+        "endLine": 61,
+        "endChar": 21
+      },
+      "revId": "784f466eae45c8a4ff17ed78cca0f4215036edb4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "675c4312_7e728bf1",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-06-18T12:59:06Z",
+      "side": 1,
+      "message": "`jslogContext` for consistency",
+      "range": {
+        "startLine": 362,
+        "startChar": 16,
+        "endLine": 362,
+        "endChar": 28
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "62bd3d54_9ef8504f",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+              "range": {
+                "startLine": 362,
+                "startChar": 0,
+                "endLine": 363,
+                "endChar": 0
+              },
+              "replacement": "      if (group.jslogContext) {\n"
+            },
+            {
+              "path": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+              "range": {
+                "startLine": 364,
+                "startChar": 0,
+                "endLine": 365,
+                "endChar": 0
+              },
+              "replacement": "            group, `${VisualLogging.section().context(group.jslogContext)}`, this.#visualElementsParent);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "784f466eae45c8a4ff17ed78cca0f4215036edb4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
