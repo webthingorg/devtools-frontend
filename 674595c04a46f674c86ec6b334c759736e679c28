@@ -68,6 +68,24 @@
       "message": "Hi Ergün,\n\nThanks for the comment, I\u0027ve added my thoughts :)!",
       "revId": "674595c04a46f674c86ec6b334c759736e679c28",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0860e107_c8b10864",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-06-18T04:38:27Z",
+      "side": 1,
+      "message": "I had a quick look into Chrome\u0027s Settings and History, and how they behave dynamically. It seems they don\u0027t get to that point (or maybe there are more instances of this navigation bar that I\u0027m not aware of/could find), since their reactive behavior is to not show the sidebar if the width is too short.\n\nMaybe option 2 would be the way to go then? Or maybe you have a different suggestion? Let me know what you think!",
+      "parentUuid": "60f6b8c7_6922cf82",
+      "revId": "674595c04a46f674c86ec6b334c759736e679c28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
