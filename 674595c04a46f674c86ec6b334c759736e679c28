@@ -86,6 +86,24 @@
       "parentUuid": "60f6b8c7_6922cf82",
       "revId": "674595c04a46f674c86ec6b334c759736e679c28",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23fb3e93_01602999",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-06-18T08:42:45Z",
+      "side": 1,
+      "message": "I just happened to stumble on an example, this style is actually used in Gmail, which basically uses the second option: https://screenshot.googleplex.com/BGwR6wFUcFM2dr4.png\n\nDoes that look good to you?",
+      "parentUuid": "0860e107_c8b10864",
+      "revId": "674595c04a46f674c86ec6b334c759736e679c28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
