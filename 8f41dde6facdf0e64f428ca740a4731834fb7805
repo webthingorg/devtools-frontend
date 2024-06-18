@@ -1,0 +1,262 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1cb9f3f_3643f301",
+        "filename": "front_end/panels/timeline/Overlays.test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-18T09:17:27Z",
+      "side": 1,
+      "message": "should we check that the inner HTML contains the label text?",
+      "range": {
+        "startLine": 268,
+        "startChar": 0,
+        "endLine": 270,
+        "endChar": 7
+      },
+      "revId": "8f41dde6facdf0e64f428ca740a4731834fb7805",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3429f1f1_2bbed5e3",
+        "filename": "front_end/panels/timeline/Overlays.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-18T09:17:27Z",
+      "side": 1,
+      "message": "can we have a jsdoc style comment like the other types please?",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 0
+      },
+      "revId": "8f41dde6facdf0e64f428ca740a4731834fb7805",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63d13c8e_31eda9e0",
+        "filename": "front_end/panels/timeline/Overlays.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-18T09:17:27Z",
+      "side": 1,
+      "message": "should we make it invisible at this point just so we don\u0027t show something broken?",
+      "range": {
+        "startLine": 337,
+        "startChar": 0,
+        "endLine": 337,
+        "endChar": 109
+      },
+      "revId": "8f41dde6facdf0e64f428ca740a4731834fb7805",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "519e307b_81239e5a",
+        "filename": "front_end/panels/timeline/Overlays.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-18T09:17:27Z",
+      "side": 1,
+      "message": "rather than `void` can we do `null` ? I understand why you did void, but more often in the codebase we use `null` to represent \"couldn\u0027t compute the value\"",
+      "range": {
+        "startLine": 372,
+        "startChar": 6,
+        "endLine": 372,
+        "endChar": 10
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "9fcbd948_139b9856",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/Overlays.ts",
+              "range": {
+                "startLine": 372,
+                "startChar": 0,
+                "endLine": 373,
+                "endChar": 0
+              },
+              "replacement": "      null {\n"
+            },
+            {
+              "path": "front_end/panels/timeline/Overlays.ts",
+              "range": {
+                "startLine": 380,
+                "startChar": 0,
+                "endLine": 381,
+                "endChar": 0
+              },
+              "replacement": "      return null;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "8f41dde6facdf0e64f428ca740a4731834fb7805",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59652fc7_ad7a9af9",
+        "filename": "front_end/panels/timeline/Overlays.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-18T09:17:27Z",
+      "side": 1,
+      "message": "typo (no apostrophe)",
+      "range": {
+        "startLine": 404,
+        "startChar": 31,
+        "endLine": 404,
+        "endChar": 35
+      },
+      "revId": "8f41dde6facdf0e64f428ca740a4731834fb7805",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9fca13b_adba6868",
+        "filename": "front_end/panels/timeline/Overlays.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-18T09:17:27Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 404,
+        "startChar": 49,
+        "endLine": 404,
+        "endChar": 56
+      },
+      "revId": "8f41dde6facdf0e64f428ca740a4731834fb7805",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3af0b70_c9503822",
+        "filename": "front_end/panels/timeline/Overlays.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-18T09:17:27Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 405,
+        "startChar": 103,
+        "endLine": 405,
+        "endChar": 111
+      },
+      "revId": "8f41dde6facdf0e64f428ca740a4731834fb7805",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7432cc55_d05a8cfe",
+        "filename": "front_end/panels/timeline/Overlays.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 526,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-18T09:17:27Z",
+      "side": 1,
+      "message": "shall we move these two lines to before the `switch` so we don\u0027t duplicate them every time?",
+      "range": {
+        "startLine": 525,
+        "startChar": 2,
+        "endLine": 526,
+        "endChar": 74
+      },
+      "revId": "8f41dde6facdf0e64f428ca740a4731834fb7805",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6bbcf0e5_b1d48476",
+        "filename": "front_end/panels/timeline/components/EntryLabelOverlay.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-18T09:17:27Z",
+      "side": 1,
+      "message": "LABLE typo",
+      "range": {
+        "startLine": 14,
+        "startChar": 18,
+        "endLine": 14,
+        "endChar": 40
+      },
+      "revId": "8f41dde6facdf0e64f428ca740a4731834fb7805",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c96a933_46a82231",
+        "filename": "front_end/panels/timeline/components/EntryLabelOverlay.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-18T09:17:27Z",
+      "side": 1,
+      "message": "love this comment",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 2
+      },
+      "revId": "8f41dde6facdf0e64f428ca740a4731834fb7805",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
