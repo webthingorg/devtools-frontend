@@ -16,6 +16,24 @@
       "message": "Can anyone help me figure out why I can\u0027t get the snapshots module to work in my tests?",
       "revId": "78bc32ceebb610571a37f8b1f045295c10674799",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58b4e085_62b6561e",
+        "filename": "front_end/models/trace/lantern/metrics/Interactive.test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-06-18T00:05:06Z",
+      "side": 1,
+      "message": "paul helped. we learned unittests can\u0027t use this module, only node tests.\n\nI replaced with deep strict asserts.",
+      "parentUuid": "e2bada9c_331d7cbc",
+      "revId": "78bc32ceebb610571a37f8b1f045295c10674799",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
