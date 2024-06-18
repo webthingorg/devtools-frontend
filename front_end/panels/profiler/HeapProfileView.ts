@@ -245,6 +245,7 @@ export class SamplingHeapProfileTypeBase extends
     Common.ObjectWrapper.eventMixin<SamplingHeapProfileType.EventTypes, typeof ProfileType>(ProfileType) {
   recording: boolean;
   clearedDuringRecording: boolean;
+  #capturingQueue = new Common.Mutex.PromiseChain();
 
   constructor(typeId: string, description: string) {
     super(typeId, description);
@@ -272,12 +273,12 @@ export class SamplingHeapProfileTypeBase extends
     if (this.recording) {
       void this.stopRecordingProfile();
     } else {
-      this.startRecordingProfile();
+      void this.startRecordingProfile();
     }
     return this.recording;
   }
 
-  startRecordingProfile(): void {
+  async startRecordingProfile(): Promise<void> {
     const heapProfilerModel = UI.Context.Context.instance().flavor(SDK.HeapProfilerModel.HeapProfilerModel);
     if (this.profileBeingRecorded() || !heapProfilerModel) {
       return;
@@ -291,7 +292,7 @@ export class SamplingHeapProfileTypeBase extends
     UI.InspectorView.InspectorView.instance().setPanelWarnings('heap-profiler', warnings);
 
     this.recording = true;
-    this.startSampling();
+    await this.#capturingQueue.chain(this.startSampling());
   }
 
   async stopRecordingProfile(): Promise<void> {
@@ -302,7 +303,7 @@ export class SamplingHeapProfileTypeBase extends
     }
 
     recordedProfile.updateStatus(i18nString(UIStrings.stopping));
-    const profile = await this.stopSampling();
+    const profile = await this.#capturingQueue.chain(this.stopSampling());
     if (recordedProfile) {
       console.assert(profile !== undefined);
       // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration)

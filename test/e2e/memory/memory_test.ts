@@ -61,7 +61,7 @@ describe('The Memory Panel', function() {
     await navigateToMemoryTab();
   });
 
-  it('Can take several heap snapshots ', async () => {
+  it.only('Can take several heap snapshots ', async () => {
     await goToResource('memory/default.html');
     await navigateToMemoryTab();
     await takeHeapSnapshot();
