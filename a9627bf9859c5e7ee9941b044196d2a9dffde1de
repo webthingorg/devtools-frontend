@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8c7ab92_e2399d1d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-18T10:20:29Z",
+      "side": 1,
+      "message": "LGTM with the inclusion of the WPT tests :)",
+      "revId": "a9627bf9859c5e7ee9941b044196d2a9dffde1de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e18911f8_e6b3e875",
+        "filename": "front_end/core/sdk/CSSMatchedStyles.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 880,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-18T10:20:29Z",
+      "side": 1,
+      "message": "(nit): Should it be `isInInProgressSCC` or was the name intended? :)",
+      "revId": "a9627bf9859c5e7ee9941b044196d2a9dffde1de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
