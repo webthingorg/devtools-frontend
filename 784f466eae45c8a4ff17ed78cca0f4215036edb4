@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8827d308_8db6d7d3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-18T12:37:46Z",
+      "side": 1,
+      "message": "@Andoli, PTAL at the perf panel specific implementation and if you are happy with the logic for calculating the group names for logging.\n\n@Danil, PTAL at the logging specifically and make sure I am holding it right. Thanks!",
+      "revId": "784f466eae45c8a4ff17ed78cca0f4215036edb4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
