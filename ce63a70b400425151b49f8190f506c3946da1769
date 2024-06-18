@@ -16,6 +16,115 @@
       "message": "this is exciting! I am not going to review the code in detail but it\u0027s awesome to see this coming in 😊",
       "revId": "ce63a70b400425151b49f8190f506c3946da1769",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f321c7f3_00f6ab22",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-06-18T09:43:00Z",
+      "side": 1,
+      "message": "cool to see this happening!\nLGTM % license headers and tracking pending tasks for integrating with repo ts and lint config",
+      "revId": "ce63a70b400425151b49f8190f506c3946da1769",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab81ad03_fad60d1b",
+        "filename": "front_end/models/trace/lantern/.eslintrc.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-06-18T09:43:00Z",
+      "side": 1,
+      "message": "maybe it\u0027s worth filing a bug for this to ensure we don\u0027t forget to resolve this (or tying it to an existing bug)",
+      "range": {
+        "startLine": 13,
+        "startChar": 9,
+        "endLine": 13,
+        "endChar": 13
+      },
+      "revId": "ce63a70b400425151b49f8190f506c3946da1769",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b3b257b_cffcc75b",
+        "filename": "front_end/models/trace/lantern/BUILD.gn",
+        "patchSetId": 6
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-06-18T09:43:00Z",
+      "side": 1,
+      "message": "do we expect to use these deps? If we do so it might cause issues when rolling to the standalone library, but I think we don\u0027t need them.",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 31
+      },
+      "revId": "ce63a70b400425151b49f8190f506c3946da1769",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42e15923_62bc7e36",
+        "filename": "front_end/models/trace/lantern/metrics/FirstContentfulPaint.test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-06-18T09:43:00Z",
+      "side": 1,
+      "message": "ditto: tracking bug (and other ts-nochecks)",
+      "range": {
+        "startLine": 11,
+        "startChar": 3,
+        "endLine": 11,
+        "endChar": 4
+      },
+      "revId": "ce63a70b400425151b49f8190f506c3946da1769",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "619c3ea5_4c84f905",
+        "filename": "front_end/models/trace/lantern/tsconfig.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-06-18T09:43:00Z",
+      "side": 1,
+      "message": "do we want to eventually enable these or could we remove them completely (or something in between)?",
+      "range": {
+        "startLine": 6,
+        "startChar": 4,
+        "endLine": 6,
+        "endChar": 31
+      },
+      "revId": "ce63a70b400425151b49f8190f506c3946da1769",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
