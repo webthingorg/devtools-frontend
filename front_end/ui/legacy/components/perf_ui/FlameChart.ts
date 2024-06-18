@@ -2253,7 +2253,9 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
 
         const entryStartTime = entryStartTimes[entryIndex];
         const entryOffsetRight = entryStartTime + duration;
-        if (entryOffsetRight <= this.chartViewport.windowLeftTime()) {
+        if (entryOffsetRight <= this.chartViewport.windowLeftTime() &&
+            !(this.dataProvider.forceDrawableLevel && this.dataProvider.forceDrawableLevel(level))) {
+          // If the event is entirely to the left of the visible window, and the level is not forced to be drawn, we can stop processing this level.
           break;
         }
 
@@ -3765,6 +3767,8 @@ export interface FlameChartDataProvider {
       barWidth: number, barHeight: number, unclippedBarX: number, timeToPixelRatio: number): boolean;
 
   forceDecoration(entryIndex: number): boolean;
+
+  forceDrawableLevel?(level: number): boolean;
 
   textColor(entryIndex: number): string;
 
