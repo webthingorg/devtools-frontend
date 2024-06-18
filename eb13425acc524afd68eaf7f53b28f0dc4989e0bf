@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0b7a0bf_bb656550",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-18T09:23:44Z",
+      "side": 1,
+      "message": "have we thought about the exact UI for how people will create the labels?",
+      "revId": "eb13425acc524afd68eaf7f53b28f0dc4989e0bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6f207a5_826cbb40",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-18T09:23:44Z",
+      "side": 1,
+      "message": "do we allow people to add labels to frames / screenshots?\n\nhappy to say no for now...but we probably will want to",
+      "range": {
+        "startLine": 483,
+        "startChar": 12,
+        "endLine": 484,
+        "endChar": 95
+      },
+      "revId": "eb13425acc524afd68eaf7f53b28f0dc4989e0bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06118180_91e714f0",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 803,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-18T09:23:44Z",
+      "side": 1,
+      "message": "do we need to handle non-mac here and look for control? I think we have code elsewhere that checks the platform and alters what we are looking for",
+      "range": {
+        "startLine": 803,
+        "startChar": 0,
+        "endLine": 803,
+        "endChar": 95
+      },
+      "revId": "eb13425acc524afd68eaf7f53b28f0dc4989e0bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
