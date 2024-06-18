@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "352b1db9_2d4ad632",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1462162
+      },
+      "writtenOn": "2024-06-18T13:05:35Z",
+      "side": 1,
+      "message": "Made some changes. PTAL. Thanks",
+      "revId": "f1690abdee15f32478530a325827f196026cf687",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c982793d_684ff4d9",
+        "filename": "front_end/entrypoints/formatter_worker/JavaScriptFormatter.test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1462162
+      },
+      "writtenOn": "2024-06-18T13:05:35Z",
+      "side": 1,
+      "message": "Formatter removes additional spacing in functions parameters matching current formatting for non-arrow functions",
+      "range": {
+        "startLine": 432,
+        "startChar": 52,
+        "endLine": 432,
+        "endChar": 61
+      },
+      "revId": "f1690abdee15f32478530a325827f196026cf687",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

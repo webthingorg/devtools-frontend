@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0dbd33d7_c487aeae",
+        "filename": "front_end/entrypoints/formatter_worker/JavaScriptFormatter.test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1462162
+      },
+      "writtenOn": "2024-06-18T13:05:35Z",
+      "side": 1,
+      "message": "Reverted back to original test and made sure formatter is passing it correctly",
+      "parentUuid": "2f8a0f8b_7d549de6",
+      "range": {
+        "startLine": 17,
+        "startChar": 17,
+        "endLine": 17,
+        "endChar": 18
+      },
+      "revId": "f9db6e6897e4be0456bf0465d3e4942745e91113",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "267b9d59_236e4133",
@@ -71,6 +95,30 @@
       "writtenOn": "2024-06-17T05:59:59Z",
       "side": 1,
       "message": "I think you want to check here for the `\u003d\u003e` token specifically. You might not be able to use the `AT.punctuator` helper here but may have to inline the relevant bits directly.",
+      "range": {
+        "startLine": 221,
+        "startChar": 10,
+        "endLine": 221,
+        "endChar": 34
+      },
+      "revId": "f9db6e6897e4be0456bf0465d3e4942745e91113",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e08383d_134124d3",
+        "filename": "front_end/entrypoints/formatter_worker/JavaScriptFormatter.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1462162
+      },
+      "writtenOn": "2024-06-18T13:05:35Z",
+      "side": 1,
+      "message": "In AcornTokenizer, created an identifier specifically for \u003d\u003e an arrow function / label rather than editing another to avoid any issues",
+      "parentUuid": "267b9d59_236e4133",
       "range": {
         "startLine": 221,
         "startChar": 10,
