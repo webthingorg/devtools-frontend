@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82fae1dd_49753409",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-18T16:05:23Z",
+      "side": 1,
+      "message": "lgtm with one comment - thanks!",
+      "revId": "023a2c411870d0aebe35663515ab847b2ff59a1b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3a6906d_00f07def",
+        "filename": "front_end/panels/timeline/Overlays.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-18T16:05:23Z",
+      "side": 1,
+      "message": "it was a bit surprising to me that this isn\u0027t actually used to set the width of the element.\n\nit might be a good idea to explain at a higher level how we are positioning this - I find it a bit confusing figuring out why we aren\u0027t positioning the overlay just over the entry (like we do for the ENTRY_SELECTED overlay) and then within the component moving the label \u0026 the connector within the entry label component.\n\nI don\u0027t feel super strongly on how this is done, but a comment or some docs on this might help",
+      "range": {
+        "startLine": 396,
+        "startChar": 0,
+        "endLine": 397,
+        "endChar": 48
+      },
+      "revId": "023a2c411870d0aebe35663515ab847b2ff59a1b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
