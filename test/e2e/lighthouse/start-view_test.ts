@@ -47,7 +47,8 @@ describe('The Lighthouse start view', () => {
     assert.strictEqual(helpText, '');
   });
 
-  it('disables the start button for internal pages', async () => {
+  // Flaky test.
+  it.skipOnPlatforms(['mac'], '[crbug.com/1484942]: disables the start button for internal pages', async () => {
     await navigateToLighthouseTab();
     await goTo('about:blank');
 
@@ -66,9 +67,8 @@ describe('The Lighthouse start view', () => {
     assert.isTrue(disabled, 'The Generate Report button should be disabled');
   });
 
-  // Broken in local builds and stressor jobs
-  it.skip('[crbug.com/347114248] displays warning if important data may affect performance', async () => {
-    // e2e tests in application/ create indexeddb items and don't clean up after themselves
+  it('displays warning if important data may affect performance', async () => {
+    // e2e tests in application/ create websql and indexeddb items and don't clean up after themselves
     await clearSiteData();
 
     await navigateToLighthouseTab('empty.html');
