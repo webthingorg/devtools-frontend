@@ -53,3 +53,13 @@ export class Mutex {
     }
   }
 }
+
+export class PromiseChain {
+  #queue = Promise.resolve();
+
+  chain<T>(promise: T|Promise<T>): Promise<T> {
+    const chained = this.#queue.then(() => promise);
+    this.#queue = new Promise(r => chained.then(() => r()));
+    return chained;
+  }
+}

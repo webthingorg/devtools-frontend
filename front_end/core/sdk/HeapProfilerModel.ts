@@ -134,6 +134,7 @@ export class HeapProfilerModel extends SDKModel<EventTypes> {
   }
 
   reportHeapSnapshotProgress(done: number, total: number, finished?: boolean): void {
+    console.error(done, total, finished);
     this.dispatchEventToListeners(Events.ReportHeapSnapshotProgress, {done: done, total: total, finished: finished});
   }
 
