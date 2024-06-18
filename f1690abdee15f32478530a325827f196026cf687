@@ -20,6 +20,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "50725436_e31c910c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-06-18T13:19:10Z",
+      "side": 1,
+      "message": "lgtm, but please remove the build, buildtools, depot_tools git subrepo updates.",
+      "revId": "f1690abdee15f32478530a325827f196026cf687",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "c982793d_684ff4d9",
         "filename": "front_end/entrypoints/formatter_worker/JavaScriptFormatter.test.ts",
         "patchSetId": 2
