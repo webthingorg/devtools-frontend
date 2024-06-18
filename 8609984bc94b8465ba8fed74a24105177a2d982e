@@ -52,6 +52,24 @@
       "parentUuid": "40419cdc_df63dc6a",
       "revId": "8609984bc94b8465ba8fed74a24105177a2d982e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d1ee771_482a5770",
+        "filename": "front_end/models/trace/lantern/types/lantern.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-06-18T13:05:45Z",
+      "side": 1,
+      "message": "gemini, at least, says this is fine, but has guidance around attribution: https://g.co/gemini/share/bfdb4e58552c",
+      "parentUuid": "da151e26_55aad811",
+      "revId": "8609984bc94b8465ba8fed74a24105177a2d982e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

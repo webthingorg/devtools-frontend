@@ -83,6 +83,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "af8dcc51_b592e441",
+        "filename": "front_end/models/trace/lantern/BUILD.gn",
+        "patchSetId": 6
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-06-18T13:05:45Z",
+      "side": 1,
+      "message": "\u003e If we do so it might cause issues when rolling to the standalone library, \n\nI checked this and it doesn\u0027t. (But... I don\u0027t know why. (Nor do I know why they\u0027re here ;))",
+      "parentUuid": "7b3b257b_cffcc75b",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 31
+      },
+      "revId": "ce63a70b400425151b49f8190f506c3946da1769",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "42e15923_62bc7e36",
         "filename": "front_end/models/trace/lantern/metrics/FirstContentfulPaint.test.ts",
         "patchSetId": 6
@@ -123,6 +147,23 @@
         "endLine": 6,
         "endChar": 31
       },
+      "revId": "ce63a70b400425151b49f8190f506c3946da1769",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29d6706b_e7ecaeb4",
+        "filename": "front_end/models/trace/trace.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-06-18T13:05:45Z",
+      "side": 1,
+      "message": "Given the new home do we want to rename this?\n\nI\u0027m happy with `Lantern`, but... I\u0027d also be happy with `Simulator`",
       "revId": "ce63a70b400425151b49f8190f506c3946da1769",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
