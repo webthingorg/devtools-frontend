@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b4e9b448_e7d27547",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-06-18T11:32:39Z",
+      "side": 1,
+      "message": "Please follow CL description guidelines: https://chromium.googlesource.com/chromium/src/+/HEAD/docs/contributing.md#Uploading-a-change-for-review\n\nIf this effort has a buganizer tracking bug, please add `Bug: b/\u003cid\u003e` as a separate line above \"Change-Id\"",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 55
+      },
+      "revId": "1b7bcd5b2e3cd03ac10992378e53db4275ed30ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "19105a83_804e3a69",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -14,6 +37,23 @@
       "writtenOn": "2024-06-18T11:24:15Z",
       "side": 1,
       "message": "I\u0027m not an OWNER, so passing the torch on. @Simon: Do we maybe want to remove those two projects altogether?",
+      "revId": "1b7bcd5b2e3cd03ac10992378e53db4275ed30ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33b8bd9e_f67cd214",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-06-18T11:32:39Z",
+      "side": 1,
+      "message": "I don\u0027t mind adding these package-lock.json. I mean the migration script is no longer used so we could remove that. But the \"javascript_natives\" is run every time we roll the Chromium deps so thats good.\n\nQ: Are there actually bots that will check these for vulnerable packages?\n\nlgtm % CL description",
       "revId": "1b7bcd5b2e3cd03ac10992378e53db4275ed30ef",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
