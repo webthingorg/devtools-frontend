@@ -6461,10 +6461,6 @@ export const NativeFunctions = [
     signatures: [["?options"]]
   },
   {
-    name: "getPartNode",
-    signatures: [["index"]]
-  },
-  {
     name: "expand",
     signatures: [["?unit"]],
     receivers: ["Range"]
