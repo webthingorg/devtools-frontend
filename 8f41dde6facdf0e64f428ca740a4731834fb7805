@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "232b9d9b_fede9033",
+        "filename": "front_end/panels/timeline/Overlays.test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-18T11:43:58Z",
+      "side": 1,
+      "message": "yes! added a test that checks the label",
+      "parentUuid": "a1cb9f3f_3643f301",
+      "range": {
+        "startLine": 268,
+        "startChar": 0,
+        "endLine": 270,
+        "endChar": 7
+      },
+      "revId": "8f41dde6facdf0e64f428ca740a4731834fb7805",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3429f1f1_2bbed5e3",
@@ -47,6 +71,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4daa11f_708f42ed",
+        "filename": "front_end/panels/timeline/Overlays.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-18T11:43:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3429f1f1_2bbed5e3",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 0
+      },
+      "revId": "8f41dde6facdf0e64f428ca740a4731834fb7805",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "63d13c8e_31eda9e0",
@@ -60,6 +108,30 @@
       "writtenOn": "2024-06-18T09:17:27Z",
       "side": 1,
       "message": "should we make it invisible at this point just so we don\u0027t show something broken?",
+      "range": {
+        "startLine": 337,
+        "startChar": 0,
+        "endLine": 337,
+        "endChar": 109
+      },
+      "revId": "8f41dde6facdf0e64f428ca740a4731834fb7805",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55e892d9_dda1c7b6",
+        "filename": "front_end/panels/timeline/Overlays.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-18T11:43:58Z",
+      "side": 1,
+      "message": "Great point. Setting is to hidden now.",
+      "parentUuid": "63d13c8e_31eda9e0",
       "range": {
         "startLine": 337,
         "startChar": 0,
@@ -121,6 +193,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0c77343_950b074f",
+        "filename": "front_end/panels/timeline/Overlays.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 372,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-18T11:43:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "519e307b_81239e5a",
+      "range": {
+        "startLine": 372,
+        "startChar": 6,
+        "endLine": 372,
+        "endChar": 10
+      },
+      "revId": "8f41dde6facdf0e64f428ca740a4731834fb7805",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "59652fc7_ad7a9af9",
@@ -167,6 +263,54 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea216d1b_58b88699",
+        "filename": "front_end/panels/timeline/Overlays.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-18T11:43:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "59652fc7_ad7a9af9",
+      "range": {
+        "startLine": 404,
+        "startChar": 31,
+        "endLine": 404,
+        "endChar": 35
+      },
+      "revId": "8f41dde6facdf0e64f428ca740a4731834fb7805",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "794193d3_49c9ed21",
+        "filename": "front_end/panels/timeline/Overlays.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 404,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-18T11:43:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9fca13b_adba6868",
+      "range": {
+        "startLine": 404,
+        "startChar": 49,
+        "endLine": 404,
+        "endChar": 56
+      },
+      "revId": "8f41dde6facdf0e64f428ca740a4731834fb7805",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c3af0b70_c9503822",
@@ -180,6 +324,30 @@
       "writtenOn": "2024-06-18T09:17:27Z",
       "side": 1,
       "message": "typo",
+      "range": {
+        "startLine": 405,
+        "startChar": 103,
+        "endLine": 405,
+        "endChar": 111
+      },
+      "revId": "8f41dde6facdf0e64f428ca740a4731834fb7805",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5a3d61f_ec68d66f",
+        "filename": "front_end/panels/timeline/Overlays.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-18T11:43:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3af0b70_c9503822",
       "range": {
         "startLine": 405,
         "startChar": 103,
@@ -213,6 +381,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3660eaf_effa87dd",
+        "filename": "front_end/panels/timeline/Overlays.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 526,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-18T11:43:58Z",
+      "side": 1,
+      "message": "good point! I thought of doing it, but forgot.",
+      "parentUuid": "7432cc55_d05a8cfe",
+      "range": {
+        "startLine": 525,
+        "startChar": 2,
+        "endLine": 526,
+        "endChar": 74
+      },
+      "revId": "8f41dde6facdf0e64f428ca740a4731834fb7805",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6bbcf0e5_b1d48476",
@@ -226,6 +418,30 @@
       "writtenOn": "2024-06-18T09:17:27Z",
       "side": 1,
       "message": "LABLE typo",
+      "range": {
+        "startLine": 14,
+        "startChar": 18,
+        "endLine": 14,
+        "endChar": 40
+      },
+      "revId": "8f41dde6facdf0e64f428ca740a4731834fb7805",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d6f5b86_a2e55ac6",
+        "filename": "front_end/panels/timeline/components/EntryLabelOverlay.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-18T11:43:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6bbcf0e5_b1d48476",
       "range": {
         "startLine": 14,
         "startChar": 18,
