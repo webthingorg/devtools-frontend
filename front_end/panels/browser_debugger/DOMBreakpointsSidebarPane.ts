@@ -188,7 +188,8 @@ export class DOMBreakpointsSidebarPane extends UI.Widget.VBox implements
     UI.ARIAUtils.markAsListitem(element);
     element.tabIndex = -1;
 
-    const checkboxLabel = UI.UIUtils.CheckboxLabel.create(/* title */ undefined, item.enabled);
+    const checkboxLabel =
+        UI.UIUtils.CheckboxLabel.create(/* title */ undefined, item.enabled, undefined, undefined, /* small */ true);
     const checkboxElement = checkboxLabel.checkboxElement;
     checkboxElement.addEventListener('click', this.checkboxClicked.bind(this, item), false);
     checkboxElement.tabIndex = -1;
