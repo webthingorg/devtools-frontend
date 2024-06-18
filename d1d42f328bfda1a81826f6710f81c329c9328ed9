@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f02a917_525d6f09",
+        "filename": "front_end/panels/timeline/components/Sidebar.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-18T13:58:19Z",
+      "side": 1,
+      "message": "I think it is slightly odd that we are inconsistent in what we store and store:\n\n- the CLS metric\n- the LCP metric\n- the INP longest event\n\nshould we make this `inpMetric` and do the classification etc here?",
+      "range": {
+        "startLine": 167,
+        "startChar": 4,
+        "endLine": 169,
+        "endChar": 27
+      },
+      "revId": "d1d42f328bfda1a81826f6710f81c329c9328ed9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
