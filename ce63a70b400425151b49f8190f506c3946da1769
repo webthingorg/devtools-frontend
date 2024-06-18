@@ -37,6 +37,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bc9dceae_770c7cdc",
+        "filename": "front_end/models/trace/LanternComputationData.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-06-18T18:54:15Z",
+      "side": 1,
+      "message": "Why is this file outside the `trace/lantern` folder?",
+      "revId": "ce63a70b400425151b49f8190f506c3946da1769",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ab81ad03_fad60d1b",
         "filename": "front_end/models/trace/lantern/.eslintrc.js",
         "patchSetId": 6
@@ -164,6 +181,24 @@
       "writtenOn": "2024-06-18T13:05:45Z",
       "side": 1,
       "message": "Given the new home do we want to rename this?\n\nI\u0027m happy with `Lantern`, but... I\u0027d also be happy with `Simulator`",
+      "revId": "ce63a70b400425151b49f8190f506c3946da1769",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70ebaebe_71f29cf0",
+        "filename": "front_end/models/trace/trace.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-06-18T18:54:15Z",
+      "side": 1,
+      "message": "I think renaming would be more work than normal since we need to sync between this and the LH repo. I think we should just keep it.",
+      "parentUuid": "29d6706b_e7ecaeb4",
       "revId": "ce63a70b400425151b49f8190f506c3946da1769",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
