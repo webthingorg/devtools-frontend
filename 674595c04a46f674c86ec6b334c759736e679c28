@@ -104,6 +104,24 @@
       "parentUuid": "0860e107_c8b10864",
       "revId": "674595c04a46f674c86ec6b334c759736e679c28",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80976a56_49feb729",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-18T08:49:32Z",
+      "side": 1,
+      "message": "Yes! I think option 2 makes the most sense for this case considering that the navigation drawer area is resizable so if the user needs to read more of the name of the origin, they can resize the drawer.",
+      "parentUuid": "23fb3e93_01602999",
+      "revId": "674595c04a46f674c86ec6b334c759736e679c28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
