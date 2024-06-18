@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f0ab9f9_bcde198a",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-06-18T08:54:43Z",
+      "side": 1,
+      "message": "WDYT if we start adding unit tests for the loop now?",
+      "revId": "41a2bb258aae5ba02e337ba2b872e6d9c068fad7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
