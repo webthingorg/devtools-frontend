@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e1153b7_0998aa29",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-18T12:14:19Z",
+      "side": 1,
+      "message": "you mean how they will find out how to create the label? I don\u0027t think so. Maybe we should consider adding it to the context menu too.\n\nRegarding creating, I\u0027m pretty sure we agreed on `cmd + click on entry` or `ctrl + click on entry`",
+      "parentUuid": "c0b7a0bf_bb656550",
+      "revId": "eb13425acc524afd68eaf7f53b28f0dc4989e0bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e6f207a5_826cbb40",
@@ -41,6 +59,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "703f218b_dcfe4ff3",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 484,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-18T12:14:19Z",
+      "side": 1,
+      "message": "you\u0027re right, we probably want to. Let\u0027s keep it like that for now and ask Yuin how annotating screenshots will look",
+      "parentUuid": "e6f207a5_826cbb40",
+      "range": {
+        "startLine": 483,
+        "startChar": 12,
+        "endLine": 484,
+        "endChar": 95
+      },
+      "revId": "eb13425acc524afd68eaf7f53b28f0dc4989e0bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "06118180_91e714f0",
@@ -54,6 +96,30 @@
       "writtenOn": "2024-06-18T09:23:44Z",
       "side": 1,
       "message": "do we need to handle non-mac here and look for control? I think we have code elsewhere that checks the platform and alters what we are looking for",
+      "range": {
+        "startLine": 803,
+        "startChar": 0,
+        "endLine": 803,
+        "endChar": 95
+      },
+      "revId": "eb13425acc524afd68eaf7f53b28f0dc4989e0bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c95c87be_a33580df",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 803,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-18T12:14:19Z",
+      "side": 1,
+      "message": "true! checking it now",
+      "parentUuid": "06118180_91e714f0",
       "range": {
         "startLine": 803,
         "startChar": 0,
