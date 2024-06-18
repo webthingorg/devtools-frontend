@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "363bfca6_8b7050ed",
+        "filename": "front_end/panels/timeline/AppenderUtils.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-18T13:11:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fbe72932_bf43ecfe",
+      "range": {
+        "startLine": 61,
+        "startChar": 4,
+        "endLine": 61,
+        "endChar": 21
+      },
+      "revId": "784f466eae45c8a4ff17ed78cca0f4215036edb4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "675c4312_7e728bf1",
@@ -88,6 +112,30 @@
           ]
         }
       ],
+      "revId": "784f466eae45c8a4ff17ed78cca0f4215036edb4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "abf6a2d0_5e97e637",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-18T13:11:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "675c4312_7e728bf1",
+      "range": {
+        "startLine": 362,
+        "startChar": 16,
+        "endLine": 362,
+        "endChar": 28
+      },
       "revId": "784f466eae45c8a4ff17ed78cca0f4215036edb4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
