@@ -50,6 +50,24 @@
       "message": "```suggestion\n  inputPlaceholder: \u0027Ask a question about the selected element\u0027,\n```",
       "revId": "d65207619b7cea98d6bca48029ff6650c2098cd2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39883bc6_8763ac4d",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-19T12:19:46Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "47045af1_b87c91a7",
+      "revId": "d65207619b7cea98d6bca48029ff6650c2098cd2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
