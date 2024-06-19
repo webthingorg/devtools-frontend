@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3823e65f_f083d996",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-06-19T08:50:13Z",
+      "side": 1,
+      "message": "I think we can discuss how to generalize checkbox styles.",
+      "revId": "b14e748b9781008ba3a875899a0b8156f280dbf7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "adebdc53_3391c1a3",
+        "filename": "front_end/ui/legacy/listWidget.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-06-19T08:50:13Z",
+      "side": 1,
+      "message": "nit: could we move this section to the above block to make it more clear who sets the `visibility: hidden` so that we need to unset it in this case? i.e.\n```\n.controls-buttons {\n  ...\n  visibility: hidden;\n \n  .list-item:hover \u0026 {\n    visibility: visible;\n  }\n}\n```",
+      "revId": "b14e748b9781008ba3a875899a0b8156f280dbf7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
