@@ -165,8 +165,9 @@ export class FreestylerPanel extends UI.Panel.Panel {
     }
   }
 
-  // TODO(ergunsh): Handle cancelling agent run.
   #clearMessages(): void {
+    this.#agent.cancel();
+
     this.#viewProps.messages = [];
     this.#viewProps.state = FreestylerChatUiState.CHAT_VIEW;
     this.#agent.resetHistory();
