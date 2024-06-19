@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c956171b_3e777c80",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-06-19T14:01:12Z",
+      "side": 1,
+      "message": "wdyt about cleaning rpcId for past steps while it is matching when receiving a new step instead of doing it in every render?",
+      "revId": "667c5a819c938f203d854e325502f689f9444207",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
