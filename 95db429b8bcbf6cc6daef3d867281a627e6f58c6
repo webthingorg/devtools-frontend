@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "161c39b5_369fda5d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-06-19T11:29:31Z",
+      "side": 1,
+      "message": "Thanks a lot for reviewing, Changhao!",
+      "revId": "95db429b8bcbf6cc6daef3d867281a627e6f58c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "16bf91b3_9661f09c",
@@ -14,6 +31,24 @@
       "writtenOn": "2024-06-19T11:26:19Z",
       "side": 1,
       "message": "Is this a revert to some recent changes? I remember that we added these \"undefined, undefined, true\" very recently.",
+      "revId": "95db429b8bcbf6cc6daef3d867281a627e6f58c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d7185f4_9766d5fa",
+        "filename": "front_end/panels/accessibility/SourceOrderView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-06-19T11:29:31Z",
+      "side": 1,
+      "message": "Yes, it is a revert, it turned out we do not need that checkbox to be small after all!:)",
+      "parentUuid": "16bf91b3_9661f09c",
       "revId": "95db429b8bcbf6cc6daef3d867281a627e6f58c6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
