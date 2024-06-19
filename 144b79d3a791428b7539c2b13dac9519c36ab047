@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b86e1ff_41eae0d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-19T09:49:40Z",
+      "side": 1,
+      "message": "Yay! Now it looks awesome IMO, thanks for adding the ellipsis behavior. Let\u0027s see what Peter will think when he returns back :)",
+      "revId": "144b79d3a791428b7539c2b13dac9519c36ab047",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd567af1_be590704",
+        "filename": "front_end/panels/security/SecurityPanel.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 1001,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-19T09:49:40Z",
+      "side": 1,
+      "message": "(nit): I have a nit regarding this pattern (and I don\u0027t know our team\u0027s stance on this) 😅. \n\nWhat do you think of instead of using an abstract class and using inheritance to modify the behavior of the component, using parameters for the component.  For me, it helps with understanding the configurable parts of the component in the call site (so its API feels a bit more explicit)\n\nFor example, if you use parameters for the component; it\u0027d look like this in call site:\n\n```\nnew SecurityPanelSidebarTreeElement(title, {\n          onSelect: this.setVisibleView.bind(this, this.mainView),\n          getIconForSecurityState: (securityState: Protocol.Security.SecurityState) \u003d\u003e getSecurityStateIconForOverview(securityState, `lock-icon lock-icon-${securityState}`),\n          listItemElementClassName: \u0027security-main-view-sidebar-tree-item\u0027\n        })\n```\nand at that point I know that list item element\u0027s class and the icon to render is configurable.\n\nOtherwise with abstract classes, the configurable parts of the component became harder to understand.\n\n---\nThough please do not block on this comment if you don\u0027t feel like changing that part :)",
+      "revId": "144b79d3a791428b7539c2b13dac9519c36ab047",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba28b29d_e00304cc",
+        "filename": "front_end/panels/security/sidebar.css",
+        "patchSetId": 14
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-19T09:49:40Z",
+      "side": 1,
+      "message": "I think this padding doesn\u0027t apply as it is overridden by the padding of the rule with `.tree-outline li` selector.",
+      "revId": "144b79d3a791428b7539c2b13dac9519c36ab047",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
