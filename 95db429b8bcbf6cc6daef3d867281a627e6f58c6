@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16bf91b3_9661f09c",
+        "filename": "front_end/panels/accessibility/SourceOrderView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-06-19T11:26:19Z",
+      "side": 1,
+      "message": "Is this a revert to some recent changes? I remember that we added these \"undefined, undefined, true\" very recently.",
+      "revId": "95db429b8bcbf6cc6daef3d867281a627e6f58c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
