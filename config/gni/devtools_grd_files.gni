@@ -1062,6 +1062,8 @@ grd_files_debug_sources = [
   "front_end/panels/application/BackgroundServiceModel.js",
   "front_end/panels/application/BackgroundServiceView.js",
   "front_end/panels/application/BounceTrackingMitigationsTreeElement.js",
+  "front_end/panels/application/CompressionDictionariesModel.js",
+  "front_end/panels/application/CompressionDictionariesTreeElement.js",
   "front_end/panels/application/CookieItemsView.js",
   "front_end/panels/application/DOMStorageItemsView.js",
   "front_end/panels/application/DOMStorageModel.js",

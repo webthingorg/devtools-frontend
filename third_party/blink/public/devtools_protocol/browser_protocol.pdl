@@ -6424,6 +6424,35 @@ domain Network
       br
       zstd
 
+  experimental type CompressionDictionaryInfo extends object
+    properties
+      # The "match" value of the Use-As-Dictionary header.
+      string match
+      # The "match-dest" value of the Use-As-Dictionary header.
+      array of string matchDest
+      # The "id" value of the Use-As-Dictionary header.
+      string id
+      # The URL of the dictionary.
+      string dictionaryUrl
+      # The time when Chrome fetched the dictionary.
+      TimeSinceEpoch lastFetchTime
+      # The time when Chrome received the dictionary.
+      TimeSinceEpoch responseTime
+      # The time when this dictionary will be unusable.
+      TimeSinceEpoch expiration
+      # The time when this dictionary was used in the last time.
+      TimeSinceEpoch lastUsedTime
+      # The size of the dictionary binary.
+      integer size
+      # The SHA256 hash of the dictionary binary.
+      string hash
+  
+  experimental type CompressionDictionaryStorageInfo extends object
+    properties
+      string topFrameSite
+      string frameOrigin
+      array of CompressionDictionaryInfo dictionaries
+
   # Sets a list of content encodings that will be accepted. Empty list means no encoding is accepted.
   experimental command setAcceptedEncodings
     parameters
@@ -7315,6 +7344,14 @@ domain Network
       LoadNetworkResourceOptions options
     returns
       LoadNetworkResourcePageResult resource
+
+  experimental command setCompressionDictionariesTracking
+    parameters
+      array of Page.FrameId frames
+
+  experimental event compressionDictionaryStorageChanged
+    parameters
+      array of CompressionDictionaryStorageInfo storages
 
 # This domain provides various functionality related to drawing atop the inspected page.
 experimental domain Overlay

@@ -363,6 +363,7 @@ export enum Events {
   ReportingApiReportAdded = 'ReportingApiReportAdded',
   ReportingApiReportUpdated = 'ReportingApiReportUpdated',
   ReportingApiEndpointsChangedForOrigin = 'ReportingApiEndpointsChangedForOrigin',
+  CompressionDictionaryStorageChanged = 'CompressionDictionaryStorageChanged',
 }
 
 export interface RequestStartedEvent {
@@ -393,6 +394,7 @@ export type EventTypes = {
   [Events.ReportingApiReportAdded]: Protocol.Network.ReportingApiReport,
   [Events.ReportingApiReportUpdated]: Protocol.Network.ReportingApiReport,
   [Events.ReportingApiEndpointsChangedForOrigin]: Protocol.Network.ReportingApiEndpointsChangedForOriginEvent,
+  [Events.CompressionDictionaryStorageChanged]: Protocol.Network.CompressionDictionaryStorageChangedEvent,
 };
 
 /**
@@ -1236,6 +1238,10 @@ export class NetworkDispatcher implements ProtocolProxyApi.NetworkDispatcher {
 
   reportingApiEndpointsChangedForOrigin(data: Protocol.Network.ReportingApiEndpointsChangedForOriginEvent): void {
     this.#manager.dispatchEventToListeners(Events.ReportingApiEndpointsChangedForOrigin, data);
+  }
+
+  compressionDictionaryStorageChanged(data: Protocol.Network.CompressionDictionaryStorageChangedEvent): void {
+    this.#manager.dispatchEventToListeners(Events.CompressionDictionaryStorageChanged, data);
   }
 
   /**

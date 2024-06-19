@@ -52,6 +52,7 @@ import {BackgroundServiceModel} from './BackgroundServiceModel.js';
 import {BackgroundServiceView} from './BackgroundServiceView.js';
 import {BounceTrackingMitigationsTreeElement} from './BounceTrackingMitigationsTreeElement.js';
 import * as ApplicationComponents from './components/components.js';
+import {ComressionDictionariesTreeParentElement} from './CompressionDictionariesTreeElement.js';
 import {type DOMStorage, DOMStorageModel, Events as DOMStorageModelEvents} from './DOMStorageModel.js';
 import {
   type Database as IndexedDBModelDatabase,
@@ -258,6 +259,7 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
   pushMessagingTreeElement: BackgroundServiceTreeElement;
   reportingApiTreeElement: ReportingApiTreeElement;
   preloadingSummaryTreeElement: PreloadingSummaryTreeElement|undefined;
+  compressionDictionariesTreeElement: ComressionDictionariesTreeParentElement|undefined;
   private readonly resourcesSection: ResourcesSection;
   private domStorageTreeElements: Map<DOMStorage, DOMStorageTreeElement>;
   private sharedStorageTreeElements: Map<string, SharedStorageTreeElement>;
@@ -347,6 +349,11 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
 
     this.storageBucketsTreeElement = new StorageBucketsTreeParentElement(panel);
     storageTreeElement.appendChild(this.storageBucketsTreeElement);
+
+    if (Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.COMPRESSION_DICTIONARIES_TREE)) {
+      this.compressionDictionariesTreeElement = new ComressionDictionariesTreeParentElement(panel);
+      storageTreeElement.appendChild(this.compressionDictionariesTreeElement);
+    }
 
     const backgroundServiceSectionTitle = i18nString(UIStrings.backgroundServices);
     const backgroundServiceTreeElement = this.addSidebarSection(backgroundServiceSectionTitle);
@@ -528,6 +535,7 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
     this.periodicBackgroundSyncTreeElement.initialize(backgroundServiceModel);
     this.pushMessagingTreeElement.initialize(backgroundServiceModel);
     this.storageBucketsTreeElement?.initialize();
+    this.compressionDictionariesTreeElement?.initialize();
 
     if (Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.PRELOADING_STATUS_PANEL)) {
       const preloadingModel = this.target?.model(SDK.PreloadingModel.PreloadingModel);
