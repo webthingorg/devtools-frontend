@@ -105,6 +105,10 @@ export class FreestylerAgent {
   #aidaClient: Host.AidaClient.AidaClient;
   #chatHistory: Array<HistoryChunk> = [];
   #execJs: typeof executeJsCode;
+  /**
+   * Used to keep track and discard runs if needed.
+   */
+  #currentRunId = 0;
 
   constructor({aidaClient, execJs}: {aidaClient: Host.AidaClient.AidaClient, execJs?: typeof executeJsCode}) {
     this.#aidaClient = aidaClient;
@@ -199,9 +203,19 @@ export class FreestylerAgent {
     this.#chatHistory = [];
   }
 
+  /**
+   * Stops the Agent from calling the callback
+   * for old runs.
+   */
+  cancel(): void {
+    this.#currentRunId++;
+  }
+
   async run(query: string, onStep: (data: StepData) => void): Promise<void> {
     const structuredLog = [];
     query = `QUERY: ${query}`;
+    const id = ++this.#currentRunId;
+
     for (let i = 0; i < MAX_STEPS; i++) {
       const request =
           FreestylerAgent.buildRequest(query, preamble, this.#chatHistory.length ? this.#chatHistory : undefined);
@@ -209,8 +223,15 @@ export class FreestylerAgent {
       try {
         response = await this.#aidaFetch(request);
       } catch (err) {
+        if (this.#currentRunId !== id) {
+          return;
+        }
         onStep({step: Step.ERROR, text: err.message});
         break;
+      }
+
+      if (this.#currentRunId !== id) {
+        return;
       }
 
       debugLog(`Iteration: ${i}`, 'Request', request, 'Response', response);
