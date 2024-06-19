@@ -9,6 +9,7 @@ import * as InteractionBreakdown from './InteractionBreakdown.js';
 import * as LiveMetricsView from './LiveMetricsView.js';
 import * as Sidebar from './Sidebar.js';
 import * as TimeRangeOverlay from './TimeRangeOverlay.js';
+import * as TimespanBreakdownOverlay from './TimespanBreakdownOverlay.js';
 
 export {
   Breadcrumbs,
@@ -18,4 +19,5 @@ export {
   LiveMetricsView,
   Sidebar,
   TimeRangeOverlay,
+  TimespanBreakdownOverlay,
 };

@@ -16,7 +16,7 @@ import * as UI from '../../ui/legacy/legacy.js';
 import {CountersGraph} from './CountersGraph.js';
 import {SHOULD_SHOW_EASTER_EGG} from './EasterEgg.js';
 import {ExtensionDataGatherer} from './ExtensionDataGatherer.js';
-import {Overlays, type TimeRangeLabel} from './Overlays.js';
+import {Overlays, type TimeRangeLabel, type TimespanEntryBreakdown} from './Overlays.js';
 import {targetForEvent} from './TargetForEvent.js';
 import {TimelineDetailsView} from './TimelineDetailsView.js';
 import {TimelineRegExp} from './TimelineFilters.js';
@@ -77,6 +77,8 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
   private selectedSearchResult?: number;
   private searchRegex?: RegExp;
   #traceEngineData: TraceEngine.Handlers.Types.TraceParseData|null;
+  #traceInsightsData: TraceEngine.Insights.Types.TraceInsightData<typeof TraceEngine.Handlers.ModelHandlers>|null =
+      null;
   #selectedGroupName: string|null = null;
   #onTraceBoundsChangeBound = this.#onTraceBoundsChange.bind(this);
   #gameKeyMatches = 0;
@@ -86,6 +88,7 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
   #overlays: Overlays;
 
   #timeRangeSelectionOverlay: TimeRangeLabel|null = null;
+  #timespanBreakdownOverlay: TimespanEntryBreakdown|null = null;
 
   constructor(delegate: TimelineModeViewDelegate) {
     super();
@@ -94,6 +97,7 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     this.delegate = delegate;
     this.eventListeners = [];
     this.#traceEngineData = null;
+    this.#timespanBreakdownOverlay = null;
 
     const flameChartsContainer = new UI.Widget.VBox();
     flameChartsContainer.element.classList.add('flame-charts-container');
@@ -317,10 +321,106 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     this.mainDataProvider.setModel(newTraceEngineData, isCpuProfile);
     this.networkDataProvider.setModel(newTraceEngineData);
     ExtensionDataGatherer.instance().modelChanged(newTraceEngineData);
+
     this.#reset();
     this.updateSearchResults(false, false);
     this.refreshMainFlameChart();
     this.#updateFlameCharts();
+  }
+
+  setInsights(insights: TraceEngine.Insights.Types.TraceInsightData<typeof TraceEngine.Handlers.ModelHandlers>|
+              null): void {
+    if (this.#traceInsightsData !== insights) {
+      this.#traceInsightsData = insights;
+      this.setInsightsOverlay();
+    }
+  }
+
+  setInsightsOverlay(): void {
+    if (this.#traceInsightsData && this.#traceEngineData) {
+      const traceBoundsMin = this.#traceEngineData.Meta.traceBounds.min;
+
+      // For now use the first navigation of the trace.
+      const firstNav: TraceEngine.Insights.Types.NavigationInsightData<typeof TraceEngine.Handlers.ModelHandlers> =
+          this.#traceInsightsData.values().next().value;
+      if (!firstNav) {
+        return;
+      }
+
+      const lcpInsight: Error|TraceEngine.Insights.Types.LCPInsightResult = firstNav.LargestContentfulPaint;
+      if (lcpInsight instanceof Error) {
+        return;
+      }
+
+      const phases = lcpInsight.phases;
+      const lcpMs = lcpInsight.lcpMs;
+
+      if (!phases || !lcpMs) {
+        return;
+      }
+      const lcpTs = TraceEngine.Types.Timing.MicroSeconds(TraceEngine.Helpers.Timing.millisecondsToMicroseconds(lcpMs));
+
+      const sections = [];
+      // just ttfb section, and render delay section
+      if (!phases?.loadDelay && !phases?.loadTime) {
+        // TODO: FIX THESE RANGES FOR TEXT LCP
+        TraceEngine.Helpers.Timing.traceWindowFromMicroSeconds;
+        const ttfb = TraceEngine.Helpers.Timing.traceWindowFromMicroSeconds(
+            traceBoundsMin,
+            TraceEngine.Helpers.Timing.millisecondsToMicroseconds(phases.ttfb),
+        );
+        const renderDelay = TraceEngine.Helpers.Timing.traceWindowFromMicroSeconds(
+            TraceEngine.Helpers.Timing.millisecondsToMicroseconds(phases.ttfb),
+            TraceEngine.Helpers.Timing.millisecondsToMicroseconds(lcpMs),
+        );
+        sections.push(
+            {bounds: ttfb, label: 'Time to first byte'}, {bounds: renderDelay, label: 'Element render delay'});
+      } else if (phases?.loadDelay && phases?.loadTime) {
+        const renderBegin: TraceEngine.Types.Timing.MicroSeconds = TraceEngine.Types.Timing.MicroSeconds(
+            lcpTs - TraceEngine.Helpers.Timing.millisecondsToMicroseconds(phases.renderDelay));
+        const renderDelay = TraceEngine.Helpers.Timing.traceWindowFromMicroSeconds(
+            renderBegin,
+            lcpTs,
+        );
+
+        const loadBegin = TraceEngine.Types.Timing.MicroSeconds(
+            renderBegin - TraceEngine.Helpers.Timing.millisecondsToMicroseconds(phases.loadTime));
+        const loadTime = TraceEngine.Helpers.Timing.traceWindowFromMicroSeconds(
+            loadBegin,
+            renderBegin,
+        );
+
+        const loadDelayStart = TraceEngine.Types.Timing.MicroSeconds(
+            loadBegin - TraceEngine.Helpers.Timing.millisecondsToMicroseconds(phases.loadDelay));
+        const loadDelay = TraceEngine.Helpers.Timing.traceWindowFromMicroSeconds(
+            loadDelayStart,
+            loadBegin,
+        );
+
+        const mainReqStart = TraceEngine.Types.Timing.MicroSeconds(
+            loadDelayStart - TraceEngine.Helpers.Timing.millisecondsToMicroseconds(phases.ttfb));
+        const ttfb = TraceEngine.Helpers.Timing.traceWindowFromMicroSeconds(
+            mainReqStart,
+            loadDelayStart,
+        );
+
+        sections.push(
+            {bounds: ttfb, label: 'Time to first byte'},
+            {bounds: loadDelay, label: 'Resource load delay'},
+            {bounds: loadTime, label: 'Resource load time'},
+            {bounds: renderDelay, label: 'Element render delay'},
+        );
+      }
+
+      if (this.#timespanBreakdownOverlay) {
+        // get rid of this, just for is defined but never used  no-unused-private-class-members err
+      }
+      this.#timespanBreakdownOverlay = this.#overlays.add({
+        type: 'TIMESPAN_BREAKDOWN',
+        sections,
+      });
+      this.#overlays.update();
+    }
   }
 
   #reset(): void {

@@ -132,8 +132,8 @@ export function generateInsight(
     return {warnings: [InsightWarning.NO_LCP]};
   }
 
-  const lcpTiming = metricScore.timing;
-  const lcpMs = Helpers.Timing.microSecondsToMilliseconds(lcpTiming);
+  const lcpMs = Helpers.Timing.microSecondsToMilliseconds(metricScore.timing);
+  const lcpTiming = Helpers.Timing.microSecondsToMilliseconds(metricScore.event?.ts || metricScore.timing);
   const lcpResource = findLCPRequest(traceParsedData, context, lcpEvent);
   const mainReq = networkRequests.byTime.find(req => req.args.data.requestId === context.navigationId);
   if (!mainReq) {
@@ -142,7 +142,7 @@ export function generateInsight(
 
   if (!lcpResource) {
     return {
-      lcpMs,
+      lcpMs: lcpTiming,
       phases: breakdownPhases(nav, mainReq, lcpMs, lcpResource),
     };
   }
@@ -152,7 +152,7 @@ export function generateInsight(
   const imageFetchPriorityHint = lcpResource?.args.data.fetchPriorityHint;
 
   return {
-    lcpMs,
+    lcpMs: lcpTiming,
     phases: breakdownPhases(nav, mainReq, lcpMs, lcpResource),
     shouldRemoveLazyLoading: imageLoadingAttr === 'lazy',
     shouldIncreasePriorityHint: imageFetchPriorityHint !== 'high',

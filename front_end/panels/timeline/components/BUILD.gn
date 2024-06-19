@@ -9,6 +9,7 @@ import("../../../../third_party/typescript/typescript.gni")
 
 generate_css("css_files") {
   sources = [
+    "TimespanBreakdownOverlay.css",
     "breadcrumbsUI.css",
     "interactionBreakdown.css",
     "liveMetricsView.css",
@@ -26,6 +27,7 @@ devtools_module("components") {
     "LiveMetricsView.ts",
     "Sidebar.ts",
     "TimeRangeOverlay.ts",
+    "TimespanBreakdownOverlay.ts",
   ]
 
   deps = [
