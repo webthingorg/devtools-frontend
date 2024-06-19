@@ -22,6 +22,8 @@ export class EntryLabelOverlay extends HTMLElement {
   readonly #boundRender = this.render.bind(this);
   #label = '';
   #entryDimentions: {height: number, width: number}|null = null;
+  // The label is set into an editable mood when it is double clicked. If the user clicks away from the label element, the lable is set to not editable.
+  #isLabelEditable: boolean = true;
 
   /*
 The entry label overlay consists of 3 parts - the label part with the label string inside,
@@ -29,7 +31,7 @@ the line connecting the label to the entry, and a black box around an entry to h
 ________
 |_label__|                <-- label part with the label string inside
     \
-      \                   <-- line connecting the label to the entry
+     \                   <-- line connecting the label to the entry
       \
 ________________
 |_____entry______|         <--- box around an entry
@@ -46,22 +48,12 @@ Otherwise, the entry label overlay object only gets repositioned.
   constructor() {
     super();
     this.render();
+    this.drawLabel();
     this.drawConnector();
   }
 
   connectedCallback(): void {
     this.#shadow.adoptedStyleSheets = [styles];
-  }
-
-  set label(label: string) {
-    if (label === this.#label) {
-      return;
-    }
-    this.#label = label;
-
-    void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
-    // We need to redraw the label only when the label is set to a new one
-    this.drawLabel();
   }
 
   set entryDimentions(entryDimentions: {height: number, width: number}) {
@@ -118,7 +110,6 @@ Otherwise, the entry label overlay object only gets repositioned.
     labelBox.style.height = `${EntryLabelOverlay.LABEL_HEIGHT}px`;
     labelBox.style.padding = `${EntryLabelOverlay.LABEL_PADDING}px`;
     labelBox.style.transform = `translateX(-${EntryLabelOverlay.LABEL_AND_CONNECTOR_SHIFT_LENGTH}px)`;
-    labelBox.innerHTML = this.#label;
   }
 
   drawEntryHighlightWrapper(): void {
@@ -133,13 +124,41 @@ Otherwise, the entry label overlay object only gets repositioned.
     // PART 3: draw the box that highlights the entry with a label
     entryHighlightWrapper.style.height = `${this.#entryDimentions?.height}px`;
     entryHighlightWrapper.style.width = `${this.#entryDimentions?.width}px`;
+
+    // If the label is editable, focus cursor on it.
+    // This method needs to be called after rendering the wrapper because it is the last element to render.
+    // By doing this, the cursor focuses when the label is created.
+    if (this.#isLabelEditable) {
+      this.focusInputBox();
+    }
+  }
+
+  focusInputBox(): void {
+    const labelPartsWrapper = this.#shadow.querySelector<HTMLElement>('.label-parts-wrapper');
+    const labelBox = labelPartsWrapper?.querySelector<HTMLElement>('.label-box');
+    if (!labelBox) {
+      console.error('LabelBox element is missing.');
+      return;
+    }
+    labelBox.focus();
+  }
+
+  setLabelEditability(editable: boolean): void {
+    this.#isLabelEditable = editable;
+    this.render();
+    // If the label became editable, focus cursor on it
+    if (editable) {
+      this.focusInputBox();
+    }
   }
 
   render(): void {
     LitHtml.render(
         LitHtml.html`
         <span class="label-parts-wrapper">
-        <div class="label-box"></div>
+        <span class="label-box" @dblclick=${() => this.setLabelEditability(true)} @blur=${
+            () => this.setLabelEditability(
+                false)} contenteditable=${this.#isLabelEditable} .innerText=${this.#label}></span>
         <svg id="connectorContainer">
           <line/>
         </svg>
