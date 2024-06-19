@@ -4,10 +4,15 @@
  * found in the LICENSE file.
  */
 
+.live-metrics-view {
+  --min-main-area-size: 60%;
+
+  background-color: var(--sys-color-cdt-base-container);
+}
+
 .live-metrics,
 .next-steps {
   padding: 8px 16px;
-  background-color: var(--sys-color-cdt-base-container);
   height: 100%;
   overflow-y: auto;
   box-sizing: border-box;

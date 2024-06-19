@@ -53,6 +53,9 @@ const styles = `
     left: var(--resizer-position);
     bottom: 0;
     top: 0;
+
+    border: none;
+    border-right: 1px solid var(--sys-color-divider);
   }
 
   slot {
@@ -86,6 +89,8 @@ const styles = `
     top: var(--resizer-position);
     left: 0;
     right: 0;
+    border: none;
+    border-top: 1px solid var(--sys-color-divider);
   }
 
   .horizontal slot[name="main"] {
