@@ -33,6 +33,23 @@
       "message": "Kateryna, would you mind reviewing?",
       "revId": "cdca9ce033ce71a677a2acc133ee6ce86a397cca",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a52cac68_8f25f480",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-19T08:02:26Z",
+      "side": 1,
+      "message": "Do we even need to use a split view here ? I would think we could do this via some CSS to lay out the page as we\u0027d like.\n\nDo we expect or want to allow users to resize it? I\u0027m not sure what the explicit split view gives us here that we can\u0027t achieve just with some CSS which would simplify the JS and the components slightly. wdyt?",
+      "revId": "cdca9ce033ce71a677a2acc133ee6ce86a397cca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
