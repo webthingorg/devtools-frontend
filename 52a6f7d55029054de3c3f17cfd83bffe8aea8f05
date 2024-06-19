@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3aebdf0_f7dff68b",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-19T17:48:44Z",
+      "side": 1,
+      "message": "Should we add `rpcId` here since the answer got from the model won\u0027t be the answer we show to the user. (So thumbs up/down won\u0027t be much meaningful, WDYT?)",
+      "revId": "52a6f7d55029054de3c3f17cfd83bffe8aea8f05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
