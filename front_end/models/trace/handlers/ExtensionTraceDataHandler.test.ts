@@ -75,14 +75,6 @@ describe('ExtensionTraceDataHandler', function() {
       assert.lengthOf(validTrackEntries, allTrackEntries.length);
     });
 
-    it('discards track data without a valid color value', async () => {
-      // The test example contains a track entry with an invalid color value.
-      // Ensure it is discarded.
-      const allTrackEntries = extensionData.extensionTrackData.flatMap(track => track.flameChartEntries);
-      const validTrackEntries =
-          allTrackEntries.filter(entry => TraceModel.Types.Extensions.colorIsValid(entry.args.color));
-      assert.lengthOf(validTrackEntries, allTrackEntries.length);
-    });
   });
 
   describe('Timeline markers from user timings that use the extension API', function() {
@@ -130,14 +122,6 @@ describe('ExtensionTraceDataHandler', function() {
       // Ensure it is discarded.
       const allMarkers = extensionData.extensionMarkers;
       const validTrackEntries = allMarkers.filter(marker => marker.args.metadata.extensionName);
-      assert.lengthOf(validTrackEntries, allMarkers.length);
-    });
-
-    it('discards track data without a valid color value', async () => {
-      // The test example contains a track entry with an invalid color value.
-      // Ensure it is discarded.
-      const allMarkers = extensionData.extensionMarkers;
-      const validTrackEntries = allMarkers.filter(entry => TraceModel.Types.Extensions.colorIsValid(entry.args.color));
       assert.lengthOf(validTrackEntries, allMarkers.length);
     });
   });

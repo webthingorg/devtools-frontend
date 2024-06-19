@@ -124,6 +124,29 @@ describeWithEnvironment('ExtensionTrackAppender', function() {
         }
       }
     });
+
+    it('sets a default value when a color is not set or is set an unknown value', function() {
+      const mockExtensionEntryNoColor = {
+        args: {
+          metadata: {dataType: 'track-entry', extensionName: 'Extension'},
+          track: 'A track',
+        },
+        cat: 'devtools.extension',
+      } as unknown as TraceEngine.Types.TraceEvents.TraceEventData;
+
+      const mockExtensionEntryUnkownColor = {
+        args: {
+          metadata: {dataType: 'track-entry', extensionName: 'Extension'},
+          track: 'A track',
+          color: 'anUnkownColor',
+        },
+        cat: 'devtools.extension',
+      } as unknown as TraceEngine.Types.TraceEvents.TraceEventData;
+      // "primary" color category is mapped to --ref-palette-primary60
+      // which is faked out to 4, 4, 4
+      assert.strictEqual(extensionTrackAppenders[0].colorForEvent(mockExtensionEntryNoColor), 'rgb(4 4 4)');
+      assert.strictEqual(extensionTrackAppenders[0].colorForEvent(mockExtensionEntryUnkownColor), 'rgb(4 4 4)');
+    });
   });
 
   describe('highlightedEntryInfo', function() {
