@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7812ac35_a45ce31a",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-19T14:37:57Z",
+      "side": 1,
+      "message": "Updated tests, PTAL again :)",
+      "parentUuid": "1588f1d8_80fad260",
+      "revId": "8e53564cd40cf21a0cddedf49bb75561ade132c2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f6d38cac_76c12fa5",
