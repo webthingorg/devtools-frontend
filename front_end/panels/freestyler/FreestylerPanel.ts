@@ -106,6 +106,7 @@ export class FreestylerPanel extends UI.Panel.Panel {
       selectedNode: this.#selectedNode,
       onTextSubmit: this.#handleTextSubmit.bind(this),
       onInspectElementClick: this.#handleSelectElementClick.bind(this),
+      onRateClick: this.#handleRateClick.bind(this),
     };
 
     this.#toggleSearchElementAction.addEventListener(UI.ActionRegistration.Events.Toggled, ev => {
@@ -148,6 +149,10 @@ export class FreestylerPanel extends UI.Panel.Panel {
 
   #handleSelectElementClick(): void {
     void this.#toggleSearchElementAction.execute();
+  }
+
+  #handleRateClick(): void {
+    // TODO(348145480): Handle this -- e.g. there be dragons.
   }
 
   handleAction(actionId: string): void {
