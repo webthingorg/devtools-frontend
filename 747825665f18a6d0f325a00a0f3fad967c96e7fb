@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b40ee03_5def768c",
+        "filename": "front_end/panels/elements/components/layoutPane.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-06-19T10:14:34Z",
+      "side": 1,
+      "message": "It seems to work without these, as they are in inspectorCommon! done here: crrev.com/c/5639717",
+      "parentUuid": "fb7318e5_5ca46235",
+      "revId": "747825665f18a6d0f325a00a0f3fad967c96e7fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "facbfcb8_2db56c20",
@@ -52,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "376c559f_e616563c",
+        "filename": "front_end/panels/mobile_throttling/throttlingSettingsTab.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-06-19T10:14:34Z",
+      "side": 1,
+      "message": "We can\u0027t use `width: 100%` for the checkbox, the state layers are misplaced then",
+      "parentUuid": "facbfcb8_2db56c20",
+      "revId": "747825665f18a6d0f325a00a0f3fad967c96e7fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ff42691b_e6ef8386",
@@ -65,6 +101,24 @@
       "writtenOn": "2024-06-19T08:45:34Z",
       "side": 1,
       "message": "Yes so this sort of echoes what I was asking previously: can these checkbox styles be reused?",
+      "revId": "747825665f18a6d0f325a00a0f3fad967c96e7fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4cfeac1_20a1d632",
+        "filename": "front_end/ui/components/input/checkbox.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-06-19T10:14:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff42691b_e6ef8386",
       "revId": "747825665f18a6d0f325a00a0f3fad967c96e7fb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
