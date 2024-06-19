@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad0e9b84_5fa58b7f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-06-19T05:08:27Z",
+      "side": 1,
+      "message": "Kim, PTAL, I only added the empty \u0027policyChange\u0027 event method.",
+      "revId": "ab08b73c323bfebacba0674e7179dc43be07c450",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
