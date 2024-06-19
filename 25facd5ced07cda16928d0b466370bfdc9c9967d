@@ -33,6 +33,24 @@
       "message": "Instead of doing this; WDYT of moving `executeJsCode` inside the class as a member function and stubbing it out in tests?",
       "revId": "25facd5ced07cda16928d0b466370bfdc9c9967d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9de70f68_80e0b5b9",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-06-19T13:56:30Z",
+      "side": 1,
+      "message": "Not sure, it is stateless so it makes sense to keep it as a function to me",
+      "parentUuid": "ab48a219_a12bc1da",
+      "revId": "25facd5ced07cda16928d0b466370bfdc9c9967d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
