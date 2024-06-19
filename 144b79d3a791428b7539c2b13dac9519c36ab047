@@ -86,6 +86,24 @@
       "parentUuid": "ba28b29d_e00304cc",
       "revId": "144b79d3a791428b7539c2b13dac9519c36ab047",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca931b8b_cacc1194",
+        "filename": "front_end/panels/security/sidebar.css",
+        "patchSetId": 14
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-19T12:12:22Z",
+      "side": 1,
+      "message": "Perfect, still LGTM; thanks! :)",
+      "parentUuid": "18de17c5_9b594798",
+      "revId": "144b79d3a791428b7539c2b13dac9519c36ab047",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
