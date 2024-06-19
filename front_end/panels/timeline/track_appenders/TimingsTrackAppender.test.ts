@@ -270,6 +270,7 @@ describeWithEnvironment('TimingTrackAppender', function() {
       styleElement.id = 'fake-perf-panel-colors';
       styleElement.textContent = `
         :root {
+          --ref-palette-primary60: rgb(4 4 4);
           --ref-palette-error40: rgb(10 10 10);
         }
       `;
@@ -307,14 +308,25 @@ describeWithEnvironment('TimingTrackAppender', function() {
         assert.strictEqual(timingsTrackAppender.colorForEvent(event), 'rgb(10 10 10)');
       }
     });
-    it('returns the correct color and title for extension markers', function() {
-      const extensionMarkers = traceParsedData.ExtensionTraceData.extensionMarkers;
-      for (const event of extensionMarkers) {
-        assert.strictEqual(timingsTrackAppender.titleForEvent(event), event.name);
-        // "error" color category is mapped to --ref-palette-error40
-        // which is faked out to 10, 10, 10
-        assert.strictEqual(timingsTrackAppender.colorForEvent(event), 'rgb(10 10 10)');
-      }
+    it('sets a default value when a color is not set or is set an unknown value', function() {
+      const mockExtensionEntryNoColor = {
+        args: {
+          metadata: {dataType: 'marker', extensionName: 'Extension'},
+        },
+        cat: 'devtools.extension',
+      } as unknown as TraceModel.Types.TraceEvents.TraceEventData;
+
+      const mockExtensionEntryUnkownColor = {
+        args: {
+          metadata: {dataType: 'marker', extensionName: 'Extension'},
+          color: 'anUnkownColor',
+        },
+        cat: 'devtools.extension',
+      } as unknown as TraceModel.Types.TraceEvents.TraceEventData;
+      // "primary" color category is mapped to --ref-palette-primary60
+      // which is faked out to 4, 4, 4
+      assert.strictEqual(timingsTrackAppender.colorForEvent(mockExtensionEntryNoColor), 'rgb(4 4 4)');
+      assert.strictEqual(timingsTrackAppender.colorForEvent(mockExtensionEntryUnkownColor), 'rgb(4 4 4)');
     });
     it('returns the tool tip info for an entry correctly', function() {
       const extensionMarker = traceParsedData.ExtensionTraceData.extensionMarkers.at(0);

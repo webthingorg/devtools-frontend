@@ -166,6 +166,9 @@ export class CompatibilityTracksAppender {
     this.#timingsTrackAppender = new TimingsTrackAppender(this, this.#traceParsedData, this.#colorGenerator);
     this.#allTrackAppenders.push(this.#timingsTrackAppender);
 
+    if (Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.TIMELINE_EXTENSIONS)) {
+      this.#addExtensionAppenders();
+    }
     this.#interactionsTrackAppender = new InteractionsTrackAppender(this, this.#traceParsedData, this.#colorGenerator);
     this.#allTrackAppenders.push(this.#interactionsTrackAppender);
 
@@ -181,9 +184,7 @@ export class CompatibilityTracksAppender {
     this.#allTrackAppenders.push(this.#layoutShiftsTrackAppender);
 
     this.#addThreadAppenders();
-    if (Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.TIMELINE_EXTENSIONS)) {
-      this.#addExtensionAppenders();
-    }
+
     ThemeSupport.ThemeSupport.instance().addEventListener(ThemeSupport.ThemeChangeEvent.eventName, () => {
       for (const group of this.#flameChartData.groups) {
         // We only need to update the color here, because FlameChart will call `scheduleUpdate()` when theme is changed.
