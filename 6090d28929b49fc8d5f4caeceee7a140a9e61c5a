@@ -90,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b7c0ed55_e6f7a387",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 23
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2024-06-19T00:15:12Z",
+      "side": 1,
+      "message": "I removed the websocket handler and just handle the events in Network request handler. I\u0027m however having a hard time to merge all the events completely... need to do a lot of typing hack to make typescript happy because websocket events dont have necessary args most of the time :/  \nI pushed an update, which handles in the websocket event in network request handler but keep the websocket as a standalone event group. I\u0027d love to hear your thoughts about this :)",
+      "parentUuid": "55b8e428_e0440b55",
+      "revId": "6090d28929b49fc8d5f4caeceee7a140a9e61c5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3b68559a_b40c7d1b",
         "filename": "front_end/models/trace/handlers/WebSocketsHandler.ts",
         "patchSetId": 23
@@ -107,6 +125,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "09f8761f_fc148d1f",
+        "filename": "front_end/models/trace/handlers/WebSocketsHandler.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2024-06-19T00:15:12Z",
+      "side": 1,
+      "message": "Not sure if I understand the bug. Currently when we create this.#events in the networkDataProvider, we push the WebSocket events first, which will occupied the row, and then we push traceEngineData.NetworkRequests.byTime, so the regular network requests are still sorted and level calculation would still work. Let me know if Im missing something!",
+      "parentUuid": "3b68559a_b40c7d1b",
+      "revId": "6090d28929b49fc8d5f4caeceee7a140a9e61c5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0e2060bb_0d87e7d2",
         "filename": "front_end/models/trace/handlers/WebSocketsHandler.ts",
         "patchSetId": 23
@@ -118,6 +154,24 @@
       "writtenOn": "2024-06-14T02:14:42Z",
       "side": 1,
       "message": "use Phase.COMPLETE, as this synth event has duration.",
+      "revId": "6090d28929b49fc8d5f4caeceee7a140a9e61c5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8808124b_db3ef297",
+        "filename": "front_end/models/trace/handlers/WebSocketsHandler.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2024-06-19T00:15:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e2060bb_0d87e7d2",
       "revId": "6090d28929b49fc8d5f4caeceee7a140a9e61c5a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -145,6 +199,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2fcfe046_38fdae7c",
+        "filename": "front_end/panels/timeline/NetworkTrackAppender.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2024-06-19T00:15:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ecbe469c_a06ba319",
+      "range": {
+        "startLine": 22,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 2
+      },
+      "revId": "6090d28929b49fc8d5f4caeceee7a140a9e61c5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fa9141a8_fee94fe7",
@@ -158,6 +236,24 @@
       "writtenOn": "2024-06-14T02:14:42Z",
       "side": 1,
       "message": "Probably want something with `ThemeSupport.ThemeSupport.instance().getComputedValue` so that it changes in dark mode.",
+      "revId": "6090d28929b49fc8d5f4caeceee7a140a9e61c5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8393415b_da1b665c",
+        "filename": "front_end/panels/timeline/TimelineFlameChartNetworkDataProvider.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2024-06-19T00:15:12Z",
+      "side": 1,
+      "message": "Got it. I picked something randomly. Open to suggestions.",
+      "parentUuid": "fa9141a8_fee94fe7",
       "revId": "6090d28929b49fc8d5f4caeceee7a140a9e61c5a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -185,6 +281,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb919676_7eebca6a",
+        "filename": "front_end/panels/timeline/TimelineFlameChartNetworkDataProvider.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2024-06-19T00:15:12Z",
+      "side": 1,
+      "message": "Good suggestion, updated!",
+      "parentUuid": "439b0972_fb58662b",
+      "range": {
+        "startLine": 338,
+        "startChar": 0,
+        "endLine": 340,
+        "endChar": 31
+      },
+      "revId": "6090d28929b49fc8d5f4caeceee7a140a9e61c5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a7337415_6bf10c29",
@@ -198,6 +318,30 @@
       "writtenOn": "2024-06-14T02:14:42Z",
       "side": 1,
       "message": "might as well set the args.data.priority to low in the synthetic event. can then avoid this special case.",
+      "range": {
+        "startLine": 374,
+        "startChar": 2,
+        "endLine": 375,
+        "endChar": 33
+      },
+      "revId": "6090d28929b49fc8d5f4caeceee7a140a9e61c5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a11c39f4_2503e408",
+        "filename": "front_end/panels/timeline/TimelineFlameChartNetworkDataProvider.ts",
+        "patchSetId": 23
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2024-06-19T00:15:12Z",
+      "side": 1,
+      "message": "Did that, but this is taking care of the non-synth events so still needed.",
+      "parentUuid": "a7337415_6bf10c29",
       "range": {
         "startLine": 374,
         "startChar": 2,
