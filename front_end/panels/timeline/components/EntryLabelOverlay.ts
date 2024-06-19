@@ -22,6 +22,7 @@ export class EntryLabelOverlay extends HTMLElement {
   readonly #boundRender = this.render.bind(this);
   #label = '';
   #entryDimentions: {height: number, width: number}|null = null;
+  #isFirstUpdate: boolean = true;
 
   /*
 The entry label overlay consists of 3 parts - the label part with the label string inside,
@@ -61,7 +62,6 @@ Otherwise, the entry label overlay object only gets repositioned.
 
     void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
     // We need to redraw the label only when the label is set to a new one
-    this.render();
     this.drawLabel();
   }
 
@@ -120,6 +120,11 @@ Otherwise, the entry label overlay object only gets repositioned.
     labelBox.style.padding = `${EntryLabelOverlay.LABEL_PADDING}px`;
     labelBox.style.transform = `translateX(-${EntryLabelOverlay.LABEL_AND_CONNECTOR_SHIFT_LENGTH}px)`;
     labelBox.innerHTML = this.#label;
+      
+    if (this.#isFirstUpdate) {
+      this.#isFirstUpdate = false;
+      labelBox?.focus();
+      }
   }
 
   drawEntryHighlightWrapper(): void {
@@ -140,7 +145,7 @@ Otherwise, the entry label overlay object only gets repositioned.
     LitHtml.render(
         LitHtml.html`
         <span class="label-parts-wrapper">
-        <div class="label-box"></div>
+        <span class="label-box" contenteditable="true" .innerText=${LitHtml.Directives.live(this.#label)}></span>
         <svg id="connectorContainer">
           <line/>
         </svg>

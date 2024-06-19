@@ -507,7 +507,6 @@ export class Overlays {
       case 'ENTRY_LABEL': {
         const component = new Components.EntryLabelOverlay.EntryLabelOverlay();
         component.label = overlay.label;
-        component.render();
         div.appendChild(component);
         return div;
       }
