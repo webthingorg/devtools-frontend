@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1588f1d8_80fad260",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-06-19T14:27:25Z",
+      "side": 1,
+      "message": "oops, I think tests might break now.",
+      "revId": "8e53564cd40cf21a0cddedf49bb75561ade132c2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f6d38cac_76c12fa5",
         "filename": "front_end/panels/freestyler/FreestylerPanel.ts",
         "patchSetId": 2
