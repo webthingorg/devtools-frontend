@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "42a60887_113ff849",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-19T13:50:58Z",
+      "side": 1,
+      "message": "LGTM with one comment :)",
+      "revId": "25facd5ced07cda16928d0b466370bfdc9c9967d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab48a219_a12bc1da",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-19T13:50:58Z",
+      "side": 1,
+      "message": "Instead of doing this; WDYT of moving `executeJsCode` inside the class as a member function and stubbing it out in tests?",
+      "revId": "25facd5ced07cda16928d0b466370bfdc9c9967d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
