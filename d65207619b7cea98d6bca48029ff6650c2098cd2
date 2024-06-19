@@ -16,6 +16,40 @@
       "message": "Do you have any other suggestions?",
       "revId": "d65207619b7cea98d6bca48029ff6650c2098cd2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2cf39a7f_feab5c1c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-06-19T12:17:24Z",
+      "side": 1,
+      "message": "LGTM % proposal",
+      "revId": "d65207619b7cea98d6bca48029ff6650c2098cd2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47045af1_b87c91a7",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-06-19T12:17:24Z",
+      "side": 1,
+      "message": "```suggestion\n  inputPlaceholder: \u0027Ask a question about the selected element\u0027,\n```",
+      "revId": "d65207619b7cea98d6bca48029ff6650c2098cd2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
