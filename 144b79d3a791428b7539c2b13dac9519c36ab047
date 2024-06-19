@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d9e8956_58b58184",
+        "filename": "front_end/panels/security/SecurityPanel.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 1001,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-06-19T11:52:29Z",
+      "side": 1,
+      "message": "I\u0027ve updated it with this constructor:\n```\n  constructor(options: {\n    title: Element,\n    onSelect: () \u003d\u003e void,\n    getIconForSecurityState: (securityState: Protocol.Security.SecurityState) \u003d\u003eIconButton.Icon.Icon,\n    className: string\n  })\n```\nI don\u0027t know either what the team\u0027s stance is on this 😄.\n\nMy original thought: with exposing the explicit type names it is clear that we have 2 different tree element types (one for the overview, and one for the details), while hiding what exactly they require to get set up. \n\nBut definitely this comes with the disadvantage that you cannot easily see what parts are configurable. I don\u0027t have a strong opinion here, so I\u0027ve updated it 😊! I\u0027ve moved the `title` into the object though, hope that is fine with you!",
+      "parentUuid": "bd567af1_be590704",
+      "revId": "144b79d3a791428b7539c2b13dac9519c36ab047",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ba28b29d_e00304cc",
@@ -48,6 +66,24 @@
       "writtenOn": "2024-06-19T09:49:40Z",
       "side": 1,
       "message": "I think this padding doesn\u0027t apply as it is overridden by the padding of the rule with `.tree-outline li` selector.",
+      "revId": "144b79d3a791428b7539c2b13dac9519c36ab047",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18de17c5_9b594798",
+        "filename": "front_end/panels/security/sidebar.css",
+        "patchSetId": 14
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-06-19T11:52:29Z",
+      "side": 1,
+      "message": "You\u0027re right, thanks!!",
+      "parentUuid": "ba28b29d_e00304cc",
       "revId": "144b79d3a791428b7539c2b13dac9519c36ab047",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
