@@ -16,6 +16,57 @@
       "message": "Changhao, please kindly take a look?:)",
       "revId": "747825665f18a6d0f325a00a0f3fad967c96e7fb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb7318e5_5ca46235",
+        "filename": "front_end/panels/elements/components/layoutPane.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-06-19T08:45:34Z",
+      "side": 1,
+      "message": "Are these styles unique to the checkbox labels in the layout pane? Can we generalize them?",
+      "revId": "747825665f18a6d0f325a00a0f3fad967c96e7fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "facbfcb8_2db56c20",
+        "filename": "front_end/panels/mobile_throttling/throttlingSettingsTab.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-06-19T08:45:34Z",
+      "side": 1,
+      "message": "Do we need this \":not\" condition here? Or can we just put these two declarations before L84 and make it the default style?",
+      "revId": "747825665f18a6d0f325a00a0f3fad967c96e7fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff42691b_e6ef8386",
+        "filename": "front_end/ui/components/input/checkbox.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-06-19T08:45:34Z",
+      "side": 1,
+      "message": "Yes so this sort of echoes what I was asking previously: can these checkbox styles be reused?",
+      "revId": "747825665f18a6d0f325a00a0f3fad967c96e7fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
