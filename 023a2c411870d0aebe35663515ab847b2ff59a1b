@@ -39,6 +39,30 @@
       },
       "revId": "023a2c411870d0aebe35663515ab847b2ff59a1b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fd307d4_2504acbc",
+        "filename": "front_end/panels/timeline/Overlays.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-19T09:37:09Z",
+      "side": 1,
+      "message": "That\u0027s valid. I have another cl in progress that makes some positioning changes. I\u0027ll land this and move the positioning logic to `EntryLabelOverlay`",
+      "parentUuid": "a3a6906d_00f07def",
+      "range": {
+        "startLine": 396,
+        "startChar": 0,
+        "endLine": 397,
+        "endChar": 48
+      },
+      "revId": "023a2c411870d0aebe35663515ab847b2ff59a1b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
