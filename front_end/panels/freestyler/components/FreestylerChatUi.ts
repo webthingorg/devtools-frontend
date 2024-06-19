@@ -64,14 +64,14 @@ export const enum State {
   CHAT_VIEW_LOADING = 'chat-view-loading',
 }
 
-export type Props = {
-  onTextSubmit: (text: string) => void,
-  onInspectElementClick: () => void,
-  inspectElementToggled: boolean,
-  state: State,
-  messages: ChatMessage[],
-  selectedNode: SDK.DOMModel.DOMNode|null,
-};
+export interface Props {
+  onTextSubmit: (text: string) => void;
+  onInspectElementClick: () => void;
+  inspectElementToggled: boolean;
+  state: State;
+  messages: ChatMessage[];
+  selectedNode: SDK.DOMModel.DOMNode|null;
+}
 
 export class FreestylerChatUi extends HTMLElement {
   static readonly litTagName = LitHtml.literal`devtools-freestyler-chat-ui`;
