@@ -211,6 +211,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7146354_5c197087",
+        "filename": "front_end/models/trace/lantern/metrics/FirstContentfulPaint.test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-06-20T21:15:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42e15923_62bc7e36",
+      "range": {
+        "startLine": 11,
+        "startChar": 3,
+        "endLine": 11,
+        "endChar": 4
+      },
+      "revId": "ce63a70b400425151b49f8190f506c3946da1769",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "619c3ea5_4c84f905",
