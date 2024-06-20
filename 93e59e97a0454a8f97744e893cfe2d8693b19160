@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "331e29c6_d4339ac7",
+        "filename": "front_end/models/trace/handlers/EnhancedTracesHandler.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-06-20T17:36:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a149ad4_d016faaf",
+      "range": {
+        "startLine": 65,
+        "startChar": 9,
+        "endLine": 65,
+        "endChar": 42
+      },
+      "revId": "93e59e97a0454a8f97744e893cfe2d8693b19160",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b38f210b_b9fc3701",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-06-20T15:30:46Z",
       "side": 1,
       "message": "shouldnt these be reversed? there are multiple scripts per isolate, right?",
+      "range": {
+        "startLine": 66,
+        "startChar": 9,
+        "endLine": 66,
+        "endChar": 33
+      },
+      "revId": "93e59e97a0454a8f97744e893cfe2d8693b19160",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ae26035_23d96666",
+        "filename": "front_end/models/trace/handlers/EnhancedTracesHandler.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-06-20T17:36:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b38f210b_b9fc3701",
       "range": {
         "startLine": 66,
         "startChar": 9,
