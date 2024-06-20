@@ -5,7 +5,7 @@
 import * as Common from '../../../core/common/common.js';
 import * as Host from '../../../core/host/host.js';
 import * as i18n from '../../../core/i18n/i18n.js';
-import type * as Platform from '../../../core/platform/platform.js';
+import * as Platform from '../../../core/platform/platform.js';
 import * as SDK from '../../../core/sdk/sdk.js';
 import * as Marked from '../../../third_party/marked/marked.js';
 import * as Buttons from '../../../ui/components/buttons/buttons.js';
@@ -233,13 +233,8 @@ type StateData = {
 
 export class ConsoleInsight extends HTMLElement {
   static async create(promptBuilder: PublicPromptBuilder, aidaClient: PublicAidaClient): Promise<ConsoleInsight> {
-    const syncData = await new Promise<Host.InspectorFrontendHostAPI.SyncInformation>(resolve => {
-      Host.InspectorFrontendHost.InspectorFrontendHostInstance.getSyncInformation(syncInfo => {
-        resolve(syncInfo);
-      });
-    });
-
-    return new ConsoleInsight(promptBuilder, aidaClient, syncData);
+    const aidaAvailability = await Host.AidaClient.AidaClient.getAidaClientAvailability();
+    return new ConsoleInsight(promptBuilder, aidaClient, aidaAvailability);
   }
 
   static readonly litTagName = LitHtml.literal`devtools-console-insight`;
@@ -257,33 +252,37 @@ export class ConsoleInsight extends HTMLElement {
 
   constructor(
       promptBuilder: PublicPromptBuilder, aidaClient: PublicAidaClient,
-      syncInfo?: Host.InspectorFrontendHostAPI.SyncInformation) {
+      aidaAvailability: Host.AidaClient.AidaAvailability) {
     super();
     this.#promptBuilder = promptBuilder;
     this.#aidaClient = aidaClient;
-    this.#state = {
-      type: State.NOT_LOGGED_IN,
-    };
-    if (syncInfo?.accountEmail && syncInfo.isSyncActive) {
-      this.#state = {
-        type: State.LOADING,
-        consentReminderConfirmed: false,
-        consentOnboardingFinished: this.#getOnboardingCompletedSetting().get(),
-      };
-    } else if (!syncInfo?.accountEmail) {
-      this.#state = {
-        type: State.NOT_LOGGED_IN,
-      };
-    } else if (!syncInfo?.isSyncActive) {
-      this.#state = {
-        type: State.SYNC_IS_OFF,
-      };
+    switch (aidaAvailability) {
+      case Host.AidaClient.AidaAvailability.AVAILABLE:
+        this.#state = {
+          type: State.LOADING,
+          consentReminderConfirmed: false,
+          consentOnboardingFinished: this.#getOnboardingCompletedSetting().get(),
+        };
+        break;
+      case Host.AidaClient.AidaAvailability.NO_ACCOUNT_EMAIL:
+        this.#state = {
+          type: State.NOT_LOGGED_IN,
+        };
+        break;
+      case Host.AidaClient.AidaAvailability.NO_ACTIVE_SYNC:
+        this.#state = {
+          type: State.SYNC_IS_OFF,
+        };
+        break;
+      case Host.AidaClient.AidaAvailability.NO_INTERNET:
+        this.#state = {
+          type: State.OFFLINE,
+        };
+        break;
+      default:
+        Platform.assertNever(aidaAvailability, `Unchecked Aida availability condition: ${aidaAvailability}`);
     }
-    if (!navigator.onLine) {
-      this.#state = {
-        type: State.OFFLINE,
-      };
-    }
+
     this.#render();
     // Stop keyboard event propagation to avoid Console acting on the events
     // inside the insight component.
