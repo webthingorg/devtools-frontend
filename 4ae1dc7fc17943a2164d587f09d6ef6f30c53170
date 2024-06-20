@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6744cf8f_7c029501",
+        "filename": "test/e2e/helpers/cross-tool-helper.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-06-20T15:17:13Z",
+      "side": 1,
+      "message": "1) Reload is only beginning. I plan to add VE assertions to most of the e2e test helpers. For instance `navigateToConsoleTab` will expect a click on the tab header followed by he impressions for the console panel.\n2) I put quite some effort in making the failure message easy to understand, see e.g. https://ci.chromium.org/ui/labs/p/devtools-frontend/inv/build-8744683876165125409/test/e2e%2Femulation%2Fcustom-devices_test.ts%3A%20Custom%20devices%2F%22before%20each%22%20hook%20for%20%22can%20add%20and%20then%20edit%20a%20custom%20device%20with%20UA-CH%20emulation%22/variant/e3b0c44298fc1c14?resultIndex\u003d0\n3) This is why I am adding these to the e2e tests, not unit tests. We should not be writing e2e tests to test a tiny aspect of a feature, but to test it end-to-end, which IMO includes logging. Your example with jslogContext of a button in Animations seems to be WAI to me.\n\nAdding Simon for a second opinion.",
+      "parentUuid": "bb65a27a_bf53717d",
+      "revId": "4ae1dc7fc17943a2164d587f09d6ef6f30c53170",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "290764dc_fffeaf13",
         "filename": "test/e2e/helpers/visual-logging-helpers.ts",
         "patchSetId": 4
