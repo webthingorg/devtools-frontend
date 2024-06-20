@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0bbe2f75_5bcf3f86",
+        "filename": "test/e2e/helpers/cross-tool-helper.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-06-20T14:12:06Z",
+      "side": 1,
+      "message": "I thought about and I don\u0027t think we can have a adequate coverage this way. One has to practically repeat all tests performing interactions twice, once without VE assertions and once with them.",
+      "parentUuid": "466bfbeb_0e783513",
+      "revId": "4ae1dc7fc17943a2164d587f09d6ef6f30c53170",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "290764dc_fffeaf13",
         "filename": "test/e2e/helpers/visual-logging-helpers.ts",
         "patchSetId": 4
@@ -31,6 +49,24 @@
       "writtenOn": "2024-06-20T12:53:30Z",
       "side": 1,
       "message": "I wonder how stable these ve impressions for the elements panel will be in the future considering that elements panel can be rendered with different CSS rules in e2e tests (which will contain different number of style-properties sections).\n\nWDYT?",
+      "revId": "4ae1dc7fc17943a2164d587f09d6ef6f30c53170",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "201dc837_0f121dc4",
+        "filename": "test/e2e/helpers/visual-logging-helpers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-06-20T14:12:06Z",
+      "side": 1,
+      "message": "One thing which probably needs clarification is that we only check for the given subset of VE event is present, so unexpected VE events won\u0027t fail the test. I didn\u0027t encounter yet a case where these events won\u0027t be present, but we can always update the expectations if the reality is legitimately different.",
+      "parentUuid": "290764dc_fffeaf13",
       "revId": "4ae1dc7fc17943a2164d587f09d6ef6f30c53170",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
