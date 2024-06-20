@@ -248,6 +248,7 @@ export class FreestylerChatUi extends HTMLElement {
               title=${i18nString(TempUIStrings.sendButtonTitle)}
               aria-label=${i18nString(TempUIStrings.sendButtonTitle)}
               jslog=${VisualLogging.action('send').track({click: true})}
+              @click=${this.#handleSubmit}
               .data=${{
                 variant: Buttons.Button.Variant.ICON,
                 size: Buttons.Button.Size.SMALL,
