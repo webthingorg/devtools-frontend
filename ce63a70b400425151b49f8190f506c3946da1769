@@ -54,6 +54,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1406fd5f_e3e07ddd",
+        "filename": "front_end/models/trace/LanternComputationData.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-06-20T20:09:48Z",
+      "side": 1,
+      "message": "Circular dependencies. I forget the details.",
+      "parentUuid": "bc9dceae_770c7cdc",
+      "revId": "ce63a70b400425151b49f8190f506c3946da1769",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ab81ad03_fad60d1b",
         "filename": "front_end/models/trace/lantern/.eslintrc.js",
         "patchSetId": 6
@@ -65,6 +83,30 @@
       "writtenOn": "2024-06-18T09:43:00Z",
       "side": 1,
       "message": "maybe it\u0027s worth filing a bug for this to ensure we don\u0027t forget to resolve this (or tying it to an existing bug)",
+      "range": {
+        "startLine": 13,
+        "startChar": 9,
+        "endLine": 13,
+        "endChar": 13
+      },
+      "revId": "ce63a70b400425151b49f8190f506c3946da1769",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45b23a06_b0b42a90",
+        "filename": "front_end/models/trace/lantern/.eslintrc.js",
+        "patchSetId": 6
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-06-20T20:09:48Z",
+      "side": 1,
+      "message": "I addressed most of them here and added https://g-issues.chromium.org/issues/348449529 for the remaining.",
+      "parentUuid": "ab81ad03_fad60d1b",
       "range": {
         "startLine": 13,
         "startChar": 9,
@@ -122,6 +164,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1071bddb_38810f44",
+        "filename": "front_end/models/trace/lantern/BUILD.gn",
+        "patchSetId": 6
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-06-20T20:09:48Z",
+      "side": 1,
+      "message": "Removed - weren\u0027t needed as you said. Not sure why I placed them here.",
+      "parentUuid": "af8dcc51_b592e441",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 31
+      },
+      "revId": "ce63a70b400425151b49f8190f506c3946da1769",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "42e15923_62bc7e36",
@@ -158,6 +224,30 @@
       "writtenOn": "2024-06-18T09:43:00Z",
       "side": 1,
       "message": "do we want to eventually enable these or could we remove them completely (or something in between)?",
+      "range": {
+        "startLine": 6,
+        "startChar": 4,
+        "endLine": 6,
+        "endChar": 31
+      },
+      "revId": "ce63a70b400425151b49f8190f506c3946da1769",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b4f651a_200a2ab9",
+        "filename": "front_end/models/trace/lantern/tsconfig.json",
+        "patchSetId": 6
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-06-20T20:09:48Z",
+      "side": 1,
+      "message": "this file wasn\u0027t doing anything and should not have been included, removed.",
+      "parentUuid": "619c3ea5_4c84f905",
       "range": {
         "startLine": 6,
         "startChar": 4,

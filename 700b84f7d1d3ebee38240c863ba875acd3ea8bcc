@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ba5a7b9_0ba827f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-06-20T20:09:48Z",
+      "side": 1,
+      "message": "Patchset 7 (labeled lint), these are my granular local commit messages:\n\nlint\nadd bug ref to todos\nhandle naming-convention lint rule\naddress no-unused-vars lint rule\nremove some ts-nochecks\nremove unneeded tsconfig.json\nre-enable no-explicit-any lint rule\nremove unused deps",
+      "revId": "700b84f7d1d3ebee38240c863ba875acd3ea8bcc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
