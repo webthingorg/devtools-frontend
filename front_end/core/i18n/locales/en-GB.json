@@ -2579,6 +2579,9 @@
   "panels/application/BounceTrackingMitigationsTreeElement.ts | bounceTrackingMitigations": {
     "message": "Bounce tracking mitigations"
   },
+  "panels/application/CompressionDictionariesTreeElement.ts | compressionDictionaries": {
+    "message": "Compression dictionaries"
+  },
   "panels/application/CookieItemsView.ts | clearAllCookies": {
     "message": "Clear all cookies"
   },
