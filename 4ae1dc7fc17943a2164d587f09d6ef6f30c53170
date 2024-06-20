@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "466bfbeb_0e783513",
+        "filename": "test/e2e/helpers/cross-tool-helper.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-20T12:53:30Z",
+      "side": 1,
+      "message": "I\u0027m a bit reluctant to have the assertions below regarding ve logging in all `reloadDevTools` calls considering that they are used in many tests that are not related to ve logging.\n\nIt might be confusing for the people that used `reloadDevTools` and received a ve logging related assertion error that is totally not related to their tests.\n\nWDYT of adding tests specifically for VE logging in respective e2e test files? (like elements panel etc?)",
+      "revId": "4ae1dc7fc17943a2164d587f09d6ef6f30c53170",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "290764dc_fffeaf13",
+        "filename": "test/e2e/helpers/visual-logging-helpers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-20T12:53:30Z",
+      "side": 1,
+      "message": "I wonder how stable these ve impressions for the elements panel will be in the future considering that elements panel can be rendered with different CSS rules in e2e tests (which will contain different number of style-properties sections).\n\nWDYT?",
+      "revId": "4ae1dc7fc17943a2164d587f09d6ef6f30c53170",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
