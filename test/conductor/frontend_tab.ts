@@ -63,11 +63,15 @@ export class DevToolsFrontendTab {
     // frontend instances.
     const id = DevToolsFrontendTab.tabCounter++;
     const frontendUrl = `https://i${id}.devtools-frontend.test:${testServerPort}/${devToolsAppURL}?ws=localhost:${
-        getDebugPort(browser)}/devtools/page/${targetId}&targetType=tab`;
+        getDebugPort(browser)}/devtools/page/${targetId}&targetType=tab&veLogging=true`;
 
     const frontend = await browser.newPage();
     installPageErrorHandlers(frontend);
     await frontend.goto(frontendUrl, {waitUntil: DEVTOOLS_WAITUNTIL_EVENTS});
+    await frontend.evaluate(() => {
+      // @ts-ignore
+      globalThis.startTestLogging();
+    });
 
     const tab = new DevToolsFrontendTab(frontend, frontendUrl);
     return tab;
@@ -78,6 +82,10 @@ export class DevToolsFrontendTab {
     // Clear any local storage settings.
     await this.page.evaluate(() => localStorage.clear());
 
+    await this.page.evaluate(() => {
+      // @ts-ignore
+      globalThis.startTestLogging();
+    });
     await this.reload();
   }
 
