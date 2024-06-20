@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6289a464_c0a36fc6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-06-20T07:59:56Z",
+      "side": 1,
+      "message": "LGTM % question",
+      "revId": "b326514ecf7b29fb2792db24369be64f0370304d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d71e5f43_1521df12",
+        "filename": "front_end/core/sdk/SourceMapScopesInfo.test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-06-20T07:59:56Z",
+      "side": 1,
+      "message": "Clarification question: If I understand the spec correctly, this is an offset into the original scopes. Don\u0027t we just have 4 scopes in the original code? What does `scopeIdx:5` refer to in that case, or should it be `scopeIdx: 3` (and the previous one should be `scopeIdx: 2`)?",
+      "revId": "b326514ecf7b29fb2792db24369be64f0370304d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be7886bb_67f070e2",
+        "filename": "front_end/core/sdk/SourceMapScopesInfo.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-06-20T07:59:56Z",
+      "side": 1,
+      "message": "nit: `and a function scope in originally` -\u003e `and a function scope originally`",
+      "revId": "b326514ecf7b29fb2792db24369be64f0370304d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
