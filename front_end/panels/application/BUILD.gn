@@ -12,6 +12,7 @@ generate_css("css_files") {
   sources = [
     "appManifestView.css",
     "backgroundServiceView.css",
+    "compressionDictionariesView.css",
     "cookieItemsView.css",
     "indexedDBViews.css",
     "interestGroupStorageView.css",
@@ -38,6 +39,9 @@ devtools_module("application") {
     "BackgroundServiceModel.ts",
     "BackgroundServiceView.ts",
     "BounceTrackingMitigationsTreeElement.ts",
+    "CompressionDictionariesModel.ts",
+    "CompressionDictionariesTreeElement.ts",
+    "CompressionDictionariesView.ts",
     "CookieItemsView.ts",
     "DOMStorageItemsView.ts",
     "DOMStorageModel.ts",

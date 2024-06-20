@@ -300,6 +300,7 @@ export const enum ExperimentName {
   TIMELINE_EXTENSIONS = 'timeline-extensions',
   TIMELINE_DEBUG_MODE = 'timeline-debug-mode',
   TIMELINE_OBSERVATIONS = 'timeline-observations',
+  COMPRESSION_DICTIONARIES_TREE = 'compression-dictionaries-tree',
 }
 
 export interface HostConfigConsoleInsights {
