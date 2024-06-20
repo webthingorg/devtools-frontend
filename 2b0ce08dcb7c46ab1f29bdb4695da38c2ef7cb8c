@@ -33,6 +33,24 @@
       "message": "Thanks so much for the trace format adjustments. I\u0027m feeling great about the direction.\n\n------\n\nIf you\u0027re up for it, it\u0027d be much more idiomatic for file to move into the TraceEngine as a handler.\nYou could look at WorkersHandler for reference. It has some general similarities.\n\nAdoption the conventions there will also end up resolving my other concerns; namely that in this file, we\u0027re looping over the entire trace array multiple times, but it\u0027d be faster to loop once and pull out the relevant data within that one loop.\n\nSo.. I\u0027m thinking it\u0027d be something along the lines of…\n\nWithin `handleEvent()`...\n\nif (isTraceEventTargetRundown()) { scriptToV8Context.set(…); targets.push(target);  execContexts.push(execContext); }\nif (isTraceEventScriptRundown()) { v8contextToExecContext.set(…); scripts.push(script);  }\nif (isTraceEventScriptRundownSource()) { setScriptSource(); setScriptLength(); }\n\nAnd then within `finalize()`…\n\naddExecutionContextIdsToExecContexts();   \naddScriptSourcesToScripts();\n\n--------\n\nSomething along those lines?  (I\u0027m not at all prescribing those method names, just.. trying to capture the behavior. :)\n\nIn the end the `data()` of the handler will likely the ~same thing as what we have now…\n\n```ts\n{\nexecutionContexts: ExecutionContext[],\nscripts: Script[],\ntargets: Target[],\n}\n```\n\nand will be available from `traceParsedData.EnhancedTrace`.\n\n----\n\nHows that sound?\n\n(Apologies for delaying this side of the feedback!)",
       "revId": "2b0ce08dcb7c46ab1f29bdb4695da38c2ef7cb8c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17896987_4c6f22f1",
+        "filename": "front_end/panels/timeline/EnhancedTraces.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-06-20T00:52:41Z",
+      "side": 1,
+      "message": "I like this idea! Putting the logic into handler seems to be a better/cleaner solution here. Updating the CL accordingly.",
+      "parentUuid": "31c20026_28ac9e52",
+      "revId": "2b0ce08dcb7c46ab1f29bdb4695da38c2ef7cb8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

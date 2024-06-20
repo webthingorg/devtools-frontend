@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e16e567_2dcb9e59",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-06-20T00:52:41Z",
+      "side": 1,
+      "message": "Hi Paul, I updated the CL to move the logic for capturing target, execution context, script into a new handler. Could you take a look at the CL when you get a chance? Thanks!",
+      "revId": "3f2b6d7375a7e85cb2f8f40e6fd3ce7caf8efecc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
