@@ -16,6 +16,24 @@
       "message": "I think host needs to be added to build.gn",
       "revId": "2356128daac31228711620c9ad8de18db1576629",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a08b4ad6_0f348e2b",
+        "filename": "front_end/ui/components/docs/console_insight/error.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-20T13:25:47Z",
+      "side": 1,
+      "message": "Ah, I always forget this; updated it!",
+      "parentUuid": "96e80a77_d1a88ccc",
+      "revId": "2356128daac31228711620c9ad8de18db1576629",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
