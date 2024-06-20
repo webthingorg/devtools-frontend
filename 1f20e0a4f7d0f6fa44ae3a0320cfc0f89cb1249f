@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "10cb964b_642ea358",
+        "filename": "front_end/panels/explain/components/ConsoleInsight.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-06-20T11:01:09Z",
+      "side": 1,
+      "message": "let\u0027s remove default for TS to type-check the enum",
+      "revId": "1f20e0a4f7d0f6fa44ae3a0320cfc0f89cb1249f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "78700afb_d8b034cf",
