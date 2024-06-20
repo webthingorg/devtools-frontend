@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8da594f_74e1b191",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-06-20T08:07:58Z",
+      "side": 1,
+      "message": "super nit: Sentence seems broken.",
+      "revId": "5a434ec04f44c0ab67e737260e8efb3128528bf7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "919ab6c7_70e6dcc3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-06-20T08:07:58Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "5a434ec04f44c0ab67e737260e8efb3128528bf7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
