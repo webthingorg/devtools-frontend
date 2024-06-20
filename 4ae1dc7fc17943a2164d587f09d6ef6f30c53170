@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bb65a27a_bf53717d",
+        "filename": "test/e2e/helpers/cross-tool-helper.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-20T15:06:35Z",
+      "side": 1,
+      "message": "I didn\u0027t exactly understand. As far as I understand the assertions below are only for reload. So, I thought we can write tests for different panels and assert what they log on reloads.\n\nWe can have these tests in a snapshot fashion and one can update relevant test if the VE logging situation for that case is changed.\n\nI believe any failure in the assertions below would be annoying for us since:\n* the failure won\u0027t give enough context (i.e. a test name that shows what it tests specifically, failure message that shows exactly what I need to change).\n* the failure won\u0027t be directly related to the feature I\u0027m working on. (e.g. I changed the jslogContext of a button in Animations panel with VE logging \u0026 the view transitions tests are broken).\n---\nThough if you think it\u0027s a tradeoff we can take, WDYT of getting another view from someone else, maybe Simon? :)",
+      "parentUuid": "0bbe2f75_5bcf3f86",
+      "revId": "4ae1dc7fc17943a2164d587f09d6ef6f30c53170",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "290764dc_fffeaf13",
         "filename": "test/e2e/helpers/visual-logging-helpers.ts",
         "patchSetId": 4
