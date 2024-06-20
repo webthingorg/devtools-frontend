@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "24f2871d_6b3aa733",
+        "filename": "front_end/panels/explain/components/ConsoleInsight.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-20T12:56:04Z",
+      "side": 1,
+      "message": "Done! `assertNever` allows us to make sure that it is an exhaustive check but the assignment of the `this.#state` also does that.",
+      "parentUuid": "10cb964b_642ea358",
+      "revId": "1f20e0a4f7d0f6fa44ae3a0320cfc0f89cb1249f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "78700afb_d8b034cf",
         "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
         "patchSetId": 1
