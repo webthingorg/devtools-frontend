@@ -16,6 +16,24 @@
       "message": "Should we add `rpcId` here since the answer got from the model won\u0027t be the answer we show to the user. (So thumbs up/down won\u0027t be much meaningful, WDYT?)",
       "revId": "52a6f7d55029054de3c3f17cfd83bffe8aea8f05",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1617b2f1_92d780e6",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-06-20T06:12:41Z",
+      "side": 1,
+      "message": "I think it is useful since we also want to know which responses we could not parse. So if this answer is not satisfactory to the user and they press thumbs down, we could investigate. Alternatively, we might need some other way to flag responses that has not been parsed.",
+      "parentUuid": "a3aebdf0_f7dff68b",
+      "revId": "52a6f7d55029054de3c3f17cfd83bffe8aea8f05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
