@@ -38,6 +38,8 @@ devtools_module("application") {
     "BackgroundServiceModel.ts",
     "BackgroundServiceView.ts",
     "BounceTrackingMitigationsTreeElement.ts",
+    "CompressionDictionariesModel.ts",
+    "CompressionDictionariesTreeElement.ts",
     "CookieItemsView.ts",
     "DOMStorageItemsView.ts",
     "DOMStorageModel.ts",
