@@ -88,6 +88,12 @@
     color: var(--sys-color-on-surface);
     background: var(--sys-color-surface2);
   }
+
+  & .rate-buttons:not(:last-of-type) {
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid var(--divider-line);
+  }
 }
 
 .consent-buttons-container {
