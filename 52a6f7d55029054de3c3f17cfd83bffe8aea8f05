@@ -70,6 +70,24 @@
       "parentUuid": "e6f3af4c_86a3de15",
       "revId": "52a6f7d55029054de3c3f17cfd83bffe8aea8f05",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a697a05_c452f277",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-20T08:45:32Z",
+      "side": 1,
+      "message": "Then, we\u0027d need a message specifically for this case and giving the user a button to report the issue.",
+      "parentUuid": "719c4ec8_6198f940",
+      "revId": "52a6f7d55029054de3c3f17cfd83bffe8aea8f05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
