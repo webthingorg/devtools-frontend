@@ -133,6 +133,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "51eee963_cba33f86",
+        "filename": "test/e2e/helpers/cross-tool-helper.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-06-21T08:01:42Z",
+      "side": 1,
+      "message": "I\u0027m fine with re-using `reloadDevTools`, but I\u0027d expect folks to use one or the other randomly. At the very least I suggest adding a JSDoc comment that calls out that the new version checks VE so folks have chance to catch it when using auto-complete in their IDE.",
+      "parentUuid": "bc1c44dc_e9558305",
+      "revId": "4ae1dc7fc17943a2164d587f09d6ef6f30c53170",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0e6b62fb_5021db13",
         "filename": "test/e2e/helpers/visual-logging-helpers.ts",
         "patchSetId": 4
