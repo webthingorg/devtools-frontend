@@ -86,6 +86,24 @@
       "parentUuid": "a52cac68_8f25f480",
       "revId": "cdca9ce033ce71a677a2acc133ee6ce86a397cca",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e9457fe_170998ee",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-21T07:43:45Z",
+      "side": 1,
+      "message": "\u003e I don\u0027t see why implementing a new sidebar solution would simplify the code. For example, the existing split view component automatically moves the sidebar to the bottom for narrow viewports (a feature that we do want according to the mocks).\n\nBecause we could use CSS grid (or flexbox) w/ a media query to do the same thing and not have to write any JS 😊",
+      "parentUuid": "72d00546_c428e2f1",
+      "revId": "cdca9ce033ce71a677a2acc133ee6ce86a397cca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
