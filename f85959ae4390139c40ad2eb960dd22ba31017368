@@ -37,6 +37,92 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fb2c6191_02612fa3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 26
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-21T16:12:40Z",
+      "side": 1,
+      "message": "We also need a test for NetworkRequestsHandler please that loads in a trace with a web socket and asserts that we parse out the expected events.",
+      "revId": "f85959ae4390139c40ad2eb960dd22ba31017368",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f194c905_2ada8cd8",
+        "filename": "front_end/models/trace/handlers/NetworkRequestsHandler.ts",
+        "patchSetId": 26
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-21T16:12:40Z",
+      "side": 1,
+      "message": "I am finding this really hard to understand...\n\nso we go through each web socket we found, and create a synthetic event, and shift it onto the beginning, so that each entry in `webSocketData` will look roughly like:\n\n```\n// other fields\nevents: [syntheticEvent, the rest of the events...]\n```\n\nis that correct? \n\nagain, a comment or two might be useful here to try to break this down.\n\nor potentially a nicer structure would be either making the synthetic event contain all the others (but I can see why that might not be ideal), or having:\n\n```\n{\n  syntheticEvent: event,\n  childEvents: [events],\n}\n```\n\nor similar",
+      "range": {
+        "startLine": 498,
+        "startChar": 2,
+        "endLine": 498,
+        "endChar": 5
+      },
+      "revId": "f85959ae4390139c40ad2eb960dd22ba31017368",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ce1676e_b5b56337",
+        "filename": "front_end/models/trace/handlers/NetworkRequestsHandler.ts",
+        "patchSetId": 26
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-21T16:12:40Z",
+      "side": 1,
+      "message": "just `webSockets` would be fine for the key here",
+      "range": {
+        "startLine": 511,
+        "startChar": 4,
+        "endLine": 511,
+        "endChar": 22
+      },
+      "revId": "f85959ae4390139c40ad2eb960dd22ba31017368",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8fe1ed8_c17d1274",
+        "filename": "front_end/models/trace/handlers/NetworkRequestsHandler.ts",
+        "patchSetId": 26
+      },
+      "lineNbr": 519,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-21T16:12:40Z",
+      "side": 1,
+      "message": "could we add some documentation (jsdoc is fine) to this file to explain how we use all the various web socket events?\n\nfrom my understanding, it seems that the synthetic event represents the entire duration of the connection, and then you can use its identifier to find all the events that happened during its lifecycle. is that accurate?\n\nAlso, if we put into `args.data` the set of all \"child\" events, could we change the data we export from this handler into being:\n\n```\nsockets: SyntheticWebSocketConnection[]\n```\n\nand then have less complexity elsewhere? wdyt?",
+      "range": {
+        "startLine": 519,
+        "startChar": 0,
+        "endLine": 519,
+        "endChar": 49
+      },
+      "revId": "f85959ae4390139c40ad2eb960dd22ba31017368",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "adf6dd86_b9c8a1fe",
         "filename": "front_end/models/trace/types/TraceEvents.ts",
         "patchSetId": 26
@@ -106,6 +192,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0ebc32d1_a79b23f6",
+        "filename": "front_end/panels/timeline/NetworkTrackAppender.ts",
+        "patchSetId": 26
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-21T16:12:40Z",
+      "side": 1,
+      "message": "given that this method is about filtering an existing timeline, would we actually ever hit the `else` case here where we don\u0027t have a level set for a given web socket identifier?",
+      "range": {
+        "startLine": 209,
+        "startChar": 8,
+        "endLine": 214,
+        "endChar": 9
+      },
+      "revId": "f85959ae4390139c40ad2eb960dd22ba31017368",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c91f5bae_bdd39185",
         "filename": "front_end/panels/timeline/TimelineFlameChartNetworkDataProvider.ts",
         "patchSetId": 26
@@ -122,6 +231,29 @@
         "startChar": 18,
         "endLine": 253,
         "endChar": 59
+      },
+      "revId": "f85959ae4390139c40ad2eb960dd22ba31017368",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a42e92a_ba5265bf",
+        "filename": "front_end/panels/timeline/TimelineFlameChartNetworkDataProvider.ts",
+        "patchSetId": 26
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-21T16:12:40Z",
+      "side": 1,
+      "message": "sorry, probably a silly question for my understanding, why do we need this? if the socket is in the view, it will be drawn anyway? what scenario does this fix/avoid?",
+      "range": {
+        "startLine": 370,
+        "startChar": 0,
+        "endLine": 373,
+        "endChar": 3
       },
       "revId": "f85959ae4390139c40ad2eb960dd22ba31017368",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
