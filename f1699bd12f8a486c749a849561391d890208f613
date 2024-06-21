@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7ab35b6_b1084cdb",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-21T12:31:28Z",
+      "side": 0,
+      "message": "I think removing this and moving `isLoading` state to props makes a lot of sense, thanks!",
+      "revId": "f1699bd12f8a486c749a849561391d890208f613",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

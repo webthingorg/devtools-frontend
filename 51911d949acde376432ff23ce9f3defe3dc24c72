@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5163767_2d3dcc71",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-21T12:31:28Z",
+      "side": 1,
+      "message": "LGTM with a few comments \u0026 nits :)",
+      "revId": "51911d949acde376432ff23ce9f3defe3dc24c72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "724cbb5f_8ab25a1d",
+        "filename": "front_end/panels/freestyler/FreestylerPanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-21T12:31:28Z",
+      "side": 1,
+      "message": "Instead of deciding which step is the last one here, WDYT of setting `this.#viewProps.isLoading \u003d false` after the loop ends?\n\nLoop ending in here means there won\u0027t be any steps coming from the agent so we won\u0027t need to have the loading state.",
+      "revId": "51911d949acde376432ff23ce9f3defe3dc24c72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84c5e3bf_066871b5",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-21T12:31:28Z",
+      "side": 1,
+      "message": "(nit): Can we move the text into `TempUIStrings` 😬",
+      "revId": "51911d949acde376432ff23ce9f3defe3dc24c72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07520371_f16151d8",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-21T12:31:28Z",
+      "side": 1,
+      "message": "(nit): What do you think of doing the conditional check here and making `renderLoader` pure? -- i.e. making it always render the loader whenever it is called.\n\nI usually feel better when I move the logical checks higher in the chain 😅",
+      "revId": "51911d949acde376432ff23ce9f3defe3dc24c72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86e81b31_c9a4a95d",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-21T12:31:28Z",
+      "side": 1,
+      "message": "I think we don\u0027t need to render loading in here now considering that now we handle showing loading inside the system message and add an empty system message directly whenever user submitted the text.",
+      "revId": "51911d949acde376432ff23ce9f3defe3dc24c72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
