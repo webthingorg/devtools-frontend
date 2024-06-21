@@ -170,6 +170,30 @@
       },
       "revId": "45460d95fa3b3135c8a2dbf681be4dae1e52e20b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b14e8b57_964a4d78",
+        "filename": "front_end/models/trace/lantern/metrics/TotalBlockingTime.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-21T13:37:38Z",
+      "side": 1,
+      "message": "I think `is_debug` defaults to true.\n\nSo you need to do a build with is_debug \u003d false",
+      "parentUuid": "947467b3_47fcc48f",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 83
+      },
+      "revId": "45460d95fa3b3135c8a2dbf681be4dae1e52e20b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
