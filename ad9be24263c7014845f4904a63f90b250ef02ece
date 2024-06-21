@@ -51,6 +51,24 @@
       ],
       "revId": "ad9be24263c7014845f4904a63f90b250ef02ece",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4bc17710_cce7bce2",
+        "filename": "front_end/testing/EnvironmentHelpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-21T11:32:19Z",
+      "side": 1,
+      "message": "It is needed for the tests where we create the setting \u0026 set it to something we want for the test before creating the panel.\n\nOtherwise, when we try to execute `      Common.Settings.settingForTest(\u0027freestyler-dogfood-consent-onboarding-finished\u0027).set(false);` before creating the panel; we get an error saying that the setting is not registered 😅",
+      "parentUuid": "d410da00_6dae58f5",
+      "revId": "ad9be24263c7014845f4904a63f90b250ef02ece",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
