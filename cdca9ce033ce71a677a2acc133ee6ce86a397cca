@@ -104,6 +104,24 @@
       "parentUuid": "72d00546_c428e2f1",
       "revId": "cdca9ce033ce71a677a2acc133ee6ce86a397cca",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a57bc5d0_f8fb77b2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-06-21T17:59:17Z",
+      "side": 1,
+      "message": "I have update this to use an `@container` query (`@media` doesn\u0027t work when DT is docked). I would still argue this code is more complicated as it requires an additional container element but I\u0027m fine with it for now.",
+      "parentUuid": "0e9457fe_170998ee",
+      "revId": "cdca9ce033ce71a677a2acc133ee6ce86a397cca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
