@@ -39,6 +39,29 @@
       },
       "revId": "45460d95fa3b3135c8a2dbf681be4dae1e52e20b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3e282a3_8056ed1c",
+        "filename": "front_end/models/trace/lantern/metrics/TotalBlockingTime.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-21T10:57:39Z",
+      "side": 1,
+      "message": "I think these imports may be problematic in DevTools too because of how release builds get bundled - these files will not exist in a release build\n\nI\u0027d suggest moving the contents of the metrics/ folder up a level (you can import files from the same folder at the same level), or putting these files into another module (lantern/core or something) to enable you to do `import * as Core from \u0027../core/core.js\u0027`\n\n(yes this frustrating...but not something that is going to change)",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 83
+      },
+      "revId": "45460d95fa3b3135c8a2dbf681be4dae1e52e20b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
