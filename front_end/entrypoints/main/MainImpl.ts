@@ -412,6 +412,10 @@ export class MainImpl {
         'Performance panel: enable live metrics landing page',
     );
 
+    Root.Runtime.experiments.register(
+        Root.Runtime.ExperimentName.COMPRESSION_DICTIONARIES_TREE,
+        'Enable Compression Dictionaries Tree in Application panel', true);
+
     Root.Runtime.experiments.enableExperimentsByDefault([
       'css-type-component-length-deprecate',
       Root.Runtime.ExperimentName.OUTERMOST_TARGET_SELECTOR,
