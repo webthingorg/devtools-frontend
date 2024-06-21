@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "33b1f183_da37ca13",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-21T13:33:47Z",
+      "side": 1,
+      "message": "See my two other comments for examples in context, but TL;DR is:\n\n1. You must import from the entry point if you are importing from another module (aka folder)\nGOOD: import * as X from \u0027./x/x.js\u0027;\nBAD: import {Something} from \u0027./x/some-sub-module.js\u0027;\n\n2. You can only import from the non-entrypoint if you are within that module\u0027s folder.\n\nSo `x/one.js` can import directly from `x/two.js`, if you want to import from `y/one.js`, you have to access it via `y/y.js` (the entrypoint)",
+      "parentUuid": "0fbf1a98_ffa5c5fd",
+      "revId": "45460d95fa3b3135c8a2dbf681be4dae1e52e20b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "08ce839b_465aee57",
         "filename": "front_end/models/trace/LanternComputationData.ts",
         "patchSetId": 9

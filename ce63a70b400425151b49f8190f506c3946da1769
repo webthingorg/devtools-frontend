@@ -106,6 +106,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8dcec56_93bd5984",
+        "filename": "front_end/models/trace/LanternComputationData.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-21T13:33:47Z",
+      "side": 1,
+      "message": "Ah sorry for causing confusion - I was going off Adam\u0027s comment and thought maybe this wasn\u0027t the right home for it. If it is then let\u0027s leave it!",
+      "parentUuid": "08699792_11043f44",
+      "revId": "ce63a70b400425151b49f8190f506c3946da1769",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ab81ad03_fad60d1b",
