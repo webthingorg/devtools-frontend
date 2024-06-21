@@ -70,6 +70,30 @@
       },
       "revId": "fcc63cedf20efd2a486ce7e9361beab5048784b6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99dbc614_1c91043b",
+        "filename": "front_end/panels/timeline/Overlays.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-21T15:54:13Z",
+      "side": 0,
+      "message": "Yes, good idea. Now by default new labels are editable, but the ones that had a label passed are not.",
+      "parentUuid": "50045fe2_b3749f74",
+      "range": {
+        "startLine": 506,
+        "startChar": 27,
+        "endLine": 511,
+        "endChar": 19
+      },
+      "revId": "fcc63cedf20efd2a486ce7e9361beab5048784b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
