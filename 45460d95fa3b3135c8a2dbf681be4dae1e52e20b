@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0fbf1a98_ffa5c5fd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-06-21T13:24:09Z",
+      "side": 1,
+      "message": "I\u0027m unclear exactly what\u0027s disallowed since the linter isn\u0027t being helpful, but can we assume that if the layout tests are passing then this issue is resolved?",
+      "parentUuid": "3efc7808_281c2a60",
+      "revId": "45460d95fa3b3135c8a2dbf681be4dae1e52e20b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "08ce839b_465aee57",
         "filename": "front_end/models/trace/LanternComputationData.ts",
         "patchSetId": 9
