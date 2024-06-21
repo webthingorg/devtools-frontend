@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6eedc65d_22e97b62",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-21T16:15:47Z",
+      "side": 1,
+      "message": "lgtm with one nit, thanks!",
+      "revId": "37a2edac4d830bdead90558b6d9399ac2a603980",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b52d864a_fb659200",
+        "filename": "front_end/panels/timeline/components/EntryLabelOverlay.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-21T16:15:47Z",
+      "side": 1,
+      "message": "might want to disable clang format and do this yourself 😊",
+      "range": {
+        "startLine": 174,
+        "startChar": 9,
+        "endLine": 176,
+        "endChar": 98
+      },
+      "revId": "37a2edac4d830bdead90558b6d9399ac2a603980",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
