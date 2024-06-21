@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a7f1fb7_5781889a",
+        "filename": "front_end/panels/freestyler/FreestylerPanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-21T13:15:14Z",
+      "side": 1,
+      "message": "I think doing two sequential updates should be fine, if we think from UX perspective it looks not okay; we can turn `doUpdate` do a batched update. (via RenderCoordinator or something.) Though we shouldn\u0027t block on this, all good :)",
+      "parentUuid": "e0e9ad2d_e1e43df2",
+      "revId": "51911d949acde376432ff23ce9f3defe3dc24c72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "84c5e3bf_066871b5",
