@@ -16,6 +16,138 @@
       "message": "pushed some updates, appreciate your feedback!",
       "revId": "f85959ae4390139c40ad2eb960dd22ba31017368",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f14eb5e4_9dabba79",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 26
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-21T15:59:44Z",
+      "side": 1,
+      "message": "hope you don\u0027t mind me jumping in - Paul asked me to take a look 😊\n\nOne other thought - we might have some parts of the codebase where we assume that if an event\u0027s type is not SyntheticNetworkRequest, then it is not on the network track. I think some of our recent work around overlays will be affected by this, and in particular the selected entry overlay in the performance panel. Can you make sure that this works OK and they are positioned accurately when you select a web socket event? This changed very recently (start of this week) so make sure you rebase.\n\nIf we define a type of `NetworkTrackEntry` which is the union of the synthetic network request and the websocket entry(s), that would avoid the duplication and long union types repeated in the network appender, and also mean we could land an `isNetworkTrackEntry()` method which would be handy.",
+      "revId": "f85959ae4390139c40ad2eb960dd22ba31017368",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "adf6dd86_b9c8a1fe",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 26
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-21T15:59:44Z",
+      "side": 1,
+      "message": "why do we need this vs just exposing the interface which we already do?",
+      "range": {
+        "startLine": 412,
+        "startChar": 0,
+        "endLine": 412,
+        "endChar": 75
+      },
+      "revId": "f85959ae4390139c40ad2eb960dd22ba31017368",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe93b810_27000f95",
+        "filename": "front_end/panels/timeline/NetworkTrackAppender.ts",
+        "patchSetId": 26
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-21T15:59:44Z",
+      "side": 1,
+      "message": "this check is confusing me: the type def says the event is either `TraceEventData|SyntheticWebSocketConnectionEvent`, so why do we check for `isWebSocketTraceEvent` and `isSyntheticWebSocketConnectionEvent` ?",
+      "range": {
+        "startLine": 135,
+        "startChar": 3,
+        "endLine": 136,
+        "endChar": 85
+      },
+      "revId": "f85959ae4390139c40ad2eb960dd22ba31017368",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ddce3636_eb5b1c6f",
+        "filename": "front_end/panels/timeline/NetworkTrackAppender.ts",
+        "patchSetId": 26
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-21T15:59:44Z",
+      "side": 1,
+      "message": "would probably define `type NetworkTrackEvent \u003d this union` to avoid repeating this a bunch",
+      "range": {
+        "startLine": 184,
+        "startChar": 14,
+        "endLine": 184,
+        "endChar": 114
+      },
+      "revId": "f85959ae4390139c40ad2eb960dd22ba31017368",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c91f5bae_bdd39185",
+        "filename": "front_end/panels/timeline/TimelineFlameChartNetworkDataProvider.ts",
+        "patchSetId": 26
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-21T15:59:44Z",
+      "side": 1,
+      "message": "nit: can this be a JS private method please? (same with `decorateNetworkRequest` too)",
+      "range": {
+        "startLine": 253,
+        "startChar": 18,
+        "endLine": 253,
+        "endChar": 59
+      },
+      "revId": "f85959ae4390139c40ad2eb960dd22ba31017368",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cda88d20_fdee29ab",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 26
+      },
+      "lineNbr": 2284,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-21T15:59:44Z",
+      "side": 1,
+      "message": "took me a minute to understand this conditional\n\nhow do you feel about:\n\n```\nconst levelForcedDrawable \u003d Boolean(this.dataProvider.forceDrawableLevel?.(level));\nif(entryOffsetRight \u003c\u003d this.chartViewport.windowLeftTime \u0026\u0026 !levelForcedDrawable) {}\n```\n\n(or similar)",
+      "range": {
+        "startLine": 2283,
+        "startChar": 7,
+        "endLine": 2284,
+        "endChar": 101
+      },
+      "revId": "f85959ae4390139c40ad2eb960dd22ba31017368",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
