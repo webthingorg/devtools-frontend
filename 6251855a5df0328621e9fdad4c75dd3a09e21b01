@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d98f919_06a1083c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-21T11:42:04Z",
+      "side": 1,
+      "message": "Thanks for review!",
+      "revId": "6251855a5df0328621e9fdad4c75dd3a09e21b01",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "79beab3a_68d56b03",
@@ -31,6 +48,30 @@
       "writtenOn": "2024-06-21T11:04:31Z",
       "side": 1,
       "message": "dimensions",
+      "range": {
+        "startLine": 338,
+        "startChar": 40,
+        "endLine": 338,
+        "endChar": 55
+      },
+      "revId": "6251855a5df0328621e9fdad4c75dd3a09e21b01",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "923d4977_34cc4249",
+        "filename": "front_end/panels/timeline/Overlays.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 338,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-21T11:42:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79beab3a_68d56b03",
       "range": {
         "startLine": 338,
         "startChar": 40,
@@ -64,6 +105,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "39fc7e52_c37a96aa",
+        "filename": "front_end/panels/timeline/components/EntryLabelOverlay.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-21T11:42:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b607173_e18415a4",
+      "range": {
+        "startLine": 24,
+        "startChar": 3,
+        "endLine": 24,
+        "endChar": 18
+      },
+      "revId": "6251855a5df0328621e9fdad4c75dd3a09e21b01",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cd264d2e_7bf7819c",
@@ -77,6 +142,30 @@
       "writtenOn": "2024-06-21T11:04:31Z",
       "side": 1,
       "message": "do these methods need to be public?",
+      "range": {
+        "startLine": 78,
+        "startChar": 2,
+        "endLine": 78,
+        "endChar": 15
+      },
+      "revId": "6251855a5df0328621e9fdad4c75dd3a09e21b01",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1891aec3_98c75f13",
+        "filename": "front_end/panels/timeline/components/EntryLabelOverlay.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-21T11:42:04Z",
+      "side": 1,
+      "message": "Good point, they do not",
+      "parentUuid": "cd264d2e_7bf7819c",
       "range": {
         "startLine": 78,
         "startChar": 2,
