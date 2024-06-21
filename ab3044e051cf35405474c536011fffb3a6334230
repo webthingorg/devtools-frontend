@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "59cf1670_f63a2f61",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-21T13:38:56Z",
+      "side": 1,
+      "message": "I added some screenshot tests but I\u0027m thinking of removing them considering that:\n* Generating \u0026 updating screenshots take so damn long.\n* We\u0027re still iterating on the UI and we\u0027ll need to update goldens quite often.\n\nLet\u0027s add them when we finalize the UI, WDYT?",
+      "parentUuid": "189b5d16_d4f0efef",
+      "revId": "ab3044e051cf35405474c536011fffb3a6334230",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a7aedc50_0e03be66",
         "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
         "patchSetId": 1
