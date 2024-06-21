@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31f45365_f4ed7ba8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-21T15:32:31Z",
+      "side": 1,
+      "message": "lgtm once comments are resolved - I am OOO next week so plus one\u0027ing to not block. Thanks!",
+      "revId": "b782594295f2a68fa0ef0e340419f40d676109d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "046faaaf_52e5ecee",
+        "filename": "front_end/panels/timeline/AppenderUtils.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-21T15:32:31Z",
+      "side": 1,
+      "message": "as per other comment: let\u0027s define an interface for this that we can use\n\n`PerfUI.FlameChart.Legend` maybe?",
+      "range": {
+        "startLine": 63,
+        "startChar": 2,
+        "endLine": 63,
+        "endChar": 48
+      },
+      "revId": "b782594295f2a68fa0ef0e340419f40d676109d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97387031_9b568617",
+        "filename": "front_end/panels/timeline/NetworkTrackAppender.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-21T15:32:31Z",
+      "side": 1,
+      "message": "let\u0027s define an interface for what a legend is, and use it throughout this CL",
+      "range": {
+        "startLine": 98,
+        "startChar": 0,
+        "endLine": 98,
+        "endChar": 23
+      },
+      "revId": "b782594295f2a68fa0ef0e340419f40d676109d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "afd65a68_029142b5",
+        "filename": "front_end/panels/timeline/NetworkTrackAppender.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-21T15:32:31Z",
+      "side": 1,
+      "message": "do we need this `as` ?",
+      "range": {
+        "startLine": 101,
+        "startChar": 52,
+        "endLine": 101,
+        "endChar": 81
+      },
+      "revId": "b782594295f2a68fa0ef0e340419f40d676109d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
