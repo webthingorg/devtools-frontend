@@ -115,6 +115,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bc1c44dc_e9558305",
+        "filename": "test/e2e/helpers/cross-tool-helper.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-06-21T07:49:36Z",
+      "side": 1,
+      "message": "1) The name clash also bothers me, but I am not sure if `reloadDevToolsWithVECheck` is a good idea as all the other VE assertions will be in helper functions like `navigateToConsoleTab` and calling out VE Check in this one seems strange. I am not feeling strongly though, if you don\u0027t have an alternative name in mind and thinks it is important to avoid the name clash, I could live with `reloadDevToolsWithVECheck` \n\n2) Yes, I realize this is only for explicit calls to `reloadDevTools`. I am not sure we can make it work reliably timing-wise for the regular `reload` and checking \n for VE in the conductor seems to be a layering violation. However I think we get enough coverage with the explicit call to `reloadDevTools`.",
+      "parentUuid": "b730daf1_b412e2ed",
+      "revId": "4ae1dc7fc17943a2164d587f09d6ef6f30c53170",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0e6b62fb_5021db13",
         "filename": "test/e2e/helpers/visual-logging-helpers.ts",
         "patchSetId": 4
@@ -126,6 +144,30 @@
       "writtenOn": "2024-06-21T05:10:02Z",
       "side": 1,
       "message": "`.values()` not required. You can spread a `Set` directly.\n\nOnce we update Node to a more recent version of V8 we can use `const missing \u003d expectedSet.difference(actualSet);` :)",
+      "range": {
+        "startLine": 32,
+        "startChar": 33,
+        "endLine": 32,
+        "endChar": 42
+      },
+      "revId": "4ae1dc7fc17943a2164d587f09d6ef6f30c53170",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c857f6a_3ea23a2b",
+        "filename": "test/e2e/helpers/visual-logging-helpers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-06-21T07:49:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e6b62fb_5021db13",
       "range": {
         "startLine": 32,
         "startChar": 33,
@@ -184,6 +226,30 @@
       "writtenOn": "2024-06-21T05:10:02Z",
       "side": 1,
       "message": "```\nconst actualImpressionEvent \u003d actualEvents.findLast(event \u003d\u003e \u0027impressions\u0027 in event);\nif (!actualImpressionEvent?.impressions) {\n  assert.fail(...)\n}\n```",
+      "range": {
+        "startLine": 157,
+        "startChar": 0,
+        "endLine": 167,
+        "endChar": 3
+      },
+      "revId": "4ae1dc7fc17943a2164d587f09d6ef6f30c53170",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd79811c_60317209",
+        "filename": "test/e2e/helpers/visual-logging-helpers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-06-21T07:49:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cc567e8a_cc69fa35",
       "range": {
         "startLine": 157,
         "startChar": 0,
