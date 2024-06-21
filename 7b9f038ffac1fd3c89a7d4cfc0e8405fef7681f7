@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17e991be_0f09a8c3",
+        "filename": "front_end/models/trace/lantern/BaseNode.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-06-21T17:31:56Z",
+      "side": 1,
+      "message": "what formatter does cdt use?\n\nnote how it mangled the iterator function syntax here",
+      "revId": "7b9f038ffac1fd3c89a7d4cfc0e8405fef7681f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
