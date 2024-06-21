@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "71a8070a_3903d04b",
+        "filename": "test/conductor/frontend_tab.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-06-21T05:10:02Z",
+      "side": 1,
+      "message": "Do I understand correctly that `globalThis.startTestLogging` carries across DevTools session because it stashes state in local storage? Maybe we should add a comment that thats why it\u0027s here and not below in `reload`.",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 7
+      },
+      "revId": "4ae1dc7fc17943a2164d587f09d6ef6f30c53170",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "466bfbeb_0e783513",
         "filename": "test/e2e/helpers/cross-tool-helper.ts",
         "patchSetId": 4
@@ -74,6 +97,47 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b730daf1_b412e2ed",
+        "filename": "test/e2e/helpers/cross-tool-helper.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-06-21T05:10:02Z",
+      "side": 1,
+      "message": "I don\u0027t mind having a reload variant that checks VEs, but I\u0027d like to name it a bit more explicitly, since now we have two `reloadDevTools` functions and it\u0027s not clear which one does what or which one should use.\n\nMaybe we should call this one `reloadDevToolsWithVECheck`?\n\nJust to be clear though. These VE checks will only happen for tests that actually use this new `reload` function. The vast majority relies on the `reset` call inbetween tests, that enables VE logging, but does not do any actual checking.",
+      "parentUuid": "6744cf8f_7c029501",
+      "revId": "4ae1dc7fc17943a2164d587f09d6ef6f30c53170",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e6b62fb_5021db13",
+        "filename": "test/e2e/helpers/visual-logging-helpers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-06-21T05:10:02Z",
+      "side": 1,
+      "message": "`.values()` not required. You can spread a `Set` directly.\n\nOnce we update Node to a more recent version of V8 we can use `const missing \u003d expectedSet.difference(actualSet);` :)",
+      "range": {
+        "startLine": 32,
+        "startChar": 33,
+        "endLine": 32,
+        "endChar": 42
+      },
+      "revId": "4ae1dc7fc17943a2164d587f09d6ef6f30c53170",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "290764dc_fffeaf13",
         "filename": "test/e2e/helpers/visual-logging-helpers.ts",
         "patchSetId": 4
@@ -103,6 +167,29 @@
       "side": 1,
       "message": "One thing which probably needs clarification is that we only check for the given subset of VE event is present, so unexpected VE events won\u0027t fail the test. I didn\u0027t encounter yet a case where these events won\u0027t be present, but we can always update the expectations if the reality is legitimately different.",
       "parentUuid": "290764dc_fffeaf13",
+      "revId": "4ae1dc7fc17943a2164d587f09d6ef6f30c53170",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc567e8a_cc69fa35",
+        "filename": "test/e2e/helpers/visual-logging-helpers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-06-21T05:10:02Z",
+      "side": 1,
+      "message": "```\nconst actualImpressionEvent \u003d actualEvents.findLast(event \u003d\u003e \u0027impressions\u0027 in event);\nif (!actualImpressionEvent?.impressions) {\n  assert.fail(...)\n}\n```",
+      "range": {
+        "startLine": 157,
+        "startChar": 0,
+        "endLine": 167,
+        "endChar": 3
+      },
       "revId": "4ae1dc7fc17943a2164d587f09d6ef6f30c53170",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
