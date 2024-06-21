@@ -9,9 +9,9 @@ import styles from './entryLabelOverlay.css.js';
 export class EntryLabelOverlay extends HTMLElement {
   // The label is angled on the left from the centre of the entry it belongs to.
   // `LABEL_AND_CONNECTOR_SHIFT_LENGTH` specifies how many pixels to the left it is shifted.
-  static readonly LABEL_AND_CONNECTOR_SHIFT_LENGTH = 4;
+  static readonly LABEL_AND_CONNECTOR_SHIFT_LENGTH = 8;
   // Length of the line that connects the label to the entry.
-  static readonly LABEL_CONNECTOR_HEIGHT = 6;
+  static readonly LABEL_CONNECTOR_HEIGHT = 7;
   static readonly LABEL_HEIGHT = 17;
   static readonly LABEL_PADDING = 4;
   static readonly LABEL_AND_CONNECTOR_HEIGHT =
@@ -32,22 +32,23 @@ the line connecting the label to the entry, and a black box around an entry to h
 ________
 |_label__|                <-- label part with the label string inside
     \
-     \                   <-- line connecting the label to the entry
+     \                   <-- line connecting the label to the entry with a circle at the end
       \
-________________
+_______◯_________
 |_____entry______|         <--- box around an entry
 
 `drawLabel` method below draws the first part.
-`drawConnector` method below draws the second part - the connector line and the svg container for it.
+`drawConnector` method below draws the second part - the connector line with a circle and the svg container for them.
 `drawEntryHighlightWrapper` draws the third part.
 We only rerender the first part if the label changes and the third part if the size of the entry changes.
-The connector shape never changes so we only draw the second part when the component is created.
+The connector and circle shapes never change so we only draw the second part when the component is created.
 
 Otherwise, the entry label overlay object only gets repositioned.
 */
 
-  constructor() {
+  constructor(label: string) {
     super();
+    this.#label = label;
     this.#render();
     this.#drawLabel();
     this.#drawConnector();
@@ -55,20 +56,6 @@ Otherwise, the entry label overlay object only gets repositioned.
 
   connectedCallback(): void {
     this.#shadow.adoptedStyleSheets = [styles];
-  }
-
-  set label(label: string) {
-    if (label === this.#label) {
-      return;
-    }
-    this.#label = label;
-    void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
-    // We need to redraw the label only when the label is set to a new one
-    this.#drawLabel();
-
-    // If the label is not empty, it was loaded from the trace file.
-    // In that case, do not make just created label editable.
-    this.#setLabelEditability(false);
   }
 
   set entryDimensions(entryDimensions: {height: number, width: number}) {
@@ -85,10 +72,11 @@ Otherwise, the entry label overlay object only gets repositioned.
 
   #drawConnector(): void {
     const labelPartsWrapper = this.#shadow.querySelector<HTMLElement>('.label-parts-wrapper');
-    const connectorLineContainer = labelPartsWrapper?.querySelector('#connectorContainer') as SVGAElement;
+    const connectorLineContainer = labelPartsWrapper?.querySelector('.connectorContainer') as SVGAElement;
     const connector = connectorLineContainer.querySelector('line');
+    const circle = connectorLineContainer.querySelector('circle');
     const entryHighlightWrapper = labelPartsWrapper?.querySelector('.entry-highlight-wrapper') as HTMLElement;
-    if (!connectorLineContainer || !entryHighlightWrapper || !connector) {
+    if (!connectorLineContainer || !entryHighlightWrapper || !connector || !circle) {
       console.error('Some entry label elements are missing.');
       return;
     }
@@ -106,17 +94,20 @@ Otherwise, the entry label overlay object only gets repositioned.
     connector.setAttribute('y2', EntryLabelOverlay.LABEL_CONNECTOR_HEIGHT.toString());
     connector.setAttribute('stroke', 'black');
     connector.setAttribute('stroke-width', '2');
+
+    // Draw the circle at the bottom of the connector
+    circle.setAttribute('cx', EntryLabelOverlay.LABEL_AND_CONNECTOR_SHIFT_LENGTH.toString());
+    circle.setAttribute('cy', EntryLabelOverlay.LABEL_CONNECTOR_HEIGHT.toString());
+    circle.setAttribute('r', '3');
+    circle.setAttribute('fill', 'black');
   }
 
   #drawLabel(): void {
     const labelPartsWrapper = this.#shadow.querySelector<HTMLElement>('.label-parts-wrapper');
     const labelBox = labelPartsWrapper?.querySelector<HTMLElement>('.label-box');
-    const connectorLineContainer = labelPartsWrapper?.querySelector('#connectorContainer') as SVGAElement;
-    const connector = connectorLineContainer.querySelector('line');
-    const entryHighlightWrapper = labelPartsWrapper?.querySelector('.entry-highlight-wrapper') as HTMLElement;
 
-    if (!labelBox || !connectorLineContainer || !entryHighlightWrapper || !connector) {
-      console.error('Some entry label elements are missing.');
+    if (!labelBox) {
+      console.error('`labelBox` element is missing.');
       return;
     }
 
@@ -125,6 +116,21 @@ Otherwise, the entry label overlay object only gets repositioned.
     labelBox.style.height = `${EntryLabelOverlay.LABEL_HEIGHT}px`;
     labelBox.style.padding = `${EntryLabelOverlay.LABEL_PADDING}px`;
     labelBox.style.transform = `translateX(-${EntryLabelOverlay.LABEL_AND_CONNECTOR_SHIFT_LENGTH}px)`;
+
+    // If the label is not empty, it was loaded from the trace file.
+    // In that case, do not make just created label editable.
+    if (this.#label !== '') {
+      this.#setLabelEditability(false);
+    }
+
+    const maxLength = 3;
+    labelBox.addEventListener('keydown', function (event) {
+      if (this.textContent.length > maxLength) {
+        event.preventDefault();
+        return false;
+      }
+    });
+    
   }
 
   #drawEntryHighlightWrapper(): void {
@@ -178,8 +184,9 @@ Otherwise, the entry label overlay object only gets repositioned.
             contenteditable=${this.#isLabelEditable} 
             .innerText=${this.#label}>
           </span>
-          <svg id="connectorContainer">
+          <svg class="connectorContainer">
             <line/>
+            <circle/>
           </svg>
           <div class="entry-highlight-wrapper"/>
         </span>`,
