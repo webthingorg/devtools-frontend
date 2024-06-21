@@ -1,0 +1,56 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c9ba6dc_6ed0f2d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-06-21T11:30:09Z",
+      "side": 1,
+      "message": "LGTM + 1 question",
+      "revId": "ad9be24263c7014845f4904a63f90b250ef02ece",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d410da00_6dae58f5",
+        "filename": "front_end/testing/EnvironmentHelpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-06-21T11:30:09Z",
+      "side": 1,
+      "message": "Do we need this? I think this will be handled on creating the Panel?",
+      "fixSuggestions": [
+        {
+          "fixId": "31504db1_cca9de46",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/testing/EnvironmentHelpers.ts",
+              "range": {
+                "startLine": 290,
+                "startChar": 0,
+                "endLine": 293,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "ad9be24263c7014845f4904a63f90b250ef02ece",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
