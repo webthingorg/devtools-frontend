@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea5f4339_7efa72ba",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-06-21T12:58:27Z",
+      "side": 1,
+      "message": "this move allows us to write extension appender unit tests without having to call this to set up the environment.",
+      "parentUuid": "d27ef593_db40e7c0",
+      "range": {
+        "startLine": 193,
+        "startChar": 0,
+        "endLine": 193,
+        "endChar": 67
+      },
+      "revId": "61ca35511ce1216877b26e50787e99718a75e165",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "62f17bfd_fac2294e",
@@ -81,6 +105,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "49a9efa5_20eef01a",
+        "filename": "front_end/panels/timeline/track_appenders/ExtensionTrackAppender.test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-06-21T12:58:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62f17bfd_fac2294e",
+      "range": {
+        "startLine": 138,
+        "startChar": 12,
+        "endLine": 138,
+        "endChar": 41
+      },
+      "revId": "61ca35511ce1216877b26e50787e99718a75e165",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1b71c00c_f930eeaf",
@@ -94,6 +142,30 @@
       "writtenOn": "2024-06-21T12:47:47Z",
       "side": 1,
       "message": "unknown",
+      "range": {
+        "startLine": 311,
+        "startChar": 13,
+        "endLine": 311,
+        "endChar": 19
+      },
+      "revId": "61ca35511ce1216877b26e50787e99718a75e165",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64da88d9_712f65a1",
+        "filename": "front_end/panels/timeline/track_appenders/TimingsTrackAppender.test.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-06-21T12:58:27Z",
+      "side": 1,
+      "message": "we should make unkown part of the dictionary instead!",
+      "parentUuid": "1b71c00c_f930eeaf",
       "range": {
         "startLine": 311,
         "startChar": 13,
