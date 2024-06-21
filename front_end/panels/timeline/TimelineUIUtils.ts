@@ -2463,7 +2463,7 @@ export class TimelineUIUtils {
   }
 }
 
-export const enum NetworkCategory {
+export enum NetworkCategory {
   HTML = 'HTML',
   Script = 'Script',
   Style = 'Style',
