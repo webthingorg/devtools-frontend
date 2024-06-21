@@ -90,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "08699792_11043f44",
+        "filename": "front_end/models/trace/LanternComputationData.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-06-21T13:22:34Z",
+      "side": 1,
+      "message": "Semantically I think this file belongs here. It is taking the result of the trace engine and forming it into inputs for Lantern.\n\nTrying to get the lantern module to depend on the trace module, which itself exports Lantern, is the dep. cycle:\n\n```\nERROR Dependency cycle:\n  //front_end/models/trace:trace -\u003e\n  //front_end/models/trace/lantern:bundle -\u003e\n  //front_end/models/trace/lantern:devtools_entrypoint-bundle-typescript -\u003e\n  //front_end/models/trace/lantern:lantern -\u003e\n  //front_end/models/trace:trace\n```\n\nAm I missing something that would allow code to be structured this way? I think this needs to be where it currently resides.",
+      "parentUuid": "26424ef4_ed2470a4",
+      "revId": "ce63a70b400425151b49f8190f506c3946da1769",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ab81ad03_fad60d1b",
         "filename": "front_end/models/trace/lantern/.eslintrc.js",
         "patchSetId": 6
