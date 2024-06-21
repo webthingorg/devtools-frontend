@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f585c2f_5e44cae8",
+        "filename": "front_end/panels/timeline/Overlays.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-21T12:52:03Z",
+      "side": 0,
+      "message": "does this mean that if I do:\n\n```\nthis.#overlays.add({type: \u0027ENTRY_LABEL\u0027, label: \u0027foo\u0027})\n```\n\nthat it won\u0027t be set?",
+      "range": {
+        "startLine": 506,
+        "startChar": 27,
+        "endLine": 511,
+        "endChar": 19
+      },
+      "revId": "fcc63cedf20efd2a486ce7e9361beab5048784b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
