@@ -33,6 +33,24 @@
       "message": "(nit): I have one more forgotten nit 😬\n\nCan we make `isLast` a named parameter? `(message: ChatMessage, { isLast }: { isLast: boolean; })`",
       "revId": "508f5e978148b510d83679d52632cb13ee1fb73b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31364532_9027bba6",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-06-21T13:24:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "92f46dfb_50186f52",
+      "revId": "508f5e978148b510d83679d52632cb13ee1fb73b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
