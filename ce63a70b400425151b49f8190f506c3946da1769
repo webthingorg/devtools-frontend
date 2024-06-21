@@ -72,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "26424ef4_ed2470a4",
+        "filename": "front_end/models/trace/LanternComputationData.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-21T10:55:20Z",
+      "side": 1,
+      "message": "can we log a bug for this?",
+      "parentUuid": "1406fd5f_e3e07ddd",
+      "revId": "ce63a70b400425151b49f8190f506c3946da1769",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ab81ad03_fad60d1b",
         "filename": "front_end/models/trace/lantern/.eslintrc.js",
         "patchSetId": 6

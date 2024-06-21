@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3efc7808_281c2a60",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-21T10:55:20Z",
+      "side": 1,
+      "message": "Not going to leave a -1 review, because I am OOO next week and do not want to block, but please make sure the imports are updated to follow the DevTools convention before this lands. \n\nAll imports that import from a different module must use the entry point to do so. In a release build a module is bundled up to all be contained in its entry point, and hence in our code we have to follow-suit. It might work in dev (where we don\u0027t bundle) but broken imports will cause release build breakage.",
+      "revId": "45460d95fa3b3135c8a2dbf681be4dae1e52e20b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08ce839b_465aee57",
+        "filename": "front_end/models/trace/LanternComputationData.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-21T10:55:20Z",
+      "side": 1,
+      "message": "these imports don\u0027t follow the DevTools pattern (and I think will break in a release build).\n\nAny time you import a file from another module (e.g. folder) you need to use that folder\u0027s entry point (the file named the same as the folder)\n\nSo these need to be:\n\n```\nimport * as Handlers from \u0027./handlers/handlers.js\u0027\nimport * as Lantern from \u0027./lantern/lantern.js\u0027\nimport * as Types from \u0027./types/types.js\u0027\n```\n\nI am surprised the ESLint rule we have didn\u0027t detect this case.\n\nUnfortunately this does lead to more verbose code...but without this our prod bundle will likely not work.\n\n(on a separate note, I agree this file should ideally be within the lantern module. If it can\u0027t be for now, let\u0027s file a bug and try to move it in a follow-up CL)",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 18,
+        "endChar": 0
+      },
+      "revId": "45460d95fa3b3135c8a2dbf681be4dae1e52e20b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
