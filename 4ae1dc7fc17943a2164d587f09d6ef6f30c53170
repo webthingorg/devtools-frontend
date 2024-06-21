@@ -249,6 +249,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "55c08a9d_53a17ef1",
+        "filename": "test/e2e/helpers/visual-logging-helpers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-21T08:20:13Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "201dc837_0f121dc4",
+      "revId": "4ae1dc7fc17943a2164d587f09d6ef6f30c53170",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cc567e8a_cc69fa35",
