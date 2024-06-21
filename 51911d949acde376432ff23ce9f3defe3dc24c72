@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0e9ad2d_e1e43df2",
+        "filename": "front_end/panels/freestyler/FreestylerPanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-06-21T13:07:00Z",
+      "side": 1,
+      "message": "We need to make the check before we show the message.\nElse we do an Update -\u003e then we do another Update to hide it.\nThat may show it for a small time and it bad UX.",
+      "parentUuid": "724cbb5f_8ab25a1d",
+      "revId": "51911d949acde376432ff23ce9f3defe3dc24c72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "84c5e3bf_066871b5",
@@ -48,6 +66,24 @@
       "writtenOn": "2024-06-21T12:31:28Z",
       "side": 1,
       "message": "(nit): Can we move the text into `TempUIStrings` 😬",
+      "revId": "51911d949acde376432ff23ce9f3defe3dc24c72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb165046_625490e6",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-06-21T13:07:00Z",
+      "side": 1,
+      "message": "I will remove it in an upcoming CL to replace it with gradient.",
+      "parentUuid": "84c5e3bf_066871b5",
       "revId": "51911d949acde376432ff23ce9f3defe3dc24c72",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -69,6 +105,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2b6d9af_d76cfa8c",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-06-21T13:07:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "07520371_f16151d8",
+      "revId": "51911d949acde376432ff23ce9f3defe3dc24c72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "86e81b31_c9a4a95d",
@@ -82,6 +136,24 @@
       "writtenOn": "2024-06-21T12:31:28Z",
       "side": 1,
       "message": "I think we don\u0027t need to render loading in here now considering that now we handle showing loading inside the system message and add an empty system message directly whenever user submitted the text.",
+      "revId": "51911d949acde376432ff23ce9f3defe3dc24c72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9491345_a5511731",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-06-21T13:07:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "86e81b31_c9a4a95d",
       "revId": "51911d949acde376432ff23ce9f3defe3dc24c72",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
