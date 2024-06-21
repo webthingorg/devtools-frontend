@@ -13613,6 +13613,88 @@
                     ]
                 },
                 {
+                    "id": "CompressionDictionaryInfo",
+                    "experimental": true,
+                    "type": "object",
+                    "properties": [
+                        {
+                            "name": "match",
+                            "description": "The \"match\" value of the Use-As-Dictionary header.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "matchDest",
+                            "description": "The \"match-dest\" value of the Use-As-Dictionary header.",
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        {
+                            "name": "id",
+                            "description": "The \"id\" value of the Use-As-Dictionary header.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "dictionaryUrl",
+                            "description": "The URL of the dictionary.",
+                            "type": "string"
+                        },
+                        {
+                            "name": "lastFetchTime",
+                            "description": "The time when Chrome fetched the dictionary.",
+                            "$ref": "TimeSinceEpoch"
+                        },
+                        {
+                            "name": "responseTime",
+                            "description": "The time when Chrome received the dictionary.",
+                            "$ref": "TimeSinceEpoch"
+                        },
+                        {
+                            "name": "expiration",
+                            "description": "The time when this dictionary will be unusable.",
+                            "$ref": "TimeSinceEpoch"
+                        },
+                        {
+                            "name": "lastUsedTime",
+                            "description": "The time when this dictionary was used in the last time.",
+                            "$ref": "TimeSinceEpoch"
+                        },
+                        {
+                            "name": "size",
+                            "description": "The size of the dictionary binary.",
+                            "type": "integer"
+                        },
+                        {
+                            "name": "hash",
+                            "description": "The SHA256 hash of the dictionary binary.",
+                            "type": "string"
+                        }
+                    ]
+                },
+                {
+                    "id": "CompressionDictionaryStorageInfo",
+                    "experimental": true,
+                    "type": "object",
+                    "properties": [
+                        {
+                            "name": "topFrameSite",
+                            "type": "string"
+                        },
+                        {
+                            "name": "frameOrigin",
+                            "type": "string"
+                        },
+                        {
+                            "name": "dictionaries",
+                            "type": "array",
+                            "items": {
+                                "$ref": "CompressionDictionaryInfo"
+                            }
+                        }
+                    ]
+                },
+                {
                     "id": "PrivateNetworkRequestPolicy",
                     "experimental": true,
                     "type": "string",
@@ -14665,6 +14747,19 @@
                             "$ref": "LoadNetworkResourcePageResult"
                         }
                     ]
+                },
+                {
+                    "name": "setCompressionDictionariesTracking",
+                    "experimental": true,
+                    "parameters": [
+                        {
+                            "name": "frames",
+                            "type": "array",
+                            "items": {
+                                "$ref": "Page.FrameId"
+                            }
+                        }
+                    ]
                 }
             ],
             "events": [
@@ -15540,6 +15635,19 @@
                             "type": "array",
                             "items": {
                                 "$ref": "ReportingApiEndpoint"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "compressionDictionaryStorageChanged",
+                    "experimental": true,
+                    "parameters": [
+                        {
+                            "name": "storages",
+                            "type": "array",
+                            "items": {
+                                "$ref": "CompressionDictionaryStorageInfo"
                             }
                         }
                     ]

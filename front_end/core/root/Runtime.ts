@@ -301,6 +301,7 @@ export const enum ExperimentName {
   TIMELINE_DEBUG_MODE = 'timeline-debug-mode',
   TIMELINE_OBSERVATIONS = 'timeline-observations',
   TIMELINE_ENHANCED_TRACES = 'timeline-enhanced-traces',
+  COMPRESSION_DICTIONARIES_TREE = 'compression-dictionaries-tree',
 }
 
 export interface HostConfigConsoleInsights {
