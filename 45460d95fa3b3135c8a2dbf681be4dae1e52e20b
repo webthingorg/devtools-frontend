@@ -110,6 +110,30 @@
       },
       "revId": "45460d95fa3b3135c8a2dbf681be4dae1e52e20b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "947467b3_47fcc48f",
+        "filename": "front_end/models/trace/lantern/metrics/TotalBlockingTime.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-06-21T13:01:06Z",
+      "side": 1,
+      "message": "Release is the default right? My args.gn is empty. Not seeing any errors running DevTools locally.",
+      "parentUuid": "9d22d7d7_59150f74",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 83
+      },
+      "revId": "45460d95fa3b3135c8a2dbf681be4dae1e52e20b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
