@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "7fd0f6d2_6b865e08",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-06-21T12:50:28Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "0fed07897bf14a5fa4850c49046ad17a875fbb8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "a070dc37_ac4a845a",
         "filename": "test/interactions/goldens/linux/performance/cpu-profile-node-old-engine.png",
         "patchSetId": 1
