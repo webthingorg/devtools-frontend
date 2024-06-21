@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe6a14c3_68d12d8f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-06-21T09:48:41Z",
+      "side": 1,
+      "message": "PTAL, rebaselining two e2e tests because of the remote Error object description change.",
+      "revId": "10efffd81dfb6c1967e2d2af9517913b19d2ea76",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
