@@ -69,6 +69,24 @@
       "parentUuid": "d410da00_6dae58f5",
       "revId": "ad9be24263c7014845f4904a63f90b250ef02ece",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e98e20f_c326302d",
+        "filename": "front_end/testing/EnvironmentHelpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-06-21T11:33:47Z",
+      "side": 1,
+      "message": "ACK, so we need to register it first 👍.",
+      "parentUuid": "4bc17710_cce7bce2",
+      "revId": "ad9be24263c7014845f4904a63f90b250ef02ece",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
