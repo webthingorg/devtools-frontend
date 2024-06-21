@@ -122,8 +122,7 @@ export class DataGrid extends HTMLElement {
     leftCellCol: HTMLTableColElement,
     leftCellColInitialPercentageWidth: number,
     rightCellColInitialPercentageWidth: number,
-    initialLeftCellWidth: number,
-    initialRightCellWidth: number,
+    parentWidth: number,
     initialMouseX: number,
     documentForCursorChange: Document,
     cursorToRestore: string,
@@ -455,7 +454,7 @@ export class DataGrid extends HTMLElement {
 
     const leftCell = this.#shadow.querySelector(`td[data-filler-row-column-index="${leftColumnIndexAsNumber}"]`);
     const rightCell = this.#shadow.querySelector(`td[data-filler-row-column-index="${rightColumnIndexAsNumber}"]`);
-    if (!leftCell || !rightCell) {
+    if (!leftCell || !rightCell || !leftCell.parentElement) {
       return;
     }
     // We query for the <col> elements as they are the elements that we put the actual width on.
@@ -475,10 +474,9 @@ export class DataGrid extends HTMLElement {
     this.#currentResize = {
       leftCellCol,
       rightCellCol,
-      leftCellColInitialPercentageWidth: globalThis.parseInt(leftCellCol.style.width, 10),
-      rightCellColInitialPercentageWidth: globalThis.parseInt(rightCellCol.style.width, 10),
-      initialLeftCellWidth: leftCell.clientWidth,
-      initialRightCellWidth: rightCell.clientWidth,
+      leftCellColInitialPercentageWidth: globalThis.parseFloat(leftCellCol.style.width),
+      rightCellColInitialPercentageWidth: globalThis.parseFloat(rightCellCol.style.width),
+      parentWidth: leftCell.parentElement.clientWidth,
       initialMouseX: event.x,
       documentForCursorChange: targetDocumentForCursorChange,
       cursorToRestore: resizerElement.style.cursor,
@@ -494,47 +492,20 @@ export class DataGrid extends HTMLElement {
     if (!this.#currentResize) {
       return;
     }
-
-    const MIN_CELL_WIDTH_PERCENTAGE = 10;
-    const MAX_CELL_WIDTH_PERCENTAGE = (this.#currentResize.leftCellColInitialPercentageWidth +
+    const MIN_CELL_WIDTH = 10;
+    const min_cell_width_percentage = 100 * MIN_CELL_WIDTH / this.#currentResize.parentWidth;
+    const max_cell_width_percentage = (this.#currentResize.leftCellColInitialPercentageWidth +
                                        this.#currentResize.rightCellColInitialPercentageWidth) -
-        MIN_CELL_WIDTH_PERCENTAGE;
+        min_cell_width_percentage;
     const deltaOfMouseMove = event.x - this.#currentResize.initialMouseX;
-    const absoluteDelta = Math.abs(deltaOfMouseMove);
-    const percentageDelta =
-        (absoluteDelta / (this.#currentResize.initialLeftCellWidth + this.#currentResize.initialRightCellWidth)) * 100;
+    const percentageDelta = 100 * deltaOfMouseMove / this.#currentResize.parentWidth;
 
-    let newLeftColumnPercentage;
-    let newRightColumnPercentage;
-    if (deltaOfMouseMove > 0) {
-      /**
-       * A positive delta means the user moved their mouse to the right, so we
-       * want to make the right column smaller, and the left column larger.
-       */
-      newLeftColumnPercentage = Platform.NumberUtilities.clamp(
-          this.#currentResize.leftCellColInitialPercentageWidth + percentageDelta, MIN_CELL_WIDTH_PERCENTAGE,
-          MAX_CELL_WIDTH_PERCENTAGE);
-      newRightColumnPercentage = Platform.NumberUtilities.clamp(
-          this.#currentResize.rightCellColInitialPercentageWidth - percentageDelta, MIN_CELL_WIDTH_PERCENTAGE,
-          MAX_CELL_WIDTH_PERCENTAGE);
-    } else if (deltaOfMouseMove < 0) {
-      /**
-       * Negative delta means the user moved their mouse to the left, which
-       * means we want to make the right column larger, and the left column
-       * smaller.
-       */
-      newLeftColumnPercentage = Platform.NumberUtilities.clamp(
-          this.#currentResize.leftCellColInitialPercentageWidth - percentageDelta, MIN_CELL_WIDTH_PERCENTAGE,
-          MAX_CELL_WIDTH_PERCENTAGE);
-      newRightColumnPercentage = Platform.NumberUtilities.clamp(
-          this.#currentResize.rightCellColInitialPercentageWidth + percentageDelta, MIN_CELL_WIDTH_PERCENTAGE,
-          MAX_CELL_WIDTH_PERCENTAGE);
-    }
-
-    if (!newLeftColumnPercentage || !newRightColumnPercentage) {
-      // The delta was 0, so nothing to do.
-      return;
-    }
+    const newLeftColumnPercentage = Platform.NumberUtilities.clamp(
+        this.#currentResize.leftCellColInitialPercentageWidth + percentageDelta, min_cell_width_percentage,
+        max_cell_width_percentage);
+    const newRightColumnPercentage = Platform.NumberUtilities.clamp(
+        this.#currentResize.rightCellColInitialPercentageWidth - percentageDelta, min_cell_width_percentage,
+        max_cell_width_percentage);
 
     // We limit the values to two decimal places to not work with huge decimals.
     // It also prevents stuttering if the user barely moves the mouse, as the
