@@ -33,6 +33,23 @@
       "message": "Wolfgang, could you please take a look? This fixes a regression",
       "revId": "9ca7117b22b90231eb4e9ac9fa31eade5873c7b7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3513448d_1de2299a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-06-21T09:34:14Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "9ca7117b22b90231eb4e9ac9fa31eade5873c7b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
