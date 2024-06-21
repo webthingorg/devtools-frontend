@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a070dc37_ac4a845a",
+        "filename": "test/interactions/goldens/linux/performance/cpu-profile-node-old-engine.png",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-06-21T11:42:39Z",
+      "side": 1,
+      "message": "This is an expected change, iirc there is some change in the default ignore list.\nSo if you disable the \"Enable Ignore Listing\" in settings, you\u0027ll see same behavior as before.",
+      "revId": "0fed07897bf14a5fa4850c49046ad17a875fbb8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
