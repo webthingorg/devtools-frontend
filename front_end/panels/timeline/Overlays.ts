@@ -506,7 +506,6 @@ export class Overlays {
     switch (overlay.type) {
       case 'ENTRY_LABEL': {
         const component = new Components.EntryLabelOverlay.EntryLabelOverlay();
-        component.label = overlay.label;
         div.appendChild(component);
         return div;
       }
