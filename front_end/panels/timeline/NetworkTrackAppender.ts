@@ -14,7 +14,7 @@ import {
   VisualLoggingTrackName,
 } from './CompatibilityTracksAppender.js';
 import {InstantEventVisibleDurationMs} from './TimelineFlameChartDataProvider.js';
-import {TimelineUIUtils} from './TimelineUIUtils.js';
+import {NetworkCategory, TimelineUIUtils} from './TimelineUIUtils.js';
 
 const UIStrings = {
   /**
@@ -95,8 +95,16 @@ export class NetworkTrackAppender implements TrackAppender {
       useFirstLineForOverview: false,
       useDecoratorsForOverview: true,
     });
+    const legends = [];
+    for (const category in NetworkCategory) {
+      legends.push({
+        color: TimelineUIUtils.networkCategoryColor(category as NetworkCategory),
+        category,
+      });
+    }
     this.#group = buildTrackHeader(
-        VisualLoggingTrackName.NETWORK, 0, i18nString(UIStrings.network), style, /* selectable= */ true, expanded);
+        VisualLoggingTrackName.NETWORK, 0, i18nString(UIStrings.network), style, /* selectable= */ true, expanded,
+        /* showStackContextMenu= */ false, legends);
     this.#flameChartData.groups.push(this.#group);
   }
 
