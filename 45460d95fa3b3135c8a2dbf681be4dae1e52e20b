@@ -62,6 +62,30 @@
       },
       "revId": "45460d95fa3b3135c8a2dbf681be4dae1e52e20b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "061da322_73f4c6c3",
+        "filename": "front_end/models/trace/lantern/metrics/TotalBlockingTime.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-06-21T12:51:51Z",
+      "side": 1,
+      "message": "I assume this is why the layout tests are failing, but the other tests are fine in CI? I wasn\u0027t able to get an error message to debug that further.",
+      "parentUuid": "a3e282a3_8056ed1c",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 83
+      },
+      "revId": "45460d95fa3b3135c8a2dbf681be4dae1e52e20b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
