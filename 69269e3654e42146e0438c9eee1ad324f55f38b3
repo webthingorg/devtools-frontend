@@ -16,6 +16,23 @@
       "message": "Looks good to me, thank you, Adam!",
       "revId": "69269e3654e42146e0438c9eee1ad324f55f38b3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9d24063_ccd84eea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-06-24T12:50:24Z",
+      "side": 1,
+      "message": "Could you also update the CL description to reflect what CL does.\n\nI was skeptical about this change in the light of the new UI eng vision until I realized it is not using split view at all.",
+      "revId": "69269e3654e42146e0438c9eee1ad324f55f38b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
