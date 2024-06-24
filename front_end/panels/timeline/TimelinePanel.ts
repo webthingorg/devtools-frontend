@@ -1231,6 +1231,11 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     this.flameChart.setModel(traceParsedData, isCpuProfile);
     this.flameChart.setSelection(null);
 
+    const traceInsightsData = this.#traceEngineModel.traceInsights(this.#traceEngineActiveTraceIndex);
+    if (traceInsightsData) {
+      this.flameChart.setInsights(traceInsightsData);
+    }
+
     // Set up line level profiling with CPU profiles, if we found any.
     PerfUI.LineLevelProfile.Performance.instance().reset();
     if (traceParsedData && traceParsedData.Samples.profilesInProcess.size) {
