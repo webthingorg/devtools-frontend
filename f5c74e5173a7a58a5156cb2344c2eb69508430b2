@@ -34,6 +34,41 @@
       "parentUuid": "290b1100_af1a5fee",
       "revId": "f5c74e5173a7a58a5156cb2344c2eb69508430b2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "809567f8_786efca8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-06-24T08:32:24Z",
+      "side": 1,
+      "message": "As discussed online, since the CL seems to really just enable pointer events for the label and not the disabled checkbox - LGTM",
+      "parentUuid": "16d2113f_db659191",
+      "revId": "f5c74e5173a7a58a5156cb2344c2eb69508430b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2b1b815_621c0aa3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-06-24T08:32:24Z",
+      "side": 1,
+      "message": "Thanks, Wolfgang!",
+      "revId": "f5c74e5173a7a58a5156cb2344c2eb69508430b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
