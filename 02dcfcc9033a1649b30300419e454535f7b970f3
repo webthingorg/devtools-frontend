@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7406b63a_dddb494d",
+        "filename": "front_end/panels/timeline/components/EntryLabelOverlay.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-24T06:12:29Z",
+      "side": 0,
+      "message": "Those elements were queried by accident, we don\u0027t need them to draw a label.",
+      "range": {
+        "startLine": 114,
+        "startChar": 0,
+        "endLine": 116,
+        "endChar": 110
+      },
+      "revId": "02dcfcc9033a1649b30300419e454535f7b970f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
