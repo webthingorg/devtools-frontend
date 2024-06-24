@@ -77,6 +77,8 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
   private selectedSearchResult?: number;
   private searchRegex?: RegExp;
   #traceEngineData: TraceEngine.Handlers.Types.TraceParseData|null;
+  #traceInsightsData: TraceEngine.Insights.Types.TraceInsightData<typeof TraceEngine.Handlers.ModelHandlers>|null =
+      null;
   #selectedGroupName: string|null = null;
   #onTraceBoundsChangeBound = this.#onTraceBoundsChange.bind(this);
   #gameKeyMatches = 0;
@@ -317,10 +319,106 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     this.mainDataProvider.setModel(newTraceEngineData, isCpuProfile);
     this.networkDataProvider.setModel(newTraceEngineData);
     ExtensionDataGatherer.instance().modelChanged(newTraceEngineData);
+
     this.#reset();
     this.updateSearchResults(false, false);
     this.refreshMainFlameChart();
     this.#updateFlameCharts();
+  }
+
+  setInsights(insights: TraceEngine.Insights.Types.TraceInsightData<typeof TraceEngine.Handlers.ModelHandlers>|
+              null): void {
+    if (this.#traceInsightsData !== insights) {
+      this.#traceInsightsData = insights;
+      this.createLCPPhaseOverlay();
+      this.#overlays.update();
+    }
+  }
+
+  // This creates a new timespanBreakdownOverlay with LCP phases data. Then adds it to the view.
+  createLCPPhaseOverlay(): void {
+    if (!this.#traceInsightsData || !this.#traceEngineData) {
+      return;
+    }
+
+    // For now use the first navigation of the trace.
+    const firstNav: TraceEngine.Insights.Types.NavigationInsightData<typeof TraceEngine.Handlers.ModelHandlers> =
+        this.#traceInsightsData.values().next().value;
+    if (!firstNav) {
+      return;
+    }
+
+    const lcpInsight: Error|TraceEngine.Insights.Types.LCPInsightResult = firstNav.LargestContentfulPaint;
+    if (lcpInsight instanceof Error) {
+      return;
+    }
+
+    const phases = lcpInsight.phases;
+    const lcpMs = lcpInsight.lcpMs;
+
+    if (!phases || !lcpMs) {
+      return;
+    }
+    const lcpTs = TraceEngine.Types.Timing.MicroSeconds(TraceEngine.Helpers.Timing.millisecondsToMicroseconds(lcpMs));
+
+    const sections = [];
+    // For text LCP, we should only have ttfb and renderDelay sections.
+    if (!phases?.loadDelay && !phases?.loadTime) {
+      const renderBegin: TraceEngine.Types.Timing.MicroSeconds = TraceEngine.Types.Timing.MicroSeconds(
+          lcpTs - TraceEngine.Helpers.Timing.millisecondsToMicroseconds(phases.renderDelay));
+      const renderDelay = TraceEngine.Helpers.Timing.traceWindowFromMicroSeconds(
+          renderBegin,
+          lcpTs,
+      );
+
+      const mainReqStart = TraceEngine.Types.Timing.MicroSeconds(
+          renderBegin - TraceEngine.Helpers.Timing.millisecondsToMicroseconds(phases.ttfb));
+      const ttfb = TraceEngine.Helpers.Timing.traceWindowFromMicroSeconds(
+          mainReqStart,
+          renderBegin,
+      );
+      sections.push({bounds: ttfb, label: 'Time to first byte'}, {bounds: renderDelay, label: 'Element render delay'});
+    } else if (phases?.loadDelay && phases?.loadTime) {
+      const renderBegin: TraceEngine.Types.Timing.MicroSeconds = TraceEngine.Types.Timing.MicroSeconds(
+          lcpTs - TraceEngine.Helpers.Timing.millisecondsToMicroseconds(phases.renderDelay));
+      const renderDelay = TraceEngine.Helpers.Timing.traceWindowFromMicroSeconds(
+          renderBegin,
+          lcpTs,
+      );
+
+      const loadBegin = TraceEngine.Types.Timing.MicroSeconds(
+          renderBegin - TraceEngine.Helpers.Timing.millisecondsToMicroseconds(phases.loadTime));
+      const loadTime = TraceEngine.Helpers.Timing.traceWindowFromMicroSeconds(
+          loadBegin,
+          renderBegin,
+      );
+
+      const loadDelayStart = TraceEngine.Types.Timing.MicroSeconds(
+          loadBegin - TraceEngine.Helpers.Timing.millisecondsToMicroseconds(phases.loadDelay));
+      const loadDelay = TraceEngine.Helpers.Timing.traceWindowFromMicroSeconds(
+          loadDelayStart,
+          loadBegin,
+      );
+
+      const mainReqStart = TraceEngine.Types.Timing.MicroSeconds(
+          loadDelayStart - TraceEngine.Helpers.Timing.millisecondsToMicroseconds(phases.ttfb));
+      const ttfb = TraceEngine.Helpers.Timing.traceWindowFromMicroSeconds(
+          mainReqStart,
+          loadDelayStart,
+      );
+
+      sections.push(
+          {bounds: ttfb, label: 'Time to first byte'},
+          {bounds: loadDelay, label: 'Resource load delay'},
+          {bounds: loadTime, label: 'Resource load time'},
+          {bounds: renderDelay, label: 'Element render delay'},
+      );
+    }
+    this.#overlays.add({
+      type: 'TIMESPAN_BREAKDOWN',
+      sections,
+    });
+    this.#overlays.update();
   }
 
   #reset(): void {
