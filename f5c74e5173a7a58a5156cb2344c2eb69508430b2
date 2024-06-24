@@ -16,6 +16,24 @@
       "message": "Kateryna, PTAL. This partially reverts https://crrev.com/c/5638709 which caused a regression. Do you remember why pointer events were disabled?",
       "revId": "f5c74e5173a7a58a5156cb2344c2eb69508430b2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16d2113f_db659191",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-06-24T08:09:56Z",
+      "side": 1,
+      "message": "Hey Wolfgang, pointer events are disabled so that the disabled checkbox doesn\u0027t highlight on hover/active state, I didn\u0027t take into account the tooltips. Would it be possible to explicitly allow pointer events just for the label, but not the checkbox?",
+      "parentUuid": "290b1100_af1a5fee",
+      "revId": "f5c74e5173a7a58a5156cb2344c2eb69508430b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
