@@ -16,6 +16,7 @@ export class EntryLabelOverlay extends HTMLElement {
   static readonly LABEL_PADDING = 4;
   static readonly LABEL_AND_CONNECTOR_HEIGHT =
       EntryLabelOverlay.LABEL_HEIGHT + EntryLabelOverlay.LABEL_PADDING * 2 + EntryLabelOverlay.LABEL_CONNECTOR_HEIGHT;
+  static readonly MAX_LABEL_LENGTH = 100;
 
   static readonly litTagName = LitHtml.literal`devtools-entry-label-overlay`;
   readonly #shadow = this.attachShadow({mode: 'open'});
@@ -25,6 +26,9 @@ export class EntryLabelOverlay extends HTMLElement {
   // element, the lable is set to not editable until it double clicked.
   #isLabelEditable: boolean = true;
   #entryDimensions: {height: number, width: number}|null = null;
+
+  #labelPartsWrapper: HTMLElement|null = null;
+  #labelBox: HTMLElement|null = null;
 
   /*
 The entry label overlay consists of 3 parts - the label part with the label string inside,
@@ -46,29 +50,46 @@ The connector and circle shapes never change so we only draw the second part whe
 Otherwise, the entry label overlay object only gets repositioned.
 */
 
-  constructor() {
+  constructor(label: string) {
     super();
+    this.#label = label;
     this.#render();
+    this.#labelPartsWrapper = this.#shadow.querySelector<HTMLElement>('.label-parts-wrapper');
     this.#drawLabel();
     this.#drawConnector();
   }
 
   connectedCallback(): void {
     this.#shadow.adoptedStyleSheets = [styles];
+    this.#labelBox?.addEventListener('keydown', this.#handleLabelInputKeyDown);
   }
 
-  set label(label: string) {
-    if (label === this.#label) {
-      return;
-    }
-    this.#label = label;
-    void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
-    // We need to redraw the label only when the label is set to a new one
-    this.#drawLabel();
+  disconnectedCallback(): void {
+    this.#labelBox?.removeEventListener('keydown', this.#handleLabelInputKeyDown);
+  }
 
-    // If the label is not empty, it was loaded from the trace file.
-    // In that case, do not make just created label editable.
-    this.#setLabelEditability(false);
+  #handleLabelInputKeyDown(event: KeyboardEvent): boolean {
+    if (!this.textContent) {
+      console.error('`labelBox` element is missing textContent.');
+      return false;
+    }
+
+    const allowedKeysAfterReachingLenLimit = [
+      'Backspace',
+      'Delete',
+      'ArrowLeft',
+      'ArrowRight',
+    ];
+
+    // Do not input more characters if the input length limit is reached
+    if (this.textContent.length > EntryLabelOverlay.MAX_LABEL_LENGTH &&
+        !allowedKeysAfterReachingLenLimit.includes(event.key) &&
+        !(event.key.length === 1 && event.ctrlKey /* Ctrl + A for selecting all */)) {
+      event.preventDefault();
+      return false;
+    }
+
+    return true;
   }
 
   set entryDimensions(entryDimensions: {height: number, width: number}) {
@@ -84,11 +105,14 @@ Otherwise, the entry label overlay object only gets repositioned.
   }
 
   #drawConnector(): void {
-    const labelPartsWrapper = this.#shadow.querySelector<HTMLElement>('.label-parts-wrapper');
-    const connectorLineContainer = labelPartsWrapper?.querySelector('.connectorContainer') as SVGAElement;
+    if (!this.#labelPartsWrapper) {
+      console.error('`labelPartsWrapper` element is missing.');
+      return;
+    }
+    const connectorLineContainer = this.#labelPartsWrapper.querySelector('.connectorContainer') as SVGAElement;
     const connector = connectorLineContainer.querySelector('line');
     const circle = connectorLineContainer.querySelector('circle');
-    const entryHighlightWrapper = labelPartsWrapper?.querySelector('.entry-highlight-wrapper') as HTMLElement;
+    const entryHighlightWrapper = this.#labelPartsWrapper.querySelector('.entry-highlight-wrapper') as HTMLElement;
     if (!connectorLineContainer || !entryHighlightWrapper || !connector || !circle) {
       console.error('Some entry label elements are missing.');
       return;
@@ -116,24 +140,37 @@ Otherwise, the entry label overlay object only gets repositioned.
   }
 
   #drawLabel(): void {
-    const labelPartsWrapper = this.#shadow.querySelector<HTMLElement>('.label-parts-wrapper');
-    const labelBox = labelPartsWrapper?.querySelector<HTMLElement>('.label-box');
+    if (!this.#labelPartsWrapper) {
+      console.error('`labelPartsWrapper` element is missing.');
+      return;
+    }
 
-    if (!labelBox) {
+    this.#labelBox = this.#labelPartsWrapper.querySelector<HTMLElement>('.label-box');
+
+    if (!this.#labelBox) {
       console.error('`labelBox` element is missing.');
       return;
     }
 
     // PART 1: draw the label box
     // Set label height to the entry height
-    labelBox.style.height = `${EntryLabelOverlay.LABEL_HEIGHT}px`;
-    labelBox.style.padding = `${EntryLabelOverlay.LABEL_PADDING}px`;
-    labelBox.style.transform = `translateX(-${EntryLabelOverlay.LABEL_AND_CONNECTOR_SHIFT_LENGTH}px)`;
+    this.#labelBox.style.height = `${EntryLabelOverlay.LABEL_HEIGHT}px`;
+    this.#labelBox.style.padding = `${EntryLabelOverlay.LABEL_PADDING}px`;
+    this.#labelBox.style.transform = `translateX(-${EntryLabelOverlay.LABEL_AND_CONNECTOR_SHIFT_LENGTH}px)`;
+
+    // If the label is not empty, it was loaded from the trace file.
+    // In that case, do not make just created label editable.
+    if (this.#label !== '') {
+      this.#setLabelEditability(false);
+    }
   }
 
   #drawEntryHighlightWrapper(): void {
-    const labelPartsWrapper = this.#shadow.querySelector<HTMLElement>('.label-parts-wrapper');
-    const entryHighlightWrapper = labelPartsWrapper?.querySelector('.entry-highlight-wrapper') as HTMLElement;
+    if (!this.#labelPartsWrapper) {
+      console.error('`labelPartsWrapper` element is missing.');
+      return;
+    }
+    const entryHighlightWrapper = this.#labelPartsWrapper.querySelector('.entry-highlight-wrapper') as HTMLElement;
 
     if (!entryHighlightWrapper) {
       console.error('`entryHighlightWrapper` element is missing.');
@@ -153,8 +190,11 @@ Otherwise, the entry label overlay object only gets repositioned.
   }
 
   #focusInputBox(): void {
-    const labelPartsWrapper = this.#shadow.querySelector<HTMLElement>('.label-parts-wrapper');
-    const labelBox = labelPartsWrapper?.querySelector<HTMLElement>('.label-box');
+    if (!this.#labelPartsWrapper) {
+      console.error('`labelPartsWrapper` element is missing.');
+      return;
+    }
+    const labelBox = this.#labelPartsWrapper.querySelector<HTMLElement>('.label-box');
     if (!labelBox) {
       console.error('`labelBox` element is missing.');
       return;
