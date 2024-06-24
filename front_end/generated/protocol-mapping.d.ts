@@ -321,6 +321,7 @@ export namespace ProtocolMapping {
     'Network.reportingApiReportAdded': [Protocol.Network.ReportingApiReportAddedEvent];
     'Network.reportingApiReportUpdated': [Protocol.Network.ReportingApiReportUpdatedEvent];
     'Network.reportingApiEndpointsChangedForOrigin': [Protocol.Network.ReportingApiEndpointsChangedForOriginEvent];
+    'Network.compressionDictionaryStorageChanged': [Protocol.Network.CompressionDictionaryStorageChangedEvent];
     /**
      * Fired when the node should be inspected. This happens after call to `setInspectMode` or when
      * user manually inspects an element.
@@ -2897,6 +2898,18 @@ export namespace ProtocolMapping {
     'Network.loadNetworkResource': {
       paramsType: [Protocol.Network.LoadNetworkResourceRequest];
       returnType: Protocol.Network.LoadNetworkResourceResponse;
+    };
+    'Network.setCompressionDictionariesTracking': {
+      paramsType: [Protocol.Network.SetCompressionDictionariesTrackingRequest];
+      returnType: void;
+    };
+    'Network.deleteCompressionDictionary': {
+      paramsType: [Protocol.Network.DeleteCompressionDictionaryRequest];
+      returnType: void;
+    };
+    'Network.deleteCompressionDictionaries': {
+      paramsType: [Protocol.Network.DeleteCompressionDictionariesRequest];
+      returnType: void;
     };
     /**
      * Disables domain notifications.

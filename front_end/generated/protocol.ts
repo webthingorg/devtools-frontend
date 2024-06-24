@@ -9183,6 +9183,55 @@ export namespace Network {
     Zstd = 'zstd',
   }
 
+  export interface CompressionDictionaryInfo {
+    /**
+     * The "match" value of the Use-As-Dictionary header.
+     */
+    match: string;
+    /**
+     * The "match-dest" value of the Use-As-Dictionary header.
+     */
+    matchDest: string[];
+    /**
+     * The "id" value of the Use-As-Dictionary header.
+     */
+    id: string;
+    /**
+     * The URL of the dictionary.
+     */
+    dictionaryUrl: string;
+    /**
+     * The time when Chrome fetched the dictionary.
+     */
+    lastFetchTime: TimeSinceEpoch;
+    /**
+     * The time when Chrome received the dictionary.
+     */
+    responseTime: TimeSinceEpoch;
+    /**
+     * The time when this dictionary will be unusable.
+     */
+    expiration: TimeSinceEpoch;
+    /**
+     * The time when this dictionary was used in the last time.
+     */
+    lastUsedTime: TimeSinceEpoch;
+    /**
+     * The size of the dictionary binary.
+     */
+    size: integer;
+    /**
+     * The SHA256 hash of the dictionary binary.
+     */
+    hash: string;
+  }
+
+  export interface CompressionDictionaryStorageInfo {
+    topFrameSite: string;
+    frameOrigin: string;
+    dictionaries: CompressionDictionaryInfo[];
+  }
+
   export const enum PrivateNetworkRequestPolicy {
     Allow = 'Allow',
     BlockFromInsecureToMorePrivate = 'BlockFromInsecureToMorePrivate',
@@ -9799,6 +9848,23 @@ export namespace Network {
 
   export interface LoadNetworkResourceResponse extends ProtocolResponseWithError {
     resource: LoadNetworkResourcePageResult;
+  }
+
+  export interface SetCompressionDictionariesTrackingRequest {
+    frames: Page.FrameId[];
+  }
+
+  export interface DeleteCompressionDictionaryRequest {
+    topFrameSite: string;
+    frameOrigin: string;
+    dictionaryUrl: string;
+    match: string;
+    matchDest: string[];
+  }
+
+  export interface DeleteCompressionDictionariesRequest {
+    topFrameSite: string;
+    frameOrigin: string;
   }
 
   /**
@@ -10514,6 +10580,10 @@ export namespace Network {
      */
     origin: string;
     endpoints: ReportingApiEndpoint[];
+  }
+
+  export interface CompressionDictionaryStorageChangedEvent {
+    storages: CompressionDictionaryStorageInfo[];
   }
 }
 
