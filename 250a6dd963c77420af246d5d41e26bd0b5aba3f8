@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9fa44700_ca5a525f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-06-24T10:53:06Z",
+      "side": 1,
+      "message": "LGTM with small question of what shape surrounds the other",
+      "revId": "250a6dd963c77420af246d5d41e26bd0b5aba3f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd668a68_64d2433f",
+        "filename": "front_end/panels/timeline/components/entryLabelOverlay.css",
+        "patchSetId": 10
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-06-24T10:53:06Z",
+      "side": 1,
+      "message": "question: do we want the entry\u0027s rectangle to be inscribed in the overlay or the other way around? (or this is not important?)",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 21
+      },
+      "revId": "250a6dd963c77420af246d5d41e26bd0b5aba3f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
