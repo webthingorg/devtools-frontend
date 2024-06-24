@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9e449df_015c511f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-24T21:58:24Z",
+      "side": 1,
+      "message": "Thanks for review!",
+      "revId": "250a6dd963c77420af246d5d41e26bd0b5aba3f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cd668a68_64d2433f",
@@ -31,6 +48,30 @@
       "writtenOn": "2024-06-24T10:53:06Z",
       "side": 1,
       "message": "question: do we want the entry\u0027s rectangle to be inscribed in the overlay or the other way around? (or this is not important?)",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 21
+      },
+      "revId": "250a6dd963c77420af246d5d41e26bd0b5aba3f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "08c4e954_3acd1c05",
+        "filename": "front_end/panels/timeline/components/entryLabelOverlay.css",
+        "patchSetId": 10
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-24T21:58:24Z",
+      "side": 1,
+      "message": "The entry\u0027s rectangle (or wrapper) is part of the overlay, it is not a problem. `label-parts-wrapper` forms the overlay and all parts of the overlay are inside of it including the entry\u0027s rectangle",
+      "parentUuid": "cd668a68_64d2433f",
       "range": {
         "startLine": 39,
         "startChar": 0,
