@@ -12,6 +12,7 @@ import {
 import {TraceLoader} from '../../testing/TraceLoader.js';
 import * as RenderCoordinator from '../../ui/components/render_coordinator/render_coordinator.js';
 import * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
+import { EntryLabelOverlay } from './components/components.js';
 
 import * as Timeline from './timeline.js';
 
@@ -275,24 +276,68 @@ describeWithEnvironment('Overlays', () => {
       const event = charts.mainProvider.eventByIndex(50);
       assert.isOk(event);
       assert.notInstanceOf(event, TraceEngine.Handlers.ModelHandlers.Frames.TimelineFrame);
-
+      
       overlays.add({
         type: 'ENTRY_LABEL',
         entry: event,
         label: 'entry label',
       });
       overlays.update();
-
+      
       const overlayDOM = container.querySelector<HTMLElement>('.overlay-type-ENTRY_LABEL');
       assert.isOk(overlayDOM);
       const component = overlayDOM?.querySelector('devtools-entry-label-overlay');
       assert.isOk(component?.shadowRoot);
-
+      
       const elementsWrapper = component.shadowRoot.querySelector<HTMLElement>('.label-parts-wrapper');
       assert.isOk(elementsWrapper);
-
+      
       const label = elementsWrapper.querySelector<HTMLElement>('.label-box');
       assert.strictEqual(label?.innerText, 'entry label');
+    });
+    
+    it.only('does not create entry labels longer than the max label limit', async function() {
+      const traceParsedData = await TraceLoader.traceEngine(this, 'web-dev.json.gz');
+      const {overlays, container, charts} = setupChartWithDimensions(traceParsedData);
+      const event = charts.mainProvider.eventByIndex(50);
+      assert.isOk(event);
+      assert.notInstanceOf(event, TraceEngine.Handlers.ModelHandlers.Frames.TimelineFrame);
+
+      // This string will repeat 'a' letter maximum allowed length number of times and add another 'a' at the end. 
+      // This will result in a string longer than max length.
+      
+      overlays.add({
+        type: 'ENTRY_LABEL',
+        entry: event,
+        label: '',
+      });
+      overlays.update();
+      
+      // Ensure that the overlay was created.
+      const overlayDOM = container.querySelector<HTMLElement>('.overlay-type-ENTRY_LABEL');
+      assert.isOk(overlayDOM);
+      
+      const component = overlayDOM?.querySelector('devtools-entry-label-overlay');
+      assert.isOk(component?.shadowRoot);
+      component.connectedCallback()
+      
+      const elementsWrapper = component.shadowRoot.querySelector<HTMLElement>('.label-parts-wrapper');
+      assert.isOk(elementsWrapper);
+      
+      const label = elementsWrapper.querySelector<HTMLElement>('.label-box');
+
+      label.dispatchEvent(new FocusEvent('dblclick', {bubbles: true}));
+
+      console.log("editable ", label.isContentEditable);
+
+      for(let i = 0; i < EntryLabelOverlay.EntryLabelOverlay.MAX_LABEL_LENGTH; i++) {
+        label.dispatchEvent(new KeyboardEvent('keydown', { key: 'a', bubbles: true }));
+      }
+
+      const maxLenLabel = 'a'.repeat(EntryLabelOverlay.EntryLabelOverlay.MAX_LABEL_LENGTH + 1);
+
+      
+      assert.strictEqual(label?.innerText, maxLenLabel);
     });
 
     it('can render an overlay for a time range', async function() {
