@@ -125,7 +125,16 @@ Otherwise, the entry label overlay object only gets repositioned.
 
     const maxLength = 3;
     labelBox.addEventListener('keydown', function (event) {
-      if (this.textContent.length > maxLength) {
+      const allowedKeys = [
+        'Backspace', 
+        'Delete', 
+        'ArrowLeft', 
+        'ArrowRight'
+      ];
+
+      if (labelBox.textContent.length > maxLength && 
+        !allowedKeys.includes(event.key) &&
+        !(event.key.length === 1 && event.ctrlKey)) {
         event.preventDefault();
         return false;
       }
