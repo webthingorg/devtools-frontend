@@ -224,6 +224,8 @@ export class FreestylerChatUi extends HTMLElement {
   }
 
   #renderStep(step: StepData): LitHtml.TemplateResult {
+    const rateButtons = step.rpcId !== undefined ? this.#renderRateButtons(step.rpcId) : LitHtml.nothing;
+
     if (step.step === Step.ACTION) {
       return LitHtml.html`
         <div class="action-result">
@@ -231,14 +233,15 @@ export class FreestylerChatUi extends HTMLElement {
           false}></${MarkdownView.CodeBlock.CodeBlock.litTagName}>
           <div class="js-code-output">${step.output}</div>
         </div>
+        ${rateButtons}
       `;
     }
 
     if (step.step === Step.ERROR) {
-      return LitHtml.html`<p class="error-step">${step.text}</p>`;
+      return LitHtml.html`<p class="error-step">${step.text}</p>${rateButtons}`;
     }
 
-    return LitHtml.html`<p>${step.text}</p>`;
+    return LitHtml.html`<p>${step.text}</p>${rateButtons}`;
   }
 
   #renderChatMessage = (message: ChatMessage, {isLast}: {isLast: boolean}): LitHtml.TemplateResult => {
@@ -248,21 +251,19 @@ export class FreestylerChatUi extends HTMLElement {
 
     // clang-format off
     return LitHtml.html`
-      <div class="chat-message answer">
         ${message.steps.map(
           step =>
-            LitHtml.html`${this.#renderStep(step)}${
-              step.rpcId !== undefined
-                ? this.#renderRateButtons(step.rpcId)
-                : LitHtml.nothing
-            }`,
+            LitHtml.html`
+              <div class="chat-message answer">
+                ${this.#renderStep(step)}
+              </div>
+            `,
         )}
         ${
           this.#props.isLoading && isLast
-            ? LitHtml.html`<div class='chat-loading' >Loading...</div>`
+            ? LitHtml.html`<div class="chat-message answer"><div class='chat-loading' >Loading...</div></div>`
             : LitHtml.nothing
         }
-      </div>
     `;
     // clang-format on
   };
