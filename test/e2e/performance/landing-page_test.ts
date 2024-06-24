@@ -56,7 +56,7 @@ describe('The Performance panel landing page', () => {
       await target.evaluate(() => new Promise(r => requestAnimationFrame(r)));
       await frontend.bringToFront();
 
-      const [lcpValueElem, clsValueElem, inpValueElem] = await waitForMany('.metric-card-value:not(.waiting)', 3);
+      const [lcpValueElem, clsValueElem, inpValueElem] = await waitForMany('.local-metric-value:not(.waiting)', 3);
       const interactions = await $$<HTMLElement>('.interaction');
       assert.lengthOf(interactions, 2);
 
@@ -105,7 +105,7 @@ describe('The Performance panel landing page', () => {
       await frontend.bringToFront();
       await navigateToPerformanceTab();
 
-      const [lcpValueElem, clsValueElem, inpValueElem] = await waitForMany('.metric-card-value:not(.waiting)', 3);
+      const [lcpValueElem, clsValueElem, inpValueElem] = await waitForMany('.local-metric-value:not(.waiting)', 3);
       const interactions = await $$<HTMLElement>('.interaction');
       assert.lengthOf(interactions, 2);
 
@@ -147,7 +147,7 @@ describe('The Performance panel landing page', () => {
 
       await frontend.bringToFront();
 
-      await waitForMany('.metric-card-value:not(.waiting)', 3);
+      await waitForMany('.local-metric-value:not(.waiting)', 3);
       const interactions1 = await $$<HTMLElement>('.interaction');
       assert.lengthOf(interactions1, 2);
 
@@ -162,7 +162,7 @@ describe('The Performance panel landing page', () => {
 
       await frontend.bringToFront();
 
-      await waitForMany('.metric-card-value:not(.waiting)', 3);
+      await waitForMany('.local-metric-value:not(.waiting)', 3);
       const interactions2 = await $$<HTMLElement>('.interaction');
       assert.lengthOf(interactions2, 1);
 
@@ -175,11 +175,11 @@ describe('The Performance panel landing page', () => {
       await frontend.bringToFront();
 
       // New LCP and CLS values should be emitted
-      await waitForMany('.metric-card-value:not(.waiting)', 2);
+      await waitForMany('.local-metric-value:not(.waiting)', 2);
 
       // INP and interactions should be reset
-      const inpValueElem = await waitFor('.metric-card-value.waiting');
-      const inpCardText = await inpValueElem.evaluate(el => el.parentElement?.innerText) || '';
+      const inpValueElem = await waitFor('.local-metric-value.waiting');
+      const inpCardText = await inpValueElem.evaluate(el => el.parentElement?.parentElement?.innerText) || '';
       assert.match(inpCardText, /Interaction to Next Paint/);
       const interactions3 = await $$<HTMLElement>('.interaction');
       assert.lengthOf(interactions3, 0);
