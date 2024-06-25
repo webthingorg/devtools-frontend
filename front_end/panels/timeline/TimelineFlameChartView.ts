@@ -16,7 +16,7 @@ import * as VisualLogging from '../../ui/visual_logging/visual_logging.js';
 
 import {CountersGraph} from './CountersGraph.js';
 import {SHOULD_SHOW_EASTER_EGG} from './EasterEgg.js';
-import {Overlays, type TimeRangeLabel} from './Overlays.js';
+import {Overlays, type TimeRangeLabel, type TimespanEntryBreakdown} from './Overlays.js';
 import {targetForEvent} from './TargetForEvent.js';
 import {TimelineDetailsView} from './TimelineDetailsView.js';
 import {TimelineRegExp} from './TimelineFilters.js';
@@ -79,6 +79,8 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
   private selectedSearchResult?: number;
   private searchRegex?: RegExp;
   #traceEngineData: TraceEngine.Handlers.Types.TraceParseData|null;
+  #traceInsightsData: TraceEngine.Insights.Types.TraceInsightData<typeof TraceEngine.Handlers.ModelHandlers>|null =
+      null;
   #selectedGroupName: string|null = null;
   #onTraceBoundsChangeBound = this.#onTraceBoundsChange.bind(this);
   #gameKeyMatches = 0;
@@ -88,6 +90,9 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
   #overlays: Overlays;
 
   #timeRangeSelectionOverlay: TimeRangeLabel|null = null;
+
+  #timespanEntryBreakdownOverlay: TimespanEntryBreakdown|null = null;
+  #sidebarInsightEnabled: Boolean = false;
 
   constructor(delegate: TimelineModeViewDelegate) {
     super();
@@ -206,6 +211,19 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     this.refreshMainFlameChart();
 
     TraceBounds.TraceBounds.onChange(this.#onTraceBoundsChangeBound);
+  }
+
+  sidebarInsightEnabled(): void {
+    this.#sidebarInsightEnabled = !this.#sidebarInsightEnabled;
+    if (this.#sidebarInsightEnabled) {
+      this.createLCPPhaseOverlay();
+    } else {
+      if (this.#timespanEntryBreakdownOverlay) {
+        this.#overlays.remove(this.#timespanEntryBreakdownOverlay);
+        this.#timeRangeSelectionOverlay = null;
+      }
+      this.#overlays.update();
+    }
   }
 
   #keydownHandler(event: KeyboardEvent): void {
@@ -338,6 +356,102 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     this.updateSearchResults(false, false);
     this.refreshMainFlameChart();
     this.#updateFlameCharts();
+  }
+
+  setInsights(insights: TraceEngine.Insights.Types.TraceInsightData<typeof TraceEngine.Handlers.ModelHandlers>|
+              null): void {
+    if (this.#traceInsightsData !== insights) {
+      this.#traceInsightsData = insights;
+    }
+    // Disable insights overlays by default with new insight data.
+    this.#sidebarInsightEnabled = false;
+  }
+
+  // This creates a new timespanBreakdownOverlay with LCP phases data. Then adds it to the view.
+  createLCPPhaseOverlay(): void {
+    if (!this.#traceInsightsData || !this.#traceEngineData) {
+      return;
+    }
+
+    // For now use the first navigation of the trace.
+    const firstNav: TraceEngine.Insights.Types.NavigationInsightData<typeof TraceEngine.Handlers.ModelHandlers> =
+        this.#traceInsightsData.values().next().value;
+    if (!firstNav) {
+      return;
+    }
+
+    const lcpInsight: Error|TraceEngine.Insights.Types.LCPInsightResult = firstNav.LargestContentfulPaint;
+    if (lcpInsight instanceof Error) {
+      return;
+    }
+
+    const phases = lcpInsight.phases;
+    const lcpTs = lcpInsight.lcpTs;
+
+    if (!phases || !lcpTs) {
+      return;
+    }
+    const lcpMicroseconds =
+        TraceEngine.Types.Timing.MicroSeconds(TraceEngine.Helpers.Timing.millisecondsToMicroseconds(lcpTs));
+
+    const sections = [];
+    // For text LCP, we should only have ttfb and renderDelay sections.
+    if (!phases?.loadDelay && !phases?.loadTime) {
+      const renderBegin: TraceEngine.Types.Timing.MicroSeconds = TraceEngine.Types.Timing.MicroSeconds(
+          lcpMicroseconds - TraceEngine.Helpers.Timing.millisecondsToMicroseconds(phases.renderDelay));
+      const renderDelay = TraceEngine.Helpers.Timing.traceWindowFromMicroSeconds(
+          renderBegin,
+          lcpMicroseconds,
+      );
+
+      const mainReqStart = TraceEngine.Types.Timing.MicroSeconds(
+          renderBegin - TraceEngine.Helpers.Timing.millisecondsToMicroseconds(phases.ttfb));
+      const ttfb = TraceEngine.Helpers.Timing.traceWindowFromMicroSeconds(
+          mainReqStart,
+          renderBegin,
+      );
+      sections.push({bounds: ttfb, label: 'Time to first byte'}, {bounds: renderDelay, label: 'Element render delay'});
+    } else if (phases?.loadDelay && phases?.loadTime) {
+      const renderBegin: TraceEngine.Types.Timing.MicroSeconds = TraceEngine.Types.Timing.MicroSeconds(
+          lcpMicroseconds - TraceEngine.Helpers.Timing.millisecondsToMicroseconds(phases.renderDelay));
+      const renderDelay = TraceEngine.Helpers.Timing.traceWindowFromMicroSeconds(
+          renderBegin,
+          lcpMicroseconds,
+      );
+
+      const loadBegin = TraceEngine.Types.Timing.MicroSeconds(
+          renderBegin - TraceEngine.Helpers.Timing.millisecondsToMicroseconds(phases.loadTime));
+      const loadTime = TraceEngine.Helpers.Timing.traceWindowFromMicroSeconds(
+          loadBegin,
+          renderBegin,
+      );
+
+      const loadDelayStart = TraceEngine.Types.Timing.MicroSeconds(
+          loadBegin - TraceEngine.Helpers.Timing.millisecondsToMicroseconds(phases.loadDelay));
+      const loadDelay = TraceEngine.Helpers.Timing.traceWindowFromMicroSeconds(
+          loadDelayStart,
+          loadBegin,
+      );
+
+      const mainReqStart = TraceEngine.Types.Timing.MicroSeconds(
+          loadDelayStart - TraceEngine.Helpers.Timing.millisecondsToMicroseconds(phases.ttfb));
+      const ttfb = TraceEngine.Helpers.Timing.traceWindowFromMicroSeconds(
+          mainReqStart,
+          loadDelayStart,
+      );
+
+      sections.push(
+          {bounds: ttfb, label: 'Time to first byte'},
+          {bounds: loadDelay, label: 'Resource load delay'},
+          {bounds: loadTime, label: 'Resource load time'},
+          {bounds: renderDelay, label: 'Element render delay'},
+      );
+    }
+    this.#timespanEntryBreakdownOverlay = this.#overlays.add({
+      type: 'TIMESPAN_BREAKDOWN',
+      sections,
+    });
+    this.#overlays.update();
   }
 
   #reset(): void {
