@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5d93ced_a5f032ea",
+        "filename": "front_end/panels/timeline/components/EntryLabelOverlay.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-06-25T08:52:39Z",
+      "side": 1,
+      "message": "do we want to do something similar with `Escape`?",
+      "range": {
+        "startLine": 85,
+        "startChar": 8,
+        "endLine": 85,
+        "endChar": 29
+      },
+      "revId": "b51588d287edd70e8ca33b4cd735891eb06b37ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d52312b5_5f511a0a",
+        "filename": "front_end/panels/timeline/components/EntryLabelOverlay.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-06-25T08:52:39Z",
+      "side": 1,
+      "message": "nit: wdyt if we simplify this by splitting the conditions where we can, f.e.:\n\n\n\n```suggestion\n    if (!this.textContent || this.textContent.length \u003c\u003d EntryLabelOverlay.MAX_LABEL_LENGTH) {\n      return true;\n    }\n     if (allowedKeysAfterReachingLenLimit.includes(event.key)) {\n      return true;\n    }\n\n    if (event.key.length \u003d\u003d\u003d 1 \u0026\u0026 event.ctrlKey /* Ctrl + A for selecting all */) {\n      return true;\n    }\n\n    event.preventDefault();\n    return false;\n    \n  }\n```",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 3
+      },
+      "revId": "b51588d287edd70e8ca33b4cd735891eb06b37ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b051b35b_a0f44e59",
+        "filename": "front_end/panels/timeline/components/EntryLabelOverlay.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-06-25T08:52:39Z",
+      "side": 1,
+      "message": "nit: I guess we can use `this.#labelBox` here?",
+      "range": {
+        "startLine": 227,
+        "startChar": 0,
+        "endLine": 227,
+        "endChar": 86
+      },
+      "revId": "b51588d287edd70e8ca33b4cd735891eb06b37ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
