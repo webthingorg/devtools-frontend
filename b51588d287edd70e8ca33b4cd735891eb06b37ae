@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "76a922c9_c7e47071",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-25T09:12:37Z",
+      "side": 1,
+      "message": "Thanks for reviewing 😊",
+      "revId": "b51588d287edd70e8ca33b4cd735891eb06b37ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e5d93ced_a5f032ea",
@@ -14,6 +31,30 @@
       "writtenOn": "2024-06-25T08:52:39Z",
       "side": 1,
       "message": "do we want to do something similar with `Escape`?",
+      "range": {
+        "startLine": 85,
+        "startChar": 8,
+        "endLine": 85,
+        "endChar": 29
+      },
+      "revId": "b51588d287edd70e8ca33b4cd735891eb06b37ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e7d088b_9c60eb45",
+        "filename": "front_end/panels/timeline/components/EntryLabelOverlay.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-25T09:12:37Z",
+      "side": 1,
+      "message": "Yes! great point, I agree",
+      "parentUuid": "e5d93ced_a5f032ea",
       "range": {
         "startLine": 85,
         "startChar": 8,
@@ -47,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd6bbc52_3ff1f2bb",
+        "filename": "front_end/panels/timeline/components/EntryLabelOverlay.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-25T09:12:37Z",
+      "side": 1,
+      "message": "Agree, that is more readable",
+      "parentUuid": "d52312b5_5f511a0a",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 3
+      },
+      "revId": "b51588d287edd70e8ca33b4cd735891eb06b37ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b051b35b_a0f44e59",
@@ -60,6 +125,30 @@
       "writtenOn": "2024-06-25T08:52:39Z",
       "side": 1,
       "message": "nit: I guess we can use `this.#labelBox` here?",
+      "range": {
+        "startLine": 227,
+        "startChar": 0,
+        "endLine": 227,
+        "endChar": 86
+      },
+      "revId": "b51588d287edd70e8ca33b4cd735891eb06b37ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02895950_55a9faf6",
+        "filename": "front_end/panels/timeline/components/EntryLabelOverlay.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-25T09:12:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b051b35b_a0f44e59",
       "range": {
         "startLine": 227,
         "startChar": 0,
