@@ -1,0 +1,74 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2d859a6_aa5e1f15",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-25T08:59:09Z",
+      "side": 1,
+      "message": "(nit): I think grammatically this sentence is not correct, can we make it \"The user selects a DOM element...\"?",
+      "fixSuggestions": [
+        {
+          "fixId": "413a5700_48143667",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/freestyler/FreestylerAgent.ts",
+              "range": {
+                "startLine": 13,
+                "startChar": 0,
+                "endLine": 14,
+                "endChar": 0
+              },
+              "replacement": "The user selects a DOM element in the browser\u0027s DevTools and sends a CSS-related\n"
+            }
+          ]
+        }
+      ],
+      "revId": "a43f00fc1541690cb92e2d4242bcd7507b3cdf77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39e956ba_93524575",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-06-25T08:59:09Z",
+      "side": 1,
+      "message": "\u0027hover\u0027 is not a computed style property, maybe we can update it for `backroundColor`.",
+      "fixSuggestions": [
+        {
+          "fixId": "92187b45_f4334c29",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/freestyler/FreestylerAgent.ts",
+              "range": {
+                "startLine": 28,
+                "startChar": 0,
+                "endLine": 29,
+                "endChar": 0
+              },
+              "replacement": "  hoverStyles: window.getComputedStyle($0)[\u0027display\u0027]\n"
+            }
+          ]
+        }
+      ],
+      "revId": "a43f00fc1541690cb92e2d4242bcd7507b3cdf77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
