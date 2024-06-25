@@ -89,6 +89,10 @@ const TempUIStrings = {
    *@description Consent view data visibility text
    */
   consentTextVisibilityDisclaimer: 'Data may be seen by trained reviewers to improve this feature.',
+  /**
+   * @description The loading indicator text.
+   */
+  loading: 'The assistant is typing…',
 };
 // const str_ = i18n.i18n.registerUIStrings('panels/freestyler/components/FreestylerChatUi.ts', UIStrings);
 // const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -268,7 +272,7 @@ export class FreestylerChatUi extends HTMLElement {
     return LitHtml.html`<p>${this.#renderTextAsMarkdown(step.text)}</p>`;
   }
 
-  #renderChatMessage = (message: ChatMessage, {isLast}: {isLast: boolean}): LitHtml.TemplateResult => {
+  #renderChatMessage = (message: ChatMessage): LitHtml.TemplateResult => {
     if (message.entity === ChatMessageEntity.USER) {
       return LitHtml.html`<div class="chat-message query">${message.text}</div>`;
     }
@@ -284,11 +288,6 @@ export class FreestylerChatUi extends HTMLElement {
                 : LitHtml.nothing
             }`,
         )}
-        ${
-          this.#props.isLoading && isLast
-            ? LitHtml.html`<div class='chat-loading' >Loading...</div>`
-            : LitHtml.nothing
-        }
       </div>
     `;
     // clang-format on
@@ -316,8 +315,8 @@ export class FreestylerChatUi extends HTMLElement {
     // clang-format off
     return LitHtml.html`
       <div class="messages-container">
-        ${this.#props.messages.map((message, _, array) =>
-          this.#renderChatMessage(message, {isLast: array.at(-1) === message}),
+        ${this.#props.messages.map((message, _) =>
+          this.#renderChatMessage(message),
         )}
       </div>
     `;
@@ -346,13 +345,20 @@ export class FreestylerChatUi extends HTMLElement {
             : this.#renderEmptyState()
         }
         <form class="input-form" @submit=${this.#handleSubmit}>
-          <div class="dom-node-link-container">
+          <div class="chat-status">
+            <div class="dom-node-link-container">
+              ${
+                this.#props.selectedNode
+                  ? LitHtml.Directives.until(
+                      Common.Linkifier.Linkifier.linkify(this.#props.selectedNode),
+                    )
+                  : this.#renderSelectAnElement()
+              }
+            </div>
             ${
-              this.#props.selectedNode
-                ? LitHtml.Directives.until(
-                    Common.Linkifier.Linkifier.linkify(this.#props.selectedNode),
-                  )
-                : this.#renderSelectAnElement()
+              this.#props.isLoading
+                ? LitHtml.html`<div class="chat-loading">${i18nString(TempUIStrings.loading)}</div>`
+                : LitHtml.nothing
             }
           </div>
           <div class="chat-input-container">
