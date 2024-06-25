@@ -33,6 +33,24 @@
       "message": "(nit): Should it be `isInInProgressSCC` or was the name intended? :)",
       "revId": "a9627bf9859c5e7ee9941b044196d2a9dffde1de",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4481822_27792087",
+        "filename": "front_end/core/sdk/CSSMatchedStyles.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 880,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-06-25T14:00:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e18911f8_e6b3e875",
+      "revId": "a9627bf9859c5e7ee9941b044196d2a9dffde1de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
