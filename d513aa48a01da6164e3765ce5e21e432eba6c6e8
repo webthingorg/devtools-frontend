@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7394b714_10281217",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-25T13:44:13Z",
+      "side": 1,
+      "message": "Thanks for review 😊",
+      "revId": "d513aa48a01da6164e3765ce5e21e432eba6c6e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "080e9123_1f58dfab",
@@ -31,6 +48,30 @@
       "writtenOn": "2024-06-25T13:03:14Z",
       "side": 1,
       "message": "nit: maybe it\u0027s worth renaming for clarity now that this doesn\u0027t only set the editability?",
+      "range": {
+        "startLine": 243,
+        "startChar": 3,
+        "endLine": 243,
+        "endChar": 22
+      },
+      "revId": "d513aa48a01da6164e3765ce5e21e432eba6c6e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74f396c0_de7da650",
+        "filename": "front_end/panels/timeline/components/EntryLabelOverlay.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-25T13:44:13Z",
+      "side": 1,
+      "message": "Agree",
+      "parentUuid": "080e9123_1f58dfab",
       "range": {
         "startLine": 243,
         "startChar": 3,
