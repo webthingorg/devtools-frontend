@@ -242,6 +242,30 @@
       },
       "revId": "45460d95fa3b3135c8a2dbf681be4dae1e52e20b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dcfae0a8_bf8c4dbf",
+        "filename": "front_end/models/trace/lantern/metrics/TotalBlockingTime.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-06-25T17:24:05Z",
+      "side": 1,
+      "message": "This is resolved - layout tests are working now.\n\nNote that this file and the ones it imports are all within the same devtools module.",
+      "parentUuid": "b14e8b57_964a4d78",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 83
+      },
+      "revId": "45460d95fa3b3135c8a2dbf681be4dae1e52e20b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

@@ -70,6 +70,24 @@
       "parentUuid": "da151e26_55aad811",
       "revId": "8609984bc94b8465ba8fed74a24105177a2d982e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c58c049_2bdf3f31",
+        "filename": "front_end/models/trace/lantern/types/lantern.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-06-25T17:24:05Z",
+      "side": 1,
+      "message": "I removed the extra license comments and wrote a notice in the directory README.",
+      "parentUuid": "4d1ee771_482a5770",
+      "revId": "8609984bc94b8465ba8fed74a24105177a2d982e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
