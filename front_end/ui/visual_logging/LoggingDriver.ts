@@ -271,12 +271,14 @@ async function process(): Promise<void> {
     // We can still log interaction events with a handle to a loggable
     unregisterLoggable(loggable);
   }
-  if (visibleLoggables.length) {
-    await yieldToInteractions();
-    flushPendingChangeEvents();
-    await logImpressions(visibleLoggables);
-  }
-  Host.userMetrics.visualLoggingProcessingDone(performance.now() - startTime);
+  queueMicrotask(async () => {
+    if (visibleLoggables.length) {
+      await yieldToInteractions();
+      flushPendingChangeEvents();
+      await logImpressions(visibleLoggables);
+    }
+    Host.userMetrics.visualLoggingProcessingDone(performance.now() - startTime);
+  });
 }
 
 function logPendingChange(element: Element): void {
