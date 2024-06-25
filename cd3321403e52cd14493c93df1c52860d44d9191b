@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "343d7698_623fdb07",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327573
+      },
+      "writtenOn": "2024-06-25T17:45:09Z",
+      "side": 1,
+      "message": "Hi Yang, can you help assign code reviewer for this very small CL for adding aria label to new watch expression entry, thank you.",
+      "revId": "cd3321403e52cd14493c93df1c52860d44d9191b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
