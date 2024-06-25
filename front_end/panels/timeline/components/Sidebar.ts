@@ -33,6 +33,14 @@ enum InsightsCategories {
   OTHER = 'Other',
 }
 
+export class SidebarInsightEnabled extends Event {
+  static readonly eventName = 'toggleinsightclick';
+
+  constructor() {
+    super(SidebarInsightEnabled.eventName, {bubbles: true, composed: true});
+  }
+}
+
 export class SidebarWidget extends UI.SplitWidget.SplitWidget {
   #sidebarExpanded: boolean = false;
   #sidebarUI = new SidebarUI();
@@ -124,7 +132,7 @@ export class SidebarUI extends HTMLElement {
         {phase: 'Time to first byte', timing: ttfb, percent: `${(100 * ttfb / timing).toFixed(0)}%`},
         {phase: 'Resource load delay', timing: loadDelay, percent: `${(100 * loadDelay / timing).toFixed(0)}%`},
         {phase: 'Resource load duration', timing: loadTime, percent: `${(100 * loadTime / timing).toFixed(0)}%`},
-        {phase: 'Resource render delay', timing: renderDelay, percent: `${(100 * ttfb / timing).toFixed(0)}%`},
+        {phase: 'Resource render delay', timing: renderDelay, percent: `${(100 * renderDelay / timing).toFixed(0)}%`},
       ];
       return phaseData;
     }
@@ -132,7 +140,7 @@ export class SidebarUI extends HTMLElement {
     // If the lcp is text, we only have ttfb and render delay.
     const phaseData = [
       {phase: 'Time to first byte', timing: ttfb, percent: `${(100 * ttfb / timing).toFixed(0)}%`},
-      {phase: 'Resource render delay', timing: renderDelay, percent: `${(100 * ttfb / timing).toFixed(0)}%`},
+      {phase: 'Resource render delay', timing: renderDelay, percent: `${(100 * renderDelay / timing).toFixed(0)}%`},
     ];
     return phaseData;
   }
@@ -276,6 +284,10 @@ export class SidebarUI extends HTMLElement {
         this.#clsMetric.clsScoreClassification);
   }
 
+  #toggleLCPPhaseClick(): void {
+    this.dispatchEvent(new SidebarInsightEnabled());
+  }
+
   #renderInsightsForCategory(insightsCategory: InsightsCategories): LitHtml.TemplateResult {
     switch (insightsCategory) {
       case InsightsCategories.ALL:
@@ -285,7 +297,7 @@ export class SidebarUI extends HTMLElement {
             ${this.#renderLCPMetric()}
             ${this.#renderCLSMetric()}
           </div>
-          <div class="insights">${this.#renderLCPPhases()}</div>
+          <div class="insights" @click=${this.#toggleLCPPhaseClick}>${this.#renderLCPPhases()}</div>
         `;
       case InsightsCategories.LCP:
         return LitHtml.html`
