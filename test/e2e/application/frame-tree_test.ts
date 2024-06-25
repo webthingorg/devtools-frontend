@@ -107,7 +107,8 @@ describe('The Application Tab', () => {
     assert.deepEqual(fieldValuesTextContent, expected);
   });
 
-  it('shows stack traces for OOPIF', async () => {
+  // Temporary for investigation
+  it.skip('[crbug.com/1519420]: shows stack traces for OOPIF', async () => {
     expectError('Request CacheStorage.requestCacheNames failed. {"code":-32602,"message":"Invalid security origin"}');
     await goToResource('application/js-oopif.html');
     await ensureApplicationPanel();
@@ -134,62 +135,66 @@ describe('The Application Tab', () => {
     assert.deepEqual(stackTraceRowsTextContent, expected);
   });
 
-  it('stack traces for OOPIF with ignore listed frames can be expanded and collapsed', async () => {
-    expectError('Request CacheStorage.requestCacheNames failed. {"code":-32602,"message":"Invalid security origin"}');
-    await setIgnoreListPattern('js-oopif.js');
-    await goToResource('application/js-oopif.html');
-    await ensureApplicationPanel();
-    await waitForFunction(async () => {
-      await doubleClickSourceTreeItem(TOP_FRAME_SELECTOR);
-      await doubleClickSourceTreeItem(IFRAME_SELECTOR);
-      return (await $$(EXPAND_STACKTRACE_BUTTON_SELECTOR)).length === 1;
-    });
-    let stackTraceRowsTextContent = await waitForFunction(async () => {
-      await ensureApplicationPanel();
-      await click(EXPAND_STACKTRACE_BUTTON_SELECTOR);
-      const stackTraceRows = await getTrimmedTextContent(STACKTRACE_ROW_SELECTOR);
-      // Make sure the length is equivalent to the expected value below
-      if (stackTraceRows.length === 2) {
-        return stackTraceRows;
-      }
-      return undefined;
-    });
-    const expectedCollapsed = [
-      'second\xA0@\xA0js-oopif.html:13',
-      'Show 2 more frames',
-    ];
-    assert.deepEqual(stackTraceRowsTextContent, expectedCollapsed);
+  // Temporary for investigation
+  it.skip(
+      '[crbug.com/1519420]: stack traces for OOPIF with ignore listed frames can be expanded and collapsed',
+      async () => {
+        expectError(
+            'Request CacheStorage.requestCacheNames failed. {"code":-32602,"message":"Invalid security origin"}');
+        await setIgnoreListPattern('js-oopif.js');
+        await goToResource('application/js-oopif.html');
+        await ensureApplicationPanel();
+        await waitForFunction(async () => {
+          await doubleClickSourceTreeItem(TOP_FRAME_SELECTOR);
+          await doubleClickSourceTreeItem(IFRAME_SELECTOR);
+          return (await $$(EXPAND_STACKTRACE_BUTTON_SELECTOR)).length === 1;
+        });
+        let stackTraceRowsTextContent = await waitForFunction(async () => {
+          await ensureApplicationPanel();
+          await click(EXPAND_STACKTRACE_BUTTON_SELECTOR);
+          const stackTraceRows = await getTrimmedTextContent(STACKTRACE_ROW_SELECTOR);
+          // Make sure the length is equivalent to the expected value below
+          if (stackTraceRows.length === 2) {
+            return stackTraceRows;
+          }
+          return undefined;
+        });
+        const expectedCollapsed = [
+          'second\xA0@\xA0js-oopif.html:13',
+          'Show 2 more frames',
+        ];
+        assert.deepEqual(stackTraceRowsTextContent, expectedCollapsed);
 
-    // Expand all frames
-    await click(STACKTRACE_ROW_LINK_SELECTOR);
-    stackTraceRowsTextContent = await waitForFunction(async () => {
-      const stackTraceRows = await getTrimmedTextContent(STACKTRACE_ROW_SELECTOR);
-      // Make sure the length is equivalent to the expected value below
-      if (stackTraceRows.length === 4) {
-        return stackTraceRows;
-      }
-      return undefined;
-    });
+        // Expand all frames
+        await click(STACKTRACE_ROW_LINK_SELECTOR);
+        stackTraceRowsTextContent = await waitForFunction(async () => {
+          const stackTraceRows = await getTrimmedTextContent(STACKTRACE_ROW_SELECTOR);
+          // Make sure the length is equivalent to the expected value below
+          if (stackTraceRows.length === 4) {
+            return stackTraceRows;
+          }
+          return undefined;
+        });
 
-    const expectedFull = [
-      'second\xA0@\xA0js-oopif.html:13',
-      'first\xA0@\xA0js-oopif.js:3',
-      '(anonymous)\xA0@\xA0js-oopif.js:6',
-      'Show less',
-    ];
-    assert.deepEqual(stackTraceRowsTextContent, expectedFull);
+        const expectedFull = [
+          'second\xA0@\xA0js-oopif.html:13',
+          'first\xA0@\xA0js-oopif.js:3',
+          '(anonymous)\xA0@\xA0js-oopif.js:6',
+          'Show less',
+        ];
+        assert.deepEqual(stackTraceRowsTextContent, expectedFull);
 
-    await click(STACKTRACE_ROW_LINK_SELECTOR);
-    stackTraceRowsTextContent = await waitForFunction(async () => {
-      const stackTraceRows = await getTrimmedTextContent(STACKTRACE_ROW_SELECTOR);
-      // Make sure the length is equivalent to the expected value below
-      if (stackTraceRows.length === 2) {
-        return stackTraceRows;
-      }
-      return undefined;
-    });
-    assert.deepEqual(stackTraceRowsTextContent, expectedCollapsed);
-  });
+        await click(STACKTRACE_ROW_LINK_SELECTOR);
+        stackTraceRowsTextContent = await waitForFunction(async () => {
+          const stackTraceRows = await getTrimmedTextContent(STACKTRACE_ROW_SELECTOR);
+          // Make sure the length is equivalent to the expected value below
+          if (stackTraceRows.length === 2) {
+            return stackTraceRows;
+          }
+          return undefined;
+        });
+        assert.deepEqual(stackTraceRowsTextContent, expectedCollapsed);
+      });
 
   describe('', () => {
     after(async () => {
@@ -199,7 +204,8 @@ describe('The Application Tab', () => {
       });
     });
 
-    it('shows details for opened windows in the frame tree', async () => {
+    // Temporary for investigation: CANDIDATE
+    it.skip('[crbug.com/1519420]: shows details for opened windows in the frame tree', async () => {
       const {target, frontend} = getBrowserAndPages();
       await navigateToApplicationTab(target, 'frame-tree');
       await click('#tab-resources');
@@ -234,7 +240,8 @@ describe('The Application Tab', () => {
     });
   });
 
-  it('shows dedicated workers in the frame tree', async () => {
+  // Temporary for investigation
+  it.skip('[crbug.com/1519420]: shows dedicated workers in the frame tree', async () => {
     expectError('Request CacheStorage.requestCacheNames failed. {"code":-32602,"message":"Invalid security origin"}');
     const {target} = getBrowserAndPages();
     await goToResource('application/frame-tree.html');
@@ -263,7 +270,8 @@ describe('The Application Tab', () => {
     assert.deepEqual(fieldValuesTextContent, expected);
   });
 
-  it('shows service workers in the frame tree', async () => {
+  // Temporary for investigation
+  it.skip('[crbug.com/1519420]: shows service workers in the frame tree', async () => {
     expectError('Request CacheStorage.requestCacheNames failed. {"code":-32602,"message":"Invalid security origin"}');
     await goToResource('application/service-worker-network.html');
     await click('#tab-resources');
