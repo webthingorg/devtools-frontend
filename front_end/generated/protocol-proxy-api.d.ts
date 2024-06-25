@@ -2122,6 +2122,14 @@ declare namespace ProtocolProxyApi {
      */
     invoke_loadNetworkResource(params: Protocol.Network.LoadNetworkResourceRequest): Promise<Protocol.Network.LoadNetworkResourceResponse>;
 
+    invoke_enableCompressionDictionariesTracking(): Promise<Protocol.ProtocolResponseWithError>;
+
+    invoke_disableCompressionDictionariesTracking(): Promise<Protocol.ProtocolResponseWithError>;
+
+    invoke_deleteCompressionDictionary(params: Protocol.Network.DeleteCompressionDictionaryRequest): Promise<Protocol.ProtocolResponseWithError>;
+
+    invoke_deleteCompressionDictionaries(params: Protocol.Network.DeleteCompressionDictionariesRequest): Promise<Protocol.ProtocolResponseWithError>;
+
   }
   export interface NetworkDispatcher {
     /**
@@ -2292,6 +2300,8 @@ declare namespace ProtocolProxyApi {
     reportingApiReportUpdated(params: Protocol.Network.ReportingApiReportUpdatedEvent): void;
 
     reportingApiEndpointsChangedForOrigin(params: Protocol.Network.ReportingApiEndpointsChangedForOriginEvent): void;
+
+    compressionDictionaryStorageChanged(params: Protocol.Network.CompressionDictionaryStorageChangedEvent): void;
 
   }
 
