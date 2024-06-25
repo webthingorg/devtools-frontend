@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f080a15_1f84b7db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-06-25T13:03:14Z",
+      "side": 1,
+      "message": "LGTM with a nitpicking comment",
+      "revId": "d513aa48a01da6164e3765ce5e21e432eba6c6e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "080e9123_1f58dfab",
+        "filename": "front_end/panels/timeline/components/EntryLabelOverlay.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-06-25T13:03:14Z",
+      "side": 1,
+      "message": "nit: maybe it\u0027s worth renaming for clarity now that this doesn\u0027t only set the editability?",
+      "range": {
+        "startLine": 243,
+        "startChar": 3,
+        "endLine": 243,
+        "endChar": 22
+      },
+      "revId": "d513aa48a01da6164e3765ce5e21e432eba6c6e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
