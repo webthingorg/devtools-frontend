@@ -16,6 +16,97 @@
       "message": "Hi Changhao!\n\nWe\u0027re updating the navigation drawer in the Memory Panel, ptal!",
       "revId": "a80a651871b158cef1904ec89352e319a4f45708",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5df70432_0beddc5f",
+        "filename": "front_end/panels/profiler/HeapProfileView.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-06-25T09:46:38Z",
+      "side": 1,
+      "message": "nit: I remember Sofia mentioned that we should favor sentence case over title case: go/chrome-devtools/ux-writing#cosmetics, but not sure it applies here or not. You probably have more context so I\u0027ll leave this up to you.",
+      "revId": "a80a651871b158cef1904ec89352e319a4f45708",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "453c9d65_11fffb30",
+        "filename": "front_end/panels/profiler/HeapSnapshotView.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-06-25T09:46:38Z",
+      "side": 1,
+      "message": "ditto ^",
+      "revId": "a80a651871b158cef1904ec89352e319a4f45708",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67a66faa_731e914e",
+        "filename": "front_end/panels/profiler/HeapSnapshotView.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-06-25T09:46:38Z",
+      "side": 1,
+      "message": "ditto ^",
+      "revId": "a80a651871b158cef1904ec89352e319a4f45708",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7493f9d5_3ed8f225",
+        "filename": "front_end/panels/profiler/profilesSidebarTree.css",
+        "patchSetId": 8
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-06-25T09:46:38Z",
+      "side": 1,
+      "message": "nit: can this be nested under the previous block?",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 1
+      },
+      "revId": "a80a651871b158cef1904ec89352e319a4f45708",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "006f3d96_f18568f4",
+        "filename": "front_end/panels/profiler/profilesSidebarTree.css",
+        "patchSetId": 8
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-06-25T09:46:38Z",
+      "side": 1,
+      "message": "nit: do we have to specify its `min-width` again?",
+      "revId": "a80a651871b158cef1904ec89352e319a4f45708",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
