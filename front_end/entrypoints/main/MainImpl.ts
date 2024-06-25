@@ -162,9 +162,9 @@ export class MainImpl {
     await this.requestAndRegisterLocaleData();
 
     Host.userMetrics.syncSetting(Common.Settings.Settings.instance().moduleSetting<boolean>('sync-preferences').get());
-    if (Root.Runtime.Runtime.queryParam('veLogging')) {
-      void VisualLogging.startLogging();
-    }
+    // if (Root.Runtime.Runtime.queryParam('veLogging')) {
+    void VisualLogging.startLogging();
+    // }
     void this.#createAppUI();
   }
 

@@ -272,9 +272,9 @@ async function process(): Promise<void> {
     unregisterLoggable(loggable);
   }
   if (visibleLoggables.length) {
-    await yieldToInteractions();
-    flushPendingChangeEvents();
-    await logImpressions(visibleLoggables);
+    // await yieldToInteractions();
+    // flushPendingChangeEvents();
+    // await logImpressions(visibleLoggables);
   }
   Host.userMetrics.visualLoggingProcessingDone(performance.now() - startTime);
 }
