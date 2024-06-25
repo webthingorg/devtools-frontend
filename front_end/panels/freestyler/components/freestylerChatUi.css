@@ -98,6 +98,13 @@
   }
 }
 
+.chat-status {
+  display: flex;
+  flex-direction: row;
+  line-height: 20px;
+  gap: var(--sys-size-8);
+}
+
 .dom-node-link-container {
   margin-bottom: 2px;
   display: inline-flex;

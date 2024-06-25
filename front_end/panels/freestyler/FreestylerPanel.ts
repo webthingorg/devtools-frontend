@@ -215,18 +215,23 @@ export class FreestylerPanel extends UI.Panel.Panel {
       text,
     });
     this.#viewProps.isLoading = true;
-    const systemMessage: ChatMessage = {
-      entity: ChatMessageEntity.MODEL,
-      steps: [],
-    };
-    this.#viewProps.messages.push(systemMessage);
     this.doUpdate();
-
     this.#runAbortController = new AbortController();
 
     const signal = this.#runAbortController.signal;
+    let message: ChatMessage&{entity: ChatMessageEntity.MODEL};
+    const getMessage = (): ChatMessage&{entity: ChatMessageEntity.MODEL} => {
+      if (!message) {
+        message = {
+          entity: ChatMessageEntity.MODEL,
+          steps: [],
+        };
+        this.#viewProps.messages.push(message);
+      }
+      return message;
+    };
     signal.addEventListener('abort', () => {
-      systemMessage.steps.push({step: Step.ERROR, text: i18nString(TempUIStrings.stoppedResponse)});
+      getMessage().steps.push({step: Step.ERROR, text: i18nString(TempUIStrings.stoppedResponse)});
     });
     for await (const data of this.#agent.run(text, {signal})) {
       if (data.step === Step.ANSWER || data.step === Step.ERROR) {
@@ -237,12 +242,11 @@ export class FreestylerPanel extends UI.Panel.Panel {
       // We want to show `rate answer` buttons for the full response.
       // That's why we're removing the `rpcId` from the previous step
       // if there is a new incoming step from the call with the same rpcId.
-      const lastStep = systemMessage.steps.at(-1);
+      const lastStep = getMessage().steps.at(-1);
       if (lastStep && lastStep.rpcId && lastStep.rpcId === data.rpcId) {
         delete lastStep.rpcId;
       }
-
-      systemMessage.steps.push(data);
+      getMessage().steps.push(data);
       this.doUpdate();
     }
   }
