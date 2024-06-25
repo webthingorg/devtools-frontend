@@ -191,46 +191,41 @@ describe('The Application Tab', () => {
     assert.deepEqual(stackTraceRowsTextContent, expectedCollapsed);
   });
 
-  describe('', () => {
-    after(async () => {
-      const {target} = getBrowserAndPages();
-      await target.evaluate(() => {
-        window.iFrameWindow?.close();
-      });
+  it('shows details for opened windows in the frame tree', async () => {
+    const {target, frontend} = getBrowserAndPages();
+    await navigateToApplicationTab(target, 'frame-tree');
+    await click('#tab-resources');
+    await doubleClickSourceTreeItem(TOP_FRAME_SELECTOR);
+
+    await target.evaluate(() => {
+      window.iFrameWindow = window.open('iframe.html');
     });
 
-    it('shows details for opened windows in the frame tree', async () => {
-      const {target, frontend} = getBrowserAndPages();
-      await navigateToApplicationTab(target, 'frame-tree');
-      await click('#tab-resources');
-      await doubleClickSourceTreeItem(TOP_FRAME_SELECTOR);
+    // window.open above would put DevTools in the background stopping updates
+    // to the application panel.
+    await frontend.bringToFront();
 
-      await target.evaluate(() => {
-        window.iFrameWindow = window.open('iframe.html');
-      });
+    await doubleClickSourceTreeItem(OPENED_WINDOWS_SELECTOR);
+    await waitFor(`${OPENED_WINDOWS_SELECTOR} + ol li:first-child`);
+    void pressKey('ArrowDown');
 
-      // window.open above would put DevTools in the background stopping updates
-      // to the application panel.
-      await frontend.bringToFront();
+    const fieldValuesTextContent = await waitForFunction(async () => {
+      const fieldValues = await getTrimmedTextContent('.report-field-value');
+      // Make sure the length is equivalent to the expected value below
+      if (fieldValues.length === 3 && !fieldValues.includes('')) {
+        return fieldValues;
+      }
+      return undefined;
+    });
+    const expected = [
+      `https://localhost:${getTestServerPort()}/test/e2e/resources/application/iframe.html`,
+      '<#document>',
+      'Yes',
+    ];
+    assert.deepEqual(fieldValuesTextContent, expected);
 
-      await doubleClickSourceTreeItem(OPENED_WINDOWS_SELECTOR);
-      await waitFor(`${OPENED_WINDOWS_SELECTOR} + ol li:first-child`);
-      void pressKey('ArrowDown');
-
-      const fieldValuesTextContent = await waitForFunction(async () => {
-        const fieldValues = await getTrimmedTextContent('.report-field-value');
-        // Make sure the length is equivalent to the expected value below
-        if (fieldValues.length === 3 && !fieldValues.includes('')) {
-          return fieldValues;
-        }
-        return undefined;
-      });
-      const expected = [
-        `https://localhost:${getTestServerPort()}/test/e2e/resources/application/iframe.html`,
-        '<#document>',
-        'Yes',
-      ];
-      assert.deepEqual(fieldValuesTextContent, expected);
+    await target.evaluate(() => {
+      window.iFrameWindow?.close();
     });
   });
 
