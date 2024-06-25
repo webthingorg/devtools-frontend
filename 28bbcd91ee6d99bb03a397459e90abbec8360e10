@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "479a20ed_4602949e",
+        "filename": "front_end/panels/timeline/components/EntryLabelOverlay.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-25T08:02:08Z",
+      "side": 1,
+      "message": "Moving those out because `labelPartsWrapper` was redeclared in the same way many times and `labelBox` because we now need to add/remove eventListeners from it",
+      "range": {
+        "startLine": 31,
+        "startChar": 2,
+        "endLine": 32,
+        "endChar": 37
+      },
+      "revId": "28bbcd91ee6d99bb03a397459e90abbec8360e10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
