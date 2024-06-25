@@ -170,92 +170,92 @@ async function process(): Promise<void> {
         loggingState.impressionLogged = true;
       }
     }
-    if (!loggingState.processed) {
-      const clickLikeHandler = (doubleClick: boolean) => (e: Event) => {
-        const loggable = e.currentTarget as Element;
-        logClick(clickLogThrottler)(loggable, e, {doubleClick});
-      };
-      if (loggingState.config.track?.click) {
-        element.addEventListener('click', clickLikeHandler(false), {capture: true});
-        element.addEventListener('auxclick', clickLikeHandler(false), {capture: true});
-        element.addEventListener('contextmenu', clickLikeHandler(false), {capture: true});
-      }
-      if (loggingState.config.track?.dblclick) {
-        element.addEventListener('dblclick', clickLikeHandler(true), {capture: true});
-      }
-      const trackHover = loggingState.config.track?.hover;
-      if (trackHover) {
-        element.addEventListener('mouseover', logHover(hoverLogThrottler), {capture: true});
-        element.addEventListener(
-            'mouseout', () => hoverLogThrottler.schedule(cancelLogging, Common.Throttler.Scheduling.AsSoonAsPossible),
-            {capture: true});
-      }
-      const trackDrag = loggingState.config.track?.drag;
-      if (trackDrag) {
-        element.addEventListener('pointerdown', onDragStart, {capture: true});
-        document.addEventListener('pointerup', maybeCancelDrag, {capture: true});
-        document.addEventListener('dragend', maybeCancelDrag, {capture: true});
-      }
-      if (loggingState.config.track?.change) {
-        element.addEventListener('input', (event: Event) => {
-          if (!(event instanceof InputEvent)) {
-            return;
-          }
-          if (loggingState.lastInputEventType && loggingState.lastInputEventType !== event.inputType) {
-            void logPendingChange(element);
-          }
-          loggingState.lastInputEventType = event.inputType;
-          pendingChange.add(element);
-        }, {capture: true});
-        element.addEventListener('change', () => logPendingChange(element), {capture: true});
-        element.addEventListener('focusout', () => {
-          if (loggingState.lastInputEventType) {
-            void logPendingChange(element);
-          }
-        }, {capture: true});
-      }
-      const trackKeyDown = loggingState.config.track?.keydown;
-      if (trackKeyDown) {
-        element.addEventListener('keydown', e => logKeyDown(keyboardLogThrottler)(e.currentTarget, e), {capture: true});
-      }
-      if (loggingState.config.track?.resize) {
-        resizeObserver.observe(element);
-        intersectionObserver.observe(element);
-      }
-      if (element.tagName === 'SELECT') {
-        const onSelectOpen = (e: Event): void => {
-          void logClick(clickLogThrottler)(element, e);
-          if (loggingState.selectOpen) {
-            return;
-          }
-          loggingState.selectOpen = true;
-          void scheduleProcessing();
-        };
-        element.addEventListener('click', onSelectOpen, {capture: true});
-        // Based on MenuListSelectType::ShouldOpenPopupForKey{Down,Press}Event
-        element.addEventListener('keydown', event => {
-          const e = event as KeyboardEvent;
-          if ((Host.Platform.isMac() || e.altKey) && (e.code === 'ArrowDown' || e.code === 'ArrowUp') ||
-              (!e.altKey && !e.ctrlKey && e.code === 'F4')) {
-            onSelectOpen(event);
-          }
-        }, {capture: true});
-        element.addEventListener('keypress', event => {
-          const e = event as KeyboardEvent;
-          if (e.key === ' ' || !Host.Platform.isMac() && e.key === '\r') {
-            onSelectOpen(event);
-          }
-        }, {capture: true});
-        element.addEventListener('change', e => {
-          for (const option of (element as HTMLSelectElement).selectedOptions) {
-            if (getLoggingState(option)?.config.track?.click) {
-              void logClick(clickLogThrottler)(option, e);
-            }
-          }
-        }, {capture: true});
-      }
-      loggingState.processed = true;
-    }
+    // if (!loggingState.processed) {
+    //   const clickLikeHandler = (doubleClick: boolean) => (e: Event) => {
+    //     const loggable = e.currentTarget as Element;
+    //     logClick(clickLogThrottler)(loggable, e, {doubleClick});
+    //   };
+    //   if (loggingState.config.track?.click) {
+    //     element.addEventListener('click', clickLikeHandler(false), {capture: true});
+    //     element.addEventListener('auxclick', clickLikeHandler(false), {capture: true});
+    //     element.addEventListener('contextmenu', clickLikeHandler(false), {capture: true});
+    //   }
+    //   if (loggingState.config.track?.dblclick) {
+    //     element.addEventListener('dblclick', clickLikeHandler(true), {capture: true});
+    //   }
+    //   const trackHover = loggingState.config.track?.hover;
+    //   if (trackHover) {
+    //     element.addEventListener('mouseover', logHover(hoverLogThrottler), {capture: true});
+    //     element.addEventListener(
+    //         'mouseout', () => hoverLogThrottler.schedule(cancelLogging, Common.Throttler.Scheduling.AsSoonAsPossible),
+    //         {capture: true});
+    //   }
+    //   const trackDrag = loggingState.config.track?.drag;
+    //   if (trackDrag) {
+    //     element.addEventListener('pointerdown', onDragStart, {capture: true});
+    //     document.addEventListener('pointerup', maybeCancelDrag, {capture: true});
+    //     document.addEventListener('dragend', maybeCancelDrag, {capture: true});
+    //   }
+    //   if (loggingState.config.track?.change) {
+    //     element.addEventListener('input', (event: Event) => {
+    //       if (!(event instanceof InputEvent)) {
+    //         return;
+    //       }
+    //       if (loggingState.lastInputEventType && loggingState.lastInputEventType !== event.inputType) {
+    //         void logPendingChange(element);
+    //       }
+    //       loggingState.lastInputEventType = event.inputType;
+    //       pendingChange.add(element);
+    //     }, {capture: true});
+    //     element.addEventListener('change', () => logPendingChange(element), {capture: true});
+    //     element.addEventListener('focusout', () => {
+    //       if (loggingState.lastInputEventType) {
+    //         void logPendingChange(element);
+    //       }
+    //     }, {capture: true});
+    //   }
+    //   const trackKeyDown = loggingState.config.track?.keydown;
+    //   if (trackKeyDown) {
+    //     element.addEventListener('keydown', e => logKeyDown(keyboardLogThrottler)(e.currentTarget, e), {capture: true});
+    //   }
+    //   if (loggingState.config.track?.resize) {
+    //     resizeObserver.observe(element);
+    //     intersectionObserver.observe(element);
+    //   }
+    //   if (element.tagName === 'SELECT') {
+    //     const onSelectOpen = (e: Event): void => {
+    //       void logClick(clickLogThrottler)(element, e);
+    //       if (loggingState.selectOpen) {
+    //         return;
+    //       }
+    //       loggingState.selectOpen = true;
+    //       void scheduleProcessing();
+    //     };
+    //     element.addEventListener('click', onSelectOpen, {capture: true});
+    //     // Based on MenuListSelectType::ShouldOpenPopupForKey{Down,Press}Event
+    //     element.addEventListener('keydown', event => {
+    //       const e = event as KeyboardEvent;
+    //       if ((Host.Platform.isMac() || e.altKey) && (e.code === 'ArrowDown' || e.code === 'ArrowUp') ||
+    //           (!e.altKey && !e.ctrlKey && e.code === 'F4')) {
+    //         onSelectOpen(event);
+    //       }
+    //     }, {capture: true});
+    //     element.addEventListener('keypress', event => {
+    //       const e = event as KeyboardEvent;
+    //       if (e.key === ' ' || !Host.Platform.isMac() && e.key === '\r') {
+    //         onSelectOpen(event);
+    //       }
+    //     }, {capture: true});
+    //     element.addEventListener('change', e => {
+    //       for (const option of (element as HTMLSelectElement).selectedOptions) {
+    //         if (getLoggingState(option)?.config.track?.click) {
+    //           void logClick(clickLogThrottler)(option, e);
+    //         }
+    //       }
+    //     }, {capture: true});
+    //   }
+    //   loggingState.processed = true;
+    // }
     processForDebugging(element);
   }
   for (const {loggable, config, parent} of getNonDomState().loggables) {
