@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fed1136c_8601e24c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-06-25T09:18:57Z",
+      "side": 1,
+      "message": "Hi Changhao!\n\nWe\u0027re updating the navigation drawer in the Memory Panel, ptal!",
+      "revId": "a80a651871b158cef1904ec89352e319a4f45708",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
