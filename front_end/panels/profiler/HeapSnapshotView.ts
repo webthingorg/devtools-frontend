@@ -190,7 +190,7 @@ const UIStrings = {
   /**
    *@description Text in Heap Snapshot View of a profiler tool
    */
-  heapSnapshots: 'HEAP SNAPSHOTS',
+  heapSnapshots: 'Heap Snapshots',
   /**
    *@description Text in Heap Snapshot View of a profiler tool
    */
@@ -247,7 +247,7 @@ const UIStrings = {
   /**
    *@description Text in Heap Snapshot View of a profiler tool
    */
-  allocationTimelines: 'ALLOCATION TIMELINES',
+  allocationTimelines: 'Allocation Timelines',
   /**
    *@description Description for the 'Allocation timeline' tool in the Memory panel.
    */
