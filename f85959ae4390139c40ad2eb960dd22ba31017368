@@ -54,6 +54,42 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8cc4531a_99dfa700",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 26
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2024-06-25T23:06:31Z",
+      "side": 1,
+      "message": "Will do that tomorrow!",
+      "parentUuid": "fb2c6191_02612fa3",
+      "revId": "f85959ae4390139c40ad2eb960dd22ba31017368",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9cd4ae17_d4a8d01c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 26
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2024-06-25T23:06:31Z",
+      "side": 1,
+      "message": "Not at all! Thank you so much for reviewing 😊\n\nI just rebased and so far I\u0027m not seeing any issue, but could you provide more details about the scenarios that I should check related to the overlay? Any documentation or steps I need to follow?",
+      "parentUuid": "f14eb5e4_9dabba79",
+      "revId": "f85959ae4390139c40ad2eb960dd22ba31017368",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f194c905_2ada8cd8",
         "filename": "front_end/models/trace/handlers/NetworkRequestsHandler.ts",
         "patchSetId": 26
@@ -77,6 +113,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e7384d19_c8e9625c",
+        "filename": "front_end/models/trace/handlers/NetworkRequestsHandler.ts",
+        "patchSetId": 26
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2024-06-25T23:06:31Z",
+      "side": 1,
+      "message": "That was actually my initial implementation, but then I hit some issues because the flameChart assumes \"flat events\" and the nested events would need to be handled differently. But I will give this approach another try tomorrow.",
+      "parentUuid": "f194c905_2ada8cd8",
+      "range": {
+        "startLine": 498,
+        "startChar": 2,
+        "endLine": 498,
+        "endChar": 5
+      },
+      "revId": "f85959ae4390139c40ad2eb960dd22ba31017368",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5ce1676e_b5b56337",
         "filename": "front_end/models/trace/handlers/NetworkRequestsHandler.ts",
         "patchSetId": 26
@@ -88,6 +148,30 @@
       "writtenOn": "2024-06-21T16:12:40Z",
       "side": 1,
       "message": "just `webSockets` would be fine for the key here",
+      "range": {
+        "startLine": 511,
+        "startChar": 4,
+        "endLine": 511,
+        "endChar": 22
+      },
+      "revId": "f85959ae4390139c40ad2eb960dd22ba31017368",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79fd7c40_68843a26",
+        "filename": "front_end/models/trace/handlers/NetworkRequestsHandler.ts",
+        "patchSetId": 26
+      },
+      "lineNbr": 511,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2024-06-25T23:06:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ce1676e_b5b56337",
       "range": {
         "startLine": 511,
         "startChar": 4,
@@ -144,6 +228,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "96a0aacb_015244f5",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 26
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2024-06-25T23:06:31Z",
+      "side": 1,
+      "message": "You are right, this is extra. Removed",
+      "parentUuid": "adf6dd86_b9c8a1fe",
+      "range": {
+        "startLine": 412,
+        "startChar": 0,
+        "endLine": 412,
+        "endChar": 75
+      },
+      "revId": "f85959ae4390139c40ad2eb960dd22ba31017368",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fe93b810_27000f95",
@@ -167,6 +275,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf43d605_50a91ec1",
+        "filename": "front_end/panels/timeline/NetworkTrackAppender.ts",
+        "patchSetId": 26
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2024-06-25T23:06:31Z",
+      "side": 1,
+      "message": "Ah, the type change in the param is not necessary. updated",
+      "parentUuid": "fe93b810_27000f95",
+      "range": {
+        "startLine": 135,
+        "startChar": 3,
+        "endLine": 136,
+        "endChar": 85
+      },
+      "revId": "f85959ae4390139c40ad2eb960dd22ba31017368",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ddce3636_eb5b1c6f",
@@ -180,6 +312,30 @@
       "writtenOn": "2024-06-21T15:59:44Z",
       "side": 1,
       "message": "would probably define `type NetworkTrackEvent \u003d this union` to avoid repeating this a bunch",
+      "range": {
+        "startLine": 184,
+        "startChar": 14,
+        "endLine": 184,
+        "endChar": 114
+      },
+      "revId": "f85959ae4390139c40ad2eb960dd22ba31017368",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6f9b3b2_56d4cc83",
+        "filename": "front_end/panels/timeline/NetworkTrackAppender.ts",
+        "patchSetId": 26
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2024-06-25T23:06:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ddce3636_eb5b1c6f",
       "range": {
         "startLine": 184,
         "startChar": 14,
@@ -215,6 +371,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "888ab3d5_fb2f0275",
+        "filename": "front_end/panels/timeline/NetworkTrackAppender.ts",
+        "patchSetId": 26
+      },
+      "lineNbr": 214,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2024-06-25T23:06:31Z",
+      "side": 1,
+      "message": "We are recalculating all level of events when the filtering happens, so the map will also get reset and recalculate too.",
+      "parentUuid": "0ebc32d1_a79b23f6",
+      "range": {
+        "startLine": 209,
+        "startChar": 8,
+        "endLine": 214,
+        "endChar": 9
+      },
+      "revId": "f85959ae4390139c40ad2eb960dd22ba31017368",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c91f5bae_bdd39185",
         "filename": "front_end/panels/timeline/TimelineFlameChartNetworkDataProvider.ts",
         "patchSetId": 26
@@ -226,6 +406,30 @@
       "writtenOn": "2024-06-21T15:59:44Z",
       "side": 1,
       "message": "nit: can this be a JS private method please? (same with `decorateNetworkRequest` too)",
+      "range": {
+        "startLine": 253,
+        "startChar": 18,
+        "endLine": 253,
+        "endChar": 59
+      },
+      "revId": "f85959ae4390139c40ad2eb960dd22ba31017368",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d524353_41bacdd4",
+        "filename": "front_end/panels/timeline/TimelineFlameChartNetworkDataProvider.ts",
+        "patchSetId": 26
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2024-06-25T23:06:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c91f5bae_bdd39185",
       "range": {
         "startLine": 253,
         "startChar": 18,
@@ -261,6 +465,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "16ed641c_c02cdf93",
+        "filename": "front_end/panels/timeline/TimelineFlameChartNetworkDataProvider.ts",
+        "patchSetId": 26
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2024-06-25T23:06:31Z",
+      "side": 1,
+      "message": "In the FlameChart.ts, when filtering through the events for a level, it starts from the last event of that level and stops when it hit an event that has start time greater than the filtering window.\n\nFor example, in this websocket level we have A(socket event), B, C, D. If C event has start time greater than the window, the rest of the events (A and B) wont be drawn. \nSo if this level is the force Drawable level, we wont stop at event C and will include the socket event A.\n\nI\u0027ll add some comments to explain this in the code :)",
+      "parentUuid": "3a42e92a_ba5265bf",
+      "range": {
+        "startLine": 370,
+        "startChar": 0,
+        "endLine": 373,
+        "endChar": 3
+      },
+      "revId": "f85959ae4390139c40ad2eb960dd22ba31017368",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cda88d20_fdee29ab",
         "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
         "patchSetId": 26
@@ -272,6 +500,30 @@
       "writtenOn": "2024-06-21T15:59:44Z",
       "side": 1,
       "message": "took me a minute to understand this conditional\n\nhow do you feel about:\n\n```\nconst levelForcedDrawable \u003d Boolean(this.dataProvider.forceDrawableLevel?.(level));\nif(entryOffsetRight \u003c\u003d this.chartViewport.windowLeftTime \u0026\u0026 !levelForcedDrawable) {}\n```\n\n(or similar)",
+      "range": {
+        "startLine": 2283,
+        "startChar": 7,
+        "endLine": 2284,
+        "endChar": 101
+      },
+      "revId": "f85959ae4390139c40ad2eb960dd22ba31017368",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "048d1f0a_14422c40",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 26
+      },
+      "lineNbr": 2284,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2024-06-25T23:06:31Z",
+      "side": 1,
+      "message": "Good call, done!",
+      "parentUuid": "cda88d20_fdee29ab",
       "range": {
         "startLine": 2283,
         "startChar": 7,
