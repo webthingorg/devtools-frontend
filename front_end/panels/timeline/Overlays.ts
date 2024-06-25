@@ -15,6 +15,11 @@ import {type TimelineFlameChartNetworkDataProvider} from './TimelineFlameChartNe
 const NETWORK_RESIZE_ELEM_HEIGHT_PX = 8;
 
 /**
+ * Size to stagger sections of a TimespanBreakdownOverlay.
+ */
+const TIMESPAN_BREAKDOWN_OVERLAY_STAGGER_PX = 5;
+
+/**
  * Represents which flamechart an entry is rendered in.
  * We need to know this because when we place an overlay for an entry we need
  * to adjust its Y value if it's in the main chart which is drawn below the
@@ -62,9 +67,25 @@ export interface TimeRangeLabel {
 }
 
 /**
+ * An EntryBreakdown, or section, that makes up a TimespanBreakdown.
+ */
+export type EntryBreakdown = {
+  bounds: TraceEngine.Types.Timing.TraceWindowMicroSeconds,
+  label: string,
+};
+
+/**
+ * Represents a timespan on a trace broken down into parts. Each part has a label to it.
+ */
+export interface TimespanBreakdown {
+  type: 'TIMESPAN_BREAKDOWN';
+  sections: Array<EntryBreakdown>;
+}
+
+/**
  * All supported overlay types. Expected to grow in time!
  */
-export type TimelineOverlay = EntrySelected|TimeRangeLabel|EntryLabel;
+export type TimelineOverlay = EntrySelected|TimeRangeLabel|EntryLabel|TimespanBreakdown;
 
 /**
  * To be able to draw overlays accurately at the correct pixel position, we
@@ -345,8 +366,56 @@ export class Overlays {
         }
         break;
       }
+      case 'TIMESPAN_BREAKDOWN': {
+        this.#positionTimespanBreakdownOverlay(overlay, element);
+        const component = element.querySelector('devtools-timespan-breakdown-overlay');
+        if (component) {
+          component.afterOverlayUpdate();
+        }
+        break;
+      }
+
       default: {
         Platform.TypeScriptUtilities.assertNever(overlay, `Unknown overlay: ${JSON.stringify(overlay)}`);
+      }
+    }
+  }
+
+  #positionTimespanBreakdownOverlay(overlay: TimespanBreakdown, element: HTMLElement): void {
+    const component = element?.querySelector('devtools-timespan-breakdown-overlay');
+    const shadow = component?.shadowRoot;
+    const elementSections = shadow?.querySelectorAll('.timespan-breakdown-overlay-section');
+    const leftEdgePixel = this.#xPixelForMicroSeconds('main', overlay.sections[0].bounds.min);
+    const rightEdgePixel =
+        this.#xPixelForMicroSeconds('main', overlay.sections[overlay.sections.length - 1].bounds.max);
+    if (leftEdgePixel === null || rightEdgePixel === null) {
+      return;
+    }
+
+    const rangeWidth = rightEdgePixel - leftEdgePixel;
+    element.style.left = `${leftEdgePixel}px`;
+    element.style.width = `${rangeWidth}px`;
+
+    if (elementSections?.length === overlay.sections.length) {
+      let count = 0;
+      let stagger = false;
+      for (const section of overlay.sections) {
+        const leftPixel = this.#xPixelForMicroSeconds('main', section.bounds.min);
+        const rightPixel = this.#xPixelForMicroSeconds('main', section.bounds.max);
+        if (leftPixel === null || rightPixel === null) {
+          return;
+        }
+        const rangeWidth = rightPixel - leftPixel;
+        const sectionElement = elementSections[count] as HTMLElement;
+
+        const networkHeight = this.#dimensions.charts.network?.heightPixels ?? 0;
+        sectionElement.style.left = `${leftPixel}px`;
+        sectionElement.style.width = `${rangeWidth}px`;
+        const staggeredHeight = stagger ? networkHeight + TIMESPAN_BREAKDOWN_OVERLAY_STAGGER_PX : networkHeight;
+        sectionElement.style.height = `${staggeredHeight}px`;
+        count++;
+        // Stagger every other section.
+        stagger = !stagger;
       }
     }
   }
@@ -518,6 +587,13 @@ export class Overlays {
         div.appendChild(component);
         return div;
       }
+      case 'TIMESPAN_BREAKDOWN': {
+        const component = new Components.TimespanBreakdownOverlay.TimespanBreakdownOverlay();
+        component.sections = overlay.sections;
+        component.canvasRect = this.#charts.mainChart.canvasBoundingClientRect();
+        div.appendChild(component);
+        return div;
+      }
       default: {
         return div;
       }
@@ -545,6 +621,14 @@ export class Overlays {
       case 'ENTRY_LABEL': {
         // TODO: update if the label changes
         // Nothing to do here.
+        break;
+      }
+      case 'TIMESPAN_BREAKDOWN': {
+        const component = element.querySelector('devtools-timespan-breakdown-overlay');
+        if (component) {
+          component.sections = overlay.sections;
+          component.canvasRect = this.#charts.mainChart.canvasBoundingClientRect();
+        }
         break;
       }
       default:
