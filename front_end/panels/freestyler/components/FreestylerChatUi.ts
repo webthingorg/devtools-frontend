@@ -89,6 +89,10 @@ const TempUIStrings = {
    *@description Consent view data visibility text
    */
   consentTextVisibilityDisclaimer: 'Data may be seen by trained reviewers to improve this feature.',
+  /**
+   * @description The loading indicator text.
+   */
+  loading: 'The assistant is typing…',
 };
 // const str_ = i18n.i18n.registerUIStrings('panels/freestyler/components/FreestylerChatUi.ts', UIStrings);
 // const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -286,7 +290,7 @@ export class FreestylerChatUi extends HTMLElement {
         )}
         ${
           this.#props.isLoading && isLast
-            ? LitHtml.html`<div class='chat-loading' >Loading...</div>`
+            ? LitHtml.html`<div class="chat-loading">${i18nString(TempUIStrings.loading)}</div>`
             : LitHtml.nothing
         }
       </div>
