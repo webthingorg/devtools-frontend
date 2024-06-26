@@ -9,6 +9,7 @@ import * as CrUXManager from '../../../models/crux-manager/crux-manager.js';
 import * as LiveMetrics from '../../../models/live-metrics/live-metrics.js';
 import * as ComponentHelpers from '../../../ui/components/helpers/helpers.js';
 import * as Settings from '../../../ui/components/settings/settings.js';
+import * as UI from '../../../ui/legacy/legacy.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 
 import liveMetricsViewStyles from './liveMetricsView.css.js';
@@ -31,8 +32,17 @@ export class LiveMetricsView extends HTMLElement {
   #fieldDeviceScope: CrUXManager.DeviceScope = 'ALL';
   #fieldPreferURL = true;
 
+  #toggleRecordButton: Element;
+  #recordReloadButton: Element;
+
   constructor() {
     super();
+
+    this.#toggleRecordButton = UI.UIUtils.createInlineButton(
+        UI.Toolbar.Toolbar.createActionButtonForId('timeline.toggle-recording', {showLabel: true}));
+    this.#recordReloadButton = UI.UIUtils.createInlineButton(
+        UI.Toolbar.Toolbar.createActionButtonForId('timeline.record-reload', {showLabel: true}));
+
     this.#render();
   }
 
@@ -234,6 +244,18 @@ export class LiveMetricsView extends HTMLElement {
               <${Settings.SettingCheckbox.SettingCheckbox.litTagName} .data=${
                   {setting: automaticSetting} as Settings.SettingCheckbox.SettingCheckboxData}>
               </${Settings.SettingCheckbox.SettingCheckbox.litTagName}>
+            </div>
+            <div id="record" class="card">
+              <div class="record-action">
+                ${this.#toggleRecordButton}
+                <span class="shortcut-label">${UI.ShortcutRegistry.ShortcutRegistry.instance().shortcutTitleForAction('timeline.toggle-recording')}</span>
+              </div>
+            </div>
+            <div id="record-page-load" class="card">
+              <div class="record-action">
+                ${this.#recordReloadButton}
+                <span class="shortcut-label">${UI.ShortcutRegistry.ShortcutRegistry.instance().shortcutTitleForAction('timeline.record-reload')}</span>
+              </div>
             </div>
           </div>
         </div>
