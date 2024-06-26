@@ -46,6 +46,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e066a5a8_5743be0b",
+        "filename": "front_end/panels/timeline/Overlays.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-06-26T22:18:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16b5d2ce_1ef4c81d",
+      "revId": "e5d6ee1bcf23aa6a4f8c828dcbc634d23a4c7abe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4ec94d4d_0144a49b",
@@ -83,6 +101,30 @@
           ]
         }
       ],
+      "revId": "e5d6ee1bcf23aa6a4f8c828dcbc634d23a4c7abe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "737c9228_8de1e244",
+        "filename": "front_end/panels/timeline/Overlays.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-06-26T22:18:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ec94d4d_0144a49b",
+      "range": {
+        "startLine": 388,
+        "startChar": 62,
+        "endLine": 388,
+        "endChar": 81
+      },
       "revId": "e5d6ee1bcf23aa6a4f8c828dcbc634d23a4c7abe",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -128,6 +170,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e476092e_70bc5fae",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-06-26T22:18:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b20f9088_179b9628",
+      "range": {
+        "startLine": 216,
+        "startChar": 2,
+        "endLine": 216,
+        "endChar": 23
+      },
+      "revId": "e5d6ee1bcf23aa6a4f8c828dcbc634d23a4c7abe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "96002e19_b427ba8e",
@@ -165,6 +231,30 @@
           ]
         }
       ],
+      "revId": "e5d6ee1bcf23aa6a4f8c828dcbc634d23a4c7abe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9dce18f_21cbc453",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-06-26T22:18:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96002e19_b427ba8e",
+      "range": {
+        "startLine": 226,
+        "startChar": 8,
+        "endLine": 226,
+        "endChar": 46
+      },
       "revId": "e5d6ee1bcf23aa6a4f8c828dcbc634d23a4c7abe",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -230,6 +320,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "554b1854_8c0478cd",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 451,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-06-26T22:18:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e249e5d2_56be90e3",
+      "range": {
+        "startLine": 451,
+        "startChar": 39,
+        "endLine": 451,
+        "endChar": 61
+      },
+      "revId": "e5d6ee1bcf23aa6a4f8c828dcbc634d23a4c7abe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "768e39db_36d6b9a5",
@@ -243,6 +357,30 @@
       "writtenOn": "2024-06-26T13:41:35Z",
       "side": 1,
       "message": "Maybe let\u0027s rename it to `ToggleSidebarInsights` since it\u0027s turning them on/off?",
+      "range": {
+        "startLine": 36,
+        "startChar": 13,
+        "endLine": 36,
+        "endChar": 34
+      },
+      "revId": "e5d6ee1bcf23aa6a4f8c828dcbc634d23a4c7abe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d806643c_80ee39b4",
+        "filename": "front_end/panels/timeline/components/Sidebar.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-06-26T22:18:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "768e39db_36d6b9a5",
       "range": {
         "startLine": 36,
         "startChar": 13,
@@ -272,6 +410,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "66a66c49_9d2ab919",
+        "filename": "front_end/panels/timeline/components/Sidebar.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-06-26T22:18:00Z",
+      "side": 1,
+      "message": "Ah yeah! The sidebar insights that are not clicked look different than those that are (they are unexpanded and gray). That bit is not on this CL but will be added in a follow up!",
+      "parentUuid": "3b780fb9_ee99eb74",
+      "revId": "e5d6ee1bcf23aa6a4f8c828dcbc634d23a4c7abe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6f472c43_cc64b48d",
         "filename": "front_end/panels/timeline/components/Sidebar.ts",
         "patchSetId": 11
@@ -283,6 +439,30 @@
       "writtenOn": "2024-06-26T13:41:35Z",
       "side": 1,
       "message": "We can add `@click\u003d${this.#toggleLCPPhaseClick}` here too",
+      "range": {
+        "startLine": 305,
+        "startChar": 9,
+        "endLine": 305,
+        "endChar": 64
+      },
+      "revId": "e5d6ee1bcf23aa6a4f8c828dcbc634d23a4c7abe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59a1bb90_f22e7836",
+        "filename": "front_end/panels/timeline/components/Sidebar.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-06-26T22:18:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f472c43_cc64b48d",
       "range": {
         "startLine": 305,
         "startChar": 9,
