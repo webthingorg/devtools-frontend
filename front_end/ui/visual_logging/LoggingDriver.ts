@@ -218,10 +218,10 @@ async function process(): Promise<void> {
       if (trackKeyDown) {
         element.addEventListener('keydown', e => logKeyDown(keyboardLogThrottler)(e.currentTarget, e), {capture: true});
       }
-      if (loggingState.config.track?.resize) {
-        resizeObserver.observe(element);
-        intersectionObserver.observe(element);
-      }
+      // if (loggingState.config.track?.resize) {
+      //   resizeObserver.observe(element);
+      //   intersectionObserver.observe(element);
+      // }
       if (element.tagName === 'SELECT') {
         const onSelectOpen = (e: Event): void => {
           void logClick(clickLogThrottler)(element, e);
