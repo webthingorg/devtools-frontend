@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9ba37bac_b85cf2f6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-06-26T09:47:08Z",
+      "side": 1,
+      "message": "Interesting. The way it\u0027s implemented right now, all files belong to the same single build module (even if inside different folders). This allows to organize the files nicely while preventing cirular dependencies at build time when imports are added across folders. It also makes it possible for files from one folder to import files from another directly (not via a entrypoint file / bundle file).\n\nMy guess would be that this should be fine because this will all end up being bundled into lantern.js. However the devtools browser test failures seem to indicate otherwise, because they error when devtools modules are tried to be loaded in the test environment  (https://chromium-swarm.appspot.com/task?id\u003d6a6a2c02f5559710\u0026w\u003dtrue).\n\nI wonder if there\u0027s a set of imports that violates how the bundler works that we can fix easily. Otherwise, I think we would need to stick to the usual pattern of defining one entry point per folder/module (we have the `ts` entry point files but are missing the corresponding BUILD.gn file for each) and ensure we use a module\u0027s entrypoint when importing from another module. Doing this would likely cause circular dependencies so we would have to split the stuff into more submodules, which is annoying but likely needed if we don\u0027t find the culprit in the current implementation.",
+      "parentUuid": "33b1f183_da37ca13",
+      "revId": "45460d95fa3b3135c8a2dbf681be4dae1e52e20b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "08ce839b_465aee57",
         "filename": "front_end/models/trace/LanternComputationData.ts",
         "patchSetId": 9
