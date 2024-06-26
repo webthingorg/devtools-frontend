@@ -22,6 +22,30 @@
       },
       "revId": "1ced259c4ed2f243e5be314b315d12fc1d186627",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc240426_9d97179d",
+        "filename": "buckets/try.star",
+        "patchSetId": 3
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2024-06-26T07:51:43Z",
+      "side": 1,
+      "message": "Yes. Will do in separate CL.",
+      "parentUuid": "feaaa453_d5ef2967",
+      "range": {
+        "startLine": 263,
+        "startChar": 9,
+        "endLine": 263,
+        "endChar": 40
+      },
+      "revId": "1ced259c4ed2f243e5be314b315d12fc1d186627",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
