@@ -1,0 +1,296 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16b5d2ce_1ef4c81d",
+        "filename": "front_end/panels/timeline/Overlays.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-26T13:41:35Z",
+      "side": 1,
+      "message": "We could move this to `TimespanBreakdownOverlay` as a static variable and import it here to try keep the object rendering logic there",
+      "fixSuggestions": [
+        {
+          "fixId": "785165e5_24670f16",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/Overlays.ts",
+              "range": {
+                "startLine": 17,
+                "startChar": 0,
+                "endLine": 22,
+                "endChar": 0
+              },
+              "replacement": ""
+            },
+            {
+              "path": "front_end/panels/timeline/Overlays.ts",
+              "range": {
+                "startLine": 414,
+                "startChar": 0,
+                "endLine": 415,
+                "endChar": 0
+              },
+              "replacement": "        const staggeredHeight \u003d stagger ? networkHeight + Components.TimespanBreakdownOverlay.TimespanBreakdownOverlay.STAGGER_PX : networkHeight;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "e5d6ee1bcf23aa6a4f8c828dcbc634d23a4c7abe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ec94d4d_0144a49b",
+        "filename": "front_end/panels/timeline/Overlays.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-26T13:41:35Z",
+      "side": 1,
+      "message": "Let\u0027s check if `overlay.sections[0]` exists",
+      "range": {
+        "startLine": 388,
+        "startChar": 62,
+        "endLine": 388,
+        "endChar": 81
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "8c64ed93_eb557c0a",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/Overlays.ts",
+              "range": {
+                "startLine": 388,
+                "startChar": 0,
+                "endLine": 388,
+                "endChar": 0
+              },
+              "replacement": "    if (overlay.sections.length \u003d\u003d\u003d 0) {\n      return;\n    }\n"
+            }
+          ]
+        }
+      ],
+      "revId": "e5d6ee1bcf23aa6a4f8c828dcbc634d23a4c7abe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b20f9088_179b9628",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-26T13:41:35Z",
+      "side": 1,
+      "message": "nit: `toggleSidebarInsights`",
+      "range": {
+        "startLine": 216,
+        "startChar": 2,
+        "endLine": 216,
+        "endChar": 23
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "c461ee08_5514c8e3",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/TimelineFlameChartView.ts",
+              "range": {
+                "startLine": 216,
+                "startChar": 0,
+                "endLine": 217,
+                "endChar": 0
+              },
+              "replacement": "  toggleSidebarInsights(): void {\n"
+            }
+          ]
+        }
+      ],
+      "revId": "e5d6ee1bcf23aa6a4f8c828dcbc634d23a4c7abe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96002e19_b427ba8e",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 226,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-26T13:41:35Z",
+      "side": 1,
+      "message": "I think we can remove this line to not recalculate `this.#timespanBreakdownOverlay` since it won\u0027t ever change. We can just add the same object to overlays again when the insights are turned on if we calculated it before.",
+      "range": {
+        "startLine": 226,
+        "startChar": 8,
+        "endLine": 226,
+        "endChar": 46
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "99d558b7_1c685914",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/TimelineFlameChartView.ts",
+              "range": {
+                "startLine": 226,
+                "startChar": 0,
+                "endLine": 227,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "e5d6ee1bcf23aa6a4f8c828dcbc634d23a4c7abe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e249e5d2_56be90e3",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 451,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-26T13:41:35Z",
+      "side": 1,
+      "message": "We probably need to add those labels to `const UIStrings \u003d {}`",
+      "range": {
+        "startLine": 451,
+        "startChar": 39,
+        "endLine": 451,
+        "endChar": 61
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "3c6cf734_c44afac2",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/TimelineFlameChartView.ts",
+              "range": {
+                "startLine": 41,
+                "startChar": 0,
+                "endLine": 41,
+                "endChar": 0
+              },
+              "replacement": "  /**\n   * @description Label for the time to first byte in the LCP timespan breakdown.\n   */\n  timeToFirstByte: \u0027Time to first byte\u0027,\n  /**\n   * @description Label for the resource load delay in the LCP timespan breakdown.\n   */\n  resourceLoadDelay: \u0027Resource load delay\u0027,\n  /**\n   * @description Label for the resource load time in the LCP timespan breakdown.\n   */\n  resourceLoadTime: \u0027Resource load time\u0027,\n  /**\n   * @description Label for the element render delay in the LCP timespan breakdown.\n   */\n  elementRenderDelay: \u0027Element render delay\u0027,\n"
+            },
+            {
+              "path": "front_end/panels/timeline/TimelineFlameChartView.ts",
+              "range": {
+                "startLine": 417,
+                "startChar": 0,
+                "endLine": 418,
+                "endChar": 0
+              },
+              "replacement": "      sections.push({bounds: ttfb, label: i18nString(UIStrings.timeToFirstByte)}, {bounds: renderDelay, label: i18nString(UIStrings.elementRenderDelay)});\n"
+            },
+            {
+              "path": "front_end/panels/timeline/TimelineFlameChartView.ts",
+              "range": {
+                "startLine": 448,
+                "startChar": 0,
+                "endLine": 452,
+                "endChar": 0
+              },
+              "replacement": "          {bounds: ttfb, label: i18nString(UIStrings.timeToFirstByte)},\n          {bounds: loadDelay, label: i18nString(UIStrings.resourceLoadDelay)},\n          {bounds: loadTime, label: i18nString(UIStrings.resourceLoadTime)},\n          {bounds: renderDelay, label: i18nString(UIStrings.elementRenderDelay)},\n"
+            }
+          ]
+        }
+      ],
+      "revId": "e5d6ee1bcf23aa6a4f8c828dcbc634d23a4c7abe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "768e39db_36d6b9a5",
+        "filename": "front_end/panels/timeline/components/Sidebar.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-26T13:41:35Z",
+      "side": 1,
+      "message": "Maybe let\u0027s rename it to `ToggleSidebarInsights` since it\u0027s turning them on/off?",
+      "range": {
+        "startLine": 36,
+        "startChar": 13,
+        "endLine": 36,
+        "endChar": 34
+      },
+      "revId": "e5d6ee1bcf23aa6a4f8c828dcbc634d23a4c7abe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b780fb9_ee99eb74",
+        "filename": "front_end/panels/timeline/components/Sidebar.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-26T13:41:35Z",
+      "side": 1,
+      "message": "Is that the final solution to make it show up? This component doesn\u0027t look very clickable when you look at it 😅",
+      "revId": "e5d6ee1bcf23aa6a4f8c828dcbc634d23a4c7abe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f472c43_cc64b48d",
+        "filename": "front_end/panels/timeline/components/Sidebar.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-26T13:41:35Z",
+      "side": 1,
+      "message": "We can add `@click\u003d${this.#toggleLCPPhaseClick}` here too",
+      "range": {
+        "startLine": 305,
+        "startChar": 9,
+        "endLine": 305,
+        "endChar": 64
+      },
+      "revId": "e5d6ee1bcf23aa6a4f8c828dcbc634d23a4c7abe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
