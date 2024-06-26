@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6c4e3441_a68580a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-06-26T04:54:10Z",
+      "side": 1,
+      "message": "seems random layout tests (just ~5) are failing in CI, but not locally for me. expected?",
+      "revId": "0041dad645251cc2c7a59d14b5551abc5f25ea2b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
