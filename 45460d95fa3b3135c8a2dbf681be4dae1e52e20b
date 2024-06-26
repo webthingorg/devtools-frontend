@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "84d991d2_be2626bd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-06-26T17:11:55Z",
+      "side": 1,
+      "message": "I\u0027m thinking my naming of `lowercase/lowercase.ts` files that weren\u0027t really devtools entrypoints was messing up the bundler. Perhaps it uses the file naming convention to assume things that are not codified in the BUILD files.",
+      "parentUuid": "9ba37bac_b85cf2f6",
+      "revId": "45460d95fa3b3135c8a2dbf681be4dae1e52e20b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "08ce839b_465aee57",
         "filename": "front_end/models/trace/LanternComputationData.ts",
         "patchSetId": 9
