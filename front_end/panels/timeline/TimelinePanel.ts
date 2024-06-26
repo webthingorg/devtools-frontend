@@ -55,6 +55,7 @@ import * as MobileThrottling from '../mobile_throttling/mobile_throttling.js';
 import {ActiveFilters} from './ActiveFilters.js';
 import {TraceLoadEvent} from './BenchmarkEvents.js';
 import * as TimelineComponents from './components/components.js';
+import {SidebarInsightEnabled} from './components/Sidebar.js';
 import {SHOULD_SHOW_EASTER_EGG} from './EasterEgg.js';
 import {Tracker} from './FreshRecording.js';
 import historyToolbarButtonStyles from './historyToolbarButton.css.js';
@@ -451,6 +452,12 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
 
     this.#sideBar.setMainWidget(this.timelinePane);
     this.#sideBar.show(this.element);
+    this.#sideBar.contentElement.addEventListener(
+        SidebarInsightEnabled.eventName, this.#sidebarInsightEnabled.bind(this));
+  }
+
+  #sidebarInsightEnabled(): void {
+    this.flameChart.sidebarInsightEnabled();
   }
 
   static instance(opts: {
@@ -1272,6 +1279,11 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     }
     this.flameChart.setModel(traceParsedData, isCpuProfile);
     this.flameChart.setSelection(null);
+
+    const traceInsightsData = this.#traceEngineModel.traceInsights(this.#traceEngineActiveTraceIndex);
+    if (traceInsightsData) {
+      this.flameChart.setInsights(traceInsightsData);
+    }
 
     // Set up line level profiling with CPU profiles, if we found any.
     PerfUI.LineLevelProfile.Performance.instance().reset();
