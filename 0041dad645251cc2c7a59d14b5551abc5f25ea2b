@@ -16,6 +16,64 @@
       "message": "seems random layout tests (just ~5) are failing in CI, but not locally for me. expected?",
       "revId": "0041dad645251cc2c7a59d14b5551abc5f25ea2b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df033198_497463cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-06-26T09:20:04Z",
+      "side": 1,
+      "message": "mmm this is weird. Reading the failures at https://chromium-swarm.appspot.com/task?id\u003d6a6a2c02f5559710\u0026w\u003dtrue, it doesn\u0027t seem expected and it\u0027s likely something specific to this cl.\n\nwhat are the layout tests you refer to?",
+      "parentUuid": "6c4e3441_a68580a2",
+      "revId": "0041dad645251cc2c7a59d14b5551abc5f25ea2b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42262c02_3a6d1bdd",
+        "filename": "front_end/models/trace/lantern/lantern.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-06-26T09:20:04Z",
+      "side": 1,
+      "message": "bundle files in dt usually export the content of all files in the module like \n```\nimport * as FileName1 from \u0027Filename1.ts\u0027\nimport * as FileName2 from \u0027Filename2.ts\u0027\n...\n\nexport {\n  FileName1,\n  FileName2\n  ...\n}\n```\n\nI think the way we are doing it here should work with dt bundling so using this pattern is not strictly required, but the way we import stuff from this module would look a bit different. I don\u0027t feel strongly about it tho but maybe it\u0027s worth considering if the refactoring to accomodate to this is straight forward. If it is turns out being too much refactoring then feel free to ignore. (sorry for not catching this before). (same for metrics.ts)",
+      "revId": "0041dad645251cc2c7a59d14b5551abc5f25ea2b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4bed2251_ba00cf50",
+        "filename": "front_end/models/trace/lantern/metrics/TBTUtils.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-06-26T09:20:04Z",
+      "side": 1,
+      "message": "per the previous comments, I think you meant to remove these license headers? (there are other files with these remaining too)",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 0
+      },
+      "revId": "0041dad645251cc2c7a59d14b5551abc5f25ea2b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

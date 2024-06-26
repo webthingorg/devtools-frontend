@@ -16,6 +16,24 @@
       "message": "what formatter does cdt use?\n\nnote how it mangled the iterator function syntax here",
       "revId": "7b9f038ffac1fd3c89a7d4cfc0e8405fef7681f7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b381fccd_d0d9ceb4",
+        "filename": "front_end/models/trace/lantern/BaseNode.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-06-26T09:20:04Z",
+      "side": 1,
+      "message": "we use clang (https://chromium.googlesource.com/external/github.com/llvm/llvm-project/clang/tools/clang-format.git).\n\nWhen undesired stuff like this happens you can surround the affected code with\n```\n// clang-format off\n...\n// clang-format on\n```\n\nto prevent the mangling",
+      "parentUuid": "17e991be_0f09a8c3",
+      "revId": "7b9f038ffac1fd3c89a7d4cfc0e8405fef7681f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
