@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "feaaa453_d5ef2967",
+        "filename": "buckets/try.star",
+        "patchSetId": 3
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2024-06-26T07:49:43Z",
+      "side": 1,
+      "message": "btw, do you also create an orchestrator version for this one? And for any other optional trybot?",
+      "range": {
+        "startLine": 263,
+        "startChar": 9,
+        "endLine": 263,
+        "endChar": 40
+      },
+      "revId": "1ced259c4ed2f243e5be314b315d12fc1d186627",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
