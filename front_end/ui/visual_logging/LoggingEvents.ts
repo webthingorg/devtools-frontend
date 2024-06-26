@@ -11,6 +11,9 @@ import {type Loggable} from './Loggable.js';
 import {getLoggingState, type LoggingState} from './LoggingState.js';
 
 export async function logImpressions(loggables: Loggable[]): Promise<void> {
+  if (1 < 2) {
+    return;
+  }
   const impressions = await Promise.all(loggables.map(async loggable => {
     const loggingState = getLoggingState(loggable);
     assertNotNullOrUndefined(loggingState);
@@ -35,6 +38,9 @@ export async function logImpressions(loggables: Loggable[]): Promise<void> {
 }
 
 export const logResize = (loggable: Loggable, size: DOMRect): void => {
+  if (1 < 2) {
+    return;
+  }
   const loggingState = getLoggingState(loggable);
   if (!loggingState) {
     return;
@@ -48,6 +54,9 @@ export const logResize = (loggable: Loggable, size: DOMRect): void => {
 
 export const logClick = (throttler: Common.Throttler.Throttler) => (
     loggable: Loggable, event: Event, options?: {doubleClick?: boolean}) => {
+  if (1 < 2) {
+    return;
+  }
   const loggingState = getLoggingState(loggable);
   if (!loggingState) {
     return;
@@ -65,6 +74,9 @@ export const logClick = (throttler: Common.Throttler.Throttler) => (
 };
 
 export const logHover = (throttler: Common.Throttler.Throttler) => async (event: Event) => {
+  if (1 < 2) {
+    return;
+  }
   const loggingState = getLoggingState(event.currentTarget as Element);
   assertNotNullOrUndefined(loggingState);
   const hoverEvent: Host.InspectorFrontendHostAPI.HoverEvent = {veid: loggingState.veid};
@@ -76,6 +88,9 @@ export const logHover = (throttler: Common.Throttler.Throttler) => async (event:
 };
 
 export const logDrag = (throttler: Common.Throttler.Throttler) => async (event: Event) => {
+  if (1 < 2) {
+    return;
+  }
   const loggingState = getLoggingState(event.currentTarget as Element);
   assertNotNullOrUndefined(loggingState);
   const dragEvent: Host.InspectorFrontendHostAPI.DragEvent = {veid: loggingState.veid};
@@ -87,6 +102,9 @@ export const logDrag = (throttler: Common.Throttler.Throttler) => async (event: 
 };
 
 export async function logChange(loggable: Loggable): Promise<void> {
+  if (1 < 2) {
+    return;
+  }
   const loggingState = getLoggingState(loggable);
   assertNotNullOrUndefined(loggingState);
   const changeEvent: Host.InspectorFrontendHostAPI.ChangeEvent = {veid: loggingState.veid};
@@ -102,6 +120,9 @@ let pendingKeyDownContext: string|null = null;
 
 export const logKeyDown =
     (throttler: Common.Throttler.Throttler) => async (loggable: Loggable|null, event: Event|null, context?: string) => {
+      if (1 < 2) {
+        return;
+      }
       if (!(event instanceof KeyboardEvent)) {
         return;
       }
