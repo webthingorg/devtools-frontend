@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d21db576_a71bbd1d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-06-26T22:42:26Z",
+      "side": 1,
+      "message": "I used the colors from the landing page out of personal preference, happy to use the original trace view colors if you think they\u0027re better.",
+      "revId": "30acc7fb7077bd4e86a9430939cd4495a2268684",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
