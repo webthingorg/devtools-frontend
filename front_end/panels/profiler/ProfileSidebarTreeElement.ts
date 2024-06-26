@@ -4,7 +4,7 @@
 
 import type * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
-import * as IconButton from '../../ui/components/icon_button/icon_button.js';
+import * as Buttons from '../../ui/components/buttons/buttons.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as VisualLogging from '../../ui/visual_logging/visual_logging.js';
 
@@ -27,7 +27,7 @@ const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 export class ProfileSidebarTreeElement extends UI.TreeOutline.TreeElement {
   readonly iconElement: HTMLDivElement;
   readonly titlesElement: HTMLDivElement;
-  readonly menuElement: HTMLButtonElement;
+  readonly menuElement: Buttons.Button.Button;
   titleContainer: HTMLElement;
   override titleElement: HTMLElement;
   subtitleElement: HTMLElement;
@@ -49,11 +49,11 @@ export class ProfileSidebarTreeElement extends UI.TreeOutline.TreeElement {
     this.titleElement = this.titleContainer.createChild('span', 'title');
     this.subtitleElement = this.titlesElement.createChild('span', 'subtitle');
 
-    this.menuElement = document.createElement('button');
+    this.menuElement = new Buttons.Button.Button();
+    this.menuElement
+        .data = {variant: Buttons.Button.Variant.ICON, iconName: 'dots-vertical', jslogContext: 'profile-options'};
     this.menuElement.tabIndex = -1;
-    this.menuElement.appendChild(IconButton.Icon.create('dots-vertical'));
     this.menuElement.addEventListener('click', this.handleContextMenuEvent.bind(this));
-    this.menuElement.setAttribute('jslog', `${VisualLogging.dropDown('profile-options').track({click: true})}`);
     UI.Tooltip.Tooltip.install(this.menuElement, i18nString(UIStrings.profileOptions));
 
     this.titleElement.textContent = profile.title;

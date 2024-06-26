@@ -164,6 +164,10 @@ li.wait .icon {
   content: none;
 }
 
+.heap-snapshot-sidebar-tree-item:not(:hover) devtools-button {
+  visibility: hidden;
+}
+
 .heap-snapshot-sidebar-tree-item.wait .icon {
   mask-image: unset;
   background-color: inherit;

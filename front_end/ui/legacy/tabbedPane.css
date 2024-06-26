@@ -337,7 +337,7 @@
   flex-shrink: 0;
 }
 
-.close-button {
+/* .close-button {
   --tabbed-pane-close-icon-color: var(--icon-default);
 
   width: 16px;
@@ -358,7 +358,7 @@
 
 .tabbed-pane-header-tab.preview.closeable .close-button {
   margin-left: 0;
-}
+} */
 
 @media (forced-colors: active) {
   .tabbed-pane-tab-slider {
