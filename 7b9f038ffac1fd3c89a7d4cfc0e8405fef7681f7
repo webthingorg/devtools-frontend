@@ -34,6 +34,24 @@
       "parentUuid": "17e991be_0f09a8c3",
       "revId": "7b9f038ffac1fd3c89a7d4cfc0e8405fef7681f7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ef5b2b7_7fb88cb4",
+        "filename": "front_end/models/trace/lantern/BaseNode.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-06-26T20:30:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b381fccd_d0d9ceb4",
+      "revId": "7b9f038ffac1fd3c89a7d4cfc0e8405fef7681f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
