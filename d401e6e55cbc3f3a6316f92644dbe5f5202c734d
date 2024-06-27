@@ -1,0 +1,85 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "922c41f5_bd1ec7c0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-27T20:21:03Z",
+      "side": 1,
+      "message": "LGTM. Good algorithm 😎",
+      "revId": "d401e6e55cbc3f3a6316f92644dbe5f5202c734d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2e7a23b_9dd1cc3c",
+        "filename": "front_end/panels/timeline/Overlays.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-27T20:21:03Z",
+      "side": 1,
+      "message": "We don\u0027t need to check for overlaps if there is only 1 range",
+      "range": {
+        "startLine": 316,
+        "startChar": 4,
+        "endLine": 316,
+        "endChar": 35
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "667fcfc4_e14ca335",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/Overlays.ts",
+              "range": {
+                "startLine": 316,
+                "startChar": 0,
+                "endLine": 317,
+                "endChar": 0
+              },
+              "replacement": "    if (timeRangeOverlays.length \u003e 1) {\n"
+            }
+          ]
+        }
+      ],
+      "revId": "d401e6e55cbc3f3a6316f92644dbe5f5202c734d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e21ea65b_f367bc8b",
+        "filename": "front_end/panels/timeline/Overlays.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-27T20:21:03Z",
+      "side": 1,
+      "message": "If a range has 2 overlapping ranges, it doesn\u0027t mean that they will also overlap each other so we might be increasing the elevation unnecessarily. \n\nI know we don\u0027t want to spend too much time on this right now so let\u0027s ship it and keep this in mind.",
+      "range": {
+        "startLine": 374,
+        "startChar": 8,
+        "endLine": 374,
+        "endChar": 73
+      },
+      "revId": "d401e6e55cbc3f3a6316f92644dbe5f5202c734d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
