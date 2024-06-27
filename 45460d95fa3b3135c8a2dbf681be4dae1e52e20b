@@ -92,6 +92,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3d71ebcb_4ffc21bb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-06-27T09:31:56Z",
+      "side": 1,
+      "message": "yes this should also work! Nonetheless, I\u0027d suggest that as a non-blocker we really try to stick as closely as we can to devtools pattern in the near future",
+      "parentUuid": "84d991d2_be2626bd",
+      "revId": "45460d95fa3b3135c8a2dbf681be4dae1e52e20b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "08ce839b_465aee57",
         "filename": "front_end/models/trace/LanternComputationData.ts",
         "patchSetId": 9
