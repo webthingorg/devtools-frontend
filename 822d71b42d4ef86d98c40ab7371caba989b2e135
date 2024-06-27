@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "516c8f6d_50336e75",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-06-27T07:55:29Z",
+      "side": 1,
+      "message": "Hi Adam! I\u0027m this week\u0027s google material reviewer for DevTools. I\u0027ve added a comment on the button usage 😊",
+      "revId": "822d71b42d4ef86d98c40ab7371caba989b2e135",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d06882f3_b6664206",
+        "filename": "front_end/panels/timeline/components/LiveMetricsView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-06-27T07:55:29Z",
+      "side": 1,
+      "message": "Can we use `\u003cdevtools-button\u003e` here? We use the legacy buttons mostly in legacy code. I think in this case you\u0027d need a devtools button with the variant `icon toggle`, see: https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/ui/components/buttons/Button.ts;l\u003d27;drc\u003df2e8fca99a170300ef5360049dec910aefe15cfd. \n\nThese toggles have been introduced recently, but there are some usages of it, for example here: \nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/ui/legacy/SearchableView.ts;l\u003d235;drc\u003d3e02eb658e84b46ebb53667e0a1cb52fe53b5f87\n\nBut you can find other usages of `\u003cdevtools-button\u003e` within the context of `LitHtml`\n\nThis will require some work with the `ActionRegistry` since you don\u0027t have the helper, but I think this should work - let me know if there are unexpected problems!",
+      "revId": "822d71b42d4ef86d98c40ab7371caba989b2e135",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
