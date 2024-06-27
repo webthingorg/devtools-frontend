@@ -11,9 +11,12 @@ import {
 } from '../../testing/EnvironmentHelpers.js';
 import {expectCall} from '../../testing/ExpectStubCall.js';
 import {describeWithMockConnection} from '../../testing/MockConnection.js';
+import * as Coordinator from '../../ui/components/render_coordinator/render_coordinator.js';
 import * as Elements from '../elements/elements.js';
 
 import * as Animation from './animation.js';
+
+const coordinator = Coordinator.RenderCoordinator.RenderCoordinator.instance();
 
 const TIME_ANIMATION_PAYLOAD = {
   id: 'animation-id',
@@ -189,6 +192,7 @@ describeWithMockConnection('AnimationTimeline', () => {
       await expectCall(sinon.stub(view, 'previewsCreatedForTest'));
     }
     assert.strictEqual(previewContainer.querySelectorAll('.animation-buffer-preview').length, inScope ? 1 : 0);
+    await coordinator.done();
   };
 
   it('updates UI on in scope animation group start', updatesUiOnEvent(true));
