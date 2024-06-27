@@ -88,6 +88,42 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7768cb34_6bcfb8aa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 26
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2024-06-27T00:16:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8cc4531a_99dfa700",
+      "revId": "f85959ae4390139c40ad2eb960dd22ba31017368",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "454a5767_dd85f64a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 26
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2024-06-27T00:16:48Z",
+      "side": 1,
+      "message": "Oh interesting, yes there are some issues when selecting the events. Fixed now.",
+      "parentUuid": "9cd4ae17_d4a8d01c",
+      "revId": "f85959ae4390139c40ad2eb960dd22ba31017368",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f194c905_2ada8cd8",
@@ -125,6 +161,30 @@
       "side": 1,
       "message": "That was actually my initial implementation, but then I hit some issues because the flameChart assumes \"flat events\" and the nested events would need to be handled differently. But I will give this approach another try tomorrow.",
       "parentUuid": "f194c905_2ada8cd8",
+      "range": {
+        "startLine": 498,
+        "startChar": 2,
+        "endLine": 498,
+        "endChar": 5
+      },
+      "revId": "f85959ae4390139c40ad2eb960dd22ba31017368",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0910ef0_4df83106",
+        "filename": "front_end/models/trace/handlers/NetworkRequestsHandler.ts",
+        "patchSetId": 26
+      },
+      "lineNbr": 498,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2024-06-27T00:16:48Z",
+      "side": 1,
+      "message": "Updated, I think it\u0027s cleaner now.",
+      "parentUuid": "e7384d19_c8e9625c",
       "range": {
         "startLine": 498,
         "startChar": 2,
@@ -195,6 +255,30 @@
       "writtenOn": "2024-06-21T16:12:40Z",
       "side": 1,
       "message": "could we add some documentation (jsdoc is fine) to this file to explain how we use all the various web socket events?\n\nfrom my understanding, it seems that the synthetic event represents the entire duration of the connection, and then you can use its identifier to find all the events that happened during its lifecycle. is that accurate?\n\nAlso, if we put into `args.data` the set of all \"child\" events, could we change the data we export from this handler into being:\n\n```\nsockets: SyntheticWebSocketConnection[]\n```\n\nand then have less complexity elsewhere? wdyt?",
+      "range": {
+        "startLine": 519,
+        "startChar": 0,
+        "endLine": 519,
+        "endChar": 49
+      },
+      "revId": "f85959ae4390139c40ad2eb960dd22ba31017368",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9938e52_bb7455dd",
+        "filename": "front_end/models/trace/handlers/NetworkRequestsHandler.ts",
+        "patchSetId": 26
+      },
+      "lineNbr": 519,
+      "author": {
+        "id": 1341658
+      },
+      "writtenOn": "2024-06-27T00:16:48Z",
+      "side": 1,
+      "message": "Updated. it\u0027s now exporting WebSocketTraceData[] and each WebSocketTraceData has\n  {\n      events:  the list of WebSocket events\n      syntheticConnectionEvent:  the synthetic event representing the entire WebSocket connection\n  }",
+      "parentUuid": "c8fe1ed8_c17d1274",
       "range": {
         "startLine": 519,
         "startChar": 0,
