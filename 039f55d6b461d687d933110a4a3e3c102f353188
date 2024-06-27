@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c2e4464_dc40b319",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-06-27T18:29:46Z",
+      "side": 1,
+      "message": "Thanks so much! :)",
+      "parentUuid": "38c8ccac_59f2561d",
+      "revId": "039f55d6b461d687d933110a4a3e3c102f353188",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "924136fe_72514e32",
@@ -109,6 +127,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "05d73329_6a3ec7dc",
+        "filename": "front_end/panels/timeline/components/Sidebar.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-06-27T18:29:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "924136fe_72514e32",
+      "range": {
+        "startLine": 170,
+        "startChar": 10,
+        "endLine": 170,
+        "endChar": 26
+      },
+      "revId": "039f55d6b461d687d933110a4a3e3c102f353188",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5e964009_ac09ead7",
@@ -180,6 +222,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8bb98189_91af6b30",
+        "filename": "front_end/panels/timeline/components/SidebarInsight.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-06-27T18:29:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e964009_ac09ead7",
+      "range": {
+        "startLine": 12,
+        "startChar": 2,
+        "endLine": 12,
+        "endChar": 9
+      },
+      "revId": "039f55d6b461d687d933110a4a3e3c102f353188",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ade34fbe_f51380c7",
@@ -197,6 +263,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "871b5867_c9f2f70e",
+        "filename": "front_end/panels/timeline/components/sidebarInsight.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-06-27T18:29:46Z",
+      "side": 1,
+      "message": "yes, i like this! Done",
+      "parentUuid": "ade34fbe_f51380c7",
+      "revId": "039f55d6b461d687d933110a4a3e3c102f353188",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bef197df_7b1b10cb",
@@ -210,6 +294,30 @@
       "writtenOn": "2024-06-27T14:50:28Z",
       "side": 1,
       "message": "Most of the css for `.insight` and `.insight-closed` is the same. We can use ampersand (\u0026) selector to overwrite the few differences that apply to the `closed` element.\n\n\nSomething like this should work:\n\n```suggestion\n.insight {\n  display: block;\n  width: auto;\n  height: auto;\n  margin: 10px 0;\n  padding: 10px;\n  border-radius: 3px;\n  overflow: hidden;\n  border: 1px solid var(--sys-color-outline);\n  background-color: var(--sys-color-base);\n\n  \u0026.closed { \n    background-color: var(--sys-color-neutral-container);\n    border: none;\n  }\n}\n```\n\nAnd then on the `.closed` component it would be \n`\u003cdiv class\u003d\"insight closed\"\u003e`",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 1
+      },
+      "revId": "039f55d6b461d687d933110a4a3e3c102f353188",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ad1d531_40225f95",
+        "filename": "front_end/panels/timeline/components/sidebarInsight.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-06-27T18:29:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bef197df_7b1b10cb",
       "range": {
         "startLine": 7,
         "startChar": 0,
