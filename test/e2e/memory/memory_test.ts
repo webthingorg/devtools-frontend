@@ -164,8 +164,7 @@ describe('The Memory Panel', function() {
     });
   });
 
-  // TODO (343341610) Reinstate this test after change in Blink
-  it.skip('[crbug.com/343341610]: Shows the correct number of divs for a detached DOM tree correctly', async () => {
+  it('Shows the correct number of divs for a detached DOM tree correctly', async () => {
     await goToResource('memory/detached-dom-tree.html');
     await navigateToMemoryTab();
     await takeHeapSnapshot();
@@ -174,8 +173,7 @@ describe('The Memory Panel', function() {
     await waitForSearchResultNumber(3);
   });
 
-  // TODO (343341610) Reinstate this test after change in Blink
-  it.skip('[crbug.com/343341610]: Shows the correct output for an attached iframe', async () => {
+  it('Shows the correct output for an attached iframe', async () => {
     await goToResource('memory/attached-iframe.html');
     await navigateToMemoryTab();
     await takeHeapSnapshot();
@@ -271,8 +269,7 @@ describe('The Memory Panel', function() {
         retainerChain => retainerChain.some(({retainerClassName}) => retainerClassName === 'Detached Window'));
   });
 
-  // TODO (343341610) Reinstate this test after change in Blink
-  it.skip('[crbug.com/343341610]: Shows the a tooltip', async () => {
+  it('Shows the a tooltip', async () => {
     await goToResource('memory/detached-dom-tree.html');
     await navigateToMemoryTab();
     await takeHeapSnapshot();
@@ -522,8 +519,7 @@ describe('The Memory Panel', function() {
     assert.isTrue(!(await getCategoryRow('ObjectRetainedByBothDetachedDomAndConsole', false)));
   });
 
-  // TODO (343341610) Enable this test after change in Blink
-  it.skip('[crbug.com/343341610]: Groups HTML elements by tag name', async () => {
+  it('Groups HTML elements by tag name', async () => {
     await goToResource('memory/dom-details.html');
     await navigateToMemoryTab();
     await takeHeapSnapshot();
