@@ -51,6 +51,24 @@
       "parentUuid": "d06882f3_b6664206",
       "revId": "822d71b42d4ef86d98c40ab7371caba989b2e135",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2fab56cc_c4aac48e",
+        "filename": "front_end/panels/timeline/components/LiveMetricsView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-06-27T17:05:58Z",
+      "side": 1,
+      "message": "Never mind, if anything this is more compliant with our mocks.",
+      "parentUuid": "0c4f4496_a5ede092",
+      "revId": "822d71b42d4ef86d98c40ab7371caba989b2e135",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
