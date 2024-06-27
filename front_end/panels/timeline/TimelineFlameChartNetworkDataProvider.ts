@@ -12,6 +12,7 @@ import * as UI from '../../ui/legacy/legacy.js';
 import * as ThemeSupport from '../../ui/legacy/theme_support/theme_support.js';
 import * as VisualLogging from '../../ui/visual_logging/visual_logging.js';
 
+import * as TimelineComponents from './components/components.js';
 import {NetworkTrackAppender} from './NetworkTrackAppender.js';
 import timelineFlamechartPopoverStyles from './timelineFlamechartPopover.css.js';
 import {FlameChartStyle, Selection} from './TimelineFlameChartView.js';
@@ -26,7 +27,7 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
 
   #timelineDataInternal?: PerfUI.FlameChart.FlameChartTimelineData|null;
   #lastSelection?: Selection;
-  #traceEngineData: TraceEngine.Handlers.Types.TraceParseData|null;
+  #traceParseData: TraceEngine.Handlers.Types.TraceParseData|null;
   #eventIndexByEvent: Map<TraceEngine.Types.TraceEvents.SyntheticNetworkRequest, number|null> = new Map();
   #visualElementsParent: VisualLogging.Loggable|null = null;
 
@@ -37,17 +38,17 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
     this.#maxLevel = 0;
 
     this.#networkTrackAppender = null;
-    this.#traceEngineData = null;
+    this.#traceParseData = null;
   }
 
   setModel(traceEngineData: TraceEngine.Handlers.Types.TraceParseData|null): void {
     this.#timelineDataInternal = null;
-    this.#traceEngineData = traceEngineData;
+    this.#traceParseData = traceEngineData;
     this.#events = traceEngineData?.NetworkRequests.byTime || [];
     this.#eventIndexByEvent.clear();
 
-    if (this.#traceEngineData) {
-      this.#setTimingBoundsData(this.#traceEngineData);
+    if (this.#traceParseData) {
+      this.#setTimingBoundsData(this.#traceParseData);
     }
   }
 
@@ -75,12 +76,12 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
     }
 
     this.#timelineDataInternal = PerfUI.FlameChart.FlameChartTimelineData.createEmpty();
-    if (!this.#traceEngineData) {
+    if (!this.#traceParseData) {
       return this.#timelineDataInternal;
     }
 
-    this.#events = this.#traceEngineData.NetworkRequests.byTime;
-    this.#networkTrackAppender = new NetworkTrackAppender(this.#traceEngineData, this.#timelineDataInternal);
+    this.#events = this.#traceParseData.NetworkRequests.byTime;
+    this.#networkTrackAppender = new NetworkTrackAppender(this.#traceParseData, this.#timelineDataInternal);
     this.#maxLevel = this.#networkTrackAppender.appendTrackAtLevel(0);
 
     for (const group of this.#timelineDataInternal.groups) {
@@ -305,24 +306,16 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
   }
 
   prepareHighlightedEntryInfo(index: number): Element|null {
-    const /** @const */ maxURLChars = 80;
-    const event = this.#events[index];
     const element = document.createElement('div');
     const root = UI.UIUtils.createShadowRootWithCoreStyles(element, {
       cssFile: [timelineFlamechartPopoverStyles],
       delegatesFocus: undefined,
     });
+
     const contents = root.createChild('div', 'timeline-flamechart-popover');
-    const startTime = TraceEngine.Helpers.Timing.microSecondsToMilliseconds(event.ts);
-    const duration = TraceEngine.Helpers.Timing.microSecondsToMilliseconds(event.dur);
-    if (startTime && isFinite(duration)) {
-      contents.createChild('span', 'timeline-info-network-time').textContent =
-          i18n.TimeUtilities.millisToString(duration, true);
-    }
-    const div = (contents.createChild('span') as HTMLElement);
-    div.textContent = PerfUI.NetworkPriorities.uiLabelForNetworkPriority((event.args.data.priority));
-    div.style.color = this.#colorForPriority(event.args.data.priority) || 'black';
-    contents.createChild('span').textContent = Platform.StringUtilities.trimMiddle(event.args.data.url, maxURLChars);
+    const infoElement = new TimelineComponents.NetworkRequestTooltip.NetworkRequestTooltip();
+    infoElement.networkRequest = this.#events[index];
+    contents.appendChild(infoElement);
     return element;
   }
 
@@ -397,9 +390,9 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
    * The map's key is the frame ID.
    **/
   mainFrameNavigationStartEvents(): readonly TraceEngine.Types.TraceEvents.TraceEventNavigationStart[] {
-    if (!this.#traceEngineData) {
+    if (!this.#traceParseData) {
       return [];
     }
-    return this.#traceEngineData.Meta.mainFrameNavigations;
+    return this.#traceParseData.Meta.mainFrameNavigations;
   }
 }
