@@ -1,0 +1,223 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38c8ccac_59f2561d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-27T14:50:28Z",
+      "side": 1,
+      "message": "LGTM with a few suggestions 😊",
+      "revId": "039f55d6b461d687d933110a4a3e3c102f353188",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "924136fe_72514e32",
+        "filename": "front_end/panels/timeline/components/Sidebar.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-27T14:50:28Z",
+      "side": 1,
+      "message": "Maybe `lcpPhasesExpanded`?",
+      "range": {
+        "startLine": 170,
+        "startChar": 10,
+        "endLine": 170,
+        "endChar": 26
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "bfc3a7b0_558f41bf",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/components/Sidebar.ts",
+              "range": {
+                "startLine": 91,
+                "startChar": 0,
+                "endLine": 92,
+                "endChar": 0
+              },
+              "replacement": "  #lcpPhasesExpanded: boolean \u003d false;\n"
+            },
+            {
+              "path": "front_end/panels/timeline/components/Sidebar.ts",
+              "range": {
+                "startLine": 170,
+                "startChar": 0,
+                "endLine": 171,
+                "endChar": 0
+              },
+              "replacement": "    this.#lcpPhasesExpanded \u003d false;\n"
+            },
+            {
+              "path": "front_end/panels/timeline/components/Sidebar.ts",
+              "range": {
+                "startLine": 291,
+                "startChar": 0,
+                "endLine": 292,
+                "endChar": 0
+              },
+              "replacement": "    this.#lcpPhasesExpanded \u003d !this.#lcpPhasesExpanded;\n"
+            },
+            {
+              "path": "front_end/panels/timeline/components/Sidebar.ts",
+              "range": {
+                "startLine": 326,
+                "startChar": 0,
+                "endLine": 327,
+                "endChar": 0
+              },
+              "replacement": "    if (this.#lcpPhasesExpanded) {\n"
+            },
+            {
+              "path": "front_end/panels/timeline/components/Sidebar.ts",
+              "range": {
+                "startLine": 331,
+                "startChar": 0,
+                "endLine": 332,
+                "endChar": 0
+              },
+              "replacement": "            toggled: this.#lcpPhasesExpanded,\n"
+            },
+            {
+              "path": "front_end/panels/timeline/components/Sidebar.ts",
+              "range": {
+                "startLine": 353,
+                "startChar": 0,
+                "endLine": 354,
+                "endChar": 0
+              },
+              "replacement": "            toggled: this.#lcpPhasesExpanded,\n"
+            }
+          ]
+        }
+      ],
+      "revId": "039f55d6b461d687d933110a4a3e3c102f353188",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e964009_ac09ead7",
+        "filename": "front_end/panels/timeline/components/SidebarInsight.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-27T14:50:28Z",
+      "side": 1,
+      "message": "`expanded`",
+      "range": {
+        "startLine": 12,
+        "startChar": 2,
+        "endLine": 12,
+        "endChar": 9
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "c39dd1fa_30786d52",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/components/SidebarInsight.ts",
+              "range": {
+                "startLine": 12,
+                "startChar": 0,
+                "endLine": 13,
+                "endChar": 0
+              },
+              "replacement": "  expanded: boolean;\n"
+            },
+            {
+              "path": "front_end/panels/timeline/components/SidebarInsight.ts",
+              "range": {
+                "startLine": 20,
+                "startChar": 0,
+                "endLine": 21,
+                "endChar": 0
+              },
+              "replacement": "  #expanded: boolean \u003d false;\n"
+            },
+            {
+              "path": "front_end/panels/timeline/components/SidebarInsight.ts",
+              "range": {
+                "startLine": 24,
+                "startChar": 0,
+                "endLine": 25,
+                "endChar": 0
+              },
+              "replacement": "    this.#expanded \u003d data.expanded;\n"
+            },
+            {
+              "path": "front_end/panels/timeline/components/SidebarInsight.ts",
+              "range": {
+                "startLine": 34,
+                "startChar": 0,
+                "endLine": 35,
+                "endChar": 0
+              },
+              "replacement": "    if (!this.#expanded) {\n"
+            }
+          ]
+        }
+      ],
+      "revId": "039f55d6b461d687d933110a4a3e3c102f353188",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ade34fbe_f51380c7",
+        "filename": "front_end/panels/timeline/components/sidebarInsight.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-27T14:50:28Z",
+      "side": 1,
+      "message": "what do you think about making the closed view a bit darker on hover? to give it more of a button look\n\nsomething like \n\n```\n  \u0026.closed:hover { \n    background-color: \\\\something a bit darker\\\\;\n  }\n```",
+      "revId": "039f55d6b461d687d933110a4a3e3c102f353188",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bef197df_7b1b10cb",
+        "filename": "front_end/panels/timeline/components/sidebarInsight.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-06-27T14:50:28Z",
+      "side": 1,
+      "message": "Most of the css for `.insight` and `.insight-closed` is the same. We can use ampersand (\u0026) selector to overwrite the few differences that apply to the `closed` element.\n\n\nSomething like this should work:\n\n```suggestion\n.insight {\n  display: block;\n  width: auto;\n  height: auto;\n  margin: 10px 0;\n  padding: 10px;\n  border-radius: 3px;\n  overflow: hidden;\n  border: 1px solid var(--sys-color-outline);\n  background-color: var(--sys-color-base);\n\n  \u0026.closed { \n    background-color: var(--sys-color-neutral-container);\n    border: none;\n  }\n}\n```\n\nAnd then on the `.closed` component it would be \n`\u003cdiv class\u003d\"insight closed\"\u003e`",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 1
+      },
+      "revId": "039f55d6b461d687d933110a4a3e3c102f353188",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
