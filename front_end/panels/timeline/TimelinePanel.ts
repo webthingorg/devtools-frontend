@@ -1260,7 +1260,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
       );
       // Create an instance of the modifications manager for this trace or activate a manager for previousy loaded trace.
       ModificationsManager.ModificationsManager.ModificationsManager.initAndActivateModificationsManager(
-          this.#traceEngineModel, this.#traceEngineActiveTraceIndex);
+          this.#traceEngineModel, this.#traceEngineActiveTraceIndex, this.flameChart.getOverlays());
       this.#applyActiveFilters(traceParsedData.Meta.traceIsGeneric, exclusiveFilter);
     }
     if (traceParsedData) {

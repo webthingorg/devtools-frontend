@@ -4,6 +4,7 @@
 
 import * as TraceEngine from '../../models/trace/trace.js';
 import * as TimelineComponents from '../../panels/timeline/components/components.js';
+import type * as Timeline from '../../panels/timeline/timeline.js';
 import * as EventsSerializer from '../events_serializer/events_serializer.js';
 
 const modificationsManagerByTraceIndex: ModificationsManager[] = [];
@@ -15,6 +16,7 @@ type ModificationsManagerData = {
   modifications?: TraceEngine.Types.File.Modifications,
                rawTraceEvents: readonly TraceEngine.Types.TraceEvents.TraceEventData[],
                syntheticEvents: TraceEngine.Types.TraceEvents.SyntheticBasedEvent[],
+               overlays: Timeline.Overlays.Overlays,
 };
 
 export class ModificationsManager {
@@ -23,6 +25,8 @@ export class ModificationsManager {
   #modifications: TraceEngine.Types.File.Modifications|null = null;
   #traceParsedData: TraceEngine.Handlers.Types.TraceParseData;
   #eventsSerializer: EventsSerializer.EventsSerializer;
+  #annotations: Set<TraceEngine.Types.File.OverlayAnnotations>;
+  #currentOverlays: Timeline.Overlays.Overlays;
 
   /**
    * Gets the ModificationsManager instance corresponding to a trace
@@ -39,7 +43,8 @@ export class ModificationsManager {
    * This needs to be called if and a trace has been parsed or switched to.
    */
   static initAndActivateModificationsManager(
-      traceModel: TraceEngine.TraceModel.Model<typeof TraceEngine.Handlers.ModelHandlers>, traceIndex: number): void {
+      traceModel: TraceEngine.TraceModel.Model<typeof TraceEngine.Handlers.ModelHandlers>, traceIndex: number,
+      overlays: Timeline.Overlays.Overlays): void {
     // If a manager for a given index has already been created, active it.
     if (modificationsManagerByTraceIndex[traceIndex]) {
       activeManager = modificationsManagerByTraceIndex[traceIndex];
@@ -65,19 +70,23 @@ export class ModificationsManager {
       rawTraceEvents: traceEvents,
       modifications: metadata?.modifications,
       syntheticEvents: syntheticEventsManager.getSyntheticTraceEvents(),
+      overlays,
     });
     modificationsManagerByTraceIndex[traceIndex] = newModificationsManager;
     activeManager = newModificationsManager;
     ModificationsManager.activeManager()?.applyModificationsIfPresent();
   }
 
-  private constructor({traceParsedData, traceBounds, modifications}: ModificationsManagerData) {
+  private constructor({traceParsedData, traceBounds, modifications, overlays}: ModificationsManagerData) {
     const entryToNodeMap = new Map([...traceParsedData.Samples.entryToNode, ...traceParsedData.Renderer.entryToNode]);
     this.#entriesFilter = new TraceEngine.EntriesFilter.EntriesFilter(entryToNodeMap);
     this.#timelineBreadcrumbs = new TimelineComponents.Breadcrumbs.Breadcrumbs(traceBounds);
     this.#modifications = modifications || null;
     this.#traceParsedData = traceParsedData;
     this.#eventsSerializer = new EventsSerializer.EventsSerializer();
+    // TODO: Assign annotations loaded from the trace file
+    this.#annotations = new Set();
+    this.#currentOverlays = overlays;
   }
 
   getEntriesFilter(): TraceEngine.EntriesFilter.EntriesFilter {
@@ -86,6 +95,17 @@ export class ModificationsManager {
 
   getTimelineBreadcrumbs(): TimelineComponents.Breadcrumbs.Breadcrumbs {
     return this.#timelineBreadcrumbs;
+  }
+
+  addAnnotationOverlay(newOverlay: TraceEngine.Types.File.OverlayAnnotations): void {
+    this.#annotations.add(newOverlay);
+    this.#currentOverlays.add(newOverlay);
+    this.#currentOverlays.update();
+  }
+
+  removeAnnotationOverlay(newOverlay: TraceEngine.Types.File.OverlayAnnotations): void {
+    this.#annotations.delete(newOverlay);
+    this.#currentOverlays.remove(newOverlay);
   }
 
   /**

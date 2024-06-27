@@ -9,6 +9,7 @@ import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Bindings from '../../models/bindings/bindings.js';
 import * as TraceEngine from '../../models/trace/trace.js';
+import * as ModificationsManager from '../../services/modifications_manager/modifications_manager.js';
 import * as TraceBounds from '../../services/trace_bounds/trace_bounds.js';
 import * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 import * as UI from '../../ui/legacy/legacy.js';
@@ -261,6 +262,10 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     return this.mainDataProvider;
   }
 
+  getOverlays(): Overlays {
+    return this.#overlays;
+  }
+
   refreshMainFlameChart(): void {
     this.mainFlameChart.update();
   }
@@ -484,12 +489,11 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
         (TimelineSelection.isTraceEventSelection(selection.object) ||
          TimelineSelection.isSyntheticNetworkRequestDetailsEventSelection(selection.object))) {
       this.setSelection(selection);
-      this.#overlays.add({
+      ModificationsManager.ModificationsManager.ModificationsManager.activeManager()?.addAnnotationOverlay({
         type: 'ENTRY_LABEL',
         entry: selection.object,
         label: '',
       });
-      this.#overlays.update();
     }
   }
 
