@@ -56,6 +56,7 @@ describeWithMockConnection('CrUXManager', () => {
     resourceTreeModel =
         target.model(SDK.ResourceTreeModel.ResourceTreeModel) as SDK.ResourceTreeModel.ResourceTreeModel;
     cruxManager = CrUXManager.CrUXManager.instance({forceNew: true});
+    cruxManager.setEndpointForTesting('https://fake.endpoint.com');
     mockFetch = sinon.stub(window, 'fetch');
     mockConsoleError = sinon.stub(console, 'error');
   });

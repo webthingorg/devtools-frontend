@@ -5,8 +5,9 @@
 import * as Common from '../../core/common/common.js';
 import * as SDK from '../../core/sdk/sdk.js';
 
-const CRUX_API_KEY = 'AIzaSyCCSOx25vrb5z0tbedCB3_JRzzbVW6Uwgw';
-const DEFAULT_ENDPOINT = `https://chromeuxreport.googleapis.com/v1/records:queryRecord?key=${CRUX_API_KEY}`;
+// TODO: Use actual API endpoint `https://chromeuxreport.googleapis.com/v1/records:queryRecord`
+// Removed to prevent git-secrets/GitGuardian warnings for an exposed key.
+const DEFAULT_ENDPOINT = '';
 
 export type MetricNames = 'cumulative_layout_shift'|'first_contentful_paint'|'first_input_delay'|
     'interaction_to_next_paint'|'largest_contentful_paint'|'experimental_time_to_first_byte';
@@ -216,6 +217,11 @@ export class CrUXManager extends Common.ObjectWrapper.ObjectWrapper<EventTypes> 
 
   async #makeRequest(request: CrUXRequest): Promise<CrUXResponse|null> {
     const body = JSON.stringify(request);
+
+    if (!this.#endpoint) {
+      return null;
+    }
+
     const response = await fetch(this.#endpoint, {
       method: 'POST',
       body,
