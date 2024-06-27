@@ -8,6 +8,7 @@ import * as DetailsView from './DetailsView.js';
 import * as EntryLabelOverlay from './EntryLabelOverlay.js';
 import * as InteractionBreakdown from './InteractionBreakdown.js';
 import * as LiveMetricsView from './LiveMetricsView.js';
+import * as NetworkRequestTooltip from './NetworkRequestTooltip.js';
 import * as Sidebar from './Sidebar.js';
 import * as SidebarInsight from './SidebarInsight.js';
 import * as TimeRangeOverlay from './TimeRangeOverlay.js';
@@ -19,6 +20,7 @@ export {
   EntryLabelOverlay,
   InteractionBreakdown,
   LiveMetricsView,
+  NetworkRequestTooltip,
   Sidebar,
   SidebarInsight,
   TimeRangeOverlay,
