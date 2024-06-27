@@ -14,6 +14,7 @@ import {
   pressKey,
   waitFor,
   waitForFunction,
+  waitForNone,
 } from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {
@@ -285,6 +286,7 @@ describe('The Application Tab', () => {
     void pressKey('ArrowLeft');
     await navigateToServiceWorkers();
     await click('[title="Unregister service worker"]');
+    await waitForNone('[title="Unregister service worker"]');
   });
 
   // Update and reactivate when the whole FrameDetailsView is a custom component
