@@ -426,6 +426,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "85349149_a970df5d",
+        "filename": "front_end/panels/timeline/components/Sidebar.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-06-27T20:39:19Z",
+      "side": 1,
+      "message": "handled this in https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/5661588",
+      "parentUuid": "66a66c49_9d2ab919",
+      "revId": "e5d6ee1bcf23aa6a4f8c828dcbc634d23a4c7abe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6f472c43_cc64b48d",
