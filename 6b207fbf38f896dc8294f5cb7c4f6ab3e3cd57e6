@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "289e8911_35fb0dce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-06-27T07:29:35Z",
+      "side": 1,
+      "message": "LGTM thanks!",
+      "revId": "6b207fbf38f896dc8294f5cb7c4f6ab3e3cd57e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a721e996_d8a35211",
@@ -32,6 +49,24 @@
       "side": 1,
       "message": "I kinda disagree, a boolean makes it less explicit. `tryFormatAsError` doesn\u0027t know anything about nesting. So what does `nestedError` actually mean? You\u0027ll have to read the code for `tryFormatAsError` to figure out what that boolean flag actually does.\n\nWhereas passing the `formattedResultType` (or maybe some better name?) is very explicit, it controls whether the result of `tryFormtAsError` is a `\u003cspan\u003e` or a `\u003cdiv\u003e`. No need to read the code for `tryFormatAsError`. Callers can decide what better fits for them. \"nesting\" may not be a concept that\u0027s applicable for all call-sites, even though a `div` might be desired.",
       "parentUuid": "a721e996_d8a35211",
+      "revId": "6b207fbf38f896dc8294f5cb7c4f6ab3e3cd57e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "643455f1_92161956",
+        "filename": "front_end/panels/console/ConsoleViewMessage.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 910,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-06-27T07:29:35Z",
+      "side": 1,
+      "message": "Ok, I see, then let\u0027s keep it like this! I\u0027m fine with the name `formattedResultType`!",
+      "parentUuid": "fd40fe12_40b01d38",
       "revId": "6b207fbf38f896dc8294f5cb7c4f6ab3e3cd57e6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
