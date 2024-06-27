@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a721e996_d8a35211",
+        "filename": "front_end/panels/console/ConsoleViewMessage.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 910,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-06-27T07:12:03Z",
+      "side": 1,
+      "message": "nit: What do you think about postponing the decision of which HTML element to use to `tryFormatAsError`, and change the function signature of it to include a parameter like: `nestedError: boolean \u003d false` instead? This may make it more explanatory for callers when thinking about what to use.",
+      "revId": "6b207fbf38f896dc8294f5cb7c4f6ab3e3cd57e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
