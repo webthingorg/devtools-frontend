@@ -9,13 +9,25 @@
   width: auto;
   height: auto;
   margin: 10px 0;
-  border: 1px solid var(--box-shadow-outline-color);
+  border: 1px solid var(--sys-color-outline);
   padding: 10px;
   border-radius: 3px;
   overflow: hidden;
+  background-color: var(--sys-color-base);
+}
+
+.insight-closed {
+  display: block;
+  width: auto;
+  height: auto;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 3px;
+  overflow: hidden;
+  background-color: var(--sys-color-neutral-container);
 }
 
 .insight-title {
-  color: var(--color-text-primary);
+  color: var(--sys-color-on-base);
   margin-block: 3px;
 }
