@@ -8096,6 +8096,10 @@ export const NativeFunctions = [
     signatures: [["maxCount"]]
   },
   {
+    name: "readSentRtp",
+    signatures: [["maxCount"]]
+  },
+  {
     name: "RTCSessionDescription",
     signatures: [["?descriptionInitDict"]]
   },
