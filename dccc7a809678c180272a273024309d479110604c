@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2757e0fa_ee8faa6e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-06-28T12:41:31Z",
+      "side": 1,
+      "message": "Thanks for the refactor!\nThis LGTM but we need to update some remaining imports to ensure we import from the entrypoint across modules",
+      "revId": "dccc7a809678c180272a273024309d479110604c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6098ca57_5d95a218",
+        "filename": "config/gni/devtools_grd_files.gni",
+        "patchSetId": 2
+      },
+      "lineNbr": 1059,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-06-28T12:41:31Z",
+      "side": 1,
+      "message": "seems we need to update to\n```suggestion\n  \"front_end/models/trace/lantern/types/Lantern.js\",\n```",
+      "range": {
+        "startLine": 1059,
+        "startChar": 0,
+        "endLine": 1059,
+        "endChar": 52
+      },
+      "revId": "dccc7a809678c180272a273024309d479110604c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e36e34c_98a34690",
+        "filename": "front_end/models/trace/lantern/graph/PageDependencyGraph.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-06-28T12:41:31Z",
+      "side": 1,
+      "message": "I think we need this to import from the entry point now that this is a devtools module, no?\n\n\n```suggestion\nimport * as Core from \u0027../core/core.js\u0027;\n```",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 59
+      },
+      "revId": "dccc7a809678c180272a273024309d479110604c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e17c03bb_05cd5be4",
+        "filename": "front_end/models/trace/lantern/lantern.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-06-28T12:41:31Z",
+      "side": 1,
+      "message": "nit: let\u0027s move this also to keep the entrypoint clean",
+      "range": {
+        "startLine": 11,
+        "startChar": 13,
+        "endLine": 11,
+        "endChar": 32
+      },
+      "revId": "dccc7a809678c180272a273024309d479110604c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4287c004_f7a8a245",
+        "filename": "front_end/models/trace/lantern/metrics/FirstContentfulPaint.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-06-28T12:41:31Z",
+      "side": 1,
+      "message": "I\u0027m also unsure if this will work or if we\u0027ll have to do `import * as graph...`",
+      "range": {
+        "startLine": 6,
+        "startChar": 7,
+        "endLine": 6,
+        "endChar": 51
+      },
+      "revId": "dccc7a809678c180272a273024309d479110604c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8f21fb5_c69d8812",
+        "filename": "front_end/models/trace/lantern/metrics/Interactive.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-06-28T12:41:31Z",
+      "side": 1,
+      "message": "ditto (and same in some of the next files)",
+      "range": {
+        "startLine": 5,
+        "startChar": 6,
+        "endLine": 5,
+        "endChar": 30
+      },
+      "revId": "dccc7a809678c180272a273024309d479110604c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
