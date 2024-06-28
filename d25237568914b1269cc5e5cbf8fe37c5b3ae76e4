@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfba7d0b_cddba734",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-06-28T07:31:33Z",
+      "side": 1,
+      "message": "Philip, PTAL.\nWe now have test flakiness in the tree, this CL applies the fix to other tests with service workers.",
+      "revId": "d25237568914b1269cc5e5cbf8fe37c5b3ae76e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
