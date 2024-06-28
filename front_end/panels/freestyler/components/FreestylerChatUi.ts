@@ -118,7 +118,8 @@ export type ChatMessage = {
   text: string,
 }|{
   entity: ChatMessageEntity.MODEL,
-  steps: StepData[],
+  aborted: boolean,
+  steps: Map<number|undefined, StepData[]>,
 };
 
 export const enum State {
@@ -273,28 +274,27 @@ export class FreestylerChatUi extends HTMLElement {
     return LitHtml.html`<p>${this.#renderTextAsMarkdown(step.text)}</p>`;
   }
 
-  #renderChatMessage = (message: ChatMessage, {isLast}: {isLast: boolean}): LitHtml.TemplateResult => {
+  #renderChatMessage = (message: ChatMessage): LitHtml.TemplateResult => {
     if (message.entity === ChatMessageEntity.USER) {
       return LitHtml.html`<div class="chat-message query">${message.text}</div>`;
     }
 
     // clang-format off
     return LitHtml.html`
-      <div class="chat-message answer">
-        ${message.steps.map(
-          step =>
-            LitHtml.html`${this.#renderStep(step)}${
-              step.rpcId !== undefined
-                ? this.#renderRateButtons(step.rpcId)
-                : LitHtml.nothing
-            }`,
+        ${[...message.steps.entries()].map(
+          ([id, steps]) =>
+            LitHtml.html`
+              <div class="chat-message answer">
+                ${steps.map(step => LitHtml.html`${this.#renderStep(step)}`)}
+                ${
+                  id !== undefined && !message.aborted
+                    ? this.#renderRateButtons(id as unknown as number)
+                    : LitHtml.nothing
+                }
+              </div>
+            `,
         )}
-        ${
-          this.#props.isLoading && isLast
-            ? LitHtml.html`<div class='chat-loading' >Loading...</div>`
-            : LitHtml.nothing
-        }
-      </div>
+
     `;
     // clang-format on
   };
@@ -321,9 +321,17 @@ export class FreestylerChatUi extends HTMLElement {
     // clang-format off
     return LitHtml.html`
       <div class="messages-container">
-        ${this.#props.messages.map((message, _, array) =>
-          this.#renderChatMessage(message, {isLast: array.at(-1) === message}),
+        ${this.#props.messages.map(message =>
+          this.#renderChatMessage(message),
         )}
+        ${
+          this.#props.isLoading
+            ? LitHtml.html`
+              <div class="chat-message answer">
+                <div class="chat-loading">Loading...</div>
+              </div>`
+            : LitHtml.nothing
+        }
       </div>
     `;
     // clang-format on

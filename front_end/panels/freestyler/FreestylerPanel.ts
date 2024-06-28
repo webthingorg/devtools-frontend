@@ -15,7 +15,7 @@ import {
   type Props as FreestylerChatUiProps,
   State as FreestylerChatUiState,
 } from './components/FreestylerChatUi.js';
-import {FreestylerAgent, Step} from './FreestylerAgent.js';
+import {FreestylerAgent, Step, type StepData} from './FreestylerAgent.js';
 import freestylerPanelStyles from './freestylerPanel.css.js';
 
 /*
@@ -217,32 +217,37 @@ export class FreestylerPanel extends UI.Panel.Panel {
     this.#viewProps.isLoading = true;
     const systemMessage: ChatMessage = {
       entity: ChatMessageEntity.MODEL,
-      steps: [],
+      aborted: false,
+      steps: new Map(),
     };
     this.#viewProps.messages.push(systemMessage);
     this.doUpdate();
 
     this.#runAbortController = new AbortController();
-
+    let id: number|undefined = undefined;
+    let steps: StepData[] = [];
     const signal = this.#runAbortController.signal;
     signal.addEventListener('abort', () => {
-      systemMessage.steps.push({step: Step.ERROR, text: i18nString(TempUIStrings.stoppedResponse)});
+      if (!systemMessage.steps.has(id)) {
+        systemMessage.steps.set(id, steps);
+      }
+      systemMessage.aborted = true;
+      steps.push({step: Step.ERROR, text: i18nString(TempUIStrings.stoppedResponse)});
     });
     for await (const data of this.#agent.run(text, {signal})) {
       if (data.step === Step.ANSWER || data.step === Step.ERROR) {
         this.#viewProps.isLoading = false;
       }
 
-      // There can be multiple steps from the same call from the agent.
-      // We want to show `rate answer` buttons for the full response.
-      // That's why we're removing the `rpcId` from the previous step
-      // if there is a new incoming step from the call with the same rpcId.
-      const lastStep = systemMessage.steps.at(-1);
-      if (lastStep && lastStep.rpcId && lastStep.rpcId === data.rpcId) {
-        delete lastStep.rpcId;
+      // TODO(nvitkov): fix type of rpcId it's string at runtime
+      if (data.rpcId !== id) {
+        id = data.rpcId ?? id;
+        steps = [];
+        systemMessage.steps.set(id, steps);
       }
 
-      systemMessage.steps.push(data);
+      steps.push(data);
+
       this.doUpdate();
     }
   }
