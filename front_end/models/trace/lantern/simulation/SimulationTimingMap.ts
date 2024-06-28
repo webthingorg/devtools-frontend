@@ -48,18 +48,18 @@ export interface ConnectionTiming {
 }
 
 class SimulatorTimingMap {
-  _nodeTimings: Map<Node, NodeTimingData>;
+  nodeTimings: Map<Node, NodeTimingData>;
 
   constructor() {
-    this._nodeTimings = new Map<Node, NodeTimingData>();
+    this.nodeTimings = new Map<Node, NodeTimingData>();
   }
 
   getNodes(): Node[] {
-    return Array.from(this._nodeTimings.keys());
+    return Array.from(this.nodeTimings.keys());
   }
 
   setReadyToStart(node: Node, values: {queuedTime: number}): void {
-    this._nodeTimings.set(node, values);
+    this.nodeTimings.set(node, values);
   }
 
   setInProgress(node: Node, values: {startTime: number}): void {
@@ -69,7 +69,7 @@ class SimulatorTimingMap {
       timeElapsed: 0,
     };
 
-    this._nodeTimings.set(
+    this.nodeTimings.set(
         node,
         node.type === BaseNode.types.NETWORK ? {...nodeTiming, timeElapsedOvershoot: 0, bytesDownloaded: 0} :
                                                nodeTiming,
@@ -83,7 +83,7 @@ class SimulatorTimingMap {
       connectionTiming: values.connectionTiming,
     };
 
-    this._nodeTimings.set(node, nodeTiming);
+    this.nodeTimings.set(node, nodeTiming);
   }
 
   setCpu(node: CPUNode, values: {timeElapsed: number}): void {
@@ -92,7 +92,7 @@ class SimulatorTimingMap {
       timeElapsed: values.timeElapsed,
     };
 
-    this._nodeTimings.set(node, nodeTiming);
+    this.nodeTimings.set(node, nodeTiming);
   }
 
   setCpuEstimated(node: CPUNode, values: {estimatedTimeElapsed: number}): void {
@@ -101,7 +101,7 @@ class SimulatorTimingMap {
       estimatedTimeElapsed: values.estimatedTimeElapsed,
     };
 
-    this._nodeTimings.set(node, nodeTiming);
+    this.nodeTimings.set(node, nodeTiming);
   }
 
   setNetwork(node: NetworkNode, values: {timeElapsed: number, timeElapsedOvershoot: number, bytesDownloaded: number}):
@@ -113,7 +113,7 @@ class SimulatorTimingMap {
       bytesDownloaded: values.bytesDownloaded,
     };
 
-    this._nodeTimings.set(node, nodeTiming);
+    this.nodeTimings.set(node, nodeTiming);
   }
 
   setNetworkEstimated(node: NetworkNode, values: {estimatedTimeElapsed: number}): void {
@@ -122,11 +122,11 @@ class SimulatorTimingMap {
       estimatedTimeElapsed: values.estimatedTimeElapsed,
     };
 
-    this._nodeTimings.set(node, nodeTiming);
+    this.nodeTimings.set(node, nodeTiming);
   }
 
   getQueued(node: Node): NodeTimingData {
-    const timing = this._nodeTimings.get(node);
+    const timing = this.nodeTimings.get(node);
     if (!timing) {
       throw new Error(`Node ${node.id} not yet queued`);
     }
@@ -134,7 +134,7 @@ class SimulatorTimingMap {
   }
 
   getCpuStarted(node: CPUNode): CpuNodeTimingStarted {
-    const timing = this._nodeTimings.get(node);
+    const timing = this.nodeTimings.get(node);
     if (!timing) {
       throw new Error(`Node ${node.id} not yet queued`);
     }
@@ -148,7 +148,7 @@ class SimulatorTimingMap {
   }
 
   getNetworkStarted(node: NetworkNode): NetworkNodeTimingStarted {
-    const timing = this._nodeTimings.get(node);
+    const timing = this.nodeTimings.get(node);
     if (!timing) {
       throw new Error(`Node ${node.id} not yet queued`);
     }
@@ -162,7 +162,7 @@ class SimulatorTimingMap {
   }
 
   getInProgress(node: Node): CpuNodeTimingInProgress|NetworkNodeTimingInProgress {
-    const timing = this._nodeTimings.get(node);
+    const timing = this.nodeTimings.get(node);
     if (!timing) {
       throw new Error(`Node ${node.id} not yet queued`);
     }
@@ -176,7 +176,7 @@ class SimulatorTimingMap {
   }
 
   getCompleted(node: Node): CpuNodeTimingComplete|NetworkNodeTimingComplete {
-    const timing = this._nodeTimings.get(node);
+    const timing = this.nodeTimings.get(node);
     if (!timing) {
       throw new Error(`Node ${node.id} not yet queued`);
     }
