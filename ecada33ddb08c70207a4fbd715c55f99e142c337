@@ -33,6 +33,24 @@
       "message": "I think, in other formats; we\u0027re not stringifying alpha when it is null or when it is 1. To have a consistent behavior, would it be possible to do the same for Hex, ShortHex etc too?\n\nSee, for example, LAB\u0027s stringify: https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/core/common/Color.ts;l\u003d822;drc\u003d5d803914ee94bf531c2582a097c9ca0b39b9d52d?q\u003df:Color.ts",
       "revId": "ecada33ddb08c70207a4fbd715c55f99e142c337",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16b3b1f0_d7b9113c",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1864,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-06-28T14:13:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd33b668_91cfb771",
+      "revId": "ecada33ddb08c70207a4fbd715c55f99e142c337",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
