@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de335a9c_2d8e68ec",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-06-28T07:52:51Z",
+      "side": 1,
+      "message": "let\u0027s change to html while we are here, since it covers js, css and html",
+      "revId": "0e20140c172572e99e9903586e7687be7544ec99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
