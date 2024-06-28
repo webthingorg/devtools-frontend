@@ -2,9 +2,9 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import type * as Lantern from '../types/lantern.js';
+import {NetworkAnalyzer} from '../core/NetworkAnalyzer.js';
+import type * as Lantern from '../types/types.js';
 
-import {NetworkAnalyzer} from './NetworkAnalyzer.js';
 import {TCPConnection} from './TCPConnection.js';
 
 const DEFAULT_SERVER_RESPONSE_TIME = 30;

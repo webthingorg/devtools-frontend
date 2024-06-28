@@ -2,12 +2,11 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import {BaseNode, type Node} from '../BaseNode.js';
-import {type CPUNode} from '../CPUNode.js';
-import {type NetworkNode} from '../NetworkNode.js';
-import type * as Lantern from '../types/lantern.js';
+import {BaseNode} from '../graph/BaseNode.js';
+import {type CPUNode, type NetworkNode, type Node} from '../graph/graph.js';
+import type * as Types from '../types/types.js';
 
-import {Metric} from './Metric.js';
+import {Metric, type MetricCoefficients} from './Metric.js';
 
 interface FirstPaintBasedGraphOpts<T> {
   /**
@@ -28,7 +27,7 @@ interface FirstPaintBasedGraphOpts<T> {
 }
 
 class FirstContentfulPaint extends Metric {
-  static override get coefficients(): Lantern.Simulation.MetricCoefficients {
+  static override get coefficients(): MetricCoefficients {
     return {
       intercept: 0,
       optimistic: 0.5,
@@ -167,7 +166,7 @@ class FirstContentfulPaint extends Metric {
   }
 
   static override getOptimisticGraph<T>(
-      dependencyGraph: Node<T>, processedNavigation: Lantern.Simulation.ProcessedNavigation): Node<T> {
+      dependencyGraph: Node<T>, processedNavigation: Types.Simulation.ProcessedNavigation): Node<T> {
     return this.getFirstPaintBasedGraph(dependencyGraph, {
       cutoffTimestamp: processedNavigation.timestamps.firstContentfulPaint,
       // In the optimistic graph we exclude resources that appeared to be render blocking but were
@@ -178,7 +177,7 @@ class FirstContentfulPaint extends Metric {
   }
 
   static override getPessimisticGraph<T>(
-      dependencyGraph: Node<T>, processedNavigation: Lantern.Simulation.ProcessedNavigation): Node<T> {
+      dependencyGraph: Node<T>, processedNavigation: Types.Simulation.ProcessedNavigation): Node<T> {
     return this.getFirstPaintBasedGraph(dependencyGraph, {
       cutoffTimestamp: processedNavigation.timestamps.firstContentfulPaint,
       treatNodeAsRenderBlocking: node => node.hasRenderBlockingPriority(),
