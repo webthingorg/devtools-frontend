@@ -2,16 +2,22 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import {type Node} from '../BaseNode.js';
-import {LanternError} from '../LanternError.js';
-import type * as Lantern from '../types/lantern.js';
+import * as Core from '../core/core.js';
+import {type Node} from '../graph/BaseNode.js';
+import type * as Simulation from '../simulation/simulation.js';
+import type * as Types from '../types/types.js';
 
 import {FirstContentfulPaint} from './FirstContentfulPaint.js';
-import {type Extras, Metric} from './Metric.js';
+import {
+  type Extras,
+  Metric,
+  type MetricCoefficients,
+  type MetricComputationDataInput,
+  type MetricResult,
+} from './Metric.js';
 
 class LargestContentfulPaint extends Metric {
-  // eslint-disable-next-line @typescript-eslint/naming-convention
-  static override get coefficients(): Lantern.Simulation.MetricCoefficients {
+  static override get coefficients(): MetricCoefficients {
     return {
       intercept: 0,
       optimistic: 0.5,
@@ -32,11 +38,11 @@ class LargestContentfulPaint extends Metric {
     return !isImage || !isLowPriority;
   }
 
-  static override getOptimisticGraph(
-      dependencyGraph: Node, processedNavigation: Lantern.Simulation.ProcessedNavigation): Node {
+  static override getOptimisticGraph(dependencyGraph: Node, processedNavigation: Types.Simulation.ProcessedNavigation):
+      Node {
     const lcp = processedNavigation.timestamps.largestContentfulPaint;
     if (!lcp) {
-      throw new LanternError('NO_LCP');
+      throw new Core.LanternError('NO_LCP');
     }
 
     return FirstContentfulPaint.getFirstPaintBasedGraph(dependencyGraph, {
@@ -45,11 +51,11 @@ class LargestContentfulPaint extends Metric {
     });
   }
 
-  static override getPessimisticGraph(
-      dependencyGraph: Node, processedNavigation: Lantern.Simulation.ProcessedNavigation): Node {
+  static override getPessimisticGraph(dependencyGraph: Node, processedNavigation: Types.Simulation.ProcessedNavigation):
+      Node {
     const lcp = processedNavigation.timestamps.largestContentfulPaint;
     if (!lcp) {
-      throw new LanternError('NO_LCP');
+      throw new Core.LanternError('NO_LCP');
     }
 
     return FirstContentfulPaint.getFirstPaintBasedGraph(dependencyGraph, {
@@ -60,7 +66,7 @@ class LargestContentfulPaint extends Metric {
     });
   }
 
-  static override getEstimateFromSimulation(simulationResult: Lantern.Simulation.Result): Lantern.Simulation.Result {
+  static override getEstimateFromSimulation(simulationResult: Simulation.Result): Simulation.Result {
     const nodeTimesNotOffscreenImages = Array.from(simulationResult.nodeTimings.entries())
                                             .filter(entry => LargestContentfulPaint.isNotLowPriorityImageNode(entry[0]))
                                             .map(entry => entry[1].endTime);
@@ -71,9 +77,8 @@ class LargestContentfulPaint extends Metric {
     };
   }
 
-  static override async compute(
-      data: Lantern.Simulation.MetricComputationDataInput,
-      extras?: Omit<Extras, 'optimistic'>): Promise<Lantern.Metrics.Result> {
+  static override async compute(data: MetricComputationDataInput, extras?: Omit<Extras, 'optimistic'>):
+      Promise<MetricResult> {
     const fcpResult = extras?.fcpResult;
     if (!fcpResult) {
       throw new Error('FCP is required to calculate the LCP metric');

@@ -5,8 +5,8 @@
 import {type Node} from './BaseNode.js';
 import {CPUNode} from './CPUNode.js';
 import {NetworkNode} from './NetworkNode.js';
-import {NetworkAnalyzer} from './simulation/NetworkAnalyzer.js';
-import type * as Lantern from './types/lantern.js';
+import {NetworkAnalyzer} from '../core/NetworkAnalyzer.js';
+import type * as Lantern from '../types/types.js';
 
 // COMPAT: m71+ We added RunTask to `disabled-by-default-lighthouse`
 const SCHEDULABLE_TASK_TITLE_LH = 'RunTask';

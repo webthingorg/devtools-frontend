@@ -2,16 +2,21 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import {BaseNode, type Node} from '../BaseNode.js';
-import {type CPUNode} from '../CPUNode.js';
-import {type NetworkNode} from '../NetworkNode.js';
-import type * as Lantern from '../types/lantern.js';
+import {BaseNode, type Node} from '../graph/BaseNode.js';
+import {type CPUNode} from '../graph/CPUNode.js';
+import {type NetworkNode} from '../graph/NetworkNode.js';
+import type * as Lantern from '../types/types.js';
 
 import {ConnectionPool} from './ConnectionPool.js';
 import {Constants} from './Constants.js';
 import {DNSCache} from './DNSCache.js';
 import {type CompleteNodeTiming, type ConnectionTiming, SimulatorTimingMap} from './SimulationTimingMap.js';
 import {TCPConnection} from './TCPConnection.js';
+
+export interface Result<T = Lantern.AnyNetworkObject> {
+  timeInMs: number;
+  nodeTimings: Map<Node<T>, Lantern.Simulation.NodeTiming>;
+}
 
 const defaultThrottling = Constants.throttling.mobileSlow4G;
 
@@ -441,7 +446,7 @@ class Simulator<T = Lantern.AnyNetworkObject> {
    * wait around for a warm connection to be available if the original request was fetched on a warm
    * connection).
    */
-  simulate(graph: Node, options?: {label?: string}): Lantern.Simulation.Result<T> {
+  simulate(graph: Node, options?: {label?: string}): Result<T> {
     if (BaseNode.hasCycle(graph)) {
       throw new Error('Cannot simulate graph with cycle');
     }

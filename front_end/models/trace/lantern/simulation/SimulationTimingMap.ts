@@ -10,9 +10,9 @@
  * as nodes are queued, partially simulated, and completed.
  */
 
-import {BaseNode, type Node} from '../BaseNode.js';
-import {type CPUNode} from '../CPUNode.js';
-import {type NetworkNode} from '../NetworkNode.js';
+import {BaseNode, type Node} from '../graph/BaseNode.js';
+import {type CPUNode} from '../graph/CPUNode.js';
+import {type NetworkNode} from '../graph/NetworkNode.js';
 
 interface NodeTimingComplete {
   startTime: number;

@@ -3,8 +3,6 @@
 // found in the LICENSE file.
 
 import type * as Protocol from '../../../../generated/protocol.js';
-import {type Node} from '../BaseNode.js';
-import {type Simulator} from '../simulation/Simulator.js';
 
 export type TraceEvent = {
   name: string,
@@ -194,37 +192,9 @@ export namespace Simulation {
     };
   }
 
-  export interface MetricComputationDataInput {
-    simulator: Simulator;
-    graph: Node<unknown>;
-    processedNavigation: ProcessedNavigation;
-  }
-
-  export interface MetricCoefficients {
-    intercept: number;
-    optimistic: number;
-    pessimistic: number;
-  }
-
   export interface NodeTiming {
     startTime: number;
     endTime: number;
     duration: number;
-  }
-
-  export interface Result<T = AnyNetworkObject> {
-    timeInMs: number;
-    nodeTimings: Map<Node<T>, NodeTiming>;
-  }
-}
-
-export namespace Metrics {
-  export interface Result<T = AnyNetworkObject> {
-    timing: number;
-    timestamp?: never;
-    optimisticEstimate: Simulation.Result<T>;
-    pessimisticEstimate: Simulation.Result<T>;
-    optimisticGraph: Node<T>;
-    pessimisticGraph: Node<T>;
   }
 }

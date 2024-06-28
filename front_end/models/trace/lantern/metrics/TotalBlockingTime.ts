@@ -2,15 +2,20 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import {BaseNode, type Node} from '../BaseNode.js';
-import type * as Lantern from '../types/lantern.js';
+import {BaseNode, type Node} from '../graph/BaseNode.js';
+import type * as Simulation from '../simulation/simulation.js';
 
-import {type Extras, Metric} from './Metric.js';
+import {
+  type Extras,
+  Metric,
+  type MetricCoefficients,
+  type MetricComputationDataInput,
+  type MetricResult,
+} from './Metric.js';
 import {BLOCKING_TIME_THRESHOLD, calculateSumOfBlockingTime} from './TBTUtils.js';
 
 class TotalBlockingTime extends Metric {
-  // eslint-disable-next-line @typescript-eslint/naming-convention
-  static override get coefficients(): Lantern.Simulation.MetricCoefficients {
+  static override get coefficients(): MetricCoefficients {
     return {
       intercept: 0,
       optimistic: 0.5,
@@ -26,8 +31,7 @@ class TotalBlockingTime extends Metric {
     return dependencyGraph;
   }
 
-  static override getEstimateFromSimulation(simulation: Lantern.Simulation.Result, extras: Extras):
-      Lantern.Simulation.Result {
+  static override getEstimateFromSimulation(simulation: Simulation.Result, extras: Extras): Simulation.Result {
     if (!extras.fcpResult) {
       throw new Error('missing fcpResult');
     }
@@ -66,9 +70,8 @@ class TotalBlockingTime extends Metric {
     };
   }
 
-  static override async compute(
-      data: Lantern.Simulation.MetricComputationDataInput,
-      extras?: Omit<Extras, 'optimistic'>): Promise<Lantern.Metrics.Result> {
+  static override async compute(data: MetricComputationDataInput, extras?: Omit<Extras, 'optimistic'>):
+      Promise<MetricResult> {
     const fcpResult = extras?.fcpResult;
     if (!fcpResult) {
       throw new Error('FCP is required to calculate the TBT metric');
@@ -82,7 +85,7 @@ class TotalBlockingTime extends Metric {
     return super.compute(data, extras);
   }
 
-  static getTopLevelEvents(nodeTimings: Lantern.Simulation.Result['nodeTimings'], minDurationMs: number):
+  static getTopLevelEvents(nodeTimings: Simulation.Result['nodeTimings'], minDurationMs: number):
       {start: number, end: number, duration: number}[] {
     const events: Array<{start: number, end: number, duration: number}> = [];
 
