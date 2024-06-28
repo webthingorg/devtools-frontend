@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b1d7924_050f5358",
+        "filename": "config/gni/devtools_grd_files.gni",
+        "patchSetId": 2
+      },
+      "lineNbr": 1059,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-06-28T19:15:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6098ca57_5d95a218",
+      "range": {
+        "startLine": 1059,
+        "startChar": 0,
+        "endLine": 1059,
+        "endChar": 52
+      },
+      "revId": "dccc7a809678c180272a273024309d479110604c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9e36e34c_98a34690",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-06-28T12:41:31Z",
       "side": 1,
       "message": "I think we need this to import from the entry point now that this is a devtools module, no?\n\n\n```suggestion\nimport * as Core from \u0027../core/core.js\u0027;\n```",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 59
+      },
+      "revId": "dccc7a809678c180272a273024309d479110604c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ed09424_a651cb8b",
+        "filename": "front_end/models/trace/lantern/graph/PageDependencyGraph.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-06-28T19:15:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e36e34c_98a34690",
       "range": {
         "startLine": 8,
         "startChar": 0,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c07a1b79_99bcc174",
+        "filename": "front_end/models/trace/lantern/lantern.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-06-28T19:15:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e17c03bb_05cd5be4",
+      "range": {
+        "startLine": 11,
+        "startChar": 13,
+        "endLine": 11,
+        "endChar": 32
+      },
+      "revId": "dccc7a809678c180272a273024309d479110604c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4287c004_f7a8a245",
@@ -110,6 +182,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c0c05bd5_7f2c6d17",
+        "filename": "front_end/models/trace/lantern/metrics/FirstContentfulPaint.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-06-28T19:15:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4287c004_f7a8a245",
+      "range": {
+        "startLine": 6,
+        "startChar": 7,
+        "endLine": 6,
+        "endChar": 51
+      },
+      "revId": "dccc7a809678c180272a273024309d479110604c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a8f21fb5_c69d8812",
@@ -123,6 +219,30 @@
       "writtenOn": "2024-06-28T12:41:31Z",
       "side": 1,
       "message": "ditto (and same in some of the next files)",
+      "range": {
+        "startLine": 5,
+        "startChar": 6,
+        "endLine": 5,
+        "endChar": 30
+      },
+      "revId": "dccc7a809678c180272a273024309d479110604c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e843fbd8_f6646647",
+        "filename": "front_end/models/trace/lantern/metrics/Interactive.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-06-28T19:15:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a8f21fb5_c69d8812",
       "range": {
         "startLine": 5,
         "startChar": 6,
