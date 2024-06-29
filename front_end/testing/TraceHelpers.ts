@@ -69,6 +69,38 @@ export async function getMainFlameChartWithTracks(
 }
 
 /**
+ * The Overlays expects to be provided with both the main and network charts
+ * and data providers. This function creates all of those and optionally sets
+ * the trace data for the providers if it is provided.
+ */
+export function createCharts(traceParsedData?: TraceEngine.Handlers.Types.TraceParseData):
+    Timeline.Overlays.TimelineCharts {
+  const mainProvider = new Timeline.TimelineFlameChartDataProvider.TimelineFlameChartDataProvider();
+  const networkProvider = new Timeline.TimelineFlameChartNetworkDataProvider.TimelineFlameChartNetworkDataProvider();
+
+  const delegate = new MockFlameChartDelegate();
+  const mainChart = new PerfUI.FlameChart.FlameChart(mainProvider, delegate);
+  const networkChart = new PerfUI.FlameChart.FlameChart(networkProvider, delegate);
+
+  if (traceParsedData) {
+    mainProvider.setModel(traceParsedData);
+    networkProvider.setModel(traceParsedData);
+
+    // Force the charts to render. Normally the TimelineFlameChartView would do
+    // this, but we aren't creating one for these tests.
+    mainChart.update();
+    networkChart.update();
+  }
+
+  return {
+    mainProvider,
+    mainChart,
+    networkProvider,
+    networkChart,
+  };
+}
+
+/**
  * Draws the network track in the flame chart using the legacy system.
  *
  * @param traceFileName The name of the trace file to be loaded to the flame

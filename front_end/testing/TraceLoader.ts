@@ -4,8 +4,11 @@
 
 import type * as Protocol from '../generated/protocol.js';
 import * as TraceEngine from '../models/trace/trace.js';
+import * as Timeline from '../panels/timeline/timeline.js';
 import * as ModificationsManager from '../services/modifications_manager/modifications_manager.js';
 import * as TraceBounds from '../services/trace_bounds/trace_bounds.js';
+
+import {createCharts} from './TraceHelpers.js';
 
 // We maintain two caches:
 // 1. The file contents JSON.parsed for a given trace file.
@@ -141,11 +144,14 @@ export class TraceLoader {
     TraceBounds.TraceBounds.BoundsManager.instance({forceNew: true});
 
     const configCacheKey = TraceEngine.Types.Configuration.configToCacheKey(config);
+    const container = document.createElement('div');
+    const charts = createCharts();
+    const overlay = new Timeline.Overlays.Overlays({container, charts});
 
     const fromCache = traceEngineCache.get(name)?.get(configCacheKey);
     if (fromCache) {
       ModificationsManager.ModificationsManager.ModificationsManager.initAndActivateModificationsManager(
-          fromCache.model, 0);
+          fromCache.model, 0, overlay);
       if (options.initTraceBounds) {
         TraceLoader.initTraceBoundsManager(fromCache.traceParsedData);
       }
@@ -161,7 +167,7 @@ export class TraceLoader {
     cacheByName.set(configCacheKey, traceEngineData);
     traceEngineCache.set(name, cacheByName);
     ModificationsManager.ModificationsManager.ModificationsManager.initAndActivateModificationsManager(
-        traceEngineData.model, 0);
+        traceEngineData.model, 0, overlay);
     if (options.initTraceBounds) {
       TraceLoader.initTraceBoundsManager(traceEngineData.traceParsedData);
     }
