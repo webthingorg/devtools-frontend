@@ -16,6 +16,23 @@
       "message": "lopezjariza00@gmail.com",
       "revId": "36834dd5de91aba0b15de21fc93958eee9e49108",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f044ffa_a2f08753",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3468747
+      },
+      "writtenOn": "2024-06-29T19:56:54Z",
+      "side": 1,
+      "message": "https://goo.gle/devtools-checklist",
+      "revId": "36834dd5de91aba0b15de21fc93958eee9e49108",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
