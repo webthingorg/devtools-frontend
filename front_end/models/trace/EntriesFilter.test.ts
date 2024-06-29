@@ -6,6 +6,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import {describeWithEnvironment} from '../../testing/EnvironmentHelpers.js';
 import {TraceLoader} from '../../testing/TraceLoader.js';
 import * as TraceEngine from '../trace/trace.js';
 
@@ -37,7 +38,7 @@ function findFirstEntry(
   return entry;
 }
 
-describe('EntriesFilter', function() {
+describeWithEnvironment('EntriesFilter', function() {
   it('parses a stack and returns an empty list of invisible entries', async function() {
     const data = await TraceLoader.traceEngine(this, 'basic-stack.json.gz');
     const stack = new TraceEngine.EntriesFilter.EntriesFilter(data.Renderer.entryToNode);

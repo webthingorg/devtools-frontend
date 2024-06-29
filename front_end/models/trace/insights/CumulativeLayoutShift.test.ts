@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import {describeWithEnvironment} from '../../../testing/EnvironmentHelpers.js';
 import {TraceLoader} from '../../../testing/TraceLoader.js';
 import * as Helpers from '../helpers/helpers.js';
 import * as TraceModel from '../trace.js';
@@ -12,7 +13,7 @@ import {InsightRunners} from './insights.js';
 // Root cause invalidation window.
 const INVALIDATION_WINDOW = Helpers.Timing.secondsToMicroseconds(Types.Timing.Seconds(0.5));
 
-describe('CumulativeLayoutShift', function() {
+describeWithEnvironment('CumulativeLayoutShift', function() {
   describe('non composited animations', function() {
     it('gets the correct non composited animations', async function() {
       const data = await TraceLoader.traceEngine(this, 'non-composited-animation.json.gz');

@@ -5,48 +5,16 @@
 import * as TraceEngine from '../../models/trace/trace.js';
 import {describeWithEnvironment} from '../../testing/EnvironmentHelpers.js';
 import {
+  createCharts,
   makeInstantEvent,
-  MockFlameChartDelegate,
   setupIgnoreListManagerEnvironment,
 } from '../../testing/TraceHelpers.js';
 import {TraceLoader} from '../../testing/TraceLoader.js';
 import * as RenderCoordinator from '../../ui/components/render_coordinator/render_coordinator.js';
-import * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 
 import * as Timeline from './timeline.js';
 
 const coordinator = RenderCoordinator.RenderCoordinator.RenderCoordinator.instance();
-
-/**
- * The Overlays expects to be provided with both the main and network charts
- * and data providers. This function creates all of those and optionally sets
- * the trace data for the providers if it is provided.
- */
-function createCharts(traceParsedData?: TraceEngine.Handlers.Types.TraceParseData): Timeline.Overlays.TimelineCharts {
-  const mainProvider = new Timeline.TimelineFlameChartDataProvider.TimelineFlameChartDataProvider();
-  const networkProvider = new Timeline.TimelineFlameChartNetworkDataProvider.TimelineFlameChartNetworkDataProvider();
-
-  const delegate = new MockFlameChartDelegate();
-  const mainChart = new PerfUI.FlameChart.FlameChart(mainProvider, delegate);
-  const networkChart = new PerfUI.FlameChart.FlameChart(networkProvider, delegate);
-
-  if (traceParsedData) {
-    mainProvider.setModel(traceParsedData);
-    networkProvider.setModel(traceParsedData);
-
-    // Force the charts to render. Normally the TimelineFlameChartView would do
-    // this, but we aren't creating one for these tests.
-    mainChart.update();
-    networkChart.update();
-  }
-
-  return {
-    mainProvider,
-    mainChart,
-    networkProvider,
-    networkChart,
-  };
-}
 
 describeWithEnvironment('Overlays', () => {
   beforeEach(() => {
@@ -345,7 +313,7 @@ describeWithEnvironment('Overlays', () => {
       // Create an entry label overlay
       overlays.add({
         type: 'ENTRY_LABEL',
-        entry: event,
+        entry: event as TraceEngine.Types.TraceEvents.TraceEventData,
         label: '',
       });
       overlays.update();
@@ -544,7 +512,7 @@ describeWithEnvironment('Overlays', () => {
       overlays.add({
         type: 'ENTRY_LABEL',
         label: '',
-        entry: event,
+        entry: event as TraceEngine.Types.TraceEvents.TraceEventData,
       });
 
       overlays.update();
@@ -570,7 +538,7 @@ describeWithEnvironment('Overlays', () => {
       overlays.add({
         type: 'ENTRY_LABEL',
         label: '',
-        entry: event,
+        entry: event as TraceEngine.Types.TraceEvents.TraceEventData,
       });
 
       overlays.update();
