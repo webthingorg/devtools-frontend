@@ -11,8 +11,6 @@ module.exports = {
     'files' : ['*.ts'],
     'rules' : {
       '@typescript-eslint/no-unused-vars' : ['error', {'argsIgnorePattern' : '^_'}],
-      // TODO(crbug.com/348449529): off due to Lantern needing more refactoring.
-      'rulesdir/no_underscored_properties' : 'off',
     }
   }]
 };
