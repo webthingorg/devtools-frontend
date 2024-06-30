@@ -2,9 +2,11 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as Core from '../core/core.js';
+import type * as Lantern from '../types/types.js';
+
 import {type CPUNode} from './CPUNode.js';
 import {type NetworkNode} from './NetworkNode.js';
-import type * as Lantern from '../types/types.js';
 
 /**
  * A union of all types derived from BaseNode, allowing type check discrimination
@@ -33,14 +35,14 @@ class BaseNode<T = Lantern.AnyNetworkObject> {
 
   _id: string;
   _isMainDocument: boolean;
-  _dependents: Node[];
-  _dependencies: Node[];
+  dependents: Node[];
+  dependencies: Node[];
 
   constructor(id: string) {
     this._id = id;
     this._isMainDocument = false;
-    this._dependents = [];
-    this._dependencies = [];
+    this.dependents = [];
+    this.dependencies = [];
   }
 
   get id(): string {
@@ -48,21 +50,21 @@ class BaseNode<T = Lantern.AnyNetworkObject> {
   }
 
   get type(): 'network'|'cpu' {
-    throw new Error('Unimplemented');
+    throw new Core.LanternError('Unimplemented');
   }
 
   /**
    * In microseconds
    */
   get startTime(): number {
-    throw new Error('Unimplemented');
+    throw new Core.LanternError('Unimplemented');
   }
 
   /**
    * In microseconds
    */
   get endTime(): number {
-    throw new Error('Unimplemented');
+    throw new Core.LanternError('Unimplemented');
   }
 
   setIsMainDocument(value: boolean): void {
@@ -74,25 +76,25 @@ class BaseNode<T = Lantern.AnyNetworkObject> {
   }
 
   getDependents(): Node[] {
-    return this._dependents.slice();
+    return this.dependents.slice();
   }
 
   getNumberOfDependents(): number {
-    return this._dependents.length;
+    return this.dependents.length;
   }
 
   getDependencies(): Node[] {
-    return this._dependencies.slice();
+    return this.dependencies.slice();
   }
 
   getNumberOfDependencies(): number {
-    return this._dependencies.length;
+    return this.dependencies.length;
   }
 
   getRootNode(): Node<T> {
     let rootNode = this as BaseNode as Node;
-    while (rootNode._dependencies.length) {
-      rootNode = rootNode._dependencies[0];
+    while (rootNode.dependencies.length) {
+      rootNode = rootNode.dependencies[0];
     }
 
     return rootNode;
@@ -105,15 +107,15 @@ class BaseNode<T = Lantern.AnyNetworkObject> {
   addDependency(node: Node): void {
     // @ts-expect-error - in checkJs, ts doesn't know that CPUNode and NetworkNode *are* BaseNodes.
     if (node === this) {
-      throw new Error('Cannot add dependency on itself');
+      throw new Core.LanternError('Cannot add dependency on itself');
     }
 
-    if (this._dependencies.includes(node)) {
+    if (this.dependencies.includes(node)) {
       return;
     }
 
-    node._dependents.push(this as BaseNode as Node);
-    this._dependencies.push(node);
+    node.dependents.push(this as BaseNode as Node);
+    this.dependencies.push(node);
   }
 
   removeDependent(node: Node): void {
@@ -121,17 +123,17 @@ class BaseNode<T = Lantern.AnyNetworkObject> {
   }
 
   removeDependency(node: Node): void {
-    if (!this._dependencies.includes(node)) {
+    if (!this.dependencies.includes(node)) {
       return;
     }
 
-    const thisIndex = node._dependents.indexOf(this as BaseNode as Node);
-    node._dependents.splice(thisIndex, 1);
-    this._dependencies.splice(this._dependencies.indexOf(node), 1);
+    const thisIndex = node.dependents.indexOf(this as BaseNode as Node);
+    node.dependents.splice(thisIndex, 1);
+    this.dependencies.splice(this.dependencies.indexOf(node), 1);
   }
 
   removeAllDependencies(): void {
-    for (const node of this._dependencies.slice()) {
+    for (const node of this.dependencies.slice()) {
       this.removeDependency(node);
     }
   }
@@ -198,7 +200,7 @@ class BaseNode<T = Lantern.AnyNetworkObject> {
         node.traverse(
             node => idsToIncludedClones.set(node.id, node.cloneWithoutRelationships()),
             // Dependencies already cloned have already cloned ancestors, so no need to visit again.
-            node => node._dependencies.filter(parent => !idsToIncludedClones.has(parent.id)),
+            node => node.dependencies.filter(parent => !idsToIncludedClones.has(parent.id)),
         );
       }
     });
@@ -210,10 +212,10 @@ class BaseNode<T = Lantern.AnyNetworkObject> {
         return;
       }
 
-      for (const dependency of originalNode._dependencies) {
+      for (const dependency of originalNode.dependencies) {
         const clonedDependency = idsToIncludedClones.get(dependency.id);
         if (!clonedDependency) {
-          throw new Error('Dependency somehow not cloned');
+          throw new Core.LanternError('Dependency somehow not cloned');
         }
         clonedNode.addDependency(clonedDependency);
       }
@@ -221,7 +223,7 @@ class BaseNode<T = Lantern.AnyNetworkObject> {
 
     const clonedThisNode = idsToIncludedClones.get(this.id);
     if (!clonedThisNode) {
-      throw new Error('Cloned graph missing node');
+      throw new Core.LanternError('Cloned graph missing node');
     }
     return clonedThisNode;
   }
@@ -313,7 +315,7 @@ class BaseNode<T = Lantern.AnyNetworkObject> {
       currentPath.push(currentNode);
 
       // Add all of its dependents to our toVisit stack
-      const nodesToExplore = direction === 'dependents' ? currentNode._dependents : currentNode._dependencies;
+      const nodesToExplore = direction === 'dependents' ? currentNode.dependents : currentNode.dependencies;
       for (const nextNode of nodesToExplore) {
         if (toVisit.includes(nextNode)) {
           continue;
