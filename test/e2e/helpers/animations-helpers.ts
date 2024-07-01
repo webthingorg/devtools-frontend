@@ -5,13 +5,16 @@
 import {click, goToResource, waitFor} from '../../shared/helper.js';
 
 import {openPanelViaMoreTools} from './settings-helpers.js';
-import {veImpression} from './visual-logging-helpers.js';
+import {expectVeImpressions, veImpression, veImpressionForDrawerToolbar} from './visual-logging-helpers.js';
 
 export async function waitForAnimationsPanelToLoad() {
   // Open panel and wait for content
   await openPanelViaMoreTools('Animations');
   await waitFor('div[aria-label="Animations panel"]');
-  await waitFor('div.animations-timeline');
+  await waitFor('div.animation-timeline-header');
+  await expectVeImpressions(veImpression(
+      'Drawer', undefined,
+      [veImpressionForDrawerToolbar({selectedPanel: 'animations'}), veImpressionForAnimationsPanel()]));
 }
 
 export async function navigateToSiteWithAnimation() {
