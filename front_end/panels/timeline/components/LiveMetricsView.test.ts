@@ -50,7 +50,7 @@ describeWithMockConnection('LiveMetricsView', () => {
     const view = new Components.LiveMetricsView.LiveMetricsView();
     renderElementIntoDOM(view);
     LiveMetrics.LiveMetrics.instance().dispatchEventToListeners(LiveMetrics.Events.Status, {
-      lcp: {value: 100, rating: 'good'},
+      lcp: {value: 100},
       interactions: [],
     });
     await coordinator.done();
@@ -64,7 +64,7 @@ describeWithMockConnection('LiveMetricsView', () => {
     const view = new Components.LiveMetricsView.LiveMetricsView();
     renderElementIntoDOM(view);
     LiveMetrics.LiveMetrics.instance().dispatchEventToListeners(LiveMetrics.Events.Status, {
-      cls: {value: 1.34294789234, rating: 'needs-improvement'},
+      cls: {value: 0.14294789234},
       interactions: [],
     });
     await coordinator.done();
@@ -78,7 +78,7 @@ describeWithMockConnection('LiveMetricsView', () => {
     const view = new Components.LiveMetricsView.LiveMetricsView();
     renderElementIntoDOM(view);
     LiveMetrics.LiveMetrics.instance().dispatchEventToListeners(
-        LiveMetrics.Events.Status, {inp: {value: 2000, rating: 'poor'}, interactions: []});
+        LiveMetrics.Events.Status, {inp: {value: 2000}, interactions: []});
     await coordinator.done();
     const metricEl = view.shadowRoot?.querySelector('#inp') as HTMLDivElement;
     const metricValueEl = metricEl.querySelector('.local-metric-value') as HTMLDivElement;
@@ -101,8 +101,8 @@ describeWithMockConnection('LiveMetricsView', () => {
     renderElementIntoDOM(view);
     LiveMetrics.LiveMetrics.instance().dispatchEventToListeners(LiveMetrics.Events.Status, {
       interactions: [
-        {duration: 500, rating: 'poor', interactionType: 'pointer'},
-        {duration: 30, rating: 'good', interactionType: 'keyboard'},
+        {duration: 500, interactionType: 'pointer'},
+        {duration: 30, interactionType: 'keyboard'},
       ],
     });
     await coordinator.done();
@@ -216,14 +216,14 @@ describeWithMockConnection('LiveMetricsView', () => {
       (fieldDataCard.querySelector('button') as HTMLButtonElement).click();
       await coordinator.done();
 
-      const lcpFieldEl = view.shadowRoot?.querySelector('#lcp .field-data') as HTMLDivElement;
-      assert.strictEqual(lcpFieldEl.innerText, '50%\n30%\n20%');
+      const lcpHistogramEl = view.shadowRoot?.querySelector('#lcp .field-data-histogram') as HTMLDivElement;
+      assert.strictEqual(lcpHistogramEl.innerText, '50%\n30%\n20%');
 
-      const clsFieldEl = view.shadowRoot?.querySelector('#cls .field-data') as HTMLDivElement;
-      assert.strictEqual(clsFieldEl.innerText, '10%\n10%\n80%');
+      const clsHistogramEl = view.shadowRoot?.querySelector('#cls .field-data-histogram') as HTMLDivElement;
+      assert.strictEqual(clsHistogramEl.innerText, '10%\n10%\n80%');
 
-      const inpFieldEl = view.shadowRoot?.querySelector('#inp .field-data');
-      assert.isNull(inpFieldEl);
+      const inpHistogramEl = view.shadowRoot?.querySelector('#inp .field-data-histogram');
+      assert.isNull(inpHistogramEl);
     });
 
     it('should show when requested automatically', async () => {
@@ -272,14 +272,14 @@ describeWithMockConnection('LiveMetricsView', () => {
 
       await coordinator.done();
 
-      const lcpFieldEl = view.shadowRoot?.querySelector('#lcp .field-data') as HTMLDivElement;
-      assert.strictEqual(lcpFieldEl.innerText, '50%\n30%\n20%');
+      const lcpHistogramEl = view.shadowRoot?.querySelector('#lcp .field-data-histogram') as HTMLDivElement;
+      assert.strictEqual(lcpHistogramEl.innerText, 'Good (≤2.50 s)\n50%\nOk (2.50 s-4.00 s)\n40%\nPoor (>4.00 s)\n10%');
 
-      const clsFieldEl = view.shadowRoot?.querySelector('#cls .field-data') as HTMLDivElement;
-      assert.strictEqual(clsFieldEl.innerText, '10%\n10%\n80%');
+      const clsHistogramEl = view.shadowRoot?.querySelector('#cls .field-data-histogram') as HTMLDivElement;
+      assert.strictEqual(clsHistogramEl.innerText, 'Good (≤0.10)\n10%\nOk (0.10-0.25)\n10%\nPoor (>0.25)\n80%');
 
-      const inpFieldEl = view.shadowRoot?.querySelector('#inp .field-data');
-      assert.isNull(inpFieldEl);
+      const inpHistogramEl = view.shadowRoot?.querySelector('#inp .field-data-histogram');
+      assert.isNull(inpHistogramEl);
     });
 
     it('should make initial request on render when set to automatic', async () => {
@@ -320,14 +320,14 @@ describeWithMockConnection('LiveMetricsView', () => {
 
       await coordinator.done();
 
-      const lcpFieldEl = view.shadowRoot?.querySelector('#lcp .field-data') as HTMLDivElement;
-      assert.strictEqual(lcpFieldEl.innerText, '50%\n30%\n20%');
+      const lcpHistogramEl = view.shadowRoot?.querySelector('#lcp .field-data-histogram') as HTMLDivElement;
+      assert.strictEqual(lcpHistogramEl.innerText, '50%\n30%\n20%');
 
-      const clsFieldEl = view.shadowRoot?.querySelector('#cls .field-data') as HTMLDivElement;
-      assert.strictEqual(clsFieldEl.innerText, '10%\n10%\n80%');
+      const clsHistogramEl = view.shadowRoot?.querySelector('#cls .field-data-histogram') as HTMLDivElement;
+      assert.strictEqual(clsHistogramEl.innerText, '10%\n10%\n80%');
 
-      const inpFieldEl = view.shadowRoot?.querySelector('#inp .field-data');
-      assert.isNull(inpFieldEl);
+      const inpHistogramEl = view.shadowRoot?.querySelector('#inp .field-data-histogram');
+      assert.isNull(inpHistogramEl);
     });
   });
 });
