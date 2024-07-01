@@ -1268,18 +1268,17 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
 
       // Add listeners for annotations change to update the Overlays.
       currentManager?.addEventListener(
-          ModificationsManager.ModificationsManager.AnnotationAddedEvent.eventName, event => {
-            const addedOverlay =
-                (event as ModificationsManager.ModificationsManager.AnnotationAddedEvent).addedAnnotationOverlay;
-            this.flameChart.getOverlays().add(addedOverlay);
+          ModificationsManager.ModificationsManager.AnnotationModifiedEvent.eventName, event => {
+            const {action, addedAnnotationOverlay, overlays} =
+                (event as ModificationsManager.ModificationsManager.AnnotationModifiedEvent);
+
+            if (action === 'Add') {
+              this.flameChart.getOverlays().add(addedAnnotationOverlay);
+            } else if (action === 'Remove') {
+              this.flameChart.getOverlays().remove(addedAnnotationOverlay);
+            }
             this.flameChart.getOverlays().update();
-          });
-      currentManager?.addEventListener(
-          ModificationsManager.ModificationsManager.AnnotationRemovedEvent.eventName, event => {
-            const removedOverlay =
-                (event as ModificationsManager.ModificationsManager.AnnotationRemovedEvent).removedAnnotationOverlay;
-            this.flameChart.getOverlays().remove(removedOverlay);
-            this.flameChart.getOverlays().update();
+            this.#sideBar.annotationsTabDataChanged(overlays);
           });
 
       this.#applyActiveFilters(traceParsedData.Meta.traceIsGeneric, exclusiveFilter);

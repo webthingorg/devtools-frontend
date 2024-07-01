@@ -7,3 +7,19 @@
 .annotations {
   display: block;
 }
+
+.label-annotation {
+  padding-top: 10px;
+}
+
+.entry-name {
+  width: fit-content;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-weight: bold;
+  background-color: var(--app-color-performance-sidebar-label);
+}
+
+.label {
+  font-size: larger;
+}

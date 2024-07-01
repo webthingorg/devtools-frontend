@@ -519,9 +519,16 @@ export class Overlays {
         component.addEventListener(Components.EntryLabelOverlay.EmptyEntryLabelRemoveEvent.eventName, () => {
           // Because EntryLabel is a part of AnnotationsOverlays, instead of removing the label from Overlays directly,
           // remove it from the Overlays ModificationsManager. ModificationsManager will update the other components.
-          ModificationsManager.ModificationsManager.ModificationsManager.activeManager()?.removeAnnotationOverlay(
-              overlay);
+          ModificationsManager.ModificationsManager.ModificationsManager.activeManager()?.modifyAnnotationOverlay(
+              overlay, 'Remove');
         });
+        component.addEventListener(Components.EntryLabelOverlay.EntryLabelUpdateEvent.eventName, event => {
+          const newLabel = (event as Components.EntryLabelOverlay.EntryLabelUpdateEvent).newLabel;
+          overlay.label = newLabel;
+          ModificationsManager.ModificationsManager.ModificationsManager.activeManager()?.modifyAnnotationOverlay(
+              overlay, 'Update');
+        });
+
         div.appendChild(component);
         return div;
       }
