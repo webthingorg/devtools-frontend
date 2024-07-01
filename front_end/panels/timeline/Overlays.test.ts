@@ -345,7 +345,7 @@ describeWithEnvironment('Overlays', () => {
       // Create an entry label overlay
       overlays.add({
         type: 'ENTRY_LABEL',
-        entry: event,
+        entry: event as TraceEngine.Types.TraceEvents.TraceEventData,
         label: '',
       });
       overlays.update();
@@ -544,7 +544,7 @@ describeWithEnvironment('Overlays', () => {
       overlays.add({
         type: 'ENTRY_LABEL',
         label: '',
-        entry: event,
+        entry: event as TraceEngine.Types.TraceEvents.TraceEventData,
       });
 
       overlays.update();
@@ -570,7 +570,7 @@ describeWithEnvironment('Overlays', () => {
       overlays.add({
         type: 'ENTRY_LABEL',
         label: '',
-        entry: event,
+        entry: event as TraceEngine.Types.TraceEvents.TraceEventData,
       });
 
       overlays.update();
