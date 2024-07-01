@@ -78,8 +78,8 @@ export class ReportView extends VBox {
     return toolbar;
   }
 
-  appendSection(title: string, className?: string): Section {
-    const section = new Section(title, className);
+  appendSection(title: string, className?: string, jslogContext?: string): Section {
+    const section = new Section(title, className, jslogContext);
     section.show(this.sectionList);
     return section;
   }
@@ -113,12 +113,17 @@ export class Section extends VBox {
   private titleElement: HTMLElement;
   private fieldList: HTMLElement;
   private readonly fieldMap: Map<string, Element>;
-  constructor(title: string, className?: string) {
+  private readonly jslogContext: string|undefined;
+  constructor(title: string, className?: string, jslogContext?: string) {
     super();
     this.element.classList.add('report-section');
     if (className) {
       this.element.classList.add(className);
     }
+    if (jslogContext) {
+      this.element.setAttribute('jslog', `${VisualLogging.section(jslogContext)}`);
+    }
+    this.jslogContext = jslogContext;
     this.headerButtons = [];
     this.headerElement = this.element.createChild('div', 'report-section-header');
     this.titleElement = this.headerElement.createChild('div', 'report-section-title');
@@ -230,5 +235,9 @@ export class Section extends VBox {
 
   setIconMasked(masked: boolean): void {
     this.element.classList.toggle('show-mask', masked);
+  }
+
+  getJslogContext(): string|undefined {
+    return this.jslogContext;
   }
 }

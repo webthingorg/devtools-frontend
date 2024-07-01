@@ -18,7 +18,7 @@ import {assertMatchesJSONSnapshot} from '../../shared/snapshots.js';
 import {
   clearStorageItems,
   clearStorageItemsFilter,
-  doubleClickSourceTreeItem,
+  navigateToCookiesForTopDomain,
   filterStorageItems,
   getDataGridData,
   getStorageItemsData,
@@ -26,15 +26,7 @@ import {
   selectCookieByName,
 } from '../helpers/application-helpers.js';
 
-// The parent suffix makes sure we wait for the Cookies item to have children before trying to click it.
-const COOKIES_SELECTOR = '[aria-label="Cookies"].parent';
-let DOMAIN_SELECTOR: string;
-
 describe('The Application Tab', () => {
-  before(async () => {
-    DOMAIN_SELECTOR = `${COOKIES_SELECTOR} + ol > [aria-label="https://localhost:${getTestServerPort()}"]`;
-  });
-
   afterEach(async () => {
     expectError('Request CacheStorage.requestCacheNames failed. {"code":-32602,"message":"Invalid security origin"}');
     const {target} = getBrowserAndPages();
@@ -52,8 +44,7 @@ describe('The Application Tab', () => {
 
         await goToResource('network/unreachable.rawresponse');
 
-        await doubleClickSourceTreeItem(COOKIES_SELECTOR);
-        await doubleClickSourceTreeItem(DOMAIN_SELECTOR);
+        await navigateToCookiesForTopDomain();
 
         const dataGridRowValues = await getStorageItemsData(['name', 'value']);
         assertMatchesJSONSnapshot(dataGridRowValues);
@@ -64,8 +55,7 @@ describe('The Application Tab', () => {
     // This sets a new cookie foo=bar
     await navigateToApplicationTab(target, 'cookies');
 
-    await doubleClickSourceTreeItem(COOKIES_SELECTOR);
-    await doubleClickSourceTreeItem(DOMAIN_SELECTOR);
+    await navigateToCookiesForTopDomain();
 
     await selectCookieByName('foo');
 
@@ -84,8 +74,7 @@ describe('The Application Tab', () => {
     // This sets a new cookie foo=bar
     await navigateToApplicationTab(target, 'cookies');
 
-    await doubleClickSourceTreeItem(COOKIES_SELECTOR);
-    await doubleClickSourceTreeItem(DOMAIN_SELECTOR);
+    await navigateToCookiesForTopDomain();
 
     const dataGridRowValues1 = await getStorageItemsData(['partition-key-site'], 4);
     assert.deepEqual(dataGridRowValues1, [
@@ -125,8 +114,7 @@ describe('The Application Tab', () => {
     // This sets a new cookie foo=bar
     await navigateToApplicationTab(target, 'cookies');
 
-    await doubleClickSourceTreeItem(COOKIES_SELECTOR);
-    await doubleClickSourceTreeItem(DOMAIN_SELECTOR);
+    await navigateToCookiesForTopDomain();
 
     await click('.cookies-table .data-grid-data-grid-node');
 
@@ -152,8 +140,7 @@ describe('The Application Tab', () => {
     // This sets a new cookie foo=bar
     await navigateToApplicationTab(target, 'cookies');
 
-    await doubleClickSourceTreeItem(COOKIES_SELECTOR);
-    await doubleClickSourceTreeItem(DOMAIN_SELECTOR);
+    await navigateToCookiesForTopDomain();
 
     await selectCookieByName('foo');
 
@@ -181,8 +168,7 @@ describe('The Application Tab', () => {
     // This sets a new cookie foo=bar
     await navigateToApplicationTab(target, 'cookies');
 
-    await doubleClickSourceTreeItem(COOKIES_SELECTOR);
-    await doubleClickSourceTreeItem(DOMAIN_SELECTOR);
+    await navigateToCookiesForTopDomain();
 
     const dataGridRowValues1 = await getStorageItemsData(['name'], 4);
     assert.deepEqual(dataGridRowValues1, [

@@ -14,12 +14,12 @@ import {logChange, logClick, logDrag, logHover, logImpressions, logKeyDown, logR
 import {getLoggingState, getOrCreateLoggingState, type LoggingState} from './LoggingState.js';
 import {getNonDomState, unregisterAllLoggables, unregisterLoggable} from './NonDomState.js';
 
-const PROCESS_DOM_INTERVAL = 500;
+const PROCESS_DOM_INTERVAL = 10;//500;
 const KEYBOARD_LOG_INTERVAL = 3000;
 const HOVER_LOG_INTERVAL = 1000;
-const DRAG_LOG_INTERVAL = 1250;
+const DRAG_LOG_INTERVAL = 10;//1250;
 const DRAG_REPORT_THRESHOLD = 50;
-const CLICK_LOG_INTERVAL = 500;
+const CLICK_LOG_INTERVAL = 10; //500;
 const RESIZE_LOG_INTERVAL = 200;
 const RESIZE_REPORT_THRESHOLD = 50;
 
@@ -125,19 +125,21 @@ async function yieldToInteractions(): Promise<void> {
   }
 }
 
-function flushPendingChangeEvents(): void {
-  for (const element of pendingChange) {
-    logPendingChange(element);
-  }
-}
+function flushPendingChangeEvents():
+    void {
+      for (const element of pendingChange) {
+        logPendingChange(element);
+      }
+    }
 
-export async function scheduleProcessing(): Promise<void> {
-  if (!processingThrottler) {
-    return;
-  }
-  void processingThrottler.schedule(
-      () => Coordinator.RenderCoordinator.RenderCoordinator.instance().read('processForLogging', process));
-}
+export async function scheduleProcessing():
+    Promise<void> {
+      if (!processingThrottler) {
+        return;
+      }
+      void processingThrottler.schedule(
+          () => Coordinator.RenderCoordinator.RenderCoordinator.instance().read('processForLogging', process));
+    }
 
 const viewportRects = new Map<Document, DOMRect>();
 const viewportRectFor = (element: Element): DOMRect => {

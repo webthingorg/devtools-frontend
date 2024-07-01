@@ -2,6 +2,18 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import {click, waitFor, reloadDevTools as baseReloadDevTools} from '../../shared/helper.js';
+import {expectVeEvents, veImpressionForMainToolbar, veImpressionForElementsPanel, veImpression} from './visual-logging-helpers.js';
+import {veImpressionForSecurityPanel} from './security-helpers.js';
+import {veImpressionForLayersPanel} from './layers-helpers.js';
+import {veImpressionForNetworkPanel} from './network-helpers.js';
+import {veImpressionForPerformancePanel} from './performance-helpers.js';
+import {veImpressionForConsolePanel} from './console-helpers.js';
+import {veImpressionForSourcesPanel} from './sources-helpers.js';
+import {veImpressionForApplicationPanel} from './application-helpers.js';
+import {veImpressionForAnimationsPanel} from './animations-helpers.js';
+import {veImpressionForChangesPanel} from './changes-helpers.js';
+import {getBrowserAndPages} from '../../conductor/puppeteer-state.js';
 import {type DevToolsFrontendReloadOptions} from '../../conductor/frontend_tab.js';
 import {getBrowserAndPages} from '../../conductor/puppeteer-state.js';
 import {click, reloadDevTools as baseReloadDevTools, waitFor} from '../../shared/helper.js';
@@ -101,5 +113,6 @@ export async function reloadDevTools(
       veImpressionForConsolePanel(),
     ]));
   }
-  await expectVeImpressions(expectedVeEvents.flat());
+  // await expectVeImpressions(expectedVeEvents.flat());
+  await expectVeEvents(expectedVeEvents);
 }

@@ -17,11 +17,14 @@ import {
 } from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {
-  doubleClickSourceTreeItem,
+  navigateToFrame,
   getFrameTreeTitles,
   getTrimmedTextContent,
   navigateToApplicationTab,
   unregisterServiceWorker,
+  navigateToOpenedWindows,
+  navigateToWebWorkers,
+  navigateToFrameServiceWorkers,
 } from '../helpers/application-helpers.js';
 import {setIgnoreListPattern} from '../helpers/settings-helpers.js';
 
@@ -80,7 +83,7 @@ describe('The Application Tab', () => {
     const {target} = getBrowserAndPages();
     await navigateToApplicationTab(target, 'frame-tree');
     await click('#tab-resources');
-    await doubleClickSourceTreeItem(TOP_FRAME_SELECTOR);
+    await navigateToFrame('top');
 
     const fieldValuesTextContent = await waitForFunction(getFieldValuesTextContent);
     const expected = [
@@ -105,8 +108,8 @@ describe('The Application Tab', () => {
     await goToResource('application/js-oopif.html');
     await ensureApplicationPanel();
     await waitForFunction(async () => {
-      await doubleClickSourceTreeItem(TOP_FRAME_SELECTOR);
-      await doubleClickSourceTreeItem(IFRAME_SELECTOR);
+      await navigateToFrame('top');
+      await navigateToFrame('iframe.html');
       return (await $$(EXPAND_STACKTRACE_BUTTON_SELECTOR)).length === 1;
     });
     const stackTraceRowsTextContent = await waitForFunction(async () => {
@@ -130,11 +133,14 @@ describe('The Application Tab', () => {
   it('stack traces for OOPIF with ignore listed frames can be expanded and collapsed', async () => {
     expectError('Request CacheStorage.requestCacheNames failed. {"code":-32602,"message":"Invalid security origin"}');
     await setIgnoreListPattern('js-oopif.js');
-    await goToResource('application/js-oopif.html');
-    await ensureApplicationPanel();
+    // await goToResource('application/js-oopif.html');
+    // await ensureApplicationPanel();
+    const {target, frontend} = getBrowserAndPages();
+    await navigateToApplicationTab(target, 'js-oopif');
     await waitForFunction(async () => {
-      await doubleClickSourceTreeItem(TOP_FRAME_SELECTOR);
-      await doubleClickSourceTreeItem(IFRAME_SELECTOR);
+      // await new Promise(resolve => setTimeout(resolve, 500));
+      await navigateToFrame('top');
+      await navigateToFrame('iframe.html');
       return (await $$(EXPAND_STACKTRACE_BUTTON_SELECTOR)).length === 1;
     });
     let stackTraceRowsTextContent = await waitForFunction(async () => {
@@ -196,7 +202,7 @@ describe('The Application Tab', () => {
       const {target, frontend} = getBrowserAndPages();
       await navigateToApplicationTab(target, 'frame-tree');
       await click('#tab-resources');
-      await doubleClickSourceTreeItem(TOP_FRAME_SELECTOR);
+      await navigateToFrame('top');
 
       await target.evaluate(() => {
         window.iFrameWindow = window.open('iframe.html');
@@ -206,7 +212,7 @@ describe('The Application Tab', () => {
       // to the application panel.
       await frontend.bringToFront();
 
-      await doubleClickSourceTreeItem(OPENED_WINDOWS_SELECTOR);
+      await navigateToOpenedWindows();
       await waitFor(`${OPENED_WINDOWS_SELECTOR} + ol li:first-child`);
       void pressKey('ArrowDown');
 
@@ -232,12 +238,11 @@ describe('The Application Tab', () => {
     const {target} = getBrowserAndPages();
     await goToResource('application/frame-tree.html');
     await click('#tab-resources');
-    await doubleClickSourceTreeItem(TOP_FRAME_SELECTOR);
+    await navigateToFrame('top');
     // DevTools is not ready yet when the worker is being initially attached.
     // We therefore need to reload the page to see the worker in DevTools.
     await target.reload();
-    await doubleClickSourceTreeItem(WEB_WORKERS_SELECTOR);
-    await waitFor(`${WEB_WORKERS_SELECTOR} + ol li:first-child`);
+    await navigateToWebWorkers();
     void pressKey('ArrowDown');
 
     const fieldValuesTextContent = await waitForFunction(async () => {
@@ -260,9 +265,7 @@ describe('The Application Tab', () => {
     expectError('Request CacheStorage.requestCacheNames failed. {"code":-32602,"message":"Invalid security origin"}');
     await goToResource('application/service-worker-network.html');
     await click('#tab-resources');
-    await doubleClickSourceTreeItem(TOP_FRAME_SELECTOR);
-    await doubleClickSourceTreeItem(SERVICE_WORKERS_SELECTOR);
-    await waitFor(`${SERVICE_WORKERS_SELECTOR} + ol li:first-child`);
+    await navigateToFrameServiceWorkers('top');
     void pressKey('ArrowDown');
 
     const fieldValuesTextContent = await waitForFunction(async () => {
@@ -292,8 +295,8 @@ describe('The Application Tab', () => {
     const {target} = getBrowserAndPages();
     await goToResource('application/main-frame.html');
     await click('#tab-resources');
-    await doubleClickSourceTreeItem(TOP_FRAME_SELECTOR);
-    await doubleClickSourceTreeItem(IFRAME_FRAME_ID_SELECTOR);
+    await navigateToFrame('top');
+    await navigateToFrame('frameId (iframe.html)')
 
     // check iframe's URL after pageload
     const fieldValuesTextContent = await waitForFunction(getFieldValuesTextContent);
@@ -326,7 +329,7 @@ describe('The Application Tab', () => {
     });
 
     // check that iframe's URL has changed
-    await doubleClickSourceTreeItem(MAIN_FRAME_SELECTOR);
+    await navigateToFrame('frameId (main-frame.html)');
     const fieldValuesTextContent2 = await waitForFunction(getFieldValuesTextContent);
     const expected2 = [
       `https://localhost:${getTestServerPort()}/test/e2e/resources/application/main-frame.html`,
