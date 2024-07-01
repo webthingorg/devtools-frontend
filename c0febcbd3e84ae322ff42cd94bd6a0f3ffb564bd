@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d1e6c6a_032ddaef",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-07-01T07:54:30Z",
+      "side": 1,
+      "message": "General comment: I saw that this is part of a new landing page. Do you have mocks that you could share with us? We are currently migrating DevTools UI to Material 3, and a lot of UI will be updated to be in sync with Chrome. This includes landing pages (https://docs.google.com/presentation/d/12kY2tn84xfYD421OTeXMIHpvWoMne2Z06erfpM7-l-w/#slide\u003did.g29c79b73930_3_206).\n\nProbably, we want to declutter and have one image for landing pages. In any case, we should start talking if you want to have a new landing page in order to synchronize with our UX (except if you have talked to petermueller@ about its design).",
+      "revId": "c0febcbd3e84ae322ff42cd94bd6a0f3ffb564bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2e21384_17217464",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-07-01T07:54:30Z",
+      "side": 1,
+      "message": "LGTM regarding Material 3 looks % comment on colors (but this may be part of a follow up CL) and comment on landing pages, which we should talk about. Thanks Adam for making the change!",
+      "revId": "c0febcbd3e84ae322ff42cd94bd6a0f3ffb564bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de6997da_327e9149",
+        "filename": "front_end/panels/timeline/components/liveMetricsView.css",
+        "patchSetId": 8
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-07-01T07:54:30Z",
+      "side": 1,
+      "message": "This is not part of this CL, but maybe this could be changed in a follow up CL: We have a set of guidelines for DevTools to use Material3 colors. Have a look at this documentation here regarding how to choose colors: https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/docs/material3_guidelines.md?q\u003dmaterial3%20devtools\u0026ss\u003dchromium\n\nThe colors are defined here: \nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/ui/legacy/themeColors.css?q\u003dthemecolors.css%20devtools\u0026ss\u003dchromium\n\nPotentially `--sys-color-cdt-base-container` would be a good color?",
+      "revId": "c0febcbd3e84ae322ff42cd94bd6a0f3ffb564bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
