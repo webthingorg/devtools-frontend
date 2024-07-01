@@ -33,6 +33,24 @@
       "message": "(another nit): We can combine these two different ternary expressions into one.\n\nSomething like this, WDYT?\n```\nthis.#props.selectedNode ? LitHtml.Directives.until(Common.Linkifier.Linkifier.linkify(this.#props.selectedNode),) : LitHtml.html`\u003cspan class\u003d\"select-an-element-text\"\u003e${i18nString(TempUIStrings.selectAnElement)}\u003c/span\u003e`\n```",
       "revId": "69eb27edaaba0189dd07eeb749ab65e340e13084",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac8de026_b3472ff4",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-07-01T14:18:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1946ee38_e0d1bb3f",
+      "revId": "69eb27edaaba0189dd07eeb749ab65e340e13084",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
