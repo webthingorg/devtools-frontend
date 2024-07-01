@@ -22,7 +22,8 @@ const coordinator = RenderCoordinator.RenderCoordinator.RenderCoordinator.instan
  * and data providers. This function creates all of those and optionally sets
  * the trace data for the providers if it is provided.
  */
-function createCharts(traceParsedData?: TraceEngine.Handlers.Types.TraceParseData): Timeline.Overlays.TimelineCharts {
+export function createCharts(traceParsedData?: TraceEngine.Handlers.Types.TraceParseData):
+    Timeline.Overlays.TimelineCharts {
   const mainProvider = new Timeline.TimelineFlameChartDataProvider.TimelineFlameChartDataProvider();
   const networkProvider = new Timeline.TimelineFlameChartNetworkDataProvider.TimelineFlameChartNetworkDataProvider();
 
@@ -345,7 +346,7 @@ describeWithEnvironment('Overlays', () => {
       // Create an entry label overlay
       overlays.add({
         type: 'ENTRY_LABEL',
-        entry: event,
+        entry: event as TraceEngine.Types.TraceEvents.TraceEventData,
         label: '',
       });
       overlays.update();
@@ -544,7 +545,7 @@ describeWithEnvironment('Overlays', () => {
       overlays.add({
         type: 'ENTRY_LABEL',
         label: '',
-        entry: event,
+        entry: event as TraceEngine.Types.TraceEvents.TraceEventData,
       });
 
       overlays.update();
@@ -570,7 +571,7 @@ describeWithEnvironment('Overlays', () => {
       overlays.add({
         type: 'ENTRY_LABEL',
         label: '',
-        entry: event,
+        entry: event as TraceEngine.Types.TraceEvents.TraceEventData,
       });
 
       overlays.update();

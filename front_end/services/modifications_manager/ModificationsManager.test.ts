@@ -3,11 +3,12 @@
 // found in the LICENSE file.
 
 import type * as TraceEngine from '../../models/trace/trace.js';
+import {describeWithEnvironment} from '../../testing/EnvironmentHelpers.js';
 import {TraceLoader} from '../../testing/TraceLoader.js';
 
 import * as ModificationsManager from './modifications_manager.js';
 
-describe('ModificationsManager', () => {
+describeWithEnvironment('ModificationsManager', () => {
   it('applies modifications when present in a trace file', async function() {
     await TraceLoader.traceEngine(null, 'web-dev-modifications.json.gz');
     const modificationsManager = ModificationsManager.ModificationsManager.ModificationsManager.activeManager();
