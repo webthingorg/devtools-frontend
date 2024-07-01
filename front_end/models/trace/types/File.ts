@@ -27,6 +27,24 @@ export const enum EventKeyType {
   ProfileCall = 'p',
 }
 
+/**
+ * Represents an object created when a user creates a label for an entry in the timeline.
+ */
+export interface EntryLabel {
+  type: 'ENTRY_LABEL';
+  entry: TraceEventData;
+  label: string;
+}
+
+/**
+ * `OverlayAnnotations` are the user-created annotations that are saved into the metadata.
+ * Those annotations are drawn onto the timeline with `Overlays`.
+ *
+ * TODO: Implementt other OverlayAnnotations (annotated time ranges, links between entries).
+ * TODO: Save/load overlay annotations to/from the trace file.
+ */
+export type OverlayAnnotations = EntryLabel;
+
 // Serializable keys are created for trace events to be able to save
 // references to timeline events in a trace file. These keys enable
 // user modifications that can be saved. See go/cpq:event-data-json for
