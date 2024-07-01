@@ -6,4 +6,16 @@
 
 .annotations {
   display: block;
+  flex-wrap: wrap;
+}
+
+.labelAnnotation {
+  padding-top: 8px;
+}
+
+.entryName {
+  padding: 4px;
+  border-radius: 8px;
+  font-weight: bold;
+  background-color: #d9bafd;
 }

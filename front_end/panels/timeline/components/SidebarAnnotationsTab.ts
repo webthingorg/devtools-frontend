@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as ModificationsManager from '../../../services/modifications_manager/modifications_manager.js';
 import * as ComponentHelpers from '../../../ui/components/helpers/helpers.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 
@@ -17,12 +18,29 @@ export class SidebarAnnotationsTab extends HTMLElement {
     void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
   }
 
+  rerenderContent(): void {
+    void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
+  }
+
+  renderLabel(entryName: string, label: String): LitHtml.LitTemplate {
+    return LitHtml.html`
+      <div class="labelAnnotation">
+        <div class="entryName">
+          ${entryName}
+        </div>  
+         ${label}
+      </div>
+    `;
+  }
+
   #render(): void {
+    const annotations = ModificationsManager.ModificationsManager.ModificationsManager.activeManager()?.getOverlays();
+
     // clang-format off
         LitHtml.render(
             LitHtml.html`
             <span class="annotations">
-                Annotations coming soon!
+              ${annotations?.map(annotation => this.renderLabel(annotation.entry.name, annotation.label))}
             </span>`,
             this.#shadow, {host: this});
     // clang-format on
