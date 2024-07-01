@@ -50,7 +50,7 @@ describeWithMockConnection('LiveMetricsView', () => {
     const view = new Components.LiveMetricsView.LiveMetricsView();
     renderElementIntoDOM(view);
     LiveMetrics.LiveMetrics.instance().dispatchEventToListeners(LiveMetrics.Events.Status, {
-      lcp: {value: 100, rating: 'good'},
+      lcp: {value: 100},
       interactions: [],
     });
     await coordinator.done();
@@ -64,7 +64,7 @@ describeWithMockConnection('LiveMetricsView', () => {
     const view = new Components.LiveMetricsView.LiveMetricsView();
     renderElementIntoDOM(view);
     LiveMetrics.LiveMetrics.instance().dispatchEventToListeners(LiveMetrics.Events.Status, {
-      cls: {value: 1.34294789234, rating: 'needs-improvement'},
+      cls: {value: 0.14294789234},
       interactions: [],
     });
     await coordinator.done();
@@ -78,7 +78,7 @@ describeWithMockConnection('LiveMetricsView', () => {
     const view = new Components.LiveMetricsView.LiveMetricsView();
     renderElementIntoDOM(view);
     LiveMetrics.LiveMetrics.instance().dispatchEventToListeners(
-        LiveMetrics.Events.Status, {inp: {value: 2000, rating: 'poor'}, interactions: []});
+        LiveMetrics.Events.Status, {inp: {value: 2000}, interactions: []});
     await coordinator.done();
     const metricEl = view.shadowRoot?.querySelector('#inp') as HTMLDivElement;
     const metricValueEl = metricEl.querySelector('.local-metric-value') as HTMLDivElement;
@@ -101,8 +101,8 @@ describeWithMockConnection('LiveMetricsView', () => {
     renderElementIntoDOM(view);
     LiveMetrics.LiveMetrics.instance().dispatchEventToListeners(LiveMetrics.Events.Status, {
       interactions: [
-        {duration: 500, rating: 'poor', interactionType: 'pointer'},
-        {duration: 30, rating: 'good', interactionType: 'keyboard'},
+        {duration: 500, interactionType: 'pointer'},
+        {duration: 30, interactionType: 'keyboard'},
       ],
     });
     await coordinator.done();
