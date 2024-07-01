@@ -1259,8 +1259,25 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
           traceParsedData.Meta.traceBounds,
       );
       // Create an instance of the modifications manager for this trace or activate a manager for previousy loaded trace.
-      ModificationsManager.ModificationsManager.ModificationsManager.initAndActivateModificationsManager(
-          this.#traceEngineModel, this.#traceEngineActiveTraceIndex);
+      const currentManager =
+          ModificationsManager.ModificationsManager.ModificationsManager.initAndActivateModificationsManager(
+              this.#traceEngineModel, this.#traceEngineActiveTraceIndex);
+      // After initializing a manager, add a listener for annotations change so the sidebar displays accurate annotations content
+      currentManager?.addEventListener(
+          ModificationsManager.ModificationsManager.AnnotationAddedEvent.eventName, event => {
+            const newOverlay =
+                (event as ModificationsManager.ModificationsManager.AnnotationAddedEvent).addedAnnotationOverlay;
+            this.flameChart.getOverlays().add(newOverlay);
+            this.flameChart.getOverlays().update();
+          });
+      currentManager?.addEventListener(
+          ModificationsManager.ModificationsManager.AnnotationRemovedEvent.eventName, event => {
+            const newOverlay =
+                (event as ModificationsManager.ModificationsManager.AnnotationRemovedEvent).removedAnnotationOverlay;
+            this.flameChart.getOverlays().remove(newOverlay);
+            this.flameChart.getOverlays().update();
+          });
+
       this.#applyActiveFilters(traceParsedData.Meta.traceIsGeneric, exclusiveFilter);
     }
     if (traceParsedData) {

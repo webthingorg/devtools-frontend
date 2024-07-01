@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as TraceEngine from '../../models/trace/trace.js';
+import * as ModificationsManager from '../../services/modifications_manager/modifications_manager.js';
 import {describeWithEnvironment} from '../../testing/EnvironmentHelpers.js';
 import {
   makeInstantEvent,
@@ -345,7 +346,7 @@ describeWithEnvironment('Overlays', () => {
       // Create an entry label overlay
       overlays.add({
         type: 'ENTRY_LABEL',
-        entry: event,
+        entry: event as TraceEngine.Types.TraceEvents.TraceEventData,
         label: '',
       });
       overlays.update();
@@ -374,7 +375,8 @@ describeWithEnvironment('Overlays', () => {
       label.dispatchEvent(new FocusEvent('blur', {bubbles: true}));
 
       // Ensure that the entry overlay has been removed because it was saved empty
-      assert.strictEqual(overlays.overlaysForEntry(event).length, 0);
+      assert.strictEqual(
+          ModificationsManager.ModificationsManager.ModificationsManager.activeManager()?.getOverlays.length, 0);
     });
 
     it('can render an overlay for a time range', async function() {
@@ -544,7 +546,7 @@ describeWithEnvironment('Overlays', () => {
       overlays.add({
         type: 'ENTRY_LABEL',
         label: '',
-        entry: event,
+        entry: event as TraceEngine.Types.TraceEvents.TraceEventData,
       });
 
       overlays.update();
@@ -570,7 +572,7 @@ describeWithEnvironment('Overlays', () => {
       overlays.add({
         type: 'ENTRY_LABEL',
         label: '',
-        entry: event,
+        entry: event as TraceEngine.Types.TraceEvents.TraceEventData,
       });
 
       overlays.update();

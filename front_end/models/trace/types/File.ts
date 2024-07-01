@@ -27,6 +27,18 @@ export const enum EventKeyType {
   ProfileCall = 'p',
 }
 
+/**
+ * Represents an object created when a user creates a label for an entry in the timeline.
+ */
+export interface EntryLabel {
+  type: 'ENTRY_LABEL';
+  entry: TraceEventData;
+  label: string;
+}
+
+// Expected to grow
+export type OverlayAnnotations = EntryLabel;
+
 // Serializable keys are created for trace events to be able to save
 // references to timeline events in a trace file. These keys enable
 // user modifications that can be saved. See go/cpq:event-data-json for
