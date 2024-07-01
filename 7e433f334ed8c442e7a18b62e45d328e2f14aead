@@ -33,6 +33,24 @@
       "message": "(nit): Can we move rendering the link logic to the `renderSelectAnElement` method as now it seems like the select an element icon and the node link are the same elements.",
       "revId": "7e433f334ed8c442e7a18b62e45d328e2f14aead",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e4c8f5b_c5cb3c63",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-07-01T13:36:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "331251b5_d83e052f",
+      "revId": "7e433f334ed8c442e7a18b62e45d328e2f14aead",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
