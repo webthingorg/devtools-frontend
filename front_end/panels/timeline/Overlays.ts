@@ -513,6 +513,13 @@ export class Overlays {
           ModificationsManager.ModificationsManager.ModificationsManager.activeManager()?.removeAnnotationOverlay(
               overlay);
         });
+        component.addEventListener(Components.EntryLabelOverlay.EntryLabelUpdateEvent.eventName, event => {
+          const newLabel = (event as Components.EntryLabelOverlay.EntryLabelUpdateEvent).newLabel;
+          overlay.label = newLabel;
+          ModificationsManager.ModificationsManager.ModificationsManager.activeManager()?.updateAnnotationOverlay(
+              overlay);
+        });
+
         div.appendChild(component);
         return div;
       }
