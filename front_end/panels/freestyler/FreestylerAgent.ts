@@ -71,7 +71,7 @@ export type StepData = {
   rpcId?: number,
 };
 
-async function executeJsCode(code: string): Promise<string> {
+async function executeJsCode(code: string, throwOnSideEffect = true): Promise<string> {
   const target = UI.Context.Context.instance().flavor(SDK.Target.Target);
   if (!target) {
     throw new Error('Target is not found for executing code');
@@ -93,7 +93,7 @@ async function executeJsCode(code: string): Promise<string> {
   }
 
   try {
-    return await FreestylerEvaluateAction.execute(code, executionContext);
+    return await FreestylerEvaluateAction.execute(code, executionContext, throwOnSideEffect);
   } catch (err) {
     if (err instanceof ExecutionError) {
       return `Error: ${err.message}`;
@@ -282,7 +282,9 @@ export class FreestylerAgent {
 
       if (action) {
         debugLog(`Action to execute: ${action}`);
-        const observation = await this.#execJs(`{${action};((typeof data !== "undefined") ? data : undefined)}`);
+        const observation = await this.#execJs(
+            `{${action};((typeof data !== "undefined") ? data : undefined)}`,
+            !query.startsWith('QUERY: Fix the issue'));
         debugLog(`Action result: ${observation}`);
         yield {step: Step.ACTION, code: action, output: observation, rpcId};
         query = `OBSERVATION: ${observation}`;

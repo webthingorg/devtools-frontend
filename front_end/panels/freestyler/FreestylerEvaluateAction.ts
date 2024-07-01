@@ -67,7 +67,8 @@ async function stringifyRemoteObject(object: SDK.RemoteObject.RemoteObject): Pro
 }
 
 export class FreestylerEvaluateAction {
-  static async execute(code: string, executionContext: SDK.RuntimeModel.ExecutionContext): Promise<string> {
+  static async execute(code: string, executionContext: SDK.RuntimeModel.ExecutionContext, throwOnSideEffect = true):
+      Promise<string> {
     const response = await executionContext.evaluate(
         {
           expression: code,
@@ -77,6 +78,7 @@ export class FreestylerEvaluateAction {
           silent: false,
           generatePreview: true,
           allowUnsafeEvalBlockedByCSP: false,
+          throwOnSideEffect,
         },
         /* userGesture */ false, /* awaitPromise */ true);
 
