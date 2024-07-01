@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "f05a6d22_5d2406fe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-07-01T13:12:53Z",
+      "side": 1,
+      "message": "Yes, we have mocks! A sync would work for me, my current workflow has been to emulate existing DevTools components as much as possible so happy to try and keep up with the new standards.\n\nhttps://www.figma.com/design/YzfTbApaJu7ZnKpZGSAwjH/RPP%E2%80%93%E2%80%93yuin?node-id\u003d2268-408594\u0026t\u003dis9YRxNyWXbhFeep-0\n\nDesign doc:\ngo/cpq:rpp-metric-observations",
+      "parentUuid": "1d1e6c6a_032ddaef",
+      "revId": "c0febcbd3e84ae322ff42cd94bd6a0f3ffb564bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e2e21384_17217464",
@@ -48,6 +66,24 @@
       "writtenOn": "2024-07-01T07:54:30Z",
       "side": 1,
       "message": "This is not part of this CL, but maybe this could be changed in a follow up CL: We have a set of guidelines for DevTools to use Material3 colors. Have a look at this documentation here regarding how to choose colors: https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/docs/material3_guidelines.md?q\u003dmaterial3%20devtools\u0026ss\u003dchromium\n\nThe colors are defined here: \nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/ui/legacy/themeColors.css?q\u003dthemecolors.css%20devtools\u0026ss\u003dchromium\n\nPotentially `--sys-color-cdt-base-container` would be a good color?",
+      "revId": "c0febcbd3e84ae322ff42cd94bd6a0f3ffb564bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3ead401_aeed1b17",
+        "filename": "front_end/panels/timeline/components/liveMetricsView.css",
+        "patchSetId": 8
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-07-01T13:12:53Z",
+      "side": 1,
+      "message": "Thanks for the advice and links, I will take a look and make a follow-up CL!",
+      "parentUuid": "de6997da_327e9149",
       "revId": "c0febcbd3e84ae322ff42cd94bd6a0f3ffb564bd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
