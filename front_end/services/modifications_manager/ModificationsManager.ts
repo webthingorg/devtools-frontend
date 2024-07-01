@@ -6,6 +6,14 @@ import * as TraceEngine from '../../models/trace/trace.js';
 import * as TimelineComponents from '../../panels/timeline/components/components.js';
 import * as EventsSerializer from '../events_serializer/events_serializer.js';
 
+export class AnnotationsChangedEvent extends Event {
+  static readonly eventName = 'annotationschanged';
+
+  constructor() {
+    super(AnnotationsChangedEvent.eventName);
+  }
+}
+
 const modificationsManagerByTraceIndex: ModificationsManager[] = [];
 let activeManager: ModificationsManager|null;
 
@@ -110,18 +118,23 @@ export class ModificationsManager extends EventTarget {
     return this.#timelineBreadcrumbs;
   }
 
+  getOverlays(): TraceEngine.Types.File.OverlayAnnotations[] {
+    return Array.from(this.#annotations);
+  }
+
   addAnnotationOverlay(newOverlay: TraceEngine.Types.File.OverlayAnnotations): void {
     this.#annotations.add(newOverlay);
     this.dispatchEvent(new AnnotationAddedEvent(newOverlay));
   }
 
+  updateAnnotationOverlay(overlay: TraceEngine.Types.File.OverlayAnnotations): void {
+    this.#annotations.add(overlay);
+    this.dispatchEvent(new AnnotationsChangedEvent());
+  }
+
   removeAnnotationOverlay(removedOverlay: TraceEngine.Types.File.OverlayAnnotations): void {
     this.#annotations.delete(removedOverlay);
     this.dispatchEvent(new AnnotationRemovedEvent(removedOverlay));
-  }
-
-  getOverlays(): TraceEngine.Types.File.OverlayAnnotations[] {
-    return Array.from(this.#annotations);
   }
 
   /**
