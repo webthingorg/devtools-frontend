@@ -16,6 +16,23 @@
       "message": "Hi Mathias, can you help review this PR or suggest reviewers for this PR to fix keyboard accessibility issue for live expression edit field. thank you!!",
       "revId": "64570647c7704589a52b1153615b1ce6c0e935ed",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce77e2b1_e3f835be",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327573
+      },
+      "writtenOn": "2024-07-02T16:36:42Z",
+      "side": 1,
+      "message": "hi Changhao, friendly ping on this CL thank you 😊",
+      "revId": "64570647c7704589a52b1153615b1ce6c0e935ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
