@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d58df316_45cfaff4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-07-02T16:15:45Z",
+      "side": 1,
+      "message": "Nice to see the mighty TimelineUIUtils becoming a bit smaller! :)",
+      "revId": "265c6e20941187d1d0709a0a7624ea9ccbd67984",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
