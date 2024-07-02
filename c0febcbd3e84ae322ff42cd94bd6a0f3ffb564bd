@@ -38,6 +38,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "dd35cd30_15ed0e20",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-07-02T12:35:08Z",
+      "side": 1,
+      "message": "Thanks a lot for sending along the mocks! I\u0027ll have a look. We currently don\u0027t have a set view on how DevTools landing pages should look like yet % that they should be similar to Chrome\u0027s landing pages, but general GM3 guidelines are already available. This is mostly a heads-up now, since the requirement for landing pages will change. \n\nI\u0027ll discuss this with our UX designer, petermueller@, as soon as he\u0027s back (OOO this week) and will send a mail with more info on GM3 guidelines for DevTools as soon as that\u0027s ready (currently in the works, hopefully out soon!).",
+      "parentUuid": "f05a6d22_5d2406fe",
+      "revId": "c0febcbd3e84ae322ff42cd94bd6a0f3ffb564bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "e2e21384_17217464",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 8
@@ -84,6 +102,24 @@
       "side": 1,
       "message": "Thanks for the advice and links, I will take a look and make a follow-up CL!",
       "parentUuid": "de6997da_327e9149",
+      "revId": "c0febcbd3e84ae322ff42cd94bd6a0f3ffb564bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b658cc9_d31a8875",
+        "filename": "front_end/panels/timeline/components/liveMetricsView.css",
+        "patchSetId": 8
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-07-02T12:35:08Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "a3ead401_aeed1b17",
       "revId": "c0febcbd3e84ae322ff42cd94bd6a0f3ffb564bd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
