@@ -30,6 +30,7 @@ devtools_module("components") {
     "Sidebar.ts",
     "SidebarInsight.ts",
     "TimeRangeOverlay.ts",
+    "Utils.ts",
   ]
 
   deps = [
