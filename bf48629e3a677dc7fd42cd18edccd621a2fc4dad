@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27cf2adf_1459de80",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-07-02T15:07:59Z",
+      "side": 1,
+      "message": "This CL should be submitted after this [bug](b/349802751) is fixed",
+      "revId": "bf48629e3a677dc7fd42cd18edccd621a2fc4dad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
