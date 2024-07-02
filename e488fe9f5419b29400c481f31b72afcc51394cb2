@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c3520e5_5f09b175",
+        "filename": "front_end/panels/application/PreloadingTreeElement.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-07-02T09:00:10Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "2dc247b9_3f4d1693",
+      "range": {
+        "startLine": 43,
+        "startChar": 32,
+        "endLine": 43,
+        "endChar": 44
+      },
+      "revId": "e488fe9f5419b29400c481f31b72afcc51394cb2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e030fe91_02e58ec4",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-07-02T08:54:54Z",
       "side": 1,
       "message": "nit: IMO it\u0027s fine to have public `readonly` properties. Then we can skip the getter below. Unless subclasses need to be able to override the getter?",
+      "range": {
+        "startLine": 116,
+        "startChar": 2,
+        "endLine": 116,
+        "endChar": 50
+      },
+      "revId": "e488fe9f5419b29400c481f31b72afcc51394cb2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "664f64d7_499e8205",
+        "filename": "front_end/ui/legacy/ReportView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-07-02T09:00:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e030fe91_02e58ec4",
       "range": {
         "startLine": 116,
         "startChar": 2,
