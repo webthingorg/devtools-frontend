@@ -1266,20 +1266,19 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
         console.error('ModificationsManager could not be created or activated.');
       }
 
-      // Add listeners for annotations change to update the Overlays.
+      // Add a listener for annotations modifications that updates the Overlays and Sidebar.
       currentManager?.addEventListener(
-          ModificationsManager.ModificationsManager.AnnotationAddedEvent.eventName, event => {
-            const addedOverlay =
-                (event as ModificationsManager.ModificationsManager.AnnotationAddedEvent).addedAnnotationOverlay;
-            this.flameChart.getOverlays().add(addedOverlay);
+          ModificationsManager.ModificationsManager.AnnotationModifiedEvent.eventName, event => {
+            const {action, annotationOverlay, overlays} =
+                (event as ModificationsManager.ModificationsManager.AnnotationModifiedEvent);
+
+            if (action === 'Add') {
+              this.flameChart.getOverlays().add(annotationOverlay);
+            } else if (action === 'Remove') {
+              this.flameChart.getOverlays().remove(annotationOverlay);
+            }
             this.flameChart.getOverlays().update();
-          });
-      currentManager?.addEventListener(
-          ModificationsManager.ModificationsManager.AnnotationRemovedEvent.eventName, event => {
-            const removedOverlay =
-                (event as ModificationsManager.ModificationsManager.AnnotationRemovedEvent).removedAnnotationOverlay;
-            this.flameChart.getOverlays().remove(removedOverlay);
-            this.flameChart.getOverlays().update();
+            this.#sideBar.updateAnnotationOverlaysTabContent(overlays);
           });
 
       this.#applyActiveFilters(traceParsedData.Meta.traceIsGeneric, exclusiveFilter);

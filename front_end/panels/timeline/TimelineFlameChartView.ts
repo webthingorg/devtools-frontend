@@ -489,11 +489,13 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
         (TimelineSelection.isTraceEventSelection(selection.object) ||
          TimelineSelection.isSyntheticNetworkRequestDetailsEventSelection(selection.object))) {
       this.setSelection(selection);
-      ModificationsManager.ModificationsManager.ModificationsManager.activeManager()?.addAnnotationOverlay({
-        type: 'ENTRY_LABEL',
-        entry: selection.object,
-        label: '',
-      });
+      ModificationsManager.ModificationsManager.ModificationsManager.activeManager()?.modifyAnnotationOverlay(
+          {
+            type: 'ENTRY_LABEL',
+            entry: selection.object,
+            label: '',
+          },
+          'Add');
     }
   }
 
