@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54aae071_edb4869e",
+        "filename": "front_end/panels/timeline/components/LiveMetricsView.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-07-02T20:20:46Z",
+      "side": 1,
+      "message": "I know the long string sucks but this\u0027ll have to be `Needs Improvement`.  We deliberately didn\u0027t want to signal that this was \"ok\" :)",
+      "revId": "f9a3185f4774d9e2c02426d32f59213529f52781",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
