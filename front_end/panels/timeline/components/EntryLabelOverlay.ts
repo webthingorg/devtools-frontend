@@ -14,6 +14,14 @@ export class EmptyEntryLabelRemoveEvent extends Event {
   }
 }
 
+export class EntryLabelChangeEvent extends Event {
+  static readonly eventName = 'entrylabelchangeevent';
+
+  constructor(public newLabel: string) {
+    super(EntryLabelChangeEvent.eventName);
+  }
+}
+
 export class EntryLabelOverlay extends HTMLElement {
   // The label is angled on the left from the centre of the entry it belongs to.
   // `LABEL_AND_CONNECTOR_SHIFT_LENGTH` specifies how many pixels to the left it is shifted.
@@ -70,11 +78,21 @@ Otherwise, the entry label overlay object only gets repositioned.
     this.#shadow.adoptedStyleSheets = [styles];
     this.#labelBox?.addEventListener('keydown', this.#handleLabelInputKeyDown);
     this.#labelBox?.addEventListener('paste', this.#handleLabelInputPaste);
+    this.#labelBox?.addEventListener('input', this.#onLabelChange.bind(this));
+    this.#labelBox?.addEventListener('paste', this.#onLabelChange.bind(this));
   }
 
   disconnectedCallback(): void {
     this.#labelBox?.removeEventListener('keydown', this.#handleLabelInputKeyDown);
     this.#labelBox?.removeEventListener('paste', this.#handleLabelInputPaste);
+    this.#labelBox?.removeEventListener('input', this.#onLabelChange.bind(this));
+    this.#labelBox?.removeEventListener('paste', this.#onLabelChange.bind(this));
+  }
+
+  #onLabelChange(): void {
+    if (this.#labelBox?.textContent) {
+      this.dispatchEvent(new EntryLabelChangeEvent(this.#labelBox.textContent));
+    }
   }
 
   #handleLabelInputKeyDown(event: KeyboardEvent): boolean {

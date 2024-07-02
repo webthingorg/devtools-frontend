@@ -217,17 +217,16 @@ describeWithEnvironment('Overlays', () => {
       });
 
       const currManager = ModificationsManager.ModificationsManager.ModificationsManager.activeManager();
-      currManager?.addEventListener(ModificationsManager.ModificationsManager.AnnotationAddedEvent.eventName, event => {
-        const addedOverlay =
-            (event as ModificationsManager.ModificationsManager.AnnotationAddedEvent).addedAnnotationOverlay;
-        overlays.add(addedOverlay);
-        overlays.update();
-      });
       currManager?.addEventListener(
-          ModificationsManager.ModificationsManager.AnnotationRemovedEvent.eventName, event => {
-            const removedOverlay =
-                (event as ModificationsManager.ModificationsManager.AnnotationRemovedEvent).removedAnnotationOverlay;
-            overlays.remove(removedOverlay);
+          ModificationsManager.ModificationsManager.AnnotationModifiedEvent.eventName, event => {
+            const addedOverlay =
+                (event as ModificationsManager.ModificationsManager.AnnotationModifiedEvent).annotationOverlay;
+            const action = (event as ModificationsManager.ModificationsManager.AnnotationModifiedEvent).action;
+            if (action === 'Add') {
+              overlays.add(addedOverlay);
+            } else if (action === 'Remove') {
+              overlays.remove(addedOverlay);
+            }
             overlays.update();
           });
 
@@ -275,11 +274,13 @@ describeWithEnvironment('Overlays', () => {
       assert.notInstanceOf(event, TraceEngine.Handlers.ModelHandlers.Frames.TimelineFrame);
 
       // Since ENTRY_LABEL is AnnotationOverlay, create it through ModificationsManager
-      ModificationsManager.ModificationsManager.ModificationsManager.activeManager()?.addAnnotationOverlay({
-        type: 'ENTRY_LABEL',
-        entry: event,
-        label: 'entry label',
-      });
+      ModificationsManager.ModificationsManager.ModificationsManager.activeManager()?.modifyAnnotationOverlay(
+          {
+            type: 'ENTRY_LABEL',
+            entry: event,
+            label: 'entry label',
+          },
+          'Add');
       overlays.update();
 
       // Ensure that the overlay was created.
@@ -295,11 +296,13 @@ describeWithEnvironment('Overlays', () => {
       assert.notInstanceOf(event, TraceEngine.Handlers.ModelHandlers.Frames.TimelineFrame);
 
       // Since ENTRY_LABEL is AnnotationOverlay, create it through ModificationsManager
-      ModificationsManager.ModificationsManager.ModificationsManager.activeManager()?.addAnnotationOverlay({
-        type: 'ENTRY_LABEL',
-        entry: event,
-        label: 'entry label',
-      });
+      ModificationsManager.ModificationsManager.ModificationsManager.activeManager()?.modifyAnnotationOverlay(
+          {
+            type: 'ENTRY_LABEL',
+            entry: event,
+            label: 'entry label',
+          },
+          'Add');
       overlays.update();
 
       const overlayDOM = container.querySelector<HTMLElement>('.overlay-type-ENTRY_LABEL');
@@ -322,11 +325,13 @@ describeWithEnvironment('Overlays', () => {
       assert.notInstanceOf(event, TraceEngine.Handlers.ModelHandlers.Frames.TimelineFrame);
 
       // Since ENTRY_LABEL is AnnotationOverlay, create it through ModificationsManager
-      ModificationsManager.ModificationsManager.ModificationsManager.activeManager()?.addAnnotationOverlay({
-        type: 'ENTRY_LABEL',
-        entry: event,
-        label: 'label',
-      });
+      ModificationsManager.ModificationsManager.ModificationsManager.activeManager()?.modifyAnnotationOverlay(
+          {
+            type: 'ENTRY_LABEL',
+            entry: event,
+            label: 'label',
+          },
+          'Add');
       overlays.update();
 
       // Ensure that the overlay was created.
@@ -362,11 +367,13 @@ describeWithEnvironment('Overlays', () => {
       assert.isOk(event);
 
       // Since ENTRY_LABEL is AnnotationOverlay, create it through ModificationsManager
-      ModificationsManager.ModificationsManager.ModificationsManager.activeManager()?.addAnnotationOverlay({
-        type: 'ENTRY_LABEL',
-        entry: event as TraceEngine.Types.TraceEvents.TraceEventData,
-        label: '',
-      });
+      ModificationsManager.ModificationsManager.ModificationsManager.activeManager()?.modifyAnnotationOverlay(
+          {
+            type: 'ENTRY_LABEL',
+            entry: event as TraceEngine.Types.TraceEvents.TraceEventData,
+            label: '',
+          },
+          'Add');
 
       // Ensure that the overlay was created.
       const overlayDOM = container.querySelector<HTMLElement>('.overlay-type-ENTRY_LABEL');
@@ -571,11 +578,13 @@ describeWithEnvironment('Overlays', () => {
       assert.isOk(event);
 
       // Since ENTRY_LABEL is AnnotationOverlay, create it through ModificationsManager
-      ModificationsManager.ModificationsManager.ModificationsManager.activeManager()?.addAnnotationOverlay({
-        type: 'ENTRY_LABEL',
-        label: '',
-        entry: event as TraceEngine.Types.TraceEvents.TraceEventData,
-      });
+      ModificationsManager.ModificationsManager.ModificationsManager.activeManager()?.modifyAnnotationOverlay(
+          {
+            type: 'ENTRY_LABEL',
+            label: '',
+            entry: event as TraceEngine.Types.TraceEvents.TraceEventData,
+          },
+          'Add');
 
       overlays.update();
       const overlayDOM = container.querySelector<HTMLElement>('.overlay-type-ENTRY_LABEL');
@@ -598,11 +607,13 @@ describeWithEnvironment('Overlays', () => {
       assert.isOk(event);
 
       // Since ENTRY_LABEL is AnnotationOverlay, create it through ModificationsManager
-      ModificationsManager.ModificationsManager.ModificationsManager.activeManager()?.addAnnotationOverlay({
-        type: 'ENTRY_LABEL',
-        label: '',
-        entry: event as TraceEngine.Types.TraceEvents.TraceEventData,
-      });
+      ModificationsManager.ModificationsManager.ModificationsManager.activeManager()?.modifyAnnotationOverlay(
+          {
+            type: 'ENTRY_LABEL',
+            label: '',
+            entry: event as TraceEngine.Types.TraceEvents.TraceEventData,
+          },
+          'Add');
 
       overlays.update();
       const overlayDOM = container.querySelector<HTMLElement>('.overlay-type-ENTRY_LABEL');

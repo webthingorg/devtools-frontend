@@ -37,13 +37,13 @@ export interface EntryLabel {
 }
 
 /**
- * `OverlayAnnotations` are the user-created annotations that are saved into the metadata.
+ * `OverlayAnnotation` are the user-created annotations that are saved into the metadata.
  * Those annotations are drawn onto the timeline with `Overlays`.
  *
- * TODO: Implementt other OverlayAnnotations (annotated time ranges, links between entries).
+ * TODO: Implementt other OverlayAnnotation (annotated time ranges, links between entries).
  * TODO: Save/load overlay annotations to/from the trace file.
  */
-export type OverlayAnnotations = EntryLabel;
+export type OverlayAnnotation = EntryLabel;
 
 // Serializable keys are created for trace events to be able to save
 // references to timeline events in a trace file. These keys enable
