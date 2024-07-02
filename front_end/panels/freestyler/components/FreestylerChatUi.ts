@@ -5,6 +5,7 @@
 import * as Common from '../../../core/common/common.js';
 import * as Host from '../../../core/host/host.js';
 import * as i18n from '../../../core/i18n/i18n.js';
+import type * as Platform from '../../../core/platform/platform.js';
 import type * as SDK from '../../../core/sdk/sdk.js';
 import * as Marked from '../../../third_party/marked/marked.js';
 import * as Buttons from '../../../ui/components/buttons/buttons.js';
@@ -15,6 +16,8 @@ import * as VisualLogging from '../../../ui/visual_logging/visual_logging.js';
 import {type ActionStepData, type CommonStepData, Step, type StepData} from '../FreestylerAgent.js';
 
 import freestylerChatUiStyles from './freestylerChatUi.css.js';
+
+export const DOGFOOD_FEEDBACK_URL = 'https://goo.gle/freestyler-feedback' as Platform.DevToolsPath.UrlString;
 
 /*
   * TODO(nvitkov): b/346933425
@@ -89,6 +92,10 @@ const TempUIStrings = {
    *@description Consent view data visibility text
    */
   consentTextVisibilityDisclaimer: 'Data may be seen by trained reviewers to improve this feature.',
+  /**
+   *@description Link text for redirecting to feedback form
+   */
+  feedbackLink: 'Send Feedback',
 };
 // const str_ = i18n.i18n.registerUIStrings('panels/freestyler/components/FreestylerChatUi.ts', UIStrings);
 // const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -337,6 +344,27 @@ export class FreestylerChatUi extends HTMLElement {
     // clang-format on
   };
 
+  #onFeedBackClick(): void {
+    Host.InspectorFrontendHost.InspectorFrontendHostInstance.openInNewTab(DOGFOOD_FEEDBACK_URL);
+  }
+
+  #renderFeedbackLink = (): LitHtml.TemplateResult => {
+    // clang-format off
+    return  LitHtml.html`
+        <${Buttons.Button.Button.litTagName}
+          .data=${{
+            variant: Buttons.Button.Variant.TEXT,
+            size: Buttons.Button.Size.SMALL,
+            iconName: 'dog-paw',
+            title: i18nString(TempUIStrings.feedbackLink),
+          } as Buttons.Button.ButtonData}
+          @click=${this.#onFeedBackClick.bind(this)}
+        ><span class="select-an-element-text">${i18nString(
+          TempUIStrings.feedbackLink,
+        )}</span></${Buttons.Button.Button.litTagName}>`;
+    // clang-format on
+  };
+
   #renderMessages = (): LitHtml.TemplateResult => {
     // clang-format off
     return LitHtml.html`
@@ -371,8 +399,11 @@ export class FreestylerChatUi extends HTMLElement {
             : this.#renderEmptyState()
         }
         <form class="input-form" @submit=${this.#handleSubmit}>
-          <div class="dom-node-link-container">
-            ${this.#renderSelectAnElement()}
+          <div class="input-header">
+            <div class="dom-node-link-container">
+              ${this.#renderSelectAnElement()}
+            </div>
+            ${this.#renderFeedbackLink()}
           </div>
           <div class="chat-input-container">
             <input type="text" class="chat-input" .disabled=${isTextInputDisabled}

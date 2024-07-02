@@ -100,11 +100,17 @@
   }
 }
 
-.dom-node-link-container {
-  margin-bottom: 2px;
+.input-header {
   display: inline-flex;
   align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2px;
   line-height: 20px;
+}
+
+.dom-node-link-container {
+  display: inline-flex;
+  align-items: center;
 }
 
 .select-an-element-text {
