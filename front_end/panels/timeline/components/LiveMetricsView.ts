@@ -14,6 +14,7 @@ import * as UI from '../../../ui/legacy/legacy.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 
 import liveMetricsViewStyles from './liveMetricsView.css.js';
+import {CPUThrottlingSelector, NetworkThrottlingSelector} from './Throttling.js';
 
 const {html, nothing, Directives} = LitHtml;
 const {until} = Directives;
@@ -257,6 +258,16 @@ export class LiveMetricsView extends HTMLElement {
     // clang-format on
   }
 
+  #renderThrottlingSettings(): LitHtml.LitTemplate {
+    return html`
+      <div class="card-title">Throttling</div>
+      <span class="throttling-setting">CPU: <${CPUThrottlingSelector.litTagName}></${
+        CPUThrottlingSelector.litTagName}></span>
+      <span class="throttling-setting">Network: <${NetworkThrottlingSelector.litTagName}></${
+        NetworkThrottlingSelector.litTagName}></span>
+    `;
+  }
+
   #render = (): void => {
     const automaticSetting = CrUXManager.CrUXManager.instance().getAutomaticSetting();
 
@@ -301,6 +312,9 @@ export class LiveMetricsView extends HTMLElement {
               <${Settings.SettingCheckbox.SettingCheckbox.litTagName} .data=${
                   {setting: automaticSetting} as Settings.SettingCheckbox.SettingCheckboxData}>
               </${Settings.SettingCheckbox.SettingCheckbox.litTagName}>
+            </div>
+            <div id="throttling" class="card">
+              ${this.#renderThrottlingSettings()}
             </div>
             <div id="record" class="card">
               ${this.#renderRecordAction(this.#toggleRecordAction)}

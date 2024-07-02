@@ -32,6 +32,7 @@ devtools_module("components") {
     "Sidebar.ts",
     "SidebarAnnotationsTab.ts",
     "SidebarInsight.ts",
+    "Throttling.ts",
     "TimeRangeOverlay.ts",
     "TimespanBreakdownOverlay.ts",
   ]
