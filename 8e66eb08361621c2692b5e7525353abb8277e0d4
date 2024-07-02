@@ -16,6 +16,29 @@
       "message": "Hi Simon, would you please review this change? Thanks!",
       "revId": "8e66eb08361621c2692b5e7525353abb8277e0d4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85a9ebed_07bd8356",
+        "filename": "front_end/entrypoints/heap_snapshot_worker/HeapSnapshot.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 2704,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-07-02T04:58:03Z",
+      "side": 1,
+      "message": "nit: `#hasUserRoots()`",
+      "range": {
+        "startLine": 2704,
+        "startChar": 2,
+        "endLine": 2704,
+        "endChar": 24
+      },
+      "revId": "8e66eb08361621c2692b5e7525353abb8277e0d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
