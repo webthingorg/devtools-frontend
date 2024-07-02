@@ -57,7 +57,7 @@ export interface TimeRangeLabel {
 
 /**
  * TimelineOverlays consist of temporary Overlays declared in this file, as well as
- * Types.File.OverlayAnnotations that are saved/loaded to/from the trace file.
+ * Types.File.OverlayAnnotation that are saved/loaded to/from the trace file.
  *
  * Important: The Set of existing OverlayAnnotations is stored and modified from `ModificationsManager`.
  * OverlayAnnotations should not be added,removed or updated directly through Overlays class because it is
@@ -65,7 +65,7 @@ export interface TimeRangeLabel {
  *
  * All supported overlay types. Expected to grow in time!
  */
-export type TimelineOverlay = Types.File.OverlayAnnotations|EntrySelected|TimeRangeLabel;
+export type TimelineOverlay = Types.File.OverlayAnnotation|EntrySelected|TimeRangeLabel;
 
 /**
  * To be able to draw overlays accurately at the correct pixel position, we
@@ -519,9 +519,16 @@ export class Overlays {
         component.addEventListener(Components.EntryLabelOverlay.EmptyEntryLabelRemoveEvent.eventName, () => {
           // Because EntryLabel is a part of AnnotationsOverlays, instead of removing the label from Overlays directly,
           // remove it from the Overlays ModificationsManager. ModificationsManager will update the other components.
-          ModificationsManager.ModificationsManager.ModificationsManager.activeManager()?.removeAnnotationOverlay(
-              overlay);
+          ModificationsManager.ModificationsManager.ModificationsManager.activeManager()?.modifyAnnotationOverlay(
+              overlay, 'Remove');
         });
+        component.addEventListener(Components.EntryLabelOverlay.EntryLabelChangeEvent.eventName, event => {
+          const newLabel = (event as Components.EntryLabelOverlay.EntryLabelChangeEvent).newLabel;
+          overlay.label = newLabel;
+          ModificationsManager.ModificationsManager.ModificationsManager.activeManager()?.modifyAnnotationOverlay(
+              overlay, 'Update');
+        });
+
         div.appendChild(component);
         return div;
       }

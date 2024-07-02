@@ -9,19 +9,15 @@ import * as EventsSerializer from '../events_serializer/events_serializer.js';
 const modificationsManagerByTraceIndex: ModificationsManager[] = [];
 let activeManager: ModificationsManager|null;
 
-export class AnnotationAddedEvent extends Event {
-  static readonly eventName = 'annotationaddedevent';
+export type UpdateAction = 'Remove'|'Add'|'Update';
 
-  constructor(public addedAnnotationOverlay: TraceEngine.Types.File.OverlayAnnotations) {
-    super(AnnotationAddedEvent.eventName);
-  }
-}
+export class AnnotationModifiedEvent extends Event {
+  static readonly eventName = 'annotationmodifiedevent';
 
-export class AnnotationRemovedEvent extends Event {
-  static readonly eventName = 'annotationremovedevent';
-
-  constructor(public removedAnnotationOverlay: TraceEngine.Types.File.OverlayAnnotations) {
-    super(AnnotationRemovedEvent.eventName);
+  constructor(
+      public annotationOverlay: TraceEngine.Types.File.OverlayAnnotation, public action: UpdateAction,
+      public overlays: TraceEngine.Types.File.OverlayAnnotation[]) {
+    super(AnnotationModifiedEvent.eventName);
   }
 }
 
@@ -39,7 +35,8 @@ export class ModificationsManager extends EventTarget {
   #modifications: TraceEngine.Types.File.Modifications|null = null;
   #traceParsedData: TraceEngine.Handlers.Types.TraceParseData;
   #eventsSerializer: EventsSerializer.EventsSerializer;
-  #overlayAnnotations: Set<TraceEngine.Types.File.OverlayAnnotations>;
+  // User created overlays that are saved in the trace file
+  #overlayAnnotations: Set<TraceEngine.Types.File.OverlayAnnotation>;
 
   /**
    * Gets the ModificationsManager instance corresponding to a trace
@@ -110,18 +107,17 @@ export class ModificationsManager extends EventTarget {
     return this.#timelineBreadcrumbs;
   }
 
-  addAnnotationOverlay(newOverlay: TraceEngine.Types.File.OverlayAnnotations): void {
-    this.#overlayAnnotations.add(newOverlay);
-    this.dispatchEvent(new AnnotationAddedEvent(newOverlay));
+  modifyAnnotationOverlay(overlay: TraceEngine.Types.File.OverlayAnnotation, action: UpdateAction): void {
+    if (action === 'Add') {
+      this.#overlayAnnotations.add(overlay);
+    } else if (action === 'Remove') {
+      this.#overlayAnnotations.delete(overlay);
+    }
+    const overlaysArray = Array.from(this.#overlayAnnotations);
+    this.dispatchEvent(new AnnotationModifiedEvent(overlay, action, overlaysArray));
   }
 
-  removeAnnotationOverlay(removedOverlay: TraceEngine.Types.File.OverlayAnnotations): void {
-    this.#overlayAnnotations.delete(removedOverlay);
-    this.dispatchEvent(new AnnotationRemovedEvent(removedOverlay));
-  }
-
-  // Returns user-created overlays that are saved in the trace file
-  getAnnotationOverlays(): TraceEngine.Types.File.OverlayAnnotations[] {
+  getAnnotationOverlays(): TraceEngine.Types.File.OverlayAnnotation[] {
     return Array.from(this.#overlayAnnotations);
   }
 
