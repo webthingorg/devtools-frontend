@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58e148ea_519a223a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-07-02T08:54:54Z",
+      "side": 1,
+      "message": "lgtm with nits",
+      "revId": "e488fe9f5419b29400c481f31b72afcc51394cb2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2dc247b9_3f4d1693",
+        "filename": "front_end/panels/application/PreloadingTreeElement.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-07-02T08:54:54Z",
+      "side": 1,
+      "message": "```suggestion\n    super(panel, title, false, \u0027speculative-loads\u0027);\n```\n\nUnless this needs to match with some other site.",
+      "range": {
+        "startLine": 43,
+        "startChar": 32,
+        "endLine": 43,
+        "endChar": 44
+      },
+      "revId": "e488fe9f5419b29400c481f31b72afcc51394cb2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e030fe91_02e58ec4",
+        "filename": "front_end/ui/legacy/ReportView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-07-02T08:54:54Z",
+      "side": 1,
+      "message": "nit: IMO it\u0027s fine to have public `readonly` properties. Then we can skip the getter below. Unless subclasses need to be able to override the getter?",
+      "range": {
+        "startLine": 116,
+        "startChar": 2,
+        "endLine": 116,
+        "endChar": 50
+      },
+      "revId": "e488fe9f5419b29400c481f31b72afcc51394cb2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
