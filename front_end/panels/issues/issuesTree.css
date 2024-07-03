@@ -20,6 +20,7 @@
 .issues li {
   white-space: normal;
   align-items: flex-start;
+  min-height: var(--sys-size-13);
 }
 
 /* Hide toggle for tree items which cannot be collapsed */
@@ -86,7 +87,6 @@
 
 .unhide-all-issues-button {
   margin: 0;
-  height: 20px;
 }
 
 p {
