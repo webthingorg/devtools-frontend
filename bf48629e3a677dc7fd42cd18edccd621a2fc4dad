@@ -16,6 +16,24 @@
       "message": "This CL should be submitted after this [bug](b/349802751) is fixed",
       "revId": "bf48629e3a677dc7fd42cd18edccd621a2fc4dad",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da73bf1a_a5dac127",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-07-03T19:39:04Z",
+      "side": 1,
+      "message": "Done\ncrrev.com/c/5676725 is merged",
+      "parentUuid": "27cf2adf_1459de80",
+      "revId": "bf48629e3a677dc7fd42cd18edccd621a2fc4dad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
