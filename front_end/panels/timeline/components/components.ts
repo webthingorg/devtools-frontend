@@ -4,10 +4,12 @@
 
 import * as Breadcrumbs from './Breadcrumbs.js';
 import * as BreadcrumbsUI from './BreadcrumbsUI.js';
+import * as CPUThrottlingSelector from './CPUThrottlingSelector.js';
 import * as DetailsView from './DetailsView.js';
 import * as EntryLabelOverlay from './EntryLabelOverlay.js';
 import * as InteractionBreakdown from './InteractionBreakdown.js';
 import * as LiveMetricsView from './LiveMetricsView.js';
+import * as NetworkThrottlingSelector from './NetworkThrottlingSelector.js';
 import * as Sidebar from './Sidebar.js';
 import * as SidebarAnnotationsTab from './SidebarAnnotationsTab.js';
 import * as SidebarInsight from './SidebarInsight.js';
@@ -18,10 +20,12 @@ import * as Utils from './Utils.js';
 export {
   Breadcrumbs,
   BreadcrumbsUI,
+  CPUThrottlingSelector,
   DetailsView,
   EntryLabelOverlay,
   InteractionBreakdown,
   LiveMetricsView,
+  NetworkThrottlingSelector,
   Sidebar,
   SidebarAnnotationsTab,
   SidebarInsight,
