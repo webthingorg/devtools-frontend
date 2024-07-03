@@ -74,6 +74,10 @@ export class SidebarWidget extends UI.SplitWidget.SplitWidget {
     });
   }
 
+  updateAnnotationOverlaysTabContent(updatedOverlays: TraceEngine.Types.File.OverlayAnnotation[]): void {
+    this.#sidebarUI.updateAnnotationOverlaysTabContent(updatedOverlays);
+  }
+
   setTraceParsedData(traceParsedData: TraceEngine.Handlers.Types.TraceParseData|null): void {
     this.#sidebarUI.traceParsedData = traceParsedData;
   }
@@ -90,7 +94,8 @@ export class SidebarUI extends HTMLElement {
   selectedCategory: InsightsCategories = InsightsCategories.ALL;
   #expanded: boolean = false;
   #lcpPhasesExpanded: boolean = false;
-
+  #sidebarAnnotationsTab: SidebarAnnotationsTab.SidebarAnnotationsTab =
+      new SidebarAnnotationsTab.SidebarAnnotationsTab();
   #traceParsedData?: TraceEngine.Handlers.Types.TraceParseData|null;
   #inpMetric: {
     longestINPDur: TraceEngine.Types.Timing.MicroSeconds,
@@ -314,10 +319,14 @@ export class SidebarUI extends HTMLElement {
       case SidebarTabsName.INSIGHTS:
         return this.#renderInsightsTabContent();
       case SidebarTabsName.ANNOTATIONS:
-        return new SidebarAnnotationsTab.SidebarAnnotationsTab();
+        return this.#sidebarAnnotationsTab;
       default:
         return null;
     }
+  }
+
+  updateAnnotationOverlaysTabContent(updatedOverlays: TraceEngine.Types.File.OverlayAnnotation[]): void {
+    this.#sidebarAnnotationsTab.updateAnnotationOverlays(updatedOverlays);
   }
 
   #updateActiveIndicatorPosition(): void {
