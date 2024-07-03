@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4d75491_49482bbb",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-07-03T06:07:40Z",
+      "side": 1,
+      "message": "I think we should probably use yield to produce a SideEffect step and then replace the async generator loop with iterator and return true/false when resume the iterator. This implementation is prone to infinite timeouts.",
+      "revId": "50c9758f6d4699a11d789f94302aaccd59cd3157",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
