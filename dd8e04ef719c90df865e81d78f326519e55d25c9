@@ -1,0 +1,62 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "324ae13d_b44fd7c3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-03T10:20:19Z",
+      "side": 1,
+      "message": "lgtm with one tiny nit",
+      "revId": "dd8e04ef719c90df865e81d78f326519e55d25c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3bee9ee0_2acdd837",
+        "filename": "front_end/ui/legacy/components/perf_ui/CanvasHelper.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-03T10:20:19Z",
+      "side": 1,
+      "message": "remove this",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 32
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "8a5b0968_a8c5e8d0",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/ui/legacy/components/perf_ui/CanvasHelper.ts",
+              "range": {
+                "startLine": 91,
+                "startChar": 0,
+                "endLine": 92,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "dd8e04ef719c90df865e81d78f326519e55d25c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
