@@ -3,7 +3,9 @@
 // found in the LICENSE file.
 
 import * as TraceEngine from '../../../models/trace/trace.js';
+import { ModificationsManager } from '../../../services/modifications_manager/modifications_manager.js';
 import * as ComponentHelpers from '../../../ui/components/helpers/helpers.js';
+import * as IconButton from '../../../ui/components/icon_button/icon_button.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 
 import sidebarAnnotationsTabStyles from './sidebarAnnotationsTab.css.js';
@@ -30,13 +32,24 @@ export class SidebarAnnotationsTab extends HTMLElement {
         overlay.entry.name;
 
     return LitHtml.html`
-      <div>
-        <span class="entry-name">
-          ${entryName}
-        </span>
-        <div class="label">
-         ${overlay.label}
+      <div class="annotation-wrap">
+        <div>
+          <span class="entry-name">
+            ${entryName}
+          </span>
+          <div class="label">
+          ${overlay.label}
+          </div>
         </div>
+        <${IconButton.Icon.Icon.litTagName} class="bin-icon" .data=${{
+            iconName: 'bin',
+            color: 'var(--icon-default)',
+            width: '20px',
+            height: '20px',
+          } as IconButton.Icon.IconData} @click=${() => {
+            console.log("hi");
+            ModificationsManager.ModificationsManager.activeManager()?.modifyAnnotationOverlay(overlay, "Remove");
+          }}>
       </div>
     `;
   }

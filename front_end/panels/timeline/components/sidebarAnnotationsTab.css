@@ -4,11 +4,28 @@
  * found in the LICENSE file.
  */
 
+ .annotation-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 3px;
+
+  &:hover {
+    background-color: var(--sys-color-neutral-container);
+
+    .bin-icon {
+      visibility: visible;
+     }   
+  }
+ }
+
+ .bin-icon {
+  visibility: hidden;
+ }
+
 .annotations {
   display: flex;
   flex-direction: column;
-  margin-top: 10px;
-  gap: 21px;
 }
 
 .entry-name {
