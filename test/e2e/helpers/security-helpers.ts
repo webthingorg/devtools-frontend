@@ -4,6 +4,7 @@
 
 import {click, closePanelTab, getBrowserAndPages, typeText, waitFor, waitForNone} from '../../shared/helper.js';
 
+import {veImpression} from './visual-logging-helpers.js';
 import {openCommandMenu} from './quick_open-helpers.js';
 import {openPanelViaMoreTools} from './settings-helpers.js';
 import {veImpression} from './visual-logging-helpers.js';

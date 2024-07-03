@@ -235,4 +235,8 @@ export class Section extends VBox {
   setIconMasked(masked: boolean): void {
     this.element.classList.toggle('show-mask', masked);
   }
+
+  getJslogContext(): string|undefined {
+    return this.jslogContext;
+  }
 }

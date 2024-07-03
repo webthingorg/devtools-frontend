@@ -7,6 +7,7 @@ import {beforeEach, describe, it} from '../../shared/mocha-extensions.js';
 import {
   doubleClickSourceTreeItem,
   navigateToApplicationTab,
+  navigateToServiceWorkers,
   unregisterServiceWorker,
 } from '../helpers/application-helpers.js';
 import {tabExistsInDrawer, tabExistsInMainPanel} from '../helpers/cross-tool-helper.js';
@@ -21,7 +22,7 @@ describe('The Application Tab', () => {
   beforeEach(async () => {
     const {target} = getBrowserAndPages();
     await navigateToApplicationTab(target, TEST_HTML_FILE);
-    await doubleClickSourceTreeItem(SERVICE_WORKER_ROW_SELECTOR);
+    await navigateToServiceWorkers();
   });
 
   afterEach(async () => {

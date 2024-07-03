@@ -14,6 +14,7 @@ import {
   waitFor,
   waitForFunction,
 } from '../../shared/helper.js';
+import {veImpression} from './visual-logging-helpers.js'
 
 import {veImpression} from './visual-logging-helpers.js';
 

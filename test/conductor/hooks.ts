@@ -22,6 +22,7 @@ import {
   loadEmptyPageAndWaitForContent,
   DevToolsFrontendTab,
   type DevToolsFrontendReloadOptions,
+  dumpEvents,
 } from './frontend_tab.js';
 import {
   dumpCollectedErrors,
@@ -249,6 +250,7 @@ export async function postFileTeardown() {
   // even after we would have closed the server. If we did so, the requests
   // would fail and the test would crash on closedown. This only happens
   // for the very last test that runs.
+  dumpEvents();
   await browser.close();
 
   clearPuppeteerState();
