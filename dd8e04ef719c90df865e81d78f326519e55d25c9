@@ -57,6 +57,30 @@
       ],
       "revId": "dd8e04ef719c90df865e81d78f326519e55d25c9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e290d4a_c3562d5a",
+        "filename": "front_end/ui/legacy/components/perf_ui/CanvasHelper.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-07-03T12:27:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3bee9ee0_2acdd837",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 32
+      },
+      "revId": "dd8e04ef719c90df865e81d78f326519e55d25c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
