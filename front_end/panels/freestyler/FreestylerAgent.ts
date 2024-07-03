@@ -254,6 +254,30 @@ export class FreestylerAgent {
     query = `QUERY: ${query}`;
     const currentRunId = ++this.#runId;
 
+    if (!this.#chatHistory.size) {
+      // Context actions for the initial conversion
+      const thought = 'I need to know what the current element is so I evaluate `$0` to know what the element is.';
+      const action = 'const data = $0';
+      debugLog(`Action to execute: ${action}`);
+      const observation = await this.#generateObservation(action);
+      debugLog(`Action result: ${observation}`);
+
+      const currentRunEntries = this.#chatHistory.get(currentRunId) ?? [];
+      this.#chatHistory.set(currentRunId, [
+        ...currentRunEntries,
+        {
+          text: `THOUGHT: ${thought}
+
+  ACTION
+  ${action}
+  STOP
+
+  OBSERVATION: ${observation}`,
+          entity: Host.AidaClient.Entity.SYSTEM,
+        },
+      ]);
+    }
+
     options?.signal.addEventListener('abort', () => {
       this.#chatHistory.delete(currentRunId);
     });
@@ -305,6 +329,7 @@ export class FreestylerAgent {
         break;
       }
 
+      // TODO: need to handle the case when action/thought/answer all present.
       if (answer) {
         yield {step: Step.ANSWER, text: answer, rpcId};
         break;
