@@ -12,6 +12,7 @@ import * as UI from '../../ui/legacy/legacy.js';
 import * as ThemeSupport from '../../ui/legacy/theme_support/theme_support.js';
 import * as VisualLogging from '../../ui/visual_logging/visual_logging.js';
 
+import {initiatorsDataToDrawForNetwork} from './Initiators.js';
 import {NetworkTrackAppender} from './NetworkTrackAppender.js';
 import timelineFlamechartPopoverStyles from './timelineFlamechartPopover.css.js';
 import {FlameChartStyle, Selection} from './TimelineFlameChartView.js';
@@ -26,9 +27,11 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
 
   #timelineDataInternal?: PerfUI.FlameChart.FlameChartTimelineData|null;
   #lastSelection?: Selection;
-  #traceEngineData: TraceEngine.Handlers.Types.TraceParseData|null;
+  #traceParseData: TraceEngine.Handlers.Types.TraceParseData|null;
   #eventIndexByEvent: Map<TraceEngine.Types.TraceEvents.SyntheticNetworkRequest, number|null> = new Map();
   #visualElementsParent: VisualLogging.Loggable|null = null;
+  #lastInitiatorEntry!: number;
+  #lastInitiatorsData: PerfUI.FlameChart.FlameChartInitiatorData[] = [];
 
   constructor() {
     this.#minimumBoundaryInternal = 0;
@@ -37,17 +40,17 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
     this.#maxLevel = 0;
 
     this.#networkTrackAppender = null;
-    this.#traceEngineData = null;
+    this.#traceParseData = null;
   }
 
   setModel(traceEngineData: TraceEngine.Handlers.Types.TraceParseData|null): void {
     this.#timelineDataInternal = null;
-    this.#traceEngineData = traceEngineData;
+    this.#traceParseData = traceEngineData;
     this.#events = traceEngineData?.NetworkRequests.byTime || [];
     this.#eventIndexByEvent.clear();
 
-    if (this.#traceEngineData) {
-      this.#setTimingBoundsData(this.#traceEngineData);
+    if (this.#traceParseData) {
+      this.#setTimingBoundsData(this.#traceParseData);
     }
   }
 
@@ -75,12 +78,12 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
     }
 
     this.#timelineDataInternal = PerfUI.FlameChart.FlameChartTimelineData.createEmpty();
-    if (!this.#traceEngineData) {
+    if (!this.#traceParseData) {
       return this.#timelineDataInternal;
     }
 
-    this.#events = this.#traceEngineData.NetworkRequests.byTime;
-    this.#networkTrackAppender = new NetworkTrackAppender(this.#traceEngineData, this.#timelineDataInternal);
+    this.#events = this.#traceParseData.NetworkRequests.byTime;
+    this.#networkTrackAppender = new NetworkTrackAppender(this.#traceParseData, this.#timelineDataInternal);
     this.#maxLevel = this.#networkTrackAppender.appendTrackAtLevel(0);
 
     for (const group of this.#timelineDataInternal.groups) {
@@ -397,9 +400,67 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
    * The map's key is the frame ID.
    **/
   mainFrameNavigationStartEvents(): readonly TraceEngine.Types.TraceEvents.TraceEventNavigationStart[] {
-    if (!this.#traceEngineData) {
+    if (!this.#traceParseData) {
       return [];
     }
-    return this.#traceEngineData.Meta.mainFrameNavigations;
+    return this.#traceParseData.Meta.mainFrameNavigations;
+  }
+
+  buildFlowForInitiator(entryIndex: number): boolean {
+    if (!this.#traceParseData) {
+      return false;
+    }
+    if (!this.#timelineDataInternal) {
+      return false;
+    }
+    if (this.#lastInitiatorEntry === entryIndex) {
+      if (this.#lastInitiatorsData) {
+        this.#timelineDataInternal.initiatorsData = this.#lastInitiatorsData;
+      }
+      return false;
+    }
+    if (!this.#networkTrackAppender) {
+      return false;
+    }
+
+    // Remove all previously assigned decorations indicating that the flow event entries are hidden
+    const previousInitiatorsDataLength = this.#timelineDataInternal.initiatorsData.length;
+    // |entryIndex| equals -1 means there is no entry selected, just clear the
+    // initiator cache if there is any previous arrow and return true to
+    // re-render.
+    if (entryIndex === -1) {
+      this.#lastInitiatorEntry = entryIndex;
+      if (previousInitiatorsDataLength === 0) {
+        // This means there is no arrow before, so we don't need to re-render.
+        return false;
+      }
+      // Reset to clear any previous arrows from the last event.
+      this.#timelineDataInternal.resetFlowData();
+      return true;
+    }
+
+    const event = this.#events[entryIndex];
+    // Reset to clear any previous arrows from the last event.
+    this.#timelineDataInternal.resetFlowData();
+    this.#lastInitiatorEntry = entryIndex;
+
+    const initiatorsData = initiatorsDataToDrawForNetwork(this.#traceParseData, event);
+    // This means there is no change for arrows.
+    if (previousInitiatorsDataLength === 0 && initiatorsData.length === 0) {
+      return false;
+    }
+    for (const initiatorData of initiatorsData) {
+      const eventIndex = this.indexForEvent(initiatorData.event);
+      const initiatorIndex = this.indexForEvent(initiatorData.initiator);
+      if (eventIndex === null || initiatorIndex === null) {
+        continue;
+      }
+      this.#timelineDataInternal.initiatorsData.push({
+        initiatorIndex,
+        eventIndex,
+      });
+    }
+    this.#lastInitiatorsData = this.#timelineDataInternal.initiatorsData;
+    return true;
   }
 }
