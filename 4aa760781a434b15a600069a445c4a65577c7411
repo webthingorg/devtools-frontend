@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "429303e5_124940ae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-07-03T12:12:15Z",
+      "side": 1,
+      "message": "This CL only adds the Tooltip element class and the one add it to the flame chart is in the next CL",
+      "revId": "4aa760781a434b15a600069a445c4a65577c7411",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
