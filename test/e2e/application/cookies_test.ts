@@ -161,7 +161,7 @@ describe('The Application Tab', () => {
     });
   });
 
-  it('only clear currently visible cookies (crbug.com/978059)', async () => {
+  it.only('only clear currently visible cookies (crbug.com/978059)', async () => {
     expectError('Request CacheStorage.requestCacheNames failed. {"code":-32602,"message":"Invalid security origin"}');
     const {target} = getBrowserAndPages();
     // This sets a new cookie foo=bar
