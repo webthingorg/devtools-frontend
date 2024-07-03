@@ -1,0 +1,45 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f54c6a48_93a9a82f",
+        "filename": "scripts/deps/roll_front_end_third_party.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2024-07-03T08:30:03Z",
+      "side": 1,
+      "message": "I have chose to no update web-vitals to 4.2.1 in this CL. But when running the update this fails because the list of files is empty. Fixing it as a drive-by. Pls let me know if you think auto-rolling web-vital would make sense.",
+      "range": {
+        "startLine": 68,
+        "startChar": 4,
+        "endLine": 69,
+        "endChar": 14
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "0b069b3c_bd0bb397",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "scripts/deps/roll_front_end_third_party.py",
+              "range": {
+                "startLine": 68,
+                "startChar": 0,
+                "endLine": 70,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "fae4dce1dc355d12f1102815c01bf265c2e625bb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
