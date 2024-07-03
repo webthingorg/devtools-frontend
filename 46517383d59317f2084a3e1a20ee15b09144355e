@@ -16,6 +16,115 @@
       "message": "I\u0027ll have a look tomorrow. This CL is adding a lot of non-trivial logic I wanna grok.",
       "revId": "46517383d59317f2084a3e1a20ee15b09144355e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6fdbfa4_419dbd89",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-07-03T06:05:13Z",
+      "side": 1,
+      "message": "lgtm with comments",
+      "revId": "46517383d59317f2084a3e1a20ee15b09144355e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ccd8b0d_6c99cb36",
+        "filename": "test/e2e/helpers/visual-logging-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-07-03T06:05:13Z",
+      "side": 1,
+      "message": "Even though we don\u0027t export this function we should maybe add a doc comment that explains that `difference` is a value between [0, 1]. At least thats what I figured from the code?",
+      "range": {
+        "startLine": 30,
+        "startChar": 9,
+        "endLine": 30,
+        "endChar": 24
+      },
+      "revId": "46517383d59317f2084a3e1a20ee15b09144355e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "406e2440_74aec764",
+        "filename": "test/e2e/helpers/visual-logging-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-07-03T06:05:13Z",
+      "side": 1,
+      "message": "Would it be helpful here to have a description in this case that we expected an `interaction` but got `impressions` instead (or the other way around)?",
+      "range": {
+        "startLine": 54,
+        "startChar": 5,
+        "endLine": 54,
+        "endChar": 25
+      },
+      "revId": "46517383d59317f2084a3e1a20ee15b09144355e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a971f3e_2fbe3f7d",
+        "filename": "test/e2e/helpers/visual-logging-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-07-03T06:05:13Z",
+      "side": 1,
+      "message": "We should also add a JSDoc comment here explicitly explaining the behavior. The code is somewhat hard to grok if anyone wanted to confirm what it\u0027s doing. Specifically:\n\n1) It acts like a `contains`. It verifies only that the expected events are among all the logged events. It\u0027s not a \"deep strict equal\". (This might be obvious but better to document it explicitly).\n\n2) Ordering is important. It verifies that the expected events show up in the specified order in the event stream.",
+      "range": {
+        "startLine": 174,
+        "startChar": 22,
+        "endLine": 174,
+        "endChar": 36
+      },
+      "revId": "46517383d59317f2084a3e1a20ee15b09144355e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43e9c13f_7b04b456",
+        "filename": "test/e2e/helpers/visual-logging-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-07-03T06:05:13Z",
+      "side": 1,
+      "message": "Please add a comment which algorithm exactly this implements, ala `@returns the xyz distance\". Googling for \"edit distance\" brings up a couple of algorithms.",
+      "range": {
+        "startLine": 227,
+        "startChar": 9,
+        "endLine": 227,
+        "endChar": 21
+      },
+      "revId": "46517383d59317f2084a3e1a20ee15b09144355e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
