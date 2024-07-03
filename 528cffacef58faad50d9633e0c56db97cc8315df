@@ -52,6 +52,24 @@
       "parentUuid": "022d699a_c4473f4d",
       "revId": "528cffacef58faad50d9633e0c56db97cc8315df",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b520fcb_0f735b11",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-03T11:35:39Z",
+      "side": 1,
+      "message": "Ah that\u0027s fair and evaluating this strategy makes a lot of sense!\n\nI was thinking the model\u0027s answering strategy might change from the perspective that in the preamble, we\u0027re saying it as an instruction \"there already is a selected element\" but in the updated version, we\u0027re saying it as if the model started solving the query and the first step was to find out what the selected element is.\n\nIn any case, let\u0027s go with this strategy and see if there is any regression like changes :)",
+      "parentUuid": "bef45a31_b6a1e641",
+      "revId": "528cffacef58faad50d9633e0c56db97cc8315df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
