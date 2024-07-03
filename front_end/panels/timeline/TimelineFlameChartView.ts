@@ -512,6 +512,8 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
 
     if (dataProvider === this.mainDataProvider) {
       this.mainDataProvider.buildFlowForInitiator(entryIndex);
+    } else {
+      this.networkDataProvider.buildFlowForInitiator(entryIndex);
     }
     this.delegate.select(dataProvider.createSelection(entryIndex));
   }
