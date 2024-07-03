@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d67d0acf_4907ba4c",
+        "filename": "test/e2e/helpers/visual-logging-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-07-03T06:34:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ccd8b0d_6c99cb36",
+      "range": {
+        "startLine": 30,
+        "startChar": 9,
+        "endLine": 30,
+        "endChar": 24
+      },
+      "revId": "46517383d59317f2084a3e1a20ee15b09144355e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "406e2440_74aec764",
@@ -71,6 +95,30 @@
       "writtenOn": "2024-07-03T06:05:13Z",
       "side": 1,
       "message": "Would it be helpful here to have a description in this case that we expected an `interaction` but got `impressions` instead (or the other way around)?",
+      "range": {
+        "startLine": 54,
+        "startChar": 5,
+        "endLine": 54,
+        "endChar": 25
+      },
+      "revId": "46517383d59317f2084a3e1a20ee15b09144355e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4fc753b5_d65fe01b",
+        "filename": "test/e2e/helpers/visual-logging-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-07-03T06:34:05Z",
+      "side": 1,
+      "message": "This is unlikely to appear, but sure. Done.",
+      "parentUuid": "406e2440_74aec764",
       "range": {
         "startLine": 54,
         "startChar": 5,
@@ -104,6 +152,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a74ea180_6e4c9205",
+        "filename": "test/e2e/helpers/visual-logging-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-07-03T06:34:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a971f3e_2fbe3f7d",
+      "range": {
+        "startLine": 174,
+        "startChar": 22,
+        "endLine": 174,
+        "endChar": 36
+      },
+      "revId": "46517383d59317f2084a3e1a20ee15b09144355e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "43e9c13f_7b04b456",
@@ -117,6 +189,30 @@
       "writtenOn": "2024-07-03T06:05:13Z",
       "side": 1,
       "message": "Please add a comment which algorithm exactly this implements, ala `@returns the xyz distance\". Googling for \"edit distance\" brings up a couple of algorithms.",
+      "range": {
+        "startLine": 227,
+        "startChar": 9,
+        "endLine": 227,
+        "endChar": 21
+      },
+      "revId": "46517383d59317f2084a3e1a20ee15b09144355e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e5b8bb0_1448babd",
+        "filename": "test/e2e/helpers/visual-logging-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-07-03T06:34:05Z",
+      "side": 1,
+      "message": "Done. It\u0027s Levenshtein, the usual one.",
+      "parentUuid": "43e9c13f_7b04b456",
       "range": {
         "startLine": 227,
         "startChar": 9,
