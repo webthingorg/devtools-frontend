@@ -16,6 +16,24 @@
       "message": "WDYT of including some more information too\n* immediate siblings\n* parent element\netc?\n\nand I wonder if doing this as a first step might cause the answer strategy to change (i.e. there might be cases where the LLM does not need the current element but since we gave it the current element, it tries to do something with it).\n\nIf it might cause issues, maybe we can include this information in the preamble too, WDYT?",
       "revId": "528cffacef58faad50d9633e0c56db97cc8315df",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "022d699a_c4473f4d",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-07-03T11:21:33Z",
+      "side": 1,
+      "message": "\u003e WDYT of including some more information too\n\n\u003e immediate siblings\n\u003e parent element\n\u003e etc?\n\nIt is not clear where that needs to stop and it is not clear that the information would be needed. I would not include it at first and evaluate just the element first.\n\n\u003e and I wonder if doing this as a first step might cause the answer strategy to change (i.e. there might be cases where the LLM does not need the current element but since we gave it the current element, it tries to do something with it).\n\nthat is why we evaluate\n\n\u003e If it might cause issues, maybe we can include this information in the preamble too, WDYT?\n\nI think there is no difference between the preamble and the system chat message except that chat_history can be truncated. I think we should not include it in the preamble to allow changing the context.",
+      "parentUuid": "f7951492_232f9bf4",
+      "revId": "528cffacef58faad50d9633e0c56db97cc8315df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
