@@ -16,6 +16,23 @@
       "message": "re-ping",
       "revId": "2b5f0139109c01205e8a069d9b732dcb6d5340ab",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "266efd0b_1c84546b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-07-03T22:20:27Z",
+      "side": 1,
+      "message": "Thanks!\n\nI was hesitant about these changes as ideals most of this would turn into private members (using #), but that would break a few too many unit tests here I think. But I\u0027m also not that invested in these remaining \"private\" so this approach is fine with me too.",
+      "revId": "2b5f0139109c01205e8a069d9b732dcb6d5340ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
