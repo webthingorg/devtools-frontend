@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1fb35963_11ce2c38",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-03T13:20:04Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "c54733827922265b933bf77528feba5ed61f6028",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7ff8012_29342ac9",
+        "filename": "front_end/models/trace/handlers/NetworkRequestsHandler.test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-03T13:20:04Z",
+      "side": 1,
+      "message": "great tests",
+      "range": {
+        "startLine": 357,
+        "startChar": 2,
+        "endLine": 357,
+        "endChar": 5
+      },
+      "revId": "c54733827922265b933bf77528feba5ed61f6028",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
