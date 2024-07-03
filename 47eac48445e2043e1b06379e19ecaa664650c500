@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a1f0a76_2d1e74cd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-03T10:30:40Z",
+      "side": 1,
+      "message": "I\u0027m not sure I agree entirely with this approach to share the type across the overlays and the annotations manager.\n\nI can see the motivation to do so because they are so similar / identical, but this feels like we are mixing up the UI and the data concerns. Think about the case where a user has created an annotation, and wants to hide it (but not delete it). We now can\u0027t do that, because the existence of the annotation is linked to the existence of the overlay.\n\nThat is why I would like overlays to exist separately, so that it is easy to have data like an annotation that exists but is not at a given point in time visible or being shown as an overlay to the user.\n\nSo therefore I would leave the overlay types alone, and instead have the ModificationsManager own the set of annotations (which will use a new type albeit that will look very similar to the overlays one).\n\nDoes that make sense?",
+      "revId": "47eac48445e2043e1b06379e19ecaa664650c500",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
