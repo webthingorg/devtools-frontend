@@ -1,6 +1,7 @@
 {
   "comments": [
     {
+      "unresolved": false,
       "key": {
         "uuid": "48726568_f228b347",
         "filename": "/PATCHSET_LEVEL",
@@ -14,10 +15,10 @@
       "side": 1,
       "message": "I\u0027m coming back to my comment from Aug 12:\n\n\u003e To go forward with this CL why don\u0027t you add a new filter type loc which filters the domain/path string (but not the scheme)?\n\nLet\u0027s:\n  - not change the default filtering at this time (Peter will explain the rational)\n  - let\u0027s add a url: filter that matches the whole URL\n\nThen we can land this CL.",
       "revId": "418e6932412e1c899f15c01e473cde382470d823",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": false
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "c1fc4d74_9bdf8232",
         "filename": "/PATCHSET_LEVEL",
@@ -31,10 +32,10 @@
       "side": 1,
       "message": "Hi everyone,\n\nsorry that I jump on this so late. I had a chat with Sigurd and apparently I didn\u0027t understand the full scope of this.\n\nSome context: we are planning to make the whole filter better in the future. Right now the filter is unintuitive to novice users, while power users are pretty used to how it works right now. I came across several unexpected behaviors by just trying to figure out how the filter actually works.\n\nWe are worried that changing the default filter behavior might confuse long term power users. Let\u0027s move forward with Sigurd\u0027s suggestion for now so you can land this CL successfully.\n\nI want to collect unexpected behaviors in another issue and also do some community outreach to figure out how our users expect the filter to work. Sorry for the back and forth.",
       "revId": "418e6932412e1c899f15c01e473cde382470d823",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": false
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "7325a603_2c430aef",
         "filename": "/PATCHSET_LEVEL",
@@ -49,10 +50,10 @@
       "message": "Sounds good - updated.",
       "parentUuid": "48726568_f228b347",
       "revId": "418e6932412e1c899f15c01e473cde382470d823",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": false
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
       "key": {
         "uuid": "9593c1b2_08d9ea4a",
         "filename": "/PATCHSET_LEVEL",
@@ -67,10 +68,10 @@
       "message": "Thanks for clearing things up!",
       "parentUuid": "c1fc4d74_9bdf8232",
       "revId": "418e6932412e1c899f15c01e473cde382470d823",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": false
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "afa5cf35_c348ccad",
         "filename": "front_end/network/NetworkLogView.js",
@@ -90,10 +91,10 @@
         "endChar": 35
       },
       "revId": "418e6932412e1c899f15c01e473cde382470d823",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
       "key": {
         "uuid": "3f7d8ff0_0e220102",
         "filename": "front_end/network/NetworkLogView.js",
@@ -114,8 +115,31 @@
         "endChar": 35
       },
       "revId": "418e6932412e1c899f15c01e473cde382470d823",
-      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba",
-      "unresolved": true
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6310bc82_c09df62e",
+        "filename": "front_end/network/NetworkLogView.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 3513016
+      },
+      "writtenOn": "2024-07-03T08:20:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3f7d8ff0_0e220102",
+      "range": {
+        "startLine": 256,
+        "startChar": 22,
+        "endLine": 256,
+        "endChar": 35
+      },
+      "revId": "418e6932412e1c899f15c01e473cde382470d823",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
