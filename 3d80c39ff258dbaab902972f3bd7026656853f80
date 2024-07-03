@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3ab99c4_899adf7a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-03T12:46:57Z",
+      "side": 1,
+      "message": "lgtm with tiny thoughts",
+      "revId": "3d80c39ff258dbaab902972f3bd7026656853f80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "746ab547_b4df025e",
+        "filename": "front_end/models/trace/handlers/NetworkRequestsHandler.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-03T12:46:57Z",
+      "side": 1,
+      "message": "good fix!",
+      "range": {
+        "startLine": 389,
+        "startChar": 0,
+        "endLine": 389,
+        "endChar": 84
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "c87f425e_774746ed",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/models/trace/handlers/NetworkRequestsHandler.ts",
+              "range": {
+                "startLine": 214,
+                "startChar": 0,
+                "endLine": 214,
+                "endChar": 0
+              },
+              "replacement": "\n    // In the event the property isn\u0027t set, assume non-blocking.\n    if (renderBlocking \u003d\u003d\u003d undefined) {\n      renderBlocking \u003d \u0027non_blocking\u0027;\n    }\n"
+            },
+            {
+              "path": "front_end/models/trace/handlers/NetworkRequestsHandler.ts",
+              "range": {
+                "startLine": 388,
+                "startChar": 0,
+                "endLine": 390,
+                "endChar": 0
+              },
+              "replacement": "                                   renderBlocking,\n"
+            }
+          ]
+        }
+      ],
+      "revId": "3d80c39ff258dbaab902972f3bd7026656853f80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0a2b0cd_f648ebee",
+        "filename": "front_end/panels/timeline/components/NetworkRequestTooltip.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-03T12:46:57Z",
+      "side": 1,
+      "message": "we should exit without rendering here if the request matches the one we already have, as that will save any re-rendering work",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 19
+      },
+      "revId": "3d80c39ff258dbaab902972f3bd7026656853f80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c54d2f9_09e5cad2",
+        "filename": "front_end/panels/timeline/components/NetworkRequestTooltip.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-03T12:46:57Z",
+      "side": 1,
+      "message": "can this be `end || 0` ? (don\u0027t think end would ever be negative?)",
+      "range": {
+        "startLine": 108,
+        "startChar": 20,
+        "endLine": 108,
+        "endChar": 39
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "25f71fdc_eec5d9cd",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/components/NetworkRequestTooltip.ts",
+              "range": {
+                "startLine": 108,
+                "startChar": 0,
+                "endLine": 109,
+                "endChar": 0
+              },
+              "replacement": "    const endTime \u003d (end || 0) as TraceEngine.Types.Timing.MicroSeconds;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "3d80c39ff258dbaab902972f3bd7026656853f80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
