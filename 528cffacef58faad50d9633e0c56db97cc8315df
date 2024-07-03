@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7951492_232f9bf4",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-03T11:17:04Z",
+      "side": 1,
+      "message": "WDYT of including some more information too\n* immediate siblings\n* parent element\netc?\n\nand I wonder if doing this as a first step might cause the answer strategy to change (i.e. there might be cases where the LLM does not need the current element but since we gave it the current element, it tries to do something with it).\n\nIf it might cause issues, maybe we can include this information in the preamble too, WDYT?",
+      "revId": "528cffacef58faad50d9633e0c56db97cc8315df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
