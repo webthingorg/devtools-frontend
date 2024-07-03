@@ -3,6 +3,8 @@
 // found in the LICENSE file.
 import * as Platform from '../../core/platform/platform.js';
 import * as TraceEngine from '../../models/trace/trace.js';
+import type * as Types from '../../models/trace/types/types.js';
+import * as ModificationsManager from '../../services/modifications_manager/modifications_manager.js';
 import type * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 
 import * as Components from './components/components.js';
@@ -43,15 +45,6 @@ export interface EntrySelected {
 }
 
 /**
- * Represents an object created when a user creates a label for an entry in the timeline.
- */
-export interface EntryLabel {
-  type: 'ENTRY_LABEL';
-  entry: OverlayEntry;
-  label: string;
-}
-
-/**
  * Represents a time range on the trace. Also used when the user shift+clicks
  * and drags to create a time range.
  */
@@ -71,9 +64,16 @@ export interface TimespanBreakdown {
 }
 
 /**
+ * TimelineOverlays consist of temporary Overlays declared in this file, as well as
+ * Types.File.OverlayAnnotations that are saved/loaded to/from the trace file.
+ *
+ * Important: The Set of existing OverlayAnnotations is stored and modified from `ModificationsManager`.
+ * OverlayAnnotations should not be added,removed or updated directly through Overlays class because it is
+ * saved/loaded in ModificationsManager and Overlays is only responsible for rendering those OverlaysAnnotations.
+ *
  * All supported overlay types. Expected to grow in time!
  */
-export type TimelineOverlay = EntrySelected|TimeRangeLabel|EntryLabel|TimespanBreakdown;
+export type TimelineOverlay = Types.File.OverlayAnnotations|EntrySelected|TimeRangeLabel|TimespanBreakdown;
 
 /**
  * To be able to draw overlays accurately at the correct pixel position, we
@@ -443,7 +443,8 @@ export class Overlays {
    * @param overlay - the EntrySelected overlay that we need to position.
    * @param element - the DOM element representing the overlay
    */
-  #positionEntryLabelOverlay(overlay: EntryLabel, element: HTMLElement): {height: number, width: number}|null {
+  #positionEntryLabelOverlay(overlay: Types.File.EntryLabel, element: HTMLElement):
+      {height: number, width: number}|null {
     const chartName = this.#chartForOverlayEntry(overlay.entry);
     const x = this.xPixelForEventOnChart(overlay.entry);
     const y = this.yPixelForEventOnChart(overlay.entry);
@@ -578,7 +579,10 @@ export class Overlays {
       case 'ENTRY_LABEL': {
         const component = new Components.EntryLabelOverlay.EntryLabelOverlay(overlay.label);
         component.addEventListener(Components.EntryLabelOverlay.EmptyEntryLabelRemoveEvent.eventName, () => {
-          this.remove(overlay);
+          // Because EntryLabel is a part of AnnotationsOverlays, instead of removing the label from Overlays directly,
+          // remove it from the Overlays ModificationsManager. ModificationsManager will update the other components.
+          ModificationsManager.ModificationsManager.ModificationsManager.activeManager()?.removeAnnotationOverlay(
+              overlay);
         });
         div.appendChild(component);
         return div;
