@@ -298,7 +298,7 @@ describe('NetworkRequestsHandler', function() {
     });
 
     it('calculate the initiator by `initiator` field correctly', async function() {
-      const traceEvents = await TraceLoader.rawEvents(this, 'initiators.json.gz');
+      const traceEvents = await TraceLoader.rawEvents(this, 'network-requests-initiators.json.gz');
       for (const event of traceEvents) {
         TraceModel.Handlers.ModelHandlers.Meta.handleEvent(event);
         TraceModel.Handlers.ModelHandlers.NetworkRequests.handleEvent(event);
@@ -326,7 +326,7 @@ describe('NetworkRequestsHandler', function() {
     });
 
     it('calculate the initiator by top frame correctly', async function() {
-      const traceEvents = await TraceLoader.rawEvents(this, 'initiators.json.gz');
+      const traceEvents = await TraceLoader.rawEvents(this, 'network-requests-initiators.json.gz');
       for (const event of traceEvents) {
         TraceModel.Handlers.ModelHandlers.Meta.handleEvent(event);
         TraceModel.Handlers.ModelHandlers.NetworkRequests.handleEvent(event);
