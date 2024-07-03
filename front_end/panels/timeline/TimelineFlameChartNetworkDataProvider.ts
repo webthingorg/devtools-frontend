@@ -417,7 +417,7 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
       if (this.#lastInitiatorsData) {
         this.#timelineDataInternal.initiatorsData = this.#lastInitiatorsData;
       }
-      return false;
+      return true;
     }
     if (!this.#networkTrackAppender) {
       return false;
@@ -434,6 +434,7 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
         // This means there is no arrow before, so we don't need to re-render.
         return false;
       }
+      // debugger
       // Reset to clear any previous arrows from the last event.
       this.#timelineDataInternal.resetFlowData();
       return true;
@@ -441,6 +442,7 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
 
     const event = this.#events[entryIndex];
     // Reset to clear any previous arrows from the last event.
+    // debugger
     this.#timelineDataInternal.resetFlowData();
     this.#lastInitiatorEntry = entryIndex;
 
