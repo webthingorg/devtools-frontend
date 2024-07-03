@@ -24,11 +24,14 @@ export interface DevToolsFrontendCreationOptions {
 }
 
 export interface DevToolsFrontendReloadOptions {
-  selectedPanel?: {name: string, selector?: string};
+  selectedPanel?: {name: string; selector?: string};
   canDock?: boolean;
   queryParams?: {panel?: string};
   drawerShown?: boolean;
+  runAfter?: ()=>Promise<void>,
 }
+
+const veEventsByParams = new Set<string>();
 
 /**
  * Wrapper class around `puppeteer.Page` that helps with setting up and
@@ -44,14 +47,22 @@ export class DevToolsFrontendTab {
   // We use the counter to give each tab a unique origin.
   private static tabCounter = 0;
 
-  private constructor(readonly page: puppeteer.Page, frontendUrl: string) {
+  private constructor(
+    readonly page: puppeteer.Page,
+    frontendUrl: string
+  ) {
     this.#frontendUrl = frontendUrl;
   }
 
-  static async create({browser, testServerPort, targetId}: DevToolsFrontendCreationOptions):
-      Promise<DevToolsFrontendTab> {
-    const devToolsAppURL =
-        getTestRunnerConfigSetting<string>('hosted-server-devtools-url', 'front_end/devtools_app.html');
+  static async create({
+    browser,
+    testServerPort,
+    targetId,
+  }: DevToolsFrontendCreationOptions): Promise<DevToolsFrontendTab> {
+    const devToolsAppURL = getTestRunnerConfigSetting<string>(
+      'hosted-server-devtools-url',
+      'front_end/devtools_app.html'
+    );
     if (!devToolsAppURL) {
       throw new Error('Could not load DevTools. hosted-server-devtools-url config not found.');
     }
@@ -92,9 +103,12 @@ export class DevToolsFrontendTab {
 
   async reload(options: DevToolsFrontendReloadOptions = {}): Promise<void> {
     // For the unspecified case wait for loading, then wait for the elements panel.
-    const {selectedPanel = DevToolsFrontendTab.DEFAULT_TAB, canDock = false, queryParams = {}, drawerShown = false} =
-        options;
-
+    const {
+      selectedPanel = DevToolsFrontendTab.DEFAULT_TAB,
+      canDock = false,
+      queryParams = {},
+      drawerShown = false,
+    } = options;
     if (selectedPanel.name !== DevToolsFrontendTab.DEFAULT_TAB.name) {
       await this.page.evaluate(name => {
         globalThis.localStorage.setItem('panel-selected-tab', `"${name}"`);
@@ -122,6 +136,10 @@ export class DevToolsFrontendTab {
     if (!queryParams.panel && selectedPanel.selector) {
       await this.page.waitForSelector(selectedPanel.selector);
     }
+
+    if (options?.runAfter) {
+      await options.runAfter();
+    }
   }
 
   /**
@@ -146,4 +164,8 @@ function getDebugPort(browser: puppeteer.Browser) {
     return url.port;
   }
   throw new Error(`Unable to find debug port: ${websocketUrl}`);
+}
+
+export function dumpEvents() {
+  console.error([...veEventsByParams.values()]);
 }

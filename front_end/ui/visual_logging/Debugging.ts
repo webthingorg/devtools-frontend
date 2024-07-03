@@ -9,6 +9,7 @@ import {type Loggable} from './Loggable.js';
 import {type LoggingConfig, VisualElements} from './LoggingConfig.js';
 import {pendingWorkComplete, startLogging, stopLogging} from './LoggingDriver.js';
 import {getLoggingState, type LoggingState} from './LoggingState.js';
+import {pendingWorkComplete} from './LoggingDriver.js';
 
 let veDebuggingEnabled = false;
 let debugPopover: HTMLElement|null = null;
@@ -197,8 +198,8 @@ export function processImpressionsForDebugging(states: LoggingState[]): void {
   }
 }
 
-function processImpressionsForIntuitiveDebugLog(states: LoggingState[]): void {
-  const impressions = new Map<number, IntuitiveLogEntry>();
+function populateIntuitiveLogEntriesForImpressions(
+    states: LoggingState[], impressions: Map<number, IntuitiveLogEntry>) {
   for (const state of states) {
     const entry: IntuitiveLogEntry = {
       event: 'Impression',
@@ -219,6 +220,11 @@ function processImpressionsForIntuitiveDebugLog(states: LoggingState[]): void {
       parent.children.push(entry);
     }
   }
+}
+
+function processImpressionsForIntuitiveDebugLog(states: LoggingState[]): void {
+  const impressions = new Map<number, IntuitiveLogEntry>();
+  populateIntuitiveLogEntriesForImpressions(states, impressions);
 
   const entries = [...impressions.values()].filter(i => 'parent' in i);
   if (entries.length === 1) {

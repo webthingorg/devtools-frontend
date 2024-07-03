@@ -2,9 +2,9 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import {assert} from 'chai';
-
+import {assert, AssertionError, config} from 'chai';
 import {getBrowserAndPages} from '../../conductor/puppeteer-state.js';
+import {renderCoordinatorQueueEmpty} from '../../shared/helper.js';
 
 // Corresponds to the type in front_end/ui/visual_logging/Debugging.ts
 type TestImpressionLogEntry = {
@@ -14,17 +14,45 @@ type TestLogEntry = TestImpressionLogEntry|{
   interaction: string,
 };
 
-function formatImpressions(impressions: string[]) {
-  const result: string[] = [];
-  let lastImpression = '';
-  for (const impression of impressions.sort()) {
-    while (!impression.startsWith(lastImpression)) {
-      lastImpression = lastImpression.substr(0, lastImpression.lastIndexOf(' > '));
+function joinPath(path:string|undefined, key:string ) {
+  return path ? path + ' > ' + key : key;
+}
+
+export function cleanVeEvents(entries: VeEvent[], events: VeEvent[], path = '', veidToPath = new Map<number, string>) {
+  for (const entry of entries) {
+    if (entry.event === 'Impression') {
+      if (entry.ve && entry.veid) {
+        const result: VeEvent = {event: 'Impression', ve: entry.ve};
+        if (entry.context) {
+          result.context = entry.context;
+        }
+        // let effectivePath = path;
+        // if (!effectivePath.length && entry.parent) {
+        //   effectivePath = veidToPath.get(entry.parent) || '';
+        //   result.path = effectivePath;
+        // }
+        const key = veEventKey(result, path || veidToPath.get(entry.parent || 0));
+        veidToPath.set(entry.veid, key);
+        if (entry.children) {
+          result.children = [];
+          cleanVeEvents(entry.children, result.children, key, veidToPath);
+        }
+        events.push(result);
+      } else if (entry.children) {
+        const result: VeEvent = {event: 'Impression', children: []};
+        result.children = [];
+        events.push(result);
+        cleanVeEvents(entry.children, result.children, path, veidToPath);
+      }
     }
-    result.push(' '.repeat(lastImpression.length) + impression.substr(lastImpression.length));
-    lastImpression = impression;
+    else if (['Click', 'Change'].includes(entry.event) && entry.veid) {
+      const result: VeEvent = {event: entry.event, ve: veidToPath.get(entry.veid) as string};
+      if (entry.context) {
+        result.context = entry.context;
+      }
+      events.push(result);
+    }
   }
-  return result.join('\n');
 }
 
 // Compares the 'actual' log entry against the 'expected'. The difference of 0
@@ -74,16 +102,20 @@ export function veImpressionsUnder(key: string, children: TestImpressionLogEntry
   return result;
 }
 
-export function veClick(ve: string): TestLogEntry {
-  return {interaction: `Click: ${ve}`};
-}
-
 export function veImpression(ve: string, context?: string, children?: TestImpressionLogEntry[]) {
   let key = ve;
   if (context) {
     key += ': ' + context;
   }
   return {impressions: [key, ...veImpressionsUnder(key, children || []).impressions]};
+}
+
+export function veClick(ve: string): TestLogEntry {
+  return {interaction: `Click: ${ve}`};
+}
+
+export function veChange(ve: string): TestLogEntry {
+  return {interaction: `Change: ${ve}`};
 }
 
 function veImpressionForTabHeader(panel: string, options?: {closable: boolean}) {
@@ -96,26 +128,24 @@ function veImpressionForTabHeader(panel: string, options?: {closable: boolean}) 
 export function veImpressionForMainToolbar(options?: {
   selectedPanel?: string,
   expectClosedPanels?: string[],
-  dockable?: boolean,
+  dockable? : boolean,
 }) {
-  const regularPanels = ['elements', 'console', 'sources', 'network'];
+  const regularPanels =
+      ['elements', 'console', 'sources', 'network', 'timeline', 'heap-profiler']
   if (!options?.dockable) {
-    regularPanels.push('timeline', 'heap-profiler', 'resources', 'lighthouse');
+    regularPanels.push('resources', 'lighthouse');
   }
 
-  const closablePanels =
-      options?.dockable ? [] : ['security', 'chrome-recorder'].filter(p => !options?.expectClosedPanels?.includes(p));
+  const closablePanels = options?.dockable ? [] : ['security', 'chrome-recorder'].filter(p => !options?.expectClosedPanels?.includes(p));
   if (options?.selectedPanel && !regularPanels.includes(options?.selectedPanel)) {
     closablePanels.push(options.selectedPanel);
   }
 
-  const dockableItems = options?.dockable ?
-      [
-        veImpression('DropDown', 'more-tabs'),
-        veImpression('Toggle', 'emulation.toggle-device-mode'),
-        veImpression('Close'),
-      ] :
-      [];
+  const dockableItems = options?.dockable ? [
+    veImpression('DropDown', 'more-tabs'),
+    veImpression('Toggle', 'emulation.toggle-device-mode'),
+    veImpression('Close'),
+  ]: [];
 
   return veImpression('Toolbar', 'main', [
     ...regularPanels.map(panel => veImpressionForTabHeader(panel)),
@@ -123,17 +153,21 @@ export function veImpressionForMainToolbar(options?: {
     veImpression('Toggle', 'elements.toggle-element-search'),
     veImpression('Action', 'settings.show'),
     veImpression('DropDown', 'main-menu'),
-    ...dockableItems,
+    veImpression('Counter', 'issue', {optional: true}),
+    veImpression('Counter', 'console', {optional: true}),
+    ...dockableItems
   ]);
 }
 
 export function veImpressionForElementsPanel(options?: {dockable?: boolean}) {
   return veImpression('Panel', 'elements', [
     veImpression('Toolbar', 'sidebar', [
+      veImpression('DropDown', 'more-tabs'),
       veImpressionForTabHeader('styles'),
       veImpressionForTabHeader('computed'),
       veImpressionForTabHeader('elements.layout'),
-      ...(options?.dockable ? ['elements.event-listeners', 'elements.dom-breakpoints', 'elements.dom-properties'] : []).map(panel => veImpressionForTabHeader(panel)),
+      veImpressionForTabHeader('elements.event-listeners'),
+      ...(options?.dockable ? ['elements.dom-breakpoints', 'elements.dom-properties'] : []).map(panel => veImpressionForTabHeader(panel)),
     ]),
     veImpression('ElementsBreadcrumbs', undefined, [veImpression('Item'), veImpression('Item')]),
     veImpression('Tree', 'elements', [
@@ -141,7 +175,7 @@ export function veImpressionForElementsPanel(options?: {dockable?: boolean}) {
       veImpression('TreeItem', undefined, [veImpression('Value', 'tag-name'), veImpression('Expand')]),
       veImpression('TreeItem', undefined, [veImpression('Value', 'tag-name')]),
       veImpression('TreeItem', undefined, [veImpression('Value', 'tag-name')]),
-      veImpression('TreeItem'),
+      veImpression('TreeItem', undefined, [veImpression('Value', 'tag-name', {optional: true}), veImpression('Expand', undefined, {optional: true})]),
     ]),
     veImpression('Pane', 'styles', [
       veImpression('Section', 'style-properties', [veImpression('CSSRuleHeader', 'selector')]),
