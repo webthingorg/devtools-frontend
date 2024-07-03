@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80cf6e79_605cd775",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-03T13:10:55Z",
+      "side": 1,
+      "message": "Needed to update the component docs too, can you +1 again? :)",
+      "revId": "079e2d0435e293ce7dd71e18311b16569ea9d730",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
