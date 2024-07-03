@@ -69,6 +69,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2e2cf8e_ce0b8e69",
+        "filename": "front_end/models/trace/handlers/NetworkRequestsHandler.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-07-03T13:45:00Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "746ab547_b4df025e",
+      "range": {
+        "startLine": 389,
+        "startChar": 0,
+        "endLine": 389,
+        "endChar": 84
+      },
+      "revId": "3d80c39ff258dbaab902972f3bd7026656853f80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b0a2b0cd_f648ebee",
@@ -82,6 +106,30 @@
       "writtenOn": "2024-07-03T12:46:57Z",
       "side": 1,
       "message": "we should exit without rendering here if the request matches the one we already have, as that will save any re-rendering work",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 19
+      },
+      "revId": "3d80c39ff258dbaab902972f3bd7026656853f80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a943559e_ce2f2ee5",
+        "filename": "front_end/panels/timeline/components/NetworkRequestTooltip.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-07-03T13:45:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0a2b0cd_f648ebee",
       "range": {
         "startLine": 55,
         "startChar": 0,
@@ -129,6 +177,30 @@
           ]
         }
       ],
+      "revId": "3d80c39ff258dbaab902972f3bd7026656853f80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ba96783_ac22f724",
+        "filename": "front_end/panels/timeline/components/NetworkRequestTooltip.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-07-03T13:45:00Z",
+      "side": 1,
+      "message": "Technically not. But in fact these two data are from different raw events. So more like a sanity check.\n\nChecked the time formatter can handle the and this won;t be undefined so just remove this check",
+      "parentUuid": "6c54d2f9_09e5cad2",
+      "range": {
+        "startLine": 108,
+        "startChar": 20,
+        "endLine": 108,
+        "endChar": 39
+      },
       "revId": "3d80c39ff258dbaab902972f3bd7026656853f80",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
