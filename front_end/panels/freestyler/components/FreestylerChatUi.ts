@@ -112,6 +112,10 @@ const TempUIStrings = {
    *@description Link text for redirecting to feedback form
    */
   feedbackLink: 'Send Feedback',
+  /**
+   *@description Button text for "Fix this issue" button
+   */
+  fixThisIssue: 'Fix this issue',
 };
 // const str_ = i18n.i18n.registerUIStrings('panels/freestyler/components/FreestylerChatUi.ts', UIStrings);
 // const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -169,6 +173,7 @@ export type Props = {
   onRateClick: (rpcId: number, rate: Rating) => void,
   onAcceptConsentClick: () => void,
   onCancelClick: () => void,
+  onFixThisIssueClick: () => void,
   inspectElementToggled: boolean,
   state: State,
   aidaAvailability: Host.AidaClient.AidaAvailability,
@@ -360,21 +365,31 @@ export class FreestylerChatUi extends HTMLElement {
       return LitHtml.html`<div class="chat-message query">${message.text}</div>`;
     }
 
+    // TODO: We should only show "Fix this issue" button when the answer suggests fix or fixes.
+    // We shouldn't show this when the answer is complete like a confirmation without any suggestion.
+    const shouldShowFixThisIssueButton = isLast && message.steps.at(-1)?.step === Step.ANSWER;
+    const shouldShowBottomBar = shouldShowFixThisIssueButton || message.rpcId !== undefined;
     // clang-format off
     return LitHtml.html`
       <div class="chat-message answer">
         ${message.steps.map(step => LitHtml.html`${this.#renderStep(step)}`)}
         ${this.#props.confirmSideEffectDialog && isLast ? this.#renderSideEffectConfirmationUi(this.#props.confirmSideEffectDialog) : LitHtml.nothing}
         ${
-          message.rpcId !== undefined
-            ? LitHtml.html`${this.#renderRateButtons(message.rpcId)}`
-            : LitHtml.nothing
-        }
-        ${
           !this.#props.confirmSideEffectDialog && this.#props.isLoading && isLast
             ? LitHtml.html`<div class="chat-loading" >Loading...</div>`
             : LitHtml.nothing
         }
+        ${shouldShowBottomBar ? LitHtml.html`<div class="chat-message-bottom-bar">
+          ${
+            message.rpcId !== undefined
+              ? LitHtml.html`${this.#renderRateButtons(message.rpcId)}`
+              : LitHtml.nothing
+          }
+          ${shouldShowFixThisIssueButton ? LitHtml.html`<${Buttons.Button.Button.litTagName}
+            .data=${{
+              variant: Buttons.Button.Variant.OUTLINED,
+            } as Buttons.Button.ButtonData} @click=${this.#props.onFixThisIssueClick}>${i18nString(TempUIStrings.fixThisIssue)}</${Buttons.Button.Button.litTagName}>` : LitHtml.nothing}
+        </div>` : LitHtml.nothing}
       </div>
     `;
     // clang-format on
@@ -388,6 +403,7 @@ export class FreestylerChatUi extends HTMLElement {
       toggleType: Buttons.Button.ToggleType.PRIMARY,
       toggled: this.#props.inspectElementToggled,
       title: i18nString(TempUIStrings.selectAnElement),
+      jslogContext: 'select-element',
     };
 
     // clang-format off
@@ -459,7 +475,7 @@ export class FreestylerChatUi extends HTMLElement {
   #renderChatUi = (): LitHtml.TemplateResult => {
     // TODO(ergunsh): Show a better UI for the states where Aida client is not available.
     const isAidaAvailable = this.#props.aidaAvailability === Host.AidaClient.AidaAvailability.AVAILABLE;
-    const isTextInputDisabled = !Boolean(this.#props.selectedNode) || !isAidaAvailable;
+    const isInputDisabled = !Boolean(this.#props.selectedNode) || !isAidaAvailable;
     // clang-format off
     return LitHtml.html`
       <div class="chat-ui">
@@ -478,7 +494,7 @@ export class FreestylerChatUi extends HTMLElement {
             </div>
           </div>
           <div class="chat-input-container">
-            <input type="text" class="chat-input" .disabled=${isTextInputDisabled}
+            <input type="text" class="chat-input" .disabled=${isInputDisabled}
               placeholder=${getInputPlaceholderString(
                 this.#props.aidaAvailability,
               )}>
@@ -515,6 +531,7 @@ export class FreestylerChatUi extends HTMLElement {
                           size: Buttons.Button.Size.SMALL,
                           iconName: 'send',
                           title: i18nString(TempUIStrings.sendButtonTitle),
+                          disabled: isInputDisabled,
                         } as Buttons.Button.ButtonData
                       }
                     ></${Buttons.Button.Button.litTagName}>`
