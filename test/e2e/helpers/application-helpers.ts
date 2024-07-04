@@ -34,11 +34,68 @@ export async function navigateToServiceWorkers() {
   await click(SERVICE_WORKER_ROW_SELECTOR);
 }
 
+export async function navigateToFrame(name: string) {
+  await doubleClickSourceTreeItem(`[aria-label="${name}"]`);
+  await waitFor('[title="Click to reveal in Sources panel"]');
+  await expectVeEvents([
+    veClick('Panel: resources > Pane: sidebar > Tree > TreeItem: frames > TreeItem: frame'),
+    veImpressionsUnder('Panel: resources', [veImpression(
+                                               'Pane', 'frames',
+                                               [
+                                                 veImpression('Action', 'reveal-in-elements'),
+                                                 veImpression('Action', 'reveal-in-network'),
+                                                 veImpression('Action', 'reveal-in-sources'),
+                                                 veImpression('Link', 'learn-more.coop-coep'),
+                                                 veImpression('Link', 'learn-more.monitor-memory-usage'),
+                                                 veImpression('Link', 'learn-more.origin-trials'),
+                                               ])]),
+  ]);
+}
+
 export async function navigateToManifestInApplicationTab(testName: string) {
   const MANIFEST_SELECTOR = '[aria-label="Manifest"]';
   const {target} = getBrowserAndPages();
   await navigateToApplicationTab(target, testName);
   await click(MANIFEST_SELECTOR);
+}
+
+export async function navigateToOpenedWindows() {
+  await doubleClickSourceTreeItem('[aria-label="Opened Windows"]');
+  await waitFor('.empty-view');
+  await expectVeEvents([
+    veClick('Panel: resources > Pane: sidebar > Tree > TreeItem: frames > TreeItem: frame > TreeItem: opened-windows'),
+    veImpressionsUnder(
+        'Panel: resources', [veImpression('Pane', 'opened-windows', [veImpression('Section', 'empty-view')])]),
+  ]);
+}
+
+export async function navigateToWebWorkers() {
+  const WEB_WORKERS_SELECTOR = '[aria-label="Web Workers"]';
+  await expectVeEvents([veImpressionsUnder(
+      'Panel: resources > Pane: sidebar > Tree > TreeItem: frames > TreeItem: frame',
+      [veImpression('TreeItem', 'web-workers')])]);
+  await doubleClickSourceTreeItem(WEB_WORKERS_SELECTOR);
+  await waitFor(`${WEB_WORKERS_SELECTOR} + ol li:first-child`);
+  await waitFor('.empty-view');
+  await expectVeEvents([
+    veClick('Panel: resources > Pane: sidebar > Tree > TreeItem: frames > TreeItem: frame > TreeItem: web-workers'),
+    veImpressionsUnder(
+        'Panel: resources', [veImpression('Pane', 'web-workers', [veImpression('Section', 'empty-view')])]),
+  ]);
+}
+
+export async function navigateToFrameServiceWorkers(frameName: string) {
+  await navigateToFrame(frameName);
+  const SERVICE_WORKERS_SELECTOR = `[aria-label="${frameName}"] ~ ol [aria-label="Service workers"]`;
+
+  await doubleClickSourceTreeItem(SERVICE_WORKERS_SELECTOR);
+  await waitFor(`${SERVICE_WORKERS_SELECTOR} + ol li:first-child`);
+  await waitFor('.empty-view');
+  await expectVeEvents([
+    veClick('Panel: resources > Pane: sidebar > Tree > TreeItem: frames > TreeItem: frame > TreeItem: service-workers'),
+    veImpressionsUnder(
+        'Panel: resources', [veImpression('Pane', 'service-workers', [veImpression('Section', 'empty-view')])]),
+  ]);
 }
 
 export async function navigateToCookiesForTopDomain() {
@@ -116,11 +173,16 @@ export async function filterStorageItems(filter: string) {
   await expectVeEvents(
       [veImpressionsUnder('Panel: resources > Pane: cookies-data > Toolbar', [veImpression('TextField')])]);
   await element.type(filter);
-  await expectVeEvents([veChange('Panel: resources > Pane: cookies-data > Toolbar > TextField')]);
+  await expectVeEvents([
+    veChange('Panel: resources > Pane: cookies-data > Toolbar > TextField'),
+    veImpressionsUnder(
+        'Panel: resources > Pane: cookies-data > Toolbar > TextField', [veImpression('Action', 'clear')]),
+  ]);
 }
 
 export async function clearStorageItemsFilter() {
   await click('.toolbar-input .toolbar-input-clear-button');
+  await expectVeEvents([veClick('Panel: resources > Pane: cookies-data > Toolbar > TextField > Action: clear')]);
 }
 
 export async function clearStorageItems() {
