@@ -18,6 +18,7 @@ import {
   waitForAria,
   waitForFunction,
 } from '../../shared/helper.js';
+import {veImpression, veClick, veChange, expectVeEvents, VeEvent} from './visual-logging-helpers.js';
 
 import {veImpression} from './visual-logging-helpers.js';
 
@@ -60,6 +61,7 @@ export async function deleteConsoleMessagesFilter(frontend: puppeteer.Page) {
       deleteButton.click();
     }
   }, main);
+  await expectVeEvents([veClick('Panel: console > Toolbar > TextField > Action: clear')]);
 }
 
 export async function filterConsoleMessages(frontend: puppeteer.Page, filter: string) {
@@ -70,7 +72,10 @@ export async function filterConsoleMessages(frontend: puppeteer.Page, filter: st
     toolbar.focus();
   }, main);
   await pasteText(filter);
-  await frontend.keyboard.press('Enter');
+  await frontend.keyboard.press('Tab');
+  if (filter.length) {
+    await expectVeEvents([veChange('Panel: console > Toolbar > TextField')]);
+  }
 }
 
 export async function waitForConsoleMessagesToBeNonEmpty(numberOfMessages: number) {
@@ -83,6 +88,7 @@ export async function waitForConsoleMessagesToBeNonEmpty(numberOfMessages: numbe
         await Promise.all(messages.map(message => message.evaluate(message => message.textContent || '')));
     return textContents.every(text => text !== '');
   });
+  await expectVeEvents([veImpressionForConsoleMessage()]);
 }
 
 export async function waitForLastConsoleMessageToHaveContent(expectedTextContent: string) {
@@ -107,18 +113,24 @@ export async function getConsoleMessages(testName: string, withAnchor = false, c
 }
 
 export async function getCurrentConsoleMessages(withAnchor = false, level = Level.All, callback?: () => Promise<void>) {
+  // console.error('getCurrentConsoleMessages 1');
   const {frontend} = getBrowserAndPages();
   const asyncScope = new AsyncScope();
 
+  // console.error('getCurrentConsoleMessages 2');
   await navigateToConsoleTab();
+  // console.error('getCurrentConsoleMessages 3');
 
   // Get console messages that were logged.
   await waitFor(CONSOLE_MESSAGES_SELECTOR, undefined, asyncScope);
+  await expectVeEvents([veImpressionForConsoleMessage()]);
 
+  // console.error('getCurrentConsoleMessages 4');
   if (callback) {
     await callback();
   }
 
+  // console.error('getCurrentConsoleMessages 5');
   // Ensure all messages are populated.
   await asyncScope.exec(() => frontend.waitForFunction((CONSOLE_FIRST_MESSAGES_SELECTOR: string) => {
     const messages = document.querySelectorAll(CONSOLE_FIRST_MESSAGES_SELECTOR);
@@ -128,11 +140,13 @@ export async function getCurrentConsoleMessages(withAnchor = false, level = Leve
     return Array.from(messages).every(message => message.childNodes.length > 0);
   }, {timeout: 0, polling: 'mutation'}, CONSOLE_ALL_MESSAGES_SELECTOR));
 
+  // console.error('getCurrentConsoleMessages 6');
   const selector = withAnchor ? CONSOLE_MESSAGE_TEXT_AND_ANCHOR_SELECTOR : level;
 
   // FIXME(crbug/1112692): Refactor test to remove the timeout.
   await timeout(100);
 
+  // console.error('getCurrentConsoleMessages 7');
   // Get the messages from the console.
   return frontend.evaluate(selector => {
     return Array.from(document.querySelectorAll(selector)).map(message => message.textContent as string);
@@ -151,6 +165,7 @@ export async function maybeGetCurrentConsoleMessages(withAnchor = false, callbac
 
   // Get console messages that were logged.
   await waitFor(CONSOLE_MESSAGES_SELECTOR, undefined, asyncScope);
+  await expectVeEvents([veImpressionForConsolePanel({requireMessage: true})]);
 
   if (callback) {
     await callback();
@@ -167,7 +182,7 @@ export async function maybeGetCurrentConsoleMessages(withAnchor = false, callbac
   }, selector);
 }
 
-export async function getStructuredConsoleMessages() {
+export async function getStructuredConsoleMessages(options?:{}) {
   const {frontend} = getBrowserAndPages();
   const asyncScope = new AsyncScope();
 
@@ -175,6 +190,7 @@ export async function getStructuredConsoleMessages() {
 
   // Get console messages that were logged.
   await waitFor(CONSOLE_MESSAGES_SELECTOR, undefined, asyncScope);
+  await expectVeEvents([veImpressionForConsoleMessage()]);
 
   // Ensure all messages are populated.
   await asyncScope.exec(() => frontend.waitForFunction((CONSOLE_FIRST_MESSAGES_SELECTOR: string) => {
@@ -279,8 +295,13 @@ export async function switchToTopExecutionContext(frontend: puppeteer.Page) {
 
 export async function navigateToConsoleTab() {
   // Locate the button for switching to the console tab.
+  // console.error('navigateToConsoleTab 1');
   await click(CONSOLE_TAB_SELECTOR);
+  // console.error('navigateToConsoleTab 2');
   await waitFor(CONSOLE_VIEW_SELECTOR);
+  // console.error('navigateToConsoleTab 3');
+  await expectVeEvents([veImpressionForConsolePanel()]);
+  // console.error('navigateToConsoleTab 4');
 }
 
 export async function waitForConsoleInfoMessageAndClickOnLink() {
@@ -345,7 +366,21 @@ export async function checkCommandStacktrace(
   await unifyLogVM(await getLastConsoleStacktrace(offset), expected);
 }
 
-export function veImpressionForConsolePanel() {
+function veImpressionForConsoleMessage(options?: {optional?: boolean}) {
+  const result = veImpression('Panel', 'console',[veImpression('Item', 'console-message', options?.optional ? options : [
+    veImpression('Link', 'script-location', {optional: true}),
+    veImpression('Link', 'script-source-url', {optional: true}),
+    veImpression('Link', 'network-request', {optional: true}),
+    veImpression('Link', 'request', {optional: true}),
+    veImpression('Link', 'url', {optional: true}),
+    veImpression('Link', undefined, {optional: true}),
+    veImpression('Tree', undefined, {optional: true}),
+    veImpression('Tree', 'elements', {optional: true}),
+  ])]);
+  return result;
+}
+
+export function veImpressionForConsolePanel(options?: {requireMessage?: boolean}) {
   return veImpression('Panel', 'console', [
     veImpression(
         'Toolbar', undefined,
@@ -359,6 +394,7 @@ export function veImpressionForConsolePanel() {
           veImpression('ToggleSubpane', 'console-settings'),
           veImpression('TextField'),
         ]),
+    veImpressionForConsoleMessage({optional: !Boolean(options?.requireMessage)}),
     veImpression('TextField', 'console-prompt'),
   ]);
 }
