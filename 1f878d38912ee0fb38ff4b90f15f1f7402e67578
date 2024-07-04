@@ -16,6 +16,24 @@
       "message": "this can just be deleted from here, as the default linter configuration enables this for the entire repo",
       "revId": "1f878d38912ee0fb38ff4b90f15f1f7402e67578",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82eecd25_97c80cea",
+        "filename": "front_end/models/trace/lantern/.eslintrc.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 3459658
+      },
+      "writtenOn": "2024-07-04T06:39:58Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "60218fa1_4ac3e475",
+      "revId": "1f878d38912ee0fb38ff4b90f15f1f7402e67578",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
