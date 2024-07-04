@@ -1,0 +1,152 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "873dff4b_ca5a67f5",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-04T08:08:56Z",
+      "side": 1,
+      "message": "looking at this, I feel like we might want another couple of pixels left padding to move it away from the blue outline. wdyt?",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 61
+      },
+      "revId": "7548e8f4c6de99628399d5b3f7ac54967f3e7fd4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d1ba25d_55661ff7",
+        "filename": "front_end/panels/timeline/TimelineFlameChartNetworkDataProvider.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 437,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-04T08:08:56Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 437,
+        "startChar": 0,
+        "endLine": 437,
+        "endChar": 17
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "c7cf925f_2eefebf8",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/TimelineFlameChartNetworkDataProvider.ts",
+              "range": {
+                "startLine": 437,
+                "startChar": 0,
+                "endLine": 438,
+                "endChar": 0
+              },
+              "replacement": ""
+            },
+            {
+              "path": "front_end/panels/timeline/TimelineFlameChartNetworkDataProvider.ts",
+              "range": {
+                "startLine": 445,
+                "startChar": 0,
+                "endLine": 446,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "7548e8f4c6de99628399d5b3f7ac54967f3e7fd4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf8ea89b_af58aedf",
+        "filename": "front_end/panels/timeline/TimelineFlameChartNetworkDataProvider.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 445,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-04T08:08:56Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 445,
+        "startChar": 7,
+        "endLine": 445,
+        "endChar": 15
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "074ac5fa_587a1bd9",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/TimelineFlameChartNetworkDataProvider.ts",
+              "range": {
+                "startLine": 437,
+                "startChar": 0,
+                "endLine": 438,
+                "endChar": 0
+              },
+              "replacement": ""
+            },
+            {
+              "path": "front_end/panels/timeline/TimelineFlameChartNetworkDataProvider.ts",
+              "range": {
+                "startLine": 445,
+                "startChar": 0,
+                "endLine": 446,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "7548e8f4c6de99628399d5b3f7ac54967f3e7fd4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca61eb06_162732bc",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 2868,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-04T08:08:56Z",
+      "side": 1,
+      "message": "do we not want to draw the line from the middle of the box always, regardless of how the initiators are sized? or does the line then overlap with the text in the entry?",
+      "range": {
+        "startLine": 2868,
+        "startChar": 0,
+        "endLine": 2868,
+        "endChar": 111
+      },
+      "revId": "7548e8f4c6de99628399d5b3f7ac54967f3e7fd4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
