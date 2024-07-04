@@ -39,6 +39,30 @@
       },
       "revId": "cd1d3646435e527a2b51ff32cf6fa4ff882fef68",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24969fca_153002f2",
+        "filename": "front_end/panels/application/CookieItemsView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-07-04T12:12:20Z",
+      "side": 1,
+      "message": "Thanks, fixed.",
+      "parentUuid": "c905f4a0_67c9301f",
+      "range": {
+        "startLine": 315,
+        "startChar": 1,
+        "endLine": 317,
+        "endChar": 3
+      },
+      "revId": "cd1d3646435e527a2b51ff32cf6fa4ff882fef68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
