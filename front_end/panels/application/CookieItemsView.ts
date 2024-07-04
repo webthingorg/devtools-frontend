@@ -312,8 +312,12 @@ export class CookieItemsView extends StorageItemsView {
     }
   }
 
-  override refreshItems(): void {
+  private onCookieListUpdate(): void {
     void this.model.getCookiesForDomain(this.cookieDomain).then(this.updateWithCookies.bind(this));
+  }
+
+  override refreshItems(): void {
+    void this.model.getCookiesForDomain(this.cookieDomain, true).then(this.updateWithCookies.bind(this));
   }
 
   override wasShown(): void {
