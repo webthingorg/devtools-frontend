@@ -7,10 +7,10 @@ import {assert} from 'chai';
 import {click, getBrowserAndPages, waitForFunction} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {
-  doubleClickSourceTreeItem,
   getPieChartLegendRows,
   getQuotaUsage,
   navigateToApplicationTab,
+  navigateToStorage,
   waitForQuotaUsage,
 } from '../helpers/application-helpers.js';
 
@@ -25,7 +25,7 @@ describe('The Application Tab', () => {
     beforeEach(async () => {
       const {target} = getBrowserAndPages();
       await navigateToApplicationTab(target, 'storage-quota');
-      await doubleClickSourceTreeItem(STORAGE_SELECTOR);
+      await navigateToStorage();
     });
 
     it('which clears storage correctly using the clear button', async () => {
