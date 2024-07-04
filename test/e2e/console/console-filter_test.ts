@@ -42,19 +42,25 @@ async function testMessageFilter(filter: string, expectedMessageFilter: MessageC
   const {frontend} = getBrowserAndPages();
   let unfilteredMessages: string[];
   const showMessagesWithAnchor = true;
+  // console.error('testMessageFilter 1');
 
   await step('navigate to console-filter.html and get console messages', async () => {
     unfilteredMessages = await getConsoleMessages('console-filter', showMessagesWithAnchor);
   });
 
+  // console.error('testMessageFilter 2');
   await step(`filter to only show messages containing '${filter}'`, async () => {
     await filterConsoleMessages(frontend, filter);
   });
+  // console.error('testMessageFilter 3');
 
   await step('check that messages are correctly filtered', async () => {
     const filteredMessages = await getCurrentConsoleMessages(showMessagesWithAnchor);
+  // console.error('testMessageFilter 4');
     const expectedMessages = getExpectedMessages(unfilteredMessages, expectedMessageFilter);
+  // console.error('testMessageFilter 5');
     assert.isNotEmpty(filteredMessages);
+  // console.error('testMessageFilter 6');
     assert.deepEqual(filteredMessages, expectedMessages);
   });
 }
@@ -167,6 +173,7 @@ describe('The Console Tab', () => {
   });
 
   it('can include messages from a given source url', async () => {
+    // console.error('BEGIN test');
     const {frontend} = getBrowserAndPages();
     let sourceUrls: string[];
     let uniqueUrls: Set<string> = new Set();
@@ -183,26 +190,37 @@ describe('The Console Tab', () => {
       uniqueUrls = new Set(sourceUrls);
       assert.isNotEmpty(uniqueUrls);
     });
+    
+    // console.error([...uniqueUrls.values()]);
 
     for (const urlToKeep of uniqueUrls) {
+      // console.error('for 1');
       const filter = urlToKeep;
       const expectedMessageFilter: MessageCheck = msg => {
+      // console.error('for 2');
         if (msg.includes('enter')) {
           return true;
         }
+      // console.error('for 3');
         // When we include from any of the two URLs, all groups match.
         // When a group matches, its content is fully shown.
         if (msg.includes('log-source') && (msg.includes('innerGroup') || msg.includes('outerGroup'))) {
           return true;
         }
+      // console.error('for 4');
         return msg.indexOf(urlToKeep) !== -1;
       };
+      // console.error('for 5');
       await testMessageFilter(filter, expectedMessageFilter);
 
+      // console.error('for 6');
       await step(`remove filter '${filter}'`, async () => {
+        // console.error('trying for ', filter);
         await deleteConsoleMessagesFilter(frontend);
+        // console.error('worked for ', filter);
       });
     }
+    // console.error('END TEST');
   });
 
   it('can apply empty filter', async () => {

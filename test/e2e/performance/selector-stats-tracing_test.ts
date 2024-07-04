@@ -8,6 +8,7 @@ import {click, getBrowserAndPages, step, waitForFunction} from '../../shared/hel
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {reloadDevTools} from '../helpers/cross-tool-helper.js';
 import {getDataGridRows} from '../helpers/datagrid-helpers.js';
+import {reloadDevTools} from '../helpers/cross-tool-helper.js';
 import {
   disableCSSSelectorStats,
   enableCSSSelectorStats,

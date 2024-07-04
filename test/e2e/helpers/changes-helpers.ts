@@ -3,7 +3,9 @@
 // found in the LICENSE file.
 
 import {$$, getBrowserAndPages, goToResource, waitFor, waitForFunction} from '../../shared/helper.js';
-import {openCommandMenu} from '../helpers/quick_open-helpers.js';
+
+import {openCommandMenu} from './quick_open-helpers.js';
+import {expectVeEvents, veImpression, veImpressionForDrawerToolbar, VeEvent} from './visual-logging-helpers.js';
 
 import {veImpression} from './visual-logging-helpers.js';
 
@@ -19,6 +21,21 @@ export async function openChangesPanelAndNavigateTo(testName: string) {
   await frontend.keyboard.press('Enter');
 
   await waitFor(PANEL_ROOT_SELECTOR);
+  await expectVeEvents([veImpression(
+      'Drawer', undefined,
+      [
+        veImpression(
+            'Panel', 'changes',
+            [
+              veImpression('Pane', 'sidebar'), veImpression('Section', 'empty-view'),
+              veImpression(
+                  'Toolbar', undefined,
+                  [veImpression('Action', 'changes.copy'), veImpression('Action', 'changes.revert')])
+            ]),
+        veImpressionForDrawerToolbar({selectedPanel: 'changes.changes'})
+      ])
+
+  ]);
 }
 
 export async function getChangesList() {

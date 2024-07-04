@@ -17,6 +17,7 @@ import {assertMatchesJSONSnapshot} from '../../shared/snapshots.js';
 import {
   clearStorageItems,
   clearStorageItemsFilter,
+  navigateToCookiesForTopDomain,
   filterStorageItems,
   getDataGridData,
   getStorageItemsData,

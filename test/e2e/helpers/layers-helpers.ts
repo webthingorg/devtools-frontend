@@ -3,6 +3,9 @@
 // found in the LICENSE file.
 
 import {waitFor} from '../../shared/helper.js';
+import {
+  veImpression,
+} from './visual-logging-helpers.js';
 
 import {veImpression} from './visual-logging-helpers.js';
 

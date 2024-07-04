@@ -304,7 +304,7 @@ describe('The Network Tab', function() {
   this.timeout(5000);
 
   beforeEach(async () => {
-    await disableExperiment('network-panel-filter-bar-redesign');
+    // await disableExperiment('network-panel-filter-bar-redesign');
 
     await navigateToNetworkTab('empty.html');
     await setCacheDisabled(true);

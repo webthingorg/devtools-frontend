@@ -34,6 +34,7 @@ import {
 } from '../../shared/helper.js';
 
 import {openSoftContextMenuAndClickOnItem} from './context-menu-helpers.js';
+import {veImpression} from './visual-logging-helpers.js';
 import {reloadDevTools} from './cross-tool-helper.js';
 import {veImpression} from './visual-logging-helpers.js';
 
