@@ -10,7 +10,7 @@ module.exports = {
   require : [path.join(path.dirname(__dirname), 'conductor', 'mocha_hooks.js'), 'source-map-support/register'],
   spec : loadTests(__dirname),
   timeout : TestConfig.debug ? 0 : 10_000,
-  retries : 4,
+  retries : 1,
   reporter : path.join(path.dirname(__dirname), 'shared', 'mocha-resultsdb-reporter'),
   suiteName : 'e2e',
   slow : 1000, ...TestConfig.mochaGrep,
