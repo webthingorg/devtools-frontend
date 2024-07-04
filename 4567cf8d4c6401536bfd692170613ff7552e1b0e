@@ -147,6 +147,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "70b9502d_f96bd867",
+        "filename": "front_end/core/common/SettingRegistration.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-07-04T12:39:30Z",
+      "side": 1,
+      "message": "I\u0027ve tried to implement this, but there are some obstacles.\n\nThe list of enabled experiments does not exist, and would probably need to be generated in `Runtime.ExperimentsSupport`, so we wouldn\u0027t gain much.\n\nAnd moving the `HostConfig` type to `InspectorFrontendHostAPI` does not work, because `Common` needs `Condition` which needs `HostConfig`.",
+      "parentUuid": "203cf980_9c326244",
+      "range": {
+        "startLine": 92,
+        "startChar": 16,
+        "endLine": 92,
+        "endChar": 37
+      },
+      "revId": "4567cf8d4c6401536bfd692170613ff7552e1b0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "391b36cb_6dcdf748",
