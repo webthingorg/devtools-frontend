@@ -1,0 +1,103 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8412abe9_9cb09193",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-04T08:14:21Z",
+      "side": 1,
+      "message": "lgtm with two tweaks. I think the MS CL that added websockets to the network track has landed, so you might need to deal with a few conflicts there unfortunately",
+      "revId": "75c93c8212783b1bb6d36c2b9dbe3bb8cb24e0c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf39f23f_9fc8f052",
+        "filename": "front_end/panels/timeline/TimelineFlameChartNetworkDataProvider.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-04T08:14:21Z",
+      "side": 1,
+      "message": "let\u0027s not use `!` as they can hide type errors. I would either set this to `number|null \u003d null` or probably just use `-1` to indicate \"nothing\"",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 31
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "a4efb8bb_9688f51b",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/TimelineFlameChartNetworkDataProvider.ts",
+              "range": {
+                "startLine": 33,
+                "startChar": 0,
+                "endLine": 34,
+                "endChar": 0
+              },
+              "replacement": "  #lastInitiatorEntry: number|null \u003d null;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "75c93c8212783b1bb6d36c2b9dbe3bb8cb24e0c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4900c5cb_cde6cc0c",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 651,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-04T08:14:21Z",
+      "side": 1,
+      "message": "would `dataProvider.buildFlowForInitiator(entryIndex)` work here and then we could remove the conditional?",
+      "range": {
+        "startLine": 647,
+        "startChar": 1,
+        "endLine": 651,
+        "endChar": 5
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "29253dc7_449ad3de",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/TimelineFlameChartView.ts",
+              "range": {
+                "startLine": 647,
+                "startChar": 0,
+                "endLine": 652,
+                "endChar": 0
+              },
+              "replacement": "    dataProvider.buildFlowForInitiator(entryIndex);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "75c93c8212783b1bb6d36c2b9dbe3bb8cb24e0c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
