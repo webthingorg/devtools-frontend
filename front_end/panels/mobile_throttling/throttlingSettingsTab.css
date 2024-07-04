@@ -45,6 +45,10 @@
   position: relative;
 }
 
+.conditions-list-text > input {
+  scroll-margin-left: 5px;
+}
+
 .conditions-list-text:last-child {
   flex-basis: 100px;
   text-align: left;
