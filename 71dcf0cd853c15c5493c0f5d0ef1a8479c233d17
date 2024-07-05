@@ -16,6 +16,24 @@
       "message": "Nice! After crrev.com/c/5675944 is submitted; can you rebase and add a `gap` (maybe `var(--sys-size-14)`) inside `.chat-message-bottom-bar` so that for small messages, there still is a gap between rate buttons and the `Fix this issue` button?",
       "revId": "71dcf0cd853c15c5493c0f5d0ef1a8479c233d17",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ecb2a675_afa7fe83",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-07-05T12:15:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62903206_b0702a24",
+      "revId": "71dcf0cd853c15c5493c0f5d0ef1a8479c233d17",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
