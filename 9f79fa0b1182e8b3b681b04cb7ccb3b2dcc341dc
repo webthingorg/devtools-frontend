@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "878c1f3c_9450bbca",
+        "filename": "front_end/panels/timeline/TimelineFlameChartNetworkDataProvider.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-07-05T09:38:20Z",
+      "side": 1,
+      "message": "I just felt inconsistent when I coded so just changed btw, next time I will split the code. Thanks 😊",
+      "parentUuid": "8f692a45_3eaf5bef",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 66
+      },
+      "revId": "9f79fa0b1182e8b3b681b04cb7ccb3b2dcc341dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9fec021c_fdb2b758",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-07-04T08:04:15Z",
       "side": 1,
       "message": "will this method run even if the `index` hasn\u0027t changed since the previous run? (e.g. I moved my mouse, but it\u0027s still over the same element). In that case, could we detect it and early exit / avoid re-creating the component all over again?",
+      "range": {
+        "startLine": 308,
+        "startChar": 0,
+        "endLine": 308,
+        "endChar": 60
+      },
+      "revId": "9f79fa0b1182e8b3b681b04cb7ccb3b2dcc341dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f585d2c_bd27fdd9",
+        "filename": "front_end/panels/timeline/TimelineFlameChartNetworkDataProvider.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-07-05T09:38:20Z",
+      "side": 1,
+      "message": "Yes, and this is handled in the `FlameChart` class, there is `lastPopoverState` which will check if the index is changed 😜",
+      "parentUuid": "9fec021c_fdb2b758",
       "range": {
         "startLine": 308,
         "startChar": 0,
