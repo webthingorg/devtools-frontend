@@ -5,13 +5,14 @@
 import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
-import * as Protocol from '../../generated/protocol.js';
+import type * as Protocol from '../../generated/protocol.js';
 import * as TraceEngine from '../../models/trace/trace.js';
 import * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as ThemeSupport from '../../ui/legacy/theme_support/theme_support.js';
 import * as VisualLogging from '../../ui/visual_logging/visual_logging.js';
 
+import * as TimelineComponents from './components/components.js';
 import {NetworkTrackAppender, type NetworkTrackEvent} from './NetworkTrackAppender.js';
 import timelineFlamechartPopoverStyles from './timelineFlamechartPopover.css.js';
 import {FlameChartStyle, Selection} from './TimelineFlameChartView.js';
@@ -26,7 +27,7 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
 
   #timelineDataInternal?: PerfUI.FlameChart.FlameChartTimelineData|null;
   #lastSelection?: Selection;
-  #traceEngineData: TraceEngine.Handlers.Types.TraceParseData|null;
+  #traceParseData: TraceEngine.Handlers.Types.TraceParseData|null;
   #eventIndexByEvent: Map<NetworkTrackEvent, number|null> = new Map();
   #visualElementsParent: VisualLogging.Loggable|null = null;
 
@@ -37,17 +38,17 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
     this.#maxLevel = 0;
 
     this.#networkTrackAppender = null;
-    this.#traceEngineData = null;
+    this.#traceParseData = null;
   }
 
   setModel(traceEngineData: TraceEngine.Handlers.Types.TraceParseData|null): void {
     this.#timelineDataInternal = null;
-    this.#traceEngineData = traceEngineData;
+    this.#traceParseData = traceEngineData;
     this.#eventIndexByEvent.clear();
 
-    if (this.#traceEngineData) {
-      this.setEvents(this.#traceEngineData);
-      this.#setTimingBoundsData(this.#traceEngineData);
+    if (this.#traceParseData) {
+      this.setEvents(this.#traceParseData);
+      this.#setTimingBoundsData(this.#traceParseData);
     }
   }
 
@@ -89,12 +90,12 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
     }
 
     this.#timelineDataInternal = PerfUI.FlameChart.FlameChartTimelineData.createEmpty();
-    if (!this.#traceEngineData) {
+    if (!this.#traceParseData) {
       return this.#timelineDataInternal;
     }
 
     if (!this.#events.length) {
-      this.setEvents(this.#traceEngineData);
+      this.setEvents(this.#traceParseData);
     }
     this.#networkTrackAppender = new NetworkTrackAppender(this.#timelineDataInternal, this.#events);
     this.#maxLevel = this.#networkTrackAppender.appendTrackAtLevel(0);
@@ -385,37 +386,21 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
   }
 
   prepareHighlightedEntryInfo(index: number): Element|null {
-    const /** @const */ maxURLChars = 80;
     const event = this.#events[index];
-    if (TraceEngine.Types.TraceEvents.isSyntheticWebSocketConnectionEvent(event)) {
-      return null;
-    }
-    const element = document.createElement('div');
-    const root = UI.UIUtils.createShadowRootWithCoreStyles(element, {
-      cssFile: [timelineFlamechartPopoverStyles],
-      delegatesFocus: undefined,
-    });
-    const contents = root.createChild('div', 'timeline-flamechart-popover');
-    const startTime = TraceEngine.Helpers.Timing.microSecondsToMilliseconds(event.ts);
-    const duration = event.dur ? TraceEngine.Helpers.Timing.microSecondsToMilliseconds(event.dur) : 0;
-    if (startTime && isFinite(duration)) {
-      contents.createChild('span', 'timeline-info-network-time').textContent =
-          i18n.TimeUtilities.millisToString(duration, true);
-    }
-    const div = (contents.createChild('span') as HTMLElement);
-    const priority = TraceEngine.Types.TraceEvents.isWebSocketTraceEvent(event) ?
-        Protocol.Network.ResourcePriority.Low :
-        event.args.data.priority;
-    div.style.color = this.#colorForPriority(priority) || 'black';
-    if (TraceEngine.Types.TraceEvents.isWebSocketTraceEvent(event)) {
-      const title = this.#networkTrackAppender?.titleForWebSocketEvent(event) || '';
-      contents.createChild('span').textContent = Platform.StringUtilities.trimMiddle(title, maxURLChars);
-    } else {
-      div.textContent = PerfUI.NetworkPriorities.uiLabelForNetworkPriority(priority);
-      contents.createChild('span').textContent = Platform.StringUtilities.trimMiddle(event.args.data.url, maxURLChars);
-    }
+    if (TraceEngine.Types.TraceEvents.isSyntheticNetworkRequestEvent(event)) {
+      const element = document.createElement('div');
+      const root = UI.UIUtils.createShadowRootWithCoreStyles(element, {
+        cssFile: [timelineFlamechartPopoverStyles],
+        delegatesFocus: undefined,
+      });
 
-    return element;
+      const contents = root.createChild('div', 'timeline-flamechart-popover');
+      const infoElement = new TimelineComponents.NetworkRequestTooltip.NetworkRequestTooltip();
+      infoElement.networkRequest = event;
+      contents.appendChild(infoElement);
+      return element;
+    }
+    return null;
   }
 
   #colorForPriority(priority: Protocol.Network.ResourcePriority): string|null {
@@ -468,7 +453,8 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
     if (!group) {
       return 0;
     }
-    return group.style.height * (this.isExpanded() ? Platform.NumberUtilities.clamp(this.#maxLevel + 1, 4, 8.5) : 1);
+    // Bump up to 7 because the tooltip is around 7 rows' height.
+    return group.style.height * (this.isExpanded() ? Platform.NumberUtilities.clamp(this.#maxLevel + 1, 7, 8.5) : 1);
   }
 
   isExpanded(): boolean {
@@ -489,9 +475,9 @@ export class TimelineFlameChartNetworkDataProvider implements PerfUI.FlameChart.
    * The map's key is the frame ID.
    **/
   mainFrameNavigationStartEvents(): readonly TraceEngine.Types.TraceEvents.TraceEventNavigationStart[] {
-    if (!this.#traceEngineData) {
+    if (!this.#traceParseData) {
       return [];
     }
-    return this.#traceEngineData.Meta.mainFrameNavigations;
+    return this.#traceParseData.Meta.mainFrameNavigations;
   }
 }
