@@ -834,6 +834,102 @@ describeWithMockConnection('NetworkLogView', () => {
     networkLogView.detach();
   });
 
+  it('"Copy all" commands respects filters', async () => {
+    createOverrideRequests();
+
+    const filterBar = new UI.FilterBar.FilterBar('network-panel', true);
+    networkLogView = createNetworkLogView(filterBar);
+    networkLogView.markAsRoot();
+    networkLogView.show(document.body);
+    const copyText = sinon.stub(Host.InspectorFrontendHost.InspectorFrontendHostInstance, 'copyText').resolves();
+
+    // Set network filter
+    networkLogView.setTextFilterValue('has-overrides:headers');
+
+    await networkLogView.testCopyCommand('copyAllURLs');
+    assert.strictEqual(1, copyText.callCount);
+    assert.deepEqual(copyText.lastCall.args, [`url-header-overridden
+url-header-und-content-overridden`]);
+
+    await networkLogView.testCopyCommand('copyAllCurlCommand');
+    assert.strictEqual(2, copyText.callCount);
+    assert.deepEqual(copyText.lastCall.args, [`curl 'url-header-overridden' ;
+curl 'url-header-und-content-overridden'`]);
+
+    await networkLogView.testCopyCommand('copyAllFetchCall');
+    assert.strictEqual(3, copyText.callCount);
+    assert.deepEqual(copyText.lastCall.args, [`fetch("url-header-overridden", {
+  "body": null,
+  "method": "GET",
+  "mode": "cors",
+  "credentials": "omit"
+}); ;
+fetch("url-header-und-content-overridden", {
+  "body": null,
+  "method": "GET",
+  "mode": "cors",
+  "credentials": "omit"
+});`]);
+
+    await networkLogView.testCopyCommand('copyAllPowerShellCommand');
+    assert.strictEqual(4, copyText.callCount);
+    assert.deepEqual(copyText.lastCall.args, [`Invoke-WebRequest -UseBasicParsing -Uri "url-header-overridden";\r
+Invoke-WebRequest -UseBasicParsing -Uri "url-header-und-content-overridden"`]);
+
+    // Clear network filter
+    networkLogView.setTextFilterValue('');
+
+    await networkLogView.testCopyCommand('copyAllURLs');
+    assert.strictEqual(5, copyText.callCount);
+    assert.deepEqual(copyText.lastCall.args, [`url-not-overridden
+url-header-overridden
+url-content-overridden
+url-header-und-content-overridden`]);
+
+    await networkLogView.testCopyCommand('copyAllCurlCommand');
+    assert.strictEqual(6, copyText.callCount);
+    assert.deepEqual(copyText.lastCall.args, [`curl 'url-not-overridden' ;
+curl 'url-header-overridden' ;
+curl 'url-content-overridden' ;
+curl 'url-header-und-content-overridden'`]);
+
+    await networkLogView.testCopyCommand('copyAllFetchCall');
+    assert.strictEqual(7, copyText.callCount);
+    assert.deepEqual(copyText.lastCall.args, [`fetch("url-not-overridden", {
+  "body": null,
+  "method": "GET",
+  "mode": "cors",
+  "credentials": "omit"
+}); ;
+fetch("url-header-overridden", {
+  "body": null,
+  "method": "GET",
+  "mode": "cors",
+  "credentials": "omit"
+}); ;
+fetch("url-content-overridden", {
+  "body": null,
+  "method": "GET",
+  "mode": "cors",
+  "credentials": "omit"
+}); ;
+fetch("url-header-und-content-overridden", {
+  "body": null,
+  "method": "GET",
+  "mode": "cors",
+  "credentials": "omit"
+});`]);
+
+    await networkLogView.testCopyCommand('copyAllPowerShellCommand');
+    assert.strictEqual(8, copyText.callCount);
+    assert.deepEqual(copyText.lastCall.args, [`Invoke-WebRequest -UseBasicParsing -Uri "url-not-overridden";\r
+Invoke-WebRequest -UseBasicParsing -Uri "url-header-overridden";\r
+Invoke-WebRequest -UseBasicParsing -Uri "url-content-overridden";\r
+Invoke-WebRequest -UseBasicParsing -Uri "url-header-und-content-overridden"`]);
+
+    networkLogView.detach();
+  });
+
   it('skips unknown columns without title in persistence setting', async () => {
     const columnSettings = Common.Settings.Settings.instance().createSetting('network-log-columns', {});
     columnSettings.set({
