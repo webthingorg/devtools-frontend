@@ -16,6 +16,23 @@
       "message": "This is a bug introduced recently",
       "revId": "6b26038aaddc4a315840f8ba89012d161477488a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8fc762b6_f9e518f0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-05T13:53:26Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "6b26038aaddc4a315840f8ba89012d161477488a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
