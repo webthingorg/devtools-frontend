@@ -243,6 +243,30 @@
       },
       "revId": "7548e8f4c6de99628399d5b3f7ac54967f3e7fd4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de230e05_75987a16",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 2868,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-05T10:35:46Z",
+      "side": 1,
+      "message": "I think let\u0027s keep it always consistent and therefore in the middle for every single arrow, and we can adjust in time. We will probably look at this again when it comes to drawing annotation connections anyway.",
+      "parentUuid": "ebdd2bb2_b7edf63d",
+      "range": {
+        "startLine": 2868,
+        "startChar": 0,
+        "endLine": 2868,
+        "endChar": 111
+      },
+      "revId": "7548e8f4c6de99628399d5b3f7ac54967f3e7fd4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
