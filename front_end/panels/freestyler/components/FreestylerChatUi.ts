@@ -182,7 +182,7 @@ export type Props = {
   isLoading: boolean,
   // If there is a `confirmSideEffectDialog`, we show the
   // confirmation dialog for executing that specific code.
-  confirmSideEffectDialog?: ConfirmSideEffectDialog,
+  confirmSideEffectDialog?: ConfirmSideEffectDialog, lastActionIsFixThisIssue: boolean,
 };
 
 // The model returns multiline code blocks in an erroneous way with the language being in new line.
@@ -367,7 +367,8 @@ export class FreestylerChatUi extends HTMLElement {
 
     // TODO: We should only show "Fix this issue" button when the answer suggests fix or fixes.
     // We shouldn't show this when the answer is complete like a confirmation without any suggestion.
-    const shouldShowFixThisIssueButton = isLast && message.steps.at(-1)?.step === Step.ANSWER;
+    const shouldShowFixThisIssueButton =
+        isLast && message.steps.at(-1)?.step === Step.ANSWER && !this.#props.lastActionIsFixThisIssue;
     const shouldShowBottomBar = shouldShowFixThisIssueButton || message.rpcId !== undefined;
     // clang-format off
     return LitHtml.html`
