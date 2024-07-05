@@ -10,7 +10,7 @@ import {openSourcesPanel} from '../helpers/sources-helpers.js';
 
 describe('The Performance panel', () => {
   it('can collect a line-level CPU profile and show it in the text editor', async () => {
-    const {target} = getBrowserAndPages();
+    const {target, frontend} = getBrowserAndPages();
     await navigateToPerformanceTab();
     await startRecording();
     await target.evaluate(() => {
@@ -31,6 +31,8 @@ describe('The Performance panel', () => {
     const button = await elements[1].$('.tree-element-title');
     // Add some offsets so we won't click on the edge of the element
     await button?.click({offset: {x: 3, y: 3}});
+
+    await frontend.bringToFront();
     await waitForMany('.cm-performanceGutter .cm-gutterElement', 3);
   });
 });
