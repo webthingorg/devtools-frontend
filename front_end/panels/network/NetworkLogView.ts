@@ -312,35 +312,35 @@ const UIStrings = {
   /**
    *@description A context menu command in the Network panel, for copying the URLs of all requestes to the clipboard.
    */
-  copyAllURLs: 'Copy all URLs',
+  copyAllURLs: 'Copy all shown URLs',
   /**
    *@description Text in Network Log View of the Network panel. An action that copies a command to
    *the clipboard. It will copy the command in the format compatible with a PowerShell script.
    */
-  copyAllAsPowershell: 'Copy all as `PowerShell`',
+  copyAllAsPowershell: 'Copy all shown as `PowerShell`',
   /**
    *@description Text in Network Log View of the Network panel. An action that copies a command to
    *the clipboard. It will copy the command in the format compatible with a 'fetch' command (fetch
    *should not be translated).
    */
-  copyAllAsFetch: 'Copy all as `fetch`',
+  copyAllAsFetch: 'Copy all shown as `fetch`',
   /**
    *@description Text in Network Log View of the Network panel. An action that copies a command to
    *the clipboard. It will copy the command in the format compatible with a Node.js 'fetch' command
    *(fetch and Node.js should not be translated).
    */
-  copyAllAsNodejsFetch: 'Copy all as `fetch` (`Node.js`)',
+  copyAllAsNodejsFetch: 'Copy all shown as `fetch` (`Node.js`)',
   /**
    *@description Text in Network Log View of the Network panel. An action that copies a command to
    *the clipboard. It will copy the command in the format compatible with cURL (a program, not
    *translatable).
    */
-  copyAllAsCurlCmd: 'Copy all as `cURL` (`cmd`)',
+  copyAllAsCurlCmd: 'Copy all shown as `cURL` (`cmd`)',
   /**
    *@description Text in Network Log View of the Network panel. An action that copies a command to
    *the clipboard. It will copy the command in the format compatible with a Bash script.
    */
-  copyAllAsCurlBash: 'Copy all as `cURL` (`bash`)',
+  copyAllAsCurlBash: 'Copy all shown as `cURL` (`bash`)',
   /**
    *@description Text in Network Log View of the Network panel. An action that copies a command to
    *the clipboard. It will copy the command in the format compatible with cURL (a program, not
@@ -352,13 +352,13 @@ const UIStrings = {
    *the clipboard. It will copy the command in the format compatible with cURL (a program, not
    *translatable).
    */
-  copyAllAsCurl: 'Copy all as `cURL`',
+  copyAllAsCurl: 'Copy all shown as `cURL`',
   /**
    * @description Text in Network Log View of the Network panel. An action that copies data to the
    * clipboard. It will copy the data in the HAR (not translatable) format. 'all' refers to every
    * network request that is currently shown.
    */
-  copyAllAsHar: 'Copy all as `HAR`',
+  copyAllAsHar: 'Copy all shown as `HAR`',
   /**
    *@description A context menu item in the Network Log View of the Network panel
    */
@@ -1467,7 +1467,7 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
     }
 
     for (const node of staleNodes) {
-      const isFilteredOut = !this.applyFilter(node);
+      const isFilteredOut = !this.applyFilter(node.request());
       if (isFilteredOut && node === this.hoveredNodeInternal) {
         this.setHoveredNode(null);
       }
@@ -1847,13 +1847,11 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
   }
 
   private harRequests(): SDK.NetworkRequest.NetworkRequest[] {
-    return Logs.NetworkLog.NetworkLog.instance()
-        .requests()
-        .filter(NetworkLogView.getHTTPRequestsFilter)
-        .filter(request => {
-          return request.finished ||
-              (request.resourceType() === Common.ResourceType.resourceTypes.WebSocket && request.responseReceivedTime);
-        });
+    const requests = Logs.NetworkLog.NetworkLog.instance().requests().filter(request => this.applyFilter(request));
+    return requests.filter(NetworkLogView.getHTTPRequestsFilter).filter(request => {
+      return request.finished ||
+          (request.resourceType() === Common.ResourceType.resourceTypes.WebSocket && request.responseReceivedTime);
+    });
   }
 
   private async copyAllAsHAR(): Promise<void> {
@@ -1862,7 +1860,8 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
   }
 
   private copyAllURLs(): void {
-    const nonBlobRequests = this.filterOutBlobRequests(Logs.NetworkLog.NetworkLog.instance().requests());
+    const requests = Logs.NetworkLog.NetworkLog.instance().requests().filter(request => this.applyFilter(request));
+    const nonBlobRequests = this.filterOutBlobRequests(requests);
     const urls = nonBlobRequests.map(request => request.url());
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(urls.join('\n'));
   }
@@ -1873,7 +1872,8 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
   }
 
   private async copyAllCurlCommand(platform: 'unix'|'win'): Promise<void> {
-    const commands = await this.generateAllCurlCommand(Logs.NetworkLog.NetworkLog.instance().requests(), platform);
+    const requests = Logs.NetworkLog.NetworkLog.instance().requests().filter(request => this.applyFilter(request));
+    const commands = await this.generateAllCurlCommand(requests, platform);
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(commands);
   }
 
@@ -1883,7 +1883,8 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
   }
 
   private async copyAllFetchCall(style: FetchStyle): Promise<void> {
-    const commands = await this.generateAllFetchCall(Logs.NetworkLog.NetworkLog.instance().requests(), style);
+    const requests = Logs.NetworkLog.NetworkLog.instance().requests().filter(request => this.applyFilter(request));
+    const commands = await this.generateAllFetchCall(requests, style);
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(commands);
   }
 
@@ -1893,7 +1894,8 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
   }
 
   private async copyAllPowerShellCommand(): Promise<void> {
-    const commands = await this.generateAllPowerShellCommand(Logs.NetworkLog.NetworkLog.instance().requests());
+    const requests = Logs.NetworkLog.NetworkLog.instance().requests().filter(request => this.applyFilter(request));
+    const commands = await this.generateAllPowerShellCommand(requests);
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(commands);
   }
 
@@ -1951,8 +1953,7 @@ export class NetworkLogView extends Common.ObjectWrapper.eventMixin<EventTypes, 
     this.removeAllNodeHighlights();
   }
 
-  private applyFilter(node: NetworkRequestNode): boolean {
-    const request = node.request();
+  private applyFilter(request: SDK.NetworkRequest.NetworkRequest): boolean {
     if (this.timeFilter && !this.timeFilter(request)) {
       return false;
     }
