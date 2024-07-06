@@ -121,7 +121,15 @@ export interface TimelineCharts {
   networkProvider: TimelineFlameChartNetworkDataProvider;
 }
 
-export class Overlays {
+export class AnnotationOverlayRemoveEvent extends Event {
+  static readonly eventName = 'annotationoverlayremoveevent';
+
+  constructor(public overlay: TimelineOverlay) {
+    super(AnnotationOverlayRemoveEvent.eventName);
+  }
+}
+
+export class Overlays extends EventTarget {
   /**
    * The list of active overlays. Overlays can't be marked as visible or
    * hidden; every overlay in this list is rendered.
@@ -160,6 +168,7 @@ export class Overlays {
     container: HTMLElement,
     charts: TimelineCharts,
   }) {
+    super();
     this.#overlaysContainer = init.container;
     this.#charts = init.charts;
   }
@@ -272,6 +281,7 @@ export class Overlays {
     if (htmlElement && this.#overlaysContainer) {
       this.#overlaysContainer.removeChild(htmlElement);
     }
+
     this.#overlaysToElements.delete(overlay);
   }
 
@@ -644,7 +654,7 @@ export class Overlays {
       case 'ENTRY_LABEL': {
         const component = new Components.EntryLabelOverlay.EntryLabelOverlay(overlay.label);
         component.addEventListener(Components.EntryLabelOverlay.EmptyEntryLabelRemoveEvent.eventName, () => {
-          this.remove(overlay);
+          this.dispatchEvent(new AnnotationOverlayRemoveEvent(overlay));
         });
         div.appendChild(component);
         return div;
