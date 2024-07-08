@@ -270,8 +270,8 @@ describeWithEnvironment('TimingTrackAppender', function() {
       styleElement.id = 'fake-perf-panel-colors';
       styleElement.textContent = `
         :root {
-          --ref-palette-primary60: rgb(4 4 4);
-          --ref-palette-error40: rgb(10 10 10);
+          --ref-palette-primary70: rgb(4 4 4);
+          --ref-palette-error50: rgb(10 10 10);
         }
       `;
       document.documentElement.appendChild(styleElement);
