@@ -70,6 +70,10 @@ export class SidebarWidget extends Common.ObjectWrapper.eventMixin<WidgetEventTy
     this.#sidebarUI.onWidgetShow();
   }
 
+  setAnnotationsTabContent(updatedAnnotations: TraceEngine.Types.File.Annotation[]): void {
+    this.#sidebarUI.annotations = updatedAnnotations;
+  }
+
   setTraceParsedData(traceParsedData: TraceEngine.Handlers.Types.TraceParseData|null): void {
     this.#sidebarUI.traceParsedData = traceParsedData;
   }
@@ -85,6 +89,8 @@ export class SidebarUI extends HTMLElement {
   #activeTab: SidebarTabsName = SidebarTabsName.INSIGHTS;
   selectedCategory: InsightsCategories = InsightsCategories.ALL;
   #lcpPhasesExpanded: boolean = false;
+  #sidebarAnnotationsTab: SidebarAnnotationsTab.SidebarAnnotationsTab =
+      new SidebarAnnotationsTab.SidebarAnnotationsTab();
 
   #traceParsedData?: TraceEngine.Handlers.Types.TraceParseData|null;
   #inpMetric: {
@@ -112,6 +118,18 @@ export class SidebarUI extends HTMLElement {
     // matters because this is when we can update the underline below the
     // active tab, now that the sidebar is visible and has width.
     this.#render();
+  }
+
+  set annotations(annotations: TraceEngine.Types.File.Annotation[]) {
+    this.#sidebarAnnotationsTab.updateAnnotations(annotations);
+  }
+
+  set expanded(expanded: boolean) {
+    if (expanded === this.expanded) {
+      return;
+    }
+    this.expanded = expanded;
+    void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#renderBound);
   }
 
   set insights(insights: TraceEngine.Insights.Types.TraceInsightData<typeof Handlers.ModelHandlers>) {
@@ -308,7 +326,7 @@ export class SidebarUI extends HTMLElement {
       case SidebarTabsName.INSIGHTS:
         return this.#renderInsightsTabContent();
       case SidebarTabsName.ANNOTATIONS:
-        return new SidebarAnnotationsTab.SidebarAnnotationsTab();
+        return this.#sidebarAnnotationsTab;
       default:
         return null;
     }
