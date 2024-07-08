@@ -496,8 +496,17 @@ c`;
           rpcId: undefined,
         },
       ]);
-      sinon.assert.notCalled(execJs);
+      sinon.assert.calledOnce(execJs);
       assert.deepStrictEqual(agent.chatHistoryForTesting, [
+        {
+          entity: 2,
+          text:
+              'THOUGHT: I need to know what the selected element is..\n\n  ACTION\n  const data = {\n    currentElement: $0\n}\n  STOP',
+        },
+        {
+          entity: 1,
+          text: 'OBSERVATION: undefined',
+        },
         {
           entity: 1,
           text: 'QUERY: test',
@@ -563,8 +572,17 @@ c`;
           rpcId: undefined,
         },
       ]);
-      sinon.assert.notCalled(execJs);
+      sinon.assert.calledOnce(execJs);
       assert.deepStrictEqual(agent.chatHistoryForTesting, [
+        {
+          entity: 2,
+          text:
+              'THOUGHT: I need to know what the selected element is..\n\n  ACTION\n  const data = {\n    currentElement: $0\n}\n  STOP',
+        },
+        {
+          entity: 1,
+          text: 'OBSERVATION: undefined',
+        },
         {
           entity: 1,
           text: 'QUERY: test',
@@ -662,6 +680,15 @@ ANSWER: this is the answer`,
 
       assert.deepStrictEqual(agent.chatHistoryForTesting, [
         {
+          entity: 2,
+          text:
+              'THOUGHT: I need to know what the selected element is..\n\n  ACTION\n  const data = {\n    currentElement: $0\n}\n  STOP',
+        },
+        {
+          entity: 1,
+          text: 'OBSERVATION: undefined',
+        },
+        {
           entity: 1,
           text: 'QUERY: test',
         },
@@ -724,7 +751,13 @@ ANSWER: this is the answer`,
       controller.abort();
       await Array.fromAsync(agent.run('test', {signal: controller.signal}));
 
-      assert.deepStrictEqual(agent.chatHistoryForTesting, []);
+      assert.deepStrictEqual(agent.chatHistoryForTesting, [
+        {
+          entity: 2,
+          text:
+              'THOUGHT: I need to know what the selected element is..\n\n  ACTION\n  const data = {\n    currentElement: $0\n}\n  STOP  OBSERVATION: undefined',
+        },
+      ]);
     });
   });
 });
