@@ -473,7 +473,7 @@ export async function finalize(): Promise<void> {
 
     // For ease of rendering we sometimes want to differentiate between
     // render-blocking and non-render-blocking, so we divide the data here.
-    if (networkEvent.args.data.renderBlocking === 'non_blocking') {
+    if (!Types.TraceEvents.isSyntheticNetworkRequestEventRenderBlocking(networkEvent)) {
       requests.nonRenderBlocking.push(networkEvent);
     } else {
       requests.renderBlocking.push(networkEvent);

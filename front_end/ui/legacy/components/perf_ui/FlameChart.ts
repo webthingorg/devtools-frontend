@@ -1983,12 +1983,13 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     }
     this.dispatchEventToListeners(Events.ChartPlayableStateChange, wideEntryExists);
 
-    const allIndexes = Array.from(colorBuckets.values()).map(x => x.indexes).flat();
-    this.#drawDecorations(context, timelineData, allIndexes);
-
     this.drawMarkers(context, timelineData, markerIndices);
 
     this.drawEventTitles(context, timelineData, titleIndices, canvasWidth);
+
+    // Customized decoration will be drawn in `drawEventTitles`, so we need to draw default one afterwards.
+    const allIndexes = Array.from(colorBuckets.values()).map(x => x.indexes).flat();
+    this.#drawDecorations(context, timelineData, allIndexes);
     context.restore();
 
     this.drawGroupHeaders(canvasWidth, canvasHeight);
