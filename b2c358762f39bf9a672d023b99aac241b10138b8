@@ -209,6 +209,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dcf4b36e_10c9cc39",
+        "filename": "front_end/panels/timeline/ModificationsManager.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-07-08T08:40:29Z",
+      "side": 1,
+      "message": "Regarding hiding, do you think we would be deleting the object if the Annotation is hidden?\nWe can also handle hiding them in the UI and still keep it for when it is shown again.",
+      "parentUuid": "9b7928de_3eaaf95b",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 80
+      },
+      "revId": "b2c358762f39bf9a672d023b99aac241b10138b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "49a33e0b_1d1e5dda",
         "filename": "front_end/panels/timeline/ModificationsManager.ts",
         "patchSetId": 4
