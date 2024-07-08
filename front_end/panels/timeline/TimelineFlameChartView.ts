@@ -16,7 +16,8 @@ import * as VisualLogging from '../../ui/visual_logging/visual_logging.js';
 
 import {CountersGraph} from './CountersGraph.js';
 import {SHOULD_SHOW_EASTER_EGG} from './EasterEgg.js';
-import {Overlays, type TimeRangeLabel, type TimespanBreakdown} from './Overlays.js';
+import {ModificationsManager} from './ModificationsManager.js';
+import {AnnotationOverlayRemoveEvent, Overlays, type TimeRangeLabel, type TimespanBreakdown} from './Overlays.js';
 import {targetForEvent} from './TargetForEvent.js';
 import {TimelineDetailsView} from './TimelineDetailsView.js';
 import {TimelineRegExp} from './TimelineFilters.js';
@@ -187,6 +188,11 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
         networkChart: this.networkFlameChart,
         networkProvider: this.networkDataProvider,
       },
+    });
+
+    this.#overlays.addEventListener(AnnotationOverlayRemoveEvent.eventName, event => {
+      const overlay = (event as AnnotationOverlayRemoveEvent).overlay;
+      ModificationsManager.activeManager()?.removeAnnotationOverlay(overlay);
     });
 
     this.networkPane = new UI.Widget.VBox();
@@ -622,6 +628,10 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     }
   }
 
+  getOverlays(): Overlays {
+    return this.#overlays;
+  }
+
   private onAnnotateEntry(
       dataProvider: TimelineFlameChartDataProvider|TimelineFlameChartNetworkDataProvider,
       event: Common.EventTarget.EventTargetEvent<number>): void {
@@ -630,12 +640,11 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
         (TimelineSelection.isTraceEventSelection(selection.object) ||
          TimelineSelection.isSyntheticNetworkRequestDetailsEventSelection(selection.object))) {
       this.setSelection(selection);
-      this.#overlays.add({
+      ModificationsManager.activeManager()?.createOverlayForAnnotation({
         type: 'ENTRY_LABEL',
         entry: selection.object,
         label: '',
       });
-      this.#overlays.update();
     }
   }
 
