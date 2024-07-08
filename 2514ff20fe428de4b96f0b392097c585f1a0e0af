@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "959909c3_543e8369",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-08T15:21:00Z",
+      "side": 1,
+      "message": "PTAL\n\nWe do group by navigation based on the timestamp in the insights code, but I will update that to use navigation Ids once this lands",
+      "revId": "2514ff20fe428de4b96f0b392097c585f1a0e0af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
