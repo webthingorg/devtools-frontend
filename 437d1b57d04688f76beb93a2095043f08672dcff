@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4dc5c344_e90dcc7c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-08T14:54:23Z",
+      "side": 1,
+      "message": "is the red triangle in the first event slightly misaligned on the right?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 62
+      },
+      "revId": "437d1b57d04688f76beb93a2095043f08672dcff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d0faf2b_5d91cc0a",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 2052,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-08T14:54:23Z",
+      "side": 1,
+      "message": "I wouldn\u0027t define this method here; these methods are used to narrow typescript types. I feel like this could be in a helper (models/trace/helpers/network or something?).",
+      "range": {
+        "startLine": 2050,
+        "startChar": 0,
+        "endLine": 2052,
+        "endChar": 1
+      },
+      "revId": "437d1b57d04688f76beb93a2095043f08672dcff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16982de3_553272b5",
+        "filename": "front_end/panels/timeline/NetworkTrackAppender.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-08T14:54:23Z",
+      "side": 1,
+      "message": "we have an `addDecorationToEvent` helper in the appender utils we should use",
+      "range": {
+        "startLine": 162,
+        "startChar": 8,
+        "endLine": 169,
+        "endChar": 9
+      },
+      "revId": "437d1b57d04688f76beb93a2095043f08672dcff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2e3aa6e_948c7bc6",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1990,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-08T14:54:23Z",
+      "side": 1,
+      "message": "I don\u0027t understand what this means - could you try to explain differently please?",
+      "range": {
+        "startLine": 1990,
+        "startChar": 0,
+        "endLine": 1990,
+        "endChar": 107
+      },
+      "revId": "437d1b57d04688f76beb93a2095043f08672dcff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
