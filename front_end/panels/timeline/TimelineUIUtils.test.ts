@@ -636,6 +636,62 @@ describeWithMockConnection('TimelineUIUtils', function() {
       ]);
     });
 
+    it('renders non-extensibility details for a performance.mark event', async function() {
+      const traceParsedData = await TraceLoader.traceEngine(this, 'user-timings.json.gz');
+      const performanceMarkEvent =
+          traceParsedData.Renderer.allTraceEntries.find(TraceEngine.Types.TraceEvents.isTraceEventPerformanceMark);
+      if (!performanceMarkEvent) {
+        throw new Error('Could not find expected event');
+      }
+      const details = await Timeline.TimelineUIUtils.TimelineUIUtils.buildTraceEventDetails(
+          traceParsedData,
+          performanceMarkEvent,
+          new Components.Linkifier.Linkifier(),
+          false,
+      );
+      const rowData = getRowDataForDetailsElement(details);
+      assert.deepEqual(rowData, [
+        {
+          title: 'Timestamp',
+          value: '3095.5 ms',  // TODO(jasmineyan): figure out space
+        },
+        {title: 'Details', value: '{   \"hello\": \"world\"\n}'},
+      ]);
+    });
+
+    // TODO(jasmineyan): why is there no synthetic user timing recognized?
+    it('does not render extensibility details for a performance.measure event', async function() {
+      const traceParsedData = await TraceLoader.traceEngine(this, 'user-timings.json.gz');
+      const beginEvent =
+          traceParsedData.Renderer.allTraceEntries.find(TraceEngine.Types.TraceEvents.isSyntheticUserTiming);
+      if (!beginEvent) {
+        throw new Error('Could not find expected event');
+      }
+      const details = await Timeline.TimelineUIUtils.TimelineUIUtils.buildTraceEventDetails(
+          traceParsedData,
+          beginEvent,
+          new Components.Linkifier.Linkifier(),
+          false,
+      );
+      const rowData = getRowDataForDetailsElement(details);
+      // Details only contained a 'devtools' property, so it was not rendered.
+      // TODO(jasmineyan): figure out space
+      assert.deepEqual(rowData, [
+        {
+          title: 'Timestamp',
+          value: '3095.5 ms',
+        },
+        {
+          title: 'Total Time',
+          value: '845.56 ms',
+        },
+        {
+          title: 'Self Time',
+          value: '845.56 ms',
+        },
+      ]);
+    });
+
     it('renders details for a v8.compile ("Compile Script") event', async function() {
       const traceParsedData = await TraceLoader.traceEngine(this, 'user-timings.json.gz');
 
