@@ -636,6 +636,49 @@ describeWithMockConnection('TimelineUIUtils', function() {
       ]);
     });
 
+    it('renders non-extensibility details for performance.mark', async function() {
+      const traceParsedData = await TraceLoader.traceEngine(this, 'user-timings-details.json.gz');
+      const mark = traceParsedData.UserTimings.performanceMarks[0];
+      if (!mark) {
+        throw new Error('Could not find expected event');
+      }
+      const details = await Timeline.TimelineUIUtils.TimelineUIUtils.buildTraceEventDetails(
+          traceParsedData,
+          mark,
+          new Components.Linkifier.Linkifier(),
+          false,
+      );
+      const rowData = getRowDataForDetailsElement(details);
+      assert.deepEqual(rowData, [
+        {
+          title: 'Timestamp',
+          value: '1058.3\xA0ms',
+        },
+        {title: 'Details', value: '{   \"hello\": \"world\"\n}'},
+      ]);
+    });
+
+    it('does not render extensibility details for performance.measure', async function() {
+      const traceParsedData = await TraceLoader.traceEngine(this, 'user-timings-details.json.gz');
+      const measure = traceParsedData.UserTimings.performanceMeasures[0];
+      if (!measure) {
+        throw new Error('Could not find expected event');
+      }
+      const details = await Timeline.TimelineUIUtils.TimelineUIUtils.buildTraceEventDetails(
+          traceParsedData,
+          measure,
+          new Components.Linkifier.Linkifier(),
+          false,
+      );
+      const rowData = getRowDataForDetailsElement(details);
+      assert.deepEqual(rowData, [
+        {
+          title: 'Timestamp',
+          value: '1005.5\xA0ms',
+        },
+      ]);
+    });
+
     it('renders details for a v8.compile ("Compile Script") event', async function() {
       const traceParsedData = await TraceLoader.traceEngine(this, 'user-timings.json.gz');
 
