@@ -159,6 +159,14 @@ export class NetworkTrackAppender implements TrackAppender {
         // process network events
         level = getEventLevel(event, lastUsedTimeByLevel);
         this.#appendEventAtLevel(event, trackStartLevel + websocketLevel + level);
+        if (TraceEngine.Types.TraceEvents.isSyntheticNetworkRequestEventRenderBlocking(event)) {
+          const decorationsForEvent = this.#flameChartData.entryDecorations[i] || [];
+          decorationsForEvent.push({
+            type: PerfUI.FlameChart.FlameChartDecorationType.WARNING_TRIANGLE,
+            customEndTime: event.args.data.syntheticData.finishTime,
+          });
+          this.#flameChartData.entryDecorations[i] = decorationsForEvent;
+        }
       } else {
         console.error('Invalid network event.');
       }
