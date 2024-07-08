@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b1db10a_fe2900ce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-07-08T08:01:06Z",
+      "side": 1,
+      "message": "Sorry for the slow response. I wanted to send you a CL first, but I guess I should have responded first:\n\n1) I am not sure about the UI strings, this \"(filtered)\" in the doesn\u0027t seem to fit into our UI text style. Maybe check with Sofia?\n2) I realize that testing context menu is hard, and it might be a matter of personal preference, but I feel like exposing testing-only methods isn\u0027t moving the needle in the right direction. I will send you a CL shortly that will add helpers to test context menu.",
+      "revId": "bd573c72b99659974bec0428b74a5653f4e3d33e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
