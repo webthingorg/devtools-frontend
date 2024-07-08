@@ -233,6 +233,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3484eb63_8fdee8f6",
+        "filename": "front_end/panels/timeline/ModificationsManager.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-08T09:17:41Z",
+      "side": 1,
+      "message": "The current design for the overlays is that the object will be deleted and then recreated...but of course that could change.\n\nBut still, the point stands that hypothetically in the future we might have annotations which don\u0027t have overlays. We shouldn\u0027t encode a solution that means each annotation must have an overlay - which Overlay\u003d\u003eAnnotation does.\n\nIf we go Annotation\u003d\u003eOverlay, then I think we just need to change the order in which we update stuff when we get events. Rather than change the label of the overlay, then reflect that in the annotation, we do it the other way around. Update the data, which then causes the UI to update.\n\nIf we had Annnotation\u003d\u003eOverlay, and we get a `OverlayDeleted(overlay)` event, we could find the matching annotation by comparing the entry object (which will be equivalent), so it\u0027s a fairly cheap lookup to find the right one (and, as you say, it won\u0027t be happening that often). Plus, we would expect users to have a fairly small number (even say 100 feels like wayyyy too many and unlikely), and that will be cheap to find the right one.\n\nIf we really wanted, we could store the overlays against the entry they are attached to (which we will need to do for serialization), and that way finding the annotation for an overlay is a case of looking up annotations for an entry, which would be constant time, I think.",
+      "parentUuid": "dcf4b36e_10c9cc39",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 80
+      },
+      "revId": "b2c358762f39bf9a672d023b99aac241b10138b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "49a33e0b_1d1e5dda",
         "filename": "front_end/panels/timeline/ModificationsManager.ts",
         "patchSetId": 4
