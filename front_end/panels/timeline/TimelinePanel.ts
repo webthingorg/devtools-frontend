@@ -1275,11 +1275,17 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
       currentManager?.addEventListener(AnnotationAddedEvent.eventName, event => {
         const addedOverlay = (event as AnnotationAddedEvent).addedAnnotationOverlay;
         this.flameChart.addOverlay(addedOverlay);
+
+        const allAnnotations = currentManager.getAnnotations();
+        this.#sideBar.updateAnnotationsTabContent(allAnnotations);
       });
 
       currentManager?.addEventListener(AnnotationRemovedEvent.eventName, event => {
         const removedOverlay = (event as AnnotationRemovedEvent).removedAnnotationOverlay;
         this.flameChart.removeOverlay(removedOverlay);
+
+        const allAnnotations = currentManager.getAnnotations();
+        this.#sideBar.updateAnnotationsTabContent(allAnnotations);
       });
 
       this.#applyActiveFilters(traceParsedData.Meta.traceIsGeneric, exclusiveFilter);
