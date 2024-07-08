@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9e1a2e9_71629b75",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-07-08T16:02:23Z",
+      "side": 1,
+      "message": "Yes, but this is because we had a floor function when calculates the pixels, and also we had a minimum width for content downloading.\nAnd when I took the screenshot I zoom in a lot, so the \"floor\" is kinda visible.\n\nSomehow fix it https://screenshot.googleplex.com/79B7jSm3eU3dpfS. It will remove the minimum width for content downloading, but that also make the time more precise",
+      "parentUuid": "4dc5c344_e90dcc7c",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 62
+      },
+      "revId": "437d1b57d04688f76beb93a2095043f08672dcff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1d0faf2b_5d91cc0a",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-07-08T14:54:23Z",
       "side": 1,
       "message": "I wouldn\u0027t define this method here; these methods are used to narrow typescript types. I feel like this could be in a helper (models/trace/helpers/network or something?).",
+      "range": {
+        "startLine": 2050,
+        "startChar": 0,
+        "endLine": 2052,
+        "endChar": 1
+      },
+      "revId": "437d1b57d04688f76beb93a2095043f08672dcff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d89eecb_3e4049b7",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 2052,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-07-08T16:02:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1d0faf2b_5d91cc0a",
       "range": {
         "startLine": 2050,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "508906e0_4bd522b6",
+        "filename": "front_end/panels/timeline/NetworkTrackAppender.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-07-08T16:02:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16982de3_553272b5",
+      "range": {
+        "startLine": 162,
+        "startChar": 8,
+        "endLine": 169,
+        "endChar": 9
+      },
+      "revId": "437d1b57d04688f76beb93a2095043f08672dcff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f2e3aa6e_948c7bc6",
@@ -83,6 +155,30 @@
       "writtenOn": "2024-07-08T14:54:23Z",
       "side": 1,
       "message": "I don\u0027t understand what this means - could you try to explain differently please?",
+      "range": {
+        "startLine": 1990,
+        "startChar": 0,
+        "endLine": 1990,
+        "endChar": 107
+      },
+      "revId": "437d1b57d04688f76beb93a2095043f08672dcff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9fc3b378_16d98e65",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1990,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-07-08T16:02:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f2e3aa6e_948c7bc6",
       "range": {
         "startLine": 1990,
         "startChar": 0,
