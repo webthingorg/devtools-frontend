@@ -8,7 +8,15 @@ import * as os from 'os';
 import * as path from 'path';
 
 import {commandLineArgs} from './conductor/commandline.js';
-import {defaultChromePath, GEN_DIR, isContainedInDirectory, PathPair, SOURCE_ROOT} from './conductor/paths.js';
+import {
+  defaultChromePath,
+  GEN_DIR,
+  isContainedInDirectory,
+  PathPair,
+  repoRootPath,
+  SOURCE_ROOT,
+  isFullCheckout
+} from './conductor/paths.js';
 
 const yargs = require('yargs');
 const unparse = require('yargs-unparser');
@@ -62,7 +70,7 @@ function ninja(stdio: 'inherit'|'pipe', ...args: string[]) {
     buildRoot = parent;
   }
   const ninjaCommand = os.platform() === 'win32' ? 'autoninja.bat' : 'autoninja';
-  const result = runProcess(ninjaCommand, args, {encoding: 'utf-8', cwd: buildRoot, stdio});
+  const result = runProcess(ninjaCommand, ['-C', buildRoot, ...args], {encoding: 'utf-8', cwd: repoRootPath(), stdio});
   if (result.error) {
     throw result.error;
   }
@@ -217,7 +225,15 @@ function main() {
   ];
 
   if (!options['skip-ninja']) {
-    const {status} = ninja('inherit');
+    const targets = isFullCheckout() ?
+        [
+          'chrome',
+          'third_party/devtools-frontend/src/test:test',
+          'third_party/devtools-frontend/src/scripts/hosted_mode:hosted_mode',
+          'third_party/devtools-frontend/src/scripts/component_server:component_server',
+        ] :
+        [];
+    const {status} = ninja('inherit', ...targets);
     if (status) {
       return status;
     }

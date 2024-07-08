@@ -16,13 +16,21 @@ const argv = yargs(process.argv.slice(2))
                  .argv;
 
 const target = argv['target'];
-const script = argv['script'];
+let script = argv['script'];
 
 delete argv['target'];
 delete argv['t'];
 delete argv['script'];
 
-const sourceRoot = path.dirname(path.dirname(argv['$0']));
+let sourceRoot = path.resolve(path.dirname(path.dirname(argv['$0'])));
+const env = process.env;
+env.NODE_PATH = path.join(sourceRoot, 'node_modules');
+
+if (/\/chromium\/(chromium|src)\/third_party\/devtools-frontend\/src\/?$/.test(sourceRoot)) {
+  sourceRoot = path.dirname(path.dirname(path.dirname(sourceRoot)));
+  script = script.replace(/^gen\//, 'gen/third_party/devtools-frontend/src/');
+}
+
 const cwd = path.join(sourceRoot, 'out', target);
 
 if (!fs.existsSync(cwd) || !fs.statSync(cwd).isDirectory()) {
@@ -33,7 +41,7 @@ if (!fs.existsSync(cwd) || !fs.statSync(cwd).isDirectory()) {
 const scriptPath = path.resolve(cwd, script)
 if (!fs.existsSync(scriptPath)) {
   console.error(`Script path ${scriptPath} does not exist, trying ninja...`);
-  const {error, status} = childProcess.spawnSync('autoninja', {stdio: 'inherit', cwd});
+  const {error, status} = childProcess.spawnSync('autoninja', ['-C', cwd, script], {stdio: 'inherit', cwd: sourceRoot});
   if (error) {
     throw error;
   }
@@ -43,5 +51,5 @@ if (!fs.existsSync(scriptPath)) {
 }
 
 const {argv0} = process;
-const {status} = childProcess.spawnSync(argv0, [scriptPath, ...unparse(argv)], {stdio: 'inherit'});
+const {status} = childProcess.spawnSync(argv0, [scriptPath, ...unparse(argv)], {stdio: 'inherit', env});
 process.exit(status);

@@ -54,7 +54,27 @@ export class PathPair {
   }
 }
 
+export function repoRootPath() {
+  let repoRoot = SOURCE_ROOT;
+  while (!isContainedInDirectory(GEN_DIR, repoRoot)) {
+    const parent = path.dirname(repoRoot);
+    if (parent === repoRoot) {
+      throw new Error('Failed to find a repo root containing the build directory');
+    }
+    repoRoot = parent;
+  }
+  return repoRoot;
+}
+
+export function isFullCheckout() {
+  return SOURCE_ROOT.startsWith(path.join(repoRootPath(), 'third_party', 'devtools-frontend', 'src'));
+}
+
 export function defaultChromePath() {
+  if (isFullCheckout()) {
+    // In a full chromium checkout, find the chrome binary in the build directory.
+    return path.join(GEN_DIR, '..', '..', '..', '..', 'chrome');
+  }
   const paths = {
     'linux': path.join('chrome-linux', 'chrome'),
     'darwin':
