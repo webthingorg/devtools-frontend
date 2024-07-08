@@ -9,6 +9,7 @@ import * as SDK from '../../core/sdk/sdk.js';
 import * as Protocol from '../../generated/protocol.js';
 import * as HAR from '../../models/har/har.js';
 import * as Logs from '../../models/logs/logs.js';
+import {findMenuItemWithLabel, getContextMenuForElement} from '../../testing/ContextMenuHelpers.js';
 import {
   dispatchClickEvent,
   dispatchMouseUpEvent,
@@ -854,19 +855,16 @@ describeWithMockConnection('NetworkLogView', () => {
     const columns = dataGrid.columns;
     assert.exists(columns['custom-header-for-test']);
 
-    const contextMenuShow = sinon.stub(UI.ContextMenu.ContextMenu.prototype, 'show').resolves();
     const header = dataGrid.element.querySelector('thead');
     const event = new MouseEvent('contextmenu');
     sinon.stub(event, 'target').value(header);
     dataGrid.element.dispatchEvent(event);
+    const contextMenu = getContextMenuForElement(dataGrid.element, header || undefined);
 
-    assert.isTrue(contextMenuShow.calledOnce);
-    const responseHeadersSubMenu = contextMenuShow.thisValues[0].footerSection().items.find(
-        (item: UI.ContextMenu.Item) => item.buildDescriptor().label === 'Response Headers');
+    const responseHeadersSubMenu = findMenuItemWithLabel(contextMenu.footerSection(), 'Response Headers');
     assert.exists(responseHeadersSubMenu);
     assert.instanceOf(responseHeadersSubMenu, UI.ContextMenu.SubMenu);
-    const customHeaderItem = responseHeadersSubMenu.defaultSection().items.find(
-        (item: UI.ContextMenu.Item) => item.buildDescriptor().label === 'Custom-Header');
+    const customHeaderItem = findMenuItemWithLabel(responseHeadersSubMenu.defaultSection(), 'Custom-Header');
     assert.exists(customHeaderItem);
   });
 });
