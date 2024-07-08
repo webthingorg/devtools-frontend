@@ -148,6 +148,13 @@ export const enum StepMode {
   StepOver = 'StepOver',
 }
 
+const DEBUGGER_SYMBOLS_PRIORITY_LIST = new Map<Protocol.Debugger.DebugSymbolsType, number>([
+  [Protocol.Debugger.DebugSymbolsType.None, 0],
+  [Protocol.Debugger.DebugSymbolsType.SourceMap, 2],
+  [Protocol.Debugger.DebugSymbolsType.ExternalDWARF, 1],
+  [Protocol.Debugger.DebugSymbolsType.EmbeddedDWARF, 0],
+]);
+
 export class DebuggerModel extends SDKModel<EventTypes> {
   readonly agent: ProtocolProxyApi.DebuggerApi;
   runtimeModelInternal: RuntimeModel;
@@ -701,7 +708,7 @@ export class DebuggerModel extends SDKModel<EventTypes> {
       executionContextId: number, hash: string, executionContextAuxData: any, isLiveEdit: boolean,
       sourceMapURL: string|undefined, hasSourceURLComment: boolean, hasSyntaxError: boolean, length: number,
       isModule: boolean|null, originStackTrace: Protocol.Runtime.StackTrace|null, codeOffset: number|null,
-      scriptLanguage: string|null, debugSymbols: Protocol.Debugger.DebugSymbols|null,
+      scriptLanguage: string|null, debugSymbols: Protocol.Debugger.DebugSymbols[]|null,
       embedderName: Platform.DevToolsPath.UrlString|null): Script {
     const knownScript = this.#scriptsInternal.get(scriptId);
     if (knownScript) {
@@ -711,10 +718,28 @@ export class DebuggerModel extends SDKModel<EventTypes> {
     if (executionContextAuxData && ('isDefault' in executionContextAuxData)) {
       isContentScript = !executionContextAuxData['isDefault'];
     }
+
+    let debugSymbolsSource = null;
+    if (debugSymbols) {
+      debugSymbolsSource = debugSymbols[0];
+      for (let i = 1; i < debugSymbols.length; ++i) {
+        const symbolPriority = DEBUGGER_SYMBOLS_PRIORITY_LIST.get(debugSymbols[i].type) ?? Number.MAX_SAFE_INTEGER;
+        const currentSymbolPriority =
+            DEBUGGER_SYMBOLS_PRIORITY_LIST.get(debugSymbolsSource.type) ?? Number.MAX_SAFE_INTEGER;
+        if (symbolPriority < currentSymbolPriority) {
+          debugSymbolsSource = debugSymbols[i];
+        }
+      }
+      if (debugSymbols.length > 1) {
+        Common.Console.Console.instance().warn(
+            `Multiple debug symbols for script were found. Using ${debugSymbolsSource.type}`);
+      }
+    }
+
     const script = new Script(
         this, scriptId, sourceURL, startLine, startColumn, endLine, endColumn, executionContextId, hash,
         isContentScript, isLiveEdit, sourceMapURL, hasSourceURLComment, length, isModule, originStackTrace, codeOffset,
-        scriptLanguage, debugSymbols, embedderName);
+        scriptLanguage, debugSymbolsSource, embedderName);
     this.registerScript(script);
     this.dispatchEventToListeners(Events.ParsedScriptSource, script);
 

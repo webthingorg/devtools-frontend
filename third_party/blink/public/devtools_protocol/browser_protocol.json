@@ -27847,7 +27847,10 @@
                             "description": "If the scriptLanguage is WebASsembly, the source of debug symbols for the module.",
                             "experimental": true,
                             "optional": true,
-                            "$ref": "Debugger.DebugSymbols"
+                            "type": "array",
+                            "items": {
+                                "$ref": "Debugger.DebugSymbols"
+                            }
                         },
                         {
                             "name": "embedderName",
