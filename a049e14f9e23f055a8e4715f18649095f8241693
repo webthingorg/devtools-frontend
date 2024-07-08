@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8184ea77_c94291a8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-07-08T17:39:17Z",
+      "side": 1,
+      "message": "Thanks, I like it! A bunch of comments inline :)",
+      "revId": "a049e14f9e23f055a8e4715f18649095f8241693",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ce5ae64_ffbe5cb1",
+        "filename": "scripts/component_server/server.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-07-08T17:39:17Z",
+      "side": 1,
+      "message": "Could we avoid trying to guess at paths? For this purpose we\u0027re generating a file test/build.js in the devtools gen dir that exports a relative path to the source directory. Do you think we could load that here and in the hosted_mode server?",
+      "revId": "a049e14f9e23f055a8e4715f18649095f8241693",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e017dab7_c79a80d2",
+        "filename": "scripts/run_on_target.mjs",
+        "patchSetId": 4
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-07-08T17:39:17Z",
+      "side": 1,
+      "message": "Why do we need to set NODE_PATH?",
+      "revId": "a049e14f9e23f055a8e4715f18649095f8241693",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "486dbe45_c6014070",
+        "filename": "scripts/run_on_target.mjs",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-07-08T17:39:17Z",
+      "side": 1,
+      "message": "The regex matches user-local settings, in particular the chromium/src part. Also, I believe this will not work with the integrated checkout.",
+      "revId": "a049e14f9e23f055a8e4715f18649095f8241693",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad2557bf_88244103",
+        "filename": "test/conductor/paths.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-07-08T17:39:17Z",
+      "side": 1,
+      "message": "This requires that the out dir is inside the checkout, which I\u0027m not sure is guaranteed (I think I\u0027ve seen that on a build bot).\n\nIf we need `repoRootPath` (depending on how the two discussions below go), WDYT about finding the BUILD_ROOT instead? We could find args.gn up from GEN_DIR. We should be able to compute the checkout root from BUILD_ROOT, GEN_DIR, and SOURCE_ROOT.",
+      "revId": "a049e14f9e23f055a8e4715f18649095f8241693",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "751a8666_5606620a",
+        "filename": "test/conductor/paths.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-07-08T17:39:17Z",
+      "side": 1,
+      "message": "Instead of comparing paths, could we check whether GEN_DIR/../args.gn exists? The important bit is less that we\u0027re in a full chromium checkout, but rather if we\u0027re in a full chromium build.",
+      "revId": "a049e14f9e23f055a8e4715f18649095f8241693",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2218a45a_706f19de",
+        "filename": "test/run.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-07-08T17:39:17Z",
+      "side": 1,
+      "message": "Is this change necessary?",
+      "revId": "a049e14f9e23f055a8e4715f18649095f8241693",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
