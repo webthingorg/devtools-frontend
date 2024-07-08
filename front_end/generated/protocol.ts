@@ -11384,6 +11384,7 @@ export namespace Page {
     ComputePressure = 'compute-pressure',
     CrossOriginIsolated = 'cross-origin-isolated',
     DeferredFetch = 'deferred-fetch',
+    DigitalCredentialsGet = 'digital-credentials-get',
     DirectSockets = 'direct-sockets',
     DisplayCapture = 'display-capture',
     DocumentDomain = 'document-domain',
