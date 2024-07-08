@@ -270,8 +270,8 @@ describeWithEnvironment('TimingTrackAppender', function() {
       styleElement.id = 'fake-perf-panel-colors';
       styleElement.textContent = `
         :root {
-          --ref-palette-primary60: rgb(4 4 4);
-          --ref-palette-error40: rgb(10 10 10);
+          --ref-palette-primary70: rgb(4 4 4);
+          --ref-palette-error50: rgb(10 10 10);
         }
       `;
       document.documentElement.appendChild(styleElement);
@@ -318,15 +318,15 @@ describeWithEnvironment('TimingTrackAppender', function() {
     it('sets a default value when a color is not set or is set an unknown value', function() {
       const mockExtensionEntryNoColor = {
         args: {
-          metadata: {dataType: 'marker', extensionName: 'Extension'},
+          dataType: 'marker',
         },
         cat: 'devtools.extension',
       } as unknown as TraceModel.Types.TraceEvents.TraceEventData;
 
       const mockExtensionEntryUnknownColor = {
         args: {
-          metadata: {dataType: 'marker', extensionName: 'Extension'},
           color: 'anUnknownColor',
+          dataType: 'marker',
         },
         cat: 'devtools.extension',
       } as unknown as TraceModel.Types.TraceEvents.TraceEventData;
