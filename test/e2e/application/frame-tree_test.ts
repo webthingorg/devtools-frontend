@@ -17,6 +17,7 @@ import {
 } from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {
+  navigateToFrame,
   getFrameTreeTitles,
   getTrimmedTextContent,
   navigateToApplicationTab,
@@ -25,6 +26,9 @@ import {
   navigateToOpenedWindows,
   navigateToWebWorkers,
   unregisterServiceWorker,
+  navigateToOpenedWindows,
+  navigateToWebWorkers,
+  navigateToFrameServiceWorkers,
 } from '../helpers/application-helpers.js';
 import {setIgnoreListPattern} from '../helpers/settings-helpers.js';
 

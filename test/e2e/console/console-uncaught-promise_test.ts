@@ -14,10 +14,12 @@ import {
 } from '../helpers/console-helpers.js';
 
 describe('The Console Tab', () => {
-  it('is able to log uncaught promise rejections into console', async () => {
+  beforeEach(async () => {
     await goToResource('../resources/console/console-uncaught-promise.html');
     await navigateToConsoleTab();
+  });
 
+  it('is able to log uncaught promise rejections into console #1', async () => {
     await checkCommandStacktrace(
         'await promiseTest1();',
         `
@@ -29,7 +31,9 @@ describe('The Console Tab', () => {
       `,
         2,
     );
+  });
 
+  it('is able to log uncaught promise rejections into console #2', async () => {
     await checkCommandStacktrace(
         'await promiseTest2();',
         `
@@ -47,7 +51,9 @@ describe('The Console Tab', () => {
       `,
         2,
     );
+  });
 
+  it('is able to log uncaught promise rejections into console #3', async () => {
     await checkCommandStacktrace(
         'await promiseTest3();',
         `
@@ -59,7 +65,9 @@ describe('The Console Tab', () => {
       `,
         2,
     );
+  });
 
+  it('is able to log uncaught promise rejections into console #4', async () => {
     await checkCommandStacktrace(
         'await promiseTest4();',
         `
@@ -68,7 +76,9 @@ describe('The Console Tab', () => {
       `,
         2,
     );
+  });
 
+  it('is able to log uncaught promise rejections into console #5', async () => {
     await checkCommandStacktrace(
         'await promiseTest5();',
         `
@@ -77,7 +87,9 @@ describe('The Console Tab', () => {
       `,
         2,
     );
+  });
 
+  it('is able to log uncaught promise rejections into console #6', async () => {
     await checkCommandStacktrace(
         'await promiseTest6();',
         `
@@ -86,7 +98,9 @@ describe('The Console Tab', () => {
       `,
         2,
     );
+  });
 
+  it('is able to log uncaught promise rejections into console #7', async () => {
     await checkCommandStacktrace(
         'await promiseTest7();',
         `
@@ -95,7 +109,9 @@ describe('The Console Tab', () => {
       `,
         2,
     );
+  });
 
+  it('is able to log uncaught promise rejections into console #8', async () => {
     await checkCommandStacktrace(
         'await promiseTest8();',
         `
@@ -104,7 +120,9 @@ describe('The Console Tab', () => {
       `,
         2,
     );
+  });
 
+  it('is able to log uncaught promise rejections into console #9', async () => {
     await typeIntoConsoleAndWaitForResult(getBrowserAndPages().frontend, 'await promiseTest9();', 3);
     const lastMessages = (await getCurrentConsoleMessages()).slice(-2);
     assert.include(

@@ -53,6 +53,86 @@ export async function navigateToManifestInApplicationTab(testName: string) {
   const {target} = getBrowserAndPages();
   await navigateToApplicationTab(target, testName);
   await click(MANIFEST_SELECTOR);
+
+export async function navigateToStorage() {
+  const STORAGE_SELECTOR = '[aria-label="Storage"]';
+  await click(STORAGE_SELECTOR);
+  await waitFor('.clear-storage-button');
+  await expectVeEvents([
+    veClick('Panel: resources > Pane: sidebar > Tree > TreeItem: application > TreeItem: storage'),
+    veImpression('Pane', 'clear-storage', [
+      veImpression('Action', 'storage.clear-site-data'),
+      veImpression('Section', 'application', [veImpression('Toggle', 'clear-storage-service-workers')]),
+      veImpression('Section', 'storage', [
+        veImpression('Toggle', 'clear-storage-cache-storage'),
+        veImpression('Toggle', 'clear-storage-cookies'),
+        veImpression('Toggle', 'clear-storage-indexeddb'),
+        veImpression('Toggle', 'clear-storage-local-storage'),
+        veImpression('Toggle', 'clear-storage-websql'),
+      ]),
+      veImpression('Section', 'usage', [
+        veImpression('Link', 'learn-more'),
+        veImpression('PieChart', undefined, [
+          veImpression('Section', 'legend', [veImpression('PieChartTotal', 'select-total')]),
+        ]),
+        veImpression('Toggle', 'simulate-custom-quota'),
+      ]),
+      veImpression('Toggle', 'clear-storage-include-third-party-cookies'),
+    ]),
+  ]);
+}
+
+export async function navigateToFrame(name: string) {
+  await doubleClickTreeItem(`[aria-label="${name}"]`);
+  // await new Promise(resolve => setTimeout(resolve, 500));
+  await waitFor('[title="Click to reveal in Sources panel"]');
+  await expectVeEvents([
+    veClick('Panel: resources > Pane: sidebar > Tree > TreeItem: frames > TreeItem: frame'),
+    veImpression('Pane', 'frames', [
+      veImpression('Action', 'reveal-in-elements'),
+      veImpression('Action', 'reveal-in-network'),
+      veImpression('Action', 'reveal-in-sources'),
+      veImpression('Link', 'learn-more.coop-coep'),
+      veImpression('Link', 'learn-more.monitor-memory-usage'),
+      veImpression('Link', 'learn-more.origin-trials'),
+    ]),
+  ]);
+}
+
+export async function navigateToOpenedWindows() {
+  await doubleClickTreeItem('[aria-label="Opened Windows"]');
+  // await new Promise(resolve => setTimeout(resolve, 500));
+  await waitFor('.empty-view');
+  await expectVeEvents([
+    veClick('Panel: resources > Pane: sidebar > Tree > TreeItem: frames > TreeItem: frame > TreeItem: opened-windows'),
+    veImpression('Pane', 'opened-windows', [veImpression('Section', 'empty-view')]),
+  ]);
+}
+
+export async function navigateToWebWorkers() {
+  const WEB_WORKERS_SELECTOR = '[aria-label="Web Workers"]';
+  await doubleClickTreeItem(WEB_WORKERS_SELECTOR);
+  // await new Promise(resolve => setTimeout(resolve, 500));
+  await waitFor(`${WEB_WORKERS_SELECTOR} + ol li:first-child`);
+  await waitFor('.empty-view');
+  await expectVeEvents([
+    veClick('Panel: resources > Pane: sidebar > Tree > TreeItem: frames > TreeItem: frame > TreeItem: web-workers'),
+    veImpression('Pane', 'web-workers', [veImpression('Section', 'empty-view')]),
+  ]);
+}
+
+export async function navigateToFrameServiceWorkers(frameName: string) {
+  await navigateToFrame(frameName);
+  const SERVICE_WORKERS_SELECTOR = `[aria-label="${frameName}"] ~ ol [aria-label="Service workers"]`;
+
+  await doubleClickTreeItem(SERVICE_WORKERS_SELECTOR);
+  // await new Promise(resolve => setTimeout(resolve, 500));
+  await waitFor(`${SERVICE_WORKERS_SELECTOR} + ol li:first-child`);
+  await waitFor('.empty-view');
+  await expectVeEvents([
+    veClick('Panel: resources > Pane: sidebar > Tree > TreeItem: frames > TreeItem: frame > TreeItem: service-workers'),
+    veImpression('Pane', 'service-workers', [veImpression('Section', 'empty-view')]),
+  ]);
 }
 
 export async function navigateToStorage() {
@@ -187,23 +267,31 @@ export async function getDataGridData(selector: string, columns: string[]) {
   await waitFor(selector);
 
   const dataGridNodes = await $$('.data-grid-data-grid-node:not(.creation-node)');
-  const dataGridRowValues = await Promise.all(dataGridNodes.map(node => node.evaluate((row: Element, columns) => {
-    const data: {[key: string]: string|null} = {};
-    for (const column of columns) {
-      const columnElement = row.querySelector(`.${column}-column`);
-      data[column] = columnElement ? columnElement.textContent : '';
-    }
-    return data;
-  }, columns)));
+  const dataGridRowValues = await Promise.all(
+    dataGridNodes.map(node =>
+      node.evaluate((row: Element, columns) => {
+        const data: {[key: string]: string | null} = {};
+        for (const column of columns) {
+          const columnElement = row.querySelector(`.${column}-column`);
+          data[column] = columnElement ? columnElement.textContent : '';
+        }
+        return data;
+      }, columns)
+    )
+  );
 
   return dataGridRowValues;
 }
 
 export async function getTrimmedTextContent(selector: string) {
   const elements = await $$(selector);
-  return Promise.all(elements.map(element => element.evaluate(e => {
-    return (e.textContent || '').trim().replace(/[ \n]{2,}/gm, '');  // remove multiple consecutive whitespaces
-  })));
+  return Promise.all(
+    elements.map(element =>
+      element.evaluate(e => {
+        return (e.textContent || '').trim().replace(/[ \n]{2,}/gm, ''); // remove multiple consecutive whitespaces
+      })
+    )
+  );
 }
 
 export async function getFrameTreeTitles() {
@@ -271,12 +359,12 @@ export async function selectCookieByName(name: string) {
   const cell = await waitForFunction(async () => {
     const tmp = await frontend.evaluateHandle(name => {
       const result = [...document.querySelectorAll('.cookies-table .name-column')]
-                         .map(c => ({cell: c, textContent: c.textContent || ''}))
-                         .find(({textContent}) => textContent.trim() === name);
+        .map(c => ({cell: c, textContent: c.textContent || ''}))
+        .find(({textContent}) => textContent.trim() === name);
       return result ? result.cell : undefined;
     }, name);
 
-    return tmp.asElement() as puppeteer.ElementHandle<HTMLElement>|| undefined;
+    return (tmp.asElement() as puppeteer.ElementHandle<HTMLElement>) || undefined;
   });
   await expectVeEvents([veImpressionsUnder('Panel: resources', [veImpression('Pane', 'cookies-data')])]);
   await cell.click();
@@ -295,8 +383,9 @@ export async function waitForQuotaUsage(p: (quota: number) => boolean) {
 export async function getQuotaUsage() {
   const storageRow = await waitFor('.quota-usage-row');
   const quotaString = await storageRow.evaluate(el => el.textContent || '');
-  const [usedQuotaText, modifier] =
-      quotaString.replace(/^\D*([\d.]+)\D*(kM?)B.used.out.of\D*\d+\D*.?B.*$/, '$1 $2').split(' ');
+  const [usedQuotaText, modifier] = quotaString
+    .replace(/^\D*([\d.]+)\D*(kM?)B.used.out.of\D*\d+\D*.?B.*$/, '$1 $2')
+    .split(' ');
   let usedQuota = Number.parseInt(usedQuotaText, 10);
   if (modifier === 'k') {
     usedQuota *= 1000;
