@@ -1,0 +1,155 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25566dd2_8c3b0f8d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-08T08:15:03Z",
+      "side": 1,
+      "message": "I don\u0027t think this sentence makes sense - I don\u0027t know what you mean by \"Except of the overlays\" ?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 71
+      },
+      "revId": "b2c358762f39bf9a672d023b99aac241b10138b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c611332a_d872cccd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-08T08:15:03Z",
+      "side": 1,
+      "message": "through",
+      "range": {
+        "startLine": 12,
+        "startChar": 86,
+        "endLine": 12,
+        "endChar": 93
+      },
+      "revId": "b2c358762f39bf9a672d023b99aac241b10138b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52757ff9_6981d2d7",
+        "filename": "front_end/models/trace/types/File.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-08T08:15:03Z",
+      "side": 1,
+      "message": "is this name outdated? Should this just be `Annotation` ?",
+      "range": {
+        "startLine": 40,
+        "startChar": 4,
+        "endLine": 40,
+        "endChar": 22
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "3a758b01_c0e3d6b4",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/models/trace/types/File.ts",
+              "range": {
+                "startLine": 40,
+                "startChar": 0,
+                "endLine": 41,
+                "endChar": 0
+              },
+              "replacement": " * `Annotation` are the user-created annotations that are saved into the metadata.\n"
+            }
+          ]
+        }
+      ],
+      "revId": "b2c358762f39bf9a672d023b99aac241b10138b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e0b2d20_8b040ca6",
+        "filename": "front_end/panels/timeline/ModificationsManager.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-08T08:15:03Z",
+      "side": 1,
+      "message": "this map is called AnnotationToOverlay, suggesting it\u0027s Annotation \u003d\u003e Overlay,\nbut the type is Overlay \u003d\u003e Annotation.\n\n`annotationForOverlay` would make more sense I think as a name\n\nedit:\n\nI thought some more about this...I think this map needs to be the other way round and be Annotation \u003d\u003e Overlay. This is because:\n\n1. theoretically, we could have annotations that exist without overlays (if the user hides the overlays). Having the data structure of Overlay\u003d\u003eAnnotation does not allow for that.\n\n2. I would rather the data be structured as Data \u003d\u003e UI (e.g. we have data, which we use to create the UI). Whereas this map of UI \u003d\u003e Data feels backwards in my head.",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 80
+      },
+      "revId": "b2c358762f39bf9a672d023b99aac241b10138b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49a33e0b_1d1e5dda",
+        "filename": "front_end/panels/timeline/ModificationsManager.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-08T08:15:03Z",
+      "side": 1,
+      "message": "I think `createOverlayForAnnotation` might be a nicer name",
+      "range": {
+        "startLine": 119,
+        "startChar": 2,
+        "endLine": 119,
+        "endChar": 22
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "66115591_b54f09cd",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/ModificationsManager.ts",
+              "range": {
+                "startLine": 119,
+                "startChar": 0,
+                "endLine": 120,
+                "endChar": 0
+              },
+              "replacement": "  createOverlayForAnnotation(newOverlayAnnotation: TraceEngine.Types.File.Annotation): void {\n"
+            }
+          ]
+        }
+      ],
+      "revId": "b2c358762f39bf9a672d023b99aac241b10138b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
