@@ -62,6 +62,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e95bd1b8_74bf2770",
+        "filename": "front_end/panels/timeline/ModificationsManager.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-07-08T12:22:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c7b7e58f_4a714b15",
+      "range": {
+        "startLine": 119,
+        "startChar": 29,
+        "endLine": 119,
+        "endChar": 49
+      },
+      "revId": "532c2e70bd155693ae5ce7c856acc0216a24eb63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bc5db503_17aa7865",
@@ -103,6 +127,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "18b7fbf7_4d492146",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 643,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-07-08T12:22:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc5db503_17aa7865",
+      "range": {
+        "startLine": 643,
+        "startChar": 0,
+        "endLine": 643,
+        "endChar": 72
+      },
+      "revId": "532c2e70bd155693ae5ce7c856acc0216a24eb63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a0e5d0e6_75277bda",
@@ -126,6 +174,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "58013792_e9dec9ab",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 1278,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-07-08T12:22:54Z",
+      "side": 1,
+      "message": "Love the idea! It is cleaner this way.",
+      "parentUuid": "a0e5d0e6_75277bda",
+      "range": {
+        "startLine": 1277,
+        "startChar": 0,
+        "endLine": 1278,
+        "endChar": 47
+      },
+      "revId": "532c2e70bd155693ae5ce7c856acc0216a24eb63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "19b95f2e_5bf15fcb",
@@ -139,6 +211,30 @@
       "writtenOn": "2024-07-08T10:13:46Z",
       "side": 1,
       "message": "if we expose these events globally to TS:\n\n```\ndeclare global {\n  interface HTMLElementEventMap {\n    [ColumnHeaderClickEvent.eventName]: ColumnHeaderClickEvent;\n```\n\ncan we avoid these casts?",
+      "range": {
+        "startLine": 1281,
+        "startChar": 0,
+        "endLine": 1281,
+        "endChar": 83
+      },
+      "revId": "532c2e70bd155693ae5ce7c856acc0216a24eb63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5cae966a_8a6c6aa0",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 1281,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-07-08T12:22:54Z",
+      "side": 1,
+      "message": "Discussed in the chat. Not possible because `ModificationsManager` is not an `HTMLElement`",
+      "parentUuid": "19b95f2e_5bf15fcb",
       "range": {
         "startLine": 1281,
         "startChar": 0,
