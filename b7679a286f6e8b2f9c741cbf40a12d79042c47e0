@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "8b298070_629995c0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-07-08T13:11:47Z",
+      "side": 1,
+      "message": "Hmm I\u0027m having trouble reproducing this now trying different window sizes and such. Seems pretty minor so will file a follow-up bug. Nice catch though!",
+      "parentUuid": "91c8b029_7dd49747",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 49
+      },
+      "revId": "b7679a286f6e8b2f9c741cbf40a12d79042c47e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "cd693cac_810a1e28",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 7
@@ -54,6 +78,30 @@
       "writtenOn": "2024-07-04T08:01:00Z",
       "side": 1,
       "message": "tiny nit, I would probably call this `resetPresets`, but don\u0027t feel strongly",
+      "range": {
+        "startLine": 74,
+        "startChar": 3,
+        "endLine": 74,
+        "endChar": 17
+      },
+      "revId": "b7679a286f6e8b2f9c741cbf40a12d79042c47e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "960279b3_eabe1e37",
+        "filename": "front_end/panels/timeline/components/NetworkThrottlingSelector.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-07-08T13:11:47Z",
+      "side": 1,
+      "message": "Done. But only because it rhymes 😎",
+      "parentUuid": "f3e60c5b_60278369",
       "range": {
         "startLine": 74,
         "startChar": 3,
