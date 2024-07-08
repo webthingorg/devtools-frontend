@@ -16,6 +16,24 @@
       "message": "Does we need to update this when we pull new revisions?",
       "revId": "9049abb8c6fa034c9c2935958e815430a7b8cf91",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9de07941_0cf2e09a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3388142
+      },
+      "writtenOn": "2024-07-08T13:01:22Z",
+      "side": 1,
+      "message": "Yes, Revisions are now required for dependencies tracked with a git upstream. We are working on a pipeline that will send out bugs to affected dependencies/owners. In the meantime, I\u0027m updating README.chromium files in batches and helping owners update their workflows. We\u0027ve got more details at: go/fix_chromium_metadata (google version) or  https://docs.google.com/document/d/1pejJ6JSS4lfDfnZ23VfpT1qJ1irDHMBueauCza6tNuo/edit?tab\u003dt.0#heading\u003dh.tbiniow07yx0 (chromium / external)",
+      "parentUuid": "54a4454e_02e3c082",
+      "revId": "9049abb8c6fa034c9c2935958e815430a7b8cf91",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
