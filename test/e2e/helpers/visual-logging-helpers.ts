@@ -191,6 +191,7 @@ export async function expectVeEvents(expectedEvents: TestLogEntry[]) {
   collapseConsecutiveImpressions(expectedEvents);
 
   const {frontend} = getBrowserAndPages();
+  // await renderCoordinatorQueueEmpty();
   const actualEvents =
       // @ts-ignore
       await frontend.evaluate(async () => (await globalThis.getVeDebugEventsLog()) as unknown as TestLogEntry[]);

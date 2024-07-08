@@ -571,6 +571,7 @@ export function processStartLoggingForDebugging(): void {
 }
 
 async function getVeDebugEventsLog(): Promise<(IntuitiveLogEntry | AdHocAnalysisLogEntry | TestLogEntry)[]> {
+  await new Promise(resolve => window.addEventListener('renderqueueempty', resolve, {once: true}));
   await pendingWorkComplete();
   lastImpressionLogEntry = null;
   return veDebugEventsLog;
