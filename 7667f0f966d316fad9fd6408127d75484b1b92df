@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b2cfd9b_eb67662c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1458307
+      },
+      "writtenOn": "2024-07-08T14:54:37Z",
+      "side": 1,
+      "message": "Current limitation is to use this you need to create a symlink to the node platform binary folder. I\u0027m not sure if gclient can be configured to do that? Also it would be nice to be able to build release chrome and debug devtools.",
+      "revId": "7667f0f966d316fad9fd6408127d75484b1b92df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
