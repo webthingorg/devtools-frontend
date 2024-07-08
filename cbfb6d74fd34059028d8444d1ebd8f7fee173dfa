@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "273d47fe_d3119bed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-07-08T08:14:01Z",
+      "side": 1,
+      "message": "Hi Ergün,\n\nThis is setting a scroll margin to the input fields of the Network Throttling profiles, such that when tabbing backwards with Alt+Tab, we correctly scroll back to the beginning. PTAL!",
+      "revId": "cbfb6d74fd34059028d8444d1ebd8f7fee173dfa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
