@@ -1,0 +1,152 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7b7e58f_4a714b15",
+        "filename": "front_end/panels/timeline/ModificationsManager.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-08T10:13:46Z",
+      "side": 1,
+      "message": "nit: newAnnotation (this is not an overlay)",
+      "range": {
+        "startLine": 119,
+        "startChar": 29,
+        "endLine": 119,
+        "endChar": 49
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "825f51dc_c26817bc",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/ModificationsManager.ts",
+              "range": {
+                "startLine": 119,
+                "startChar": 0,
+                "endLine": 120,
+                "endChar": 0
+              },
+              "replacement": "  createOverlayForAnnotation(newAnnotation: TraceEngine.Types.File.Annotation): void {\n"
+            },
+            {
+              "path": "front_end/panels/timeline/ModificationsManager.ts",
+              "range": {
+                "startLine": 122,
+                "startChar": 0,
+                "endLine": 123,
+                "endChar": 0
+              },
+              "replacement": "      entry: newAnnotation.entry,\n"
+            },
+            {
+              "path": "front_end/panels/timeline/ModificationsManager.ts",
+              "range": {
+                "startLine": 125,
+                "startChar": 0,
+                "endLine": 126,
+                "endChar": 0
+              },
+              "replacement": "    this.#overlayForAnnotation.set(newAnnotation, newOverlay);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "532c2e70bd155693ae5ce7c856acc0216a24eb63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc5db503_17aa7865",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 643,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-08T10:13:46Z",
+      "side": 1,
+      "message": "sorry, I know I previously suggested this name, but I think this should be:\n\n```\ncreateAnnotation()\n```\n\nBecause the source of truth is not the overlay...it\u0027s the annotation, so that is the first class citizen we are creating here. The overlay is almost a child of that.",
+      "range": {
+        "startLine": 643,
+        "startChar": 0,
+        "endLine": 643,
+        "endChar": 72
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "989d2bbe_14ed5597",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/TimelineFlameChartView.ts",
+              "range": {
+                "startLine": 643,
+                "startChar": 0,
+                "endLine": 644,
+                "endChar": 0
+              },
+              "replacement": "      ModificationsManager.activeManager()?.createAnnotation({\n"
+            }
+          ]
+        }
+      ],
+      "revId": "532c2e70bd155693ae5ce7c856acc0216a24eb63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0e5d0e6_75277bda",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 1278,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-08T10:13:46Z",
+      "side": 1,
+      "message": "what if instead of `getOverlays` we expose an `addOverlay` and `removeOverlay` method that would do the add/remove and the update?\n\nThat feels nicer than exposing the array globally. It also means it\u0027s not possible to call `add()` but then forget to `update()` in here. wdyt?",
+      "range": {
+        "startLine": 1277,
+        "startChar": 0,
+        "endLine": 1278,
+        "endChar": 47
+      },
+      "revId": "532c2e70bd155693ae5ce7c856acc0216a24eb63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19b95f2e_5bf15fcb",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 1281,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-08T10:13:46Z",
+      "side": 1,
+      "message": "if we expose these events globally to TS:\n\n```\ndeclare global {\n  interface HTMLElementEventMap {\n    [ColumnHeaderClickEvent.eventName]: ColumnHeaderClickEvent;\n```\n\ncan we avoid these casts?",
+      "range": {
+        "startLine": 1281,
+        "startChar": 0,
+        "endLine": 1281,
+        "endChar": 83
+      },
+      "revId": "532c2e70bd155693ae5ce7c856acc0216a24eb63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
