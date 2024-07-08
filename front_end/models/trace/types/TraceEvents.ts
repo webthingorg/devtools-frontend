@@ -2047,6 +2047,10 @@ export function isSyntheticNetworkRequestEvent(
   return traceEventData.name === 'SyntheticNetworkRequest';
 }
 
+export function isSyntheticNetworkRequestEventRenderBlocking(traceEventData: SyntheticNetworkRequest): boolean {
+  return traceEventData.args.data.renderBlocking !== 'non_blocking';
+}
+
 export function isSyntheticWebSocketConnectionEvent(
     traceEventData: TraceEventData,
     ): traceEventData is SyntheticWebSocketConnectionEvent {
