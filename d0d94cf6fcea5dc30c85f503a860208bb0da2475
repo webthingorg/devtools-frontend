@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f95b975b_8e89f9fc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-07-08T11:08:30Z",
+      "side": 1,
+      "message": "Hi Wolfgang!\n\nI\u0027m increasing the line height a bit in the issues panel (+adjustments in the margin), in order to accommodate the new button\u0027s focus state. PTAL!",
+      "revId": "d0d94cf6fcea5dc30c85f503a860208bb0da2475",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
