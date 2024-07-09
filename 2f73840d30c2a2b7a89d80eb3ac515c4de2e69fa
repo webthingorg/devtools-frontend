@@ -175,6 +175,24 @@
       "parentUuid": "3e5e68c6_37e2a8b8",
       "revId": "2f73840d30c2a2b7a89d80eb3ac515c4de2e69fa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd11119b_42cf08b0",
+        "filename": "front_end/models/trace/insights/RenderBlocking.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-07-09T20:08:23Z",
+      "side": 1,
+      "message": "To be clear, this is what Lighthouse is doing today - LCP savings is zero if an image.\n\nhttps://github.com/GoogleChrome/lighthouse/blob/main/core/audits/byte-efficiency/render-blocking-resources.js#L192\n\nhttps://github.com/GoogleChrome/lighthouse/pull/15694\n\nAdam/Adriana can help us decide by elaborating on this decision.",
+      "parentUuid": "898d9c9a_2cd54778",
+      "revId": "2f73840d30c2a2b7a89d80eb3ac515c4de2e69fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

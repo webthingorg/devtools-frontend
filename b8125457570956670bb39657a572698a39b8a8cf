@@ -124,6 +124,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "abd04533_1b164446",
+        "filename": "front_end/models/trace/Processor.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-07-09T20:08:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6d8f85f2_66af5d2c",
+      "revId": "b8125457570956670bb39657a572698a39b8a8cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "51797a3f_7a0c4080",
@@ -179,6 +197,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6384220c_faf64ffa",
+        "filename": "front_end/models/trace/Processor.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-07-09T20:08:23Z",
+      "side": 1,
+      "message": "I added an explicit allowance for the two error messages that are triggered for old traces, but lets log anything else.",
+      "parentUuid": "64e6533e_94811f75",
+      "revId": "b8125457570956670bb39657a572698a39b8a8cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "907afe0d_d8aff3b7",
         "filename": "front_end/models/trace/insights/RenderBlocking.test.ts",
         "patchSetId": 2
@@ -213,6 +249,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "16521df4_75a8cbbf",
+        "filename": "front_end/models/trace/insights/RenderBlocking.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-07-09T20:08:23Z",
+      "side": 1,
+      "message": "node.type is already a union of string literals, and that provides enough type correctness and even IDE autocompletion to not warrant introducing an enum IMO",
+      "parentUuid": "b43eeadf_0e1e37b1",
+      "revId": "b8125457570956670bb39657a572698a39b8a8cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ebc2e84d_fae1be6b",
         "filename": "front_end/models/trace/insights/RenderBlocking.ts",
         "patchSetId": 2
@@ -224,6 +278,30 @@
       "writtenOn": "2024-07-09T19:44:27Z",
       "side": 1,
       "message": "i feel like the current split between computeSavings and estimateSavingsWithGraphs isn\u0027t very meaningful.  smushing all 80 lines into 1 fn is one alternative... seems kinda better than passing deferredIds to a new fn.\n\nor maybe there\u0027s another way to split up lines 58-134?",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 24
+      },
+      "revId": "b8125457570956670bb39657a572698a39b8a8cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fb1cca7_bdac0a85",
+        "filename": "front_end/models/trace/insights/RenderBlocking.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-07-09T20:08:23Z",
+      "side": 1,
+      "message": "I can inline this method, but I think it\u0027s less readable. I don\u0027t have another approach for splitting this up.",
+      "parentUuid": "ebc2e84d_fae1be6b",
       "range": {
         "startLine": 88,
         "startChar": 0,
