@@ -337,4 +337,29 @@ describeWithEnvironment('AidaClient', () => {
       assert.strictEqual(result, Host.AidaClient.AidaAvailability.AVAILABLE);
     });
   });
+
+  describe('registerAidaClientEvent', () => {
+    it('should return AVAILABLE when navigator is online, accountEmail exists and isSyncActive is true', async () => {
+      const stub = sinon.stub(Host.InspectorFrontendHost.InspectorFrontendHostInstance, 'registerAidaClientEvent');
+      const RPC_ID = 0;
+
+      const provider = new Host.AidaClient.AidaClient();
+      provider.registerAidaClientEvent({
+        corresponding_aida_rpc_global_id: RPC_ID,
+        do_conversation_client_event: {user_feedback: {sentiment: 'POSITIVE'}},
+      });
+      const arg = JSON.parse(stub.getCalls()[0].args[0]);
+
+      sinon.assert.match(arg, sinon.match({
+        client: Host.AidaClient.CLIENT_NAME,
+        event_time: sinon.match.string,
+        corresponding_aida_rpc_global_id: RPC_ID,
+        do_conversation_client_event: {
+          user_feedback: {
+            sentiment: 'POSITIVE',
+          },
+        },
+      }));
+    });
+  });
 });

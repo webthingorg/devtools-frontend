@@ -15,6 +15,7 @@ describeWithEnvironment('ConsoleInsight', () => {
           fetch() {
             yield {explanation: 'test', metadata: {}};
           },
+      registerAidaClientEvent() {},
     };
   }
 

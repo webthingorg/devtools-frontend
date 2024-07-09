@@ -75,6 +75,8 @@ Images: ![https://example.com](https://example.com)
               metadata: {},
             };
           },
+      registerAidaClientEvent() {},
     },
+
     Host.AidaClient.AidaAvailability.AVAILABLE);
 document.getElementById('container')?.appendChild(component);
