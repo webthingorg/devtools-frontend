@@ -22,6 +22,30 @@
       },
       "revId": "1a0e144ab4ce6ddefa34971a8d5601036858f30d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee3bf346_dc9b2a09",
+        "filename": "build_overrides/BUILDCONFIG.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-07-09T07:19:25Z",
+      "side": 1,
+      "message": "it is like this in the original file and I think the idea is to follow the upstream file.",
+      "parentUuid": "c6ba6c3b_f60043da",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 16
+      },
+      "revId": "1a0e144ab4ce6ddefa34971a8d5601036858f30d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
