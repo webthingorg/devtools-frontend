@@ -249,6 +249,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b48e4bae_205a8108",
+        "filename": "test/conductor/paths.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-07-09T14:29:49Z",
+      "side": 1,
+      "message": "yes, that should be `false`. \n\nbuild.js contains `module.exports \u003d {SOURCE_ROOT: \u0027../../../../\u0027}` on tip of tree",
+      "parentUuid": "a7210864_8284ed06",
+      "revId": "a049e14f9e23f055a8e4715f18649095f8241693",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2218a45a_706f19de",
         "filename": "test/run.ts",
         "patchSetId": 4
