@@ -164,7 +164,7 @@ export class CloseEvent extends Event {
 }
 
 type PublicPromptBuilder = Pick<PromptBuilder, 'buildPrompt'|'getSearchQuery'>;
-type PublicAidaClient = Pick<Host.AidaClient.AidaClient, 'fetch'>;
+type PublicAidaClient = Pick<Host.AidaClient.AidaClient, 'fetch'|'registerClientEvent'>;
 
 function localizeType(sourceType: SourceType): string {
   switch (sourceType) {
@@ -361,6 +361,9 @@ export class ConsoleInsight extends HTMLElement {
     if (this.#selectedRating !== undefined) {
       return;
     }
+    if (this.#state.metadata?.rpcGlobalId === undefined) {
+      return;
+    }
     this.#selectedRating = (event.target as HTMLElement).dataset.rating === 'true';
     this.#render();
     if (this.#selectedRating) {
@@ -368,16 +371,14 @@ export class ConsoleInsight extends HTMLElement {
     } else {
       Host.userMetrics.actionTaken(Host.UserMetrics.Action.InsightRatedNegative);
     }
-    Host.InspectorFrontendHost.InspectorFrontendHostInstance.registerAidaClientEvent(JSON.stringify({
-      client: Host.AidaClient.CLIENT_NAME,
-      event_time: new Date().toISOString(),
-      corresponding_aida_rpc_global_id: this.#state.metadata?.rpcGlobalId,
+    this.#aidaClient.registerClientEvent({
+      corresponding_aida_rpc_global_id: this.#state.metadata.rpcGlobalId,
       do_conversation_client_event: {
         user_feedback: {
           sentiment: this.#selectedRating ? 'POSITIVE' : 'NEGATIVE',
         },
       },
-    }));
+    });
   }
 
   #onReport(): void {
