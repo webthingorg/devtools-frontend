@@ -54,6 +54,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8b5b680f_40650cd2",
+        "filename": "front_end/models/trace/Processor.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-07-09T01:08:49Z",
+      "side": 1,
+      "message": "`setMiniMapBounds` uses console.error so I guess this is allowed.\n\nThough this should become console.error(e.message), or maybe be removed entirely - it would log an error message for pretty much every existing test that uses a trace fixture.",
+      "parentUuid": "51797a3f_7a0c4080",
+      "revId": "b8125457570956670bb39657a572698a39b8a8cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "907afe0d_d8aff3b7",
         "filename": "front_end/models/trace/insights/RenderBlocking.test.ts",
         "patchSetId": 2
