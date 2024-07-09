@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d58a8d4f_5ce9791a",
+        "filename": "front_end/models/trace/Processor.test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-07-09T00:24:25Z",
+      "side": 1,
+      "message": "I couldn\u0027t figure out how to save this test in a reasonable way, because the concept of a trace that causes this audit to error (by like, having crappy network trace events that somehow have no data?) is not actually possible ... but I guess I could modify the `file` event array to find that some trace event and mangle it horridly ... (except, rawEvents returns a readonly array because it caches the data loaded from disk)\n\nDoes CDT have a mocking library usable by unit tests? May make this easier to write.\n\nOr, we can delete the test.",
+      "revId": "b8125457570956670bb39657a572698a39b8a8cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "862d99f4_28592652",
+        "filename": "front_end/models/trace/Processor.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-07-09T00:24:25Z",
+      "side": 1,
+      "message": "I don\u0027t understand the motivation for the type here being so generic. One result of that is code here being difficult to write soundly if expecting to use certain handler results.\n\nCan we perform a refactor as described in this comment?",
+      "revId": "b8125457570956670bb39657a572698a39b8a8cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51797a3f_7a0c4080",
+        "filename": "front_end/models/trace/Processor.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-07-09T00:24:25Z",
+      "side": 1,
+      "message": "Is there a preferred way to log an error?",
+      "revId": "b8125457570956670bb39657a572698a39b8a8cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "907afe0d_d8aff3b7",
+        "filename": "front_end/models/trace/insights/RenderBlocking.test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-07-09T00:24:25Z",
+      "side": 1,
+      "message": "I\u0027d like to send a CL that refactors all the insight tests to use the Trace Processor directly (skimmed down to just the handlers it needs, I guess) -\n\n1) easier to write test code\n2) tests are more useful when using public interface",
+      "revId": "b8125457570956670bb39657a572698a39b8a8cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

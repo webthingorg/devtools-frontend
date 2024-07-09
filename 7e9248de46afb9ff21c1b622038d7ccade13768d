@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb993614_b50bfbb7",
+        "filename": "front_end/models/trace/Processor.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-07-09T00:24:25Z",
+      "side": 1,
+      "message": "`parse` now also computes the insights, because we need access to the traceEvents and this seemed better than storing them as a private property and then consuming in the `insights` getter later. Anyhow, the only place we call `parse` instantly calls `.insights`, so it was always being generated anyway. Might as well be eager about it here.\n\nAdditionally, this means the insights getter no longer does a lot of work, which is unexpected for a getter - so improves readability.\n\nThe TODO conveys why I\u0027d like to follow-up with a similar refactor the `.traceParsedData` - namely, it should really just return `this.#data` or throw if `parse()` hasn\u0027t been called yet. If #parse just created #data eagerly, the code added in this method could simplify a bit; and again, the unusual behavior of a getter doing a lot of work goes away (see crbug/41484172 for how this was a performance problem recently).",
+      "revId": "7e9248de46afb9ff21c1b622038d7ccade13768d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b17778f_76eed6d5",
+        "filename": "front_end/models/trace/lantern/metrics/FirstContentfulPaint.test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-07-09T00:24:25Z",
+      "side": 1,
+      "message": "during this CL I realized that the `compute` method for Lantern.Metric did not need to be async.",
+      "revId": "7e9248de46afb9ff21c1b622038d7ccade13768d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
