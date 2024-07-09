@@ -52,6 +52,24 @@
       "parentUuid": "5fe99c3a_1a29cbc4",
       "revId": "3306356ab742378e401fd560015a0e619be65695",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6376f365_a5910caa",
+        "filename": "test/run.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-09T14:24:52Z",
+      "side": 1,
+      "message": "Ah my bad, missed it; thanks! 😅",
+      "parentUuid": "c650408d_e62c5622",
+      "revId": "3306356ab742378e401fd560015a0e619be65695",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
