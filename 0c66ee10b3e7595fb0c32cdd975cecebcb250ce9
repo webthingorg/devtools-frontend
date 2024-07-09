@@ -16,6 +16,24 @@
       "message": "The request must include a rpcId.",
       "revId": "0c66ee10b3e7595fb0c32cdd975cecebcb250ce9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6312b5b7_9075bd3d",
+        "filename": "front_end/panels/explain/components/ConsoleInsight.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 364,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-07-09T12:54:05Z",
+      "side": 1,
+      "message": "let\u0027s throw an error",
+      "parentUuid": "06043016_262bb1cc",
+      "revId": "0c66ee10b3e7595fb0c32cdd975cecebcb250ce9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
