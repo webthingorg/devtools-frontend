@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1209bf49_4b269058",
+        "filename": "scripts/component_server/server.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1458307
+      },
+      "writtenOn": "2024-07-09T12:13:38Z",
+      "side": 1,
+      "message": "We don\u0027t want scripts/ to depend on tests/, but I could move build.js into scripts/.",
+      "parentUuid": "a70ca8f7_5e196318",
+      "revId": "a049e14f9e23f055a8e4715f18649095f8241693",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e017dab7_c79a80d2",
         "filename": "scripts/run_on_target.mjs",
         "patchSetId": 4
@@ -100,6 +118,24 @@
       "writtenOn": "2024-07-08T17:39:17Z",
       "side": 1,
       "message": "This requires that the out dir is inside the checkout, which I\u0027m not sure is guaranteed (I think I\u0027ve seen that on a build bot).\n\nIf we need `repoRootPath` (depending on how the two discussions below go), WDYT about finding the BUILD_ROOT instead? We could find args.gn up from GEN_DIR. We should be able to compute the checkout root from BUILD_ROOT, GEN_DIR, and SOURCE_ROOT.",
+      "revId": "a049e14f9e23f055a8e4715f18649095f8241693",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b8ae6da_ea33bfde",
+        "filename": "test/conductor/paths.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1458307
+      },
+      "writtenOn": "2024-07-09T12:13:38Z",
+      "side": 1,
+      "message": "I added more info to build.js",
+      "parentUuid": "ad2557bf_88244103",
       "revId": "a049e14f9e23f055a8e4715f18649095f8241693",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
