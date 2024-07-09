@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "53c7400f_76216397",
+        "filename": "front_end/models/trace/Processor.test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-07-09T14:06:46Z",
+      "side": 1,
+      "message": "I think this test is useful to ensure that we don\u0027t brick everything if an insight throws any error. I think the easiest approach would be to create an \"invalid trace\" fixture that is manually modified to brick the insights.",
+      "parentUuid": "d58a8d4f_5ce9791a",
+      "revId": "b8125457570956670bb39657a572698a39b8a8cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "862d99f4_28592652",
         "filename": "front_end/models/trace/Processor.ts",
         "patchSetId": 2
@@ -31,6 +49,24 @@
       "writtenOn": "2024-07-09T00:24:25Z",
       "side": 1,
       "message": "I don\u0027t understand the motivation for the type here being so generic. One result of that is code here being difficult to write soundly if expecting to use certain handler results.\n\nCan we perform a refactor as described in this comment?",
+      "revId": "b8125457570956670bb39657a572698a39b8a8cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dfdb44bb_be9ed5a7",
+        "filename": "front_end/models/trace/Processor.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-07-09T14:06:46Z",
+      "side": 1,
+      "message": "The motivation for the current state of `TraceInsightData` was so TS knows what handler data. This way the insights don\u0027t have to perform their own dependency check. Maybe that\u0027s unavoidable at this point and possibly simpler than the current state of insight deps so I think it\u0027s fine.\n\nThat being said, I remember us wanting to just pass the full set of trace parsed data everywhere. I think it would be a larger refactor because this file still expects to work with subsets everywhere.",
+      "parentUuid": "862d99f4_28592652",
       "revId": "b8125457570956670bb39657a572698a39b8a8cf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },

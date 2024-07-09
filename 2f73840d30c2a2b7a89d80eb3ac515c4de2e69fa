@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48b60103_c848badc",
+        "filename": "front_end/models/trace/insights/RenderBlocking.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-07-09T14:06:46Z",
+      "side": 1,
+      "message": "nit: this cloned graph is created and only used here, do we actually need to reset this?",
+      "revId": "2f73840d30c2a2b7a89d80eb3ac515c4de2e69fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a6080ab_49a85795",
+        "filename": "front_end/models/trace/insights/RenderBlocking.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-07-09T14:06:46Z",
+      "side": 1,
+      "message": "This array are easily consumed by LH (as table rows), but I don\u0027t think it would be easy to use for RPP since it\u0027s not a map.\n\nWDYT about replacing this with a `requestIdToSummary` map and then just constructing this array in LH? Could even do a `requestIdToWastedMs` since the URL and `totalBytes` are easy to get from the resource anyway.",
+      "revId": "2f73840d30c2a2b7a89d80eb3ac515c4de2e69fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f547adca_7ecd3fdd",
+        "filename": "front_end/models/trace/insights/RenderBlocking.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-07-09T14:06:46Z",
+      "side": 1,
+      "message": "This only ignores these requests for estimated savings purposes. Could this filter be moved to `generateInsight` so that they are removed from `renderBlockingRequests` completely?",
+      "revId": "2f73840d30c2a2b7a89d80eb3ac515c4de2e69fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c85b06da_90b0c274",
+        "filename": "front_end/models/trace/insights/RenderBlocking.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-07-09T14:06:46Z",
+      "side": 1,
+      "message": "https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/models/trace/insights/LargestContentfulPaint.ts;l\u003d73;drc\u003dd144795a0e79a3d31173846e6b5e0eaf9d29a7a5;bpv\u003d1;bpt\u003d1?q\u003dlargestcontent\u0026ss\u003dchromium%2Fchromium%2Fsrc:third_party%2Fdevtools-frontend%2Fsrc%2F\n\nLCP is an image if this function returns anything, could probably move that to a shared helper file and reuse.",
+      "revId": "2f73840d30c2a2b7a89d80eb3ac515c4de2e69fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
