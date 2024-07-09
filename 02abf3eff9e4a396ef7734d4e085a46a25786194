@@ -46,6 +46,30 @@
       },
       "revId": "02abf3eff9e4a396ef7734d4e085a46a25786194",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d63bb52_48e9e63e",
+        "filename": "front_end/panels/sources/SourcesPanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2024-07-09T13:32:57Z",
+      "side": 1,
+      "message": "Why not add the setting to other entry points? Is there any precedent for only sometimes registering a setting?",
+      "parentUuid": "aaff157a_e8a3f0dd",
+      "range": {
+        "startLine": 495,
+        "startChar": 6,
+        "endLine": 496,
+        "endChar": 5
+      },
+      "revId": "02abf3eff9e4a396ef7734d4e085a46a25786194",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
