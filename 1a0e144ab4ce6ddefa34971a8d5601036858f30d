@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6ba6c3b_f60043da",
+        "filename": "build_overrides/BUILDCONFIG.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-07-09T07:02:39Z",
+      "side": 1,
+      "message": "nit: No separate `declare_args()` block needed, add it to the above one.",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 16
+      },
+      "revId": "1a0e144ab4ce6ddefa34971a8d5601036858f30d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
