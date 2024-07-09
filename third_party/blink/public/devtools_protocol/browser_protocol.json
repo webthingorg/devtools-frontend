@@ -16839,6 +16839,7 @@
                         "compute-pressure",
                         "cross-origin-isolated",
                         "deferred-fetch",
+                        "digital-credentials-get",
                         "direct-sockets",
                         "display-capture",
                         "document-domain",
@@ -21616,6 +21617,10 @@
                             "name": "value",
                             "description": "number instead of integer because not all uint32 can be represented by\nint",
                             "type": "number"
+                        },
+                        {
+                            "name": "filteringId",
+                            "$ref": "UnsignedInt64AsBase10"
                         }
                     ]
                 },
@@ -21740,6 +21745,10 @@
                             "items": {
                                 "$ref": "AttributionReportingAggregatableValueEntry"
                             }
+                        },
+                        {
+                            "name": "aggregatableFilteringIdMaxBytes",
+                            "type": "integer"
                         },
                         {
                             "name": "debugReporting",

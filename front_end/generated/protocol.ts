@@ -11384,6 +11384,7 @@ export namespace Page {
     ComputePressure = 'compute-pressure',
     CrossOriginIsolated = 'cross-origin-isolated',
     DeferredFetch = 'deferred-fetch',
+    DigitalCredentialsGet = 'digital-credentials-get',
     DirectSockets = 'direct-sockets',
     DisplayCapture = 'display-capture',
     DocumentDomain = 'document-domain',
@@ -14413,6 +14414,7 @@ export namespace Storage {
      * int
      */
     value: number;
+    filteringId: UnsignedInt64AsBase10;
   }
 
   export interface AttributionReportingAggregatableValueEntry {
@@ -14445,6 +14447,7 @@ export namespace Storage {
     eventTriggerData: AttributionReportingEventTriggerData[];
     aggregatableTriggerData: AttributionReportingAggregatableTriggerData[];
     aggregatableValues: AttributionReportingAggregatableValueEntry[];
+    aggregatableFilteringIdMaxBytes: integer;
     debugReporting: boolean;
     aggregationCoordinatorOrigin?: string;
     sourceRegistrationTimeConfig: AttributionReportingSourceRegistrationTimeConfig;

@@ -7109,23 +7109,11 @@ export const NativeFunctions = [
     signatures: [["feature"]]
   },
   {
-    name: "execute",
-    signatures: [["input"]]
-  },
-  {
     name: "promptStreaming",
     signatures: [["input"]]
   },
   {
-    name: "executeStreaming",
-    signatures: [["input"]]
-  },
-  {
     name: "createTextSession",
-    signatures: [["?options"]]
-  },
-  {
-    name: "createGenericSession",
     signatures: [["?options"]]
   },
   {
