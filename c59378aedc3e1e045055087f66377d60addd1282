@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "159ac303_6b06a716",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-07-09T11:46:15Z",
+      "side": 1,
+      "message": "More in the sense that you are guaranteed to not have 2 async functions running at the same time / interleaved. So maybe re-entrant safe callbacks would be a better description?",
+      "parentUuid": "e243479e_75d9a2e0",
+      "revId": "c59378aedc3e1e045055087f66377d60addd1282",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e5ba89a5_857d6ca0",
