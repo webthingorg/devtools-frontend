@@ -16,6 +16,42 @@
       "message": "Current limitation is to use this you need to create a symlink to the node platform binary folder. I\u0027m not sure if gclient can be configured to do that? Also it would be nice to be able to build release chrome and debug devtools.",
       "revId": "7667f0f966d316fad9fd6408127d75484b1b92df",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eaa146b6_0e51f7af",
+        "filename": "scripts/run_on_target.mjs",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1458307
+      },
+      "writtenOn": "2024-07-09T12:09:45Z",
+      "side": 1,
+      "message": "Because we don\u0027t copy the node_modules folder, and scripts can\u0027t find it when we\u0027re in a full chromium checkout.",
+      "parentUuid": "e017dab7_c79a80d2",
+      "revId": "7667f0f966d316fad9fd6408127d75484b1b92df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d181f68_9544cd1b",
+        "filename": "scripts/run_on_target.mjs",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1458307
+      },
+      "writtenOn": "2024-07-09T12:09:45Z",
+      "side": 1,
+      "message": "Better?",
+      "parentUuid": "486dbe45_c6014070",
+      "revId": "7667f0f966d316fad9fd6408127d75484b1b92df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

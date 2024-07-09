@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a70ca8f7_5e196318",
+        "filename": "scripts/component_server/server.js",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1458307
+      },
+      "writtenOn": "2024-07-09T12:09:45Z",
+      "side": 1,
+      "message": "We don\u0027t want the source directory; we want the location where devtools sources are copied.",
+      "parentUuid": "3ce5ae64_ffbe5cb1",
+      "revId": "a049e14f9e23f055a8e4715f18649095f8241693",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e017dab7_c79a80d2",
         "filename": "scripts/run_on_target.mjs",
         "patchSetId": 4
@@ -105,6 +123,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "50bdccc1_6d8b7664",
+        "filename": "test/conductor/paths.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1458307
+      },
+      "writtenOn": "2024-07-09T12:09:45Z",
+      "side": 1,
+      "message": "Maybe? I\u0027m not sure how this affects an internal checkout, and my preference is to change one specific case to work. Elsewhere I assume that if we are in a full checkout we need to add third_party/devtools-frontend/src to the path so it makes sense to check for that specifically.",
+      "parentUuid": "751a8666_5606620a",
+      "revId": "a049e14f9e23f055a8e4715f18649095f8241693",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2218a45a_706f19de",
         "filename": "test/run.ts",
         "patchSetId": 4
@@ -116,6 +152,24 @@
       "writtenOn": "2024-07-08T17:39:17Z",
       "side": 1,
       "message": "Is this change necessary?",
+      "revId": "a049e14f9e23f055a8e4715f18649095f8241693",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c178db5_78c1d182",
+        "filename": "test/run.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1458307
+      },
+      "writtenOn": "2024-07-09T12:09:45Z",
+      "side": 1,
+      "message": "In cider-g autoninja has trouble finding ninja if it is not run from the root checkout folder.",
+      "parentUuid": "2218a45a_706f19de",
       "revId": "a049e14f9e23f055a8e4715f18649095f8241693",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
