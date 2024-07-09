@@ -71,6 +71,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e377e12b_e6b87ba7",
+        "filename": "front_end/models/trace/insights/RenderBlocking.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-07-09T18:58:59Z",
+      "side": 1,
+      "message": "this is much better, thanks",
+      "parentUuid": "9bd39df8_a70ee568",
+      "revId": "2f73840d30c2a2b7a89d80eb3ac515c4de2e69fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f547adca_7ecd3fdd",
