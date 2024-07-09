@@ -33,6 +33,24 @@
       "message": "test name does not sound correct",
       "revId": "1780449d7a44e8369db0436a51f3da5abb262217",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0de31d31_9d1eeae2",
+        "filename": "front_end/core/host/AidaClient.test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 342,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-07-09T13:04:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d5618917_dfee4fb6",
+      "revId": "1780449d7a44e8369db0436a51f3da5abb262217",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
