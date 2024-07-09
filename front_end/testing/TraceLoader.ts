@@ -158,7 +158,7 @@ export class TraceLoader {
         new Map<string,
                 {traceParsedData: TraceEngine.Handlers.Types.TraceParseData, model: TraceEngine.TraceModel.Model}>();
     cacheByName.set(configCacheKey, traceEngineData);
-    traceEngineCache.set(name, cacheByName);
+    // traceEngineCache.set(name, cacheByName);
     Timeline.ModificationsManager.ModificationsManager.initAndActivateModificationsManager(traceEngineData.model, 0);
     if (options.initTraceBounds) {
       TraceLoader.initTraceBoundsManager(traceEngineData.traceParsedData);

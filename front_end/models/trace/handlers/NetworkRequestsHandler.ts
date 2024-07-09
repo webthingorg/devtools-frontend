@@ -163,12 +163,12 @@ export function handleEvent(event: Types.TraceEvents.TraceEventData): void {
     const identifier = event.args.data.identifier;
     if (!webSocketData.has(identifier)) {
       if (event.args.data.frame) {
-        webSocketData.set(identifier, {
-          frame: event.args.data.frame,
-          webSocketIdentifier: identifier,
-          events: [],
-          syntheticConnectionEvent: null,
-        });
+        // webSocketData.set(identifier, {
+        //   frame: event.args.data.frame,
+        //   webSocketIdentifier: identifier,
+        //   events: [],
+        //   syntheticConnectionEvent: null,
+        // });
       } else if (event.args.data.workerId) {
         webSocketData.set(identifier, {
           workerId: event.args.data.workerId,
