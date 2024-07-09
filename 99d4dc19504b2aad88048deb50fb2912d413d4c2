@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "99d4dc19504b2aad88048deb50fb2912d413d4c2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e7991c0_0a1c5ec0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-09T08:08:11Z",
+      "side": 1,
+      "message": "lgtm!\n\ndo we need to let partners know in terms of when this is landing; does this break any of the PoCs you\u0027ve sent?",
+      "revId": "99d4dc19504b2aad88048deb50fb2912d413d4c2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
