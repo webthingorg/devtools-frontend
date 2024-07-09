@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca76c49b_66a69ac9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-07-09T14:50:17Z",
+      "side": 1,
+      "message": "LGTM with a nit",
+      "revId": "482ee539575fe0a7090564d7df76e51a96fcca5f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cc73c99_6e3cc340",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1900,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-07-09T14:50:17Z",
+      "side": 1,
+      "message": "should it be `optionOrAlt`?",
+      "revId": "482ee539575fe0a7090564d7df76e51a96fcca5f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
