@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "70fc0271_58dd4f57",
+        "filename": "front_end/models/trace/Processor.test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-07-09T20:38:31Z",
+      "side": 1,
+      "message": "\u003e Does CDT have a mocking library for unit tests?\n\n`sinon` is the mocking library I\u0027ve used, but that probably isn\u0027t helpful because it can\u0027t mock module exports. I\u0027m fine leaving the test disabled for now.",
+      "parentUuid": "7d0cae1b_9c5d5b06",
+      "revId": "b8125457570956670bb39657a572698a39b8a8cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "862d99f4_28592652",
         "filename": "front_end/models/trace/Processor.ts",
         "patchSetId": 2

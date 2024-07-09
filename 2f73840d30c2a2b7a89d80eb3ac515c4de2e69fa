@@ -193,6 +193,24 @@
       "parentUuid": "898d9c9a_2cd54778",
       "revId": "2f73840d30c2a2b7a89d80eb3ac515c4de2e69fa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aaca0b9a_eab6e3d2",
+        "filename": "front_end/models/trace/insights/RenderBlocking.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-07-09T20:38:31Z",
+      "side": 1,
+      "message": "\u003e The 2nd part there doesn\u0027t feel correct. I agree that we can\u0027t use the full savings (without handling preload, etc) in the image case.. but.. The paint of the LCP image can definitely be affected.\n\nWe originally had LCP savings included for render blocking originally but it was overestimating the impact on LCP according to Phillip (RBRs don\u0027t affect most pages):\n\nhttps://docs.google.com/document/d/1b1_0JbshYsbSqdBLfY3KQqyDzLBPJMGQ5gACncRb2HU/edit?tab\u003dt.0\n\nThis is not an ideal solution and it we planned to seek better estimates in the future (Something like https://github.com/GoogleChrome/lighthouse/issues/15240) but we agreed that giving a flat 0 was better than overestimating savings in this case.",
+      "parentUuid": "bd11119b_42cf08b0",
+      "revId": "2f73840d30c2a2b7a89d80eb3ac515c4de2e69fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
