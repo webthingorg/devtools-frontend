@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7d0cae1b_9c5d5b06",
+        "filename": "front_end/models/trace/Processor.test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-07-09T18:57:29Z",
+      "side": 1,
+      "message": "This doesn\u0027t work either, because the failure is within the handlers (.parse), so insights never run.\n\nOur options here are to use a mocking library to mimic an Error being thrown in the right part of the implementation (or set some global that amounts to `__testingInsightsWillError`), or to compromise on the exposed API (aka be able to call #parse here, then mangle the traceParsedData, then run #computeInsights - which obviously means these can\u0027t be private anymore).\n\nDoes CDT have a mocking library for unit tests?",
+      "parentUuid": "53c7400f_76216397",
+      "revId": "b8125457570956670bb39657a572698a39b8a8cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "862d99f4_28592652",
         "filename": "front_end/models/trace/Processor.ts",
         "patchSetId": 2

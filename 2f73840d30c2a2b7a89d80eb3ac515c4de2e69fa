@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f1dc09af_f5f79f69",
+        "filename": "front_end/models/trace/insights/RenderBlocking.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-07-09T18:57:29Z",
+      "side": 1,
+      "message": "Yes. \"request\" is not deep cloned. Lantern only ever cloned the nodes.\n\nI clarified this in the `cloneWithRelationships` doc comment.",
+      "parentUuid": "48b60103_c848badc",
+      "revId": "2f73840d30c2a2b7a89d80eb3ac515c4de2e69fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1a6080ab_49a85795",
         "filename": "front_end/models/trace/insights/RenderBlocking.ts",
         "patchSetId": 6
@@ -31,6 +49,24 @@
       "writtenOn": "2024-07-09T14:06:46Z",
       "side": 1,
       "message": "This array are easily consumed by LH (as table rows), but I don\u0027t think it would be easy to use for RPP since it\u0027s not a map.\n\nWDYT about replacing this with a `requestIdToSummary` map and then just constructing this array in LH? Could even do a `requestIdToWastedMs` since the URL and `totalBytes` are easy to get from the resource anyway.",
+      "revId": "2f73840d30c2a2b7a89d80eb3ac515c4de2e69fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9bd39df8_a70ee568",
+        "filename": "front_end/models/trace/insights/RenderBlocking.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-07-09T18:57:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1a6080ab_49a85795",
       "revId": "2f73840d30c2a2b7a89d80eb3ac515c4de2e69fa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -54,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3cd6d03e_674b9400",
+        "filename": "front_end/models/trace/insights/RenderBlocking.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-07-09T18:57:29Z",
+      "side": 1,
+      "message": "I\u0027d like the other one to remain deterministic and not subject to variance. It should be a definitive list of what is render blocking.\n\nLet\u0027s revisit this when we have a concrete need to align them?",
+      "parentUuid": "f547adca_7ecd3fdd",
+      "revId": "2f73840d30c2a2b7a89d80eb3ac515c4de2e69fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c85b06da_90b0c274",
         "filename": "front_end/models/trace/insights/RenderBlocking.ts",
         "patchSetId": 6
@@ -65,6 +119,24 @@
       "writtenOn": "2024-07-09T14:06:46Z",
       "side": 1,
       "message": "https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/models/trace/insights/LargestContentfulPaint.ts;l\u003d73;drc\u003dd144795a0e79a3d31173846e6b5e0eaf9d29a7a5;bpv\u003d1;bpt\u003d1?q\u003dlargestcontent\u0026ss\u003dchromium%2Fchromium%2Fsrc:third_party%2Fdevtools-frontend%2Fsrc%2F\n\nLCP is an image if this function returns anything, could probably move that to a shared helper file and reuse.",
+      "revId": "2f73840d30c2a2b7a89d80eb3ac515c4de2e69fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e5e68c6_37e2a8b8",
+        "filename": "front_end/models/trace/insights/RenderBlocking.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-07-09T18:57:29Z",
+      "side": 1,
+      "message": "Thanks, I\u0027ll do this in another CL.",
+      "parentUuid": "c85b06da_90b0c274",
       "revId": "2f73840d30c2a2b7a89d80eb3ac515c4de2e69fa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
