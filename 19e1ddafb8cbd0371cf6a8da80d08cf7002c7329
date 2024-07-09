@@ -1,0 +1,68 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d55f7119_7dec7ece",
+        "filename": "front_end/models/trace/handlers/NetworkRequestsHandler.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-07-09T10:54:29Z",
+      "side": 1,
+      "message": "This suppresses the following failures:\n\nAssertionError: expected 16 to deeply equal 6\n            at Context.\u003canonymous\u003e (front_end/panels/timeline/TimelineFlameChartNetworkDataProvider.test.ts:36:12 \u003c- out/Default/gen/front_end/panels/timeline/TimelineFlameChartNetworkDataProvider.test.js:27:16)\nChrome Headless 128.0.0.0 (Linux x86_64): Executed 2 of 23 (1 FAILED) (0 secs / 0.319 secs)\n\n- expected\n+ actual\n\n-6\n+16\n\nChrome Headless 128.0.0.0 (Linux x86_64) TimelineFlameChartNetworkDataProvider does not render the network track if there is no network requests FAILED\n        AssertionError: expected 1 to equal 0\n            at Context.\u003canonymous\u003e (front_end/panels/timeline/TimelineFlameChartNetworkDataProvider.test.ts:97:12 \u003c- out/Default/gen/front_end/panels/timeline/TimelineFlameChartNetworkDataProvider.test.js:74:16)\nChrome Headless 128.0.0.0 (Linux x86_64): Executed 5 of 23 (2 FAILED) (0 secs / 0.747 secs)\n\n- expected\n+ actual\n\n-0\n+1\n\nChrome Headless 128.0.0.0 (Linux x86_64) TimelineFlameChartView Does not show the network track when there is no network request FAILED\n        AssertionError: expected true to be false\n            at Context.\u003canonymous\u003e (front_end/panels/timeline/TimelineFlameChartView.test.ts:127:12 \u003c- out/Default/gen/front_end/panels/timeline/TimelineFlameChartView.test.js:103:16)\nChrome Headless 128.0.0.0 (Linux x86_64): Executed 8 of 23 (3 FAILED) (skipped 1) (0 secs / 1.526 secs)\n\n- expected\n+ actual\n\n-false\n+true",
+      "range": {
+        "startLine": 166,
+        "startChar": 0,
+        "endLine": 166,
+        "endChar": 8
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "52a03494_c7bebdb8",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/models/trace/handlers/NetworkRequestsHandler.ts",
+              "range": {
+                "startLine": 166,
+                "startChar": 0,
+                "endLine": 172,
+                "endChar": 0
+              },
+              "replacement": "        webSocketData.set(identifier, {\n          frame: event.args.data.frame,\n          webSocketIdentifier: identifier,\n          events: [],\n          syntheticConnectionEvent: null,\n        });\n"
+            }
+          ]
+        }
+      ],
+      "revId": "19e1ddafb8cbd0371cf6a8da80d08cf7002c7329",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0aced60_19aecd2c",
+        "filename": "front_end/testing/TraceLoader.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-07-09T10:54:29Z",
+      "side": 1,
+      "message": "This suppresses the following failure:\n\nAssertionError: expected \u0027r--1\u0027 to deeply equal \u0027r-8036\u0027\n            at Context.\u003canonymous\u003e (front_end/panels/timeline/EventsSerializer.test.ts:44:12 \u003c- out/Default/gen/front_end/panels/timeline/EventsSerializer.test.js:35:16)\nChrome Headless 128.0.0.0 (Linux x86_64): Executed 8 of 8 (1 FAILED) (0 secs / 0.353 secs)\n\n- expected\n+ actual\n\n-\"r-8036\"\n+\"r--1\"",
+      "range": {
+        "startLine": 161,
+        "startChar": 0,
+        "endLine": 161,
+        "endChar": 47
+      },
+      "revId": "19e1ddafb8cbd0371cf6a8da80d08cf7002c7329",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
