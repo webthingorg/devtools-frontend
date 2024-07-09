@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be9319dd_7878c626",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-07-09T19:53:58Z",
+      "side": 1,
+      "message": "Jack: FYI\n\nHappy to revise this or sync up on it too. My expectation is we\u0027ll still wait on LON/MUC feedback when it makes sense. But less so if its strictly insight logic.",
+      "revId": "76295e1069802c682c8c958111d9f4815963556d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
