@@ -157,6 +157,24 @@
       "parentUuid": "c85b06da_90b0c274",
       "revId": "2f73840d30c2a2b7a89d80eb3ac515c4de2e69fa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "898d9c9a_2cd54778",
+        "filename": "front_end/models/trace/insights/RenderBlocking.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-07-09T19:44:27Z",
+      "side": 1,
+      "message": "Your comment, put another way, says:\n-  RBR only delays the LCP if the LCP elem is text. \n-  An LCP image doesn\u0027t get delayed by RBR.\n\nThe 2nd part there doesn\u0027t feel correct. I agree that we can\u0027t use the full savings (without handling preload, etc) in the image case.. but.. The paint of the LCP image can definitely be affected.\n\nThe other way i\u0027m looking at this... I really want this insight to be included when filtering to LCP things.",
+      "parentUuid": "3e5e68c6_37e2a8b8",
+      "revId": "2f73840d30c2a2b7a89d80eb3ac515c4de2e69fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

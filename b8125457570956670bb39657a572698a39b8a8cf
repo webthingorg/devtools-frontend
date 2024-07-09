@@ -91,6 +91,41 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0728cbf4_b6d04a8a",
+        "filename": "front_end/models/trace/Processor.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-07-09T19:44:27Z",
+      "side": 1,
+      "message": "Yeah i think Jack or Andres will have to chime in here. The current conditionality of the traceParsedData type  is certainly not very portable.",
+      "parentUuid": "dfdb44bb_be9ed5a7",
+      "revId": "b8125457570956670bb39657a572698a39b8a8cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d8f85f2_66af5d2c",
+        "filename": "front_end/models/trace/Processor.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-07-09T19:44:27Z",
+      "side": 1,
+      "message": "extract to const to fit with fcp/lcp/tti?",
+      "revId": "b8125457570956670bb39657a572698a39b8a8cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "51797a3f_7a0c4080",
         "filename": "front_end/models/trace/Processor.ts",
         "patchSetId": 2
@@ -126,6 +161,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "64e6533e_94811f75",
+        "filename": "front_end/models/trace/Processor.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-07-09T19:44:27Z",
+      "side": 1,
+      "message": "There has been cleanup efforts before to remove logs that happen during unit tests. So yeah pretty sure we don\u0027t want this logging like this.",
+      "parentUuid": "8b5b680f_40650cd2",
+      "revId": "b8125457570956670bb39657a572698a39b8a8cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "907afe0d_d8aff3b7",
         "filename": "front_end/models/trace/insights/RenderBlocking.test.ts",
         "patchSetId": 2
@@ -137,6 +190,46 @@
       "writtenOn": "2024-07-09T00:24:25Z",
       "side": 1,
       "message": "I\u0027d like to send a CL that refactors all the insight tests to use the Trace Processor directly (skimmed down to just the handlers it needs, I guess) -\n\n1) easier to write test code\n2) tests are more useful when using public interface",
+      "revId": "b8125457570956670bb39657a572698a39b8a8cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b43eeadf_0e1e37b1",
+        "filename": "front_end/models/trace/insights/RenderBlocking.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-07-09T19:44:27Z",
+      "side": 1,
+      "message": "enum for this type instead? (not const enum because ugh)\nno strong feelings",
+      "revId": "b8125457570956670bb39657a572698a39b8a8cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebc2e84d_fae1be6b",
+        "filename": "front_end/models/trace/insights/RenderBlocking.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-07-09T19:44:27Z",
+      "side": 1,
+      "message": "i feel like the current split between computeSavings and estimateSavingsWithGraphs isn\u0027t very meaningful.  smushing all 80 lines into 1 fn is one alternative... seems kinda better than passing deferredIds to a new fn.\n\nor maybe there\u0027s another way to split up lines 58-134?",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 24
+      },
       "revId": "b8125457570956670bb39657a572698a39b8a8cf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
