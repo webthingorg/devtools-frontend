@@ -19,6 +19,7 @@ import {SHOULD_SHOW_EASTER_EGG} from './EasterEgg.js';
 import {ModificationsManager} from './ModificationsManager.js';
 import {
   AnnotationOverlayRemoveEvent,
+  AnnotationOverlayUpdateEvent,
   Overlays,
   type TimelineOverlay,
   type TimeRangeLabel,
@@ -199,6 +200,11 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     this.#overlays.addEventListener(AnnotationOverlayRemoveEvent.eventName, event => {
       const overlay = (event as AnnotationOverlayRemoveEvent).overlay;
       ModificationsManager.activeManager()?.removeAnnotationOverlay(overlay);
+    });
+    
+    this.#overlays.addEventListener(AnnotationOverlayUpdateEvent.eventName, event => {
+      const overlay = (event as AnnotationOverlayUpdateEvent).overlay;
+      ModificationsManager.activeManager()?.updateAnnotationOverlay(overlay);
     });
 
     this.networkPane = new UI.Widget.VBox();

@@ -31,6 +31,14 @@ export class AnnotationRemovedEvent extends Event {
   }
 }
 
+export class AnnotationUpdateEvent extends Event {
+  static readonly eventName = 'annotationupdateevent';
+
+  constructor() {
+    super(AnnotationUpdateEvent.eventName);
+  }
+}
+
 type ModificationsManagerData = {
   traceParsedData: TraceEngine.Handlers.Types.TraceParseData,
   traceBounds: TraceEngine.Types.Timing.TraceWindowMicroSeconds,
@@ -136,6 +144,19 @@ export class ModificationsManager extends EventTarget {
     }
     this.#overlayForAnnotation.delete(annotationForRemovedOverlay);
     this.dispatchEvent(new AnnotationRemovedEvent(removedOverlay));
+  }
+  
+  updateAnnotationOverlay(updatedOverlay: TimelineOverlay): void {
+    const annotationForRemovedOverlay = this.#getAnnotationByOverlay(updatedOverlay);
+    if (!annotationForRemovedOverlay) {
+      console.warn('Annotation for deleted Overlay does not exist');
+      return;
+    }
+
+    if(updatedOverlay.type === "ENTRY_LABEL") {
+      annotationForRemovedOverlay.label = updatedOverlay.label;
+    }
+    this.dispatchEvent(new AnnotationUpdateEvent());
   }
 
   #getAnnotationByOverlay(overlay: TimelineOverlay): TraceEngine.Types.File.Annotation|null {

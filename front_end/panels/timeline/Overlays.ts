@@ -131,6 +131,13 @@ export class AnnotationOverlayRemoveEvent extends Event {
     super(AnnotationOverlayRemoveEvent.eventName);
   }
 }
+export class AnnotationOverlayUpdateEvent extends Event {
+  static readonly eventName = 'annotationoverlayupdateevent';
+
+  constructor(public overlay: TimelineOverlay) {
+    super(AnnotationOverlayUpdateEvent.eventName);
+  }
+}
 
 export class Overlays extends EventTarget {
   /**
@@ -657,6 +664,11 @@ export class Overlays extends EventTarget {
         const component = new Components.EntryLabelOverlay.EntryLabelOverlay(overlay.label);
         component.addEventListener(Components.EntryLabelOverlay.EmptyEntryLabelRemoveEvent.eventName, () => {
           this.dispatchEvent(new AnnotationOverlayRemoveEvent(overlay));
+        });
+        component.addEventListener(Components.EntryLabelOverlay.EntryLabelChangeEvent.eventName, event => {
+          const newLabel = (event as Components.EntryLabelOverlay.EntryLabelChangeEvent).newLabel;
+          overlay.label = newLabel;
+          this.dispatchEvent(new AnnotationOverlayUpdateEvent(overlay));
         });
         div.appendChild(component);
         return div;

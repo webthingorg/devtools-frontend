@@ -58,7 +58,7 @@ import {SHOULD_SHOW_EASTER_EGG} from './EasterEgg.js';
 import {Tracker} from './FreshRecording.js';
 import historyToolbarButtonStyles from './historyToolbarButton.css.js';
 import {IsolateSelector} from './IsolateSelector.js';
-import {AnnotationAddedEvent, AnnotationRemovedEvent, ModificationsManager} from './ModificationsManager.js';
+import {AnnotationAddedEvent, AnnotationRemovedEvent, AnnotationUpdateEvent, ModificationsManager} from './ModificationsManager.js';
 import {cpuprofileJsonGenerator, traceJsonGenerator} from './SaveFileFormatter.js';
 import {NodeNamesUpdated, SourceMapsResolver} from './SourceMapsResolver.js';
 import {type Client, TimelineController} from './TimelineController.js';
@@ -1303,6 +1303,10 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
       currentManager?.addEventListener(AnnotationRemovedEvent.eventName, event => {
         const removedOverlay = (event as AnnotationRemovedEvent).removedAnnotationOverlay;
         this.flameChart.removeOverlay(removedOverlay);
+        this.#sideBar.setAnnotationsTabContent(currentManager.getAnnotations());
+      });
+      
+      currentManager?.addEventListener(AnnotationUpdateEvent.eventName, () => {
         this.#sideBar.setAnnotationsTabContent(currentManager.getAnnotations());
       });
 
