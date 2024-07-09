@@ -1,0 +1,62 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f0fd2c0_1bb73d82",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-09T08:11:34Z",
+      "side": 1,
+      "message": "lgtm with one nit",
+      "revId": "b43fb2373566cb8c884cf7fa908574f66b9fa915",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a60cf664_22924a13",
+        "filename": "front_end/panels/timeline/components/SidebarAnnotationsTab.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-09T08:11:34Z",
+      "side": 1,
+      "message": "I\u0027m not sure if you need this check?",
+      "range": {
+        "startLine": 18,
+        "startChar": 3,
+        "endLine": 20,
+        "endChar": 5
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "03c56662_af5df837",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/components/SidebarAnnotationsTab.ts",
+              "range": {
+                "startLine": 18,
+                "startChar": 0,
+                "endLine": 21,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "b43fb2373566cb8c884cf7fa908574f66b9fa915",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
