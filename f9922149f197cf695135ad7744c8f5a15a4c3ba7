@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "77add27d_6a698609",
+        "filename": "front_end/panels/timeline/components/Sidebar.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 321,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-07-09T06:24:01Z",
+      "side": 1,
+      "message": "Agree, it is more consistent",
+      "parentUuid": "e8a83e6b_f5f92fbb",
+      "range": {
+        "startLine": 321,
+        "startChar": 0,
+        "endLine": 321,
+        "endChar": 43
+      },
+      "revId": "f9922149f197cf695135ad7744c8f5a15a4c3ba7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fa3f114c_7ea987a1",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-07-08T14:57:46Z",
       "side": 1,
       "message": "I feel like we might have a helper to get the name of an event that deals with this...but I could be wrong - could you have a quick look in the helpers but ignore this if I am incorrect\n\nalthough we should think about if we can implement something to ensure that this always shows what the eventTitle used in the flamechart would be so they are automatically kept in sync",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 0
+      },
+      "revId": "f9922149f197cf695135ad7744c8f5a15a4c3ba7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be7fb0ca_40366672",
+        "filename": "front_end/panels/timeline/components/SidebarAnnotationsTab.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-07-09T06:24:01Z",
+      "side": 1,
+      "message": "It looks like we don\u0027t have a helper for that. We\u0027re getting the event name in a similar way in multiple places. \n\nI can make a CL to add this function to helpers and use here and in the Flamechart.",
+      "parentUuid": "fa3f114c_7ea987a1",
       "range": {
         "startLine": 28,
         "startChar": 0,
