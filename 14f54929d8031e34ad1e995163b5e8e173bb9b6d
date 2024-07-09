@@ -62,6 +62,30 @@
       },
       "revId": "14f54929d8031e34ad1e995163b5e8e173bb9b6d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8aa8871_809caa60",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1265,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-07-09T09:05:23Z",
+      "side": 1,
+      "message": "I remembered I told Jasmin to do just this ignoring of the `devtools` field. After checking the impl better I think we don\u0027t need to do the check after all, since timings with valid extension data should not be rendered at all (we create different synthetic events for this).\n\nSorry for the misinformation!",
+      "parentUuid": "d8e2f3fb_f0bf1144",
+      "range": {
+        "startLine": 1263,
+        "startChar": 6,
+        "endLine": 1265,
+        "endChar": 7
+      },
+      "revId": "14f54929d8031e34ad1e995163b5e8e173bb9b6d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
