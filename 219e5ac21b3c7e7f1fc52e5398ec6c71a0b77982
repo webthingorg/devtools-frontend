@@ -16,6 +16,24 @@
       "message": "PTAL. Thanks",
       "revId": "219e5ac21b3c7e7f1fc52e5398ec6c71a0b77982",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79601ef8_81311a35",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1462162
+      },
+      "writtenOn": "2024-07-09T13:45:53Z",
+      "side": 1,
+      "message": "That improves readability. Changes made. Thanks",
+      "parentUuid": "7cb9db8c_24457768",
+      "revId": "219e5ac21b3c7e7f1fc52e5398ec6c71a0b77982",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
