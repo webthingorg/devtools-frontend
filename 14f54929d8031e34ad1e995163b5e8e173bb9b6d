@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4bb0c331_d1f2e559",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1253,
+      "author": {
+        "id": 3517468
+      },
+      "writtenOn": "2024-07-09T17:24:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2af719b2_1ffb90b1",
+      "range": {
+        "startLine": 1253,
+        "startChar": 0,
+        "endLine": 1253,
+        "endChar": 79
+      },
+      "revId": "14f54929d8031e34ad1e995163b5e8e173bb9b6d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d8e2f3fb_f0bf1144",
@@ -78,6 +102,30 @@
       "side": 1,
       "message": "I remembered I told Jasmin to do just this ignoring of the `devtools` field. After checking the impl better I think we don\u0027t need to do the check after all, since timings with valid extension data should not be rendered at all (we create different synthetic events for this).\n\nSorry for the misinformation!",
       "parentUuid": "d8e2f3fb_f0bf1144",
+      "range": {
+        "startLine": 1263,
+        "startChar": 6,
+        "endLine": 1265,
+        "endChar": 7
+      },
+      "revId": "14f54929d8031e34ad1e995163b5e8e173bb9b6d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e28181e_b8ec6bc7",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1265,
+      "author": {
+        "id": 3517468
+      },
+      "writtenOn": "2024-07-09T17:24:48Z",
+      "side": 1,
+      "message": "SGTM! Removed the check for the `devtools` field, and updated the tests accordingly.",
+      "parentUuid": "d8aa8871_809caa60",
       "range": {
         "startLine": 1263,
         "startChar": 6,
