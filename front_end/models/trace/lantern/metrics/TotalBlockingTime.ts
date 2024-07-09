@@ -70,8 +70,7 @@ class TotalBlockingTime extends Metric {
     };
   }
 
-  static override async compute(data: MetricComputationDataInput, extras?: Omit<Extras, 'optimistic'>):
-      Promise<MetricResult> {
+  static override compute(data: MetricComputationDataInput, extras?: Omit<Extras, 'optimistic'>): MetricResult {
     const fcpResult = extras?.fcpResult;
     if (!fcpResult) {
       throw new Error('FCP is required to calculate the TBT metric');
