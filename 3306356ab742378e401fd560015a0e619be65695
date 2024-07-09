@@ -1,0 +1,39 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fe99c3a_1a29cbc4",
+        "filename": "test/run.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-09T14:21:59Z",
+      "side": 1,
+      "message": "(nit): Why `flatMap` instead of `map` considering that `tests` is a `string[]`?",
+      "fixSuggestions": [
+        {
+          "fixId": "291c1ac3_fa2e07f2",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "test/run.ts",
+              "range": {
+                "startLine": 228,
+                "startChar": 0,
+                "endLine": 229,
+                "endChar": 0
+              },
+              "replacement": "  const testFiles \u003d tests.map(t \u003d\u003e {\n"
+            }
+          ]
+        }
+      ],
+      "revId": "3306356ab742378e401fd560015a0e619be65695",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
