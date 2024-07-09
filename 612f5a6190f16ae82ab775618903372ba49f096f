@@ -1,0 +1,62 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2a5420e_662a5037",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-07-09T14:34:41Z",
+      "side": 1,
+      "message": "lgtm! I like the idea of caching on raw events",
+      "revId": "612f5a6190f16ae82ab775618903372ba49f096f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d498913_6a91941d",
+        "filename": "front_end/models/trace/helpers/SyntheticEvents.test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-07-09T14:34:41Z",
+      "side": 1,
+      "message": "maybe `manager for the most recent trace`?",
+      "range": {
+        "startLine": 24,
+        "startChar": 27,
+        "endLine": 24,
+        "endChar": 65
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "59087b9e_665ba13f",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/models/trace/helpers/SyntheticEvents.test.ts",
+              "range": {
+                "startLine": 24,
+                "startChar": 0,
+                "endLine": 25,
+                "endChar": 0
+              },
+              "replacement": "    it(\u0027always returns the manager for the most recent trace and re-uses managers for the same set of input events\u0027,\n"
+            }
+          ]
+        }
+      ],
+      "revId": "612f5a6190f16ae82ab775618903372ba49f096f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
