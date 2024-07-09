@@ -51,8 +51,7 @@ class MaxPotentialFID extends Metric {
     };
   }
 
-  static override compute(data: MetricComputationDataInput, extras?: Omit<Extras, 'optimistic'>):
-      Promise<MetricResult> {
+  static override compute(data: MetricComputationDataInput, extras?: Omit<Extras, 'optimistic'>): MetricResult {
     const fcpResult = extras?.fcpResult;
     if (!fcpResult) {
       throw new Error('FCP is required to calculate the Max Potential FID metric');
