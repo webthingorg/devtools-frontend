@@ -231,6 +231,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a7210864_8284ed06",
+        "filename": "test/conductor/paths.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1458307
+      },
+      "writtenOn": "2024-07-09T14:28:07Z",
+      "side": 1,
+      "message": "What does build.js look like in that scenario? We want that scenario to be false as it should be treated like a devtools only checkout, right?",
+      "parentUuid": "17b8ef58_4e308681",
+      "revId": "a049e14f9e23f055a8e4715f18649095f8241693",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2218a45a_706f19de",
         "filename": "test/run.ts",
         "patchSetId": 4
