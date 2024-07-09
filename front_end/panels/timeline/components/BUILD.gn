@@ -17,6 +17,7 @@ generate_css("css_files") {
     "sidebar.css",
     "sidebarAnnotationsTab.css",
     "sidebarInsight.css",
+    "sidebarSingleNavigation.css",
     "timeRangeOverlay.css",
     "timespanBreakdownOverlay.css",
   ]
@@ -36,6 +37,7 @@ devtools_module("components") {
     "Sidebar.ts",
     "SidebarAnnotationsTab.ts",
     "SidebarInsight.ts",
+    "SidebarSingleNavigation.ts",
     "TimeRangeOverlay.ts",
     "TimespanBreakdownOverlay.ts",
     "Utils.ts",

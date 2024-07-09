@@ -1554,6 +1554,10 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     } finally {
       this.recordTraceLoadMetric();
     }
+
+    setTimeout(() => {
+      this.#showSidebar();
+    }, 100);
   }
 
   recordTraceLoadMetric(): void {
