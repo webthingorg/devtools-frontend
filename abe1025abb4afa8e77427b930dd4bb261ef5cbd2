@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f43aeb3_d7dae3d7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-09T08:50:31Z",
+      "side": 1,
+      "message": "Prompt LGTM, how does it look with the evaluation?",
+      "revId": "abe1025abb4afa8e77427b930dd4bb261ef5cbd2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
