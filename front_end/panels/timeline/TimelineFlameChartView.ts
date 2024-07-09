@@ -14,6 +14,7 @@ import * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as VisualLogging from '../../ui/visual_logging/visual_logging.js';
 
+import * as TimelineComponents from './components/components.js';
 import {CountersGraph} from './CountersGraph.js';
 import {SHOULD_SHOW_EASTER_EGG} from './EasterEgg.js';
 import {ModificationsManager} from './ModificationsManager.js';
@@ -115,7 +116,7 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
   #timeRangeSelectionOverlay: TimeRangeLabel|null = null;
 
   #timespanBreakdownOverlay: TimespanBreakdown|null = null;
-  #sidebarInsightToggled: Boolean = false;
+  #sidebarInsightToggled: TimelineComponents.Sidebar.ToggledInsight|null = null;
 
   #tooltipElement = document.createElement('div');
 
@@ -253,17 +254,24 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     TraceBounds.TraceBounds.onChange(this.#onTraceBoundsChangeBound);
   }
 
-  toggleSidebarInsights(): void {
-    this.#sidebarInsightToggled = !this.#sidebarInsightToggled;
-    if (this.#sidebarInsightToggled) {
-      this.#timespanBreakdownOverlay = this.createLCPPhaseOverlay();
-      if (this.#timespanBreakdownOverlay) {
-        this.addOverlay(this.#timespanBreakdownOverlay);
-      }
+  toggleSidebarInsights(insight: TimelineComponents.Sidebar.ToggledInsight): void {
+    // un-toggle insight
+    if (this.#sidebarInsightToggled === insight) {
+      this.#sidebarInsightToggled = null;
     } else {
-      if (this.#timespanBreakdownOverlay) {
-        this.removeOverlay(this.#timespanBreakdownOverlay);
-      }
+      this.#sidebarInsightToggled = insight;
+    }
+    // clean up overlays
+    if (this.#timespanBreakdownOverlay) {
+      this.removeOverlay(this.#timespanBreakdownOverlay);
+    }
+
+    switch (this.#sidebarInsightToggled) {
+      case TimelineComponents.Sidebar.ToggledInsight.LcpPhases:
+        this.#timespanBreakdownOverlay = this.createLCPPhaseOverlay();
+        if (this.#timespanBreakdownOverlay) {
+          this.addOverlay(this.#timespanBreakdownOverlay);
+        }
     }
   }
 
@@ -404,7 +412,7 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
       this.#traceInsightsData = insights;
     }
     // Disable selected insight overlay by default with new insight data.
-    this.#sidebarInsightToggled = false;
+    this.#sidebarInsightToggled = null;
   }
 
   /**

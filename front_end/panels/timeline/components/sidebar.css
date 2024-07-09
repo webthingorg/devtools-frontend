@@ -121,6 +121,29 @@ devtools-select-menu {
 .insight-description {
   border-bottom: 1px solid var(--sys-color-outline);
   padding-bottom: 10px;
+
+  .insight-entry {
+    display: flex;
+    align-items: center;
+    column-gap: 3px;
+  }
+
+  .insight-results {
+    padding-block: 3px;
+  }
+}
+
+.insight-content {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.element-img {
+  margin: 5px;
+  object-fit: contain;
+  border: 1px solid var(--sys-color-outline);
+  width: 30%;
 }
 
 .link {

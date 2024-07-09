@@ -36,6 +36,7 @@ export type LCPInsightResult = InsightResult<{
   shouldRemoveLazyLoading?: boolean,
   shouldIncreasePriorityHint?: boolean,
   shouldPreloadImage?: boolean,
+  lcpImage?: string,
 }>;
 
 /**

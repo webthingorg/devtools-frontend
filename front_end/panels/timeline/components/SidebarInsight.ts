@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import type * as Handlers from '../../../models/trace/handlers/handlers.js';
+import {type LCPInsightResult} from '../../../models/trace/insights/types.js';
 import type * as TraceEngine from '../../../models/trace/trace.js';
 import * as ComponentHelpers from '../../../ui/components/helpers/helpers.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
@@ -15,46 +16,52 @@ export interface InsightDetails {
 }
 
 export function getLCPInsightData(insights: TraceEngine.Insights.Types.TraceInsightData<typeof Handlers.ModelHandlers>|
-                                  null):
-    Array<{phase: string, timing: number | TraceEngine.Types.Timing.MilliSeconds, percent: string}> {
+                                  null): {
+  phaseData: Array<{phase: string, timing: number | TraceEngine.Types.Timing.MilliSeconds, percent: string}>,
+  insight: LCPInsightResult|null,
+} {
   if (!insights) {
-    return [];
+    return {phaseData: [], insight: null};
   }
-  // For now, use the first navigation of the trace.
+  // For now use the first navigation of the trace.
   const firstNav = insights.values().next().value;
   if (!firstNav) {
-    return [];
+    return {phaseData: [], insight: null};
   }
-  const lcpInsight = firstNav.LargestContentfulPaint;
+  const lcpInsight: LCPInsightResult = firstNav.LargestContentfulPaint;
   if (lcpInsight instanceof Error) {
-    return [];
+    return {phaseData: [], insight: null};
   }
 
   const timing = lcpInsight.lcpMs;
   const phases = lcpInsight.phases;
 
   if (!timing || !phases) {
-    return [];
+    return {phaseData: [], insight: null};
   }
 
   const {ttfb, loadDelay, loadTime, renderDelay} = phases;
 
+  let phaseData;
   if (loadDelay && loadTime) {
-    const phaseData = [
+    phaseData = [
       {phase: 'Time to first byte', timing: ttfb, percent: `${(100 * ttfb / timing).toFixed(0)}%`},
       {phase: 'Resource load delay', timing: loadDelay, percent: `${(100 * loadDelay / timing).toFixed(0)}%`},
       {phase: 'Resource load duration', timing: loadTime, percent: `${(100 * loadTime / timing).toFixed(0)}%`},
       {phase: 'Resource render delay', timing: renderDelay, percent: `${(100 * renderDelay / timing).toFixed(0)}%`},
     ];
-    return phaseData;
+  } else {
+    // If the lcp is text, we only have ttfb and render delay.
+    phaseData = [
+      {phase: 'Time to first byte', timing: ttfb, percent: `${(100 * ttfb / timing).toFixed(0)}%`},
+      {phase: 'Resource render delay', timing: renderDelay, percent: `${(100 * renderDelay / timing).toFixed(0)}%`},
+    ];
   }
 
-  // If the lcp is text, we only have ttfb and render delay.
-  const phaseData = [
-    {phase: 'Time to first byte', timing: ttfb, percent: `${(100 * ttfb / timing).toFixed(0)}%`},
-    {phase: 'Resource render delay', timing: renderDelay, percent: `${(100 * renderDelay / timing).toFixed(0)}%`},
-  ];
-  return phaseData;
+  return {
+    phaseData,
+    insight: lcpInsight,
+  };
 }
 
 export function renderLCPPhases(

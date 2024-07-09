@@ -460,8 +460,10 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
 
     this.#sideBar.setMainWidget(this.timelinePane);
     this.#sideBar.show(this.element);
-    this.#sideBar.contentElement.addEventListener(
-        TimelineComponents.Sidebar.ToggleSidebarInsights.eventName, this.#sidebarInsightEnabled.bind(this));
+    this.#sideBar.contentElement.addEventListener(TimelineComponents.Sidebar.ToggleSidebarInsights.eventName, event => {
+      const toggledInsight = (event as TimelineComponents.Sidebar.ToggleSidebarInsights).toggledInsight;
+      this.flameChart.toggleSidebarInsights(toggledInsight);
+    });
   }
 
   #showSidebar(): void {
@@ -475,10 +477,6 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
   #hideSidebar(): void {
     this.#minimapComponent.showSidebarFloatingIcon();
     this.#sideBar.hideSidebar();
-  }
-
-  #sidebarInsightEnabled(): void {
-    this.flameChart.toggleSidebarInsights();
   }
 
   static instance(opts: {

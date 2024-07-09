@@ -5,6 +5,7 @@
 import * as Common from '../../../core/common/common.js';
 import * as i18n from '../../../core/i18n/i18n.js';
 import type * as Handlers from '../../../models/trace/handlers/handlers.js';
+import {type LCPInsightResult} from '../../../models/trace/insights/types.js';
 import * as TraceEngine from '../../../models/trace/trace.js';
 import * as Dialogs from '../../../ui/components/dialogs/dialogs.js';
 import * as ComponentHelpers from '../../../ui/components/helpers/helpers.js';
@@ -33,10 +34,15 @@ enum InsightsCategories {
   OTHER = 'Other',
 }
 
+export enum ToggledInsight {
+  LcpPhases = 'LCP_Phases',
+  LcpDiscovery = 'LCP_Discovery',
+}
+
 export class ToggleSidebarInsights extends Event {
   static readonly eventName = 'toggleinsightclick';
 
-  constructor() {
+  constructor(public toggledInsight: ToggledInsight) {
     super(ToggleSidebarInsights.eventName, {bubbles: true, composed: true});
   }
 }
@@ -85,6 +91,7 @@ export class SidebarUI extends HTMLElement {
   #activeTab: SidebarTabsName = SidebarTabsName.INSIGHTS;
   selectedCategory: InsightsCategories = InsightsCategories.ALL;
   #lcpPhasesExpanded: boolean = false;
+  #lcpDiscoveryExpanded: boolean = false;
 
   #traceParsedData?: TraceEngine.Handlers.Types.TraceParseData|null;
   #inpMetric: {
@@ -97,6 +104,7 @@ export class SidebarUI extends HTMLElement {
     clsScoreClassification: TraceEngine.Handlers.ModelHandlers.PageLoadMetrics.ScoreClassification,
   }|null = null;
   #phaseData: Array<{phase: string, timing: number|TraceEngine.Types.Timing.MilliSeconds, percent: string}> = [];
+  #lcpInsight: LCPInsightResult|null = null;
   #insights: TraceEngine.Insights.Types.TraceInsightData<typeof Handlers.ModelHandlers>|null = null;
 
   #renderBound = this.#render.bind(this);
@@ -119,9 +127,12 @@ export class SidebarUI extends HTMLElement {
       return;
     }
     this.#insights = insights;
-    this.#phaseData = SidebarInsight.getLCPInsightData(this.#insights);
+    const insightData = SidebarInsight.getLCPInsightData(this.#insights);
+    this.#phaseData = insightData.phaseData;
+    this.#lcpInsight = insightData.insight;
     // Reset toggled insights.
     this.#lcpPhasesExpanded = false;
+    this.#lcpDiscoveryExpanded = false;
     void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#renderBound);
   }
 
@@ -243,7 +254,17 @@ export class SidebarUI extends HTMLElement {
 
   #toggleLCPPhaseClick(): void {
     this.#lcpPhasesExpanded = !this.#lcpPhasesExpanded;
-    this.dispatchEvent(new ToggleSidebarInsights());
+    // close other sidebar insights.
+    this.#lcpDiscoveryExpanded = false;
+    this.dispatchEvent(new ToggleSidebarInsights(ToggledInsight.LcpPhases));
+    void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#renderBound);
+  }
+
+  #toggleLCPDiscoveryClick(): void {
+    this.#lcpDiscoveryExpanded = !this.#lcpDiscoveryExpanded;
+    // close other sidebar insights.
+    this.#lcpPhasesExpanded = false;
+    this.dispatchEvent(new ToggleSidebarInsights(ToggledInsight.LcpDiscovery));
     void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#renderBound);
   }
 
@@ -258,12 +279,14 @@ export class SidebarUI extends HTMLElement {
           </div>
           <div class="insights" @click=${this.#toggleLCPPhaseClick}>${
             SidebarInsight.renderLCPPhases(this.#phaseData, this.#lcpPhasesExpanded)}</div>
+          <div class="insights" @click=${this.#toggleLCPDiscoveryClick}>${this.#renderLCPDiscovery()}</div>
         `;
       case InsightsCategories.LCP:
         return LitHtml.html`
           ${this.#renderLCPMetric()}
           <div class="insights" @click=${this.#toggleLCPPhaseClick}>${
             SidebarInsight.renderLCPPhases(this.#phaseData, this.#lcpPhasesExpanded)}</div>
+          <div class="insights" @click=${this.#toggleLCPDiscoveryClick}>${this.#renderLCPDiscovery()}</div>
         `;
       case InsightsCategories.CLS:
         return LitHtml.html`${this.#renderCLSMetric()}`;
@@ -272,6 +295,74 @@ export class SidebarUI extends HTMLElement {
       case InsightsCategories.OTHER:
         return LitHtml.html`<div>${insightsCategory}</div>`;
     }
+  }
+
+  #renderLCPDiscovery(): LitHtml.LitTemplate {
+    const lcpTitle = 'LCP request discovery';
+
+    if (this.#lcpInsight === null) {
+      return LitHtml.nothing;
+    }
+
+    const shouldIncreasePriorityHint = this.#lcpInsight.shouldIncreasePriorityHint;
+    const shouldPreloadImage = this.#lcpInsight.shouldPreloadImage;
+    const shouldRemoveLazyLoading = this.#lcpInsight.shouldRemoveLazyLoading;
+
+    const imageLCP = shouldIncreasePriorityHint !== undefined && shouldPreloadImage !== undefined &&
+        shouldRemoveLazyLoading !== undefined;
+
+    // Shouldn't render anything if lcp insight is null or lcp is text.
+    if (this.#lcpInsight === null || !imageLCP) {
+      return LitHtml.nothing;
+    }
+
+    function adviceIcon(advice: boolean): LitHtml.TemplateResult {
+      const icon = advice ? 'check-circle' : 'clear';
+
+      return LitHtml.html`
+        <${IconButton.Icon.Icon.litTagName}
+        name=${icon}
+        class=${advice ? 'metric-value-good' : 'metric-value-bad'}
+        ></${IconButton.Icon.Icon.litTagName}>
+      `;
+    }
+    // clang-format off
+    if (this.#lcpDiscoveryExpanded) {
+      return LitHtml.html`
+        <${SidebarInsight.SidebarInsight.litTagName} .data=${{
+            title: lcpTitle,
+            expanded: this.#lcpDiscoveryExpanded,
+          } as SidebarInsight.InsightDetails}>
+          <div slot="insight-description" class="insight-description">
+            The LCP image should be requested as early as possible.
+            <div class="insight-results">
+              <div class="insight-entry">
+                  ${adviceIcon(shouldIncreasePriorityHint)}
+                  fetchpriority=high applied
+              </div>
+              <div class="insight-entry">
+                ${adviceIcon(shouldPreloadImage)}
+                  Request is discoverable in initial document
+              </div>
+              <div class="insight-entry">
+                ${adviceIcon(shouldRemoveLazyLoading)}
+                lazyload not applied
+              </div>
+            </div>
+          </div>
+          <div slot="insight-content" class="insight-content">
+            <img class="element-img" data-src=${this.#lcpInsight.lcpImage} src=${this.#lcpInsight.lcpImage}>
+            <div>${Common.ParsedURL.ParsedURL.extractName(this.#lcpInsight.lcpImage ?? '')}</div>
+          </div>
+        </${SidebarInsight.SidebarInsight}>`;
+    }
+      return LitHtml.html`
+      <${SidebarInsight.SidebarInsight.litTagName} .data=${{
+            title: lcpTitle,
+            expanded: this.#lcpDiscoveryExpanded,
+          } as SidebarInsight.InsightDetails}>
+        </${SidebarInsight.SidebarInsight}>`;
+    // clang-format on
   }
 
   #renderInsightsTabContent(): LitHtml.TemplateResult {
