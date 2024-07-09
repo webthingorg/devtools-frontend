@@ -33,6 +33,23 @@
       "message": "Thanks for finding and fixing this, Kim!:) LGTM!",
       "revId": "f4ef771fdca88d2c384c6f7f26b38b0e35c86b1c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2cd3d0c9_f201afd6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-07-09T08:35:34Z",
+      "side": 1,
+      "message": "Thanks for the review, Kateryna! :)",
+      "revId": "f4ef771fdca88d2c384c6f7f26b38b0e35c86b1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
