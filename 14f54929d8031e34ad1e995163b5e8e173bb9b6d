@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1d30c6a_b70027ff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-09T08:19:41Z",
+      "side": 1,
+      "message": "this is looking great btw, but I had a thought about the behaviour and if we should not try to drop any `devtools` property",
+      "revId": "14f54929d8031e34ad1e995163b5e8e173bb9b6d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2af719b2_1ffb90b1",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1253,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-09T08:19:41Z",
+      "side": 1,
+      "message": "(if we do update this to not remove the `devtools` key, we should remove this comment)",
+      "range": {
+        "startLine": 1253,
+        "startChar": 0,
+        "endLine": 1253,
+        "endChar": 79
+      },
+      "revId": "14f54929d8031e34ad1e995163b5e8e173bb9b6d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8e2f3fb_f0bf1144",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1265,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-09T08:19:41Z",
+      "side": 1,
+      "message": "thinking about it, I am not sure we should do this.\n\nI spoke with Andrés, who confirmed that the Timings track already has any extension events removed when we render it. \n\nSo if we get to this point in the code, what I think it might mean is that the user has done a `performance.measure` (or mark) that happens to have a `devtools` key in...and I think in that case we should probably show it rather than silently drop it.\n\n\nSo I would suggest we remove this check here. wdyt?",
+      "range": {
+        "startLine": 1263,
+        "startChar": 6,
+        "endLine": 1265,
+        "endChar": 7
+      },
+      "revId": "14f54929d8031e34ad1e995163b5e8e173bb9b6d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
