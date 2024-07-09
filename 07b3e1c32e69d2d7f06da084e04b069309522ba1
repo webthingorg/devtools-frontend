@@ -1,0 +1,68 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5588b0f5_62d7fcf3",
+        "filename": "front_end/panels/timeline/ModificationsManager.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-09T09:50:20Z",
+      "side": 1,
+      "message": "nit: let\u0027s be a bit more specific: `UpdateLabel` ?",
+      "range": {
+        "startLine": 14,
+        "startChar": 43,
+        "endLine": 14,
+        "endChar": 49
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "80b8e1d8_7bf5711e",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/ModificationsManager.ts",
+              "range": {
+                "startLine": 14,
+                "startChar": 0,
+                "endLine": 15,
+                "endChar": 0
+              },
+              "replacement": "export type UpdateAction \u003d \u0027Remove\u0027|\u0027Add\u0027|\u0027UpdateLabel\u0027;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "07b3e1c32e69d2d7f06da084e04b069309522ba1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71358303_9eb9b211",
+        "filename": "front_end/panels/timeline/components/EntryLabelOverlay.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-09T09:50:20Z",
+      "side": 1,
+      "message": "Sorry I missed this before - but what is the reason for putting these here rather than using the lit-html `@keydown\u003d${this.#handleLabelInputKeyDown}` ?\n\nThat way you also don\u0027t have to worry about the removing of the listeners either as Lit will do it all",
+      "range": {
+        "startLine": 83,
+        "startChar": 3,
+        "endLine": 86,
+        "endChar": 77
+      },
+      "revId": "07b3e1c32e69d2d7f06da084e04b069309522ba1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
