@@ -33,6 +33,24 @@
       "message": "lgtm!\n\ndo we need to let partners know in terms of when this is landing; does this break any of the PoCs you\u0027ve sent?",
       "revId": "99d4dc19504b2aad88048deb50fb2912d413d4c2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "afffc941_e455b4d7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-07-09T09:20:06Z",
+      "side": 1,
+      "message": "it does break the PoCs and they need to be updated before landing. I thought about keeping backwards compatibility but I think we are too early in the rollout stage to add this extra complexity to the codebase, so I\u0027d rather communicate our partners (they were aware of the experimental status) and update the pending PoC.\n \nWe still have more than a month before these changes make it to stable, so that gives us some buffer.",
+      "parentUuid": "1e7991c0_0a1c5ec0",
+      "revId": "99d4dc19504b2aad88048deb50fb2912d413d4c2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
