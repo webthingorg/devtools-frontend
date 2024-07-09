@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "861eb9d5_1de2aea1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-09T08:10:26Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "cb29e9ffbf3f24333e0bc129dd60d078c03fa43c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35fa339d_1cff0408",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1991,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-09T08:10:26Z",
+      "side": 1,
+      "message": "much clearer, thank you!",
+      "range": {
+        "startLine": 1990,
+        "startChar": 2,
+        "endLine": 1991,
+        "endChar": 89
+      },
+      "revId": "cb29e9ffbf3f24333e0bc129dd60d078c03fa43c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
