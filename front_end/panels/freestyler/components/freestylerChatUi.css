@@ -38,9 +38,10 @@
   height: var(--sys-size-11);
   border-radius: 4px;
   border: 1px solid var(--sys-color-neutral-outline);
-  padding-left: 2px;
+  padding: 0 2px;
   width: 100%;
   display: flex;
+  background-color: var(--sys-color-cdt-base);
 }
 
 .chat-input {
@@ -54,7 +55,7 @@
   outline: none;
 }
 
-.chat-input-container:has(.chat-input:focus-visible) {
+.chat-input .chat-input-container:has(.chat-input:focus-visible) {
   outline: 1px solid var(--sys-color-primary);
 }
 
