@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "62215774_85d8b013",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-07-09T11:52:39Z",
+      "side": 1,
+      "message": "The callbacks may end up not being called. how about just leaving this sentence out? or leave it, this is very nitpicky :D",
+      "parentUuid": "159ac303_6b06a716",
+      "revId": "c59378aedc3e1e045055087f66377d60addd1282",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e5ba89a5_857d6ca0",
