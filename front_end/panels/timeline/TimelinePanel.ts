@@ -756,7 +756,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     if (this.fileSelectorElement) {
       this.fileSelectorElement.remove();
     }
-    this.fileSelectorElement = UI.UIUtils.createFileSelectorElement(this.loadFromFile.bind(this));
+    this.fileSelectorElement = UI.UIUtils.createFileSelectorElement(this.loadFromFile.bind(this), '.json,.gz');
     this.timelinePane.element.appendChild(this.fileSelectorElement);
   }
 
