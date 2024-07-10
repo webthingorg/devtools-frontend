@@ -169,14 +169,38 @@ export class ModificationsManager extends EventTarget {
         this.#entriesFilter.expandableEntries()
             .map(entry => this.#eventsSerializer.keyForEvent(entry))
             .filter(entry => entry !== null) as TraceEngine.Types.File.TraceEventSerializableKey[];
+
     this.#modifications = {
       entriesModifications: {
         hiddenEntries: hiddenEntries,
         expandableEntries: expandableEntries,
       },
       initialBreadcrumb: this.#timelineBreadcrumbs.initialBreadcrumb,
+      annotations: this.annotationsJSON(),
     };
     return this.#modifications;
+  }
+
+  annotationsJSON(): TraceEngine.Types.File.SerializedAnnotations {
+    const annotations = this.getAnnotations();
+    const entryLabelsSerialized: TraceEngine.Types.File.EntryLabelAnnotationSerialized[] = [];
+
+    for (let i = 0; i < annotations.length; i++) {
+      if (annotations[i].type === 'ENTRY_LABEL') {
+        const serializedEvent = this.#eventsSerializer.keyForEvent(annotations[i].entry);
+        if (serializedEvent) {
+          entryLabelsSerialized.push({
+            type: 'ENTRY_LABEL',
+            entry: serializedEvent,
+            label: annotations[i].label,
+          });
+        }
+      }
+    }
+
+    return {
+      entryLabels: entryLabelsSerialized,
+    };
   }
 
   applyModificationsIfPresent(): void {

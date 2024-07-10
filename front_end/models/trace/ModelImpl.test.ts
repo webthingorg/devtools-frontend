@@ -127,6 +127,9 @@ describeWithEnvironment('TraceModel', function() {
     const modifications = {
       entriesModifications,
       initialBreadcrumb,
+      annotations: {
+        entryLabels: [],
+      },
     };
 
     model.overrideModifications(0, modifications);
