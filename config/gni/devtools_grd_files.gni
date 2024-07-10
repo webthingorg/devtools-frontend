@@ -1344,6 +1344,8 @@ grd_files_debug_sources = [
   "front_end/panels/freestyler/FreestylerAgent.js",
   "front_end/panels/freestyler/FreestylerEvaluateAction.js",
   "front_end/panels/freestyler/FreestylerPanel.js",
+  "front_end/panels/freestyler/components/AiRatings.css.js",
+  "front_end/panels/freestyler/components/AiRatings.js",
   "front_end/panels/freestyler/components/FreestylerChatUi.js",
   "front_end/panels/freestyler/components/freestylerChatUi.css.js",
   "front_end/panels/freestyler/freestylerPanel.css.js",
