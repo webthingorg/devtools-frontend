@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "418ae683_d77d9355",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-07-10T23:28:42Z",
+      "side": 1,
+      "message": "one could stuff these two methods in a common test module and make them generic on the handlers run and which insight should be mocked ... but sometimes a few lines of simple code being duplicated is easiest to read, and I think this is one of those times.",
+      "revId": "9d0b228e21442241d3b2be66d2a7f131d32f4b36",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
