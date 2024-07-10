@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "436c8a38_28471acb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-10T13:22:11Z",
+      "side": 1,
+      "message": "Hey Danil, I\u0027m a bit stuck on fixing this test failure. It seems like there are missing impressions but I don\u0027t know how to fix it. Can you PTAL?",
+      "revId": "76a4e90dcf1867983aaca315e26ad5dd5a1f3505",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
