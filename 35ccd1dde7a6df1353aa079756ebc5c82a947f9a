@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a556d9e9_707d1fd5",
+        "filename": "front_end/models/trace/Processor.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-07-10T19:47:49Z",
+      "side": 1,
+      "message": "That\u0027s right - only if it is not a LanternError, though.\n\nI\u0027ll reign this in more and simply log an error.",
+      "parentUuid": "e5b3a4fb_d225cf14",
+      "revId": "35ccd1dde7a6df1353aa079756ebc5c82a947f9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e0668058_a61f5a21",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-07-10T19:12:19Z",
       "side": 1,
       "message": "I thought this error would be thrown in the insight runner not while creating a lantern context.",
+      "revId": "35ccd1dde7a6df1353aa079756ebc5c82a947f9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "677bc008_fe41fd24",
+        "filename": "front_end/models/trace/Processor.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-07-10T19:47:49Z",
+      "side": 1,
+      "message": "That\u0027s right, removed.",
+      "parentUuid": "e0668058_a61f5a21",
       "revId": "35ccd1dde7a6df1353aa079756ebc5c82a947f9a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
