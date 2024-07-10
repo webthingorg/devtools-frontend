@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0f7815b_fee44774",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-07-10T19:24:01Z",
+      "side": 1,
+      "message": "just some small clarifying questions, but generally the structure feels good to me! niice 😊",
+      "revId": "f969d9f07eb6c71a03b54525707e8b55b3dfc9af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b10ae51_20482c53",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1558,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-07-10T19:24:01Z",
+      "side": 1,
+      "message": "playing around with this cl, i didn\u0027t really notice the difference with this. maybe im missing the reasoning behind this :) what is this for?",
+      "revId": "f969d9f07eb6c71a03b54525707e8b55b3dfc9af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "573cb81e_ef4dc49f",
+        "filename": "front_end/panels/timeline/components/Sidebar.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-07-10T19:24:01Z",
+      "side": 1,
+      "message": "is this for later?",
+      "range": {
+        "startLine": 298,
+        "startChar": 6,
+        "endLine": 301,
+        "endChar": 28
+      },
+      "revId": "f969d9f07eb6c71a03b54525707e8b55b3dfc9af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
