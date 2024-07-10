@@ -16,6 +16,41 @@
       "message": "whoa, this is an awesome solution! I didn\u0027t know this existed :)\n\nthough, the UI there looks a bit weird now compared with other settings tabs considering that the contents of the other tabs arranged in a way that doesn\u0027t require horizontal scrolling.\n\nI wonder if it makes sense to find a way to render this tab as well in a more vertical fashion. (don\u0027t think this is high priority but it might be good to consider in the coming times 😊)",
       "revId": "937068c6ff5fe7eaf737f6ac9763af6a0db04348",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ed1e505_c0ceebef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-07-10T09:12:06Z",
+      "side": 1,
+      "message": "Thanks a lot for the review, Ergün!",
+      "revId": "937068c6ff5fe7eaf737f6ac9763af6a0db04348",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd89f203_f7c544cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-07-10T09:12:06Z",
+      "side": 1,
+      "message": "Neither did I! Spent some time on stack overflow and was happy to find a solution that was quite neat 😄.\n\nI agree with you! With GM3 we\u0027ll change the design a bit, and potentially this problem will go away with that. Will note this problem down!",
+      "parentUuid": "44e2b739_2e71dd20",
+      "revId": "937068c6ff5fe7eaf737f6ac9763af6a0db04348",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
