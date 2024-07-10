@@ -240,11 +240,9 @@ luci.list_view(
 )
 
 cq_main = struct(
-    builders = [
+    devtools_builders = [
         "cpp_debug_extension_e2e_dbg",
         "cpp_debug_extension_e2e_rel",
-        "devtools_frontend_linux_blink_light_rel",
-        "devtools_frontend_linux_blink_light_rel_fastbuild",
         "devtools_frontend_linux_dbg",
         "devtools_frontend_linux_dbg_fastbuild",
         "devtools_frontend_linux_rel",
@@ -256,6 +254,10 @@ cq_main = struct(
         "dtf_win_rel",
         "dtf_presubmit_linux",
         "dtf_presubmit_win64",
+    ],
+    chromium_builders = [
+        "devtools_frontend_linux_blink_light_rel",
+        "devtools_frontend_linux_blink_light_rel_fastbuild",
     ],
     experiment_builders = {
         # Quarantine a builder here
@@ -285,6 +287,19 @@ def experiment_builder(builder):
 def includable_only_builder(builder):
     return builder in cq_main.includable_only_builders
 
+def branch_verifiers(with_chromium = True):
+    return [
+        luci.cq_tryjob_verifier(
+            builder = builder,
+            disable_reuse = ("presubmit" in builder),
+            experiment_percentage = experiment_builder(builder),
+            includable_only = includable_only_builder(builder),
+        )
+        for builder in cq_main.devtools_builders + (
+            cq_main.chromium_builders if with_chromium else []
+        )
+    ]
+
 luci.cq_group(
     name = "main",
     watch = cq.refset(
@@ -294,15 +309,7 @@ luci.cq_group(
     acls = cq_acls,
     tree_status_host = "devtools-status.appspot.com",
     retry_config = cq_retry_config,
-    verifiers = [
-        luci.cq_tryjob_verifier(
-            builder = builder,
-            disable_reuse = ("presubmit" in builder),
-            experiment_percentage = experiment_builder(builder),
-            includable_only = includable_only_builder(builder),
-        )
-        for builder in cq_main.builders
-    ],
+    verifiers = branch_verifiers(),
 )
 
 luci.cq_group(
@@ -316,4 +323,15 @@ luci.cq_group(
     verifiers = [
         luci.cq_tryjob_verifier(builder = "dtf_presubmit_linux", disable_reuse = True),
     ],
+)
+
+luci.cq_group(
+    name = "branch-cq",
+    watch = cq.refset(
+        repo = "https://chromium.googlesource.com/devtools/devtools-frontend",
+        refs = ["refs/heads/chromium/.+"],
+    ),
+    retry_config = cq_retry_config,
+    acls = cq_acls,
+    verifiers = branch_verifiers(with_chromium = False),
 )
