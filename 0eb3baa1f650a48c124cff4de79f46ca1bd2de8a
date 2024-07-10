@@ -16,6 +16,29 @@
       "message": "ptal",
       "revId": "0eb3baa1f650a48c124cff4de79f46ca1bd2de8a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "397f9680_bfca56bb",
+        "filename": "front_end/models/trace/lantern/simulation/Simulator.test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-07-10T10:37:26Z",
+      "side": 1,
+      "message": "should we move this to the top level `describe` since that\u0027s where `loadTrace` is called?",
+      "range": {
+        "startLine": 380,
+        "startChar": 0,
+        "endLine": 380,
+        "endChar": 39
+      },
+      "revId": "0eb3baa1f650a48c124cff4de79f46ca1bd2de8a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
