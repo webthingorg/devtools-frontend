@@ -92,6 +92,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "57cb27d3_7a21fb2d",
+        "filename": "front_end/models/trace/Processor.test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-10T09:34:30Z",
+      "side": 1,
+      "message": "If we don\u0027t think we will fix up this test shortly after landing this CL, please can we just delete it?\n\nLet\u0027s not land with it skipped and plan to come back to it; realistically this is never going to be high enough up the priority list.\n\nIf we can mock something to cause an error, great, but if not, let\u0027s leave it. I wouldn\u0027t like to make a method public purely so we can mock it in this test.",
+      "parentUuid": "64f677c7_5fb152ff",
+      "revId": "b8125457570956670bb39657a572698a39b8a8cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "862d99f4_28592652",
         "filename": "front_end/models/trace/Processor.ts",
         "patchSetId": 2
