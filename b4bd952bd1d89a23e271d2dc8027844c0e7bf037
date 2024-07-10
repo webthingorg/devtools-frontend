@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d614308_25ecbf78",
+        "filename": "test/run.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-07-10T08:50:47Z",
+      "side": 1,
+      "message": "Does this also build the unit test targets?",
+      "range": {
+        "startLine": 231,
+        "startChar": 10,
+        "endLine": 231,
+        "endChar": 56
+      },
+      "revId": "b4bd952bd1d89a23e271d2dc8027844c0e7bf037",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
