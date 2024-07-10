@@ -114,6 +114,21 @@ async function executeJsCode(code: string, {throwOnSideEffect}: {throwOnSideEffe
   }
 }
 
+const functions = `function getContrastRatio(color1, color2) {
+  function getLuminance(color) {
+    const rgb = color.match(/\\d+/g).map(Number);
+    const srgb = rgb.map(c => {
+      c /= 255;
+      return c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
+    });
+    return 0.2126 * srgb[0] + 0.7152 * srgb[1] + 0.0722 * srgb[2];
+  }
+
+  const lum1 = getLuminance(color1);
+  const lum2 = getLuminance(color2);
+  return (Math.max(lum1, lum2) + 0.05) / (Math.min(lum1, lum2) + 0.05);
+}`;
+
 type HistoryChunk = {
   text: string,
   entity: Host.AidaClient.Entity,
@@ -256,6 +271,8 @@ export class FreestylerAgent {
 
   #runId = 0;
   async * run(query: string, options?: {signal: AbortSignal}): AsyncGenerator<StepData|QueryStepData, void, void> {
+    await this.#execJs(functions, {throwOnSideEffect: false});
+
     const structuredLog = [];
     query = `QUERY: ${query}`;
     const currentRunId = ++this.#runId;
