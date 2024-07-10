@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "7311ead0_41ff600b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-07-10T11:55:02Z",
+      "side": 1,
+      "message": "Added the screenshot from the issue to the description.",
+      "parentUuid": "006c28c8_2e2ba84c",
+      "revId": "497bc820fb3f768ae6e2a0bbddd848f874e26bf4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "7573a509_4275e963",
