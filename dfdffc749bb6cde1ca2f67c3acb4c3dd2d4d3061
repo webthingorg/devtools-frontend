@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6608aff_84df66dc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-10T12:41:55Z",
+      "side": 1,
+      "message": "For UI, we discussed:\n* Marking the button disabled.\n* Space between the header and the close icon.\n* Margin top from the title.",
+      "revId": "dfdffc749bb6cde1ca2f67c3acb4c3dd2d4d3061",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
