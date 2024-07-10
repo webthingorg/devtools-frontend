@@ -118,6 +118,30 @@
       },
       "revId": "02abf3eff9e4a396ef7734d4e085a46a25786194",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "548c28b1_4d9ca29e",
+        "filename": "front_end/panels/sources/SourcesPanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-07-10T06:23:10Z",
+      "side": 1,
+      "message": "Good idea! Done. I am also struggling to imagine how to add a useful test for this, but I am open to ideas.",
+      "parentUuid": "f295d063_09046a63",
+      "range": {
+        "startLine": 495,
+        "startChar": 6,
+        "endLine": 496,
+        "endChar": 5
+      },
+      "revId": "02abf3eff9e4a396ef7734d4e085a46a25786194",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
