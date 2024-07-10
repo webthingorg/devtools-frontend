@@ -199,6 +199,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3b97892a_9e4f0b4b",
+        "filename": "front_end/models/trace/Processor.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-07-10T13:19:50Z",
+      "side": 1,
+      "message": "\u003e I also asked this about the Insights type before; I don\u0027t love the RequiredData\u003cGeneric\u003e type within the Insights types; I think we should similarly just hard code this to take the full Handlers.Types.TraceParseData type.\n\nSGTM",
+      "parentUuid": "9b1b3555_068922d1",
+      "revId": "b8125457570956670bb39657a572698a39b8a8cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6d8f85f2_66af5d2c",
         "filename": "front_end/models/trace/Processor.ts",
         "patchSetId": 2

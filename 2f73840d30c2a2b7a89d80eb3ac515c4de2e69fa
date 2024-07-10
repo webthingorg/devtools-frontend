@@ -211,6 +211,24 @@
       "parentUuid": "bd11119b_42cf08b0",
       "revId": "2f73840d30c2a2b7a89d80eb3ac515c4de2e69fa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc68f7ed_d5ded790",
+        "filename": "front_end/models/trace/insights/RenderBlocking.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-07-10T13:19:50Z",
+      "side": 1,
+      "message": "Edit: (RPRs don\u0027t affect most pages with an image LCP)",
+      "parentUuid": "aaca0b9a_eab6e3d2",
+      "revId": "2f73840d30c2a2b7a89d80eb3ac515c4de2e69fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
