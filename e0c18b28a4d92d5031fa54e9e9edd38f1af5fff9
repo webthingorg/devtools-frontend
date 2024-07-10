@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50b46406_0ca3d5d8",
+        "filename": "buckets/try.star",
+        "patchSetId": 2
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2024-07-10T07:53:39Z",
+      "side": 1,
+      "message": "Does devtools have any branch heads? Aren\u0027t the branches in refs/heads/chromium/* ?",
+      "range": {
+        "startLine": 328,
+        "startChar": 16,
+        "endLine": 328,
+        "endChar": 38
+      },
+      "revId": "e0c18b28a4d92d5031fa54e9e9edd38f1af5fff9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0273754b_f40d00dd",
+        "filename": "generated/commit-queue.cfg",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2024-07-10T07:53:39Z",
+      "side": 1,
+      "message": "I don\u0027t think the blink bots are going to work on branches. They\u0027ll try to pull chromium from main and add devtools from a release branch. This won\u0027t be compatible.\n\nOn V8 branch CQ we don\u0027t include the Chromium builders. A more advanced alternative would be to teach these builders to use the correct chromium branch refs. In Chromium, the respective builders are even versioned by branch.",
+      "range": {
+        "startLine": 37,
+        "startChar": 6,
+        "endLine": 40,
+        "endChar": 7
+      },
+      "revId": "e0c18b28a4d92d5031fa54e9e9edd38f1af5fff9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
