@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "23ee8831_733828df",
+        "filename": "front_end/models/trace/insights/RenderBlocking.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-07-10T18:06:53Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "f1dc09af_f5f79f69",
+      "revId": "2f73840d30c2a2b7a89d80eb3ac515c4de2e69fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1a6080ab_49a85795",
@@ -120,6 +138,24 @@
       "side": 1,
       "message": "I\u0027d like the other one to remain deterministic and not subject to variance. It should be a definitive list of what is render blocking.\n\nLet\u0027s revisit this when we have a concrete need to align them?",
       "parentUuid": "f547adca_7ecd3fdd",
+      "revId": "2f73840d30c2a2b7a89d80eb3ac515c4de2e69fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f907ae2a_592fde9d",
+        "filename": "front_end/models/trace/insights/RenderBlocking.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-07-10T18:06:53Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "3cd6d03e_674b9400",
       "revId": "2f73840d30c2a2b7a89d80eb3ac515c4de2e69fa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -227,6 +263,24 @@
       "side": 1,
       "message": "Edit: (RPRs don\u0027t affect most pages with an image LCP)",
       "parentUuid": "aaca0b9a_eab6e3d2",
+      "revId": "2f73840d30c2a2b7a89d80eb3ac515c4de2e69fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1585e98e_cea1effe",
+        "filename": "front_end/models/trace/insights/RenderBlocking.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-07-10T18:06:53Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "fc68f7ed_d5ded790",
       "revId": "2f73840d30c2a2b7a89d80eb3ac515c4de2e69fa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

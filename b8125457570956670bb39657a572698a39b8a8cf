@@ -108,6 +108,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e88920e3_99cb479a",
+        "filename": "front_end/models/trace/Processor.test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-07-10T18:06:53Z",
+      "side": 1,
+      "message": "Thanks, sinon was exactly what was needed. Test restored.",
+      "parentUuid": "57cb27d3_7a21fb2d",
+      "revId": "b8125457570956670bb39657a572698a39b8a8cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "862d99f4_28592652",
@@ -211,6 +229,24 @@
       "side": 1,
       "message": "\u003e I also asked this about the Insights type before; I don\u0027t love the RequiredData\u003cGeneric\u003e type within the Insights types; I think we should similarly just hard code this to take the full Handlers.Types.TraceParseData type.\n\nSGTM",
       "parentUuid": "9b1b3555_068922d1",
+      "revId": "b8125457570956670bb39657a572698a39b8a8cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8da37e61_b4fe5f7b",
+        "filename": "front_end/models/trace/Processor.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-07-10T18:06:53Z",
+      "side": 1,
+      "message": "Resolving here - I\u0027ll send a CL to refactor this.",
+      "parentUuid": "3b97892a_9e4f0b4b",
       "revId": "b8125457570956670bb39657a572698a39b8a8cf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -321,6 +357,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "299f7b98_05524994",
+        "filename": "front_end/models/trace/Processor.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-07-10T18:06:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6384220c_faf64ffa",
+      "revId": "b8125457570956670bb39657a572698a39b8a8cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "907afe0d_d8aff3b7",
@@ -334,6 +388,24 @@
       "writtenOn": "2024-07-09T00:24:25Z",
       "side": 1,
       "message": "I\u0027d like to send a CL that refactors all the insight tests to use the Trace Processor directly (skimmed down to just the handlers it needs, I guess) -\n\n1) easier to write test code\n2) tests are more useful when using public interface",
+      "revId": "b8125457570956670bb39657a572698a39b8a8cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec6e9cfb_3ccd881e",
+        "filename": "front_end/models/trace/insights/RenderBlocking.test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-07-10T18:06:53Z",
+      "side": 1,
+      "message": "Resolving - Adam agreed offline.",
+      "parentUuid": "907afe0d_d8aff3b7",
       "revId": "b8125457570956670bb39657a572698a39b8a8cf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -369,6 +441,24 @@
       "side": 1,
       "message": "node.type is already a union of string literals, and that provides enough type correctness and even IDE autocompletion to not warrant introducing an enum IMO",
       "parentUuid": "b43eeadf_0e1e37b1",
+      "revId": "b8125457570956670bb39657a572698a39b8a8cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ebb726f_cec7b26e",
+        "filename": "front_end/models/trace/insights/RenderBlocking.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-07-10T18:06:53Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "16521df4_75a8cbbf",
       "revId": "b8125457570956670bb39657a572698a39b8a8cf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -410,6 +500,30 @@
       "side": 1,
       "message": "I can inline this method, but I think it\u0027s less readable. I don\u0027t have another approach for splitting this up.",
       "parentUuid": "ebc2e84d_fae1be6b",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 24
+      },
+      "revId": "b8125457570956670bb39657a572698a39b8a8cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a933239_17831751",
+        "filename": "front_end/models/trace/insights/RenderBlocking.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-07-10T18:06:53Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "9fb1cca7_bdac0a85",
       "range": {
         "startLine": 88,
         "startChar": 0,
