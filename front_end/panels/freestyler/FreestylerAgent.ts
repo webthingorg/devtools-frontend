@@ -145,7 +145,7 @@ export class FreestylerAgent {
       chat_history: chatHistory,
       client: Host.AidaClient.CLIENT_NAME,
       options: {
-        temperature: config?.devToolsFreestylerDogfood.aidaTemperature ?? 0,
+        temperature: config?.devToolsFreestylerDogfood.aidaTemperature ?? 0.2,
         model_id: config?.devToolsFreestylerDogfood.aidaModelId ?? undefined,
       },
       metadata: {
