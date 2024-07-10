@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d40fc7d9_4dd5f5b4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-07-10T13:20:20Z",
+      "side": 1,
+      "message": "Hi Philip, PTAL, thanks! (This is to prepare the stylesheet better so that modifications for greyed out section can be done more easily)",
+      "revId": "85636066565120793daf5a1954ffae77a6c6e2e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
