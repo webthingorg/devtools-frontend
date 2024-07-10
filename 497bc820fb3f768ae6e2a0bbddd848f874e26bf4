@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7573a509_4275e963",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-10T11:42:26Z",
+      "side": 1,
+      "message": "LGTM with some comments % discussion on the UI later today :)",
+      "revId": "497bc820fb3f768ae6e2a0bbddd848f874e26bf4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6d5817d_ed1e220c",
+        "filename": "front_end/panels/freestyler/BUILD.gn",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-10T11:42:26Z",
+      "side": 1,
+      "message": "(nit): Can we make this `aiRatings.css` (lowercase first letter) to be consistent with the other parts of the codebase. I don\u0027t know why but somehow the CSS files for custom web components all start with lowercase :)",
+      "revId": "497bc820fb3f768ae6e2a0bbddd848f874e26bf4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db7282bf_33e10e63",
+        "filename": "front_end/panels/freestyler/components/AiRatings.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-10T11:42:26Z",
+      "side": 1,
+      "message": "Can we mark the button `disabled` for the non-selected rating so that the user won\u0027t be able to click it?\n\n---\n\n(I wonder if we should also allow changing the rating, do you know how is it in other apps?)",
+      "revId": "497bc820fb3f768ae6e2a0bbddd848f874e26bf4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef33e27e_a76ce561",
+        "filename": "front_end/panels/freestyler/components/AiRatings.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-10T11:42:26Z",
+      "side": 1,
+      "message": "(nit): I usually like keeping helper `render` functions as dumb as possible regarding the control structure and keep the control structure at the topmost level possible (like the `#render` function). So, WDYT of moving this check to the `#render` function?",
+      "revId": "497bc820fb3f768ae6e2a0bbddd848f874e26bf4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8aa24e5_ed53850a",
+        "filename": "front_end/panels/freestyler/components/AiRatings.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-10T11:42:26Z",
+      "side": 1,
+      "message": "(nit): `.step-actions` class is not used, so we can remove it :)",
+      "revId": "497bc820fb3f768ae6e2a0bbddd848f874e26bf4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7428729_54a2b26a",
+        "filename": "front_end/panels/freestyler/components/AiRatings.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-10T11:42:26Z",
+      "side": 1,
+      "message": "(nit): I believe `title` here shouldn\u0027t be `submit` but more like `close` :)",
+      "revId": "497bc820fb3f768ae6e2a0bbddd848f874e26bf4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1c24b0f0_e8c87b2b",
+        "filename": "front_end/panels/freestyler/components/AiRatings.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-10T11:42:26Z",
+      "side": 1,
+      "message": "(nit): `.step-actions` here as well",
+      "revId": "497bc820fb3f768ae6e2a0bbddd848f874e26bf4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "60d76ad0_07a6da74",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-10T11:42:26Z",
+      "side": 1,
+      "message": "Nice! I love that the logic for this part lives in a new component now :)",
+      "revId": "497bc820fb3f768ae6e2a0bbddd848f874e26bf4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
