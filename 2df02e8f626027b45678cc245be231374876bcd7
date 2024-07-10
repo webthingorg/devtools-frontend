@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4945f1e_be2dcd55",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-07-10T13:54:38Z",
+      "side": 1,
+      "message": "CL is good, but files dragged in don\u0027t go through this. (Also files loadedFromURL, obv).\n\nWould another fix here be to not clear the trace view on these load errors?",
+      "revId": "2df02e8f626027b45678cc245be231374876bcd7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
