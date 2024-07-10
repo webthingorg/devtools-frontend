@@ -1,0 +1,109 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "692c1904_9e5ff76d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-07-10T14:29:47Z",
+      "side": 1,
+      "message": "LGTM with nits 😊",
+      "revId": "f222ad866f6822a1272c02203563cd0c2df05069",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "547f55ae_d1195889",
+        "filename": "front_end/models/trace/helpers/Timing.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-07-10T14:29:47Z",
+      "side": 1,
+      "message": "we could also use it in the Breadcrumbs `isTraceWindowWithinTraceWindow(`",
+      "revId": "f222ad866f6822a1272c02203563cd0c2df05069",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0de125c_0c8a9712",
+        "filename": "front_end/panels/timeline/Overlays.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 765,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-07-10T14:29:47Z",
+      "side": 1,
+      "message": "ENTRY_SELECTED, CURSOR_TIMESTAMP_MARKER and ENTRY_LABEL all don\u0027t need updating. We can combine them into one case:",
+      "range": {
+        "startLine": 765,
+        "startChar": 8,
+        "endLine": 765,
+        "endChar": 53
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "63de7ea2_675e7846",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/Overlays.ts",
+              "range": {
+                "startLine": 739,
+                "startChar": 0,
+                "endLine": 742,
+                "endChar": 0
+              },
+              "replacement": ""
+            },
+            {
+              "path": "front_end/panels/timeline/Overlays.ts",
+              "range": {
+                "startLine": 751,
+                "startChar": 0,
+                "endLine": 756,
+                "endChar": 0
+              },
+              "replacement": ""
+            },
+            {
+              "path": "front_end/panels/timeline/Overlays.ts",
+              "range": {
+                "startLine": 764,
+                "startChar": 0,
+                "endLine": 764,
+                "endChar": 0
+              },
+              "replacement": "      case \u0027ENTRY_SELECTED\u0027:\n      case \u0027ENTRY_LABEL\u0027:\n"
+            },
+            {
+              "path": "front_end/panels/timeline/Overlays.ts",
+              "range": {
+                "startLine": 765,
+                "startChar": 0,
+                "endLine": 766,
+                "endChar": 0
+              },
+              "replacement": "        // No contents within these that need updating.\n"
+            }
+          ]
+        }
+      ],
+      "revId": "f222ad866f6822a1272c02203563cd0c2df05069",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
