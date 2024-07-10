@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8daa2d60_1562ab06",
+        "filename": "front_end/models/trace/helpers/Timing.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-10T15:21:22Z",
+      "side": 1,
+      "message": "will send a follow-up CL!",
+      "parentUuid": "547f55ae_d1195889",
+      "revId": "f222ad866f6822a1272c02203563cd0c2df05069",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a0de125c_0c8a9712",
@@ -102,6 +120,30 @@
           ]
         }
       ],
+      "revId": "f222ad866f6822a1272c02203563cd0c2df05069",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d795f8c_516f6803",
+        "filename": "front_end/panels/timeline/Overlays.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 765,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-10T15:21:22Z",
+      "side": 1,
+      "message": "We have an eslint rule that prevents fallthroughs in switch, so although I like this change I think we will stick to not annoying eslint 😊",
+      "parentUuid": "a0de125c_0c8a9712",
+      "range": {
+        "startLine": 765,
+        "startChar": 8,
+        "endLine": 765,
+        "endChar": 53
+      },
       "revId": "f222ad866f6822a1272c02203563cd0c2df05069",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
