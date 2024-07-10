@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e273a31b_1636b558",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524899
+      },
+      "writtenOn": "2024-07-10T12:49:18Z",
+      "side": 1,
+      "message": "The bug sounds like a use case for our auto-roller with a custom script: Check out the repo, modify some content, create a CL. Could this be re-used?\n\nUpside: That\u0027s already in the public repository.",
+      "revId": "4f36cb0388ee4d87f872d4b60503a6756c3651d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "16cddcfb_3eb5a562",
+        "filename": "buckets/ci-hp.star",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1524899
+      },
+      "writtenOn": "2024-07-10T12:49:18Z",
+      "side": 1,
+      "message": "Did you forget to add the recipe name?",
+      "range": {
+        "startLine": 61,
+        "startChar": 31,
+        "endLine": 61,
+        "endChar": 34
+      },
+      "revId": "4f36cb0388ee4d87f872d4b60503a6756c3651d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c240e72_abaec41e",
+        "filename": "buckets/ci-hp.star",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1524899
+      },
+      "writtenOn": "2024-07-10T12:49:18Z",
+      "side": 1,
+      "message": "Does it need to be internal? Could we add the recipe to the public build repository?",
+      "range": {
+        "startLine": 62,
+        "startChar": 100,
+        "endLine": 62,
+        "endChar": 127
+      },
+      "revId": "4f36cb0388ee4d87f872d4b60503a6756c3651d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
