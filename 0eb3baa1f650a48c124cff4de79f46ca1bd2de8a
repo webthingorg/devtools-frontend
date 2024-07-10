@@ -39,6 +39,30 @@
       },
       "revId": "0eb3baa1f650a48c124cff4de79f46ca1bd2de8a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d904d46_05dd425d",
+        "filename": "front_end/models/trace/lantern/simulation/Simulator.test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 380,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-10T10:39:20Z",
+      "side": 1,
+      "message": "TBH...I am not sure because the loadTrace does pass in the `this` param and should cause all the tests to have the larger timeout, but it does not. I guess it is because they are nested and use an arrow function, so the timeout doesn\u0027t make it down to all the children. \n\nI will land this to get the tree open again and then have another look. It looks like the timeout behaviour might behave slightly differently to what I expected",
+      "parentUuid": "397f9680_bfca56bb",
+      "range": {
+        "startLine": 380,
+        "startChar": 0,
+        "endLine": 380,
+        "endChar": 39
+      },
+      "revId": "0eb3baa1f650a48c124cff4de79f46ca1bd2de8a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
