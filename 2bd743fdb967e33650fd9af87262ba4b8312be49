@@ -57,6 +57,30 @@
       "parentUuid": "a56556eb_a2e8114c",
       "revId": "2bd743fdb967e33650fd9af87262ba4b8312be49",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84fef523_6cda011d",
+        "filename": "buckets/ci-hp.star",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2024-07-10T13:02:35Z",
+      "side": 1,
+      "message": "devtools-internal will eventually get deprecated and this does not involve the dtf internal repo. The request originates in the DevTools team but it will concern Chromium. Therefore root level.",
+      "parentUuid": "a2030597_6093b95c",
+      "range": {
+        "startLine": 61,
+        "startChar": 16,
+        "endLine": 61,
+        "endChar": 18
+      },
+      "revId": "2bd743fdb967e33650fd9af87262ba4b8312be49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
