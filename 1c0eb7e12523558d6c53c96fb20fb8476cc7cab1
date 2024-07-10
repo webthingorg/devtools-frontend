@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4dd1a3d0_fc19a21a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-10T14:03:56Z",
+      "side": 1,
+      "message": "I have removed the expectation regarding the veImpression. Can you PTAL and LMK if it is okay for you?",
+      "revId": "1c0eb7e12523558d6c53c96fb20fb8476cc7cab1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
