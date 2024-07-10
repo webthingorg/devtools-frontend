@@ -70,10 +70,15 @@ export interface TimespanBreakdown {
   sections: Array<Components.TimespanBreakdownOverlay.EntryBreakdown>;
 }
 
+export interface CursorTimestampMarker {
+  type: 'CURSOR_TIMESTAMP_MARKER';
+  timestamp: TraceEngine.Types.Timing.MicroSeconds;
+}
+
 /**
  * All supported overlay types. Expected to grow in time!
  */
-export type TimelineOverlay = EntrySelected|TimeRangeLabel|EntryLabel|TimespanBreakdown;
+export type TimelineOverlay = EntrySelected|TimeRangeLabel|EntryLabel|TimespanBreakdown|CursorTimestampMarker;
 
 /**
  * To be able to draw overlays accurately at the correct pixel position, we
@@ -277,6 +282,24 @@ export class Overlays extends EventTarget {
   }
 
   /**
+   * @returns all overlays that match the provided type.
+   */
+  overlaysOfType<T extends TimelineOverlay>(type: T['type']): NoInfer<T>[] {
+    const matches: T[] = [];
+
+    function overlayIsOfType(overlay: TimelineOverlay): overlay is T {
+      return overlay.type === type;
+    }
+
+    for (const [overlay] of this.#overlaysToElements) {
+      if (overlayIsOfType(overlay)) {
+        matches.push(overlay);
+      }
+    }
+    return matches;
+  }
+
+  /**
    * Removes the provided overlay from the list of overlays and destroys any
    * DOM associated with it.
    */
@@ -450,10 +473,29 @@ export class Overlays extends EventTarget {
         break;
       }
 
+      case 'CURSOR_TIMESTAMP_MARKER': {
+        const {visibleWindow} = this.#dimensions.trace;
+        // Only update the position if the timestamp of this marker is within
+        // the visible bounds.
+        if (visibleWindow && TraceEngine.Helpers.Timing.timestampIsInBounds(visibleWindow, overlay.timestamp)) {
+          element.style.visibility = 'visible';
+          this.#positionTimestampMarker(overlay, element);
+        } else {
+          element.style.visibility = 'hidden';
+        }
+        break;
+      }
+
       default: {
         Platform.TypeScriptUtilities.assertNever(overlay, `Unknown overlay: ${JSON.stringify(overlay)}`);
       }
     }
+  }
+
+  #positionTimestampMarker(overlay: CursorTimestampMarker, element: HTMLElement): void {
+    // Because we are adjusting the x position, we can use either chart here.
+    const x = this.#xPixelForMicroSeconds('main', overlay.timestamp);
+    element.style.left = `${x}px`;
   }
 
   #positionTimespanBreakdownOverlay(overlay: TimespanBreakdown, element: HTMLElement): void {
@@ -719,6 +761,9 @@ export class Overlays extends EventTarget {
         }
         break;
       }
+      case 'CURSOR_TIMESTAMP_MARKER':
+        // No contents within this that need updating.
+        break;
       default:
         Platform.TypeScriptUtilities.assertNever(overlay, `Unexpected overlay ${overlay}`);
     }

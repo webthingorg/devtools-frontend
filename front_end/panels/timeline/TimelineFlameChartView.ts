@@ -19,6 +19,7 @@ import {SHOULD_SHOW_EASTER_EGG} from './EasterEgg.js';
 import {ModificationsManager} from './ModificationsManager.js';
 import {
   AnnotationOverlayActionEvent,
+  type CursorTimestampMarker,
   Overlays,
   type TimelineOverlay,
   type TimeRangeLabel,
@@ -154,6 +155,7 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
       // The TimelineOverlays are used for selected elements
       selectedElementOutline: false,
       tooltipElement: this.#tooltipElement,
+      useOverlaysForCursorRuler: true,
     });
     this.mainFlameChart.alwaysShowVerticalScroll();
     this.mainFlameChart.enableRuler(false);
@@ -162,6 +164,34 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
       this.#overlays.updateChartDimensions('main', dimensions.data.chart);
       this.#overlays.updateVisibleWindow(dimensions.data.traceWindow);
       this.#overlays.update();
+    });
+
+    this.mainFlameChart.addEventListener(PerfUI.FlameChart.Events.MouseMove, event => {
+      const {mouseEvent, timeInMicroSeconds} = event.data;
+
+      // If the user is no longer holding shift, remove any existing marker.
+      if (!mouseEvent.shiftKey) {
+        this.#overlays.removeOverlaysOfType('CURSOR_TIMESTAMP_MARKER');
+        this.#overlays.update();
+      }
+
+      if (!mouseEvent.metaKey && mouseEvent.shiftKey) {
+        // Try to use an existing marker if there is one - this means when the
+        // user moves their mouse whilst holding shift we update the position
+        // rather than destroy + recreate a new overlay every time.
+        const existing = this.#overlays.overlaysOfType<CursorTimestampMarker>('CURSOR_TIMESTAMP_MARKER').at(0);
+
+        if (existing) {
+          this.updateExistingOverlay(existing, {
+            timestamp: timeInMicroSeconds,
+          });
+        } else {
+          this.addOverlay({
+            type: 'CURSOR_TIMESTAMP_MARKER',
+            timestamp: timeInMicroSeconds,
+          });
+        }
+      }
     });
 
     this.networkFlameChartGroupExpansionSetting =
@@ -173,6 +203,7 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
       // The TimelineOverlays are used for selected elements
       selectedElementOutline: false,
       tooltipElement: this.#tooltipElement,
+      useOverlaysForCursorRuler: true,
     });
     this.networkFlameChart.alwaysShowVerticalScroll();
     this.networkFlameChart.addEventListener(PerfUI.FlameChart.Events.LatestDrawDimensions, dimensions => {
