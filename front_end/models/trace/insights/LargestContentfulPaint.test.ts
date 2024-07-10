@@ -2,32 +2,47 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import {runTraceEngine} from '../../../testing/TraceHelpers.js';
 import {TraceLoader} from '../../../testing/TraceLoader.js';
 import * as TraceModel from '../trace.js';
 import * as Types from '../types/types.js';
 
-async function setupTraceData(testContext: Mocha.Suite|Mocha.Context|null, traceFile: string) {
-  const {NetworkRequests, LargestImagePaint, Meta, PageLoadMetrics} =
-      await TraceLoader.traceEngine(testContext, traceFile);
-  const data = {
-    NetworkRequests,
-    LargestImagePaint,
-    Meta,
-    PageLoadMetrics,
-  } as TraceModel.Handlers.Types.EnabledHandlerDataWithMeta<typeof TraceModel.Handlers.ModelHandlers>;
+export async function processTrace(testContext: Mocha.Suite|Mocha.Context|null, traceFile: string) {
+  sinon.stub(TraceModel.Processor.TraceProcessor, 'getEnabledInsightRunners').callsFake(() => {
+    return {
+      LargestContentfulPaint: TraceModel.Insights.InsightRunners.LargestContentfulPaint,
+    };
+  });
 
-  return data;
+  const traceEvents = await TraceLoader.rawEvents(testContext, traceFile);
+  const {data, insights} = await runTraceEngine(traceEvents, {
+    NetworkRequests: TraceModel.Handlers.ModelHandlers.NetworkRequests,
+    LargestImagePaint: TraceModel.Handlers.ModelHandlers.LargestImagePaint,
+    PageLoadMetrics: TraceModel.Handlers.ModelHandlers.PageLoadMetrics,
+  });
+  if (!insights) {
+    throw new Error('No insights');
+  }
+
+  return {data, insights};
+}
+
+function getInsight(insights: TraceModel.Insights.Types.TraceInsightData, navigationId: string) {
+  const navInsights = insights.get(navigationId);
+  if (!navInsights) {
+    throw new Error('missing navInsights');
+  }
+  const insight = navInsights.LargestContentfulPaint;
+  if (insight instanceof Error) {
+    throw insight;
+  }
+  return insight;
 }
 
 describe('LargestContentfulPaint', function() {
   it('text lcp phases', async () => {
-    const data = await setupTraceData(this, 'lcp-web-font.json.gz');
-    const context = {
-      frameId: data.Meta.mainFrameId,
-      navigationId: data.Meta.navigationsByNavigationId.keys().next().value,
-    };
-
-    const insight = TraceModel.Insights.InsightRunners.LargestContentfulPaint.generateInsight(data, context);
+    const {data, insights} = await processTrace(this, 'lcp-web-font.json.gz');
+    const insight = getInsight(insights, data.Meta.navigationsByNavigationId.keys().next().value);
 
     assert.strictEqual(insight.lcpMs, 106.482);
 
@@ -35,14 +50,10 @@ describe('LargestContentfulPaint', function() {
     const wantRenderDelay = Types.Timing.MilliSeconds(100.367);
     assert.deepEqual(insight.phases, {ttfb: wantTtfb, renderDelay: wantRenderDelay});
   });
-  it('image lcp phases', async () => {
-    const data = await setupTraceData(this, 'lcp-images.json.gz');
-    const context = {
-      frameId: data.Meta.mainFrameId,
-      navigationId: data.Meta.navigationsByNavigationId.keys().next().value,
-    };
 
-    const insight = TraceModel.Insights.InsightRunners.LargestContentfulPaint.generateInsight(data, context);
+  it('image lcp phases', async () => {
+    const {data, insights} = await processTrace(this, 'lcp-images.json.gz');
+    const insight = getInsight(insights, data.Meta.navigationsByNavigationId.keys().next().value);
 
     assert.strictEqual(insight.lcpMs, 109.623);
 
@@ -58,42 +69,30 @@ describe('LargestContentfulPaint', function() {
     };
     assert.deepEqual(phases, {ttfb: '6.94', loadTime: '12.09', loadDelay: '33.74', renderDelay: '56.85'});
   });
-  it('image lcp attributes', async () => {
-    const data = await setupTraceData(this, 'lcp-images.json.gz');
-    const context = {
-      frameId: data.Meta.mainFrameId,
-      navigationId: data.Meta.navigationsByNavigationId.keys().next().value,
-    };
 
-    const {shouldIncreasePriorityHint, shouldPreloadImage, shouldRemoveLazyLoading} =
-        TraceModel.Insights.InsightRunners.LargestContentfulPaint.generateInsight(data, context);
+  it('image lcp attributes', async () => {
+    const {data, insights} = await processTrace(this, 'lcp-images.json.gz');
+    const insight = getInsight(insights, data.Meta.navigationsByNavigationId.keys().next().value);
+    const {shouldIncreasePriorityHint, shouldPreloadImage, shouldRemoveLazyLoading} = insight;
 
     assert.strictEqual(shouldRemoveLazyLoading, false);
     assert.strictEqual(shouldPreloadImage, true);
     assert.strictEqual(shouldIncreasePriorityHint, true);
   });
+
   describe('warnings', function() {
     it('no lcp', async () => {
-      const data = await setupTraceData(this, 'user-timings.json.gz');
-      const context = {
-        frameId: data.Meta.mainFrameId,
-        navigationId: data.Meta.navigationsByNavigationId.keys().next().value,
-      };
-
-      const insight = TraceModel.Insights.InsightRunners.LargestContentfulPaint.generateInsight(data, context);
+      const {data, insights} = await processTrace(this, 'user-timings.json.gz');
+      const insight = getInsight(insights, data.Meta.navigationsByNavigationId.keys().next().value);
 
       assert.strictEqual(insight.lcpMs, undefined);
       assert.strictEqual(insight.phases, undefined);
       assert.strictEqual(insight.warnings?.[0], 'NO_LCP');
     });
-    it('no main document url', async () => {
-      const data = await setupTraceData(this, 'about-blank-first.json.gz');
-      const context = {
-        frameId: data.Meta.mainFrameId,
-        navigationId: data.Meta.navigationsByNavigationId.keys().next().value,
-      };
 
-      const insight = TraceModel.Insights.InsightRunners.LargestContentfulPaint.generateInsight(data, context);
+    it('no main document url', async () => {
+      const {data, insights} = await processTrace(this, 'about-blank-first.json.gz');
+      const insight = getInsight(insights, data.Meta.navigationsByNavigationId.keys().next().value);
 
       assert.strictEqual(insight.lcpMs, 204.909);
       assert.strictEqual(insight.phases, undefined);

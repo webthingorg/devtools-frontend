@@ -638,3 +638,19 @@ export function setupIgnoreListManagerEnvironment(): {
 
   return {ignoreListManager};
 }
+
+/**
+ * Runs the trace engine with the provided handlers.
+ * Throws if running the handlers fails, but allows insights to be null.
+ */
+export async function runTraceEngine(
+    traceEvents: readonly TraceEngine.Types.TraceEvents.TraceEventData[],
+    handlers: Partial<TraceEngine.Handlers.Types.Handlers> = TraceEngine.Handlers.ModelHandlers) {
+  const processor = new TraceEngine.Processor.TraceProcessor(handlers, TraceEngine.Types.Configuration.defaults());
+  await processor.parse(traceEvents);
+  const {traceParsedData, insights} = processor;
+  if (!traceParsedData) {
+    throw new Error('No data - handlers failed.');
+  }
+  return {data: traceParsedData, insights};
+}
