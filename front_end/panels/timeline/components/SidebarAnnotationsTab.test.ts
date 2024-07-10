@@ -51,6 +51,9 @@ describeWithEnvironment('SidebarAnnotationsTab', () => {
     const annotationsWrapperElement = component.shadowRoot.querySelector<HTMLElement>('.annotations');
     assert.isNotNull(annotationsWrapperElement);
 
+    const deleteButton = component.shadowRoot.querySelector<HTMLElement>('.bin-icon');
+    assert.isNotNull(deleteButton);
+
     // Ensure there are 2 labels and their entry names and labels and rendered
     const annotationEntryNameElements = component.shadowRoot.querySelectorAll<HTMLElement>('.entry-name');
     assert.strictEqual(annotationEntryNameElements.length, 2);
