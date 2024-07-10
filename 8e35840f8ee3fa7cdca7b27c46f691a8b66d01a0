@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9fdc653_9527ade1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2024-07-10T08:39:10Z",
+      "side": 1,
+      "message": "Maybe you could vet both CQ groups once more and have a look at all builders and if they have a justification for being included? See below.",
+      "revId": "8e35840f8ee3fa7cdca7b27c46f691a8b66d01a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "95b571b0_03f7e522",
+        "filename": "buckets/try.star",
+        "patchSetId": 3
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2024-07-10T08:39:10Z",
+      "side": 1,
+      "message": "nit: This could get a better name now. There\u0027s the distinction below between main and branch cq. This \"main\" here has nothing to do with that.",
+      "range": {
+        "startLine": 242,
+        "startChar": 0,
+        "endLine": 242,
+        "endChar": 7
+      },
+      "revId": "8e35840f8ee3fa7cdca7b27c46f691a8b66d01a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "088f3938_1fac0b94",
+        "filename": "generated/commit-queue.cfg",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2024-07-10T08:39:10Z",
+      "side": 1,
+      "message": "Is it WAI that some none orchestrator builders are still not includable-only? I guess it\u0027s the same on the main branch CQ...",
+      "range": {
+        "startLine": 38,
+        "startChar": 37,
+        "endLine": 38,
+        "endChar": 64
+      },
+      "revId": "8e35840f8ee3fa7cdca7b27c46f691a8b66d01a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f27f4f69_3e96a2ed",
+        "filename": "generated/commit-queue.cfg",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1115956
+      },
+      "writtenOn": "2024-07-10T08:39:10Z",
+      "side": 1,
+      "message": "What\u0027s the difference between this and dtf_win_rel? Besides orchestrator/non-orchestrator. If that\u0027s the only difference, why are they both included?",
+      "range": {
+        "startLine": 56,
+        "startChar": 37,
+        "endLine": 56,
+        "endChar": 64
+      },
+      "revId": "8e35840f8ee3fa7cdca7b27c46f691a8b66d01a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
