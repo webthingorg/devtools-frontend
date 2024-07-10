@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6622897_e6f665fd",
+        "filename": "front_end/panels/timeline/components/EntryLabelOverlay.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-07-10T06:55:43Z",
+      "side": 1,
+      "message": "Accidentally changed it in last CL",
+      "revId": "da9009b3f03cccf8d55948a03b545218bf76420b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
