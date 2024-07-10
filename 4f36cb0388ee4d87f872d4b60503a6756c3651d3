@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ade407b1_c1a881bd",
+        "filename": "buckets/ci-hp.star",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2024-07-10T12:53:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "16cddcfb_3eb5a562",
+      "range": {
+        "startLine": 61,
+        "startChar": 31,
+        "endLine": 61,
+        "endChar": 34
+      },
+      "revId": "4f36cb0388ee4d87f872d4b60503a6756c3651d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4c240e72_abaec41e",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-07-10T12:49:18Z",
       "side": 1,
       "message": "Does it need to be internal? Could we add the recipe to the public build repository?",
+      "range": {
+        "startLine": 62,
+        "startChar": 100,
+        "endLine": 62,
+        "endChar": 127
+      },
+      "revId": "4f36cb0388ee4d87f872d4b60503a6756c3651d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9f115f8_45b8252f",
+        "filename": "buckets/ci-hp.star",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2024-07-10T12:53:46Z",
+      "side": 1,
+      "message": "Needs to be internal.",
+      "parentUuid": "4c240e72_abaec41e",
       "range": {
         "startLine": 62,
         "startChar": 100,
