@@ -1,0 +1,45 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e628a36c_81f747dd",
+        "filename": "front_end/panels/timeline/components/EntryLabelOverlay.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-10T08:59:04Z",
+      "side": 0,
+      "message": "was one character not enough? 😄",
+      "range": {
+        "startLine": 36,
+        "startChar": 19,
+        "endLine": 36,
+        "endChar": 39
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "bf5b3a68_ee272ede",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/components/EntryLabelOverlay.ts",
+              "range": {
+                "startLine": 36,
+                "startChar": 0,
+                "endLine": 37,
+                "endChar": 0
+              },
+              "replacement": "  static readonly MAX_LABEL_LENGTH \u003d 10;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "0d310b0909b9ed46c9839c8d9692f1a414943ac7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

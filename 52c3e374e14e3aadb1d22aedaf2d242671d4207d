@@ -1,0 +1,85 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c31082bf_21c9bc99",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-10T08:59:04Z",
+      "side": 1,
+      "message": "could we add a screenshot to this please?",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 42
+      },
+      "revId": "52c3e374e14e3aadb1d22aedaf2d242671d4207d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00d95b5f_0e5f0a2f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-10T08:59:04Z",
+      "side": 1,
+      "message": "lgtm with nits",
+      "revId": "52c3e374e14e3aadb1d22aedaf2d242671d4207d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee489639_42a82c54",
+        "filename": "front_end/panels/timeline/components/EntryLabelOverlay.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-10T08:59:04Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 42,
+        "startChar": 71,
+        "endLine": 42,
+        "endChar": 72
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "e25d9b87_3418e26e",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/components/EntryLabelOverlay.ts",
+              "range": {
+                "startLine": 42,
+                "startChar": 0,
+                "endLine": 43,
+                "endChar": 0
+              },
+              "replacement": "  // element, the label is set to not editable until it double clicked.\n"
+            }
+          ]
+        }
+      ],
+      "revId": "52c3e374e14e3aadb1d22aedaf2d242671d4207d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
