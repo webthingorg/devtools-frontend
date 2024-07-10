@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9211be1_a0d510b3",
+        "filename": "DEPS",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2024-07-10T14:41:14Z",
+      "side": 1,
+      "message": "typo: rolled\n\n```suggestion\n  # Keeping track of the last time we rolled the browser protocol files.\n```",
+      "revId": "15636d2eee4768704726f6da6b2099e271272a3b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
