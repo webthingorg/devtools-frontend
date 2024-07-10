@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ff99f96_e8a5f1ce",
+        "filename": "front_end/panels/timeline/components/LiveMetricsView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-07-10T18:11:15Z",
+      "side": 1,
+      "message": "Feedback welcome on the \"No data\" approach. It\u0027s a simple solution to represent the state but could be confusing to have the option still selectable.",
+      "revId": "3fca519669fe2402189d52940fa9bc0315ddfe09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
