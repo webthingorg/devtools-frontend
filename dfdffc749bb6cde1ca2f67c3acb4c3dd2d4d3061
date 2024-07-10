@@ -16,6 +16,24 @@
       "message": "For UI, we discussed:\n* Marking the button disabled.\n* Space between the header and the close icon.\n* Margin top from the title.",
       "revId": "dfdffc749bb6cde1ca2f67c3acb4c3dd2d4d3061",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b2b6b20_16707afe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-10T12:51:06Z",
+      "side": 1,
+      "message": "* `h3` -\u003e `h4`\n* `feedback-title` alignment with icon (line-height: 20px solved it :joy:)",
+      "parentUuid": "d6608aff_84df66dc",
+      "revId": "dfdffc749bb6cde1ca2f67c3acb4c3dd2d4d3061",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
