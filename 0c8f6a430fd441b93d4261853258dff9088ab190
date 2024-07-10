@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ccb052b_6d862a63",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 551,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-07-10T15:10:29Z",
+      "side": 1,
+      "message": "```suggestion\n                          jslogContext: \u0027send\u0027,\n```",
+      "revId": "0c8f6a430fd441b93d4261853258dff9088ab190",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
