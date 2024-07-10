@@ -16,6 +16,24 @@
       "message": "I have a one last nit, the form disclaimer is not aligned with the left of the input box: https://screenshot.googleplex.com/9cTzQYim8gbwtAP 😅\n\nAfter that, I think it\u0027s good to go! :)",
       "revId": "07f8d68a0817e9337222ae84deebf48d7996f257",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3283b269_17a60f38",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-07-10T14:26:33Z",
+      "side": 1,
+      "message": "As discussed offline - we will skip this until we have UI design",
+      "parentUuid": "b3debaac_c4ec4dc2",
+      "revId": "07f8d68a0817e9337222ae84deebf48d7996f257",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
