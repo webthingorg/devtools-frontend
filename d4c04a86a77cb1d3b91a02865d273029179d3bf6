@@ -16,6 +16,46 @@
       "message": "PTAL",
       "revId": "d4c04a86a77cb1d3b91a02865d273029179d3bf6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2037360_85a65559",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-10T15:59:27Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "d4c04a86a77cb1d3b91a02865d273029179d3bf6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6649fb2e_66ddba04",
+        "filename": "front_end/models/trace/types/Extensions.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-10T15:59:27Z",
+      "side": 1,
+      "message": "do you mean that `track` must be defined? and by \"defined\" do you mean not an empty string?",
+      "range": {
+        "startLine": 53,
+        "startChar": 16,
+        "endLine": 53,
+        "endChar": 25
+      },
+      "revId": "d4c04a86a77cb1d3b91a02865d273029179d3bf6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
