@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5b3a4fb_d225cf14",
+        "filename": "front_end/models/trace/Processor.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-07-10T19:12:19Z",
+      "side": 1,
+      "message": "Will throwing an error here brick the entire trace processor? If lantern is optional I wonder if we should just ignore all errors so that we still show something even if lantern hits a wall.",
+      "revId": "35ccd1dde7a6df1353aa079756ebc5c82a947f9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0668058_a61f5a21",
+        "filename": "front_end/models/trace/Processor.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-07-10T19:12:19Z",
+      "side": 1,
+      "message": "I thought this error would be thrown in the insight runner not while creating a lantern context.",
+      "revId": "35ccd1dde7a6df1353aa079756ebc5c82a947f9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
