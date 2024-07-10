@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d8025a9_b0296136",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-07-10T09:15:34Z",
+      "side": 1,
+      "message": "this lgtm in general. Left some comments on the proposals to refactor the trace processor and model types, but I\u0027m happy if any potential pending work on that is left for follow ups.",
+      "revId": "1452e68e47293b5dd3e367c534a129bfd28ec2f9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

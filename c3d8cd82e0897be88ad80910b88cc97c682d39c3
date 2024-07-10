@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5bf66dd2_14dff31f",
+        "filename": "front_end/models/trace/Processor.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-07-10T09:15:34Z",
+      "side": 1,
+      "message": "I think you meant `computeInsights`?\n```suggestion\n      // `Status.FINISHED_PARSING`. Consider doing what `this.#computeInsights ` does (sets #data)\n```",
+      "range": {
+        "startLine": 134,
+        "startChar": 63,
+        "endLine": 134,
+        "endChar": 85
+      },
+      "revId": "c3d8cd82e0897be88ad80910b88cc97c682d39c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

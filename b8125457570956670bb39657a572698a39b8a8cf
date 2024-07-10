@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "64f677c7_5fb152ff",
+        "filename": "front_end/models/trace/Processor.test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-07-10T09:15:34Z",
+      "side": 1,
+      "message": "maybe we can use sinon\u0027s `callsFake` to mock `#getEnabledInsightRunners` and return a throwing runner there. I think would need to make it non-private, but that should be fine since there are no references to the object\u0027s props, it could even be static",
+      "parentUuid": "70fc0271_58dd4f57",
+      "revId": "b8125457570956670bb39657a572698a39b8a8cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "862d99f4_28592652",
         "filename": "front_end/models/trace/Processor.ts",
         "patchSetId": 2
@@ -121,6 +139,24 @@
       "side": 1,
       "message": "Yeah i think Jack or Andres will have to chime in here. The current conditionality of the traceParsedData type  is certainly not very portable.",
       "parentUuid": "dfdb44bb_be9ed5a7",
+      "revId": "b8125457570956670bb39657a572698a39b8a8cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83d476f2_b9908316",
+        "filename": "front_end/models/trace/Processor.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-07-10T09:15:34Z",
+      "side": 1,
+      "message": "I guess we could make the properties of `Insights.Types.LanternContext` optional and use TS to filled them out based on the dependencies passed on `EnabledModelHandlers` (similar to `Insights.Types.TraceInsightData`, but I\u0027m unsure it\u0027s worth the added complexity)...\n\nIn any case I\u0027m unsure we need the type template at all. We needed this during the migration from the old engine when only some handlers where run to prevent paying the cost of those that were unused, but now that the migration is done, I think there are no cases where we only run some handlers. It seems there aren\u0027t any clear plans for doing so in the future either, so it\u0027s mostly technical debt now. I think we can just drop `EnabledHandlerDataWithMeta\u003cEnabledHandlers\u003e` and use `TraceParseData` everywhere.\n\n\n @jacktfranklin@chromium.org wdyt?",
+      "parentUuid": "0728cbf4_b6d04a8a",
       "revId": "b8125457570956670bb39657a572698a39b8a8cf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },

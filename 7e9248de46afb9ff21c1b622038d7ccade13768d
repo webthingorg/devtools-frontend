@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "91537e96_7f0cd41f",
+        "filename": "front_end/models/trace/Processor.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-07-10T09:15:34Z",
+      "side": 1,
+      "message": "having into a single function that prepares the trace data completely makes sense to me. Same for renaming that from `#parse` to something more specific like `#computeTraceParsedData` as you suggest",
+      "parentUuid": "eb993614_b50bfbb7",
+      "revId": "7e9248de46afb9ff21c1b622038d7ccade13768d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7b17778f_76eed6d5",
         "filename": "front_end/models/trace/lantern/metrics/FirstContentfulPaint.test.ts",
         "patchSetId": 1
@@ -31,6 +49,24 @@
       "writtenOn": "2024-07-09T00:24:25Z",
       "side": 1,
       "message": "during this CL I realized that the `compute` method for Lantern.Metric did not need to be async.",
+      "revId": "7e9248de46afb9ff21c1b622038d7ccade13768d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6a1b36b_315b03e0",
+        "filename": "front_end/models/trace/lantern/metrics/FirstContentfulPaint.test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-07-10T09:15:34Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "7b17778f_76eed6d5",
       "revId": "7e9248de46afb9ff21c1b622038d7ccade13768d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
