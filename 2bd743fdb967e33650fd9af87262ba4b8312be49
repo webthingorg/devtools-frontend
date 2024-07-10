@@ -16,6 +16,29 @@
       "message": "How slow is this going to be?",
       "revId": "2bd743fdb967e33650fd9af87262ba4b8312be49",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2030597_6093b95c",
+        "filename": "buckets/ci-hp.star",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1524899
+      },
+      "writtenOn": "2024-07-10T12:58:48Z",
+      "side": 1,
+      "message": "The `devtools-internal/` prefix is also needed (except you add the recipe to the root directory).",
+      "range": {
+        "startLine": 61,
+        "startChar": 16,
+        "endLine": 61,
+        "endChar": 18
+      },
+      "revId": "2bd743fdb967e33650fd9af87262ba4b8312be49",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
