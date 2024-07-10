@@ -254,11 +254,16 @@ describeWithEnvironment('TraceProcessor', function() {
       assert.strictEqual(processor.insights.size, 0);
     });
 
-    it('captures errors thrown by insights', async function() {
+    // See the comment within for why this is skipped.
+    it.skip('[crbug.com/313905799] captures errors thrown by insights', async function() {
       const processor = TraceModel.Processor.TraceProcessor.createWithAllHandlers();
       const file = await TraceLoader.rawEvents(this, 'load-simple.json.gz');
 
       await processor.parse(file);
+
+      // TODO(crbug.com/313905799): insights have already been generated so this modification
+      // has no impact. There is no public interface for re-generating the insights.
+      // This tests needs to think of another way to force an error. Disabled for now.
 
       // Create invalid trace data that forces insights to throw an error
       processor.traceParsedData?.NetworkRequests.byTime.forEach(r => {
