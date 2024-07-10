@@ -131,6 +131,24 @@
       "message": "@szuend@chromium.org Do you know if we remove the presubmit check preventing such a joint 1p/3p change?",
       "revId": "b4bd952bd1d89a23e271d2dc8027844c0e7bf037",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5f687a2_2844f3b0",
+        "filename": "third_party/node/node.py",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-07-10T09:41:12Z",
+      "side": 1,
+      "message": "It should still be there but the 1p/3p check has some exceptions built in.",
+      "parentUuid": "d98e337d_19a6e89e",
+      "revId": "b4bd952bd1d89a23e271d2dc8027844c0e7bf037",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
