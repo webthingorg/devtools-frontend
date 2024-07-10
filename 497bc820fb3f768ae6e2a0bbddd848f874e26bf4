@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "006c28c8_2e2ba84c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-07-10T11:51:20Z",
+      "side": 1,
+      "message": "Could you add a screenshot here :)? This makes it easier to see whether it\u0027s GM3 compliant.",
+      "revId": "497bc820fb3f768ae6e2a0bbddd848f874e26bf4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "7573a509_4275e963",
@@ -14,6 +31,23 @@
       "writtenOn": "2024-07-10T11:42:26Z",
       "side": 1,
       "message": "LGTM with some comments % discussion on the UI later today :)",
+      "revId": "497bc820fb3f768ae6e2a0bbddd848f874e26bf4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46defbf2_6858475c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-07-10T11:51:20Z",
+      "side": 1,
+      "message": "Hi Nik!\n\nI\u0027m on this week\u0027s GM3 rotation, so I saw your CL. I added some questions 😊!",
       "revId": "497bc820fb3f768ae6e2a0bbddd848f874e26bf4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -195,6 +229,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "30278925_e7aec66a",
+        "filename": "front_end/panels/freestyler/components/AiRatings.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-07-10T11:51:20Z",
+      "side": 1,
+      "message": "Is there a reason for setting the title both on the `Button` component and on the `HTMLButton` through the data setter?",
+      "revId": "497bc820fb3f768ae6e2a0bbddd848f874e26bf4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1c24b0f0_e8c87b2b",
         "filename": "front_end/panels/freestyler/components/AiRatings.ts",
         "patchSetId": 1
@@ -224,6 +275,23 @@
       "side": 1,
       "message": "Acknowledged",
       "parentUuid": "1c24b0f0_e8c87b2b",
+      "revId": "497bc820fb3f768ae6e2a0bbddd848f874e26bf4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a693b22f_22664c5c",
+        "filename": "front_end/panels/freestyler/components/AiRatings.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-07-10T11:51:20Z",
+      "side": 1,
+      "message": "You can pass the `jslog` context to the `HTMLButton` itself (via the `data` setter). Same for all other usages of `devtools-button`",
       "revId": "497bc820fb3f768ae6e2a0bbddd848f874e26bf4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
