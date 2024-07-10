@@ -94,6 +94,30 @@
       },
       "revId": "02abf3eff9e4a396ef7734d4e085a46a25786194",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f295d063_09046a63",
+        "filename": "front_end/panels/sources/SourcesPanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-07-10T06:08:28Z",
+      "side": 1,
+      "message": "Doing some quick investigation it seems the inspector_main entrypoint is also part of devtools_app. In this case it makes sense to have a paused overlay setting.\n\nFor node.js debugging it doesn\u0027t make sense. Since we don\u0027t have an inspected page where we could show the overlay.\n\nThe try/catch does indeed feel a bit awkward here. But the VE code also wrongly assumes that there is always an overlay. Possible fixes:\n\n1. Check if we run with an overlay (e.g. check whether `target.model(OverlayModel)` returns null).\n2. Add a helper to `Settings` ala `moduleSettingValueOr` that takes a setting name and a default value thats returned if the setting with the given name is not found.\n\nI\u0027m leaning more toward 1) to make it more explicit but no strong opinion.",
+      "parentUuid": "33b8ff87_a200db55",
+      "range": {
+        "startLine": 495,
+        "startChar": 6,
+        "endLine": 496,
+        "endChar": 5
+      },
+      "revId": "02abf3eff9e4a396ef7734d4e085a46a25786194",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
