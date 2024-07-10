@@ -163,6 +163,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9b1b3555_068922d1",
+        "filename": "front_end/models/trace/Processor.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 277,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-10T09:29:25Z",
+      "side": 1,
+      "message": "Historically, this type is like this because it was to enable the migration where we were only running a subset of handlers and it was not safe to assume they would all be enabled. This obviously does not apply any more.\n\nHowever, in the network panel, we do instantiate the model with only the screenshot handler, which powers the film strip. But other than that, everywhere else (certainly everywhere in the perf panel) we use all handlers.\n\nSo, I would say that we should use `Handlers.Types.TraceParseData` everywhere with the exception of the network panel use case, which is a special case we can kinda ignore anyway.\n\nI also asked this about the Insights type before; I don\u0027t love the `RequiredData\u003cGeneric\u003e` type within the Insights types; I think we should similarly just hard code this to take the full `Handlers.Types.TraceParseData` type.\n\nIf that work would make this CL easier to land, let\u0027s do that first.",
+      "parentUuid": "83d476f2_b9908316",
+      "revId": "b8125457570956670bb39657a572698a39b8a8cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6d8f85f2_66af5d2c",
         "filename": "front_end/models/trace/Processor.ts",
         "patchSetId": 2
