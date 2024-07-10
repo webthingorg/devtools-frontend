@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "44e2b739_2e71dd20",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-10T09:05:51Z",
+      "side": 1,
+      "message": "whoa, this is an awesome solution! I didn\u0027t know this existed :)\n\nthough, the UI there looks a bit weird now compared with other settings tabs considering that the contents of the other tabs arranged in a way that doesn\u0027t require horizontal scrolling.\n\nI wonder if it makes sense to find a way to render this tab as well in a more vertical fashion. (don\u0027t think this is high priority but it might be good to consider in the coming times 😊)",
+      "revId": "937068c6ff5fe7eaf737f6ac9763af6a0db04348",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
