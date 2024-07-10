@@ -29,7 +29,7 @@ export async function waitForAnimationContent() {
   await expectVeEvents([veImpressionsUnder(
       'Drawer > Panel: animations',
       [veImpression('Section', 'film-strip', [veImpression('Item', 'animations.buffer-preview')])])]);
-  await click('.animation-buffer-preview[aria-label="Animation Preview 1"]', {clickOptions: {offset: {x: 0, y: 0}}});
+  await click('.animation-buffer-preview[aria-label="Animation Preview 1"]', {clickOptions: {offset: {x: 4, y: 4}}});
   await waitFor('.animation-node-row');
   await waitFor('svg.animation-ui');
   await expectVeEvents([
