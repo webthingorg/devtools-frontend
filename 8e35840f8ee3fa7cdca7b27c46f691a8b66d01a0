@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "155e84a3_c121f16d",
+        "filename": "buckets/try.star",
+        "patchSetId": 3
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2024-07-10T08:53:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "95b571b0_03f7e522",
+      "range": {
+        "startLine": 242,
+        "startChar": 0,
+        "endLine": 242,
+        "endChar": 7
+      },
+      "revId": "8e35840f8ee3fa7cdca7b27c46f691a8b66d01a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "088f3938_1fac0b94",
@@ -64,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc84c48f_dc733f5b",
+        "filename": "generated/commit-queue.cfg",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2024-07-10T08:53:14Z",
+      "side": 1,
+      "message": "This has no orchestrating counterpart. I was about to migrate this one as well.",
+      "parentUuid": "088f3938_1fac0b94",
+      "range": {
+        "startLine": 38,
+        "startChar": 37,
+        "endLine": 38,
+        "endChar": 64
+      },
+      "revId": "8e35840f8ee3fa7cdca7b27c46f691a8b66d01a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f27f4f69_3e96a2ed",
@@ -77,6 +125,30 @@
       "writtenOn": "2024-07-10T08:39:10Z",
       "side": 1,
       "message": "What\u0027s the difference between this and dtf_win_rel? Besides orchestrator/non-orchestrator. If that\u0027s the only difference, why are they both included?",
+      "range": {
+        "startLine": 56,
+        "startChar": 37,
+        "endLine": 56,
+        "endChar": 64
+      },
+      "revId": "8e35840f8ee3fa7cdca7b27c46f691a8b66d01a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3442f36f_6279e8d8",
+        "filename": "generated/commit-queue.cfg",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2024-07-10T08:53:14Z",
+      "side": 1,
+      "message": "Same. No counterpart yet will fix after.",
+      "parentUuid": "f27f4f69_3e96a2ed",
       "range": {
         "startLine": 56,
         "startChar": 37,
