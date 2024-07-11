@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea0479e4_30efbdef",
+        "filename": "front_end/panels/network/NetworkLogView.test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 863,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2024-07-11T08:02:02Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "0eb6ae57_c1b0c9ad",
+      "range": {
+        "startLine": 863,
+        "startChar": 31,
+        "endLine": 863,
+        "endChar": 47
+      },
+      "revId": "949937c7f9a3e6a21bde616a3eae071f01917d70",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3fbc0194_2101f4ad",
@@ -47,6 +71,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4b07c68_394e313e",
+        "filename": "front_end/panels/network/NetworkLogView.test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 877,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2024-07-11T08:02:02Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "3fbc0194_2101f4ad",
+      "range": {
+        "startLine": 877,
+        "startChar": 10,
+        "endLine": 877,
+        "endChar": 21
+      },
+      "revId": "949937c7f9a3e6a21bde616a3eae071f01917d70",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "278ae483_8a28a1be",
@@ -60,6 +108,30 @@
       "writtenOn": "2024-07-11T07:30:18Z",
       "side": 1,
       "message": "await expectCall(copyText)",
+      "range": {
+        "startLine": 880,
+        "startChar": 0,
+        "endLine": 880,
+        "endChar": 28
+      },
+      "revId": "949937c7f9a3e6a21bde616a3eae071f01917d70",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a146090_5e523ea8",
+        "filename": "front_end/panels/network/NetworkLogView.test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 880,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2024-07-11T08:02:02Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "278ae483_8a28a1be",
       "range": {
         "startLine": 880,
         "startChar": 0,
