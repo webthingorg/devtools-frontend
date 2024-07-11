@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4b3fb398_b2e18e03",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-11T08:21:43Z",
+      "side": 1,
+      "message": "what\u0027s the value of this over just using `TraceLoader.traceEngine` and executing the entire thing? Why have `runTraceEngine` and only exec a sub-set?\n\nBecause TraceLoader.traceEngine caches, it\u0027s not terribly expensive to run all the handlers even if we don\u0027t need them.\n\nGiven that we already have `TraceLoader.traceEngine`, I am reluctant to introduce another different way to run the traceEngine against events from a trace fixture.",
+      "range": {
+        "startLine": 21,
+        "startChar": 3,
+        "endLine": 26,
+        "endChar": 5
+      },
+      "revId": "9d0b228e21442241d3b2be66d2a7f131d32f4b36",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "418ae683_d77d9355",
         "filename": "front_end/models/trace/insights/CumulativeLayoutShift.test.ts",
         "patchSetId": 2
