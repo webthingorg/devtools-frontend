@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "17f6e853_2079522b",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-07-11T22:12:05Z",
+      "side": 1,
+      "message": "it touched so many files I made a new CL: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/5698408",
+      "parentUuid": "d333b73c_8d7148ee",
+      "range": {
+        "startLine": 21,
+        "startChar": 3,
+        "endLine": 26,
+        "endChar": 5
+      },
+      "revId": "9d0b228e21442241d3b2be66d2a7f131d32f4b36",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "418ae683_d77d9355",
         "filename": "front_end/models/trace/insights/CumulativeLayoutShift.test.ts",
         "patchSetId": 2
