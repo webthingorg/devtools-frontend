@@ -56,6 +56,30 @@
       },
       "revId": "d4c04a86a77cb1d3b91a02865d273029179d3bf6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef6310e9_45e602d1",
+        "filename": "front_end/models/trace/types/Extensions.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-07-11T08:14:04Z",
+      "side": 1,
+      "message": "ah good catch, I meant `track` indeed!\n\nby `defined` I meant a `track` value is passed, because we don\u0027t really have control over what\u0027s passed to the payload. But I think this comment doesn\u0027t belong here but to the API\u0027s public doc (still pending). Internally, with assumed type compliance, any obj of type `ExtensionTrackEntryPayload` is expected to have a non-empty `track`, making this comment redundant, I\u0027ll remove it.",
+      "parentUuid": "6649fb2e_66ddba04",
+      "range": {
+        "startLine": 53,
+        "startChar": 16,
+        "endLine": 53,
+        "endChar": 25
+      },
+      "revId": "d4c04a86a77cb1d3b91a02865d273029179d3bf6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
