@@ -12,6 +12,7 @@ import {
   buildTrackHeader,
   getEventLevel,
   getFormattedTime,
+  type LastTimestampByLevel,
 } from './AppenderUtils.js';
 import {
   type HighlightedEntryInfo,
@@ -141,41 +142,21 @@ export class NetworkTrackAppender implements TrackAppender {
    */
   #appendEventsAtLevel(events: readonly TraceEngine.Types.TraceEvents.TraceEventData[], trackStartLevel: number):
       number {
-    const lastUsedTimeByLevel: number[] = [];
-    let websocketLevel = 0;
+    // Appending everything to the same level isn't "correct", but filterTimelineDataBetweenTimes() will handle that
+    // before anything is rendered.
     for (let i = 0; i < events.length; ++i) {
       const event = events[i];
-      let level;
-      if (TraceEngine.Types.TraceEvents.isWebSocketTraceEvent(event) ||
-          TraceEngine.Types.TraceEvents.isSyntheticWebSocketConnectionEvent(event)) {
-        // process WebSocket events
-        const webSocketIdentifier = event.args.data.identifier;
-        if (this.webSocketIdToLevel.has(webSocketIdentifier)) {
-          // get the level for the WebSocket event that has the current identifier
-          const idLevel = this.webSocketIdToLevel.get(webSocketIdentifier) || 0;
-          this.#appendEventAtLevel(event, trackStartLevel + idLevel);
-        } else {
-          // calculate the level for the WebSocket event that has the current identifier
-          level = getEventLevel(event, lastUsedTimeByLevel);
-          this.webSocketIdToLevel.set(webSocketIdentifier, level);  // save the level for the current identifier
-          this.#appendEventAtLevel(event, trackStartLevel + level);
-          websocketLevel += 1;
-        }
-      } else if (TraceEngine.Types.TraceEvents.isSyntheticNetworkRequestEvent(event)) {
-        // process network events
-        level = getEventLevel(event, lastUsedTimeByLevel);
-        this.#appendEventAtLevel(event, trackStartLevel + websocketLevel + level);
-        if (TraceEngine.Helpers.Network.isSyntheticNetworkRequestEventRenderBlocking(event)) {
-          addDecorationToEvent(this.#flameChartData, i, {
-            type: PerfUI.FlameChart.FlameChartDecorationType.WARNING_TRIANGLE,
-            customEndTime: event.args.data.syntheticData.finishTime,
-          });
-        }
-      } else {
-        console.error('Invalid network event.');
+      this.#appendEventAtLevel(event, trackStartLevel);
+      // Decorate render blocking
+      if (TraceEngine.Types.TraceEvents.isSyntheticNetworkRequestEvent(event) &&
+          TraceEngine.Helpers.Network.isSyntheticNetworkRequestEventRenderBlocking(event)) {
+        addDecorationToEvent(this.#flameChartData, i, {
+          type: PerfUI.FlameChart.FlameChartDecorationType.WARNING_TRIANGLE,
+          customEndTime: event.args.data.syntheticData.finishTime,
+        });
       }
     }
-    return trackStartLevel + lastUsedTimeByLevel.length;
+    return trackStartLevel;
   }
 
   /**
@@ -208,7 +189,7 @@ export class NetworkTrackAppender implements TrackAppender {
     if (!this.#flameChartData || events.length === 0) {
       return 0;
     }
-    const lastTimeByLevel: number[] = [];
+    const lastTimestampByLevel: LastTimestampByLevel = [];
     this.webSocketIdToLevel = new Map<number, number>();
     let maxLevel = 0;
     for (let i = 0; i < events.length; ++i) {
@@ -220,25 +201,20 @@ export class NetworkTrackAppender implements TrackAppender {
       const eventEndTime = TraceEngine.Helpers.Timing.microSecondsToMilliseconds(
           (event.ts + event.dur) as TraceEngine.Types.Timing.MicroSeconds);
       const isBetweenTimes = beginTime < endTime && eventEndTime > startTime;
+      // Exclude events outside the the specified timebounds
       if (!isBetweenTimes) {
         this.#flameChartData.entryLevels[i] = -1;
         continue;
       }
-      let level;
-      if (TraceEngine.Types.TraceEvents.isWebSocketTraceEvent(event) ||
-          TraceEngine.Types.TraceEvents.isSyntheticWebSocketConnectionEvent(event)) {
-        const webSocketIdentifier = event.args.data.identifier;
-        if (this.webSocketIdToLevel.has(webSocketIdentifier)) {
-          level = this.webSocketIdToLevel.get(webSocketIdentifier) || 0;
-        } else {
-          level = getEventLevel(event, lastTimeByLevel);
-          this.webSocketIdToLevel.set(webSocketIdentifier, level);
-        }
+      // Layout the entries by assigning levels.
+      let level: number;
+      if ('identifier' in event.args.data && TraceEngine.Types.TraceEvents.isWebSocketEvent(event)) {
+        level = this.getWebSocketLevel(event, lastTimestampByLevel);
       } else {
-        level = getEventLevel(event, lastTimeByLevel);
+        level = getEventLevel(event, lastTimestampByLevel);
       }
       this.#flameChartData.entryLevels[i] = level;
-      maxLevel = Math.max(maxLevel, lastTimeByLevel.length, level);
+      maxLevel = Math.max(maxLevel, lastTimestampByLevel.length, level);
     }
     for (let i = 0; i < events.length; ++i) {
       // -1 means this event is invisible.
@@ -248,6 +224,21 @@ export class NetworkTrackAppender implements TrackAppender {
       }
     }
     return maxLevel;
+  }
+
+  getWebSocketLevel(event: TraceEngine.Types.TraceEvents.WebSocketEvent, lastTimestampByLevel: LastTimestampByLevel):
+      number {
+    const webSocketIdentifier = event.args.data.identifier;
+    let level: number;
+    if (this.webSocketIdToLevel.has(webSocketIdentifier)) {
+      // We're placing an instant event on top of its parent websocket
+      level = this.webSocketIdToLevel.get(webSocketIdentifier) || 0;
+    } else {
+      // We're placing the parent websocket
+      level = getEventLevel(event, lastTimestampByLevel);
+      this.webSocketIdToLevel.set(webSocketIdentifier, level);
+    }
+    return level;
   }
 
   /*
