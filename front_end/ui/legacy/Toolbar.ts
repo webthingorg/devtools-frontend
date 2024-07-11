@@ -1073,14 +1073,19 @@ export class ToolbarComboBox extends ToolbarItem<void> {
     this.selectElementInternal.appendChild(option);
   }
 
-  createOption(label: string, value?: string): Element {
+  /**
+   * @param value: the value of the option. Also converted to kebab-case and
+   *               used as the jslogContext if jslogContext is not provided.
+   * @param jslogContext: the context used for VE logging.
+   */
+  createOption(label: string, value?: string, jslogContext?: string): Element {
     const option = (this.selectElementInternal.createChild('option') as HTMLOptionElement);
     option.text = label;
     if (typeof value !== 'undefined') {
       option.value = value;
     }
-    const jslogContext = value ? Platform.StringUtilities.toKebabCase(value) : undefined;
-    option.setAttribute('jslog', `${VisualLogging.item(jslogContext).track({click: true})}`);
+    const jslog = jslogContext ?? (value ? Platform.StringUtilities.toKebabCase(value) : undefined);
+    option.setAttribute('jslog', `${VisualLogging.item(jslog).track({click: true})}`);
     return option;
   }
 
