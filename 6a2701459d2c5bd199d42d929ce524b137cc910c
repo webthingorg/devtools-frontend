@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39ddd4b7_85a53644",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-11T10:12:23Z",
+      "side": 1,
+      "message": "Nancy, as Alina is OOO today, would you mind taking a look please? Thanks!",
+      "revId": "6a2701459d2c5bd199d42d929ce524b137cc910c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
