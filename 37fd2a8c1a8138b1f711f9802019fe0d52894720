@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b0f55014_c35d2224",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-11T08:18:46Z",
+      "side": 1,
+      "message": "lgtm after the addition of a test. Nice!",
+      "revId": "37fd2a8c1a8138b1f711f9802019fe0d52894720",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a4f8420_1dcd5d43",
+        "filename": "front_end/panels/timeline/components/SidebarAnnotationsTab.test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-11T08:18:46Z",
+      "side": 1,
+      "message": "could we have a test that clicks on the delete icon and confirms that an event was dispatched?",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 55,
+        "endChar": 35
+      },
+      "revId": "37fd2a8c1a8138b1f711f9802019fe0d52894720",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
