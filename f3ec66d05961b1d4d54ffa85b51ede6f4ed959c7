@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "40ff4e4f_78848af7",
+        "filename": "front_end/panels/network/NetworkLogView.test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 868,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2024-07-11T08:24:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a113a5ad_84d4eee6",
+      "range": {
+        "startLine": 868,
+        "startChar": 8,
+        "endLine": 868,
+        "endChar": 17
+      },
+      "revId": "f3ec66d05961b1d4d54ffa85b51ede6f4ed959c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3369a91b_5364cd7f",
@@ -47,6 +71,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "02cf7f6e_eaba7128",
+        "filename": "front_end/panels/network/NetworkLogView.test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 874,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2024-07-11T08:24:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3369a91b_5364cd7f",
+      "range": {
+        "startLine": 874,
+        "startChar": 30,
+        "endLine": 874,
+        "endChar": 43
+      },
+      "revId": "f3ec66d05961b1d4d54ffa85b51ede6f4ed959c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "de51251a_ea031c9a",
@@ -60,6 +108,30 @@
       "writtenOn": "2024-07-11T08:16:04Z",
       "side": 1,
       "message": "This is fine if you want to really make sure, that copyText wasn\u0027t called more then once. \n\nIf you don\u0027t care too much we could drop `resetHistory()` calls and `callCount` checks.",
+      "range": {
+        "startLine": 879,
+        "startChar": 13,
+        "endLine": 879,
+        "endChar": 25
+      },
+      "revId": "f3ec66d05961b1d4d54ffa85b51ede6f4ed959c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1dafc588_1c3740c1",
+        "filename": "front_end/panels/network/NetworkLogView.test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 879,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2024-07-11T08:24:09Z",
+      "side": 1,
+      "message": "I want to make sure that `copyText` wasn\u0027t called more than once.\n\nAlso, expectCalled is implemented with a check for `callCount \u003e 1`, hardcoded 1. That\u0027s why I need to call `resetHistory`.",
+      "parentUuid": "de51251a_ea031c9a",
       "range": {
         "startLine": 879,
         "startChar": 13,
