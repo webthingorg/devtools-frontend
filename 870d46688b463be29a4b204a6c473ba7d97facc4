@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ff24af2_13b46e7a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-07-11T22:11:36Z",
+      "side": 1,
+      "message": "TraceLoader.traceEngine now returns `{traceEngineData, traceInsights}`.\n\nMay want to change to `{data, insights}` to combat verbosity in tests, lmk.",
+      "revId": "870d46688b463be29a4b204a6c473ba7d97facc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
