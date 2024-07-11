@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "921c1666_1b499a49",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-07-11T16:28:55Z",
+      "side": 1,
+      "message": "told you I had a cleanup in mind. Hows this feel?\n\nAlso, fwiw, the rename/type for LastTimestampByLevel wasn\u0027t mandatory to include here, but it felt nice",
+      "revId": "8c96819a38dd3b1ef00c8dc6820927713c55d14a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
