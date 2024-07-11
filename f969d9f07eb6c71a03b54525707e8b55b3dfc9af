@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1ce3edbf_6c586ca1",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1558,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-11T08:03:54Z",
+      "side": 1,
+      "message": "oh this was just to auto open the sidebar for me so I didn\u0027t have to manually click, I won\u0027t land it with this change in 😄 sorry for the confusion!",
+      "parentUuid": "2b10ae51_20482c53",
+      "revId": "f969d9f07eb6c71a03b54525707e8b55b3dfc9af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "573cb81e_ef4dc49f",
         "filename": "front_end/panels/timeline/components/Sidebar.ts",
         "patchSetId": 1
