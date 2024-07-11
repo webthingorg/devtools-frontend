@@ -69,6 +69,30 @@
       },
       "revId": "46d1fe82c969227c3112199c3596745c32e07c15",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ddf9b210_c7b413f8",
+        "filename": "front_end/panels/timeline/components/NetworkRequestDetails.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-11T16:30:07Z",
+      "side": 1,
+      "message": "Yeah - my question was going to be is this very similar to the code in the tooltip, and could we de-duplicate that? Happy to figure this out in a follow up.",
+      "parentUuid": "90e51116_0c85c9ea",
+      "range": {
+        "startLine": 283,
+        "startChar": 3,
+        "endLine": 283,
+        "endChar": 16
+      },
+      "revId": "46d1fe82c969227c3112199c3596745c32e07c15",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
