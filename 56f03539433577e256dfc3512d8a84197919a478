@@ -16,6 +16,24 @@
       "message": "This migration is done now, right? Updated comment to reflect that.",
       "revId": "56f03539433577e256dfc3512d8a84197919a478",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc296104_7e029015",
+        "filename": "front_end/models/trace/ModelImpl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-07-11T08:37:38Z",
+      "side": 0,
+      "message": "Acknowledged",
+      "parentUuid": "fa8261f2_4a601a3a",
+      "revId": "56f03539433577e256dfc3512d8a84197919a478",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

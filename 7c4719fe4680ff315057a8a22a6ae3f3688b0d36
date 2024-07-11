@@ -16,6 +16,29 @@
       "message": "LGTM\n\nAt first I was a bit wary of the network panel scenario where we have to use a cast to correctly narrow the type, but I think we should treat that as a one off special case, and not something we want to support moving forward; our expectation is that the supported use case here is that you run all handlers, and anything else we leave up to the user. I think that\u0027s a reasonable trade-off to greatly simplify the types and remove some generics. Thanks!",
       "revId": "7c4719fe4680ff315057a8a22a6ae3f3688b0d36",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0aa413ea_c0bb08b5",
+        "filename": "front_end/models/trace/ModelImpl.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-07-11T08:37:38Z",
+      "side": 1,
+      "message": "not necessarily actionable, but if passing a subset is a one off we might want to use a non partial type here and a type cast at the call site",
+      "range": {
+        "startLine": 57,
+        "startChar": 24,
+        "endLine": 57,
+        "endChar": 55
+      },
+      "revId": "7c4719fe4680ff315057a8a22a6ae3f3688b0d36",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
