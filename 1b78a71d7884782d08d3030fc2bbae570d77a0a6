@@ -134,6 +134,30 @@
       },
       "revId": "1b78a71d7884782d08d3030fc2bbae570d77a0a6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67f4c6cb_ddef3f04",
+        "filename": "front_end/panels/console/ConsoleView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1729,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-07-11T12:37:40Z",
+      "side": 1,
+      "message": "Ok, I\u0027ll do this first, and if we see there\u0027s actual usage, we can improve the metrics.",
+      "parentUuid": "43a4c0d6_d766383b",
+      "range": {
+        "startLine": 1729,
+        "startChar": 9,
+        "endLine": 1729,
+        "endChar": 28
+      },
+      "revId": "1b78a71d7884782d08d3030fc2bbae570d77a0a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
