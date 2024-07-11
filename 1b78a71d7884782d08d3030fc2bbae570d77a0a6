@@ -16,6 +16,29 @@
       "message": "Can you take a look please? Thanks! 🙏",
       "revId": "1b78a71d7884782d08d3030fc2bbae570d77a0a6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b20eccf_4ea0a729",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 569,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-07-11T10:52:14Z",
+      "side": 1,
+      "message": "Do we need a `ConsoleFilterByFullText` (or similar) so we have a baseline to compare against?",
+      "range": {
+        "startLine": 567,
+        "startChar": 0,
+        "endLine": 569,
+        "endChar": 27
+      },
+      "revId": "1b78a71d7884782d08d3030fc2bbae570d77a0a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
