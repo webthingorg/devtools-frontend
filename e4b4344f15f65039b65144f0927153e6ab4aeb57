@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5593bee_617cc4b8",
+        "filename": "config/gni/devtools_grd_files.gni",
+        "patchSetId": 1
+      },
+      "lineNbr": 1745,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-11T17:05:53Z",
+      "side": 1,
+      "message": "this file is in the wrong place: there are two lists in this file, one is debug sources, and one is release sources. Entry points (which is what this file is, because the file name is the same as the directory name) need to go into release sources.",
+      "range": {
+        "startLine": 1745,
+        "startChar": 0,
+        "endLine": 1745,
+        "endChar": 62
+      },
+      "revId": "e4b4344f15f65039b65144f0927153e6ab4aeb57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8700f62f_ed6d0eab",
+        "filename": "front_end/panels/timeline/components/components.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-11T17:05:53Z",
+      "side": 1,
+      "message": "you probably shouldn\u0027t expose this here\n\nand then wherever in the code we use SidebarInsight, instead do:\n\n```\nimport * as InsightsUI from \u0027../path/to/components/insights/insights.js\u0027\n```\n\nAnd then use `InsightsUI.SidebarInsight`",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 63
+      },
+      "revId": "e4b4344f15f65039b65144f0927153e6ab4aeb57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
