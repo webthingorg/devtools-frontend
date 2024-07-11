@@ -110,6 +110,30 @@
       },
       "revId": "1b78a71d7884782d08d3030fc2bbae570d77a0a6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43a4c0d6_d766383b",
+        "filename": "front_end/panels/console/ConsoleView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1729,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-07-11T12:33:07Z",
+      "side": 1,
+      "message": "I think actions are ok, but when exactly we are recording the metrics. I guess there is no \"Enter\" key so it\u0027s probably hard to figure out when to record the metrics.\n\nIf the event is somewhat throttled I\u0027d be fine with the current solution, but if we record one action per character type, that would skew the results. (Realistically I don\u0027t think anyone is actually using this feature a lot so just to get a rough feeling then this approach is fine).",
+      "parentUuid": "1a4ec3b1_7bc50409",
+      "range": {
+        "startLine": 1729,
+        "startChar": 9,
+        "endLine": 1729,
+        "endChar": 28
+      },
+      "revId": "1b78a71d7884782d08d3030fc2bbae570d77a0a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
