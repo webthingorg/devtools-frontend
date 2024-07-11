@@ -552,6 +552,34 @@ c`;
       ]);
     });
 
+    it('aborts on attribution metadat', async () => {
+      async function* generateAnswer() {
+        yield {
+          explanation: 'ANSWER: this is the answer',
+          metadata: {
+            rpcGlobalId: 123,
+            attributionMetadata: [{
+              attributionAction: Host.AidaClient.RecitationAction.BLOCK,
+            }],
+          },
+        };
+      }
+
+      const agent = new FreestylerAgent({
+        aidaClient: mockAidaClient(generateAnswer),
+        confirmSideEffect: () => Promise.resolve(true),
+        execJs: sinon.spy(),
+      });
+
+      const steps = await Array.fromAsync(agent.run('test'));
+      assert.deepStrictEqual(steps, [
+        {
+          step: Freestyler.Step.ERROR,
+          text: 'Sorry, I could not help you with this query.',
+        },
+      ]);
+    });
+
     it('generates a response if nothing is returned', async () => {
       async function* generateNothing() {
         yield {
