@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4780a7fe_fbc2b1cf",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 569,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-07-11T12:14:33Z",
+      "side": 1,
+      "message": "Nope, this is really usage of the keys in the wild, specifically `context:`.",
+      "parentUuid": "4b20eccf_4ea0a729",
+      "range": {
+        "startLine": 567,
+        "startChar": 0,
+        "endLine": 569,
+        "endChar": 27
+      },
+      "revId": "1b78a71d7884782d08d3030fc2bbae570d77a0a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3118d311_540dc3d4",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-07-11T10:59:10Z",
       "side": 1,
       "message": "Quickly browsing through the code it seems that each input event can trigger this. Which means we can potentially emit a lot of actionTaken UMA events for a single search/filter term.",
+      "range": {
+        "startLine": 1729,
+        "startChar": 9,
+        "endLine": 1729,
+        "endChar": 28
+      },
+      "revId": "1b78a71d7884782d08d3030fc2bbae570d77a0a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a4ec3b1_7bc50409",
+        "filename": "front_end/panels/console/ConsoleView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1729,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-07-11T12:14:33Z",
+      "side": 1,
+      "message": "Do you think we should go for a different approach than the Actions?",
+      "parentUuid": "3118d311_540dc3d4",
       "range": {
         "startLine": 1729,
         "startChar": 9,
