@@ -292,7 +292,7 @@ describeWithEnvironment('SamplesHandler', function() {
     }
 
     it('falls back to the call frame name if the ProfileNode name is empty', async function() {
-      const traceParsedData = await TraceLoader.traceEngine(this, 'react-hello-world.json.gz');
+      const {traceParsedData} = await TraceLoader.traceEngine(this, 'react-hello-world.json.gz');
       const {entry, profileNode} = getProfileEventAndNode(traceParsedData);
       // Store and then reset this: we are doing this to test the fallback to
       // the entry callFrame.functionName property. After the assertion we
@@ -307,7 +307,7 @@ describeWithEnvironment('SamplesHandler', function() {
     });
 
     it('uses the profile name if it has been set', async function() {
-      const traceParsedData = await TraceLoader.traceEngine(this, 'react-hello-world.json.gz');
+      const {traceParsedData} = await TraceLoader.traceEngine(this, 'react-hello-world.json.gz');
       const {entry, profileNode} = getProfileEventAndNode(traceParsedData);
       // Store and then reset this: we are doing this to test the fallback to
       // the entry callFrame.functionName property. After the assertion we

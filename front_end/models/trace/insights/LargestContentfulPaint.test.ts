@@ -7,8 +7,8 @@ import * as TraceModel from '../trace.js';
 import * as Types from '../types/types.js';
 
 async function setupTraceData(testContext: Mocha.Suite|Mocha.Context|null, traceFile: string) {
-  const {NetworkRequests, LargestImagePaint, Meta, PageLoadMetrics} =
-      await TraceLoader.traceEngine(testContext, traceFile);
+  const {traceParsedData} = await TraceLoader.traceEngine(testContext, traceFile);
+  const {NetworkRequests, LargestImagePaint, Meta, PageLoadMetrics} = traceParsedData;
   const data = {
     NetworkRequests,
     LargestImagePaint,

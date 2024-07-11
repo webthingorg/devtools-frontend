@@ -33,7 +33,7 @@ function getRowDataForNetworkDetailsElement(details: ShadowRoot) {
 describeWithEnvironment('TimelineDetailsView', function() {
   const mockViewDelegate = new MockViewDelegate();
   it('displays the details of a network request event correctly', async function() {
-    const traceParsedData = await TraceLoader.traceEngine(this, 'lcp-web-font.json.gz');
+    const {traceParsedData} = await TraceLoader.traceEngine(this, 'lcp-web-font.json.gz');
     const detailsView = new Timeline.TimelineDetailsView.TimelineDetailsView(mockViewDelegate);
 
     const networkRequests = traceParsedData.NetworkRequests.byTime;

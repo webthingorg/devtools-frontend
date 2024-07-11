@@ -62,7 +62,7 @@ describe('WarningsHandler', function() {
 
   it('identifies long interactions', async function() {
     // We run the entire model here as the WarningsHandler actually depends on the UserInteractionsHandler to fetch this data
-    const traceParsedData = await TraceLoader.traceEngine(this, 'one-second-interaction.json.gz');
+    const {traceParsedData} = await TraceLoader.traceEngine(this, 'one-second-interaction.json.gz');
 
     // These events do exist on the UserInteractionsHandler, but we also put
     // them into the WarningsHandler so that the warnings handler can be the

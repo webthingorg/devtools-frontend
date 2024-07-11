@@ -28,7 +28,7 @@ describeWithEnvironment('GPUTrackAppender', function() {
   let entryTypeByLevel: Timeline.TimelineFlameChartDataProvider.EntryType[] = [];
 
   beforeEach(async function() {
-    traceParsedData = await TraceLoader.traceEngine(this, 'threejs-gpu.json.gz');
+    ({traceParsedData} = await TraceLoader.traceEngine(this, 'threejs-gpu.json.gz'));
     gpuTrackAppender = initTrackAppender(flameChartData, traceParsedData, entryData, entryTypeByLevel);
     gpuTrackAppender.appendTrackAtLevel(0);
   });

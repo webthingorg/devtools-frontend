@@ -19,7 +19,7 @@ async function renderTooltips1() {
     throw new Error('No container');
   }
 
-  const traceParsedData = await TraceLoader.TraceLoader.traceEngine(/* mocha context */ null, 'lcp-images.json.gz');
+  const {traceParsedData} = await TraceLoader.TraceLoader.traceEngine(/* mocha context */ null, 'lcp-images.json.gz');
   const networkEvent = traceParsedData.NetworkRequests.byTime[0];
 
   const tooltip = new TimelineComponents.NetworkRequestTooltip.NetworkRequestTooltip();
@@ -37,7 +37,7 @@ async function renderTooltips2() {
     throw new Error('No container');
   }
 
-  const traceParsedData =
+  const {traceParsedData} =
       await TraceLoader.TraceLoader.traceEngine(/* mocha context */ null, 'render-blocking-in-iframe.json.gz');
   const networkEvent = traceParsedData.NetworkRequests.byTime[1];
 
@@ -56,7 +56,7 @@ async function renderTooltips3() {
     throw new Error('No container');
   }
 
-  const traceParsedData =
+  const {traceParsedData} =
       await TraceLoader.TraceLoader.traceEngine(/* mocha context */ null, 'changing-priority.json.gz');
   const networkEvent = traceParsedData.NetworkRequests.byTime.find(request => {
     return request.args.data.url === 'https://via.placeholder.com/3000.jpg';

@@ -9,7 +9,7 @@ import * as TraceEngine from '../trace/trace.js';
 describe('TimelineModelFilter', () => {
   describe('TimelineVisibleEventsFilter', () => {
     it('accepts events that are set in the constructor and rejects other events', async function() {
-      const traceParsedData = await TraceLoader.traceEngine(this, 'user-timings.json.gz');
+      const {traceParsedData} = await TraceLoader.traceEngine(this, 'user-timings.json.gz');
       const userTimingEvent = (traceParsedData.UserTimings.performanceMeasures).at(0);
       assert.isOk(userTimingEvent);
 
@@ -23,7 +23,7 @@ describe('TimelineModelFilter', () => {
 
     describe('eventType', () => {
       it('returns ConsoleTime if the event has the blink.console category', async function() {
-        const traceParsedData = await TraceLoader.traceEngine(this, 'timings-track.json.gz');
+        const {traceParsedData} = await TraceLoader.traceEngine(this, 'timings-track.json.gz');
         const consoleTimingEvent = (traceParsedData.UserTimings.consoleTimings).at(0);
         assert.isOk(consoleTimingEvent);
         assert.strictEqual(
@@ -32,7 +32,7 @@ describe('TimelineModelFilter', () => {
       });
 
       it('returns UserTiming if the event has the blink.user_timing category', async function() {
-        const traceParsedData = await TraceLoader.traceEngine(this, 'timings-track.json.gz');
+        const {traceParsedData} = await TraceLoader.traceEngine(this, 'timings-track.json.gz');
         const userTimingEvent = (traceParsedData.UserTimings.performanceMeasures).at(0);
         assert.isOk(userTimingEvent);
         assert.strictEqual(
@@ -41,7 +41,7 @@ describe('TimelineModelFilter', () => {
       });
 
       it('returns the event name if the event is any other category', async function() {
-        const traceParsedData = await TraceLoader.traceEngine(this, 'cls-single-frame.json.gz');
+        const {traceParsedData} = await TraceLoader.traceEngine(this, 'cls-single-frame.json.gz');
         const layoutShiftEvent = traceParsedData.LayoutShifts.clusters.at(0)?.events.at(0);
         assert.isOk(layoutShiftEvent);
         assert.strictEqual(
@@ -53,7 +53,7 @@ describe('TimelineModelFilter', () => {
 
   describe('TimelineInvisibleEventsFilter', () => {
     it('does not accept events that have been set as invisible', async function() {
-      const traceParsedData = await TraceLoader.traceEngine(this, 'user-timings.json.gz');
+      const {traceParsedData} = await TraceLoader.traceEngine(this, 'user-timings.json.gz');
       const userTimingEvent = (traceParsedData.UserTimings.performanceMeasures).at(0);
       assert.isOk(userTimingEvent);
 
@@ -65,7 +65,7 @@ describe('TimelineModelFilter', () => {
     });
 
     it('accepts events that have not been set as invisible', async function() {
-      const traceParsedData = await TraceLoader.traceEngine(this, 'cls-single-frame.json.gz');
+      const {traceParsedData} = await TraceLoader.traceEngine(this, 'cls-single-frame.json.gz');
       const layoutShiftEvent = traceParsedData.LayoutShifts.clusters.at(0)?.events.at(0);
       assert.isOk(layoutShiftEvent);
 
@@ -79,7 +79,7 @@ describe('TimelineModelFilter', () => {
 
   describe('ExclusiveNameFilter', () => {
     it('accepts events that do not match the provided set of names to exclude', async function() {
-      const traceParsedData = await TraceLoader.traceEngine(this, 'user-timings.json.gz');
+      const {traceParsedData} = await TraceLoader.traceEngine(this, 'user-timings.json.gz');
       const userTimingEvent = (traceParsedData.UserTimings.performanceMeasures).at(0);
       assert.isOk(userTimingEvent);
 
@@ -90,7 +90,7 @@ describe('TimelineModelFilter', () => {
     });
 
     it('rejects events that match the provided set of names to exclude', async function() {
-      const traceParsedData = await TraceLoader.traceEngine(this, 'cls-single-frame.json.gz');
+      const {traceParsedData} = await TraceLoader.traceEngine(this, 'cls-single-frame.json.gz');
       const layoutShiftEvent = traceParsedData.LayoutShifts.clusters.at(0)?.events.at(0);
       assert.isOk(layoutShiftEvent);
 

@@ -9,14 +9,14 @@ import * as Timeline from './timeline.js';
 describe('FreshRecordingTracker', () => {
   it('knows that a recording has been registered as fresh', async function() {
     const instance = Timeline.FreshRecording.Tracker.instance({forceNew: true});
-    const traceParsedData = await TraceLoader.traceEngine(this, 'web-dev.json.gz');
+    const {traceParsedData} = await TraceLoader.traceEngine(this, 'web-dev.json.gz');
     instance.registerFreshRecording(traceParsedData);
     assert.isTrue(instance.recordingIsFresh(traceParsedData));
   });
 
   it('knows that un-registered recordings are not fresh', async function() {
     const instance = Timeline.FreshRecording.Tracker.instance({forceNew: true});
-    const traceParsedData = await TraceLoader.traceEngine(this, 'web-dev.json.gz');
+    const {traceParsedData} = await TraceLoader.traceEngine(this, 'web-dev.json.gz');
     assert.isFalse(instance.recordingIsFresh(traceParsedData));
   });
 });

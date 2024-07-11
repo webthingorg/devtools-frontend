@@ -21,7 +21,7 @@ describeWithEnvironment('TimelineSelection', function() {
   });
 
   it('can be created with a network request', async function() {
-    const traceParsedData = await TraceLoader.traceEngine(this, 'web-dev.json.gz');
+    const {traceParsedData} = await TraceLoader.traceEngine(this, 'web-dev.json.gz');
     const request = traceParsedData.NetworkRequests.byTime[0];
     const selection = Timeline.TimelineSelection.TimelineSelection.fromTraceEvent(request);
     assert.strictEqual(selection.object, request);
@@ -35,7 +35,7 @@ describeWithEnvironment('TimelineSelection', function() {
   });
 
   it('can be created with a TraceEngine event', async function() {
-    const traceParsedData = await TraceLoader.traceEngine(this, 'web-dev.json.gz');
+    const {traceParsedData} = await TraceLoader.traceEngine(this, 'web-dev.json.gz');
     const firstLCPEvent = traceParsedData.PageLoadMetrics.allMarkerEvents.find(event => {
       return event.name === 'largestContentfulPaint::Candidate';
     });

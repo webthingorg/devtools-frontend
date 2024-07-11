@@ -12,7 +12,7 @@ import * as Timeline from './timeline.js';
 describeWithEnvironment('TimelineFilters', () => {
   describe('IsLong', () => {
     it('returns true if the event is longer than the defined duration for a new engine event', async function() {
-      const traceParsedData = await TraceLoader.traceEngine(this, 'one-second-interaction.json.gz');
+      const {traceParsedData} = await TraceLoader.traceEngine(this, 'one-second-interaction.json.gz');
       const longEvent = getMainThread(traceParsedData.Renderer).entries.find(event => {
         return event.dur &&
             event.dur >
@@ -28,7 +28,7 @@ describeWithEnvironment('TimelineFilters', () => {
     });
 
     it('returns false if the event is shorter than the defined duration for a new engine event', async function() {
-      const traceParsedData = await TraceLoader.traceEngine(this, 'one-second-interaction.json.gz');
+      const {traceParsedData} = await TraceLoader.traceEngine(this, 'one-second-interaction.json.gz');
       const longEvent = getMainThread(traceParsedData.Renderer).entries.find(event => {
         return event.dur &&
             event.dur >
@@ -48,7 +48,7 @@ describeWithEnvironment('TimelineFilters', () => {
 
   describe('Category', () => {
     it('returns false for a new event if it has a category that is hidden', async function() {
-      const traceParsedData = await TraceLoader.traceEngine(this, 'user-timings.json.gz');
+      const {traceParsedData} = await TraceLoader.traceEngine(this, 'user-timings.json.gz');
       // These events are usually visible, so make the category hidden before
       // running this test.
       Timeline.EventUICategory.getCategoryStyles()['scripting'].hidden = true;
@@ -63,7 +63,7 @@ describeWithEnvironment('TimelineFilters', () => {
     });
 
     it('returns true for a new event if it has a category that is visible', async function() {
-      const traceParsedData = await TraceLoader.traceEngine(this, 'user-timings.json.gz');
+      const {traceParsedData} = await TraceLoader.traceEngine(this, 'user-timings.json.gz');
       const userTimingEvent = (traceParsedData.UserTimings.performanceMeasures).at(0);
       if (!userTimingEvent) {
         throw new Error('Could not find expected event.');

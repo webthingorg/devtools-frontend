@@ -15,7 +15,7 @@ describeWithEnvironment('NetworkTrackAppender', function() {
   let flameChartData = PerfUI.FlameChart.FlameChartTimelineData.createEmpty();
 
   beforeEach(async function() {
-    traceParsedData = await TraceLoader.traceEngine(this, 'cls-cluster-max-timeout.json.gz');
+    ({traceParsedData} = await TraceLoader.traceEngine(this, 'cls-cluster-max-timeout.json.gz'));
     networkTrackAppender =
         new Timeline.NetworkTrackAppender.NetworkTrackAppender(flameChartData, traceParsedData.NetworkRequests.byTime);
     networkTrackAppender.appendTrackAtLevel(0);

@@ -11,7 +11,7 @@ import * as TimelineComponents from './components.js';
 
 describeWithMockConnection('NetworkRequestDetails', () => {
   it('renders the right details for a network event from TraceEngine', async function() {
-    const traceParsedData = await TraceLoader.traceEngine(this, 'lcp-web-font.json.gz');
+    const {traceParsedData} = await TraceLoader.traceEngine(this, 'lcp-web-font.json.gz');
     const networkRequests = traceParsedData.NetworkRequests.byTime;
     const cssRequest = networkRequests.find(request => {
       return request.args.data.url === 'https://chromedevtools.github.io/performance-stories/lcp-web-font/app.css';

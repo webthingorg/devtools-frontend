@@ -28,7 +28,7 @@ describeWithEnvironment('AnimationsTrackAppender', function() {
   let entryTypeByLevel: Timeline.TimelineFlameChartDataProvider.EntryType[] = [];
 
   beforeEach(async function() {
-    traceParsedData = await TraceLoader.traceEngine(this, 'animation.json.gz');
+    ({traceParsedData} = await TraceLoader.traceEngine(this, 'animation.json.gz'));
     animationsTrackAppender = initTrackAppender(flameChartData, traceParsedData, entryData, entryTypeByLevel);
     animationsTrackAppender.appendTrackAtLevel(0);
   });

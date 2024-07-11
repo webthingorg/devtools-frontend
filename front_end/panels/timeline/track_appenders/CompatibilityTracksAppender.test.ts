@@ -21,7 +21,7 @@ describeWithEnvironment('CompatibilityTracksAppender', function() {
     entryData = [];
     flameChartData = PerfUI.FlameChart.FlameChartTimelineData.createEmpty();
     entryTypeByLevel = [];
-    traceParsedData = await TraceLoader.traceEngine(context, fixture);
+    ({traceParsedData} = await TraceLoader.traceEngine(context, fixture));
     tracksAppender = new Timeline.CompatibilityTracksAppender.CompatibilityTracksAppender(
         flameChartData, traceParsedData, entryData, entryTypeByLevel);
     const timingsTrack = tracksAppender.timingsTrackAppender();

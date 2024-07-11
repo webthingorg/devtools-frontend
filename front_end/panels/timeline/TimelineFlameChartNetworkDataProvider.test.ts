@@ -11,7 +11,7 @@ import * as Timeline from './timeline.js';
 describeWithEnvironment('TimelineFlameChartNetworkDataProvider', function() {
   it('renders the network track correctly', async function() {
     const dataProvider = new Timeline.TimelineFlameChartNetworkDataProvider.TimelineFlameChartNetworkDataProvider();
-    const traceParsedData = await TraceLoader.traceEngine(this, 'load-simple.json.gz');
+    const {traceParsedData} = await TraceLoader.traceEngine(this, 'load-simple.json.gz');
 
     const minTime = TraceEngine.Helpers.Timing.microSecondsToMilliseconds(traceParsedData.Meta.traceBounds.min);
     const maxTime = TraceEngine.Helpers.Timing.microSecondsToMilliseconds(traceParsedData.Meta.traceBounds.max);
@@ -57,7 +57,7 @@ describeWithEnvironment('TimelineFlameChartNetworkDataProvider', function() {
 
   it('filters navigations to only return those that happen on the main frame', async function() {
     const dataProvider = new Timeline.TimelineFlameChartNetworkDataProvider.TimelineFlameChartNetworkDataProvider();
-    const traceParsedData = await TraceLoader.traceEngine(this, 'multiple-navigations-with-iframes.json.gz');
+    const {traceParsedData} = await TraceLoader.traceEngine(this, 'multiple-navigations-with-iframes.json.gz');
 
     const minTime = TraceEngine.Helpers.Timing.microSecondsToMilliseconds(traceParsedData.Meta.traceBounds.min);
     const maxTime = TraceEngine.Helpers.Timing.microSecondsToMilliseconds(traceParsedData.Meta.traceBounds.max);
@@ -75,7 +75,7 @@ describeWithEnvironment('TimelineFlameChartNetworkDataProvider', function() {
 
   it('can provide the index for an event and the event for a given index', async function() {
     const dataProvider = new Timeline.TimelineFlameChartNetworkDataProvider.TimelineFlameChartNetworkDataProvider();
-    const traceParsedData = await TraceLoader.traceEngine(this, 'web-dev.json.gz');
+    const {traceParsedData} = await TraceLoader.traceEngine(this, 'web-dev.json.gz');
     dataProvider.setModel(traceParsedData);
 
     const event = dataProvider.eventByIndex(0);
@@ -85,7 +85,7 @@ describeWithEnvironment('TimelineFlameChartNetworkDataProvider', function() {
 
   it('does not render the network track if there is no network requests', async function() {
     const dataProvider = new Timeline.TimelineFlameChartNetworkDataProvider.TimelineFlameChartNetworkDataProvider();
-    const traceParsedData = await TraceLoader.traceEngine(this, 'basic.json.gz');
+    const {traceParsedData} = await TraceLoader.traceEngine(this, 'basic.json.gz');
 
     const minTime = TraceEngine.Helpers.Timing.microSecondsToMilliseconds(traceParsedData.Meta.traceBounds.min);
     const maxTime = TraceEngine.Helpers.Timing.microSecondsToMilliseconds(traceParsedData.Meta.traceBounds.max);
@@ -116,7 +116,7 @@ describeWithEnvironment('TimelineFlameChartNetworkDataProvider', function() {
 
   it('decorate a event correctly', async function() {
     const dataProvider = new Timeline.TimelineFlameChartNetworkDataProvider.TimelineFlameChartNetworkDataProvider();
-    const traceParsedData = await TraceLoader.traceEngine(this, 'cls-cluster-max-timeout.json.gz');
+    const {traceParsedData} = await TraceLoader.traceEngine(this, 'cls-cluster-max-timeout.json.gz');
     // The field that is important of this test:
     // {
     // "ts": 183752441.977,

@@ -80,7 +80,7 @@ describeWithEnvironment('Timing helpers', () => {
 
   describe('timeStampForEventAdjustedByClosestNavigation', () => {
     it('can use the navigation ID to adjust the time correctly', async function() {
-      const traceParsedData = await TraceLoader.traceEngine(this, 'web-dev.json.gz');
+      const {traceParsedData} = await TraceLoader.traceEngine(this, 'web-dev.json.gz');
       const lcpEvent = traceParsedData.PageLoadMetrics.allMarkerEvents.find(event => {
         // Just one LCP Event so we do not need to worry about ordering and finding the right one.
         return event.name === 'largestContentfulPaint::Candidate';
@@ -108,7 +108,7 @@ describeWithEnvironment('Timing helpers', () => {
     });
 
     it('can use the frame ID to adjust the time correctly', async function() {
-      const traceParsedData = await TraceLoader.traceEngine(this, 'web-dev.json.gz');
+      const {traceParsedData} = await TraceLoader.traceEngine(this, 'web-dev.json.gz');
       const dclEvent = traceParsedData.PageLoadMetrics.allMarkerEvents.find(event => {
         return event.name === 'MarkDOMContent' && event.args.data?.frame === traceParsedData.Meta.mainFrameId;
       });

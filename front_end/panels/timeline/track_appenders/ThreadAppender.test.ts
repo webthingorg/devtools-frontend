@@ -39,7 +39,7 @@ async function renderThreadAppendersFromTrace(context: Mocha.Context|Mocha.Suite
   const entryTypeByLevel: Timeline.TimelineFlameChartDataProvider.EntryType[] = [];
   const entryData: Timeline.TimelineFlameChartDataProvider.TimelineFlameChartEntry[] = [];
   const flameChartData = PerfUI.FlameChart.FlameChartTimelineData.createEmpty();
-  const traceParsedData = await TraceLoader.traceEngine(context, trace);
+  const {traceParsedData} = await TraceLoader.traceEngine(context, trace);
   const threadAppenders = initTrackAppender(flameChartData, traceParsedData, entryData, entryTypeByLevel);
   let level = 0;
   for (const appender of threadAppenders) {

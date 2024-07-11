@@ -28,7 +28,7 @@ describeWithEnvironment('TimingTrackAppender', function() {
   let flameChartData = PerfUI.FlameChart.FlameChartTimelineData.createEmpty();
   let entryTypeByLevel: Timeline.TimelineFlameChartDataProvider.EntryType[] = [];
   beforeEach(async function() {
-    traceParsedData = await TraceLoader.traceEngine(this, 'timings-track.json.gz');
+    ({traceParsedData} = await TraceLoader.traceEngine(this, 'timings-track.json.gz'));
     timingsTrackAppender = initTrackAppender(flameChartData, traceParsedData, entryData, entryTypeByLevel);
     timingsTrackAppender.appendTrackAtLevel(0);
   });
@@ -258,7 +258,7 @@ describeWithEnvironment('TimingTrackAppender', function() {
     beforeEach(async function() {
       Root.Runtime.experiments.enableForTest('timeline-extensions');
 
-      traceParsedData = await TraceLoader.traceEngine(this, 'extension-tracks-and-marks.json.gz');
+      ({traceParsedData} = await TraceLoader.traceEngine(this, 'extension-tracks-and-marks.json.gz'));
       timingsTrackAppender = initTrackAppender(flameChartData, traceParsedData, entryData, entryTypeByLevel);
       timingsTrackAppender.appendTrackAtLevel(0);
       // Rather than use the real colours here and burden the test with having to

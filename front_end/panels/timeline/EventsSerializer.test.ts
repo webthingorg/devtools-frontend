@@ -21,7 +21,7 @@ function findFirstEntry(
 
 describe('EventsSerializer', () => {
   it('correctly implements a bidirectional key <-> event mapping', async function() {
-    const data = await TraceLoader.traceEngine(this, 'basic-stack.json.gz');
+    const {traceParsedData: data} = await TraceLoader.traceEngine(this, 'basic-stack.json.gz');
     const eventsSerializer = new Timeline.EventsSerializer.EventsSerializer();
     const mainThread = getMainThread(data.Renderer);
     // Find first 'Timer Fired' entry in the trace

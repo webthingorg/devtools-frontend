@@ -9,7 +9,7 @@ import * as TraceEngine from '../trace.js';
 
 describeWithEnvironment('Handler Threads helper', function() {
   it('returns all the threads for a trace that used tracing', async function() {
-    const traceData = await TraceLoader.traceEngine(this, 'web-dev.json.gz');
+    const {traceParsedData: traceData} = await TraceLoader.traceEngine(this, 'web-dev.json.gz');
 
     const allThreads = Array.from(traceData.Renderer.processes.values()).flatMap(process => {
       return Array.from(process.threads.values());

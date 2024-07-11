@@ -341,7 +341,7 @@ describeWithEnvironment('TimelineProfileTree', () => {
     });
 
     it('correctly keeps ProfileCall nodes and uses them to build up the tree', async function() {
-      const traceParsedData = await TraceLoader.traceEngine(this, 'mainWasm_profile.json.gz');
+      const {traceParsedData} = await TraceLoader.traceEngine(this, 'mainWasm_profile.json.gz');
       const mainThread = getMainThread(traceParsedData.Renderer);
       const bounds = TraceEngine.Helpers.Timing.traceWindowMilliSeconds(traceParsedData.Meta.traceBounds);
 
@@ -371,7 +371,7 @@ describeWithEnvironment('TimelineProfileTree', () => {
 
   describe('generateEventID', () => {
     it('generates the right ID for new engine profile call events', async function() {
-      const traceParsedData = await TraceLoader.traceEngine(this, 'react-hello-world.json.gz');
+      const {traceParsedData} = await TraceLoader.traceEngine(this, 'react-hello-world.json.gz');
       const mainThread = getMainThread(traceParsedData.Renderer);
       const profileCallEntry = mainThread.entries.find(entry => {
         return TraceEngine.Types.TraceEvents.isProfileCall(entry) &&
@@ -385,7 +385,7 @@ describeWithEnvironment('TimelineProfileTree', () => {
     });
 
     it('generates the right ID for new engine native profile call events', async function() {
-      const traceParsedData = await TraceLoader.traceEngine(this, 'invalid-animation-events.json.gz', {
+      const {traceParsedData} = await TraceLoader.traceEngine(this, 'invalid-animation-events.json.gz', {
         ...TraceEngine.Types.Configuration.defaults(),
         includeRuntimeCallStats: true,
       });

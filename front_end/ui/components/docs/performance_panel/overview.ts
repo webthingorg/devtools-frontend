@@ -26,7 +26,7 @@ async function renderMiniMap(containerSelector: string, options: {showMemory: bo
   if (!container) {
     throw new Error('could not find container');
   }
-  const traceParsedData = await TraceLoader.TraceLoader.traceEngine(null, fileName);
+  const {traceParsedData} = await TraceLoader.TraceLoader.traceEngine(null, fileName);
 
   const mainThread =
       TraceEngine.Handlers.Threads.threadsInRenderer(traceParsedData.Renderer, traceParsedData.AuctionWorklets)
@@ -46,7 +46,7 @@ async function renderMiniMap(containerSelector: string, options: {showMemory: bo
   TraceBounds.TraceBounds.BoundsManager.instance().setTimelineVisibleWindow(zoomedWindow);
 
   minimap.setData({
-    traceParsedData: traceParsedData,
+    traceParsedData,
     settings: {
       showMemory: options.showMemory,
       showScreenshots: true,

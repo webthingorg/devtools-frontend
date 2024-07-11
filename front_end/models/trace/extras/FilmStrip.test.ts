@@ -8,13 +8,13 @@ import * as TraceEngine from '../trace.js';
 
 describeWithEnvironment('FilmStrip', function() {
   it('identifies the frames from a trace', async function() {
-    const traceParsedData = await TraceLoader.traceEngine(this, 'web-dev.json.gz');
+    const {traceParsedData} = await TraceLoader.traceEngine(this, 'web-dev.json.gz');
     const filmStrip = TraceEngine.Extras.FilmStrip.fromTraceData(traceParsedData);
     assert.lengthOf(filmStrip.frames, 5);
   });
 
   it('caches the film strip based on the trace data and the zero time', async function() {
-    const traceParsedData = await TraceLoader.traceEngine(this, 'web-dev.json.gz');
+    const {traceParsedData} = await TraceLoader.traceEngine(this, 'web-dev.json.gz');
     const filmStrip1 = TraceEngine.Extras.FilmStrip.fromTraceData(traceParsedData);
     const filmStrip2 = TraceEngine.Extras.FilmStrip.fromTraceData(traceParsedData);
     // It is from cache so you get back the exact same object.
@@ -29,7 +29,7 @@ describeWithEnvironment('FilmStrip', function() {
   });
 
   it('exposes the snapshot string for each frame', async function() {
-    const traceParsedData = await TraceLoader.traceEngine(this, 'web-dev.json.gz');
+    const {traceParsedData} = await TraceLoader.traceEngine(this, 'web-dev.json.gz');
     const filmStrip = TraceEngine.Extras.FilmStrip.fromTraceData(traceParsedData);
     assert.isTrue(filmStrip.frames.every(frame => {
       return typeof frame.screenshotEvent.args.dataUri === 'string' && frame.screenshotEvent.args.dataUri.length > 0;
@@ -37,7 +37,7 @@ describeWithEnvironment('FilmStrip', function() {
   });
 
   it('can use a custom zero time to filter out screenshots', async function() {
-    const traceParsedData = await TraceLoader.traceEngine(this, 'web-dev.json.gz');
+    const {traceParsedData} = await TraceLoader.traceEngine(this, 'web-dev.json.gz');
     const filmStrip = TraceEngine.Extras.FilmStrip.fromTraceData(traceParsedData);
     // Set a custom zero time after the first screenshot and ensure that we now only have four events.
     const newCustomZeroTime = TraceEngine.Types.Timing.MicroSeconds(filmStrip.frames[0].screenshotEvent.ts + 1000);
@@ -52,7 +52,7 @@ describeWithEnvironment('FilmStrip', function() {
   });
 
   it('can return the frame closest to a given timestamp', async function() {
-    const traceParsedData = await TraceLoader.traceEngine(this, 'web-dev.json.gz');
+    const {traceParsedData} = await TraceLoader.traceEngine(this, 'web-dev.json.gz');
     const filmStrip = TraceEngine.Extras.FilmStrip.fromTraceData(traceParsedData);
     const frameTimestamps = filmStrip.frames.map(frame => frame.screenshotEvent.ts);
     assert.deepEqual(frameTimestamps, [1020034823345, 1020034961883, 1020035045298, 1020035061981, 1020035112030]);

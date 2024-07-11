@@ -33,7 +33,7 @@ describeWithEnvironment('ExtensionTrackAppender', function() {
 
   beforeEach(async function() {
     Root.Runtime.experiments.enableForTest('timeline-extensions');
-    traceParsedData = await TraceLoader.traceEngine(this, 'extension-tracks-and-marks.json.gz');
+    ({traceParsedData} = await TraceLoader.traceEngine(this, 'extension-tracks-and-marks.json.gz'));
     extensionTrackAppenders = initTrackAppender(flameChartData, traceParsedData, entryData, entryTypeByLevel);
     let level = 0;
     extensionTrackAppenders.forEach(appender => {

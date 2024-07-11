@@ -94,7 +94,7 @@ describeWithEnvironment('SamplesIntegrator', function() {
 
   describe('buildProfileCalls', () => {
     it('generates profile calls using trace events and JS samples from a trace file', async function() {
-      const data = await TraceLoader.traceEngine(this, 'recursive-blocking-js.json.gz');
+      const {traceParsedData: data} = await TraceLoader.traceEngine(this, 'recursive-blocking-js.json.gz');
       const samplesData = data.Samples;
       assert.strictEqual(samplesData.profilesInProcess.size, 1);
       const [[pid, profileByThread]] = samplesData.profilesInProcess.entries();
@@ -278,7 +278,7 @@ describeWithEnvironment('SamplesIntegrator', function() {
       assert.strictEqual(framesForFunctionA[1].dur, runMicroTasks.ts + (runMicroTasks.dur || 0) - expectedBTimestamp);
     });
     it('skips samples from (program), (idle), (root) and (garbage collector) nodes', async function() {
-      const data = await TraceLoader.traceEngine(this, 'recursive-blocking-js.json.gz');
+      const {traceParsedData: data} = await TraceLoader.traceEngine(this, 'recursive-blocking-js.json.gz');
       const samplesData = data.Samples;
       assert.strictEqual(samplesData.profilesInProcess.size, 1);
       const [[pid, profileByThread]] = samplesData.profilesInProcess.entries();

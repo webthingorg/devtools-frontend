@@ -10,7 +10,7 @@ import * as TimelineComponents from './components.js';
 
 describeWithEnvironment('TimelineComponents Invalidations', () => {
   it('processes and groups invalidations correctly', async function() {
-    const data = await TraceLoader.traceEngine(this, 'style-invalidation-change-attribute.json.gz');
+    const {traceParsedData: data} = await TraceLoader.traceEngine(this, 'style-invalidation-change-attribute.json.gz');
     const updateLayoutTreeEvent = data.Renderer.allTraceEntries.find(event => {
       return TraceEngine.Types.TraceEvents.isTraceEventUpdateLayoutTree(event) &&
           event.args.beginData?.stackTrace?.[0].functionName === 'testFuncs.changeAttributeAndDisplay';
