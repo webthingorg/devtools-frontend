@@ -26,6 +26,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f0b9d392_4f03495a",
+        "filename": "front_end/panels/timeline/components/Sidebar.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 276,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-11T17:06:09Z",
+      "side": 1,
+      "message": "this reads much cleaner, nice!",
+      "range": {
+        "startLine": 273,
+        "startChar": 4,
+        "endLine": 276,
+        "endChar": 16
+      },
+      "revId": "e4b4344f15f65039b65144f0927153e6ab4aeb57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8700f62f_ed6d0eab",
         "filename": "front_end/panels/timeline/components/components.ts",
         "patchSetId": 1
