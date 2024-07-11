@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3623d8bb_fbb4ecbb",
+        "filename": "config/gni/devtools_grd_files.gni",
+        "patchSetId": 1
+      },
+      "lineNbr": 1745,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-07-11T21:54:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5593bee_617cc4b8",
+      "range": {
+        "startLine": 1745,
+        "startChar": 0,
+        "endLine": 1745,
+        "endChar": 62
+      },
+      "revId": "e4b4344f15f65039b65144f0927153e6ab4aeb57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f0b9d392_4f03495a",
@@ -60,6 +84,30 @@
       "writtenOn": "2024-07-11T17:05:53Z",
       "side": 1,
       "message": "you probably shouldn\u0027t expose this here\n\nand then wherever in the code we use SidebarInsight, instead do:\n\n```\nimport * as InsightsUI from \u0027../path/to/components/insights/insights.js\u0027\n```\n\nAnd then use `InsightsUI.SidebarInsight`",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 63
+      },
+      "revId": "e4b4344f15f65039b65144f0927153e6ab4aeb57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d491ca72_cbc8e051",
+        "filename": "front_end/panels/timeline/components/components.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-07-11T21:54:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8700f62f_ed6d0eab",
       "range": {
         "startLine": 10,
         "startChar": 0,
