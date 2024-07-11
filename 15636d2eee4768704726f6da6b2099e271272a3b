@@ -16,6 +16,42 @@
       "message": "typo: rolled\n\n```suggestion\n  # Keeping track of the last time we rolled the browser protocol files.\n```",
       "revId": "15636d2eee4768704726f6da6b2099e271272a3b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2dd5127_9dbad2e1",
+        "filename": "DEPS",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2024-07-11T09:15:53Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "a9211be1_a0d510b3",
+      "revId": "15636d2eee4768704726f6da6b2099e271272a3b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a625a31e_1da15315",
+        "filename": "DEPS",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2024-07-11T09:15:53Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "a9211be1_a0d510b3",
+      "revId": "15636d2eee4768704726f6da6b2099e271272a3b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
