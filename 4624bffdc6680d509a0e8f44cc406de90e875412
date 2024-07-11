@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49090e21_fb9b2ccb",
+        "filename": "front_end/models/crux-manager/CrUXManager.test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-07-11T21:53:20Z",
+      "side": 1,
+      "message": "I had to combine these settings because of a race condition when both are set at the same time.",
+      "revId": "4624bffdc6680d509a0e8f44cc406de90e875412",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8df9d95_18d4ca9e",
+        "filename": "front_end/panels/timeline/components/fieldSettingsDialog.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-07-11T21:53:20Z",
+      "side": 1,
+      "message": "These variables are set on the `style` attribute of the dialog element further down the DOM. The only way I could get these values to hold was to use `!important`. Open to other suggestions.",
+      "revId": "4624bffdc6680d509a0e8f44cc406de90e875412",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
