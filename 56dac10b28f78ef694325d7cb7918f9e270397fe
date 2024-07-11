@@ -39,6 +39,30 @@
       },
       "revId": "56dac10b28f78ef694325d7cb7918f9e270397fe",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6cc0be09_e866fc36",
+        "filename": "front_end/panels/mobile_throttling/ThrottlingManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-11T09:09:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d664c51a_4ba765f2",
+      "range": {
+        "startLine": 310,
+        "startChar": 49,
+        "endLine": 310,
+        "endChar": 54
+      },
+      "revId": "56dac10b28f78ef694325d7cb7918f9e270397fe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
