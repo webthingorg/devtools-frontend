@@ -21,12 +21,7 @@ function stringifyObjectOnThePage(this: unknown): string {
     }
 
     if (value instanceof HTMLElement) {
-      const attributesText = [];
-      for (const attribute of value.attributes) {
-        attributesText.push(`${attribute.name}="${attribute.value}"`);
-      }
-
-      return `<${value.nodeName.toLowerCase()}${attributesText.length > 0 ? ` ${attributesText.join(' ')}` : ''}>${
+      return `<${value.nodeName.toLowerCase()} class="${value.classList.value}">${
           value.hasChildNodes() ? '...' : ''}</${value.nodeName.toLowerCase()}>`;
     }
 
