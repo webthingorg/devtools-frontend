@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as Host from '../../core/host/host.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as Protocol from '../../generated/protocol.js';
 import * as TextUtils from '../../models/text_utils/text_utils.js';
@@ -101,12 +102,14 @@ export class ConsoleFilter {
       } else {
         switch (filter.key) {
           case FilterType.Context: {
+            Host.userMetrics.actionTaken(Host.UserMetrics.Action.ConsoleFilterByContext);
             if (!passesFilter(filter, message.context, false /* exactMatch */)) {
               return false;
             }
             break;
           }
           case FilterType.Source: {
+            Host.userMetrics.actionTaken(Host.UserMetrics.Action.ConsoleFilterBySource);
             const sourceNameForMessage = message.source ?
                 SDK.ConsoleModel.MessageSourceDisplayName.get((message.source as SDK.ConsoleModel.MessageSource)) :
                 message.source;
@@ -116,6 +119,7 @@ export class ConsoleFilter {
             break;
           }
           case FilterType.Url: {
+            Host.userMetrics.actionTaken(Host.UserMetrics.Action.ConsoleFilterByUrl);
             if (!passesFilter(filter, message.url, false /* exactMatch */)) {
               return false;
             }
