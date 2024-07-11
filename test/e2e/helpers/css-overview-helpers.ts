@@ -7,7 +7,7 @@ import {$, click, waitFor, waitForNone} from '../../shared/helper.js';
 import {openPanelViaMoreTools} from './settings-helpers.js';
 import {expectVeEvents, veClick, veImpression, veImpressionsUnder} from './visual-logging-helpers.js';
 
-const CSS_OVERVIEW_PANEL_CONTENT = '.view-container[aria-label="CSS overview panel"]';
+const CSS_OVERVIEW_PANEL_CONTENT = '.css-overview-start-view';  // view-container[aria-label="CSS overview panel"]';
 const CSS_OVERVIEW_TAB_SELECTOR = '#tab-cssoverview';
 const CSS_OVERVIEW_PANEL_TITLE = 'CSS overview';
 const CSS_OVERVIEW_CAPTURE_BUTTON_SELECTOR = '.start-capture';
