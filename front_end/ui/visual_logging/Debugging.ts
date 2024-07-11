@@ -2,12 +2,11 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import * as Common from '../../core/common/common.js';
 import {assertNotNullOrUndefined} from '../../core/platform/platform.js';
 
 import {type Loggable} from './Loggable.js';
 import {type LoggingConfig, VisualElements} from './LoggingConfig.js';
-import {pendingWorkComplete, startLogging, stopLogging} from './LoggingDriver.js';
+import {pendingWorkComplete} from './LoggingDriver.js';
 import {getLoggingState, type LoggingState} from './LoggingState.js';
 
 let veDebuggingEnabled = false;
@@ -240,12 +239,16 @@ function processImpressionsForTestDebugLog(states: LoggingState[]): void {
   for (const state of states) {
     let key = '';
     if (state.parent) {
+      if (!veTestKeys.get(state.parent.veid)) {
+        console.error('no pagent', JSON.stringify(state.parent));
+      }
       key = (veTestKeys.get(state.parent.veid) || '<UNKNOWN>') + ' > ';
     }
     key += VisualElements[state.config.ve];
     if (state.config.context) {
       key += ': ' + state.config.context;
     }
+    // console.error('key', key);
     veTestKeys.set(state.veid, key);
     lastImpressionLogEntry.impressions.push(key);
   }
@@ -576,19 +579,6 @@ async function getVeDebugEventsLog(): Promise<(IntuitiveLogEntry | AdHocAnalysis
   return veDebugEventsLog;
 }
 
-async function startTestLogging(): Promise<void> {
-  setVeDebugLoggingEnabled(true, DebugLoggingFormat.Test);
-  stopLogging();
-  await startLogging({
-    processingThrottler: new Common.Throttler.Throttler(10),
-    keyboardLogThrottler: new Common.Throttler.Throttler(10),
-    hoverLogThrottler: new Common.Throttler.Throttler(10),
-    dragLogThrottler: new Common.Throttler.Throttler(10),
-    clickLogThrottler: new Common.Throttler.Throttler(10),
-    resizeLogThrottler: new Common.Throttler.Throttler(10),
-  });
-}
-
 // @ts-ignore
 globalThis.setVeDebugLoggingEnabled = setVeDebugLoggingEnabled;
 // @ts-ignore
@@ -601,5 +591,3 @@ globalThis.exportAdHocAnalysisLogForSql = exportAdHocAnalysisLogForSql;
 globalThis.buildStateFlow = buildStateFlow;
 // @ts-ignore
 globalThis.getVeDebugEventsLog = getVeDebugEventsLog;
-// @ts-ignore
-globalThis.startTestLogging = startTestLogging;
