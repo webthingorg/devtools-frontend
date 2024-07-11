@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a113a5ad_84d4eee6",
+        "filename": "front_end/panels/network/NetworkLogView.test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 868,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-07-11T08:16:04Z",
+      "side": 1,
+      "message": "Remove?",
+      "range": {
+        "startLine": 868,
+        "startChar": 8,
+        "endLine": 868,
+        "endChar": 17
+      },
+      "revId": "f3ec66d05961b1d4d54ffa85b51ede6f4ed959c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3369a91b_5364cd7f",
+        "filename": "front_end/panels/network/NetworkLogView.test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 874,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-07-11T08:16:04Z",
+      "side": 1,
+      "message": "just `copyAllURLs.id()`\n\nIt is always defined.",
+      "range": {
+        "startLine": 874,
+        "startChar": 30,
+        "endLine": 874,
+        "endChar": 43
+      },
+      "revId": "f3ec66d05961b1d4d54ffa85b51ede6f4ed959c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de51251a_ea031c9a",
+        "filename": "front_end/panels/network/NetworkLogView.test.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 879,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-07-11T08:16:04Z",
+      "side": 1,
+      "message": "This is fine if you want to really make sure, that copyText wasn\u0027t called more then once. \n\nIf you don\u0027t care too much we could drop `resetHistory()` calls and `callCount` checks.",
+      "range": {
+        "startLine": 879,
+        "startChar": 13,
+        "endLine": 879,
+        "endChar": 25
+      },
+      "revId": "f3ec66d05961b1d4d54ffa85b51ede6f4ed959c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
