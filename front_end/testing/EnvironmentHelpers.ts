@@ -510,6 +510,9 @@ export function getGetHostConfigStub(config: RecursivePartial<Root.Runtime.HostC
       enabled: false,
       ...config.devToolsFreestylerDogfood,
     },
+    devToolsVeLogging: {
+      enabled: true,
+    },
   });
 }
 

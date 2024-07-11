@@ -337,6 +337,7 @@ export interface HostConfig {
   devToolsAida?: HostConfigAida;
   devToolsConsoleInsights: HostConfigConsoleInsights;
   devToolsFreestylerDogfood: HostConfigFreestylerDogfood;
+  devToolsVeLogging: {enabled: boolean};
 }
 
 /**
