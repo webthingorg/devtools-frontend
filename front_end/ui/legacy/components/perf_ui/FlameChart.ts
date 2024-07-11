@@ -598,7 +598,9 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     }
   }
 
-  setWindowTimes(startTime: number, endTime: number, animate?: boolean): void {
+  setWindowTimes(
+      startTime: TraceEngine.Types.Timing.MilliSeconds, endTime: TraceEngine.Types.Timing.MilliSeconds,
+      animate?: boolean): void {
     this.chartViewport.setWindowTimes(startTime, endTime, animate);
     this.updateHighlight();
   }
@@ -1951,10 +1953,8 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
         // that as all being collapsed.
         allGroupsCollapsed: this.rawTimelineData?.groups.every(g => !g.expanded) ?? true,
       },
-      traceWindow: TraceEngine.Helpers.Timing.traceWindowFromMilliSeconds(
-          this.minimumBoundary(),
-          this.maximumBoundary(),
-          ),
+      traceWindow:
+          TraceEngine.Helpers.Timing.traceWindowFromMilliSeconds(this.minimumBoundary(), this.maximumBoundary()),
     });
     const canvasWidth = this.offsetWidth;
     const canvasHeight = this.offsetHeight;
