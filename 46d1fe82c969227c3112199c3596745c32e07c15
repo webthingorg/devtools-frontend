@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "53a4d1bb_d0186d6c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-07-11T16:29:24Z",
+      "side": 1,
+      "message": "So the current behavior is like this (with indent)\nBut yeah we can change the design now (maybe in a different CL, since this is too big now)",
+      "parentUuid": "5c01be22_02322e21",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 62
+      },
+      "revId": "46d1fe82c969227c3112199c3596745c32e07c15",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "90e51116_0c85c9ea",
         "filename": "front_end/panels/timeline/components/NetworkRequestDetails.ts",
         "patchSetId": 3
