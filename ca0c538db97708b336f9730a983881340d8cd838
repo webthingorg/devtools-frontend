@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d96a7474_f7e224c3",
+        "filename": "front_end/panels/timeline/NetworkTrackAppender.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-07-11T17:42:03Z",
+      "side": 1,
+      "message": "micro perf thing. the identifier check in front is added because its faster than the 4 isXTraceEvent() calls behind isWebSocketEvent",
+      "revId": "ca0c538db97708b336f9730a983881340d8cd838",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c575feb_6957f69a",
+        "filename": "front_end/panels/timeline/TimelineFlameChartNetworkDataProvider.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-07-11T17:42:03Z",
+      "side": 1,
+      "message": "This kind of upgrade could happen a LOT more. We receive ms as `number` quite a bit through the codebase and then have to cast it back. Mostly seeing it around bounds and windowtimes handling.\n\nAlso in a perfect world all these bounds/window times would be named min/max rather than start/end.",
+      "revId": "ca0c538db97708b336f9730a983881340d8cd838",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c47e8fa_6d25c556",
+        "filename": "front_end/panels/timeline/NetworkTrackAppender.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-07-11T17:42:03Z",
+      "side": 0,
+      "message": "This mutation to event durations was probably not intended. At least, it doesn\u0027t align with our goal to not mutate trace events that can be saved back to disk.",
+      "revId": "57b23f8fcb063fc9401d7caf1a20700f60aa35b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4890d7ee_97637d9a",
+        "filename": "front_end/panels/timeline/track_appenders/AnimationsTrackAppender.test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-07-11T17:42:03Z",
+      "side": 0,
+      "message": "this cast repeats in subsequent tests. dunno why it was there as event.dur is already safely microsec. ah well.",
+      "revId": "57b23f8fcb063fc9401d7caf1a20700f60aa35b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
