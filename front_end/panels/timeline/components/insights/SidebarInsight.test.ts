@@ -2,11 +2,11 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import {renderElementIntoDOM} from '../../../testing/DOMHelpers.js';
-import {describeWithEnvironment} from '../../../testing/EnvironmentHelpers.js';
-import * as Coordinator from '../../../ui/components/render_coordinator/render_coordinator.js';
+import {renderElementIntoDOM} from '../../../../testing/DOMHelpers.js';
+import {describeWithEnvironment} from '../../../../testing/EnvironmentHelpers.js';
+import * as Coordinator from '../../../../ui/components/render_coordinator/render_coordinator.js';
 
-import * as TimelineComponents from './components.js';
+import * as TimelineComponents from '../components.js';
 
 describeWithEnvironment('SidebarInsight', () => {
   const {SidebarInsight} = TimelineComponents.SidebarInsight;
