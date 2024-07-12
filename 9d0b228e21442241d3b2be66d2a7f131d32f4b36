@@ -96,6 +96,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eee46ae6_f02867fc",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-07-12T19:58:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17f6e853_2079522b",
+      "range": {
+        "startLine": 21,
+        "startChar": 3,
+        "endLine": 26,
+        "endChar": 5
+      },
+      "revId": "9d0b228e21442241d3b2be66d2a7f131d32f4b36",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "418ae683_d77d9355",
@@ -109,6 +133,24 @@
       "writtenOn": "2024-07-10T23:28:42Z",
       "side": 1,
       "message": "one could stuff these two methods in a common test module and make them generic on the handlers run and which insight should be mocked ... but sometimes a few lines of simple code being duplicated is easiest to read, and I think this is one of those times.",
+      "revId": "9d0b228e21442241d3b2be66d2a7f131d32f4b36",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d6b5082_03fc922a",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-07-12T19:58:01Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "418ae683_d77d9355",
       "revId": "9d0b228e21442241d3b2be66d2a7f131d32f4b36",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
