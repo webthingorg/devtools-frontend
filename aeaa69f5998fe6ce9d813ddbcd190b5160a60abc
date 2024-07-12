@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55e58621_690e5c78",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2024-07-12T20:55:19Z",
+      "side": 1,
+      "message": "Suggest that you split this out to the front_end/generated and third_party/blink rolls as an individual CL, plus the balance of DevTools code.",
+      "revId": "aeaa69f5998fe6ce9d813ddbcd190b5160a60abc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
