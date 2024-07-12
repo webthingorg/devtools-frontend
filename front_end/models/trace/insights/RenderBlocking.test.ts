@@ -10,6 +10,7 @@ async function parseAndFinalizeData(testContext: Mocha.Suite|Mocha.Context|null,
   TraceModel.Handlers.ModelHandlers.Meta.reset();
   TraceModel.Handlers.ModelHandlers.NetworkRequests.reset();
   TraceModel.Handlers.ModelHandlers.PageLoadMetrics.reset();
+  TraceModel.Handlers.ModelHandlers.LargestImagePaint.reset();
   TraceModel.Handlers.ModelHandlers.Meta.initialize();
   TraceModel.Handlers.ModelHandlers.NetworkRequests.initialize();
   TraceModel.Handlers.ModelHandlers.Workers.initialize();
@@ -18,6 +19,7 @@ async function parseAndFinalizeData(testContext: Mocha.Suite|Mocha.Context|null,
     TraceModel.Handlers.ModelHandlers.NetworkRequests.handleEvent(event);
     TraceModel.Handlers.ModelHandlers.PageLoadMetrics.handleEvent(event);
     TraceModel.Handlers.ModelHandlers.Workers.handleEvent(event);
+    TraceModel.Handlers.ModelHandlers.LargestImagePaint.handleEvent(event);
   }
   await TraceModel.Handlers.ModelHandlers.Meta.finalize();
   await TraceModel.Handlers.ModelHandlers.NetworkRequests.finalize();
@@ -25,6 +27,7 @@ async function parseAndFinalizeData(testContext: Mocha.Suite|Mocha.Context|null,
   await TraceModel.Handlers.ModelHandlers.Workers.finalize();
 
   const data = {
+    LargestImagePaint: TraceModel.Handlers.ModelHandlers.LargestImagePaint.data(),
     Meta: TraceModel.Handlers.ModelHandlers.Meta.data(),
     NetworkRequests: TraceModel.Handlers.ModelHandlers.NetworkRequests.data(),
     PageLoadMetrics: TraceModel.Handlers.ModelHandlers.PageLoadMetrics.data(),
@@ -43,6 +46,7 @@ async function runTraceEngine(testContext: Mocha.Suite|Mocha.Context|null, trace
         NetworkRequests: TraceModel.Handlers.ModelHandlers.NetworkRequests,
         PageLoadMetrics: TraceModel.Handlers.ModelHandlers.PageLoadMetrics,
         Workers: TraceModel.Handlers.ModelHandlers.Workers,
+        LargestImagePaint: TraceModel.Handlers.ModelHandlers.LargestImagePaint,
       },
       TraceModel.Types.Configuration.defaults());
   await processor.parse(traceEvents);
