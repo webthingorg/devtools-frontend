@@ -17,7 +17,6 @@ generate_css("css_files") {
     "networkRequestTooltip.css",
     "sidebar.css",
     "sidebarAnnotationsTab.css",
-    "sidebarInsight.css",
     "sidebarSingleNavigation.css",
     "timeRangeOverlay.css",
     "timespanBreakdownOverlay.css",
@@ -38,7 +37,6 @@ devtools_module("components") {
     "NetworkThrottlingSelector.ts",
     "Sidebar.ts",
     "SidebarAnnotationsTab.ts",
-    "SidebarInsight.ts",
     "SidebarSingleNavigation.ts",
     "TimeRangeOverlay.ts",
     "TimespanBreakdownOverlay.ts",
@@ -63,6 +61,7 @@ devtools_module("components") {
     "../../../ui/visual_logging:bundle",
     "../../emulation:bundle",
     "../../mobile_throttling:bundle",
+    "./insights:bundle",
   ]
 }
 
@@ -94,7 +93,6 @@ ts_library("unittests") {
     "NetworkRequestDetails.test.ts",
     "NetworkThrottlingSelector.test.ts",
     "SidebarAnnotationsTab.test.ts",
-    "SidebarInsight.test.ts",
   ]
 
   deps = [
