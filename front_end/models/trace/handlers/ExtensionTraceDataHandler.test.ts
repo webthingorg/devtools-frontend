@@ -143,7 +143,7 @@ describe('ExtensionTraceDataHandler', function() {
     });
 
     it('gets data from individual entries', async () => {
-      const {hintText, track, detailsPairs} =
+      const {tooltipText: hintText, track, attributes: detailsPairs} =
           extensionHandlerOutput.extensionTrackData[1].entriesByTrack['Another Extension Track'][0].args;
       assert.strictEqual(hintText, 'A hint if needed');
       assert.strictEqual(track, 'Another Extension Track');
@@ -178,7 +178,7 @@ describe('ExtensionTraceDataHandler', function() {
     it('parses marker data correctly', async () => {
       assert.lengthOf(extensionHandlerOutput.extensionMarkers, 1);
       assert.strictEqual(extensionHandlerOutput.extensionMarkers[0].name, 'A custom mark');
-      const {hintText, detailsPairs} = extensionHandlerOutput.extensionMarkers[0].args;
+      const {tooltipText: hintText, attributes: detailsPairs} = extensionHandlerOutput.extensionMarkers[0].args;
       assert.strictEqual(hintText, 'A mark');
       assert.strictEqual(JSON.stringify(detailsPairs), '[["Description","This marks the start of a task"]]');
     });

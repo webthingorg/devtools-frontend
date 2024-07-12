@@ -33,8 +33,8 @@ export interface ExtensionDataPayload {
   dataType?: 'track-entry'|'marker';
   color?: ExtensionColorFromPalette;
   track?: string;
-  detailsPairs?: [string, string][];
-  hintText?: string;
+  attributes?: [string, string][];
+  tooltipText?: string;
 }
 
 export interface ExtensionTrackEntryPayload extends ExtensionDataPayload {

@@ -1173,7 +1173,7 @@ export class TimelineUIUtils {
     }
 
     if (TraceEngine.Types.Extensions.isSyntheticExtensionEntry(event)) {
-      for (const [key, value] of event.args.detailsPairs || []) {
+      for (const [key, value] of event.args.attributes || []) {
         contentHelper.appendTextRow(key, value);
       }
     }
