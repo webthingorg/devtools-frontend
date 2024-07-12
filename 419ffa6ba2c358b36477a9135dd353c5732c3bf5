@@ -16,6 +16,23 @@
       "message": "@Nancy PTAL - Adriana is happy and I sync\u0027d with her on these changes, but she is not yet an OWNER so cannot review.\n\nThis work isn\u0027t final but given the sidebar is behind a flag we are landing incrementally - this restructure allows Adriana to build on top of it and update how we build Insights, and I can continue on the UI for multiple navigations. Thanks!",
       "revId": "419ffa6ba2c358b36477a9135dd353c5732c3bf5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7d768f3_6fdfa521",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-12T11:02:43Z",
+      "side": 1,
+      "message": "Just realised Nancy is OOO today, @andoli would you mind taking a look please?",
+      "revId": "419ffa6ba2c358b36477a9135dd353c5732c3bf5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
