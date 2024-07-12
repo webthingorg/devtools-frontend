@@ -34,7 +34,7 @@ export interface ExtensionDataPayload {
   color?: ExtensionColorFromPalette;
   track?: string;
   detailsPairs?: [string, string][];
-  hintText?: string;
+  tooltipText?: string;
 }
 
 export interface ExtensionTrackEntryPayload extends ExtensionDataPayload {
