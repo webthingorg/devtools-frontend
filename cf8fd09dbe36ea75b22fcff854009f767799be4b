@@ -1,0 +1,39 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ed481fa_be578b3e",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-07-12T08:49:53Z",
+      "side": 1,
+      "message": "Nit `#serverSideLoggingEnabled: boolean` as we set in the constructor.",
+      "fixSuggestions": [
+        {
+          "fixId": "7acc04ab_f9113b32",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/freestyler/FreestylerAgent.ts",
+              "range": {
+                "startLine": 128,
+                "startChar": 0,
+                "endLine": 129,
+                "endChar": 0
+              },
+              "replacement": "  #serverSideLoggingEnabled: boolean;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "cf8fd09dbe36ea75b22fcff854009f767799be4b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
