@@ -34,6 +34,24 @@
       "parentUuid": "a54685db_59ffe4b2",
       "revId": "aa6e6e020672770f019ae4bde69f3ec7efc21544",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "952d516a_68b20028",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-07-12T21:27:03Z",
+      "side": 1,
+      "message": "true. i added a test that ensures that block won\u0027t be affected.  As its not touched by clang-format all seems good.\n\nTechnically that does mean this rule is more about the clangformat bug than order.\nThus i updated fileoverview to express that.",
+      "parentUuid": "0c4bf1e2_2fd7c4ae",
+      "revId": "aa6e6e020672770f019ae4bde69f3ec7efc21544",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

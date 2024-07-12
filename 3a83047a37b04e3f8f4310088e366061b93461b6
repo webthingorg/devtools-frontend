@@ -16,6 +16,24 @@
       "message": "Thing",
       "revId": "3a83047a37b04e3f8f4310088e366061b93461b6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "edfbeb58_c4031516",
+        "filename": "scripts/eslint_rules/lib/enforce-optional-properties-last.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-07-12T21:27:03Z",
+      "side": 1,
+      "message": "thx",
+      "parentUuid": "168fb13b_efdecfc9",
+      "revId": "3a83047a37b04e3f8f4310088e366061b93461b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
