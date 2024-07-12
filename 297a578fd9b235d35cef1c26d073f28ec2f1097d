@@ -22,6 +22,30 @@
       },
       "revId": "297a578fd9b235d35cef1c26d073f28ec2f1097d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a8631b6_72ee60c9",
+        "filename": "front_end/panels/sources/ScopeChainSidebarPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-07-12T08:38:05Z",
+      "side": 1,
+      "message": "ScopeChainModel could have a `currentScopeChain` getter. hm but I guess that wouldn\u0027t work once its #update actually starts doing something?",
+      "parentUuid": "b3ee75e9_d925a7fd",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 116,
+        "endChar": 108
+      },
+      "revId": "297a578fd9b235d35cef1c26d073f28ec2f1097d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
