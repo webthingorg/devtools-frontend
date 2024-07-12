@@ -133,6 +133,24 @@
       "parentUuid": "12902e31_619453ed",
       "revId": "4624bffdc6680d509a0e8f44cc406de90e875412",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2bce831_4dcdf6fa",
+        "filename": "front_end/panels/timeline/components/fieldSettingsDialog.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-07-12T14:38:40Z",
+      "side": 1,
+      "message": "Thanks, I modified the dialog component slightly so we don\u0027t need either of these `!important` things (See my other comment)",
+      "parentUuid": "af470376_75f885b8",
+      "revId": "4624bffdc6680d509a0e8f44cc406de90e875412",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
