@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "41d57809_608a196d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-12T12:41:24Z",
+      "side": 1,
+      "message": "this looks great, one tiny nit and would be interested if Andrés has any thoughts around overriding those CSS values for the dialog - but that\u0027s non blocking IMO. Great work!",
+      "revId": "4624bffdc6680d509a0e8f44cc406de90e875412",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "49090e21_fb9b2ccb",
@@ -20,6 +37,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "de72ba81_99136357",
+        "filename": "front_end/panels/timeline/components/FieldSettingsDialog.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-12T12:41:24Z",
+      "side": 1,
+      "message": "do we need the second one here? can we just use `if(this.#urlOverride)` rather than track this and risk it ever becoming out of sync?",
+      "range": {
+        "startLine": 111,
+        "startChar": 1,
+        "endLine": 112,
+        "endChar": 58
+      },
+      "revId": "4624bffdc6680d509a0e8f44cc406de90e875412",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e8df9d95_18d4ca9e",
         "filename": "front_end/panels/timeline/components/fieldSettingsDialog.css",
         "patchSetId": 3
@@ -31,6 +71,24 @@
       "writtenOn": "2024-07-11T21:53:20Z",
       "side": 1,
       "message": "These variables are set on the `style` attribute of the dialog element further down the DOM. The only way I could get these values to hold was to use `!important`. Open to other suggestions.",
+      "revId": "4624bffdc6680d509a0e8f44cc406de90e875412",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12902e31_619453ed",
+        "filename": "front_end/panels/timeline/components/fieldSettingsDialog.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-12T12:41:24Z",
+      "side": 1,
+      "message": "I think @andoli@chromium.org built the dialog so he might have some thoughts on these - I am surprised that we can\u0027t override these variables without the !important.",
+      "parentUuid": "e8df9d95_18d4ca9e",
       "revId": "4624bffdc6680d509a0e8f44cc406de90e875412",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
