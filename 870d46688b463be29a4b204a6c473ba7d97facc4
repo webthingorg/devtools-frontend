@@ -33,6 +33,24 @@
       "message": "this lgtm; I think `data` might be a bit generic, but I like `traceData` and `insights` as the two keys, wdyt? Don\u0027t feel super strongly but agree the current usage feels verbose. Will leave it up to you to decide.",
       "revId": "870d46688b463be29a4b204a6c473ba7d97facc4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0eb56438_d5fa1cd2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-07-12T16:43:51Z",
+      "side": 1,
+      "message": "Changed to `traceData` and `insights`.",
+      "parentUuid": "08fb07df_5dc5508d",
+      "revId": "870d46688b463be29a4b204a6c473ba7d97facc4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
