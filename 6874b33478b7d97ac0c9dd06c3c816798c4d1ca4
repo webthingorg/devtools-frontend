@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6181b02_67d4538d",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-07-12T11:14:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c5385e3_d2d4a1df",
+      "revId": "6874b33478b7d97ac0c9dd06c3c816798c4d1ca4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a09892a3_a113d8dd",
@@ -35,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a85b908_1719aa58",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-07-12T11:14:12Z",
+      "side": 1,
+      "message": "Extracted into a function.",
+      "parentUuid": "a09892a3_a113d8dd",
+      "revId": "6874b33478b7d97ac0c9dd06c3c816798c4d1ca4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3573fdad_df2439b3",
@@ -48,6 +84,24 @@
       "writtenOn": "2024-07-12T06:05:12Z",
       "side": 1,
       "message": "Let\u0027s separate this change into a separate CL:\n\n1) only include if the class list not empty\n2) include id attribute if present\n3) let\u0027s add/update tests",
+      "revId": "6874b33478b7d97ac0c9dd06c3c816798c4d1ca4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc5b71aa_2904d4f8",
+        "filename": "front_end/panels/freestyler/FreestylerEvaluateAction.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-07-12T11:14:12Z",
+      "side": 1,
+      "message": "Happy to separate but keep in mind its still part of this bug.",
+      "parentUuid": "3573fdad_df2439b3",
       "revId": "6874b33478b7d97ac0c9dd06c3c816798c4d1ca4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
