@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "168fb13b_efdecfc9",
+        "filename": "scripts/eslint_rules/lib/enforce-optional-properties-last.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-07-12T20:01:13Z",
+      "side": 1,
+      "message": "Thing",
+      "revId": "3a83047a37b04e3f8f4310088e366061b93461b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

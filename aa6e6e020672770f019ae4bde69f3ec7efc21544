@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a54685db_59ffe4b2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-07-12T20:01:13Z",
+      "side": 1,
+      "message": "There\u0027s a type \"LCPPhases\" in models/trace/insights/LargestContentfulPaint.ts\n\n1. The order is actually meaningful so shouldn\u0027t change to adhere to a style preference - so we should ignore for that type.\n2. It seems the linter didn\u0027t catch it, as this CL didn\u0027t modify that file yet nothing failing in CQ. So what excluded it?",
+      "revId": "aa6e6e020672770f019ae4bde69f3ec7efc21544",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
