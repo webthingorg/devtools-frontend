@@ -115,6 +115,24 @@
       "parentUuid": "e8df9d95_18d4ca9e",
       "revId": "4624bffdc6680d509a0e8f44cc406de90e875412",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af470376_75f885b8",
+        "filename": "front_end/panels/timeline/components/fieldSettingsDialog.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-07-12T13:54:21Z",
+      "side": 1,
+      "message": "I think the dialog element doens\u0027t provide the ergonomics to customize this but we could implement them without difficulty by using a css variable with a default value that can be overriden:\n\nFor example:\nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/ui/components/adorners/adorner.css;l\u003d22;drc\u003de1a2708901f554da8010a3b6f10d285920296880",
+      "parentUuid": "12902e31_619453ed",
+      "revId": "4624bffdc6680d509a0e8f44cc406de90e875412",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
