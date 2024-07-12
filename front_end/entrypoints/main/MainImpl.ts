@@ -446,6 +446,9 @@ export class MainImpl {
     // Request filesystems early, we won't create connections until callback is fired. Things will happen in parallel.
     Persistence.IsolatedFileSystemManager.IsolatedFileSystemManager.instance();
 
+    const minSizeSettings = Common.Settings.Settings.instance().createSetting('min-size', false);
+    minSizeSettings.addChangeListener(this.#onMinSizeSettingChanged, this);
+
     const defaultThemeSetting = 'systemPreferred';
     const themeSetting = Common.Settings.Settings.instance().createSetting('ui-theme', defaultThemeSetting);
     UI.UIUtils.initializeUIUtils(document);
@@ -612,6 +615,15 @@ export class MainImpl {
     // Asynchronously run the extensions.
     window.setTimeout(this.#lateInitialization.bind(this), 100);
     MainImpl.timeEnd('Main._initializeTarget');
+  }
+
+  #onMinSizeSettingChanged(): void {
+    const minSizeSettingsValue = Common.Settings.Settings.instance().createSetting('min-size', false).get();
+    if (minSizeSettingsValue) {
+      window.document.documentElement.style.zoom = 1.25;
+    } else {
+      window.document.documentElement.style.zoom = 1;
+    }
   }
 
   #lateInitialization(): void {

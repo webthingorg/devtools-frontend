@@ -6,15 +6,21 @@ import * as Common from '../../core/common/common.js';
 import type * as Host from '../../core/host/host.js';
 
 let zoomManagerInstance: ZoomManager|undefined;
+const minSizeZoomFactor = 1.25;
 
 export class ZoomManager extends Common.ObjectWrapper.ObjectWrapper<EventTypes> {
   private frontendHost: Host.InspectorFrontendHostAPI.InspectorFrontendHostAPI;
   private zoomFactorInternal: number;
+  private minSizeSettings: Common.Settings.Setting<boolean>;
 
   private constructor(window: Window, frontendHost: Host.InspectorFrontendHostAPI.InspectorFrontendHostAPI) {
     super();
+
+    this.minSizeSettings = Common.Settings.Settings.instance().createSetting('min-size', false);
+    this.minSizeSettings.addChangeListener(this.onMinSizeSettingChanged, this);
+
     this.frontendHost = frontendHost;
-    this.zoomFactorInternal = this.frontendHost.zoomFactor();
+    this.zoomFactorInternal = this.minSizeSettings.get() ? minSizeZoomFactor : this.frontendHost.zoomFactor();
     window.addEventListener('resize', this.onWindowResize.bind(this), true);
   }
 
@@ -58,6 +64,10 @@ export class ZoomManager extends Common.ObjectWrapper.ObjectWrapper<EventTypes> 
     if (oldZoomFactor !== this.zoomFactorInternal) {
       this.dispatchEventToListeners(Events.ZoomChanged, {from: oldZoomFactor, to: this.zoomFactorInternal});
     }
+  }
+
+  private onMinSizeSettingChanged(): void {
+    this.zoomFactorInternal = this.minSizeSettings.get() ? minSizeZoomFactor : this.frontendHost.zoomFactor();
   }
 }
 
