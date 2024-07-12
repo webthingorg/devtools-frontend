@@ -33,6 +33,24 @@
       "message": "Here is what the dialog looked like without this change:\nhttps://screenshot.googleplex.com/LAjf4bx44YeENwG\n\nThis happens because the `dialog` and `dialog::backdrop` are stacked on top of each other. It isn\u0027t a problem unless `--override-transparent` is set to some partially transparent (translucent?) value.\n\nMy previous solution was to just drop the padding around the dialog with `--dialog-padding: 0 !important` but I noticed a lot of the dialog code relies on this padding being at the default values.",
       "revId": "c4324a8ac91c87452e407d9818134ed1d750463d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "889d0a6c_b88efebc",
+        "filename": "front_end/ui/components/dialogs/dialog.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-07-12T16:31:30Z",
+      "side": 1,
+      "message": "Ah makes sense. This change LGTM.",
+      "parentUuid": "df1f33b2_4cffec2d",
+      "revId": "c4324a8ac91c87452e407d9818134ed1d750463d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
