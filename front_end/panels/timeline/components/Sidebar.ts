@@ -4,7 +4,6 @@
 
 import * as Common from '../../../core/common/common.js';
 import * as i18n from '../../../core/i18n/i18n.js';
-import type * as Handlers from '../../../models/trace/handlers/handlers.js';
 import * as TraceEngine from '../../../models/trace/trace.js';
 import * as Dialogs from '../../../ui/components/dialogs/dialogs.js';
 import * as ComponentHelpers from '../../../ui/components/helpers/helpers.js';
@@ -14,9 +13,9 @@ import * as UI from '../../../ui/legacy/legacy.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 import * as VisualLogging from '../../../ui/visual_logging/visual_logging.js';
 
+import * as Insights from './insights/insights.js';
 import sidebarStyles from './sidebar.css.js';
 import * as SidebarAnnotationsTab from './SidebarAnnotationsTab.js';
-import * as SidebarInsight from './SidebarInsight.js';
 
 const DEFAULT_EXPANDED_WIDTH = 240;
 
@@ -88,7 +87,6 @@ export class SidebarUI extends HTMLElement {
   readonly #shadow = this.attachShadow({mode: 'open'});
   #activeTab: SidebarTabsName = SidebarTabsName.INSIGHTS;
   selectedCategory: InsightsCategories = InsightsCategories.ALL;
-  #lcpPhasesExpanded: boolean = false;
 
   #traceParsedData?: TraceEngine.Handlers.Types.TraceParseData|null;
   #inpMetric: {
@@ -100,7 +98,6 @@ export class SidebarUI extends HTMLElement {
     clsScore: number,
     clsScoreClassification: TraceEngine.Handlers.ModelHandlers.PageLoadMetrics.ScoreClassification,
   }|null = null;
-  #phaseData: Array<{phase: string, timing: number|TraceEngine.Types.Timing.MilliSeconds, percent: string}> = [];
   #insights: TraceEngine.Insights.Types.TraceInsightData|null = null;
   #annotations: TraceEngine.Types.File.Annotation[] = [];
 
@@ -129,9 +126,7 @@ export class SidebarUI extends HTMLElement {
       return;
     }
     this.#insights = insights;
-    this.#phaseData = SidebarInsight.getLCPInsightData(this.#insights);
-    // Reset toggled insights.
-    this.#lcpPhasesExpanded = false;
+    // TODO: Reset toggled insights.
     void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#renderBound);
   }
 
@@ -250,9 +245,7 @@ export class SidebarUI extends HTMLElement {
         TraceEngine.Handlers.ModelHandlers.PageLoadMetrics.MetricName.CLS, this.#clsMetric.clsScore.toPrecision(3),
         this.#clsMetric.clsScoreClassification);
   }
-
-  #toggleLCPPhaseClick(): void {
-    this.#lcpPhasesExpanded = !this.#lcpPhasesExpanded;
+  #toggleInsightClick(): void {
     this.dispatchEvent(new ToggleSidebarInsights());
     void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#renderBound);
   }
@@ -266,14 +259,20 @@ export class SidebarUI extends HTMLElement {
             ${this.#renderLCPMetric()}
             ${this.#renderCLSMetric()}
           </div>
-          <div class="insights" @click=${this.#toggleLCPPhaseClick}>${
-            SidebarInsight.renderLCPPhases(this.#phaseData, this.#lcpPhasesExpanded)}</div>
+          <div @click=${this.#toggleInsightClick}>
+            <${Insights.LCPPhases.LCPPhases.litTagName}
+                .insights=${this.#insights}
+              </${Insights.LCPPhases.LCPPhases}>
+          </div>
         `;
       case InsightsCategories.LCP:
         return LitHtml.html`
           ${this.#renderLCPMetric()}
-          <div class="insights" @click=${this.#toggleLCPPhaseClick}>${
-            SidebarInsight.renderLCPPhases(this.#phaseData, this.#lcpPhasesExpanded)}</div>
+          <div @click=${this.#toggleInsightClick}>
+            <${Insights.LCPPhases.LCPPhases.litTagName}
+                .insights=${this.#insights}
+              </${Insights.LCPPhases.LCPPhases}>
+          </div>
         `;
       case InsightsCategories.CLS:
         return LitHtml.html`${this.#renderCLSMetric()}`;
