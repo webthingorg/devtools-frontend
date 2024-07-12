@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3ee75e9_d925a7fd",
+        "filename": "front_end/panels/sources/ScopeChainSidebarPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-07-12T08:24:45Z",
+      "side": 1,
+      "message": "The only thing I don\u0027t really like about our listener infrastructure is that you don\u0027t get an event for the initial state.\n\nThis works here because the `ScopeChainModel` will fire an event after a micro task tick, but it\u0027s not very explicit.",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 116,
+        "endChar": 108
+      },
+      "revId": "297a578fd9b235d35cef1c26d073f28ec2f1097d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
