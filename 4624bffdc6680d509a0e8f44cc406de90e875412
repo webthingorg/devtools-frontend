@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "216887e6_d9a75658",
+        "filename": "front_end/panels/timeline/components/FieldSettingsDialog.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-07-12T13:07:41Z",
+      "side": 1,
+      "message": "That is how the logic works once these values are forwarded to the CrUX manager, however for the UI the checkbox and text box must have different state variables.",
+      "parentUuid": "de72ba81_99136357",
+      "range": {
+        "startLine": 111,
+        "startChar": 1,
+        "endLine": 112,
+        "endChar": 58
+      },
+      "revId": "4624bffdc6680d509a0e8f44cc406de90e875412",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e8df9d95_18d4ca9e",
