@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78b2f919_6dedb57f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-12T11:08:33Z",
+      "side": 1,
+      "message": "lgtm - this will change quite a lot when we pass through traceData, navigationId, etc, into each component, but we can get that working once this CL + mine lands.",
+      "revId": "68bfd925f2660b9f68f39241a7317451d4d4adeb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bcaeadb1_43a2ddb1",
+        "filename": "front_end/panels/timeline/components/insights/LCPPhases.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-12T11:08:33Z",
+      "side": 1,
+      "message": "might be worth manually formatting here to tidy up the indentation a bit",
+      "range": {
+        "startLine": 104,
+        "startChar": 0,
+        "endLine": 114,
+        "endChar": 0
+      },
+      "revId": "68bfd925f2660b9f68f39241a7317451d4d4adeb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
