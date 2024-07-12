@@ -75,6 +75,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e3b72656_700f3af3",
+        "filename": "front_end/panels/timeline/components/SidebarSingleNavigation.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-12T11:31:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c2f47f42_9308764b",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 29
+      },
+      "revId": "419ffa6ba2c358b36477a9135dd353c5732c3bf5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "be2009ef_d0176c04",
@@ -88,6 +112,30 @@
       "writtenOn": "2024-07-12T11:25:31Z",
       "side": 1,
       "message": "oops weird formatting",
+      "range": {
+        "startLine": 59,
+        "startChar": 6,
+        "endLine": 60,
+        "endChar": 41
+      },
+      "revId": "419ffa6ba2c358b36477a9135dd353c5732c3bf5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd8310de_5ea59473",
+        "filename": "front_end/panels/timeline/components/SidebarSingleNavigation.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-12T11:31:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "be2009ef_d0176c04",
       "range": {
         "startLine": 59,
         "startChar": 6,
