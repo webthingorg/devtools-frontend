@@ -16,6 +16,24 @@
       "message": "Another buggy behavior: (though didn\u0027t look into where it happens now 😅)\n* Updating the fallback color swatch does not update the text but appends the color text to the fallback value. See the attachment in http://b/40248266#comment33",
       "revId": "dbfb8fdf1ce3b87f73573f87d2847398c11520e3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0515cde7_5d522e32",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-07-12T10:16:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c542aea_4ac3369d",
+      "revId": "dbfb8fdf1ce3b87f73573f87d2847398c11520e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
