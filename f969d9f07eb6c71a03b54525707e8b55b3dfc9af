@@ -70,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "818f20b1_8bbaa159",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1558,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-12T11:02:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ce3edbf_6c586ca1",
+      "revId": "f969d9f07eb6c71a03b54525707e8b55b3dfc9af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "573cb81e_ef4dc49f",
@@ -107,6 +125,30 @@
       "side": 1,
       "message": "Nope! I will delete, thanks!",
       "parentUuid": "573cb81e_ef4dc49f",
+      "range": {
+        "startLine": 298,
+        "startChar": 6,
+        "endLine": 301,
+        "endChar": 28
+      },
+      "revId": "f969d9f07eb6c71a03b54525707e8b55b3dfc9af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff36ac39_cfd9a2c9",
+        "filename": "front_end/panels/timeline/components/Sidebar.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-12T11:02:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea562119_e930cbec",
       "range": {
         "startLine": 298,
         "startChar": 6,
