@@ -16,6 +16,24 @@
       "message": "I think we need to first check that the rendered fallback is actually the effective one. Otherwise, for this case, updating the fallback updates the rendered color swatch even though it shouldn\u0027t be the case:\n```\n--color: blue;\ncolor: var(--color, red);\n```\n\nUpdating `red` swatch shouldn\u0027t update the main color swatch.",
       "revId": "6e9173f276e1692bc36b58145c079c2109c3f6d8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "db643f4c_ec0d809a",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-07-12T09:55:14Z",
+      "side": 1,
+      "message": "Nice catch!",
+      "parentUuid": "bd7eb4c5_d38e31cf",
+      "revId": "6e9173f276e1692bc36b58145c079c2109c3f6d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
