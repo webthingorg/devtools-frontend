@@ -33,6 +33,69 @@
       "message": "Just realised Nancy is OOO today, @andoli would you mind taking a look please?",
       "revId": "419ffa6ba2c358b36477a9135dd353c5732c3bf5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "546f799e_3140be2e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-07-12T11:25:31Z",
+      "side": 1,
+      "message": "LGTM with small nits",
+      "revId": "419ffa6ba2c358b36477a9135dd353c5732c3bf5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2f47f42_9308764b",
+        "filename": "front_end/panels/timeline/components/SidebarSingleNavigation.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-07-12T11:25:31Z",
+      "side": 1,
+      "message": "this is unused, maybe remove from the input data type?",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 29
+      },
+      "revId": "419ffa6ba2c358b36477a9135dd353c5732c3bf5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be2009ef_d0176c04",
+        "filename": "front_end/panels/timeline/components/SidebarSingleNavigation.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-07-12T11:25:31Z",
+      "side": 1,
+      "message": "oops weird formatting",
+      "range": {
+        "startLine": 59,
+        "startChar": 6,
+        "endLine": 60,
+        "endChar": 41
+      },
+      "revId": "419ffa6ba2c358b36477a9135dd353c5732c3bf5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
