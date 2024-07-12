@@ -46,6 +46,30 @@
       },
       "revId": "297a578fd9b235d35cef1c26d073f28ec2f1097d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f9cb823_2d676476",
+        "filename": "front_end/panels/sources/ScopeChainSidebarPane.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-07-12T08:43:11Z",
+      "side": 1,
+      "message": "Yep, I was considering passing the update listener via constructor, to make it more explicit, but that also feels odd.\n\nI wonder if this problem is so universal that we could make a case for either Signals-like approach or rxjs-like approach. In the end the callframe-specific scope chain is a simple observable.\n\nI\u0027ll land it as-is, but worth pondering some more.",
+      "parentUuid": "3a8631b6_72ee60c9",
+      "range": {
+        "startLine": 115,
+        "startChar": 0,
+        "endLine": 116,
+        "endChar": 108
+      },
+      "revId": "297a578fd9b235d35cef1c26d073f28ec2f1097d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
