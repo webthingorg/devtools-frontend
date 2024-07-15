@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "36187bc1_48f6990b",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-07-15T11:09:54Z",
+      "side": 1,
+      "message": "No, at least not automatically. cssControls aren\u0027t passed back up the call when recursing into a new subtree when rendering.",
+      "parentUuid": "60cdaab8_50746eb2",
+      "revId": "3de0c54f3c29c34c97cc0cd5501415916988cd15",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7dbc4d76_c96882c2",
         "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
         "patchSetId": 5
@@ -48,6 +66,24 @@
       "writtenOn": "2024-07-15T10:56:24Z",
       "side": 1,
       "message": "(nit): Can we add a comment here to separate that the first part handles the relative colors \u0026 the other parts handle non-relative colors? (or we can also extract this to a method or something)",
+      "revId": "3de0c54f3c29c34c97cc0cd5501415916988cd15",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "852a7de1_9ee92798",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-07-15T11:09:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7dbc4d76_c96882c2",
       "revId": "3de0c54f3c29c34c97cc0cd5501415916988cd15",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -65,6 +101,24 @@
       "writtenOn": "2024-07-15T10:56:24Z",
       "side": 1,
       "message": "I didn\u0027t exactly understand why we\u0027re rendering the color swatch with `undefined`, does it make sense to pass `color` object to `renderColorSwatch` here? If so, we can get rid of rendering `undefined` inside `renderColorSwatch`.",
+      "revId": "3de0c54f3c29c34c97cc0cd5501415916988cd15",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c645ca64_47892902",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-07-15T11:09:54Z",
+      "side": 1,
+      "message": "Reason is the async update below. We don\u0027t know synchronously if we should render a color in the first place,so we have to render the empty swatch first and update later :/",
+      "parentUuid": "9515e8c9_18fe34b6",
       "revId": "3de0c54f3c29c34c97cc0cd5501415916988cd15",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
