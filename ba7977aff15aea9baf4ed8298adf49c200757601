@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d75f7b51_3e412a60",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-07-15T08:26:19Z",
+      "side": 1,
+      "message": "still not sure if it makes sense to make the build function a method, let\u0027s keep it static for now.",
+      "revId": "ba7977aff15aea9baf4ed8298adf49c200757601",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
