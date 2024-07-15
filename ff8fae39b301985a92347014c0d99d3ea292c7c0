@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5224a389_d7816521",
+        "filename": "scripts/component_server/server.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-07-15T07:15:52Z",
+      "side": 1,
+      "message": "The config system doesn\u0027t exist anymore (we should probably remove test_config_helpers, too, in this step). Do we need this option at all?",
+      "revId": "ff8fae39b301985a92347014c0d99d3ea292c7c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "20c9b67c_1a671186",
         "filename": "scripts/component_server/server.js",
         "patchSetId": 2
