@@ -1,0 +1,111 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6540d189_53c78e1a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-07-15T08:01:50Z",
+      "side": 1,
+      "message": "LGTM + 1 nit",
+      "revId": "822fb7e66ca7ee1cd7061bfd67c19b4063b067c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a90ee7f_4aeafef0",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-07-15T08:01:50Z",
+      "side": 1,
+      "message": "Nit: the phrasing here is confusing, though I get what it wants:\nFor each new conversation create a new instance. \nMaybe you can come up with better phrasing.",
+      "fixSuggestions": [
+        {
+          "fixId": "a4d7e023_be7b096e",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/freestyler/FreestylerAgent.ts",
+              "range": {
+                "startLine": 127,
+                "startChar": 0,
+                "endLine": 128,
+                "endChar": 0
+              },
+              "replacement": " * One agent instance matches one conversation.\n"
+            }
+          ]
+        }
+      ],
+      "revId": "822fb7e66ca7ee1cd7061bfd67c19b4063b067c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "557424d3_fc3953a7",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-07-15T08:01:50Z",
+      "side": 1,
+      "message": "No action required, but I think we can move this method from static to normal now,\nwe use 3 of the args from this.",
+      "fixSuggestions": [
+        {
+          "fixId": "555da376_bbefb5bf",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/freestyler/FreestylerAgent.ts",
+              "range": {
+                "startLine": 148,
+                "startChar": 0,
+                "endLine": 151,
+                "endChar": 0
+              },
+              "replacement": "  buildRequest(input: string, preamble?: string, chatHistory?: Host.AidaClient.Chunk[]): Host.AidaClient.AidaRequest {\n"
+            },
+            {
+              "path": "front_end/panels/freestyler/FreestylerAgent.ts",
+              "range": {
+                "startLine": 164,
+                "startChar": 0,
+                "endLine": 166,
+                "endChar": 0
+              },
+              "replacement": "        disable_user_content_logging: !this.#serverSideLoggingEnabled,\n        string_session_id: this.#sessionId,\n"
+            },
+            {
+              "path": "front_end/panels/freestyler/FreestylerAgent.ts",
+              "range": {
+                "startLine": 299,
+                "startChar": 0,
+                "endLine": 302,
+                "endChar": 0
+              },
+              "replacement": "      const request \u003d this.buildRequest(\n          query, preamble, this.#chatHistory.size ? this.#getHistoryEntry : undefined);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "822fb7e66ca7ee1cd7061bfd67c19b4063b067c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
