@@ -57,6 +57,30 @@
       ],
       "revId": "ff8fae39b301985a92347014c0d99d3ea292c7c0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d77586b_7f00a502",
+        "filename": "scripts/component_server/server.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-07-15T07:32:58Z",
+      "side": 1,
+      "message": "the name sounds fine, and I think ../../ is correct",
+      "parentUuid": "20c9b67c_1a671186",
+      "range": {
+        "startLine": 35,
+        "startChar": 6,
+        "endLine": 35,
+        "endChar": 24
+      },
+      "revId": "ff8fae39b301985a92347014c0d99d3ea292c7c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
