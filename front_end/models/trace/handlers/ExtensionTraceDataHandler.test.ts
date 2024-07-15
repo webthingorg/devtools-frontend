@@ -143,11 +143,11 @@ describe('ExtensionTraceDataHandler', function() {
     });
 
     it('gets data from individual entries', async () => {
-      const {hintText, track, detailsPairs} =
+      const {tootipText, track, properties} =
           extensionHandlerOutput.extensionTrackData[1].entriesByTrack['Another Extension Track'][0].args;
-      assert.strictEqual(hintText, 'A hint if needed');
+      assert.strictEqual(tootipText, 'A hint if needed');
       assert.strictEqual(track, 'Another Extension Track');
-      assert.strictEqual(JSON.stringify(detailsPairs), '[["Description","Something"],["Tip","A tip to improve this"]]');
+      assert.strictEqual(JSON.stringify(properties), '[["Description","Something"],["Tip","A tip to improve this"]]');
     });
 
     it('discards track data without a corresponding track field', async () => {
@@ -178,9 +178,9 @@ describe('ExtensionTraceDataHandler', function() {
     it('parses marker data correctly', async () => {
       assert.lengthOf(extensionHandlerOutput.extensionMarkers, 1);
       assert.strictEqual(extensionHandlerOutput.extensionMarkers[0].name, 'A custom mark');
-      const {hintText, detailsPairs} = extensionHandlerOutput.extensionMarkers[0].args;
-      assert.strictEqual(hintText, 'A mark');
-      assert.strictEqual(JSON.stringify(detailsPairs), '[["Description","This marks the start of a task"]]');
+      const {tootipText, properties} = extensionHandlerOutput.extensionMarkers[0].args;
+      assert.strictEqual(tootipText, 'A mark');
+      assert.strictEqual(JSON.stringify(properties), '[["Description","This marks the start of a task"]]');
     });
 
     it('discards markers whose details are not valid stringified JSON', async () => {
