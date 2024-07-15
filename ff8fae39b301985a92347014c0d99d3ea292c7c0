@@ -1,0 +1,45 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20c9b67c_1a671186",
+        "filename": "scripts/component_server/server.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2024-07-15T07:08:38Z",
+      "side": 1,
+      "message": "maybe wrong name",
+      "range": {
+        "startLine": 35,
+        "startChar": 6,
+        "endLine": 35,
+        "endChar": 24
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "6f20eea3_5e47ec73",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "scripts/component_server/server.js",
+              "range": {
+                "startLine": 35,
+                "startChar": 0,
+                "endLine": 36,
+                "endChar": 0
+              },
+              "replacement": "const devtoolsRootFolder \u003d path.resolve(__dirname, \u0027..\u0027);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "ff8fae39b301985a92347014c0d99d3ea292c7c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
