@@ -142,7 +142,7 @@ describe('Recorder', function() {
           {
             type: 'change' as StepType.Change,
             target: 'main',
-            selectors: ['aria/Select'],
+            selectors: ['#select'],
             value: 'O2',
           },
         ],
