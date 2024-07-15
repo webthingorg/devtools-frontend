@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73b5e25f_e688d618",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-15T10:56:24Z",
+      "side": 1,
+      "message": "LGTM with a few questions \u0026 a nit :)\n\nI wasn\u0027t able to spot any user changing behavior other than the ones we discussed \u0026 handled. So, it looks okay from that perspective too. Did you spot any user facing behavior changes?",
+      "revId": "3de0c54f3c29c34c97cc0cd5501415916988cd15",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60cdaab8_50746eb2",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-15T10:56:24Z",
+      "side": 1,
+      "message": "Is there a chance that these `cssControls` will contain the most inner swatches? Like this:\n```\n[cs1]var(--void, [cs2]var(--defined-color, [cs3]red)\n```\n\nchanging [cs3] shouldn\u0027t change [cs1] and [cs2] however if the `cssControls` contains `[cs3]` while rendering `var(--void...)` expression, this `fromFallback` check might not be enough.\n\n(I have controlled it myself and the logic seems to be working now, I just wanted to confirm it with this question 😊)",
+      "revId": "3de0c54f3c29c34c97cc0cd5501415916988cd15",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7dbc4d76_c96882c2",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-15T10:56:24Z",
+      "side": 1,
+      "message": "(nit): Can we add a comment here to separate that the first part handles the relative colors \u0026 the other parts handle non-relative colors? (or we can also extract this to a method or something)",
+      "revId": "3de0c54f3c29c34c97cc0cd5501415916988cd15",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9515e8c9_18fe34b6",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-15T10:56:24Z",
+      "side": 1,
+      "message": "I didn\u0027t exactly understand why we\u0027re rendering the color swatch with `undefined`, does it make sense to pass `color` object to `renderColorSwatch` here? If so, we can get rid of rendering `undefined` inside `renderColorSwatch`.",
+      "revId": "3de0c54f3c29c34c97cc0cd5501415916988cd15",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
