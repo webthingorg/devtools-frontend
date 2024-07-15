@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2e5783b_36549fad",
+        "filename": "front_end/panels/timeline/CompatibilityTracksAppender.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-07-15T16:06:21Z",
+      "side": 0,
+      "message": "moved this check to front_end/panels/timeline/ExtensionDataGatherer.ts, so that it\u0027s done only once",
+      "range": {
+        "startLine": 184,
+        "startChar": 4,
+        "endLine": 184,
+        "endChar": 92
+      },
+      "revId": "2418c6711f1f2111e75c840e8c1f139f659b056b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
