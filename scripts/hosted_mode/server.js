@@ -136,27 +136,23 @@ async function requestHandler(request, response) {
   function inferContentType(url) {
     const path = parseURL(url).pathname;
 
-    if (path.endsWith('.js') || path.endsWith('.mjs')) {
-      return 'text/javascript; charset=utf-8';
+    contenTypeMap = {
+      '.js': 'text/javascript; charset=utf-8',
+      '.mjs': 'text/javascript; charset=utf-8',
+      '.css': 'text/css; charset=utf-8',
+      '.wasm': 'application/wasm',
+      '.svg': 'image/svg+xml; charset=utf-8',
+      '.png': 'image/png',
+      '.jpg': 'image/jpg',
+      '.avif': 'image/avif',
+    };
+
+    for (const extension in contenTypeMap) {
+      if (path.endsWith(extension)) {
+        return contenTypeMap[extension];
+      }
     }
-    if (path.endsWith('.css')) {
-      return 'text/css; charset=utf-8';
-    }
-    if (path.endsWith('.wasm')) {
-      return 'application/wasm';
-    }
-    if (path.endsWith('.svg')) {
-      return 'image/svg+xml; charset=utf-8';
-    }
-    if (path.endsWith('.png')) {
-      return 'image/png';
-    }
-    if (path.endsWith('.jpg')) {
-      return 'image/jpg';
-    }
-    if (path.endsWith('.avif')) {
-      return 'image/avif';
-    }
+
     return null;
   }
 
