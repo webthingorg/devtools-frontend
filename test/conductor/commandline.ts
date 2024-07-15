@@ -38,7 +38,7 @@ function validateDiffBehaviors(args: undefined|string|string[]) {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function commandLineArgs(yargs: any) {
-  return yargs.parserConfiguration({'camel-case-expansion': false})
+  return yargs.parserConfiguration({'camel-case-expansion': false, 'populate--': true})
       .command('$0 [tests..]')
       .option(
           'artifacts-dir',

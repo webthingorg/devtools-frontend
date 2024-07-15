@@ -43,6 +43,7 @@ ts_library("testing") {
     "UserMetricsHelpers.ts",
     "VisualLoggingHelpers.ts",
     "test_post_setup.ts",
+    "test_selection.ts",
     "test_setup.ts",
   ]
 

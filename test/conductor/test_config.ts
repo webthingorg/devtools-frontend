@@ -9,7 +9,8 @@ import {asArray, commandLineArgs, DiffBehaviors} from './commandline.js';
 import {defaultChromePath, SOURCE_ROOT} from './paths.js';
 
 const yargs = require('yargs');
-const options = commandLineArgs(yargs(yargs.argv['_'])).argv;
+const testArgs = yargs.parserConfiguration({'camel-case-expansion': false, 'populate--': true}).argv['--'];
+const options = commandLineArgs(yargs(testArgs)).argv;
 
 export const enum ServerType {
   HostedMode = 'hosted-mode',
@@ -18,6 +19,7 @@ export const enum ServerType {
 
 interface Config {
   tests: string[];
+  testSelections: Map<string, number[]>;
   artifactsDir: string;
   chromeBinary: string;
   serverType: ServerType;
@@ -74,8 +76,29 @@ function getTestsFromOptions() {
   return [];
 }
 
+const testSelections = new Map<string, number[]>();
+const tests: string[] = [];
+
+for (const test of getTestsFromOptions()) {
+  const match = test.match(/(:\d+)$/);
+  if (!match) {
+    tests.push(test);
+    continue;
+  }
+  const [matchedStr, lineMatch] = match;
+  tests.push(test.substr(0, test.length - matchedStr.length));
+  const line = parseInt(lineMatch.substr(1), 10);
+  const selections = testSelections.get(tests[tests.length - 1]);
+  if (selections) {
+    selections.push(line);
+  } else {
+    testSelections.set(tests[tests.length - 1], [line]);
+  }
+}
+
 export const TestConfig: Config = {
-  tests: getTestsFromOptions(),
+  tests,
+  testSelections,
   artifactsDir: options['artifacts-dir'] || SOURCE_ROOT,
   chromeBinary: options['chrome-binary'] ?? defaultChromePath(),
   serverType: ServerType.HostedMode,

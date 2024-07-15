@@ -14,11 +14,14 @@ import * as ThemeSupport from '../ui/legacy/theme_support/theme_support.js';
 
 import {resetTestDOM} from './DOMHelpers.js';
 import {createFakeSetting} from './EnvironmentHelpers.js';
+import {TestCapture} from './test_selection.js';
 import {
   checkForPendingActivity,
   startTrackingAsyncActivity,
   stopTrackingAsyncActivity,
 } from './TrackAsyncOperations.js';
+
+TestCapture.instance();
 
 beforeEach(() => {
   resetTestDOM();

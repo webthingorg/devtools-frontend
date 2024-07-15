@@ -7,6 +7,7 @@ import * as Path from 'path';
 
 import {getBrowserAndPages} from '../conductor/puppeteer-state.js';
 import {TestConfig} from '../conductor/test_config.js';
+import {getStackTrace, TestCapture} from '../conductor/test_selection.js';
 import {ScreenshotError} from '../shared/screenshot-error.js';
 
 import {AsyncScope} from './async-scope.js';
@@ -54,36 +55,30 @@ function wrapSuiteFunction(fn: (this: Mocha.Suite) => void) {
 export function wrapDescribe<ReturnT>(
     mochaFn: (title: string, fn: (this: Mocha.Suite) => void) => ReturnT, title: string,
     fn: (this: Mocha.Suite) => void): ReturnT {
-  const originalFn = Error.prepareStackTrace;
-  try {
-    Error.prepareStackTrace = (err, stackTraces) => {
-      if (stackTraces.length < 3) {
-        return '<unknown>';
+  const testFile = getStackTrace((err, stackTraces) => {
+    if (stackTraces.length < 3) {
+      return '<unknown>';
+    }
+    let fallback: string|undefined;
+    for (let i = 2; i < stackTraces.length; ++i) {
+      const filename = stackTraces[i].getFileName();
+      if (!filename) {
+        return fallback ?? '<unknown>';
       }
-      let fallback: string|undefined;
-      for (let i = 2; i < stackTraces.length; ++i) {
-        const filename = stackTraces[i].getFileName();
-        if (!filename) {
-          return fallback ?? '<unknown>';
-        }
-        const parsedPath = Path.parse(filename);
-        const directories = parsedPath.dir.split(Path.sep);
-        const index = directories.lastIndexOf('e2e');
-        if (index >= 0) {
-          return [...directories.slice(index + 1), `${parsedPath.name}.ts`].join('/');
-        }
-        if (!fallback) {
-          fallback = parsedPath.name;
-        }
+      const parsedPath = Path.parse(filename);
+      const directories = parsedPath.dir.split(Path.sep);
+      const index = directories.lastIndexOf('e2e');
+      if (index >= 0) {
+        return [...directories.slice(index + 1), `${parsedPath.name}.ts`].join('/');
       }
-      return fallback;
-    };
-    const err = new Error();
-
-    return mochaFn(`${err.stack}: ${title}`, wrapSuiteFunction(fn));
-  } finally {
-    Error.prepareStackTrace = originalFn;
-  }
+      if (!fallback) {
+        fallback = parsedPath.name;
+      }
+    }
+    return fallback;
+  });
+  title = `${testFile}: ${title}`;
+  return mochaFn(title, wrapSuiteFunction(fn));
 }
 
 export function describe(title: string, fn: (this: Mocha.Suite) => void) {
@@ -204,6 +199,7 @@ function hookTestTimeout(test?: Mocha.Runnable) {
 function wrapMochaCall(
     call: Mocha.TestFunction|Mocha.PendingTestFunction|Mocha.ExclusiveTestFunction, name: string,
     callback: Mocha.Func|Mocha.AsyncFunc) {
+  TestCapture.instance();
   const test = call(name, function(done: Mocha.Done) {
     // If this is a test retry, the current test will be a clone of the original test, and
     // we need to find it and hook that instead of the original test.

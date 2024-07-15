@@ -119,6 +119,9 @@ module.exports = function(config: any) {
         ...TestConfig.mochaGrep,
         timeout: 5_000,
       },
+      testSelections:
+          Array.from(TestConfig.testSelections.entries())
+              .map(([value, location]) => [path.join('/base', targetDir, path.relative(GEN_DIR, value)), location]),
       remoteDebuggingPort: REMOTE_DEBUGGING_PORT,
     },
 

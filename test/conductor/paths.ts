@@ -39,14 +39,18 @@ export function isContainedInDirectory(contained: string, directory: string) {
 }
 
 export class PathPair {
-  private constructor(readonly sourcePath: string, readonly buildPath: string) {
+  private constructor(
+      readonly sourcePath: string, readonly buildPath: string, readonly sourceLineNumber?: number,
+      readonly buildLineNumber?: number) {
     if (!path.isAbsolute(sourcePath) || !path.isAbsolute(buildPath)) {
       throw new Error('Repo paths must be absolute');
     }
   }
 
   static get(pathname: string) {
-    const absPath = path.normalize(path.resolve(pathname));
+    const lineSuffix = /:\d+$/.exec(pathname);
+    const absPath = path.normalize(
+        path.resolve(lineSuffix ? pathname.substr(0, pathname.length - lineSuffix[0].length) : pathname));
     if (!absPath) {
       return null;
     }
@@ -54,7 +58,12 @@ export class PathPair {
     const sourcePath = rebase(GEN_DIR, SOURCE_ROOT, absPath, '.ts');
     const buildPath = rebase(SOURCE_ROOT, GEN_DIR, absPath, '.js');
 
-    return new PathPair(sourcePath, buildPath);
+    const line = lineSuffix?.[0]?.substr(1);
+    const lineSuffixIsSource = absPath === sourcePath;
+    const sourcePos = line !== undefined && lineSuffixIsSource ? parseInt(line, 10) : undefined;
+    const buildPos = line !== undefined && !lineSuffixIsSource ? parseInt(line, 10) : undefined;
+
+    return new PathPair(sourcePath, buildPath, sourcePos, buildPos);
   }
 }
 
