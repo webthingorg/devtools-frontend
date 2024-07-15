@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a76d6159_3bf8d8fb",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-07-15T08:06:23Z",
+      "side": 1,
+      "message": "will address in a follow-up.",
+      "parentUuid": "2a90ee7f_4aeafef0",
+      "revId": "822fb7e66ca7ee1cd7061bfd67c19b4063b067c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "557424d3_fc3953a7",
@@ -104,6 +122,24 @@
           ]
         }
       ],
+      "revId": "822fb7e66ca7ee1cd7061bfd67c19b4063b067c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13cb76da_40f3fb2f",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-07-15T08:06:23Z",
+      "side": 1,
+      "message": "I can rewrite it later but it would require updating the tests and instantiating the agent there",
+      "parentUuid": "557424d3_fc3953a7",
       "revId": "822fb7e66ca7ee1cd7061bfd67c19b4063b067c3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
