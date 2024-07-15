@@ -16,6 +16,24 @@
       "message": "LGTM! Just wondering, do you feel we have adequate test coverage for the source mapping business logic? With this refactoring we can also create an opportunity to allow for fine-grained unittesting of the pieces. Would that make sense here?",
       "revId": "fae46d5fd380bdbbf27b9bd3ab8ffcdb53169a5c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d944d1f7_dc726544",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-07-15T12:16:58Z",
+      "side": 1,
+      "message": "We have some unit tests for the `resolveThisObject` and `resolveScopeChain` functions directly in `NameResolver.test.ts`.\n\nI wanna fix  and add a unit test for the model though to make sure we don\u0027t emit any events when an `#update` was started and `dispose` was called while the update is in-flight.",
+      "parentUuid": "c42fc3fb_a60267bc",
+      "revId": "fae46d5fd380bdbbf27b9bd3ab8ffcdb53169a5c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
