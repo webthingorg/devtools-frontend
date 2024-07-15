@@ -27,6 +27,11 @@ export const enum EventKeyType {
   ProfileCall = 'p',
 }
 
+// Expected to add move annotations
+export interface SerializedAnnotations {
+  entryLabels: EntryLabelAnnotationSerialized[];
+}
+
 /**
  * Represents an object that is saved in the file when a user creates a label for an entry in the timeline.
  */
@@ -36,9 +41,14 @@ export interface EntryLabelAnnotation {
   label: string;
 }
 
+export interface EntryLabelAnnotationSerialized {
+  entry: TraceEventSerializableKey;
+  label: string;
+}
+
 /**
  * `Annotation` are the user-created annotations that are saved into the metadata.
- * Those annotations are rendered on the timeline by `Overlays.ts`
+ * Those annotations are rende€red on the timeline by `Overlays.ts`
  *
  * TODO: Implement other OverlayAnnotations (annotated time ranges, links between entries).
  * TODO: Save/load overlay annotations to/from the trace file.
@@ -83,6 +93,7 @@ export interface Modifications {
     expandableEntries: TraceEventSerializableKey[],
   };
   initialBreadcrumb: Breadcrumb;
+  annotations: SerializedAnnotations;
 }
 
 /**
