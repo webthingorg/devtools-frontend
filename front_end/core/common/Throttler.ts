@@ -5,6 +5,7 @@
 export type FinishCallback = (err: Error) => void;
 
 export class Throttler {
+  readonly timeout: number;
   readonly #timeout: number;
   #isRunningProcess: boolean;
   #asSoonAsPossible: boolean;
@@ -15,6 +16,7 @@ export class Throttler {
   #processTimeout?: number;
 
   constructor(timeout: number) {
+    this.timeout = timeout;
     this.#timeout = timeout;
     this.#isRunningProcess = false;
     this.#asSoonAsPossible = false;

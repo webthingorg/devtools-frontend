@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import {assert} from 'chai';
+import type * as puppeteer from 'puppeteer-core';
 
 import {
   $textContent,
@@ -22,29 +23,33 @@ import {describe, it} from '../../shared/mocha-extensions.js';
 import {navigateToConsoleTab} from '../helpers/console-helpers.js';
 import {openSourcesPanel, RESUME_BUTTON} from '../helpers/sources-helpers.js';
 
-describe('The Console Tab', () => {
-  it('context selector', async () => {
+describe('The Console context selector', () => {
+  let contextSelectorButton: puppeteer.ElementHandle;
+  const FRAME_CONTEXT_LABEL = 'myframe (context-selector-inner.html)';
+  let target: puppeteer.Page;
+
+  beforeEach('context selector', async () => {
     await goToResource('console/context-selector.html');
     await navigateToConsoleTab();
-    const {target} = getBrowserAndPages();
+    ({target} = getBrowserAndPages());
     await target.evaluate('setup()');
-    let contextSelectorButton = await waitFor('[aria-label="JavaScript context: top"]');
+    contextSelectorButton = await waitFor('[aria-label="JavaScript context: top"]');
+  });
 
-    async function waitForMenuItemWithText(text: string) {
-      const result = await waitForFunction(async () => {
-        for (const menuItem of await waitForMany('[role=menuitem]', 1)) {
-          if (await $textContent(text, menuItem)) {
-            return menuItem;
-          }
+  async function waitForMenuItemWithText(text: string) {
+    const result = await waitForFunction(async () => {
+      for (const menuItem of await waitForMany('[role=menuitem]', 1)) {
+        if (await $textContent(text, menuItem)) {
+          return menuItem;
         }
-        return null;
-      });
-      assertNotNullOrUndefined(result);
-      return result;
-    }
+      }
+      return null;
+    });
+    assertNotNullOrUndefined(result);
+    return result;
+  }
 
-    const FRAME_CONTEXT_LABEL = 'myframe (context-selector-inner.html)';
-
+  it('main frame', async () => {
     await step('switch to the iframe context', async () => {
       await contextSelectorButton.press('Enter');
       const frameMenuItem = await waitForMenuItemWithText(FRAME_CONTEXT_LABEL);
@@ -73,8 +78,10 @@ describe('The Console Tab', () => {
       assert.isFalse(await hasClass(await waitForMenuItemWithText(FRAME_CONTEXT_LABEL), 'disabled'));
       await pressKey('Escape');
     });
+  });
 
-    const WORKER_CONTEXT_LABEL = '⚙ worker-pause.js';
+  const WORKER_CONTEXT_LABEL = '⚙ worker-pause.js';
+  it('worker', async () => {
     await step('pause in worker', async () => {
       void target.evaluate('pauseInWorker()');
       await waitFor('#tab-sources[aria-selected="true"]');
@@ -94,7 +101,9 @@ describe('The Console Tab', () => {
 
       contextSelectorButton = await waitFor(`[aria-label="JavaScript context: ${WORKER_CONTEXT_LABEL}"]`);
     });
+  });
 
+  it('iframe', async () => {
     await step('pause in the iframe', async () => {
       void target.evaluate('pauseInIframe()');
       await waitFor('#tab-sources[aria-selected="true"]');

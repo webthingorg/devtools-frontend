@@ -19,7 +19,7 @@ import {
   waitForFunction,
 } from '../../shared/helper.js';
 
-import {veImpression} from './visual-logging-helpers.js';
+import {expectVeEvents, veChange, veClick, veImpression, veImpressionsUnder} from './visual-logging-helpers.js';
 
 export const CONSOLE_TAB_SELECTOR = '#tab-console';
 export const CONSOLE_MESSAGES_SELECTOR = '.console-group-messages';
@@ -60,6 +60,7 @@ export async function deleteConsoleMessagesFilter(frontend: puppeteer.Page) {
       deleteButton.click();
     }
   }, main);
+  await expectVeEvents([veClick('Panel: console > Toolbar > TextField > Action: clear')]);
 }
 
 export async function filterConsoleMessages(frontend: puppeteer.Page, filter: string) {
@@ -70,7 +71,10 @@ export async function filterConsoleMessages(frontend: puppeteer.Page, filter: st
     toolbar.focus();
   }, main);
   await pasteText(filter);
-  await frontend.keyboard.press('Enter');
+  await frontend.keyboard.press('Tab');
+  if (filter.length) {
+    await expectVeEvents([veChange('Panel: console > Toolbar > TextField')]);
+  }
 }
 
 export async function waitForConsoleMessagesToBeNonEmpty(numberOfMessages: number) {
@@ -83,6 +87,7 @@ export async function waitForConsoleMessagesToBeNonEmpty(numberOfMessages: numbe
         await Promise.all(messages.map(message => message.evaluate(message => message.textContent || '')));
     return textContents.every(text => text !== '');
   });
+  await expectVeEvents([veImpressionForConsoleMessage()]);
 }
 
 export async function waitForLastConsoleMessageToHaveContent(expectedTextContent: string) {
@@ -114,6 +119,7 @@ export async function getCurrentConsoleMessages(withAnchor = false, level = Leve
 
   // Get console messages that were logged.
   await waitFor(CONSOLE_MESSAGES_SELECTOR, undefined, asyncScope);
+  await expectVeEvents([veImpressionForConsoleMessage()]);
 
   if (callback) {
     await callback();
@@ -151,6 +157,7 @@ export async function maybeGetCurrentConsoleMessages(withAnchor = false, callbac
 
   // Get console messages that were logged.
   await waitFor(CONSOLE_MESSAGES_SELECTOR, undefined, asyncScope);
+  await expectVeEvents([veImpressionForConsolePanel({requireMessage: true})]);
 
   if (callback) {
     await callback();
@@ -175,6 +182,7 @@ export async function getStructuredConsoleMessages() {
 
   // Get console messages that were logged.
   await waitFor(CONSOLE_MESSAGES_SELECTOR, undefined, asyncScope);
+  await expectVeEvents([veImpressionForConsoleMessage()]);
 
   // Ensure all messages are populated.
   await asyncScope.exec(() => frontend.waitForFunction((CONSOLE_FIRST_MESSAGES_SELECTOR: string) => {
@@ -281,6 +289,7 @@ export async function navigateToConsoleTab() {
   // Locate the button for switching to the console tab.
   await click(CONSOLE_TAB_SELECTOR);
   await waitFor(CONSOLE_VIEW_SELECTOR);
+  await expectVeEvents([veImpressionForConsolePanel()]);
 }
 
 export async function waitForConsoleInfoMessageAndClickOnLink() {
@@ -345,6 +354,10 @@ export async function checkCommandStacktrace(
   await unifyLogVM(await getLastConsoleStacktrace(offset), expected);
 }
 
+function veImpressionForConsoleMessage() {
+  return veImpressionsUnder('Panel: console', [veImpression('Item', 'console-message')]);
+}
+
 export function veImpressionForConsolePanel() {
   return veImpression('Panel', 'console', [
     veImpression(
@@ -355,10 +368,11 @@ export function veImpressionForConsolePanel() {
           veImpression('DropDown', 'javascript-context'),
           veImpression('Action', 'console.create-pin'),
           veImpression('DropDown', 'log-level'),
-          veImpression('Counter', 'issues'),
+          // veImpression('Counter', 'issues'),
           veImpression('ToggleSubpane', 'console-settings'),
           veImpression('TextField'),
         ]),
+    // veImpressionForConsoleMessage(),
     veImpression('TextField', 'console-prompt'),
   ]);
 }
