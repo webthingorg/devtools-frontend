@@ -1322,6 +1322,15 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     this.flameChart.setModel(traceParsedData, isCpuProfile);
     this.flameChart.setSelection(null);
 
+    // Add overlays for annotations loaded from the trace file
+    const currModificationManager = ModificationsManager.activeManager();
+    if (currModificationManager) {
+      currModificationManager.getOverlays().forEach(overlay => {
+        this.flameChart.addOverlay(overlay);
+      });
+      this.#sideBar.setAnnotationsTabContent(currModificationManager.getAnnotations());
+    }
+
     const traceInsightsData = this.#traceEngineModel.traceInsights(this.#traceEngineActiveTraceIndex);
     if (traceInsightsData) {
       this.flameChart.setInsights(traceInsightsData);
