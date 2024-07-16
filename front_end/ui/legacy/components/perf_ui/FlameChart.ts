@@ -71,6 +71,10 @@ const UIStrings = {
    */
   sCollapsed: '{PH1} collapsed',
   /**
+   *@description Text for AI thing
+   */
+  whatsThis: 'What\s this?',
+  /**
    *@description Text for Hiding a function from the Flame Chart
    */
   hideFunction: 'Hide function',
@@ -1220,6 +1224,23 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     }
 
     this.contextMenu = new UI.ContextMenu.ContextMenu(event, {useSoftMenu: true});
+
+    const whatsThisOption = this.contextMenu.defaultSection().appendItem(i18nString(UIStrings.whatsThis), async () => {
+      const aidaAvailability = await Host.AidaClient.AidaClient.getAidaClientAvailability();
+      if (aidaAvailability !== Host.AidaClient.AidaAvailability.AVAILABLE) {
+        alert(aidaAvailability);
+        return;
+      }
+      const aidaClient = new Host.AidaClient.AidaClient();
+      const aidaRequest = Host.AidaClient.AidaClient.buildConsoleInsightsRequest('what are you?');
+      for await (const response of aidaClient.fetch(aidaRequest)) {
+        alert(response);
+      }
+    }, {
+      jslogContext: 'whats-this',
+    });
+    const modifier = UI.KeyboardShortcut.Modifiers.CtrlOrMeta;
+    whatsThisOption.setShortcut(UI.KeyboardShortcut.KeyboardShortcut.shortcutToString('?', modifier));
 
     const hideEntryOption = this.contextMenu.defaultSection().appendItem(i18nString(UIStrings.hideFunction), () => {
       this.modifyTree(TraceEngine.EntriesFilter.FilterAction.MERGE_FUNCTION, this.selectedEntryIndex);
