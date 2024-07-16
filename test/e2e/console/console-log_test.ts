@@ -285,6 +285,9 @@ describe('The Console Tab', () => {
       await focusConsolePrompt();
 
       await tabBackward();
+      const element = await activeElement();
+      console.error(await element.evaluate(node => node.outerHTML));
+
       assert.strictEqual(await activeElementTextContent(), 'focus-interaction.html:9');
 
       await frontend.keyboard.press('ArrowUp');
