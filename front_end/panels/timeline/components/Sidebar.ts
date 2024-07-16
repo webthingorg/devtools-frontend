@@ -12,6 +12,7 @@ import * as UI from '../../../ui/legacy/legacy.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 import * as VisualLogging from '../../../ui/visual_logging/visual_logging.js';
 
+import * as Insights from './insights/insights.js';
 import sidebarStyles from './sidebar.css.js';
 import * as SidebarAnnotationsTab from './SidebarAnnotationsTab.js';
 import {SidebarSingleNavigation, type SidebarSingleNavigationData} from './SidebarSingleNavigation.js';
@@ -32,10 +33,15 @@ export enum InsightsCategories {
   OTHER = 'Other',
 }
 
+export const enum InsightsToToggle {
+  LCP_PHASES = Insights.LCPPhases.InsightName,
+  NONE = '',
+}
+
 export class ToggleSidebarInsights extends Event {
   static readonly eventName = 'toggleinsightclick';
 
-  constructor() {
+  constructor(public toggledInsight: InsightsToToggle, public navigationId: string) {
     super(ToggleSidebarInsights.eventName, {bubbles: true, composed: true});
   }
 }
@@ -132,7 +138,8 @@ export class SidebarUI extends HTMLElement {
       return;
     }
     this.#insights = insights;
-    // Reset toggled insights.
+    // Reset toggled insights when we have new insights.
+    this.dispatchEvent(new ToggleSidebarInsights(InsightsToToggle.NONE, ''));
     void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#renderBound);
   }
 
