@@ -83,7 +83,7 @@
     "eslint-plugin-lit-a11y": "2.1.0",
     "eslint-plugin-mocha": "10.0.3",
     "eslint-plugin-rulesdir": "0.2.1",
-    "glob": "7.1.7",
+    "glob": "9.3.5",
     "istanbul-lib-instrument": "5.1.0",
     "istanbul-lib-report": "3.0.0",
     "karma": "6.4.0",
@@ -114,5 +114,10 @@
     "webidl2": "24.2.2",
     "ws": "8.16.0",
     "yargs": "17.3.1"
+  },
+  "overrides": {
+    "glob": "$glob",
+    "lru-cache": "11.0.0",
+    "ajv": "8.16.0"
   }
 }
