@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ddb6a80_7568b4bd",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-16T09:41:42Z",
+      "side": 1,
+      "message": "I think this could be \"Extension data\" or \"Show extension data\" - I think \"Performance panel\" is not needed as we are already in the performance panel.",
+      "range": {
+        "startLine": 263,
+        "startChar": 0,
+        "endLine": 263,
+        "endChar": 59
+      },
+      "revId": "f7a0f2c39d77dfd93b484c63fbe655661bba2d66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6f50b4d_0867d840",
+        "filename": "front_end/panels/timeline/track_appenders/TimingsTrackAppender.test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-16T09:41:42Z",
+      "side": 1,
+      "message": "I wouldn\u0027t have expected this setting to impact the timings track appender because it deliberately drops all extension based timings. What am I missing?",
+      "range": {
+        "startLine": 345,
+        "startChar": 0,
+        "endLine": 347,
+        "endChar": 70
+      },
+      "revId": "f7a0f2c39d77dfd93b484c63fbe655661bba2d66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
