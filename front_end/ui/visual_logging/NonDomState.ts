@@ -10,20 +10,28 @@ interface LoggableRegistration {
   parent?: Loggable;
 }
 
-const registry: Map<Loggable, LoggableRegistration> = new Map();
+const registry = new WeakMap<Loggable, LoggableRegistration[]>();
+
+function getLoggables(parent?: Loggable): LoggableRegistration[] {
+  return registry.get(parent || nullParent) || [];
+}
 
 export function registerLoggable(loggable: Loggable, config: LoggingConfig, parent?: Loggable): void {
-  registry.set(loggable, {loggable, config, parent});
+  const values = getLoggables(parent);
+  values.push({loggable, config, parent});
+  registry.set(parent || nullParent, values);
 }
 
-export function unregisterLoggable(loggable: Loggable): void {
-  registry.delete(loggable);
+export function unregisterLoggables(parent: Loggable|undefined): void {
+  registry.delete(parent || nullParent);
 }
 
-export function getNonDomState(): {loggables: LoggableRegistration[]} {
-  return {loggables: [...registry.values()]};
+export function getNonDomState(parent: Loggable|undefined): {loggables: LoggableRegistration[]} {
+  return {loggables: [...getLoggables(parent)]};
 }
 
 export function unregisterAllLoggables(): void {
-  registry.clear();
+  registry.delete(nullParent);
 }
+
+const nullParent = {};
