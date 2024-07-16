@@ -6,19 +6,22 @@ import type * as TraceEngine from '../../../../models/trace/trace.js';
 import * as ComponentHelpers from '../../../../ui/components/helpers/helpers.js';
 import * as LitHtml from '../../../../ui/lit-html/lit-html.js';
 import sidebarStyles from '../sidebar.css.js';
+import {InsightsToToggle} from '../Sidebar.js';
 
 import sidebarInsightStyles from './sidebarInsight.css.js';
 import * as SidebarInsightNamespace from './SidebarInsight.js';
+
+export const InsightName = 'lcp-phases';
 
 export class LCPPhases extends HTMLElement {
   static readonly litTagName = LitHtml.literal`devtools-performance-lcp-by-phases`;
   readonly #shadow = this.attachShadow({mode: 'open'});
   readonly #boundRender = this.#render.bind(this);
   #insightTitle: string = 'LCP by Phase';
-  #expanded: boolean = false;
   #insights: TraceEngine.Insights.Types.TraceInsightData|null = null;
   #navigationId: string|null = null;
   #phaseData: Array<{phase: string, timing: number|TraceEngine.Types.Timing.MilliSeconds, percent: string}>|null = null;
+  #currentlyToggled: InsightsToToggle = InsightsToToggle.NONE;
 
   set insights(insights: TraceEngine.Insights.Types.TraceInsightData|null) {
     this.#insights = insights;
@@ -31,8 +34,8 @@ export class LCPPhases extends HTMLElement {
     void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
   }
 
-  #toggleClick(): void {
-    this.#expanded = !this.#expanded;
+  set currentlyToggled(insightToToggle: InsightsToToggle) {
+    this.#currentlyToggled = insightToToggle;
     void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
   }
 
@@ -79,14 +82,15 @@ export class LCPPhases extends HTMLElement {
 
   renderLCPPhases(): LitHtml.LitTemplate {
     const showLCPPhases = this.#phaseData ? this.#phaseData.length > 0 : false;
+    const toggled = this.#currentlyToggled === InsightName;
 
     // clang-format off
-        if (this.#expanded) {
+        if (toggled) {
           return LitHtml.html`${showLCPPhases ? LitHtml.html`
-            <div class="insights" @click=${this.#toggleClick}>
+            <div class="insights">
               <${SidebarInsightNamespace.SidebarInsight.litTagName} .data=${{
                   title: this.#insightTitle,
-                  expanded: this.#expanded,
+                  expanded: toggled,
               } as SidebarInsightNamespace.InsightDetails}>
               <div slot="insight-description" class="insight-description">
                 Each
@@ -108,10 +112,10 @@ export class LCPPhases extends HTMLElement {
         }
 
         return LitHtml.html`
-        <div class="insights" @click=${this.#toggleClick}>
-          <${SidebarInsightNamespace.SidebarInsight.litTagName} .data=${{
+        <div class="insights">
+    <${SidebarInsightNamespace.SidebarInsight.litTagName} .data=${{
                 title: this.#insightTitle,
-                expanded: this.#expanded,
+                expanded: toggled,
             } as SidebarInsightNamespace.InsightDetails}>
           </${SidebarInsightNamespace}>
         </div>`;

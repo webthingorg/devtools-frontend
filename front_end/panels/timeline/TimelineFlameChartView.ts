@@ -14,6 +14,7 @@ import * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as VisualLogging from '../../ui/visual_logging/visual_logging.js';
 
+import * as Components from './components/components.js';
 import {CountersGraph} from './CountersGraph.js';
 import {SHOULD_SHOW_EASTER_EGG} from './EasterEgg.js';
 import {ModificationsManager} from './ModificationsManager.js';
@@ -114,7 +115,7 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
   #timeRangeSelectionOverlay: TimeRangeLabel|null = null;
 
   #timespanBreakdownOverlay: TimespanBreakdown|null = null;
-  #sidebarInsightToggled: Boolean = false;
+  #sidebarInsightToggled: Components.Sidebar.InsightsToToggle = Components.Sidebar.InsightsToToggle.NONE;
 
   #tooltipElement = document.createElement('div');
 
@@ -266,17 +267,29 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     TraceBounds.TraceBounds.onChange(this.#onTraceBoundsChangeBound);
   }
 
-  toggleSidebarInsights(): void {
-    this.#sidebarInsightToggled = !this.#sidebarInsightToggled;
-    if (this.#sidebarInsightToggled) {
-      this.#timespanBreakdownOverlay = this.createLCPPhaseOverlay();
-      if (this.#timespanBreakdownOverlay) {
-        this.addOverlay(this.#timespanBreakdownOverlay);
-      }
-    } else {
+  toggleSidebarInsights(toggledInsight: Components.Sidebar.InsightsToToggle, insightNavId: string): void {
+    // handle repeated toggling of a single insight.
+    if (this.#sidebarInsightToggled === toggledInsight || toggledInsight === Components.Sidebar.InsightsToToggle.NONE) {
+      this.#sidebarInsightToggled = Components.Sidebar.InsightsToToggle.NONE;
+
       if (this.#timespanBreakdownOverlay) {
         this.removeOverlay(this.#timespanBreakdownOverlay);
       }
+
+      return;
+    }
+
+    this.#sidebarInsightToggled = toggledInsight;
+
+    // toggle appropriate overlay.
+    switch (this.#sidebarInsightToggled) {
+      case Components.Sidebar.InsightsToToggle.LCP_PHASES:
+        this.#timespanBreakdownOverlay = this.createLCPPhaseOverlay(insightNavId);
+        break;
+    }
+
+    if (this.#timespanBreakdownOverlay) {
+      this.addOverlay(this.#timespanBreakdownOverlay);
     }
   }
 
@@ -446,24 +459,23 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
       this.#traceInsightsData = insights;
     }
     // Disable selected insight overlay by default with new insight data.
-    this.#sidebarInsightToggled = false;
+    this.#sidebarInsightToggled = Components.Sidebar.InsightsToToggle.NONE;
   }
 
   /**
    * This creates and returns a new timespanBreakdownOverlay with LCP phases data.
    */
-  createLCPPhaseOverlay(): TimespanBreakdown|null {
-    if (!this.#traceInsightsData || !this.#traceEngineData) {
+  createLCPPhaseOverlay(navId: string): TimespanBreakdown|null {
+    if (!this.#traceInsightsData || !this.#traceEngineData || navId === '') {
       return null;
     }
 
-    // For now use the first navigation of the trace.
-    const firstNav: TraceEngine.Insights.Types.NavigationInsightData = this.#traceInsightsData.values().next().value;
-    if (!firstNav) {
+    const insightsByNavigation = this.#traceInsightsData.get(navId);
+    if (!insightsByNavigation) {
       return null;
     }
 
-    const lcpInsight: Error|TraceEngine.Insights.Types.LCPInsightResult = firstNav.LargestContentfulPaint;
+    const lcpInsight: Error|TraceEngine.Insights.Types.LCPInsightResult = insightsByNavigation.LargestContentfulPaint;
     if (lcpInsight instanceof Error) {
       return null;
     }

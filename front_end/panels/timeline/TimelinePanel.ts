@@ -437,8 +437,11 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
         TimelineComponents.Sidebar.WidgetEvents.SidebarCollapseClick,
         this.#hideSidebar.bind(this),
     );
-    this.#sideBar.contentElement.addEventListener(
-        TimelineComponents.Sidebar.ToggleSidebarInsights.eventName, this.#sidebarInsightEnabled.bind(this));
+    this.#sideBar.contentElement.addEventListener(TimelineComponents.Sidebar.ToggleSidebarInsights.eventName, event => {
+      const toggledInsight = (event as TimelineComponents.Sidebar.ToggleSidebarInsights).toggledInsight;
+      const insightNavId = (event as TimelineComponents.Sidebar.ToggleSidebarInsights).navigationId;
+      this.#sidebarInsightEnabled(toggledInsight, insightNavId);
+    });
 
     this.#sideBar.contentElement.addEventListener(TimelineComponents.Sidebar.RemoveAnnotation.eventName, event => {
       const {removedAnnotation} = (event as TimelineComponents.Sidebar.RemoveAnnotation);
@@ -500,8 +503,8 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     this.#sideBar.hideSidebar();
   }
 
-  #sidebarInsightEnabled(): void {
-    this.flameChart.toggleSidebarInsights();
+  #sidebarInsightEnabled(insightToggled: TimelineComponents.Sidebar.InsightsToToggle, insightNavId: string): void {
+    this.flameChart.toggleSidebarInsights(insightToggled, insightNavId);
   }
 
   static instance(opts: {
