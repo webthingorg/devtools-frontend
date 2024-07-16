@@ -33,6 +33,24 @@
       "message": "The plugin manager is already a stub instance, you could also directly modify its return value here instead of going through the entire setup",
       "revId": "e4db6c82b3ed02c4c36c23bcbab2769a15957e1c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f2e7166_2774db17",
+        "filename": "front_end/models/source_map_scopes/ScopeChainModel.test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-07-16T09:45:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2dd20425_7bb410b6",
+      "revId": "e4db6c82b3ed02c4c36c23bcbab2769a15957e1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
