@@ -16,6 +16,24 @@
       "message": "I think it doesn\u0027t work very well with small sizes and we need paddings: https://g-issues.chromium.org/action/issues/40248266/attachments/57972806?download\u003dfalse",
       "revId": "4476970698934875e89113bd2dbf321252f2dc47",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3eba6af9_f496184c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-16T13:31:59Z",
+      "side": 1,
+      "message": "aaand in addition to that, height of scrollbar looks off (I\u0027d expect it to still have full size I guess, WDYT?)",
+      "parentUuid": "fcf8d8cc_15ce8541",
+      "revId": "4476970698934875e89113bd2dbf321252f2dc47",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
