@@ -569,10 +569,15 @@ export function processStartLoggingForDebugging(): void {
   }
 }
 
-async function getVeDebugEventsLog(): Promise<(IntuitiveLogEntry | AdHocAnalysisLogEntry | TestLogEntry)[]> {
+async function getVeDebugEventsLog(options?: {clear?: boolean}):
+    Promise<(IntuitiveLogEntry | AdHocAnalysisLogEntry | TestLogEntry)[]> {
   await pendingWorkComplete();
   lastImpressionLogEntry = null;
-  return veDebugEventsLog;
+  const results = [...veDebugEventsLog];
+  if (options?.clear) {
+    veDebugEventsLog.length = 0;
+  }
+  return results;
 }
 
 // @ts-ignore
