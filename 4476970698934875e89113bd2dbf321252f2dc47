@@ -52,6 +52,24 @@
       "parentUuid": "3eba6af9_f496184c",
       "revId": "4476970698934875e89113bd2dbf321252f2dc47",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d536841_873bf3a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-16T14:33:02Z",
+      "side": 1,
+      "message": "I understood that the height of the scorllbar is intended and we can talk about its styling \u0026 tweak it in a later CL. So, this one is good to go :)",
+      "parentUuid": "63b54ff3_a8441bb9",
+      "revId": "4476970698934875e89113bd2dbf321252f2dc47",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
