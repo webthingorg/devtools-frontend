@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7556acf_9408a21a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-07-16T08:54:30Z",
+      "side": 1,
+      "message": "LGTM with a suggestion",
+      "revId": "e4db6c82b3ed02c4c36c23bcbab2769a15957e1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2dd20425_7bb410b6",
+        "filename": "front_end/models/source_map_scopes/ScopeChainModel.test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-07-16T08:54:30Z",
+      "side": 1,
+      "message": "The plugin manager is already a stub instance, you could also directly modify its return value here instead of going through the entire setup",
+      "revId": "e4db6c82b3ed02c4c36c23bcbab2769a15957e1c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
