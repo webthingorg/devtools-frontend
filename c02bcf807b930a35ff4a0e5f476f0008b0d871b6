@@ -1,0 +1,39 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "645e6dd8_57e09fd8",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-07-16T09:04:57Z",
+      "side": 1,
+      "message": "How about \nmake options required with default {isFixQuery: true}?",
+      "fixSuggestions": [
+        {
+          "fixId": "ba34f476_8d25272d",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/freestyler/FreestylerAgent.ts",
+              "range": {
+                "startLine": 303,
+                "startChar": 0,
+                "endLine": 304,
+                "endChar": 0
+              },
+              "replacement": "      run(query: string, options: {signal?: AbortSignal, isFixQuery: boolean} \u003d {isFixQuery: true}):\n"
+            }
+          ]
+        }
+      ],
+      "revId": "c02bcf807b930a35ff4a0e5f476f0008b0d871b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
