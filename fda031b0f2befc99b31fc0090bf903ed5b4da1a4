@@ -16,6 +16,23 @@
       "message": "Please take a look, Kim.\n\nBefore/after screenshots are here: http://b/351730297#comment2",
       "revId": "fda031b0f2befc99b31fc0090bf903ed5b4da1a4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1eb5c4bf_b189749f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-07-16T09:49:03Z",
+      "side": 1,
+      "message": "LGTM, thanks Yang!",
+      "revId": "fda031b0f2befc99b31fc0090bf903ed5b4da1a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
