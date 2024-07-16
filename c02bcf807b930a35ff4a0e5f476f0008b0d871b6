@@ -34,6 +34,24 @@
       ],
       "revId": "c02bcf807b930a35ff4a0e5f476f0008b0d871b6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f455aac6_f0af1d7e",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-07-16T09:05:39Z",
+      "side": 1,
+      "message": "I wanted to say `isFixQuery: false`",
+      "parentUuid": "645e6dd8_57e09fd8",
+      "revId": "c02bcf807b930a35ff4a0e5f476f0008b0d871b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
