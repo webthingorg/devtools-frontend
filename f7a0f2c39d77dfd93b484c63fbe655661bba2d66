@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "769dc37f_84b3b278",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-07-16T09:48:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ddb6a80_7568b4bd",
+      "range": {
+        "startLine": 263,
+        "startChar": 0,
+        "endLine": 263,
+        "endChar": 59
+      },
+      "revId": "f7a0f2c39d77dfd93b484c63fbe655661bba2d66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d6f50b4d_0867d840",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-07-16T09:41:42Z",
       "side": 1,
       "message": "I wouldn\u0027t have expected this setting to impact the timings track appender because it deliberately drops all extension based timings. What am I missing?",
+      "range": {
+        "startLine": 345,
+        "startChar": 0,
+        "endLine": 347,
+        "endChar": 70
+      },
+      "revId": "f7a0f2c39d77dfd93b484c63fbe655661bba2d66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e694956_90949715",
+        "filename": "front_end/panels/timeline/track_appenders/TimingsTrackAppender.test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 347,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-07-16T09:48:26Z",
+      "side": 1,
+      "message": "note that there are also extension markers https://docs.google.com/document/d/1Fp4LLvq2VAv9ksgcxDGLf472Rbi9vz_Tqs74DdcT0hw/edit?resourcekey\u003d0-STF_hF7kXMMK_yHz9ANbJw#bookmark\u003did.87okgagowsc, they are marks in the likes of fcp, lcp and are added to the timings track.\n\nWhen the setting is disabled these markers should be hidden as well.",
+      "parentUuid": "d6f50b4d_0867d840",
       "range": {
         "startLine": 345,
         "startChar": 0,
