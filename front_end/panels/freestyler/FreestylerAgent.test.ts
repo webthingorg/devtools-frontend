@@ -503,7 +503,7 @@ c`;
           execJs,
         });
 
-        await Array.fromAsync(agent.run(Freestyler.FIX_THIS_ISSUE_PROMPT));
+        await Array.fromAsync(agent.run(Freestyler.FIX_THIS_ISSUE_PROMPT, {isFixQuery: true}));
 
         const optionsArg = execJs.lastCall.args[1];
         sinon.assert.notCalled(confirmSideEffect);
