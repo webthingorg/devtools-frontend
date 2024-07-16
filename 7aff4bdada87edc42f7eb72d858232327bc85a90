@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4163f452_413cd3fb",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1247,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-07-16T13:59:29Z",
+      "side": 1,
+      "message": "I\u0027m thinking about combining this to the |customizedContextMenu|, but that seems a big refactor, and I want to test more, maybe plan to do after the branch cut. FYI the child CL of this one will do that work",
+      "range": {
+        "startLine": 1247,
+        "startChar": 8,
+        "endLine": 1247,
+        "endChar": 37
+      },
+      "revId": "7aff4bdada87edc42f7eb72d858232327bc85a90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
