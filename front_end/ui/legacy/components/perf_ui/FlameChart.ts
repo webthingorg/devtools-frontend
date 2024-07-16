@@ -32,7 +32,6 @@ import * as Common from '../../../../core/common/common.js';
 import * as Host from '../../../../core/host/host.js';
 import * as i18n from '../../../../core/i18n/i18n.js';
 import * as Platform from '../../../../core/platform/platform.js';
-import * as Bindings from '../../../../models/bindings/bindings.js';
 import * as TraceEngine from '../../../../models/trace/trace.js';
 import * as Buttons from '../../../components/buttons/buttons.js';
 import type * as VisualLogging from '../../../visual_logging/visual_logging.js';
@@ -70,35 +69,6 @@ const UIStrings = {
    *@example {Network} PH1
    */
   sCollapsed: '{PH1} collapsed',
-  /**
-   *@description Text for Hiding a function from the Flame Chart
-   */
-  hideFunction: 'Hide function',
-  /**
-   *@description Text for Hiding all children of a function from the Flame Chart
-   */
-  hideChildren: 'Hide children',
-  /**
-   *@description Text for Hiding all repeating child entries of a function from the Flame Chart
-   */
-  hideRepeatingChildren: 'Hide repeating children',
-  /**
-   *@description Text for remove script from ignore list from the Flame Chart
-   */
-  removeScriptFromIgnoreList: 'Remove script from ignore list',
-  /**
-   *@description Text for add script to ignore list from the Flame Chart
-   */
-  addScriptToIgnoreList: 'Add script to ignore list',
-  /**
-   *@description Text for an action that shows all of the hidden children of an entry
-   */
-  resetChildren: 'Reset children',
-  /**
-   *@description Text for an action that shows all of the hidden entries of the Flame Chart
-   */
-  resetTrace: 'Reset trace',
-
   /**
    *@description Shown in the context menu when right clicking on a track header to enable the user to enter the track configuration mode.
    */
@@ -1131,33 +1101,13 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
 
   modifyTree(treeAction: TraceEngine.EntriesFilter.FilterAction, index: number): void {
     const data = this.timelineData();
-    if (!data) {
+    if (!data || !this.dataProvider.modifyTree) {
       return;
     }
-    this.dataProvider.modifyTree?.(index, treeAction);
+    this.dataProvider.modifyTree(treeAction, index);
     this.dataProvider.timelineData(true);
     this.dataProvider.buildFlowForInitiator?.(index);
     this.update();
-  }
-
-  getPossibleActions(): TraceEngine.EntriesFilter.PossibleFilterActions|void {
-    const data = this.timelineData();
-    if (!data) {
-      return;
-    }
-    const group = data.groups.at(this.selectedGroupIndex);
-    // Early exit here if there is no group or:
-    // 1. The group is not expanded: it needs to be expanded to allow the
-    //    context menu actions to occur.
-    // 2. The group does not have the showStackContextMenu flag which indicates
-    //    that it does not show entries that support the stack actions.
-    if (!group || !group.expanded || !group.showStackContextMenu) {
-      return;
-    }
-
-    // Check which actions are possible on an entry.
-    // If an action would not change the entries (for example it has no children to collapse), we do not need to show it.
-    return this.dataProvider.findPossibleContextMenuActions?.(this.selectedEntryIndex);
   }
 
   #buildEnterEditModeContextMenu(event: MouseEvent): void {
@@ -1224,6 +1174,16 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     // entry, and we are not in edit mode (which we know we cannot be given the
     // conditional checks above)
 
+    // If the flame chart provider can build a customized context menu for the given entry, we will use that, otherwise
+    // just do nothing and fall back to default context menu.
+    if (this.dataProvider.customizedContextMenu) {
+      this.contextMenu = this.dataProvider.customizedContextMenu(event, this.highlightedEntryIndex, groupIndex);
+      if (this.contextMenu) {
+        void this.contextMenu.show();
+        return;
+      }
+    }
+
     // Update the selected index to match the highlighted index, which
     // represents the entry under the cursor where the user has right clicked
     // to trigger a context menu.
@@ -1232,130 +1192,21 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     // Update the selected group as well.
     this.#selectGroup(groupIndex);
 
-    // If the flame chart provider can build a customized context menu for the given entry, we will use that, otherwise
-    // just do nothing and fall back to default context menu.
-    if (this.dataProvider.customizedContextMenu) {
-      this.contextMenu = this.dataProvider.customizedContextMenu(event, this.highlightedEntryIndex);
-      if (this.contextMenu) {
-        void this.contextMenu.show();
-        return;
-      }
-    }
+    // // The following context menu should only work for the flame chart that support tree modification.
+    // // So if the data provider doesn't have the |modifyTree| function, simply return to show the default context menu.
+    // if (!this.dataProvider.modifyTree) {
+    //   return;
+    // }
 
-    // The following context menu should only work for the flame chart that support tree modification.
-    // So if the data provider doesn't have the |modifyTree| function, simply return to show the default context menu.
-    if (!this.dataProvider.modifyTree) {
-      return;
-    }
-
-    const possibleActions = this.getPossibleActions();
-    if (!possibleActions) {
-      return;
-    }
-
-    this.contextMenu = new UI.ContextMenu.ContextMenu(event, {useSoftMenu: true});
-
-    const hideEntryOption = this.contextMenu.defaultSection().appendItem(i18nString(UIStrings.hideFunction), () => {
-      this.modifyTree(TraceEngine.EntriesFilter.FilterAction.MERGE_FUNCTION, this.selectedEntryIndex);
-    }, {
-      disabled: !possibleActions?.[TraceEngine.EntriesFilter.FilterAction.MERGE_FUNCTION],
-      jslogContext: 'hide-function',
-    });
-    hideEntryOption.setShortcut('H');
-
-    const hideChildrenOption = this.contextMenu.defaultSection().appendItem(i18nString(UIStrings.hideChildren), () => {
-      this.modifyTree(TraceEngine.EntriesFilter.FilterAction.COLLAPSE_FUNCTION, this.selectedEntryIndex);
-    }, {
-      disabled: !possibleActions?.[TraceEngine.EntriesFilter.FilterAction.COLLAPSE_FUNCTION],
-      jslogContext: 'hide-children',
-    });
-    hideChildrenOption.setShortcut('C');
-
-    const hideRepeatingChildrenOption =
-        this.contextMenu.defaultSection().appendItem(i18nString(UIStrings.hideRepeatingChildren), () => {
-          this.modifyTree(
-              TraceEngine.EntriesFilter.FilterAction.COLLAPSE_REPEATING_DESCENDANTS, this.selectedEntryIndex);
-        }, {
-          disabled: !possibleActions?.[TraceEngine.EntriesFilter.FilterAction.COLLAPSE_REPEATING_DESCENDANTS],
-          jslogContext: 'hide-repeating-children',
-        });
-    hideRepeatingChildrenOption.setShortcut('R');
-
-    const resetChildrenOption =
-        this.contextMenu.defaultSection().appendItem(i18nString(UIStrings.resetChildren), () => {
-          this.modifyTree(TraceEngine.EntriesFilter.FilterAction.RESET_CHILDREN, this.selectedEntryIndex);
-        }, {
-          disabled: !possibleActions?.[TraceEngine.EntriesFilter.FilterAction.RESET_CHILDREN],
-          jslogContext: 'reset-children',
-        });
-    resetChildrenOption.setShortcut('U');
-
-    this.contextMenu.defaultSection().appendItem(i18nString(UIStrings.resetTrace), () => {
-      this.modifyTree(TraceEngine.EntriesFilter.FilterAction.UNDO_ALL_ACTIONS, this.selectedEntryIndex);
-    }, {
-      disabled: !possibleActions?.[TraceEngine.EntriesFilter.FilterAction.UNDO_ALL_ACTIONS],
-      jslogContext: 'reset-trace',
-    });
-
-    const entry = this.dataProvider.eventByIndex?.(this.selectedEntryIndex);
-    if (entry && entry instanceof TraceEngine.Handlers.ModelHandlers.Frames.TimelineFrame === false) {
-      const url = (TraceEngine.Types.TraceEvents.isProfileCall(entry)) ?
-          entry.callFrame.url as Platform.DevToolsPath.UrlString :
-          undefined;
-      if (url) {
-        if (Bindings.IgnoreListManager.IgnoreListManager.instance().isUserIgnoreListedURL(url)) {
-          this.contextMenu.defaultSection().appendItem(i18nString(UIStrings.removeScriptFromIgnoreList), () => {
-            Bindings.IgnoreListManager.IgnoreListManager.instance().unIgnoreListURL(url);
-          }, {
-            jslogContext: 'remove-from-ignore-list',
-          });
-        } else {
-          this.contextMenu.defaultSection().appendItem(i18nString(UIStrings.addScriptToIgnoreList), () => {
-            Bindings.IgnoreListManager.IgnoreListManager.instance().ignoreListURL(url);
-          }, {
-            jslogContext: 'add-to-ignore-list',
-          });
-        }
-      }
-    }
-
-    void this.contextMenu.show();
+    // void this.contextMenu.show();
   }
 
-  private handleFlameChartTransformEvent(event: Event): void {
+  #handleFlameChartTransformEvent(event: KeyboardEvent): void {
     // TODO(crbug.com/1469887): Indicate Shortcuts to the user when the designs are complete.
     if (this.selectedEntryIndex === -1) {
       return;
     }
-
-    const possibleActions = this.getPossibleActions();
-    if (!possibleActions) {
-      return;
-    }
-
-    const keyboardEvent = (event as KeyboardEvent);
-    let handled = false;
-
-    if (keyboardEvent.code === 'KeyH' && possibleActions[TraceEngine.EntriesFilter.FilterAction.MERGE_FUNCTION]) {
-      this.modifyTree(TraceEngine.EntriesFilter.FilterAction.MERGE_FUNCTION, this.selectedEntryIndex);
-      handled = true;
-    } else if (
-        keyboardEvent.code === 'KeyC' && possibleActions[TraceEngine.EntriesFilter.FilterAction.COLLAPSE_FUNCTION]) {
-      this.modifyTree(TraceEngine.EntriesFilter.FilterAction.COLLAPSE_FUNCTION, this.selectedEntryIndex);
-      handled = true;
-    } else if (
-        keyboardEvent.code === 'KeyR' &&
-        possibleActions[TraceEngine.EntriesFilter.FilterAction.COLLAPSE_REPEATING_DESCENDANTS]) {
-      this.modifyTree(TraceEngine.EntriesFilter.FilterAction.COLLAPSE_REPEATING_DESCENDANTS, this.selectedEntryIndex);
-      handled = true;
-    } else if (keyboardEvent.code === 'KeyU') {
-      this.modifyTree(TraceEngine.EntriesFilter.FilterAction.RESET_CHILDREN, this.selectedEntryIndex);
-      handled = true;
-    }
-
-    if (handled) {
-      keyboardEvent.consume(true);
-    }
+    this.dataProvider.handleFlameChartTransformEvent?.(event, this.selectedEntryIndex, this.selectedGroupIndex);
   }
 
   private onKeyDown(e: KeyboardEvent): void {
@@ -1371,7 +1222,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     }
 
     if (!eventHandled) {
-      this.handleFlameChartTransformEvent(e);
+      this.#handleFlameChartTransformEvent(e);
     }
   }
 
@@ -3850,8 +3701,6 @@ export class FlameChartTimelineData {
 }
 
 export interface FlameChartDataProvider {
-  buildFlowForInitiator?(index: number): unknown;
-
   minimumBoundary(): number;
 
   totalTime(): number;
@@ -3888,19 +3737,26 @@ export interface FlameChartDataProvider {
 
   mainFrameNavigationStartEvents?(): readonly TraceEngine.Types.TraceEvents.TraceEventNavigationStart[];
 
-  modifyTree?(node: number, action: TraceEngine.EntriesFilter.FilterAction): void;
-
-  customizedContextMenu?(event: MouseEvent, eventIndex: number): UI.ContextMenu.ContextMenu|undefined;
-
-  findPossibleContextMenuActions?(node: number): TraceEngine.EntriesFilter.PossibleFilterActions|void;
-
   hasTrackConfigurationMode(): boolean;
 
+  // The following functions are optional and are used in Performance panel.
   eventByIndex?(entryIndex: number): TraceEngine.Types.TraceEvents.TraceEventData
       |TraceEngine.Handlers.ModelHandlers.Frames.TimelineFrame|null;
 
   indexForEvent?(event: TraceEngine.Types.TraceEvents.TraceEventData|
                  TraceEngine.Handlers.ModelHandlers.Frames.TimelineFrame): number|null;
+
+  buildFlowForInitiator?(index: number): unknown;
+
+  customizedContextMenu?
+      (event: MouseEvent, eventIndex: number, groupIndex: number): UI.ContextMenu.ContextMenu|undefined;
+
+  // The following three functions are used for the flame chart entry customization.
+  modifyTree?(action: TraceEngine.EntriesFilter.FilterAction, entryIndex: number): void;
+
+  findPossibleContextMenuActions?(node: number): TraceEngine.EntriesFilter.PossibleFilterActions|void;
+
+  handleFlameChartTransformEvent?(event: KeyboardEvent, entryIndex: number, groupIndex: number): void;
 }
 
 export interface FlameChartMarker {
