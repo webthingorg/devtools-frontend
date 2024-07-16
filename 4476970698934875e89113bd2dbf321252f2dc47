@@ -34,6 +34,24 @@
       "parentUuid": "fcf8d8cc_15ce8541",
       "revId": "4476970698934875e89113bd2dbf321252f2dc47",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63b54ff3_a8441bb9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-16T13:33:09Z",
+      "side": 1,
+      "message": "Forgot to add the link to screenshot in the last comment 😅\nhttps://g-issues.chromium.org/issues/40248266#comment34",
+      "parentUuid": "3eba6af9_f496184c",
+      "revId": "4476970698934875e89113bd2dbf321252f2dc47",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
