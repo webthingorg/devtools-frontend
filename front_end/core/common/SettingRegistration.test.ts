@@ -130,7 +130,7 @@ describe('SettingRegistration', () => {
         devToolsConsoleInsights: {
           aidaModelId: 'mockModel',
           aidaTemperature: 0.2,
-          optIn: false,
+          optIn: true,
           enabled: true,
         },
       } as Root.Runtime.HostConfig,
