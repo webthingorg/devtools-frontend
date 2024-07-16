@@ -402,6 +402,12 @@ export type EventTypes = {
  * @see https://crbug.com/342406608#comment10 for context around the addition of 4G presets in June 2024.
  */
 
+export const RTT_ADJUSTMENT_BY_TITLE = {
+  [UIStrings.slowG]: 5,
+  [UIStrings.fastG]: 3.75,
+  [UIStrings.fast4G]: 2.75,
+};
+
 export const NoThrottlingConditions: Conditions = {
   title: i18nLazyString(UIStrings.noThrottling),
   i18nTitleKey: UIStrings.noThrottling,
@@ -426,7 +432,7 @@ export const Slow3GConditions: Conditions = {
   // ~500Kbps up
   upload: 500 * 1000 / 8 * .8,
   // 400ms RTT
-  latency: 400 * 5,
+  latency: 400 * RTT_ADJUSTMENT_BY_TITLE[UIStrings.slowG],
 };
 
 // Note for readers: this used to be called "Fast 3G" but it was renamed in May
@@ -439,7 +445,7 @@ export const Slow4GConditions: Conditions = {
   // ~0.75 Mbps up
   upload: 750 * 1000 / 8 * .9,
   // 150ms RTT
-  latency: 150 * 3.75,
+  latency: 150 * RTT_ADJUSTMENT_BY_TITLE[UIStrings.fastG],
 };
 
 export const Fast4GConditions: Conditions = {
@@ -450,7 +456,7 @@ export const Fast4GConditions: Conditions = {
   // 1.5 Mbps up
   upload: 1.5 * 1000 * 1000 / 8 * .9,
   // 60ms RTT
-  latency: 60 * 2.75,
+  latency: 60 * RTT_ADJUSTMENT_BY_TITLE[UIStrings.fast4G],
 };
 
 const MAX_EAGER_POST_REQUEST_BODY_LENGTH = 64 * 1024;  // bytes
