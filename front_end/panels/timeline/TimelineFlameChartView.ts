@@ -704,6 +704,8 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     }
   }
 
+  #loggableForGroup: Map<PerfUI.FlameChart.Group, {}> = new Map();
+
   private onEntrySelected(
       dataProvider: TimelineFlameChartDataProvider|TimelineFlameChartNetworkDataProvider,
       event: Common.EventTarget.EventTargetEvent<number>): void {
@@ -718,7 +720,16 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     // Find the group that contains this level and log a click for it.
     const group = groupForLevel(data.groups, entryLevel);
     if (group && group.jslogContext) {
-      VisualLogging.logClick(groupForLevel, new MouseEvent('click'));
+      const loggable = this.#loggableForGroup.get(group) ?? {};
+
+      if (!this.#loggableForGroup.has(group)) {
+        this.#loggableForGroup.set(group, loggable);
+        VisualLogging.registerLoggable(
+            loggable, `${VisualLogging.action(`timeline.selected-entry.${group.jslogContext}`).track({click: true})}`,
+            this.delegate.element);
+      }
+
+      VisualLogging.logClick(loggable, new MouseEvent('click'));
     }
 
     dataProvider.buildFlowForInitiator(entryIndex);
