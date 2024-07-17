@@ -291,10 +291,13 @@ export class LiveMetricsView extends HTMLElement {
     return `${percent}%`;
   }
 
-  #densityToLabel(density?: number): string {
-    if (density === undefined) {
+  #getBucketLabel(histogram: CrUXManager.MetricResponse['histogram']|undefined, bucket: number): string {
+    if (histogram === undefined) {
       return '-';
     }
+
+    // A missing density value should be interpreted as 0%
+    const density = histogram[bucket].density || 0;
     const percent = Math.round(density * 100);
     return `${percent}%`;
   }
@@ -309,14 +312,14 @@ export class LiveMetricsView extends HTMLElement {
       <div class="field-data-histogram">
         <span class="histogram-label">Good <span class="histogram-range">(&le;${format(thresholds[0])})</span></span>
         <span class="histogram-bar good-bg" style="width: ${goodPercent}"></span>
-        <span class="histogram-percent">${this.#densityToLabel(histogram?.[0].density)}</span>
+        <span class="histogram-percent">${this.#getBucketLabel(histogram, 0)}</span>
         <span class="histogram-label">Needs improvement <span class="histogram-range">(${format(thresholds[0])}-${
         format(thresholds[1])})</span></span>
         <span class="histogram-bar needs-improvement-bg" style="width: ${needsImprovementPercent}"></span>
-        <span class="histogram-percent">${this.#densityToLabel(histogram?.[1].density)}</span>
+        <span class="histogram-percent">${this.#getBucketLabel(histogram, 1)}</span>
         <span class="histogram-label">Poor <span class="histogram-range">(&gt;${format(thresholds[1])})</span></span>
         <span class="histogram-bar poor-bg" style="width: ${poorPercent}"></span>
-        <span class="histogram-percent">${this.#densityToLabel(histogram?.[2].density)}</span>
+        <span class="histogram-percent">${this.#getBucketLabel(histogram, 2)}</span>
       </div>
     `;
   }
