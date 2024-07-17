@@ -8,10 +8,11 @@ import {
   clickElement,
   getBrowserAndPages,
   hover,
+  renderCoordinatorQueueEmpty,
   scrollElementIntoView,
   waitFor,
   waitForAria,
-  waitForFunction,
+  waitForFunction
 } from '../../shared/helper.js';
 
 export const openPanelViaMoreTools = async (panelTitle: string) => {
@@ -25,6 +26,7 @@ export const openPanelViaMoreTools = async (panelTitle: string) => {
   await waitForFunction(async () => {
     // Open the “More Tools” option.
     await hover('aria/More tools[role="menuitem"]');
+    await renderCoordinatorQueueEmpty();
     return $(`${panelTitle}[role="menuitem"]`, undefined, 'aria');
   });
 
