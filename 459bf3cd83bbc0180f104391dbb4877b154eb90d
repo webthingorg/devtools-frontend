@@ -16,6 +16,24 @@
       "message": "Should we strip the sourceUrl in release builds?\n\nDo you happen to know why the sourceUrl wasn\u0027t there before, was it left out on purpose?",
       "revId": "459bf3cd83bbc0180f104391dbb4877b154eb90d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ea6c84c_9032d4e4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-07-17T04:27:04Z",
+      "side": 1,
+      "message": "I think it\u0027s fine to have it in release builds. And I don\u0027t know why there was none.",
+      "parentUuid": "2e50338b_606a2041",
+      "revId": "459bf3cd83bbc0180f104391dbb4877b154eb90d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
