@@ -196,6 +196,8 @@ export async function expectVeEvents(expectedEvents: TestLogEntry[]) {
   const actualEvents =
       // @ts-ignore
       await frontend.evaluate(async () => (await globalThis.getVeDebugEventsLog()) as unknown as TestLogEntry[]);
+  const unmatchedEvents: TestLogEntry[] = [];
+  let allMatched = true;
   for (let i = 0; i < expectedEvents.length; ++i) {
     let bestError: {difference: number, description?: string}|null = null;
     const expectedEvent = expectedEvents[i];
@@ -207,10 +209,12 @@ export async function expectVeEvents(expectedEvents: TestLogEntry[]) {
               'Missing VE interaction:\n' + expectedEvent.interaction :
               'Missing VE impressions:\n' + formatImpressions(expectedEvent.impressions),
         };
+        allMatched = false;
         assert.fail(bestError.description);
       }
       const error = compareVeEvents(actualEvents[i], expectedEvent);
       if (error.difference) {
+        unmatchedEvents.push(actualEvents[i]);
         actualEvents.splice(i, 1);
         if (error.difference <= (bestError?.difference || 1)) {
           bestError = error;
@@ -219,6 +223,12 @@ export async function expectVeEvents(expectedEvents: TestLogEntry[]) {
         break;
       }
     }
+  }
+  if (allMatched) {
+    await frontend.evaluate(async unmatchedEvents => {
+      // @ts-ignore
+      globalThis.veDebugEventsLog = unmatchedEvents;
+    }, unmatchedEvents);
   }
 }
 
@@ -266,4 +276,15 @@ function editDistance(a: string, b: string) {
     }
   }
   return v1[b.length];
+}
+
+export async function dumpVeEvents(label: string) {
+  const {frontend} = getBrowserAndPages();
+  await renderCoordinatorQueueEmpty();
+  const actualEvents =
+      // @ts-ignore
+      await frontend.evaluate(async () => (await globalThis.getVeDebugEventsLog()) as unknown as TestLogEntry[]);
+  // eslint-disable-next-line no-console
+  console.log(
+      label, actualEvents.map(e => 'interaction' in e ? e.interaction : formatImpressions(e.impressions)).join('\n'));
 }
