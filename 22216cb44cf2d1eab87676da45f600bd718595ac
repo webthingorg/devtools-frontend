@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "887444f4_cdd9a863",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-17T09:05:12Z",
+      "side": 1,
+      "message": "lgtm with two nits\n\nplease could you file a bug to explore if we can control the ordering better here? thanks!",
+      "revId": "22216cb44cf2d1eab87676da45f600bd718595ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60c1d1f2_54ae9124",
+        "filename": "front_end/panels/network/NetworkPanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 750,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-17T09:05:12Z",
+      "side": 1,
+      "message": "nit: merge these conditionals into 1 with `\u0026\u0026`",
+      "range": {
+        "startLine": 747,
+        "startChar": 4,
+        "endLine": 750,
+        "endChar": 7
+      },
+      "revId": "22216cb44cf2d1eab87676da45f600bd718595ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7326f977_52ce0b8f",
+        "filename": "front_end/panels/timeline/utils/NetworkRequest.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-17T09:05:12Z",
+      "side": 1,
+      "message": "let\u0027s add a big comment explaining why we have this class",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 37
+      },
+      "revId": "22216cb44cf2d1eab87676da45f600bd718595ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
