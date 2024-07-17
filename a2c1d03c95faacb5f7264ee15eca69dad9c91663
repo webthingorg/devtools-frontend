@@ -16,6 +16,24 @@
       "message": "Would it be better to expose the pre-adjustment RTT on each preset rather than trying to \"undo\" the adjustment later on?",
       "revId": "a2c1d03c95faacb5f7264ee15eca69dad9c91663",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92df7517_095a2a2a",
+        "filename": "front_end/core/sdk/NetworkManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-17T08:59:02Z",
+      "side": 1,
+      "message": "Yeah, I like the idea of each Condition having a `adjustmentFactor` or something so that we don\u0027t have to undo it. wdyt?",
+      "parentUuid": "f58d1501_61e7f1d2",
+      "revId": "a2c1d03c95faacb5f7264ee15eca69dad9c91663",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

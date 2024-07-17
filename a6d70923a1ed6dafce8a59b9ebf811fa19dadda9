@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e8521eb_2ff892bf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-17T08:59:02Z",
+      "side": 1,
+      "message": "this is looking great, I agree with you about having the adjustment factor be a key so that we can easily figure out the base value without having to do the maths later on. I will leave a LGTM here because I am happy if you want to do that as part of this CL, or do it in a separate follow-up",
+      "revId": "a6d70923a1ed6dafce8a59b9ebf811fa19dadda9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
