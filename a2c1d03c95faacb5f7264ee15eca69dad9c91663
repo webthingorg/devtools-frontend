@@ -52,6 +52,24 @@
       "parentUuid": "92df7517_095a2a2a",
       "revId": "a2c1d03c95faacb5f7264ee15eca69dad9c91663",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33cd3022_f7662db1",
+        "filename": "front_end/core/sdk/NetworkManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-17T13:00:42Z",
+      "side": 1,
+      "message": "TBH either of those would work for me; maybe targetLatency is the best?",
+      "parentUuid": "4798ad46_1d315013",
+      "revId": "a2c1d03c95faacb5f7264ee15eca69dad9c91663",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
