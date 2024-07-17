@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 import * as Platform from '../../../core/platform/platform.js';
+import type * as SDK from '../../../core/sdk/sdk.js';
 import * as IconButton from '../../../ui/components/icon_button/icon_button.js';
 import type * as LitHtml from '../../../ui/lit-html/lit-html.js';
 
@@ -34,7 +35,7 @@ export interface Column {
   styles?: CSSStylesObject;
 }
 
-export type CellValue = string|number|boolean|IconButton.Icon.Icon|null;
+export type CellValue = string|number|boolean|IconButton.Icon.Icon|null|SDK.DOMModel.DOMNode;
 
 /**
  * A cell contains a `columnId`, which is the ID of the column the cell
