@@ -22,6 +22,30 @@
       },
       "revId": "6640ae6ac1caa0bdb7740b9a7e577b3c226e83d5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d9ce950_8b8f6c58",
+        "filename": "front_end/ui/visual_logging/LoggingDriver.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-07-17T07:06:10Z",
+      "side": 1,
+      "message": "Yeah, except that one can\u0027t clear a WeakMap;) It probably doesn\u0027t matter in practice, but to avoid this kind of confusion, I am dropping the references to map itself now.",
+      "parentUuid": "61715e37_57746126",
+      "range": {
+        "startLine": 87,
+        "startChar": 2,
+        "endLine": 87,
+        "endChar": 21
+      },
+      "revId": "6640ae6ac1caa0bdb7740b9a7e577b3c226e83d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
