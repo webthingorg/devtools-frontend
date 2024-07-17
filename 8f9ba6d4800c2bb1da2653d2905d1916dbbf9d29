@@ -57,6 +57,30 @@
       ],
       "revId": "8f9ba6d4800c2bb1da2653d2905d1916dbbf9d29",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "916df88b_0142dde0",
+        "filename": "front_end/panels/timeline/components/EntryLabelOverlay.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-07-17T14:21:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b8d64c5a_2b34c06c",
+      "range": {
+        "startLine": 75,
+        "startChar": 30,
+        "endLine": 78,
+        "endChar": 116
+      },
+      "revId": "8f9ba6d4800c2bb1da2653d2905d1916dbbf9d29",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
