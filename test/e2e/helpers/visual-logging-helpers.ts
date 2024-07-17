@@ -83,6 +83,14 @@ export function veChange(ve: string): TestLogEntry {
   return {interaction: `Change: ${ve}`};
 }
 
+export function veKeyDown(ve: string): TestLogEntry {
+  return {interaction: `KeyDown: ${ve}`};
+}
+
+export function veResize(ve: string): TestLogEntry {
+  return {interaction: `Resize: ${ve}`};
+}
+
 export function veImpression(ve: string, context?: string, children?: TestImpressionLogEntry[]) {
   let key = ve;
   if (context) {
