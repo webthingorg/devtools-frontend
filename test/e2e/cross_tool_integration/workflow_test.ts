@@ -12,9 +12,10 @@ import {
   reloadDevTools,
   tabExistsInDrawer,
   tabExistsInMainPanel,
+  reloadDevTools,
 } from '../helpers/cross-tool-helper.js';
 import {clickOnFirstLinkInStylesPanel, navigateToElementsTab} from '../helpers/elements-helpers.js';
-import {LAYERS_TAB_SELECTOR} from '../helpers/layers-helpers.js';
+import {LAYERS_TAB_SELECTOR, veImpressionForLayersPanel} from '../helpers/layers-helpers.js';
 import {MEMORY_TAB_ID, navigateToMemoryTab} from '../helpers/memory-helpers.js';
 import {
   navigateToPerformanceSidebarTab,

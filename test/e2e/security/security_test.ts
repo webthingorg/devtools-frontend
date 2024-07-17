@@ -12,7 +12,11 @@ import {
   securityPanelContentIsLoaded,
   securityTabDoesNotExist,
   securityTabExists,
+  veImpressionForSecurityPanel,
 } from '../helpers/security-helpers.js';
+import {
+  veImpressionForMainToolbar,
+} from '../helpers/visual-logging-helpers.js';
 
 describe('The Security Panel', function() {
   it('is open by default when devtools initializes', async () => {

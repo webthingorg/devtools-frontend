@@ -40,15 +40,13 @@ export async function waitForAnimationContent() {
 
 export function veImpressionForAnimationsPanel() {
   return veImpression('Panel', 'animations', [
-    veImpression(
-        'Toolbar', undefined,
-        [
-          veImpression('Action', 'animations.playback-rate-100'),
-          veImpression('Action', 'animations.playback-rate-25'),
-          veImpression('Action', 'animations.playback-rate-10'),
-          veImpression('Action', 'animations.clear'),
-          veImpression('Toggle', 'animations.pause-resume-all'),
-        ]),
+    veImpression('Toolbar', undefined, [
+      veImpression('Action', 'animations.playback-rate-100'),
+      veImpression('Action', 'animations.playback-rate-25'),
+      veImpression('Action', 'animations.playback-rate-10'),
+      veImpression('Action', 'animations.clear'),
+      veImpression('Toggle', 'animations.pause-resume-all'),
+    ]),
     veImpression('Timeline', 'animations.grid-header'),
     veImpression('Action', 'animations.play-replay-pause-animation-group'),
   ]);

@@ -17,6 +17,7 @@ import {
   waitFor,
   waitForFunction,
 } from '../../shared/helper.js';
+import {veImpression, veClick, veChange, expectVeEvents, VeEvent} from './visual-logging-helpers.js';
 
 import {
   expectVeEvents,
@@ -121,18 +122,24 @@ export async function getConsoleMessages(testName: string, withAnchor = false, c
 }
 
 export async function getCurrentConsoleMessages(withAnchor = false, level = Level.All, callback?: () => Promise<void>) {
+  // console.error('getCurrentConsoleMessages 1');
   const {frontend} = getBrowserAndPages();
   const asyncScope = new AsyncScope();
 
+  // console.error('getCurrentConsoleMessages 2');
   await navigateToConsoleTab();
+  // console.error('getCurrentConsoleMessages 3');
 
   // Get console messages that were logged.
   await waitFor(CONSOLE_MESSAGES_SELECTOR, undefined, asyncScope);
+  await expectVeEvents([veImpressionForConsoleMessage()]);
 
+  // console.error('getCurrentConsoleMessages 4');
   if (callback) {
     await callback();
   }
 
+  // console.error('getCurrentConsoleMessages 5');
   // Ensure all messages are populated.
   await asyncScope.exec(() => frontend.waitForFunction((CONSOLE_FIRST_MESSAGES_SELECTOR: string) => {
     const messages = document.querySelectorAll(CONSOLE_FIRST_MESSAGES_SELECTOR);
@@ -142,6 +149,7 @@ export async function getCurrentConsoleMessages(withAnchor = false, level = Leve
     return Array.from(messages).every(message => message.childNodes.length > 0);
   }, {timeout: 0, polling: 'mutation'}, CONSOLE_ALL_MESSAGES_SELECTOR));
 
+  // console.error('getCurrentConsoleMessages 6');
   const selector = withAnchor ? CONSOLE_MESSAGE_TEXT_AND_ANCHOR_SELECTOR : level;
 
   // FIXME(crbug/1112692): Refactor test to remove the timeout.
@@ -167,6 +175,7 @@ export async function maybeGetCurrentConsoleMessages(withAnchor = false, callbac
 
   // Get console messages that were logged.
   await waitFor(CONSOLE_MESSAGES_SELECTOR, undefined, asyncScope);
+  await expectVeEvents([veImpressionForConsolePanel({requireMessage: true})]);
 
   if (callback) {
     await callback();
@@ -192,7 +201,7 @@ export async function maybeGetCurrentConsoleMessages(withAnchor = false, callbac
   return result;
 }
 
-export async function getStructuredConsoleMessages() {
+export async function getStructuredConsoleMessages(options?:{}) {
   const {frontend} = getBrowserAndPages();
   const asyncScope = new AsyncScope();
 
@@ -200,6 +209,7 @@ export async function getStructuredConsoleMessages() {
 
   // Get console messages that were logged.
   await waitFor(CONSOLE_MESSAGES_SELECTOR, undefined, asyncScope);
+  await expectVeEvents([veImpressionForConsoleMessage()]);
 
   // Ensure all messages are populated.
   await asyncScope.exec(() => frontend.waitForFunction((CONSOLE_FIRST_MESSAGES_SELECTOR: string) => {
@@ -318,6 +328,7 @@ export async function navigateToConsoleTab() {
     return;
   }
   await click(CONSOLE_TAB_SELECTOR);
+  // console.error('navigateToConsoleTab 2');
   await waitFor(CONSOLE_VIEW_SELECTOR);
   await expectVeEvents([veImpressionForConsolePanel()]);
 }
@@ -425,6 +436,7 @@ export function veImpressionForConsolePanel() {
           veImpression('ToggleSubpane', 'console-settings'),
           veImpression('TextField'),
         ]),
+    veImpressionForConsoleMessage({optional: !Boolean(options?.requireMessage)}),
     veImpression('TextField', 'console-prompt'),
   ]);
 }
