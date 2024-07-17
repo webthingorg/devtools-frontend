@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "56b372f1_750067a2",
+        "filename": "front_end/panels/network/NetworkPanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 750,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-07-17T09:29:37Z",
+      "side": 1,
+      "message": "they can\u0027t, cuz we need to return here when target is this type, so the remaining type can be handled later.\nThe inside if is checking if the request exists (for example it will be null when you load trace from file)",
+      "parentUuid": "60c1d1f2_54ae9124",
+      "range": {
+        "startLine": 747,
+        "startChar": 4,
+        "endLine": 750,
+        "endChar": 7
+      },
+      "revId": "22216cb44cf2d1eab87676da45f600bd718595ac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7326f977_52ce0b8f",
