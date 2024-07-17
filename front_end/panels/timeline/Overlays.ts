@@ -484,7 +484,7 @@ export class Overlays extends EventTarget {
           const entryDimensions = this.#positionEntryLabelOverlay(overlay, element);
           const component = element.querySelector('devtools-entry-label-overlay');
           if (component && entryDimensions) {
-            component.entryDimensions = entryDimensions;
+            component.entryLabelParams = entryDimensions;
           } else {
             element.style.visibility = 'hidden';
             console.error('Cannot calculate entry width and height values required to draw a label overlay.');
@@ -594,7 +594,7 @@ export class Overlays extends EventTarget {
    * @param overlay - the EntrySelected overlay that we need to position.
    * @param element - the DOM element representing the overlay
    */
-  #positionEntryLabelOverlay(overlay: EntryLabel, element: HTMLElement): {height: number, width: number}|null {
+  #positionEntryLabelOverlay(overlay: EntryLabel, element: HTMLElement): {height: number, width: number, cutOffHeight: number, chart: string}|null {
     const chartName = this.#chartForOverlayEntry(overlay.entry);
     const x = this.xPixelForEventOnChart(overlay.entry);
     const y = this.yPixelForEventOnChart(overlay.entry);
@@ -604,8 +604,8 @@ export class Overlays extends EventTarget {
     if (x === null || y === null || endX === null) {
       return null;
     }
-
-    const entryHeight = this.pixelHeightForEventOnChart(overlay.entry) ?? 0;
+    
+    let entryHeight = this.pixelHeightForEventOnChart(overlay.entry) ?? 0;
 
     // The width of the overlay is by default the width of the entry. However
     // we modify that for instant events like LCP markers, and also ensure a
@@ -614,12 +614,26 @@ export class Overlays extends EventTarget {
 
     // The part of the overlay that draws a box around an entry is always at least 2px wide.
     const entryWidth = Math.max(2, widthPixels);
+
+    let cutOffHeight = (chartName === 'main' && this.networkChartOffsetHeight() > y) ? this.networkChartOffsetHeight() - y: 0;
+
+
     // Position the start of label overlay at the start of the entry + length of connector + legth of the label element
-    element.style.top = `${y - Components.EntryLabelOverlay.EntryLabelOverlay.LABEL_AND_CONNECTOR_HEIGHT}px`;
+    element.style.top = `${y - Components.EntryLabelOverlay.EntryLabelOverlay.LABEL_AND_CONNECTOR_HEIGHT + cutOffHeight}px`;
+
+
     // Position the start of the entry label overlay in the the middle of the entry.
     element.style.left = `${x + entryWidth / 2}px`;
 
-    return {height: entryHeight, width: entryWidth};
+    const networkHeight = this.#dimensions.charts.network?.heightPixels ?? 0;
+    const lastVisibleY = y + entryHeight;
+
+    const cutOffBottom = lastVisibleY > networkHeight;
+    if(chartName === 'network' && cutOffBottom) {
+      cutOffHeight = entryHeight + y - networkHeight;
+    }
+
+    return {height: entryHeight, width: entryWidth, cutOffHeight, chart: chartName};
   }
 
   /**
