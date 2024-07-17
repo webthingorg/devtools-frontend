@@ -83,6 +83,14 @@ export function veChange(ve: string): TestLogEntry {
   return {interaction: `Change: ${ve}`};
 }
 
+export function veKeyDown(ve: string): TestLogEntry {
+  return {interaction: `KeyDown: ${ve}`};
+}
+
+export function veResize(ve: string): TestLogEntry {
+  return {interaction: `Resize: ${ve}`};
+}
+
 export function veImpression(ve: string, context?: string, children?: TestImpressionLogEntry[]) {
   let key = ve;
   if (context) {
@@ -208,6 +216,7 @@ export async function expectVeEvents(expectedEvents: TestLogEntry[]) {
               'Missing VE interaction:\n' + expectedEvent.interaction :
               'Missing VE impressions:\n' + formatImpressions(expectedEvent.impressions),
         };
+        allMatched = false;
         assert.fail(bestError.description);
       }
       const error = compareVeEvents(actualEvents[i], expectedEvent);
