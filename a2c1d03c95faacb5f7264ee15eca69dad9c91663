@@ -70,6 +70,24 @@
       "parentUuid": "4798ad46_1d315013",
       "revId": "a2c1d03c95faacb5f7264ee15eca69dad9c91663",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f406569_87739366",
+        "filename": "front_end/core/sdk/NetworkManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-07-17T13:18:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "33cd3022_f7662db1",
+      "revId": "a2c1d03c95faacb5f7264ee15eca69dad9c91663",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
