@@ -1,0 +1,62 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d3f86b7_e73aeead",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-17T08:49:34Z",
+      "side": 1,
+      "message": "lgtm with nit",
+      "revId": "8f9ba6d4800c2bb1da2653d2905d1916dbbf9d29",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8d64c5a_2b34c06c",
+        "filename": "front_end/panels/timeline/components/EntryLabelOverlay.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-17T08:49:34Z",
+      "side": 1,
+      "message": "can we do `querySelector\u003cHTMLElement\u003e` instead of `as` please for these?",
+      "range": {
+        "startLine": 75,
+        "startChar": 30,
+        "endLine": 78,
+        "endChar": 116
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "a75e4d1f_da655232",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/components/EntryLabelOverlay.ts",
+              "range": {
+                "startLine": 75,
+                "startChar": 0,
+                "endLine": 79,
+                "endChar": 0
+              },
+              "replacement": "    this.#labelPartsWrapper \u003d this.#shadow.querySelector\u003cHTMLElement\u003e(\u0027.label-parts-wrapper\u0027);\n    this.#labelBox \u003d this.#labelPartsWrapper?.querySelector\u003cHTMLElement\u003e(\u0027.label-box\u0027);\n    this.#connectorLineContainer \u003d this.#labelPartsWrapper?.querySelector\u003cSVGAElement\u003e(\u0027.connectorContainer\u0027);\n    this.#entryHighlightWrapper \u003d this.#labelPartsWrapper?.querySelector\u003cHTMLElement\u003e(\u0027.entry-highlight-wrapper\u0027);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "8f9ba6d4800c2bb1da2653d2905d1916dbbf9d29",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
