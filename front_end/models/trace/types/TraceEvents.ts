@@ -7,6 +7,28 @@ import type * as Protocol from '../../../generated/protocol.js';
 
 import {type MicroSeconds, type MilliSeconds, type Seconds} from './Timing.js';
 
+export const enum FilterAction {
+  MERGE_FUNCTION = 'MERGE_FUNCTION',
+  COLLAPSE_FUNCTION = 'COLLAPSE_FUNCTION',
+  COLLAPSE_REPEATING_DESCENDANTS = 'COLLAPSE_REPEATING_DESCENDANTS',
+  RESET_CHILDREN = 'RESET_CHILDREN',
+  UNDO_ALL_ACTIONS = 'UNDO_ALL_ACTIONS',
+}
+
+export interface UserFilterAction {
+  type: FilterAction;
+  entry: SyntheticTraceEntry;
+}
+
+// Object used to indicate to the Context Menu if an action is possible on the selected entry.
+export interface PossibleFilterActions {
+  [FilterAction.MERGE_FUNCTION]: boolean;
+  [FilterAction.COLLAPSE_FUNCTION]: boolean;
+  [FilterAction.COLLAPSE_REPEATING_DESCENDANTS]: boolean;
+  [FilterAction.RESET_CHILDREN]: boolean;
+  [FilterAction.UNDO_ALL_ACTIONS]: boolean;
+}
+
 // Trace Events.
 export const enum Phase {
   // Standard
