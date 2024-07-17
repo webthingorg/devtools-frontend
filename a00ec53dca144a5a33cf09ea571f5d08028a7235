@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "087b7f76_78eaf61a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-07-17T08:01:57Z",
+      "side": 1,
+      "message": "lgtm with comments",
+      "revId": "a00ec53dca144a5a33cf09ea571f5d08028a7235",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7b84a10_0db3c1b7",
+        "filename": "test/e2e/helpers/visual-logging-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-07-17T08:01:57Z",
+      "side": 1,
+      "message": "Maybe I\u0027m reading this wrong, but this `if` is always taken given that we `assert.fail` (which throws) on the same code path where we toggle it to `false`.",
+      "range": {
+        "startLine": 227,
+        "startChar": 2,
+        "endLine": 227,
+        "endChar": 19
+      },
+      "revId": "a00ec53dca144a5a33cf09ea571f5d08028a7235",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf66462a_fb8afb4a",
+        "filename": "test/e2e/helpers/visual-logging-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-07-17T08:01:57Z",
+      "side": 1,
+      "message": "nit: Doesn\u0027t need to be async.",
+      "range": {
+        "startLine": 228,
+        "startChar": 28,
+        "endLine": 228,
+        "endChar": 33
+      },
+      "revId": "a00ec53dca144a5a33cf09ea571f5d08028a7235",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef6e4fc8_c763a770",
+        "filename": "test/e2e/helpers/visual-logging-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-07-17T08:01:57Z",
+      "side": 1,
+      "message": "Maybe we should add a comment about the behavior here: It logs all VE events by default, but if there is a preceeding `expectVeEvents` call it will log only the unmachted VE events + any events that happened inbetween.\n\nAs an alternative: We could return the unmachted VE events from `expectVeEvents` directly + maybe a logging helper.",
+      "range": {
+        "startLine": 281,
+        "startChar": 22,
+        "endLine": 281,
+        "endChar": 34
+      },
+      "revId": "a00ec53dca144a5a33cf09ea571f5d08028a7235",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
