@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a890c380_321f015b",
+        "filename": "front_end/models/trace/insights/DocumentLatency.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-07-17T21:49:53Z",
+      "side": 1,
+      "message": "I believe this is that value.\n\nIt\u0027s also the same value as `documentRequest.args.data.syntheticData.redirectionDuration`, so I\u0027ll use that instead.",
+      "parentUuid": "23a1bbcf_59b001dc",
+      "revId": "9f2f8b6ef4455eb4d667a7152dd0699c18f5513e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b5d0a8ce_8cd3a873",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-07-17T21:11:30Z",
       "side": 1,
       "message": "optional nit: might be useful to drop the `documentRequest` here for easy access when using this insight (I imagine Lighthouse will want to look at the redirects to list them in a table.",
+      "revId": "9f2f8b6ef4455eb4d667a7152dd0699c18f5513e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69084ee9_65092fac",
+        "filename": "front_end/models/trace/insights/DocumentLatency.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-07-17T21:49:53Z",
+      "side": 1,
+      "message": "opting not to do, if lighthouse consumed this it would want the duration of each component redirect, and its duration. and we don\u0027t have request ids on on data.redirects right now. without a clearer or immediate use case I\u0027d rather not try to anticipate.",
+      "parentUuid": "b5d0a8ce_8cd3a873",
       "revId": "9f2f8b6ef4455eb4d667a7152dd0699c18f5513e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
