@@ -41,6 +41,7 @@ import {
   type ChangeEvent,
   type ClickEvent,
   type ContextMenuDescriptor,
+  type DoAidaClientResult,
   type DoAidaConversationResult,
   type DragEvent,
   type EnumeratedHistogram,
@@ -518,7 +519,7 @@ export class InspectorFrontendHostStub implements InspectorFrontendHostAPI {
     });
   }
 
-  registerAidaClientEvent(request: string): void {
+  registerAidaClientEvent(request: string, callback: (result: DoAidaClientResult) => void): void {
   }
 
   recordImpression(event: ImpressionEvent): void {
