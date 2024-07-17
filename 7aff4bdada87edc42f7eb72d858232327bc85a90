@@ -3,6 +3,46 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ce918e82_5d802a2b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-17T09:01:21Z",
+      "side": 1,
+      "message": "lgtm with one nit. Nice solution!",
+      "revId": "7aff4bdada87edc42f7eb72d858232327bc85a90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70ac962a_df93ceb6",
+        "filename": "front_end/panels/timeline/TimelineFlameChartNetworkDataProvider.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-17T09:01:21Z",
+      "side": 1,
+      "message": "I would move this comment down to the `export class TimelineNetworkRequest` as I think it makes more sense there",
+      "range": {
+        "startLine": 153,
+        "startChar": 3,
+        "endLine": 156,
+        "endChar": 117
+      },
+      "revId": "7aff4bdada87edc42f7eb72d858232327bc85a90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "4163f452_413cd3fb",
         "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
         "patchSetId": 1
