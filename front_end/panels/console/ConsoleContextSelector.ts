@@ -251,7 +251,7 @@ export class ConsoleContextSelector implements SDK.TargetManager.SDKModelObserve
   }
 
   isItemSelectable(item: SDK.RuntimeModel.ExecutionContext): boolean {
-    const callFrame = item.debuggerModel.selectedCallFrame();
+    const callFrame = UI.Context.Context.instance().flavor(SDK.DebuggerModel.CallFrame);
     const callFrameContext = callFrame && callFrame.script.executionContext();
     return !callFrameContext || item === callFrameContext;
   }

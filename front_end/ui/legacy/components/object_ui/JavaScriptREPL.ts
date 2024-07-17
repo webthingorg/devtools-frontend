@@ -55,7 +55,7 @@ export class JavaScriptREPL {
     }
 
     let expression = text;
-    const callFrame = executionContext.debuggerModel.selectedCallFrame();
+    const callFrame = UI.Context.Context.instance().flavor(SDK.DebuggerModel.CallFrame);
     if (callFrame && callFrame.script.isJavaScript()) {
       const nameMap = await SourceMapScopes.NamesResolver.allVariablesInCallFrame(callFrame);
       try {

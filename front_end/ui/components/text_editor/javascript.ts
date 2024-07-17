@@ -175,7 +175,7 @@ export async function javascriptCompletionSource(cx: CodeMirror.CompletionContex
     return null;
   }
 
-  const script = getExecutionContext()?.debuggerModel.selectedCallFrame()?.script;
+  const script = UI.Context.Context.instance().flavor(SDK.DebuggerModel.CallFrame)?.script;
   if (script &&
       Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance().pluginManager.hasPluginForScript(script)) {
     return null;
@@ -403,7 +403,7 @@ async function completePropertiesInner(
 
 async function completeExpressionInScope(): Promise<CompletionSet> {
   const result = new CompletionSet();
-  const selectedFrame = getExecutionContext()?.debuggerModel.selectedCallFrame();
+  const selectedFrame = UI.Context.Context.instance().flavor(SDK.DebuggerModel.CallFrame);
   if (!selectedFrame) {
     return result;
   }
