@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e38f5c9a_1062b518",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-07-17T04:07:33Z",
+      "side": 1,
+      "message": "lntm - looks nicer to me 😄",
+      "revId": "a8b5578c7db626aa18e4289ca1d3cb7eb9d1fabb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
