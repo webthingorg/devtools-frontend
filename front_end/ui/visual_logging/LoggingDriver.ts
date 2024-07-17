@@ -12,7 +12,7 @@ import {type Loggable} from './Loggable.js';
 import {getLoggingConfig} from './LoggingConfig.js';
 import {logChange, logClick, logDrag, logHover, logImpressions, logKeyDown, logResize} from './LoggingEvents.js';
 import {getLoggingState, getOrCreateLoggingState, type LoggingState} from './LoggingState.js';
-import {getNonDomState, unregisterAllLoggables, unregisterLoggable} from './NonDomState.js';
+import {getNonDomState, unregisterLoggables} from './NonDomState.js';
 
 const PROCESS_DOM_INTERVAL = 500;
 const KEYBOARD_LOG_INTERVAL = 3000;
@@ -84,7 +84,7 @@ export async function addDocument(document: Document): Promise<void> {
 
 export function stopLogging(): void {
   logging = false;
-  unregisterAllLoggables();
+  unregisterLoggables();
   for (const document of documents) {
     document.removeEventListener('visibilitychange', scheduleProcessing);
     document.removeEventListener('scroll', scheduleProcessing);
@@ -258,7 +258,7 @@ async function process(): Promise<void> {
     }
     processForDebugging(element);
   }
-  for (const {loggable, config, parent} of getNonDomState().loggables) {
+  for (const {loggable, config, parent} of [...visibleLoggables, undefined].flatMap(l => getNonDomState(l).loggables)) {
     const loggingState = getOrCreateLoggingState(loggable, config, parent);
     const visible = !parent || loggingState.parent?.impressionLogged;
     if (!visible) {
@@ -267,10 +267,10 @@ async function process(): Promise<void> {
     processForDebugging(loggable);
     visibleLoggables.push(loggable);
     loggingState.impressionLogged = true;
-    // No need to track loggable as soon as we've logged the impression
-    // We can still log interaction events with a handle to a loggable
-    unregisterLoggable(loggable);
   }
+  // No need to track loggable as soon as we've logged the impression
+  // We can still log interaction events with a handle to a loggable
+  unregisterLoggables();
   if (visibleLoggables.length) {
     await yieldToInteractions();
     flushPendingChangeEvents();
