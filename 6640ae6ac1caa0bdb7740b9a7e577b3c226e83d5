@@ -46,6 +46,30 @@
       },
       "revId": "6640ae6ac1caa0bdb7740b9a7e577b3c226e83d5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9d4828a_8c0ea5d6",
+        "filename": "front_end/ui/visual_logging/LoggingDriver.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2024-07-17T07:39:17Z",
+      "side": 1,
+      "message": "Ah right. That makes sense. Thanks. Still LGTM.",
+      "parentUuid": "5d9ce950_8b8f6c58",
+      "range": {
+        "startLine": 87,
+        "startChar": 2,
+        "endLine": 87,
+        "endChar": 21
+      },
+      "revId": "6640ae6ac1caa0bdb7740b9a7e577b3c226e83d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
