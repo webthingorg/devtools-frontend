@@ -144,6 +144,11 @@ export interface DoAidaConversationResult {
   detail?: string;
 }
 
+export interface DoAidaClientResult extends Record<string, unknown> {
+  error?: string;
+  detail?: string;
+}
+
 export interface VisualElementImpression {
   id: number;
   type: number;
@@ -361,7 +366,7 @@ export interface InspectorFrontendHostAPI {
   initialTargetId(): Promise<string|null>;
 
   doAidaConversation: (request: string, streamId: number, cb: (result: DoAidaConversationResult) => void) => void;
-  registerAidaClientEvent: (request: string) => void;
+  registerAidaClientEvent: (request: string, cb: (result: DoAidaClientResult) => void) => void;
 
   recordImpression(event: ImpressionEvent): void;
   recordClick(event: ClickEvent): void;
