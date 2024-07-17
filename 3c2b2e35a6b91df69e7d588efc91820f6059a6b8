@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e36b92e_5dd889ef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-17T08:12:07Z",
+      "side": 1,
+      "message": "thanks! \n\nto devtools folks reading this: the structure of this is unusual, we are going to fix that in a follow-up, but this is good to land in the meantime to fix the build issues",
+      "revId": "3c2b2e35a6b91df69e7d588efc91820f6059a6b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
