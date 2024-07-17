@@ -34,6 +34,24 @@
       "parentUuid": "f58d1501_61e7f1d2",
       "revId": "a2c1d03c95faacb5f7264ee15eca69dad9c91663",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4798ad46_1d315013",
+        "filename": "front_end/core/sdk/NetworkManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-07-17T12:59:45Z",
+      "side": 1,
+      "message": "If you won\u0027t want to \"undo\" it we would need to expose a `targetLatency` that we could just use directly rather than an `adjustmentFactor`. Is that what you meant or do you think it\u0027s valuable to store the `adjustmentFactor` on the preset directly?",
+      "parentUuid": "92df7517_095a2a2a",
+      "revId": "a2c1d03c95faacb5f7264ee15eca69dad9c91663",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
