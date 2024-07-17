@@ -1703,9 +1703,6 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
 
     UI.UIUtils.createTextChild(tagElement, '>');
     UI.UIUtils.createTextChild(parentElement, '\u200B');
-    if (tagElement.textContent) {
-      UI.ARIAUtils.setLabel(tagElement, tagElement.textContent);
-    }
   }
 
   private convertWhitespaceToEntities(text: string): {
