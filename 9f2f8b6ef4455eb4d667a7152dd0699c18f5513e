@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23a1bbcf_59b001dc",
+        "filename": "front_end/models/trace/insights/DocumentLatency.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-07-17T21:11:30Z",
+      "side": 1,
+      "message": "I don\u0027t think this accounts for gaps in timing between redirect requests. In that sense I would expect the `redirectDuration` to be the time form the start of the initial request to the start of the final document request.",
+      "revId": "9f2f8b6ef4455eb4d667a7152dd0699c18f5513e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5d0a8ce_8cd3a873",
+        "filename": "front_end/models/trace/insights/DocumentLatency.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-07-17T21:11:30Z",
+      "side": 1,
+      "message": "optional nit: might be useful to drop the `documentRequest` here for easy access when using this insight (I imagine Lighthouse will want to look at the redirects to list them in a table.",
+      "revId": "9f2f8b6ef4455eb4d667a7152dd0699c18f5513e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
