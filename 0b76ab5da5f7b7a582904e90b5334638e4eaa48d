@@ -116,6 +116,24 @@
       "message": "Can you add a test case for a text LCP?",
       "revId": "0b76ab5da5f7b7a582904e90b5334638e4eaa48d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "054ef0ae_52c2690a",
+        "filename": "front_end/models/trace/insights/RenderBlocking.test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-07-17T18:13:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25511c7d_66569af1",
+      "revId": "0b76ab5da5f7b7a582904e90b5334638e4eaa48d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
