@@ -16,6 +16,23 @@
       "message": "I added a test. PTAL again, thanks!",
       "revId": "674df997975d966895db9d0a371b55c1a2f2ca13",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a44b9e25_768b9245",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-07-17T07:40:20Z",
+      "side": 1,
+      "message": "LGTM!",
+      "revId": "674df997975d966895db9d0a371b55c1a2f2ca13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
