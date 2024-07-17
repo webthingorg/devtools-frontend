@@ -425,7 +425,6 @@ export class MainImpl {
     );
 
     Root.Runtime.experiments.enableExperimentsByDefault([
-      'css-type-component-length-deprecate',
       Root.Runtime.ExperimentName.OUTERMOST_TARGET_SELECTOR,
       Root.Runtime.ExperimentName.PRELOADING_STATUS_PANEL,
       Root.Runtime.ExperimentName.AUTOFILL_VIEW,
