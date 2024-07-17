@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "43809178_0472d671",
+        "filename": "test/e2e/helpers/visual-logging-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 227,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-07-17T08:10:13Z",
+      "side": 1,
+      "message": "It does. This was meant for clarity, removed as it doesn\u0027t seem to add any:)",
+      "parentUuid": "e7b84a10_0db3c1b7",
+      "range": {
+        "startLine": 227,
+        "startChar": 2,
+        "endLine": 227,
+        "endChar": 19
+      },
+      "revId": "a00ec53dca144a5a33cf09ea571f5d08028a7235",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cf66462a_fb8afb4a",
@@ -64,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "33036746_01d5dedb",
+        "filename": "test/e2e/helpers/visual-logging-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-07-17T08:10:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cf66462a_fb8afb4a",
+      "range": {
+        "startLine": 228,
+        "startChar": 28,
+        "endLine": 228,
+        "endChar": 33
+      },
+      "revId": "a00ec53dca144a5a33cf09ea571f5d08028a7235",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ef6e4fc8_c763a770",
@@ -77,6 +125,30 @@
       "writtenOn": "2024-07-17T08:01:57Z",
       "side": 1,
       "message": "Maybe we should add a comment about the behavior here: It logs all VE events by default, but if there is a preceeding `expectVeEvents` call it will log only the unmachted VE events + any events that happened inbetween.\n\nAs an alternative: We could return the unmachted VE events from `expectVeEvents` directly + maybe a logging helper.",
+      "range": {
+        "startLine": 281,
+        "startChar": 22,
+        "endLine": 281,
+        "endChar": 34
+      },
+      "revId": "a00ec53dca144a5a33cf09ea571f5d08028a7235",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a84401d_1e12b308",
+        "filename": "test/e2e/helpers/visual-logging-helpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-07-17T08:10:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef6e4fc8_c763a770",
       "range": {
         "startLine": 281,
         "startChar": 22,
