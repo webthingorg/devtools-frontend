@@ -132,7 +132,7 @@ export class AidaClient {
     let temperature = NaN;
     let modelId = null;
     let disallowLogging = false;
-    if (config?.devToolsConsoleInsights.enabled) {
+    if (config) {
       temperature = config.devToolsConsoleInsights.aidaTemperature;
       modelId = config.devToolsConsoleInsights.aidaModelId;
       disallowLogging = config.devToolsConsoleInsights.disallowLogging;

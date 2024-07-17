@@ -34,6 +34,7 @@ import type * as Platform from '../../core/platform/platform.js';
 import * as Root from '../../core/root/root.js';
 import * as Bindings from '../../models/bindings/bindings.js';
 import type * as TimelineModel from '../../models/timeline_model/timeline_model.js';
+import type * as TraceHelpers from '../../models/trace/helpers/helpers.js';
 import * as TraceEngine from '../../models/trace/trace.js';
 import * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 import * as UI from '../../ui/legacy/legacy.js';
@@ -161,8 +162,17 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
 
   modifyTree(node: number, action: TraceEngine.EntriesFilter.FilterAction): void {
     const entry = this.entryData[node] as TraceEngine.Types.TraceEvents.SyntheticTraceEntry;
-
     ModificationsManager.activeManager()?.getEntriesFilter().applyFilterAction({type: action, entry});
+  }
+
+  getIcicle(node: number): TraceHelpers.TreeHelpers.Icicle|null {
+    const entry = this.entryData[node] as TraceEngine.Types.TraceEvents.SyntheticTraceEntry;
+    const manager = ModificationsManager.activeManager();
+    if (!manager) {
+      return null;
+    }
+    const icicle = manager.getEntriesFilter().getIcicle(entry);
+    return icicle;
   }
 
   findPossibleContextMenuActions(node: number): TraceEngine.EntriesFilter.PossibleFilterActions|void {
