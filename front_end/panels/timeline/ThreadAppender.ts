@@ -641,4 +641,8 @@ export class ThreadAppender implements TrackAppender {
     }
     return {title, formattedTime: getFormattedTime(event.dur, event.selfTime)};
   }
+
+  entryIsVisibleInTimeline(entry: TraceEngine.Types.TraceEvents.SyntheticTraceEntry): boolean {
+    return this.#compatibilityBuilder.entryIsVisibleInTimeline(entry);
+  }
 }
