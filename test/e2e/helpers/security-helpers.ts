@@ -10,7 +10,7 @@ import {veImpression} from './visual-logging-helpers.js';
 
 const SECURITY_PANEL_CONTENT = '.view-container[aria-label="Security panel"]';
 const SECURITY_TAB_SELECTOR = '#tab-security';
-const SECURITY_PANEL_TITLE = 'Security';
+const SECURITY_PANEL_ID = 'security';
 
 export async function securityTabExists() {
   await waitFor(SECURITY_TAB_SELECTOR);
@@ -35,7 +35,7 @@ export async function closeSecurityTab() {
 }
 
 export async function openSecurityPanelFromMoreTools() {
-  await openPanelViaMoreTools(SECURITY_PANEL_TITLE);
+  await openPanelViaMoreTools(SECURITY_PANEL_ID);
   await securityTabExists();
   await securityPanelContentIsLoaded();
 }

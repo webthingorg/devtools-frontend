@@ -94,7 +94,7 @@ describe('A user can move tabs', function() {
 
   it('Move Animations to main panel', async () => {
     const ANIMATIONS_TAB_ID = '#tab-animations';
-    await openPanelViaMoreTools('Animations');
+    await openPanelViaMoreTools('animations');
     await tabExistsInDrawer(ANIMATIONS_TAB_ID);
     await clickOnContextMenuItemFromTab(ANIMATIONS_TAB_ID, MOVE_TO_MAIN_PANEL_SELECTOR);
     await tabExistsInMainPanel(ANIMATIONS_TAB_ID);

@@ -19,7 +19,7 @@ import {openPanelViaMoreTools} from '../helpers/settings-helpers.js';
 describe('Idle Emulation on Sensors panel', () => {
   beforeEach(async () => {
     await step('opening sensors panel', async () => {
-      await openPanelViaMoreTools('Sensors');
+      await openPanelViaMoreTools('sensors');
     });
   });
 

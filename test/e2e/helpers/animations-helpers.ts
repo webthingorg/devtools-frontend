@@ -14,7 +14,7 @@ import {
 
 export async function waitForAnimationsPanelToLoad() {
   // Open panel and wait for content
-  await openPanelViaMoreTools('Animations');
+  await openPanelViaMoreTools('animations');
   await waitFor('div[aria-label="Animations panel"]');
   await waitFor('div.animation-timeline-header');
   await expectVeEvents([veImpressionsUnder('Drawer', [veImpressionForAnimationsPanel()])]);
@@ -26,7 +26,7 @@ export async function navigateToSiteWithAnimation() {
 }
 
 export async function waitForAnimationContent() {
-  await waitFor('.animation-timeline-buffer');
+  await waitFor('.animation-buffer-preview');
   await expectVeEvents([veImpressionsUnder(
       'Drawer > Panel: animations',
       [veImpression('Section', 'film-strip', [veImpression('Item', 'animations.buffer-preview')])])]);
