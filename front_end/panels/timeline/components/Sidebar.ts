@@ -11,7 +11,9 @@ import * as Menus from '../../../ui/components/menus/menus.js';
 import * as UI from '../../../ui/legacy/legacy.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 import * as VisualLogging from '../../../ui/visual_logging/visual_logging.js';
+import {type TimelineOverlay} from '../Overlays.js';
 
+import * as Insights from './insights/insights.js';
 import sidebarStyles from './sidebar.css.js';
 import * as SidebarAnnotationsTab from './SidebarAnnotationsTab.js';
 import {SidebarSingleNavigation, type SidebarSingleNavigationData} from './SidebarSingleNavigation.js';
@@ -32,10 +34,21 @@ export enum InsightsCategories {
   OTHER = 'Other',
 }
 
+export const enum InsightsToToggle {
+  LCP_PHASES = Insights.LCPPhases.InsightName,
+  NONE = '',
+}
+
+export interface ActiveInsight {
+  name: string;
+  navigationId: string;
+  createOverlayFn: (() => TimelineOverlay[]);
+}
+
 export class ToggleSidebarInsights extends Event {
   static readonly eventName = 'toggleinsightclick';
 
-  constructor() {
+  constructor(public toggledInsight: InsightsToToggle, public navigationId: string) {
     super(ToggleSidebarInsights.eventName, {bubbles: true, composed: true});
   }
 }
@@ -88,6 +101,10 @@ export class SidebarWidget extends Common.ObjectWrapper.eventMixin<WidgetEventTy
   setInsights(insights: TraceEngine.Insights.Types.TraceInsightData): void {
     this.#sidebarUI.insights = insights;
   }
+
+  setActiveInsight(activeInsight: ActiveInsight|null): void {
+    this.#sidebarUI.activeInsight = activeInsight;
+  }
 }
 
 export class SidebarUI extends HTMLElement {
@@ -108,6 +125,8 @@ export class SidebarUI extends HTMLElement {
    * track it via this ID.
    */
   #activeNavigationId: string|null = null;
+
+  #activeInsight: ActiveInsight|null = null;
 
   connectedCallback(): void {
     this.#shadow.adoptedStyleSheets = [sidebarStyles];
@@ -132,7 +151,14 @@ export class SidebarUI extends HTMLElement {
       return;
     }
     this.#insights = insights;
-    // Reset toggled insights.
+    // Reset toggled insights when we have new insights.
+    this.dispatchEvent(new ToggleSidebarInsights(InsightsToToggle.NONE, ''));
+    void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#renderBound);
+  }
+
+  set activeInsight(activeInsight: ActiveInsight|null) {
+    this.#activeInsight = activeInsight;
+    // Reset toggled insights when we have new insights.
     void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#renderBound);
   }
 
@@ -219,12 +245,14 @@ export class SidebarUI extends HTMLElement {
         const data = {
           traceParsedData: this.#traceParsedData ?? null,
           insights: this.#insights,
-          navigationId: id,
+          navigationId: this.#activeNavigationId ?? id,
           activeCategory: this.#selectedCategory,
+          activeInsight: this.#activeInsight,
         };
 
         const contents = LitHtml.html`
-          <${SidebarSingleNavigation.litTagName} .data=${data as SidebarSingleNavigationData}>
+          <${SidebarSingleNavigation.litTagName}
+            .data=${data as SidebarSingleNavigationData}>
           </${SidebarSingleNavigation.litTagName}>
         `;
 
@@ -241,6 +269,13 @@ export class SidebarUI extends HTMLElement {
   }
 
   #navigationClicked(id: string): (event: Event) => void {
+    // new navigation clicked. lets update the navigations.
+    this.dispatchEvent(new Insights.SidebarInsight.InsightActivated(
+        '',
+        id,
+        this.#activeInsight?.createOverlayFn ?? (() => []),
+        ));
+
     return (event: Event) => {
       event.preventDefault();
       this.#activeNavigationId = id;

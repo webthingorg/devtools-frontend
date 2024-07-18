@@ -8,7 +8,7 @@ import * as ComponentHelpers from '../../../ui/components/helpers/helpers.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 
 import * as Insights from './insights/insights.js';
-import {InsightsCategories, ToggleSidebarInsights} from './Sidebar.js';
+import {type ActiveInsight, InsightsCategories, InsightsToToggle, ToggleSidebarInsights} from './Sidebar.js';
 import styles from './sidebarSingleNavigation.css.js';
 
 export interface SidebarSingleNavigationData {
@@ -16,32 +16,41 @@ export interface SidebarSingleNavigationData {
   insights: TraceEngine.Insights.Types.TraceInsightData|null;
   navigationId: string|null;
   activeCategory: InsightsCategories;
+  activeInsight: ActiveInsight|null;
 }
 
 export class SidebarSingleNavigation extends HTMLElement {
   static readonly litTagName = LitHtml.literal`devtools-performance-sidebar-single-navigation`;
   readonly #shadow = this.attachShadow({mode: 'open'});
   #renderBound = this.#render.bind(this);
+  #insightCurrentlyToggled: InsightsToToggle = InsightsToToggle.NONE;
 
   #data: SidebarSingleNavigationData = {
     traceParsedData: null,
     insights: null,
     navigationId: null,
     activeCategory: InsightsCategories.ALL,
+    activeInsight: null,
   };
 
   set data(data: SidebarSingleNavigationData) {
     this.#data = data;
     void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#renderBound);
   }
-
   connectedCallback(): void {
     this.#shadow.adoptedStyleSheets = [styles];
-    this.#render();
   }
 
-  #toggleInsightClick(): void {
-    this.dispatchEvent(new ToggleSidebarInsights());
+  #toggleInsightClick(toggledInsight: InsightsToToggle): void {
+    if (this.#insightCurrentlyToggled === toggledInsight) {
+      // untoggle.
+      this.dispatchEvent(new ToggleSidebarInsights(InsightsToToggle.NONE, ''));
+      this.#insightCurrentlyToggled = InsightsToToggle.NONE;
+    } else {
+      // toggle.
+      this.dispatchEvent(new ToggleSidebarInsights(toggledInsight, this.#data.navigationId ?? ''));
+      this.#insightCurrentlyToggled = toggledInsight;
+    }
     void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#renderBound);
   }
 
@@ -143,16 +152,15 @@ export class SidebarSingleNavigation extends HTMLElement {
       insights: TraceEngine.Insights.Types.TraceInsightData|null,
       navigationId: string,
       ): LitHtml.TemplateResult {
-    const renderLCPInsights =
-        this.#data.activeCategory === InsightsCategories.LCP || this.#data.activeCategory === InsightsCategories.ALL;
     // clang-format off
-      return LitHtml.html`${renderLCPInsights ? LitHtml.html`
-        <div @click=${this.#toggleInsightClick}>
-          <${Insights.LCPPhases.LCPPhases.litTagName}
-            .insights=${insights}
-            .navigationId=${navigationId}
-          </${Insights.LCPPhases.LCPPhases}>
-        </div>` : LitHtml.nothing}`;
+      return LitHtml.html`
+        <${Insights.LCPPhases.LCPPhases.litTagName}
+          .insights=${insights}
+          .navigationId=${navigationId}
+          .activeInsight=${this.#data.activeInsight}
+          .activeCategory=${this.#data.activeCategory}
+        </${Insights.LCPPhases.LCPPhases}>
+        </div>`;
     // clang-format on
   }
 
