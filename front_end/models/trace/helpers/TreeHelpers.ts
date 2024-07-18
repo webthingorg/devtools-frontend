@@ -34,6 +34,51 @@ export interface TraceEntryNode {
   children: TraceEntryNode[];
 }
 
+export class Icicle {
+  url?: string;
+  line?: number;
+  column?: number;
+  function?: string;
+  children?: Icicle[];
+
+  constructor(
+      public type: string, public start: Types.Timing.MilliSeconds, public totalTime?: Types.Timing.MilliSeconds,
+      public selfTime?: Types.Timing.MilliSeconds) {
+  }
+
+  filter(predicate: (node: Icicle) => boolean): void {
+    if (!this.children) {
+      return;
+    }
+
+    let done;
+    do {
+      done = true;
+      const newChildren: Icicle[] = [];
+      for (const child of this.children) {
+        if (predicate(child)) {
+          newChildren.push(child);
+        } else if (child.children) {
+          newChildren.push(...child.children);
+          done = false;
+        }
+      }
+      this.children = newChildren;
+    } while (!done);
+
+    if (!this.children.length) {
+      delete this.children;
+    }
+
+    this.children?.forEach(node => node.filter(predicate));
+  }
+
+  rename(predicate: (node: Icicle) => string): void {
+    this.type = predicate(this);
+    this.children?.forEach(node => node.rename(predicate));
+  }
+}
+
 class TraceEntryNodeIdTag {
   /* eslint-disable-next-line no-unused-private-class-members */
   readonly #tag: (symbol|undefined);
