@@ -18,7 +18,7 @@ import {openPanelViaMoreTools} from '../helpers/settings-helpers.js';
 describe.skip('[crbug.com/1501768] Media Tab', () => {
   // Skip until flake is fixed
   it('ensures video playback adds entry', async () => {
-    await openPanelViaMoreTools('Media');
+    await openPanelViaMoreTools('media');
     await playMediaFile('fisch.webm');
     const entryName = await getPlayerButtonText();
     assert.strictEqual(entryName.length, 11, `Unexpected name ${entryName}, expected length 11`);
@@ -29,7 +29,7 @@ describe.skip('[crbug.com/1501768] Media Tab', () => {
   it('ensures that errors are rendered nicely', async () => {
     const {target, frontend} = getBrowserAndPages();
     await frontend.bringToFront();
-    await openPanelViaMoreTools('Media');
+    await openPanelViaMoreTools('media');
     await goToResource('media/corrupt.webm');
     await target.bringToFront();
     await target.evaluate(() => {
@@ -47,7 +47,7 @@ describe.skip('[crbug.com/1501768] Media Tab', () => {
   it('ensures video playback adds entry for web worker', async () => {
     const {frontend} = getBrowserAndPages();
     await frontend.bringToFront();
-    await openPanelViaMoreTools('Media');
+    await openPanelViaMoreTools('media');
     await goToResource('media/codec_worker.html');
     await waitForPlayerButtonTexts(4);
   });

@@ -43,7 +43,7 @@ export async function getHideIssuesMenu(root?: puppeteer.JSHandle) {
 }
 
 export async function navigateToIssuesTab() {
-  await openPanelViaMoreTools('Issues');
+  await openPanelViaMoreTools('issues');
 }
 
 export async function getUnhideAllIssuesBtn() {

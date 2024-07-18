@@ -30,7 +30,7 @@ async function assertValidationFails(inputElement: ElementHandle<Element>, value
 
 describe('Orientation emulation on Sensors panel', () => {
   beforeEach(async () => {
-    await openPanelViaMoreTools('Sensors');
+    await openPanelViaMoreTools('sensors');
   });
 
   it('presets correct default values on Custom orientation selected', async () => {

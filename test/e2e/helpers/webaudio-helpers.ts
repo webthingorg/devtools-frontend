@@ -7,7 +7,7 @@ import {openPanelViaMoreTools} from './settings-helpers.js';
 
 export async function waitForTheWebAudioPanelToLoad() {
   // Open panel and wait for content
-  await openPanelViaMoreTools('WebAudio');
+  await openPanelViaMoreTools('web-audio');
   await waitFor('div[aria-label="WebAudio panel"]');
 }
 

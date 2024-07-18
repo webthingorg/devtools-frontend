@@ -16,8 +16,8 @@ describe('Browser', () => {
     await goToResource('cross_tool/default.html');
 
     // Open a few closeable panels
-    await openPanelViaMoreTools('Animations');
-    await openPanelViaMoreTools('Rendering');
+    await openPanelViaMoreTools('animations');
+    await openPanelViaMoreTools('rendering');
 
     const messages = await getCurrentConsoleMessages();
     await closeAllCloseableTabs();
@@ -36,8 +36,8 @@ describe('Browser', () => {
     await goToResource(targetUrl);
 
     // Open a few closeable panels
-    await openPanelViaMoreTools('Animations');
-    await openPanelViaMoreTools('Rendering');
+    await openPanelViaMoreTools('animations');
+    await openPanelViaMoreTools('rendering');
 
     await closeAllCloseableTabs();
     // Navigate to a different website

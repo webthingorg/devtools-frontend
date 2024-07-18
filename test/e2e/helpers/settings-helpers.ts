@@ -8,13 +8,21 @@ import {
   clickElement,
   getBrowserAndPages,
   hover,
+  renderCoordinatorQueueEmpty,
   scrollElementIntoView,
   waitFor,
-  waitForAria,
   waitForFunction,
 } from '../../shared/helper.js';
+import {
+  dumpVeEvents,
+  expectVeEvents,
+  veClick,
+  veImpressionForMainMenu,
+  veImpressionForMainMenuMoreTools,
+  veResize,
+} from '../helpers/visual-logging-helpers.js';
 
-export const openPanelViaMoreTools = async (panelTitle: string) => {
+export const openPanelViaMoreTools = async (panel: string) => {
   const {frontend} = getBrowserAndPages();
 
   await frontend.bringToFront();
@@ -25,14 +33,22 @@ export const openPanelViaMoreTools = async (panelTitle: string) => {
   await waitForFunction(async () => {
     // Open the “More Tools” option.
     await hover('aria/More tools[role="menuitem"]');
-    return $(`${panelTitle}[role="menuitem"]`, undefined, 'aria');
+    await renderCoordinatorQueueEmpty();
+    return $(`[jslog="Action; track: click; context: ${panel}"]`);
   });
 
   // Click the desired menu item
-  await click(`aria/${panelTitle}[role="menuitem"]`);
+  await click(`[jslog="Action; track: click; context: ${panel}"]`);
 
   // Wait for the corresponding panel to appear.
-  await waitForAria(`${panelTitle} panel[role="tabpanel"]`);
+  await waitFor(`[jslog^="Panel; context: ${panel}"]`);
+  await dumpVeEvents('openPanelViaMoreTools');
+  await expectVeEvents([
+    veImpressionForMainMenu(),
+    veImpressionForMainMenuMoreTools(),
+    veClick(`Toolbar: main > DropDown: main-menu > Menu > Item: more-tools > Menu > Action: ${panel}`),
+    veResize('Toolbar: main > DropDown: main-menu > Menu'),
+  ]);
 };
 
 export const openSettingsTab = async (tabTitle: string) => {

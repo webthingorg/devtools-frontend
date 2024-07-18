@@ -299,7 +299,6 @@ async function cancelLogging(): Promise<void> {
 }
 
 let dragStartX = 0, dragStartY = 0;
-
 function onDragStart(event: Event): void {
   if (!(event instanceof MouseEvent)) {
     return;

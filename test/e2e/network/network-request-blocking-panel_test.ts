@@ -29,7 +29,7 @@ async function isVisible(element: ElementHandle, container: ElementHandle): Prom
 
 describe('The Network request blocking panel', () => {
   beforeEach(async () => {
-    await openPanelViaMoreTools('Network request blocking');
+    await openPanelViaMoreTools('network.blocked-urls');
 
     for (let i = 0; i < 20; i++) {
       const plusButton = await waitForAria('Add network request blocking pattern');

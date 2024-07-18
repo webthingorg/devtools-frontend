@@ -80,7 +80,7 @@ export async function enableUntrustedEventMode() {
 
 export async function enableAndOpenRecorderPanel(path: string) {
   await goToResource(path);
-  await openPanelViaMoreTools('Recorder');
+  await openPanelViaMoreTools('chrome-recorder');
   await waitFor(RECORDER_CONTROLLER_TAG_NAME);
 }
 

@@ -11,7 +11,7 @@ const STOP_INSTRUMENTING_BUTTON = 'button[aria-label="Stop instrumenting coverag
 
 export async function waitForTheCoveragePanelToLoad() {
   // Open panel and wait for content
-  await openPanelViaMoreTools('Coverage');
+  await openPanelViaMoreTools('coverage');
   await waitFor('div[aria-label="Coverage panel"]');
   await waitFor('.coverage-results .landing-page');
 }

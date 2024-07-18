@@ -1182,7 +1182,7 @@ describe('The Styles pane', () => {
     const blue = 'rgb(0, 0, 255)';
     assert.isTrue(color === red || color === blue, 'light-dark color is neither red nor blue');
 
-    await openPanelViaMoreTools('Rendering');
+    await openPanelViaMoreTools('rendering');
 
     let isLight = color === red;
 
