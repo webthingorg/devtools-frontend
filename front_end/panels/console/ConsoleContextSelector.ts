@@ -63,9 +63,6 @@ export class ConsoleContextSelector implements SDK.TargetManager.SDKModelObserve
     UI.Context.Context.instance().addFlavorChangeListener(
         SDK.DebuggerModel.CallFrame, this.callFrameSelectedInUI, this);
     SDK.TargetManager.TargetManager.instance().observeModels(SDK.RuntimeModel.RuntimeModel, this, {scoped: true});
-    SDK.TargetManager.TargetManager.instance().addModelListener(
-        SDK.DebuggerModel.DebuggerModel, SDK.DebuggerModel.Events.CallFrameSelected, this.callFrameSelectedInModel,
-        this);
   }
 
   toolbarItem(): UI.Toolbar.ToolbarItem {
@@ -251,9 +248,15 @@ export class ConsoleContextSelector implements SDK.TargetManager.SDKModelObserve
   }
 
   isItemSelectable(item: SDK.RuntimeModel.ExecutionContext): boolean {
-    const callFrame = item.debuggerModel.selectedCallFrame();
-    const callFrameContext = callFrame && callFrame.script.executionContext();
-    return !callFrameContext || item === callFrameContext;
+    const callFrame = UI.Context.Context.instance().flavor(SDK.DebuggerModel.CallFrame);
+    if (!callFrame) {
+      return true;
+    }
+
+    if (callFrame.debuggerModel !== item.debuggerModel) {
+      return true;
+    }
+    return item === callFrame.script.executionContext();
   }
 
   itemSelected(item: SDK.RuntimeModel.ExecutionContext|null): void {
@@ -270,14 +273,9 @@ export class ConsoleContextSelector implements SDK.TargetManager.SDKModelObserve
     if (callFrameContext) {
       UI.Context.Context.instance().setFlavor(SDK.RuntimeModel.ExecutionContext, callFrameContext);
     }
-  }
 
-  private callFrameSelectedInModel(event: Common.EventTarget.EventTargetEvent<SDK.DebuggerModel.DebuggerModel>): void {
-    const debuggerModel = event.data;
     for (const executionContext of this.items) {
-      if (executionContext.debuggerModel === debuggerModel) {
-        this.dropDown.refreshItem(executionContext);
-      }
+      this.dropDown.refreshItem(executionContext);
     }
   }
 

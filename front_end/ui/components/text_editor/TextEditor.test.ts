@@ -248,7 +248,7 @@ describeWithMockConnection('TextEditor autocompletion', () => {
     };
     const callframe = new SDK.DebuggerModel.CallFrame(debuggerModel, testScript, payload);
 
-    executionContext.debuggerModel.setSelectedCallFrame(callframe);
+    UI.Context.Context.instance().setFlavor(SDK.DebuggerModel.CallFrame, callframe);
     pluginManager.addPlugin(new class extends TestPlugin {
       constructor() {
         super('TextEditorTestPlugin');
