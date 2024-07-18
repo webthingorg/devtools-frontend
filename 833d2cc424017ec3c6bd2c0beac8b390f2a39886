@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "adb4a7bc_6e6e7a60",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-07-18T12:35:36Z",
+      "side": 1,
+      "message": "I reverted the parameter back to title and am inferring the jslog context from it in the function body to maintain the status quo. \n\nOverall, I am not sure if the aspiration is achievable, but let\u0027s park this discussion for later.",
+      "parentUuid": "7c82c048_291b5943",
+      "revId": "833d2cc424017ec3c6bd2c0beac8b390f2a39886",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0e098288_500c08eb",
@@ -31,6 +49,30 @@
       "writtenOn": "2024-07-18T09:01:39Z",
       "side": 1,
       "message": "left over from debugging or intentional?",
+      "range": {
+        "startLine": 45,
+        "startChar": 2,
+        "endLine": 45,
+        "endChar": 46
+      },
+      "revId": "833d2cc424017ec3c6bd2c0beac8b390f2a39886",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "307bb3cb_e2eb883f",
+        "filename": "test/e2e/helpers/settings-helpers.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-07-18T12:35:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0e098288_500c08eb",
       "range": {
         "startLine": 45,
         "startChar": 2,
