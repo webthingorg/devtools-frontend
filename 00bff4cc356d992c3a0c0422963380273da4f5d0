@@ -16,6 +16,23 @@
       "message": "PTAL, thanks! Also, do you think this is safe considering that branch point is nearing? Should we wait until M129?",
       "revId": "00bff4cc356d992c3a0c0422963380273da4f5d0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5df81855_dcd343aa",
+        "filename": "front_end/ui/legacy/components/inline_editor/CSSLength.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-07-18T07:46:01Z",
+      "side": 1,
+      "message": "While we\u0027re at it, should this be getting a visual indicator?",
+      "revId": "00bff4cc356d992c3a0c0422963380273da4f5d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
