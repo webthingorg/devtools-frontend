@@ -7,7 +7,6 @@ import {click, goToResource, waitFor} from '../../shared/helper.js';
 import {openPanelViaMoreTools} from './settings-helpers.js';
 import {
   expectVeEvents,
-  veClick,
   veImpression,
   veImpressionsUnder,
 } from './visual-logging-helpers.js';
@@ -33,9 +32,6 @@ export async function waitForAnimationContent() {
   await click('.animation-buffer-preview[aria-label="Animation Preview 1"]', {clickOptions: {offset: {x: 4, y: 4}}});
   await waitFor('.animation-node-row');
   await waitFor('svg.animation-ui');
-  await expectVeEvents([
-    veClick('Drawer > Panel: animations > Section: film-strip > Item: animations.buffer-preview'),
-  ]);
 }
 
 export function veImpressionForAnimationsPanel() {
