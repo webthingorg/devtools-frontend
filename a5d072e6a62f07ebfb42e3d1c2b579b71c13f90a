@@ -16,6 +16,52 @@
       "message": "ptal",
       "revId": "a5d072e6a62f07ebfb42e3d1c2b579b71c13f90a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9bcdf1a2_3edc57cd",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-07-18T12:29:14Z",
+      "side": 1,
+      "message": "This effectively makes string a loggable. I guess we can simply include string into the `Loggable` type definition.",
+      "range": {
+        "startLine": 121,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 0
+      },
+      "revId": "a5d072e6a62f07ebfb42e3d1c2b579b71c13f90a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "615f361b_5349dd76",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 603,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-07-18T12:29:14Z",
+      "side": 1,
+      "message": "Does this value stay the same across `#registerLoggableGroups` invocations?",
+      "range": {
+        "startLine": 603,
+        "startChar": 94,
+        "endLine": 603,
+        "endChar": 115
+      },
+      "revId": "a5d072e6a62f07ebfb42e3d1c2b579b71c13f90a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
