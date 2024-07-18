@@ -41,7 +41,7 @@ import * as Platform from '../platform/platform.js';
 import * as Root from '../root/root.js';
 
 import {type PageResourceLoadInitiator} from './PageResourceLoader.js';
-import {type GetPropertiesResult, type RemoteObject, ScopeRef} from './RemoteObject.js';
+import {type GetPropertiesResult, type RemoteObject, RemoteObjectProperty, ScopeRef} from './RemoteObject.js';
 import {Events as ResourceTreeModelEvents, ResourceTreeModel} from './ResourceTreeModel.js';
 import {type EvaluationOptions, type EvaluationResult, type ExecutionContext, RuntimeModel} from './RuntimeModel.js';
 import {Script} from './Script.js';
@@ -90,6 +90,14 @@ const UIStrings = {
    *@description Text describing the expression scope in WebAssembly
    */
   expression: 'Expression',
+  /**
+   *@description Text in Scope Chain Sidebar Pane of the Sources panel
+   */
+  exception: 'Exception',
+  /**
+   *@description Text in Scope Chain Sidebar Pane of the Sources panel
+   */
+  returnValue: 'Return value',
 };
 const str_ = i18n.i18n.registerUIStrings('core/sdk/DebuggerModel.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -1166,7 +1174,7 @@ export interface MissingDebugInfoDetails {
 }
 
 export class CallFrame {
-  debuggerModel: DebuggerModel;
+  readonly debuggerModel: DebuggerModel;
   readonly script: Script;
   payload: Protocol.Debugger.CallFrame;
   readonly #locationInternal: Location;
@@ -1177,16 +1185,18 @@ export class CallFrame {
   readonly #functionLocationInternal: Location|undefined;
   #returnValueInternal: RemoteObject|null;
   missingDebugInfoDetails: MissingDebugInfoDetails|null;
+  readonly debuggerPausedDetails: DebuggerPausedDetails;
 
   readonly canBeRestarted: boolean;
 
   constructor(
-      debuggerModel: DebuggerModel, script: Script, payload: Protocol.Debugger.CallFrame, inlineFrameIndex?: number,
-      functionName?: string) {
-    this.debuggerModel = debuggerModel;
+      debuggerPausedDetails: DebuggerPausedDetails, script: Script, payload: Protocol.Debugger.CallFrame,
+      inlineFrameIndex?: number, functionName?: string) {
+    this.debuggerPausedDetails = debuggerPausedDetails;
+    this.debuggerModel = debuggerPausedDetails.debuggerModel;
     this.script = script;
     this.payload = payload;
-    this.#locationInternal = Location.fromPayload(debuggerModel, payload.location, inlineFrameIndex);
+    this.#locationInternal = Location.fromPayload(this.debuggerModel, payload.location, inlineFrameIndex);
     this.#scopeChainInternal = [];
     this.#localScopeInternal = null;
     this.inlineFrameIndex = inlineFrameIndex || 0;
@@ -1201,26 +1211,27 @@ export class CallFrame {
       }
     }
     if (payload.functionLocation) {
-      this.#functionLocationInternal = Location.fromPayload(debuggerModel, payload.functionLocation);
+      this.#functionLocationInternal = Location.fromPayload(this.debuggerModel, payload.functionLocation);
     }
     this.#returnValueInternal =
         payload.returnValue ? this.debuggerModel.runtimeModel().createRemoteObject(payload.returnValue) : null;
   }
 
-  static fromPayloadArray(debuggerModel: DebuggerModel, callFrames: Protocol.Debugger.CallFrame[]): CallFrame[] {
+  static fromPayloadArray(debuggerPausedDetails: DebuggerPausedDetails, callFrames: Protocol.Debugger.CallFrame[]):
+      CallFrame[] {
     const result = [];
     for (let i = 0; i < callFrames.length; ++i) {
       const callFrame = callFrames[i];
-      const script = debuggerModel.scriptForId(callFrame.location.scriptId);
+      const script = debuggerPausedDetails.debuggerModel.scriptForId(callFrame.location.scriptId);
       if (script) {
-        result.push(new CallFrame(debuggerModel, script, callFrame));
+        result.push(new CallFrame(debuggerPausedDetails, script, callFrame));
       }
     }
     return result;
   }
 
   createVirtualCallFrame(inlineFrameIndex: number, name: string): CallFrame {
-    return new CallFrame(this.debuggerModel, this.script, this.payload, inlineFrameIndex, name);
+    return new CallFrame(this.debuggerPausedDetails, this.script, this.payload, inlineFrameIndex, name);
   }
 
   get id(): Protocol.Debugger.CallFrameId {
@@ -1337,6 +1348,12 @@ export interface ScopeChainEntry {
   description(): string;
 
   icon(): string|undefined;
+
+  /**
+   * Extra and/or synthetic properties that should be added to the `RemoteObject`
+   * returned by {@link ScopeChainEntry.object}.
+   */
+  extraProperties(): RemoteObjectProperty[];
 }
 
 export class Scope implements ScopeChainEntry {
@@ -1435,6 +1452,28 @@ export class Scope implements ScopeChainEntry {
   icon(): undefined {
     return undefined;
   }
+
+  extraProperties(): RemoteObjectProperty[] {
+    if (this.#ordinal !== 0 || this.#typeInternal !== Protocol.Debugger.ScopeType.Local ||
+        this.#callFrameInternal.script.isWasm()) {
+      return [];
+    }
+
+    const extraProperties = [];
+    const exception = this.#callFrameInternal.debuggerPausedDetails.exception();
+    if (exception) {
+      extraProperties.push(new RemoteObjectProperty(
+          i18nString(UIStrings.exception), exception, undefined, undefined, undefined, undefined, undefined,
+          /* synthetic */ true));
+    }
+    const returnValue = this.#callFrameInternal.returnValue();
+    if (returnValue) {
+      extraProperties.push(new RemoteObjectProperty(
+          i18nString(UIStrings.returnValue), returnValue, undefined, undefined, undefined, undefined, undefined,
+          /* synthetic */ true, this.#callFrameInternal.setReturnValue.bind(this.#callFrameInternal)));
+    }
+    return extraProperties;
+  }
 }
 
 export class DebuggerPausedDetails {
@@ -1459,7 +1498,7 @@ export class DebuggerPausedDetails {
       breakpointIds: string[], asyncStackTrace?: Protocol.Runtime.StackTrace,
       asyncStackTraceId?: Protocol.Runtime.StackTraceId) {
     this.debuggerModel = debuggerModel;
-    this.callFrames = CallFrame.fromPayloadArray(debuggerModel, callFrames);
+    this.callFrames = CallFrame.fromPayloadArray(this, callFrames);
     this.reason = reason;
     this.auxData = auxData;
     this.breakpointIds = breakpointIds;
