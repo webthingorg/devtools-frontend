@@ -33,6 +33,7 @@ import * as Host from '../../../../core/host/host.js';
 import * as i18n from '../../../../core/i18n/i18n.js';
 import * as Platform from '../../../../core/platform/platform.js';
 import * as Bindings from '../../../../models/bindings/bindings.js';
+import type * as TraceHelpers from '../../../../models/trace/helpers/helpers.js';
 import * as TraceEngine from '../../../../models/trace/trace.js';
 import * as Buttons from '../../../components/buttons/buttons.js';
 import type * as VisualLogging from '../../../visual_logging/visual_logging.js';
@@ -70,6 +71,10 @@ const UIStrings = {
    *@example {Network} PH1
    */
   sCollapsed: '{PH1} collapsed',
+  /**
+   *@description Text for AI thing
+   */
+  whatsThis: 'What\s this?',
   /**
    *@description Text for Hiding a function from the Flame Chart
    */
@@ -1220,6 +1225,49 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     }
 
     this.contextMenu = new UI.ContextMenu.ContextMenu(event, {useSoftMenu: true});
+
+    const whatsThisOption = this.contextMenu.defaultSection().appendItem(i18nString(UIStrings.whatsThis), async () => {
+      const aidaAvailability = await Host.AidaClient.AidaClient.getAidaClientAvailability();
+      if (aidaAvailability !== Host.AidaClient.AidaAvailability.AVAILABLE) {
+        alert(aidaAvailability);
+        return;
+      }
+      const icicle = this.dataProvider.getIcicle(this.selectedEntryIndex);
+      const allowed = new Map(Object.entries(TraceEngine.Types.TraceEvents.ImportantEventName));
+      icicle?.filter(node => {
+        return (Boolean(node.function) || allowed.has(node.type)) &&
+            (node.duration === undefined || node.duration > 500);
+      });
+      icicle?.rename(node => {
+        return node.function ? 'JS' : allowed.get(node.type) ?? '?';
+      });
+
+      const json = JSON.stringify(icicle);
+      // eslint-disable-next-line
+      console.log(JSON.parse(json));
+
+      const aidaClient = new Host.AidaClient.AidaClient();
+      const aidaRequest = Host.AidaClient.AidaClient.buildConsoleInsightsRequest(
+          'A web page was profiled, and one of the tasks that the webpage is doing is described to you as a JSON object.' +
+              'The start and duration are in microseconds.\n' +
+              'Explain what the task is doing.\n' +
+              'Focus on what is taking the most amount of time.\n' +
+              'The JSON object shape is irrelevant.\n' + json,
+          {
+            temperature: 0,
+          },
+      );
+      let explanation = '';
+      for await (const response of aidaClient.fetch(aidaRequest)) {
+        explanation = response.explanation;
+      }
+      // eslint-disable-next-line
+      console.log(explanation);
+    }, {
+      jslogContext: 'whats-this',
+    });
+    const modifier = UI.KeyboardShortcut.Modifiers.CtrlOrMeta;
+    whatsThisOption.setShortcut(UI.KeyboardShortcut.KeyboardShortcut.shortcutToString('?', modifier));
 
     const hideEntryOption = this.contextMenu.defaultSection().appendItem(i18nString(UIStrings.hideFunction), () => {
       this.modifyTree(TraceEngine.EntriesFilter.FilterAction.MERGE_FUNCTION, this.selectedEntryIndex);
@@ -3865,6 +3913,8 @@ export interface FlameChartDataProvider {
 
   indexForEvent?(event: TraceEngine.Types.TraceEvents.TraceEventData|
                  TraceEngine.Handlers.ModelHandlers.Frames.TimelineFrame): number|null;
+
+  getIcicle(entryIndex: number): TraceHelpers.TreeHelpers.Icicle|null;
 }
 
 export interface FlameChartMarker {

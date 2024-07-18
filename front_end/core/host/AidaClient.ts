@@ -121,7 +121,7 @@ export enum AidaAvailability {
 export const CLIENT_NAME = 'CHROME_DEVTOOLS';
 
 export class AidaClient {
-  static buildConsoleInsightsRequest(input: string): AidaRequest {
+  static buildConsoleInsightsRequest(input: string, options?: {temperature?: number}): AidaRequest {
     const request: AidaRequest = {
       input,
       client: CLIENT_NAME,
@@ -132,10 +132,13 @@ export class AidaClient {
     let temperature = NaN;
     let modelId = null;
     let disallowLogging = false;
-    if (config?.devToolsConsoleInsights.enabled) {
+    if (config) {
       temperature = config.devToolsConsoleInsights.aidaTemperature;
       modelId = config.devToolsConsoleInsights.aidaModelId;
       disallowLogging = config.devToolsConsoleInsights.disallowLogging;
+    }
+    if (options) {
+      temperature = options?.temperature ?? temperature;
     }
 
     if (!isNaN(temperature)) {
