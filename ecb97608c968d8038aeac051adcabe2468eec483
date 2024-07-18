@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "339c2b04_e42eedb3",
+        "filename": "front_end/panels/animation/AnimationModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-07-18T10:47:42Z",
+      "side": 1,
+      "message": "nit: `function` instead of arrow?",
+      "revId": "ecb97608c968d8038aeac051adcabe2468eec483",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21f18b85_5adb67e5",
+        "filename": "front_end/panels/animation/AnimationModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-07-18T10:47:42Z",
+      "side": 1,
+      "message": "why not remove it?",
+      "revId": "ecb97608c968d8038aeac051adcabe2468eec483",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
