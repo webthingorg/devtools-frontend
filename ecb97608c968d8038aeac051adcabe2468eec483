@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "435d1e22_e230e17c",
+        "filename": "front_end/panels/animation/AnimationModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-18T10:53:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "339c2b04_e42eedb3",
+      "revId": "ecb97608c968d8038aeac051adcabe2468eec483",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "21f18b85_5adb67e5",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-07-18T10:47:42Z",
       "side": 1,
       "message": "why not remove it?",
+      "revId": "ecb97608c968d8038aeac051adcabe2468eec483",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa011209_4a839bbc",
+        "filename": "front_end/panels/animation/AnimationModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-18T10:53:41Z",
+      "side": 1,
+      "message": "Removing it from `AnimationModel` makes sense, though we cannot remove it completely from `AnimationDispatcher` so I moved the comment there and made it a noop. WDYT?",
+      "parentUuid": "21f18b85_5adb67e5",
       "revId": "ecb97608c968d8038aeac051adcabe2468eec483",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
