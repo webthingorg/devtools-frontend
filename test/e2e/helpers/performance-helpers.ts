@@ -81,7 +81,7 @@ export async function toggleCaseSensitive() {
 }
 
 export async function toggleRegExButtonBottomUp() {
-  const regexButton = await waitForAria('Use Regular Expression');
+  const regexButton = await waitFor('[aria-label="Use Regular Expression"]');
   await regexButton.click();
 }
 
