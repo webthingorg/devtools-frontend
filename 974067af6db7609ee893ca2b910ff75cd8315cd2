@@ -16,6 +16,24 @@
       "message": "Wdyt? Should we remove this?",
       "revId": "974067af6db7609ee893ca2b910ff75cd8315cd2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3025e1e_19990167",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-07-18T07:45:39Z",
+      "side": 1,
+      "message": "Nice cleanup!",
+      "parentUuid": "584df702_ee1b9dd1",
+      "revId": "974067af6db7609ee893ca2b910ff75cd8315cd2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
