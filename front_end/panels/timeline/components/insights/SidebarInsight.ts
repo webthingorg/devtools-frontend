@@ -4,12 +4,23 @@
 
 import * as ComponentHelpers from '../../../../ui/components/helpers/helpers.js';
 import * as LitHtml from '../../../../ui/lit-html/lit-html.js';
+import {type TimelineOverlay} from '../../Overlays.js';
 
 import sidebarInsightStyles from './sidebarInsight.css.js';
 
 export interface InsightDetails {
   title: string;
   expanded: boolean;
+}
+
+export class IndividialSidebarInsights extends Event {
+  static readonly eventName = 'individualinsightclick';
+
+  constructor(
+      public toggledInsight: string, public navigationId: string,
+      public createOverlayFn: () => Array<TimelineOverlay>) {
+    super(IndividialSidebarInsights.eventName, {bubbles: true, composed: true});
+  }
 }
 
 export class SidebarInsight extends HTMLElement {
