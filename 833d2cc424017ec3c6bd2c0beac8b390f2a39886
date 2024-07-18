@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c82c048_291b5943",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-07-18T09:01:39Z",
+      "side": 1,
+      "message": "lgtm % offline discussion about whether to use IDs or Aria labels.\n\nI\u0027ll +1 already so you can land once you decide what works better.",
+      "revId": "833d2cc424017ec3c6bd2c0beac8b390f2a39886",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e098288_500c08eb",
+        "filename": "test/e2e/helpers/settings-helpers.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-07-18T09:01:39Z",
+      "side": 1,
+      "message": "left over from debugging or intentional?",
+      "range": {
+        "startLine": 45,
+        "startChar": 2,
+        "endLine": 45,
+        "endChar": 46
+      },
+      "revId": "833d2cc424017ec3c6bd2c0beac8b390f2a39886",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
