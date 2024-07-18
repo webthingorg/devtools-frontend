@@ -10,7 +10,7 @@ import {openPanelViaMoreTools} from '../helpers/settings-helpers.js';
 
 describe('Sensors panel', () => {
   beforeEach(async () => {
-    await openPanelViaMoreTools('Sensors');
+    await openPanelViaMoreTools('sensors');
   });
 
   it('includes UI for emulating touch', async () => {

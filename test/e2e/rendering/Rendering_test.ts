@@ -10,7 +10,7 @@ import {openPanelViaMoreTools} from '../helpers/settings-helpers.js';
 
 describe('Rendering pane', () => {
   it('includes UI for simulating vision deficiencies', async () => {
-    await openPanelViaMoreTools('Rendering');
+    await openPanelViaMoreTools('rendering');
 
     const option = await waitFor('option[value="achromatopsia"]');
     const actual = await option.evaluate(node => {
@@ -30,7 +30,7 @@ describe('Rendering pane', () => {
   });
 
   it('includes UI for emulating color-gamut media feature', async () => {
-    await openPanelViaMoreTools('Rendering');
+    await openPanelViaMoreTools('rendering');
 
     const option = await waitFor('option[value="rec2020"]');
     const actual = await option.evaluate(node => {
@@ -47,7 +47,7 @@ describe('Rendering pane', () => {
   });
 
   it('includes UI for emulating prefers-contrast media feature', async function() {
-    await openPanelViaMoreTools('Rendering');
+    await openPanelViaMoreTools('rendering');
 
     // TODO(sartang@microsoft.com): Remove this condition once feature is fully enabled
     const {frontend} = getBrowserAndPages();
@@ -75,7 +75,7 @@ describe('Rendering pane', () => {
   });
 
   it('includes UI for emulating auto dark mode', async () => {
-    await openPanelViaMoreTools('Rendering');
+    await openPanelViaMoreTools('rendering');
     await waitFor('[title="Enable automatic dark mode"]');
   });
 });

@@ -178,7 +178,7 @@ describe('User Metrics', () => {
   });
 
   it('dispatches events for triple dot items', async () => {
-    await openPanelViaMoreTools('Animations');
+    await openPanelViaMoreTools('animations');
 
     await assertHistogramEventsInclude([
       {
@@ -189,7 +189,7 @@ describe('User Metrics', () => {
   });
 
   it('dispatches events for opening issues drawer via hamburger menu', async () => {
-    await openPanelViaMoreTools('Issues');
+    await openPanelViaMoreTools('issues');
 
     await assertHistogramEventsInclude([
       {
@@ -422,7 +422,7 @@ describe('User Metrics for sidebar panes', () => {
 describe('User Metrics for Issue Panel', () => {
   beforeEach(async () => {
     await enableExperiment('contrast-issues');
-    await openPanelViaMoreTools('Issues');
+    await openPanelViaMoreTools('issues');
   });
 
   it('dispatches an event when a LowTextContrastIssue is created', async () => {

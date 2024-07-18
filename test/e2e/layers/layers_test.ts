@@ -27,7 +27,7 @@ describe('The Layers Panel', () => {
     await goToResource(targetUrl);
 
     await frontend.bringToFront();
-    await openPanelViaMoreTools('Layers');
+    await openPanelViaMoreTools('layers');
     await target.bringToFront();
     await raf(target);
     await frontend.bringToFront();
@@ -46,7 +46,7 @@ describe('The Layers Panel', () => {
     expectError(
         'Fetch API cannot load chrome-error://chromewebdata/neterror.rollup.js.map. URL scheme "chrome-error" is not supported.');
     const {target, frontend} = getBrowserAndPages();
-    await openPanelViaMoreTools('Layers');
+    await openPanelViaMoreTools('layers');
 
     const targetUrl = 'layers/default.html';
     await goToResource(targetUrl, {waitUntil: 'networkidle0'});
