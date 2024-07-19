@@ -65,7 +65,7 @@ Runs all static analysis checks on DevTools code.
     and the
     [Chromium Documentation Best Practices](https://chromium.googlesource.com/chromium/src/+/refs/heads/main/docs/documentation_best_practices.md).
 *   Markdown documents must follow the
-    [style guide](https://github.com/google/styleguide/tree/gh-pages/docguide).
+    [Markdown style guide](styleguide/markdown/markdown.md).
 
 ### Previewing changes
 
