@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "285369ab_8734bc22",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2024-07-19T12:06:07Z",
+      "side": 1,
+      "message": "@dsv@chromium.org need LGTM again as I remove the visual logging of the banner",
+      "revId": "2ea08bdc07701d485dba608c58a94ca94b284f80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
