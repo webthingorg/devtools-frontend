@@ -46,6 +46,30 @@
       },
       "revId": "f80e9cf67c3ac9fec275e818c56d770c1e947d17",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c906a18_0afa4572",
+        "filename": "front_end/core/sdk/DebuggerModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1228,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-07-19T15:48:52Z",
+      "side": 1,
+      "message": "Poll was also leaning towards this. So landing as-is for now.",
+      "parentUuid": "a7dd2f9f_1811af67",
+      "range": {
+        "startLine": 1228,
+        "startChar": 8,
+        "endLine": 1228,
+        "endChar": 46
+      },
+      "revId": "f80e9cf67c3ac9fec275e818c56d770c1e947d17",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
