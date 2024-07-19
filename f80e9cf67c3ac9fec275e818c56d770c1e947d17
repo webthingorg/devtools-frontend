@@ -22,6 +22,30 @@
       },
       "revId": "f80e9cf67c3ac9fec275e818c56d770c1e947d17",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7dd2f9f_1811af67",
+        "filename": "front_end/core/sdk/DebuggerModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1228,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-07-19T12:51:27Z",
+      "side": 1,
+      "message": "I\u0027m in favor, what was the result of the poll?",
+      "parentUuid": "e1e49eae_32a51ffd",
+      "range": {
+        "startLine": 1228,
+        "startChar": 8,
+        "endLine": 1228,
+        "endChar": 46
+      },
+      "revId": "f80e9cf67c3ac9fec275e818c56d770c1e947d17",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
