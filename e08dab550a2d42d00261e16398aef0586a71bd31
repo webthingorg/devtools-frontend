@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f45dc76_dc55a35b",
+        "filename": "front_end/core/sdk/DebuggerModel.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 1460,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-07-19T12:51:21Z",
+      "side": 1,
+      "message": "What happens with a wasm exception? Wouldn\u0027t we want to show that, too?",
+      "revId": "e08dab550a2d42d00261e16398aef0586a71bd31",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
