@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8add87e_1603bbe6",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-19T08:38:22Z",
+      "side": 1,
+      "message": "as discussed, these should live in PerfUI.FlameChart rather than here, other than that this CL lgtm 😊",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 32
+      },
+      "revId": "062e6a9d92c355080ae72efa63d872e7d81bad72",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
