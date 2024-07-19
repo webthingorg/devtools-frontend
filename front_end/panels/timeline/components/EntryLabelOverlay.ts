@@ -136,7 +136,13 @@ Otherwise, the entry label overlay object only gets repositioned.
     }
 
     const pastedText = clipboardData.getData('text');
+    this.pasteLabel(pastedText);
+  }
 
+  pasteLabel(pastedText: string): void {
+    if (!this.#labelBox) {
+      return;
+    }
     const newText = this.#labelBox.textContent + pastedText;
     const trimmedText = newText.slice(0, EntryLabelOverlay.MAX_LABEL_LENGTH + 1);
 
