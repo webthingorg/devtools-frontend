@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3fc304d2_5ce15bd0",
+        "filename": "front_end/core/sdk/AutofillModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2024-07-19T12:56:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d4c2dbba_4507406f",
+      "range": {
+        "startLine": 127,
+        "startChar": 43,
+        "endLine": 127,
+        "endChar": 54
+      },
+      "revId": "c643852df2ea7e52aae0adcbe7289e94d950efac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "03d17d22_fe8721aa",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-07-19T09:16:09Z",
       "side": 1,
       "message": "Erfundene Straße",
+      "range": {
+        "startLine": 128,
+        "startChar": 49,
+        "endLine": 128,
+        "endChar": 59
+      },
+      "revId": "c643852df2ea7e52aae0adcbe7289e94d950efac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdb24710_2285d54b",
+        "filename": "front_end/core/sdk/AutofillModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1523322
+      },
+      "writtenOn": "2024-07-19T12:56:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03d17d22_fe8721aa",
       "range": {
         "startLine": 128,
         "startChar": 49,
