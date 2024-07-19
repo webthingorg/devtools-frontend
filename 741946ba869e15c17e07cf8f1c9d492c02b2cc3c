@@ -16,6 +16,23 @@
       "message": "ping",
       "revId": "741946ba869e15c17e07cf8f1c9d492c02b2cc3c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aaa530fa_5082b38a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-07-19T09:41:24Z",
+      "side": 1,
+      "message": "Hey Yang, I believe the rename doesn\u0027t reflect the correct behaviour unfortunately, but the current string does. e.g. when the system has dark mode selected, Chrome -light and DevTools - system preference, DevTools switched to dark mode, same as the system and doesn\u0027t follow Chrome. See the screenshot attached https://i.imgur.com/mC7C4ug.png",
+      "revId": "741946ba869e15c17e07cf8f1c9d492c02b2cc3c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
