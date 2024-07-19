@@ -29,11 +29,13 @@
  */
 
 import * as Common from '../../core/common/common.js';
+import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import type * as Platform from '../../core/platform/platform.js';
 import * as Root from '../../core/root/root.js';
 import * as Bindings from '../../models/bindings/bindings.js';
 import type * as TimelineModel from '../../models/timeline_model/timeline_model.js';
+import type * as TraceHelpers from '../../models/trace/helpers/helpers.js';
 import * as TraceEngine from '../../models/trace/trace.js';
 import * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 import * as UI from '../../ui/legacy/legacy.js';
@@ -161,8 +163,34 @@ export class TimelineFlameChartDataProvider extends Common.ObjectWrapper.ObjectW
 
   modifyTree(node: number, action: TraceEngine.EntriesFilter.FilterAction): void {
     const entry = this.entryData[node] as TraceEngine.Types.TraceEvents.SyntheticTraceEntry;
-
     ModificationsManager.activeManager()?.getEntriesFilter().applyFilterAction({type: action, entry});
+  }
+
+  getIcicleFromNodeIndex(node: number): TraceHelpers.TreeHelpers.Icicle|null {
+    const entry = this.entryData[node] as TraceEngine.Types.TraceEvents.SyntheticTraceEntry;
+    const manager = ModificationsManager.activeManager();
+    if (!manager) {
+      return null;
+    }
+    return manager.getEntriesFilter().getIcicle(entry);
+  }
+
+  getIcicleFromEntry(entry: TraceEngine.Types.TraceEvents.TraceEventData): TraceHelpers.TreeHelpers.Icicle|null {
+    const manager = ModificationsManager.activeManager();
+    if (!manager) {
+      return null;
+    }
+    return manager.getEntriesFilter().getIcicle(entry);
+  }
+
+  async * prompt(text: string): AsyncGenerator<Host.AidaClient.AidaResponse, void, void> {
+    const aidaAvailability = await Host.AidaClient.AidaClient.getAidaClientAvailability();
+    if (aidaAvailability !== Host.AidaClient.AidaAvailability.AVAILABLE) {
+      throw new Error(aidaAvailability);
+    }
+    const aidaClient = new Host.AidaClient.AidaClient();
+    const aidaRequest = Host.AidaClient.AidaClient.buildConsoleInsightsRequest(text, {temperature: 0.2});
+    yield* aidaClient.fetch(aidaRequest);
   }
 
   findPossibleContextMenuActions(node: number): TraceEngine.EntriesFilter.PossibleFilterActions|void {

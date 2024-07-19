@@ -95,6 +95,51 @@ export class EntriesFilter {
     return possibleActions;
   }
 
+  getIcicle(entry: Types.TraceEvents.SyntheticTraceEntry): Helpers.TreeHelpers.Icicle|null {
+    const node = this.#entryToNode.get(entry);
+    if (!node) {
+      return null;
+    }
+
+    function getRoot(node: Helpers.TreeHelpers.TraceEntryNode): Helpers.TreeHelpers.TraceEntryNode {
+      if (node.parent) {
+        return getRoot(node.parent);
+      }
+      return node;
+    }
+
+    function crateIcicleFromNode(node: Helpers.TreeHelpers.TraceEntryNode): Helpers.TreeHelpers.Icicle {
+      const icicle = new Helpers.TreeHelpers.Icicle(
+          node.entry.name,
+          Types.Timing.MilliSeconds(node.entry.ts / 1000),
+          node.entry.dur === undefined ? undefined : Types.Timing.MilliSeconds(node.entry.dur / 1000),
+          node.entry.selfTime === undefined ? undefined : Types.Timing.MilliSeconds(node.entry.selfTime / 1000),
+      );
+      if (Types.TraceEvents.isProfileCall(node.entry)) {
+        icicle.function = node.entry.callFrame.functionName || '(anonymous)';
+        try {
+          const url = new URL(node.entry.callFrame.url);
+          icicle.url = url.origin;
+          icicle.line = node.entry.callFrame.lineNumber;
+          icicle.column = node.entry.callFrame.columnNumber;
+        } catch (e) {
+        }
+      }
+      return icicle;
+    }
+
+    function createIcicleTree(node: Helpers.TreeHelpers.TraceEntryNode): Helpers.TreeHelpers.Icicle {
+      const icicle = crateIcicleFromNode(node);
+      for (const child of node.children) {
+        icicle.children ??= [];
+        icicle.children.push(createIcicleTree(child));
+      }
+      return icicle;
+    }
+
+    return createIcicleTree(getRoot(node));
+  }
+
   /**
    * Returns the amount of entry descendants that belong to the hidden entries array.
    * */

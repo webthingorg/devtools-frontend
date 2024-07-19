@@ -727,6 +727,32 @@ export class Overlays extends EventTarget {
     div.classList.add('overlay-item', `overlay-type-${overlay.type}`);
     switch (overlay.type) {
       case 'ENTRY_LABEL': {
+        const generateLabel = async(
+            entry: TraceEngine.Types.TraceEvents.TraceEventData,
+            component: Components.EntryLabelOverlay.EntryLabelOverlay): Promise<void> => {
+          const icicle = this.#charts.mainProvider.getIcicleFromEntry(entry);
+          icicle?.massageForAI({minTotalTime: 1, minJsTotalTime: 1, minJsSelfTime: 0.1});
+          const json = JSON.stringify(icicle);
+          // eslint-disable-next-line
+          console.log(JSON.parse(json));
+          const response = this.#charts.mainProvider.prompt(
+              'A web page was profiled, and one of the tasks in the profile is described to you as a JSON object.\n' +
+              'The \'url\', \'line\' and \'column\' specify a function\'s location.\n' +
+              'The \'start\', \'totalTime\' (duration including children) and \'selfTime\' (own duration excluding children) are in milliseconds.\n' +
+              'Generate a very short title of only a few words describing what the task is broadly doing.\n' +
+              'In the title, focus on what is taking the most amount of time on its own.\n' +
+              'Only if \'Parse HTML\', \'Parse CSS\', \'Garbage Collect\', \'Recalculate Style\', \'Layout\' or \'Paint\' are taking a long time, they are important for your title. Otherwise, don\'t say anything about them.\n' +
+              'The JSON object describing the task in the profile is irrelevant. Never mention anything about it.\n' +
+              json);
+          let explanation = '';
+          for await (const part of response) {
+            explanation = part.explanation;
+          }
+          // eslint-disable-next-line
+          console.log(explanation);
+          component.pasteLabel(explanation);
+        };
+
         const component = new Components.EntryLabelOverlay.EntryLabelOverlay(overlay.label);
         component.addEventListener(Components.EntryLabelOverlay.EmptyEntryLabelRemoveEvent.eventName, () => {
           this.dispatchEvent(new AnnotationOverlayActionEvent(overlay, 'Remove'));
@@ -737,6 +763,9 @@ export class Overlays extends EventTarget {
           this.dispatchEvent(new AnnotationOverlayActionEvent(overlay, 'Update'));
         });
         div.appendChild(component);
+        if (!(overlay.entry instanceof TraceEngine.Handlers.ModelHandlers.Frames.TimelineFrame)) {
+          void generateLabel(overlay.entry, component);
+        }
         return div;
       }
       case 'TIME_RANGE': {
