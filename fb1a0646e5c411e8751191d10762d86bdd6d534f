@@ -34,6 +34,24 @@
       "parentUuid": "f6d594cc_489e055c",
       "revId": "fb1a0646e5c411e8751191d10762d86bdd6d534f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "393f9d0a_3e6c44fd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-07-19T16:03:07Z",
+      "side": 1,
+      "message": "Probably because I patched in only the second CL in the chain on my laptop. But diff looks fine now after rebase.",
+      "parentUuid": "b2b5df89_7af0df5f",
+      "revId": "fb1a0646e5c411e8751191d10762d86bdd6d534f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
