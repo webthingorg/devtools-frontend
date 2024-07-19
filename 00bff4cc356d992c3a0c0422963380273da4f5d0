@@ -87,6 +87,24 @@
       "parentUuid": "697952ee_f2b0d6bf",
       "revId": "00bff4cc356d992c3a0c0422963380273da4f5d0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ce86923_0933d6dd",
+        "filename": "front_end/ui/legacy/components/inline_editor/CSSLength.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-07-19T14:21:51Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "ac550fdc_f965ac5d",
+      "revId": "00bff4cc356d992c3a0c0422963380273da4f5d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
