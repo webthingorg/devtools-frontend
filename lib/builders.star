@@ -289,6 +289,11 @@ def generate_ci_configs(configurations, builders):
             bucket = "ci",
             repo = c.repo,
             refs = [c.branch],
+            path_regexps = [".+"],
+            path_regexps_exclude = [
+                "docs/.+",
+                "README.md",
+            ],
             triggers = [name for name, _ in builders_refs],
         )
 
