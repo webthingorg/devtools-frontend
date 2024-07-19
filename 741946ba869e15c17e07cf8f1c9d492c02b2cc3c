@@ -50,6 +50,23 @@
       "message": "Okay, I re-read the email thread, comments on the bug and checked the behaviour in Canary. There system preference now indeed makes DevTools follow Chrome\u0027s light/dark mode choice. LGTM",
       "revId": "741946ba869e15c17e07cf8f1c9d492c02b2cc3c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "701427c3_5b4c193c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2024-07-19T09:56:24Z",
+      "side": 1,
+      "message": "thanks for the review",
+      "revId": "741946ba869e15c17e07cf8f1c9d492c02b2cc3c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
