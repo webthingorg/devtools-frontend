@@ -1,0 +1,45 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5bb5f03_ea23dac5",
+        "filename": "docs/styleguide/markdown/markdown.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1118373
+      },
+      "writtenOn": "2024-07-19T09:20:48Z",
+      "side": 1,
+      "message": "the irony 😄",
+      "range": {
+        "startLine": 10,
+        "startChar": 4,
+        "endLine": 10,
+        "endChar": 99
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "f6038642_f28ff725",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "docs/styleguide/markdown/markdown.md",
+              "range": {
+                "startLine": 9,
+                "startChar": 0,
+                "endLine": 11,
+                "endChar": 0
+              },
+              "replacement": "*   [Limit lines to **80 characters** where possible](https://groups.google.com/a/chromium.org/d/msg/chromium-dev/KECdEn562vY/sqRor1frEgAJ)\n"
+            }
+          ]
+        }
+      ],
+      "revId": "8ab29f5bd096e553738843d6797795af62a358c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
