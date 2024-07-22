@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4cc008f2_2fa73a32",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-07-22T22:37:33Z",
+      "side": 1,
+      "message": "Hi Paul, while implementing rehydrated session, we discovered some problems that came with large script (\u003e 4MB). This patch is the dt-fe side change to address the issue, and I also linked the v8 change in the CL description. Will appreciate a lot if you could take a look at this CL 😊",
+      "revId": "a698277e672c97804e303838a5adee5ee1f3f2da",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
