@@ -28,7 +28,7 @@ export const ISSUE = '.issue:not(.hidden-issue)';
 export const ISSUE_TITLE = '.issue .title';
 export const AFFECTED_ELEMENT_ICON = '.affected-resource-csp-info-node';
 export const ELEMENT_REVEAL_ICON = '.element-reveal-icon';
-export const ELEMENTS_PANEL_SELECTOR = '.panel[aria-label="elements"]';
+export const ELEMENTS_PANEL_SELECTOR = '.panel[data-panel="elements"]';
 export const SOURCES_LINK = '.affected-source-location > button';
 export const BLOCKED_STATUS = '.affected-resource-blocked-status';
 export const REPORT_ONLY_STATUS = '.affected-resource-report-only-status';
