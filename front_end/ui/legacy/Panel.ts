@@ -44,7 +44,7 @@ export class Panel extends VBox {
 
     this.element.setAttribute('jslog', `${VisualLogging.panel().context(name).track({resize: true})}`);
     this.element.classList.add('panel');
-    this.element.setAttribute('aria-label', name);
+    this.element.setAttribute('data-panel', name);
     this.element.classList.add(name);
     this.panelName = name;
 
