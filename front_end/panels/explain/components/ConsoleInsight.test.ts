@@ -181,7 +181,7 @@ describeWithEnvironment('ConsoleInsight', () => {
       sinon.assert.match(aidaClient.registerClientEvent.firstCall.firstArg, sinon.match({
         corresponding_aida_rpc_global_id: 0,
         do_conversation_client_event: {
-          user_feedback: {sentiment: positive ? 'POSITIVE' : 'NEGATIVE'},
+          user_feedback: {sentiment: positive ? Host.AidaClient.Rating.POSITIVE : Host.AidaClient.Rating.NEGATIVE},
         },
       }));
       assert(actionTaken.calledWith(

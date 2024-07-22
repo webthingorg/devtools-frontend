@@ -400,7 +400,7 @@ describeWithEnvironment('AidaClient', () => {
         corresponding_aida_rpc_global_id: RPC_ID,
         do_conversation_client_event: {
           user_feedback: {
-            sentiment: 'POSITIVE',
+            sentiment: Host.AidaClient.Rating.POSITIVE,
           },
         },
       }));
