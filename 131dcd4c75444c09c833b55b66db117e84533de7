@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed13ec2b_5e89d795",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1211408
+      },
+      "writtenOn": "2024-07-22T21:44:22Z",
+      "side": 1,
+      "message": "Hi Matthew, I\u0027m trying to update dev tools to be compliant with a11y rules that prohibit accessible names on elements with certain roles. The rule exists because some screen readers have problems with that. Since you\u0027re more familiar with dev tools, would you be willing to help me out a bit with the test failures?\n\nBasically we can\u0027t put aria-label on a plain div, because it has role\u003dgeneric, and screen readers are not happy about that.",
+      "revId": "131dcd4c75444c09c833b55b66db117e84533de7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
