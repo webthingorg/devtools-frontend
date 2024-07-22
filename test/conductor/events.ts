@@ -36,6 +36,7 @@ const ALLOWED_ASSERTION_FAILURES = [
   'Request Storage.getStorageKeyForFrame failed. {"code":-32602,"message":"Frame tree node for given frame not found"}',
   'Unable to create texture',
   'Not allowed to load local resource: devtools://theme/colors.css',
+  'Icon button does not accept children',
 ];
 
 const logLevels = {
