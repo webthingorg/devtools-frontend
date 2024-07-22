@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5690ec4_465fb7b7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-22T12:33:00Z",
+      "side": 1,
+      "message": "This LGTM but I uploaded a patchset purely to tweak the build system which wasn\u0027t quite working - that\u0027s all I have changed.\n\nHowever, given that, @andoli would you mind reviewing please?",
+      "revId": "a0a27378e93314f92511b7da2349a0121b68a336",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
