@@ -50,6 +50,24 @@
       "message": "Sorry, slipped my attention! LGTM, thanks, Kim!",
       "revId": "64354d44ec5e37a1078f1c72c2bc786575a62d39",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3aab2509_bad18bd3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-07-22T13:02:25Z",
+      "side": 1,
+      "message": "Np, thanks for reviewing! 😊",
+      "parentUuid": "3650983e_b8ef7c98",
+      "revId": "64354d44ec5e37a1078f1c72c2bc786575a62d39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
