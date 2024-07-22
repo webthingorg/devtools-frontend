@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4451c80b_93a75517",
+        "filename": "front_end/core/host/AidaClient.test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-07-22T13:15:48Z",
+      "side": 1,
+      "message": "let\u0027s not use the enum in tests, if the enum happens to get changed to the wrong on-the-wire value, we want to catch it in unit tests",
+      "revId": "51bc7409ce625953b69a6eb97d4f993201788b7c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
