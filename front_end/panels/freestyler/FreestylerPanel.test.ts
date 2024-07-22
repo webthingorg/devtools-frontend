@@ -146,7 +146,7 @@ describeWithEnvironment('FreestylerPanel', () => {
         corresponding_aida_rpc_global_id: RPC_ID,
         do_conversation_client_event: {
           user_feedback: {
-            sentiment: 'POSITIVE',
+            sentiment: Host.AidaClient.Rating.POSITIVE,
           },
         },
         disable_user_content_logging: true,
@@ -191,7 +191,7 @@ describeWithEnvironment('FreestylerPanel', () => {
         corresponding_aida_rpc_global_id: RPC_ID,
         do_conversation_client_event: {
           user_feedback: {
-            sentiment: 'POSITIVE',
+            sentiment: Host.AidaClient.Rating.POSITIVE,
             user_input: {
               comment: feedback,
             },
