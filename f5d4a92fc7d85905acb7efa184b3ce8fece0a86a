@@ -46,6 +46,30 @@
       },
       "revId": "f5d4a92fc7d85905acb7efa184b3ce8fece0a86a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "42e7ec9d_89bdec60",
+        "filename": "front_end/core/sdk/SourceMapScopes.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-07-22T06:36:44Z",
+      "side": 1,
+      "message": "Well, if a generator forgets to put scope kinds for its authored scopes but has the rest, then we could still utilize the rest for debugging without reverting back to mappings only. But we\u0027ll have to see what impls do.",
+      "parentUuid": "c8490a13_1d266524",
+      "range": {
+        "startLine": 105,
+        "startChar": 6,
+        "endLine": 105,
+        "endChar": 31
+      },
+      "revId": "f5d4a92fc7d85905acb7efa184b3ce8fece0a86a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
