@@ -16,6 +16,23 @@
       "message": "Can you take a look please? Preview is at: https://chromium.googlesource.com/devtools/devtools-frontend/+/e1ad8bea31b84c18c82e15f744e1e121d1fcb6a3/docs/styleguide/ux/README.md",
       "revId": "e1ad8bea31b84c18c82e15f744e1e121d1fcb6a3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11d073f0_72e7c0a3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-07-22T05:09:54Z",
+      "side": 1,
+      "message": "Thanks Benedikt!",
+      "revId": "e1ad8bea31b84c18c82e15f744e1e121d1fcb6a3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
