@@ -16,6 +16,23 @@
       "message": "Hi Kateryna!\n\nThis CL is changing an icon in the security panel and its colors, as discussed yesterday during branch review. PTAL!",
       "revId": "24d68b65adfd4bf6073c6fbecd47a3e247c85961",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8898a114_ae85698a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-07-22T05:05:02Z",
+      "side": 1,
+      "message": "Hi Kateryna,\n\nfriendly ping 😊",
+      "revId": "24d68b65adfd4bf6073c6fbecd47a3e247c85961",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
