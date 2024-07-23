@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "945bfee0_7c0d002e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 21
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-07-23T10:39:13Z",
+      "side": 1,
+      "message": "Might be an afterthought, but could this be divided into smaller CL chunks in the future?",
+      "revId": "b2336cb787860a54a575a37b8d43633bba4d3adb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
