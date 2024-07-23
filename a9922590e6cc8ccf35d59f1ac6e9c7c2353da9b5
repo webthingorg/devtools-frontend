@@ -51,6 +51,24 @@
       ],
       "revId": "a9922590e6cc8ccf35d59f1ac6e9c7c2353da9b5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "95da63a6_ddcbcbf4",
+        "filename": "front_end/core/host/AidaClient.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-07-23T12:45:50Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "15f9e162_5da3c351",
+      "revId": "a9922590e6cc8ccf35d59f1ac6e9c7c2353da9b5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
