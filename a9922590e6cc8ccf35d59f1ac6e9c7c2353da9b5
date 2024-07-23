@@ -1,0 +1,56 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b21e635_8827eaae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-07-23T12:22:29Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "a9922590e6cc8ccf35d59f1ac6e9c7c2353da9b5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15f9e162_5da3c351",
+        "filename": "front_end/core/host/AidaClient.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-07-23T12:22:29Z",
+      "side": 1,
+      "message": "nit: empty line added on purpose?",
+      "fixSuggestions": [
+        {
+          "fixId": "7d8cf953_112fe282",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/core/host/AidaClient.ts",
+              "range": {
+                "startLine": 284,
+                "startChar": 0,
+                "endLine": 285,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "a9922590e6cc8ccf35d59f1ac6e9c7c2353da9b5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
