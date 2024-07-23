@@ -12,7 +12,7 @@ but that also runs all the other test suites. To run only
 
 ```
 npm run test front_end
-```
+```212
 
 To use `out/Debug` instead of the default `out/Default` target
 directory, use:
