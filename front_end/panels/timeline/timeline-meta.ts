@@ -30,6 +30,10 @@ const UIStrings = {
    */
   recordAndReload: 'Record and reload',
   /**
+   *@description Title of an action in the timeline tool to record reload
+   */
+  toggleSidebar: 'Toggle sidebar',
+  /**
    *@description Tooltip text that appears when hovering over the largeicon download button
    */
   saveProfile: 'Save profile…',
@@ -150,6 +154,22 @@ UI.ActionRegistration.registerActionExtension({
       shortcut: 'Meta+Shift+E',
     },
   ],
+});
+
+UI.ActionRegistration.registerActionExtension({
+  actionId: 'timeline.toggle-sidebar',
+  iconClass: UI.ActionRegistration.IconClass.LEFT_PANEL_OPEN,
+  toggleable: true,
+  toggledIconClass: UI.ActionRegistration.IconClass.LEFT_PANEL_CLOSE,
+  contextTypes() {
+    return maybeRetrieveContextTypes(Timeline => [Timeline.TimelinePanel.TimelinePanel]);
+  },
+  category: UI.ActionRegistration.ActionCategory.PERFORMANCE,
+  title: i18nLazyString(UIStrings.toggleSidebar),
+  async loadActionDelegate() {
+    const Timeline = await loadTimelineModule();
+    return new Timeline.TimelinePanel.ActionDelegate();
+  },
 });
 
 UI.ActionRegistration.registerActionExtension({
