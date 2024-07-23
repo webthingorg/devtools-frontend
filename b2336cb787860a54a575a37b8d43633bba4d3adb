@@ -16,6 +16,142 @@
       "message": "Might be an afterthought, but could this be divided into smaller CL chunks in the future?",
       "revId": "b2336cb787860a54a575a37b8d43633bba4d3adb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23552d70_2c2efd33",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 21
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-07-23T12:08:25Z",
+      "side": 1,
+      "message": "It seems that there are some test failures, therefore I haven\u0027t looked at test-related code changes yet. The non-test code generally LGTM, except some questions.",
+      "revId": "b2336cb787860a54a575a37b8d43633bba4d3adb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7b1de1d_9ef35d75",
+        "filename": "front_end/panels/application/BackgroundServiceView.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-07-23T12:08:25Z",
+      "side": 1,
+      "message": "nit: just curious, why the renaming from `toggled` to `isToggled`? Is there a naming convention somewhere? I\u0027d like to know because I also run into this naming decision from time to time and I\u0027d love to not have to think about this anymore 😊",
+      "revId": "b2336cb787860a54a575a37b8d43633bba4d3adb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69f106b1_aef2f8d4",
+        "filename": "front_end/ui/legacy/Toolbar.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 591,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-07-23T12:08:25Z",
+      "side": 1,
+      "message": "Similar with the question below: why does `ToolbarButton` have toggle-related methods and states, while we have a child class `ToolbarToggle` that seems to be specifically for toggles?",
+      "revId": "b2336cb787860a54a575a37b8d43633bba4d3adb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed4e73cf_a85a2ff4",
+        "filename": "front_end/ui/legacy/Toolbar.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 599,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-07-23T12:08:25Z",
+      "side": 1,
+      "message": "Why does this method `setToggleType` exist on `ToolbarButton`, but not its child class, `ToolbarToggle`, where it seems more natural to have a `setToggleType` method?",
+      "revId": "b2336cb787860a54a575a37b8d43633bba4d3adb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "624dd97e_f3d3ffff",
+        "filename": "front_end/ui/legacy/Toolbar.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 730,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-07-23T12:08:25Z",
+      "side": 1,
+      "message": "Do we need to remove previously prepended adorners before we prepend a new one?",
+      "revId": "b2336cb787860a54a575a37b8d43633bba4d3adb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a783f0d3_b555e653",
+        "filename": "front_end/ui/legacy/Toolbar.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 957,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-07-23T12:08:25Z",
+      "side": 1,
+      "message": "Similar with the comments below.",
+      "revId": "b2336cb787860a54a575a37b8d43633bba4d3adb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e167ba4_da6fb560",
+        "filename": "front_end/ui/legacy/Toolbar.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 966,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-07-23T12:08:25Z",
+      "side": 1,
+      "message": "The original method can \"unset\" the red color when `toggleWithRedColor` is false. Now it only sets the toggle type to be red, but cannot unset it when `false` is passed. Is this intended? If so, maybe we just rename this to be `enableToggleWithRedColor` and only call it from the call site when we want to enable the red color, and just remove `setToggleWithRedColor(false)` instances since it\u0027s basically no-op now.",
+      "revId": "b2336cb787860a54a575a37b8d43633bba4d3adb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1ec5f84b_8a20ce7c",
+        "filename": "front_end/ui/legacy/Toolbar.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 1054,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-07-23T12:08:25Z",
+      "side": 1,
+      "message": "Why the negation of the original logic here? I\u0027m not familiar with this part to understand this change. Could you explain a bit more please?",
+      "revId": "b2336cb787860a54a575a37b8d43633bba4d3adb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
