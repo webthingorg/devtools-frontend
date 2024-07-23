@@ -22,6 +22,30 @@
       },
       "revId": "d9ed6ba13d8d182931447b896d526c4b92bbf1f8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4bbbc46_21370ea7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2024-07-23T08:50:54Z",
+      "side": 1,
+      "message": "Actually, no. https://crrev.com/c/5725912",
+      "parentUuid": "3ab21755_00f3578b",
+      "range": {
+        "startLine": 9,
+        "startChar": 4,
+        "endLine": 9,
+        "endChar": 8
+      },
+      "revId": "d9ed6ba13d8d182931447b896d526c4b92bbf1f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
