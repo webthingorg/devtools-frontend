@@ -423,7 +423,7 @@ export function veImpressionForConsolePanel() {
           veImpression('Action', 'console.create-pin'),
           veImpression('DropDown', 'log-level'),
           veImpression('ToggleSubpane', 'console-settings'),
-          veImpression('TextField'),
+          veImpression('TextField', 'filter'),
         ]),
     veImpression('TextField', 'console-prompt'),
   ]);
