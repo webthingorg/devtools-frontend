@@ -82,7 +82,17 @@ export async function addDocument(document: Document): Promise<void> {
   observeMutations([document.body]);
 }
 
-export function stopLogging(): void {
+export async function stopLogging(): Promise<void> {
+  for (const throttler
+           of [processingThrottler,
+               keyboardLogThrottler,
+               hoverLogThrottler,
+               dragLogThrottler,
+               clickLogThrottler,
+               resizeLogThrottler,
+  ]) {
+    await throttler.process?.();
+  }
   logging = false;
   unregisterAllLoggables();
   for (const document of documents) {
