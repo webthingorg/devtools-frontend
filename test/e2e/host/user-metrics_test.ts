@@ -33,7 +33,7 @@ import {
 import {navigateToNetworkTab, openNetworkTab} from '../helpers/network-helpers.js';
 import {openCommandMenu} from '../helpers/quick_open-helpers.js';
 import {openPanelViaMoreTools, openSettingsTab} from '../helpers/settings-helpers.js';
-import {waitForSourcesPanel} from '../helpers/sources-helpers.js';
+import {openWorkspaceSubPane, waitForSourcesPanel} from '../helpers/sources-helpers.js';
 
 interface UserMetrics {
   // eslint-disable-next-line @typescript-eslint/naming-convention
@@ -408,7 +408,7 @@ describe('User metrics for CSS overview', () => {
 describe('User Metrics for sidebar panes', () => {
   it('dispatches sidebar panes events for switching to \'Workspace\' tab in the \'Sources\' panel', async () => {
     await click('#tab-sources');
-    await navigateToSidePane('Workspace');
+    await openWorkspaceSubPane();
 
     await assertHistogramEventsInclude([
       {
@@ -541,7 +541,9 @@ describe('User Metrics for Issue Panel', () => {
 describe('User Metrics for CSS custom properties in the Styles pane', () => {
   beforeEach(async () => {
     await goToResource('elements/css-variables.html');
+    console.error('BEGIN');
     await navigateToSidePane('Styles');
+    console.error('END');
     await waitForElementsStyleSection();
     await waitForContentOfSelectedElementsNode('<body>\u200B');
     await focusElementsTree();
