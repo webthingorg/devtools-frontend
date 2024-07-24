@@ -75,6 +75,24 @@ export class EntriesFilter {
     return possibleActions;
   }
 
+  getTraceEntryTreeForAI(entry: TraceEngine.Types.TraceEvents.SyntheticTraceEntry):
+      TraceEngine.Helpers.TreeHelpers.NodeForAI|null {
+    const node = this.#entryToNode.get(entry);
+    if (!node) {
+      return null;
+    }
+
+    function getRoot(node: TraceEngine.Helpers.TreeHelpers.TraceEntryNode):
+        TraceEngine.Helpers.TreeHelpers.TraceEntryNode {
+      if (node.parent) {
+        return getRoot(node.parent);
+      }
+      return node;
+    }
+
+    return TraceEngine.Helpers.TreeHelpers.NodeForAI.fromTraceEntryTree(getRoot(node));
+  }
+
   /**
    * Returns the amount of entry descendants that belong to the hidden entries array.
    * */

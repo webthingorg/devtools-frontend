@@ -7,6 +7,7 @@ import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as TimelineModel from '../../models/timeline_model/timeline_model.js';
+import * as TraceHelpers from '../../models/trace/helpers/helpers.js';
 import * as TraceEngine from '../../models/trace/trace.js';
 import * as DataGrid from '../../ui/legacy/components/data_grid/data_grid.js';
 import * as Components from '../../ui/legacy/components/utils/utils.js';
@@ -891,6 +892,35 @@ export class AggregatedTimelineTreeView extends TimelineTreeView {
 
   override showDetailsForNode(node: TimelineModel.TimelineProfileTree.Node): boolean {
     const stack = this.buildHeaviestStack(node);
+
+    const generateDescription = async(stack: TimelineModel.TimelineProfileTree.Node[]): Promise<void> => {
+      let stackForAI = TraceHelpers.TreeHelpers.NodeForAI.fromProfileTreeStack(stack);
+      stackForAI = TraceHelpers.TreeHelpers.NodeForAI.sanitize(stackForAI);
+
+      const json = JSON.stringify(stackForAI);
+      // eslint-disable-next-line
+      console.log(JSON.parse(json));
+
+      const response = TraceHelpers.TreeHelpers.NodeForAI.promptAI(
+          'A web page was profiled, and the heaviest stack for one of the tasks in the profile is described to you as a JSON array.\n' +
+          'The \'url\', \'line\' and \'column\' specify a function\'s location.\n' +
+          'The \'start\', \'totalTime\' (total duration including children) and \'selfTime\' (own duration excluding children) are in milliseconds.\n' +
+          'First, explain what code in the heaviest stack is broadly doing.\n' +
+          'Then, focus on what is taking the most amount of time on its own.\n' +
+          'If there is JS code present in the heaviest stack, then your explanation must elaborate on it.\n' +
+          'Only if \'Parse HTML\', \'Parse CSS\', \'Compile Code\', \'Garbage Collect\', \'Recalculate Style\', \'Layout\' or \'Paint\' are taking a long time, they are important in your explanation. Otherwise, don\'t say anything about them.\n' +
+          'Overall, don\'t repeat yourself, but also don\'t be too concise.\n' +
+          'The JSON array describing the heaviest stack in the profile is irrelevant. Never mention anything about it.\n' +
+          json);
+      let explanation = '';
+      for await (const part of response) {
+        explanation = part.explanation;
+      }
+      // eslint-disable-next-line
+      console.log(explanation);
+    };
+
+    void generateDescription(stack);
     this.stackView.setStack(stack, node);
     this.stackView.show(this.detailsView.element);
     return true;
