@@ -98,6 +98,10 @@ devtools-select-menu {
   color: var(--sys-color-token-subtle);
 }
 
+.ai-response {
+  /* wut? */
+}
+
 .metric-label {
   font-size: 12px;
   font-weight: bold;

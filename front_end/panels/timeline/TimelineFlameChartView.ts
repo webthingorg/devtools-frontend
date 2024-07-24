@@ -104,7 +104,7 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
   // loggable even if the group gets rebuilt at some point in time.
   #loggableForGroupByLogContext: Map<string, Symbol> = new Map();
 
-  constructor(delegate: TimelineModeViewDelegate) {
+  constructor(delegate: TimelineModeViewDelegate, public sidebar: TimelineComponents.Sidebar.SidebarWidget) {
     super();
     this.element.classList.add('timeline-flamechart');
 
@@ -133,13 +133,15 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     this.mainDataProvider = new TimelineFlameChartDataProvider();
     this.mainDataProvider.addEventListener(
         TimelineFlameChartDataProviderEvents.DataChanged, () => this.mainFlameChart.scheduleUpdate());
-    this.mainFlameChart = new PerfUI.FlameChart.FlameChart(this.mainDataProvider, this, {
-      groupExpansionSetting: mainViewGroupExpansionSetting,
-      // The TimelineOverlays are used for selected elements
-      selectedElementOutline: false,
-      tooltipElement: this.#tooltipElement,
-      useOverlaysForCursorRuler: true,
-    });
+    this.mainFlameChart = new PerfUI.FlameChart.FlameChart(
+        this.mainDataProvider, this, {
+          groupExpansionSetting: mainViewGroupExpansionSetting,
+          // The TimelineOverlays are used for selected elements
+          selectedElementOutline: false,
+          tooltipElement: this.#tooltipElement,
+          useOverlaysForCursorRuler: true,
+        },
+        sidebar);
     this.mainFlameChart.alwaysShowVerticalScroll();
     this.mainFlameChart.enableRuler(false);
 
@@ -152,13 +154,15 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     this.networkFlameChartGroupExpansionSetting =
         Common.Settings.Settings.instance().createSetting('timeline-flamechart-network-view-group-expansion', {});
     this.networkDataProvider = new TimelineFlameChartNetworkDataProvider();
-    this.networkFlameChart = new PerfUI.FlameChart.FlameChart(this.networkDataProvider, this, {
-      groupExpansionSetting: this.networkFlameChartGroupExpansionSetting,
-      // The TimelineOverlays are used for selected elements
-      selectedElementOutline: false,
-      tooltipElement: this.#tooltipElement,
-      useOverlaysForCursorRuler: true,
-    });
+    this.networkFlameChart = new PerfUI.FlameChart.FlameChart(
+        this.networkDataProvider, this, {
+          groupExpansionSetting: this.networkFlameChartGroupExpansionSetting,
+          // The TimelineOverlays are used for selected elements
+          selectedElementOutline: false,
+          tooltipElement: this.#tooltipElement,
+          useOverlaysForCursorRuler: true,
+        },
+        sidebar);
     this.networkFlameChart.alwaysShowVerticalScroll();
     this.networkFlameChart.addEventListener(PerfUI.FlameChart.Events.LatestDrawDimensions, dimensions => {
       this.#overlays.updateChartDimensions('network', dimensions.data.chart);

@@ -74,6 +74,10 @@ export class SidebarWidget extends UI.SplitWidget.SplitWidget {
   setActiveInsight(activeInsight: ActiveInsight|null): void {
     this.#sidebarUI.activeInsight = activeInsight;
   }
+
+  setAIResponse(response: string): void {
+    this.#sidebarUI.aiResponse = response;
+  }
 }
 
 export class SidebarUI extends HTMLElement {
@@ -96,6 +100,7 @@ export class SidebarUI extends HTMLElement {
   #activeNavigationId: string|null = null;
 
   #activeInsight: ActiveInsight|null = null;
+  #aiResponse: string = '';
 
   connectedCallback(): void {
     this.#shadow.adoptedStyleSheets = [sidebarStyles];
@@ -136,6 +141,11 @@ export class SidebarUI extends HTMLElement {
     }
     this.#traceParsedData = traceParsedData;
 
+    void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#renderBound);
+  }
+
+  set aiResponse(response: string) {
+    this.#aiResponse = response;
     void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#renderBound);
   }
 
@@ -217,6 +227,7 @@ export class SidebarUI extends HTMLElement {
           <${SidebarSingleNavigation.litTagName}
             .data=${data as SidebarSingleNavigationData}>
           </${SidebarSingleNavigation.litTagName}>
+          <div class="ai-response">${this.#aiResponse}</div>
         `;
 
         if(hasMultipleNavigations) {

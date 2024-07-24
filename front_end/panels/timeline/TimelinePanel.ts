@@ -437,7 +437,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     SDK.TargetManager.TargetManager.instance().addModelListener(
         SDK.ResourceTreeModel.ResourceTreeModel, SDK.ResourceTreeModel.Events.Load, this.loadEventFired, this);
 
-    this.flameChart = new TimelineFlameChartView(this);
+    this.flameChart = new TimelineFlameChartView(this, this.#sideBar);
     this.#onChartPlayableStateChangeBound = this.#onChartPlayableStateChange.bind(this);
 
     this.flameChart.getMainFlameChart().addEventListener(
