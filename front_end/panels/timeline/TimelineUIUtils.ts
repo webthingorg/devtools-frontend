@@ -43,9 +43,11 @@ import * as Bindings from '../../models/bindings/bindings.js';
 import * as TimelineModel from '../../models/timeline_model/timeline_model.js';
 import * as TraceEngine from '../../models/trace/trace.js';
 import * as TraceBounds from '../../services/trace_bounds/trace_bounds.js';
+import * as Marked from '../../third_party/marked/marked.js';
 import * as CodeHighlighter from '../../ui/components/code_highlighter/code_highlighter.js';
 // eslint-disable-next-line rulesdir/es_modules_import
 import codeHighlighterStyles from '../../ui/components/code_highlighter/codeHighlighter.css.js';
+import * as MarkdownView from '../../ui/components/markdown_view/markdown_view.js';
 import * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 // eslint-disable-next-line rulesdir/es_modules_import
 import imagePreviewStyles from '../../ui/legacy/components/utils/imagePreview.css.js';
@@ -53,6 +55,7 @@ import * as LegacyComponents from '../../ui/legacy/components/utils/utils.js';
 // eslint-disable-next-line rulesdir/es_modules_import
 import inspectorCommonStyles from '../../ui/legacy/inspectorCommon.css.js';
 import * as UI from '../../ui/legacy/legacy.js';
+import * as LitHtml from '../../ui/lit-html/lit-html.js';
 
 import {CLSRect} from './CLSLinkifier.js';
 import * as TimelineComponents from './components/components.js';
@@ -1055,6 +1058,103 @@ export class TimelineUIUtils {
       contentHelper.appendTextRow(
           i18nString(UIStrings.compilationCacheStatus), i18nString(UIStrings.scriptNotEligibleToBeLoadedFromCache));
     }
+  }
+
+  static async jackLCPDetails(
+      traceParseData: TraceEngine.Handlers.Types.TraceParseData,
+      traceInsights: TraceEngine.Insights.Types.TraceInsightData,
+      _event: TraceEngine.Types.TraceEvents.TraceEventLargestContentfulPaintCandidate,
+      ): Promise<HTMLElement> {
+    console.log('Generating LCP Jack things');
+    const div = document.createElement('div');
+    const networkRequestsForGemini = traceParseData.NetworkRequests.byTime
+                                         .map(request => {
+                                           return {
+                                             url: request.args.data.url,
+                                             mimeType: request.args.data.mimeType,
+                                             size: request.args.data.decodedBodyLength,
+                                             dur: request.dur,
+                                             startTime: request.ts,
+                                             initiator: request.args.data.initiator?.url,
+                                           };
+                                         })
+                                         .filter(x => x !== null);
+
+    const firstNav = traceParseData.Meta.mainFrameNavigations.at(0)?.args.data?.navigationId;
+    if (!firstNav) {
+      return div;
+    }
+    const lcpInsights = traceInsights.get(firstNav)?.LargestContentfulPaint;
+    if (lcpInsights instanceof Error) {
+      return div;
+    }
+    if (!lcpInsights?.lcpNetworkRequest) {
+      return div;
+    }
+
+    const lcpNetworkRequestForGemini = JSON.stringify({
+      url: lcpInsights.lcpNetworkRequest.args.data.url,
+      startTime: lcpInsights.lcpNetworkRequest.ts,
+      duration: lcpInsights.lcpNetworkRequest.dur,
+      size: lcpInsights.lcpNetworkRequest.args.data.decodedBodyLength,
+    });
+
+    const parsedNetworkRequests = JSON.stringify(networkRequestsForGemini);
+
+    const response = TraceEngine.Helpers.TreeHelpers.NodeForAI.promptAI(`
+      The image that was considered the image for LCP loaded in this network request: ${lcpNetworkRequestForGemini}.
+
+      A network request has a few fields:
+        * \`url\` which is the URL of the request
+        * \`duration\` which is the microsecond duration of the request
+        * \`startTime\` which is the microsecond start time of the request
+        * \`size\` which is the size in bytes of the request
+        * \`initator\` the URL of the previous network request which initiated this one
+
+      The following input is an array of network requests that happened on this page: ${parsedNetworkRequests}.
+
+      Identify and tell me the critical path of network requests from the initial request through to the LCP image request.
+      Tell me how much time in seconds each network request on the critical path contributed to the final LCP time. Do not include time for previous network requests when outputting the time for a network request.
+
+      Once you have calculated the critical path, suggest ways that we could optimize the critical path to reduce the total time taken and therefore reduce the LCP time.
+      `);
+    // const response = TraceEngine.Helpers.TreeHelpers.NodeForAI.promptAI(
+    //     `On this page load, the Largest Contentful Paint (LCP) happened at ${
+    //         lcpPageLoad
+    //             .ts} microseconds. Here is a JSON array of a series of network requests that load images. The "url" key represents the URL, the "mimeType" key represents the type of image, the "size" field represents the size in bytes, "startTime" represents the start time of the request in microseconds and "dur" is the duration in microseconds: ${
+    //         parsed}.
+
+    //       Noting the LCP time, look at the network requests that happened before LCP, and tell me how I could optimize those requests to decrease the amount of time they take. For each network request, suggest a service I could use to optimize the image resource. Make sure you tell me the URL of each network request in your response.
+
+    //         The JSON that describes the requests is not important and do not reference it in your answer.`);
+    let explanation = '';
+    for await (const part of response) {
+      explanation = part.explanation;
+    }
+    // eslint-disable-next-line
+    console.log(explanation);
+
+    const renderer = new MarkdownView.MarkdownView.MarkdownInsightRenderer();
+    let valid = false;
+    let tokens;
+    try {
+      tokens = Marked.Marked.lexer(explanation);
+      for (const token of tokens) {
+        renderer.renderToken(token);
+      }
+      valid = true;
+    } catch {
+    }
+    if (!valid) {
+      console.error('Invalid markdown!');
+    }
+    const result = LitHtml.html`<${MarkdownView.MarkdownView.MarkdownView.litTagName}
+              .data=${{tokens, renderer} as MarkdownView.MarkdownView.MarkdownViewData}>
+            </${MarkdownView.MarkdownView.MarkdownView.litTagName}>`;
+
+    LitHtml.render(result, div, {host: this});
+
+    return div;
   }
 
   static async buildTraceEventDetails(

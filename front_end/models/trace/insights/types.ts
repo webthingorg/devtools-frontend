@@ -53,6 +53,7 @@ export type LCPInsightResult = InsightResult<{
   shouldRemoveLazyLoading?: boolean,
   shouldIncreasePriorityHint?: boolean,
   shouldPreloadImage?: boolean,
+  lcpNetworkRequest?: Types.TraceEvents.SyntheticNetworkRequest,
 }>;
 
 /**

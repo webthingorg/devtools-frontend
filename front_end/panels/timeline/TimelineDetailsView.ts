@@ -77,6 +77,7 @@ export class TimelineDetailsView extends UI.Widget.VBox {
   #filmStrip: TraceEngine.Extras.FilmStrip.Data|null = null;
   #networkRequestDetails: TimelineComponents.NetworkRequestDetails.NetworkRequestDetails;
   #onTraceBoundsChangeBound = this.#onTraceBoundsChange.bind(this);
+  #traceInsights: TraceEngine.Insights.Types.TraceInsightData|Error|null = null;
 
   constructor(delegate: TimelineModeViewDelegate) {
     super();
@@ -154,7 +155,12 @@ export class TimelineDetailsView extends UI.Widget.VBox {
 
   async setModel(
       traceEngineData: TraceEngine.Handlers.Types.TraceParseData|null,
-      selectedEvents: TraceEngine.Types.TraceEvents.TraceEventData[]|null): Promise<void> {
+      selectedEvents: TraceEngine.Types.TraceEvents.TraceEventData[]|null,
+      traceInsights: TraceEngine.Insights.Types.TraceInsightData|Error|null,
+      ): Promise<void> {
+    if (traceInsights && (traceInsights instanceof Error) === false) {
+      this.#traceInsights = traceInsights;
+    }
     if (this.#traceEngineData !== traceEngineData) {
       // Clear the selector stats view, so the next time the user views it we
       // reconstruct it with the new trace data.
@@ -272,6 +278,9 @@ export class TimelineDetailsView extends UI.Widget.VBox {
       // You can't make a selection if we have no trace data.
       return;
     }
+    if (!this.#traceInsights) {
+      return;
+    }
     this.detailsLinkifier.reset();
     this.selection = selection;
     if (!this.selection) {
@@ -290,6 +299,16 @@ export class TimelineDetailsView extends UI.Widget.VBox {
       const event = selectionObject;
       const traceEventDetails =
           await TimelineUIUtils.buildTraceEventDetails(this.#traceEngineData, event, this.detailsLinkifier, true);
+
+      if (TraceEngine.Types.TraceEvents.isTraceEventLargestContentfulPaintCandidate(selectionObject) &&
+          this.#traceInsights && (this.#traceInsights instanceof Error === false)) {
+        const lcpGeminiView = await TimelineUIUtils.jackLCPDetails(
+            this.#traceEngineData,
+            this.#traceInsights,
+            selectionObject,
+        );
+        traceEventDetails.appendChild(lcpGeminiView);
+      }
       this.appendDetailsTabsForTraceEventAndShowDetails(event, traceEventDetails);
     } else if (TimelineSelection.isFrameObject(selectionObject)) {
       const frame = selectionObject;
