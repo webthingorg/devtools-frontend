@@ -402,6 +402,8 @@ export const enum IconClass {
   COPY = 'copy',
   IMPORT = 'import',
   SPARK = 'spark',
+  LEFT_PANEL_OPEN = 'left-panel-open',
+  LEFT_PANEL_CLOSE = 'left-panel-close',
 }
 
 export const enum KeybindSet {
