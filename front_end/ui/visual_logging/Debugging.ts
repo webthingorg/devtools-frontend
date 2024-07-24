@@ -115,7 +115,8 @@ export function processEventForIntuitiveDebugging(
 export function processEventForTestDebugging(
     event: EventType, state: LoggingState|null, _extraInfo?: EventAttributes): void {
   lastImpressionLogEntry = null;
-  maybeLogDebugEvent({interaction: `${event}: ${veTestKeys.get(state?.veid || 0) || ''}`});
+  maybeLogDebugEvent(
+      {interaction: `${event}: ${veTestKeys.get(state?.veid || 0) || (state?.veid ? '<UNKNOWN>' : '')}`});
 }
 
 export function processEventForAdHocAnalysisDebugging(

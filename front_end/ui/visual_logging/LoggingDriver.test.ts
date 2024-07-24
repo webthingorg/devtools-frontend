@@ -782,7 +782,7 @@ describe('LoggingDriver', () => {
     await expectCalled(throttle, {callCount: 4}).then(([work]) => work());
 
     assert.isTrue(recordResize.calledTwice);
-    assert.sameDeepMembers(recordResize.getCalls().map(c => c.firstArg), [
+    assert.deepStrictEqual(recordResize.getCalls().map(c => c.firstArg), [
       {veid: VisualLoggingTesting.LoggingState.getLoggingState(element1)?.veid, width: 0, height: 0},
       {veid: VisualLoggingTesting.LoggingState.getLoggingState(element2)?.veid, width: 300, height: 300},
     ]);
