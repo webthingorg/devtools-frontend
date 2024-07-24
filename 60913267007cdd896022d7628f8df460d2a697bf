@@ -22,6 +22,30 @@
       },
       "revId": "60913267007cdd896022d7628f8df460d2a697bf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b50835f_86c8e060",
+        "filename": "front_end/ui/visual_logging/LoggingDriver.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-07-24T11:34:55Z",
+      "side": 1,
+      "message": "It does, but we only care about keyboard throttler tbh, so I removed the rest to avoid confusion.",
+      "parentUuid": "23e634cb_67bbde1c",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 34
+      },
+      "revId": "60913267007cdd896022d7628f8df460d2a697bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
