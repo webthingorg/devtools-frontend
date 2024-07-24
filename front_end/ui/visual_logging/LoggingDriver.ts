@@ -82,7 +82,17 @@ export async function addDocument(document: Document): Promise<void> {
   observeMutations([document.body]);
 }
 
-export function stopLogging(): void {
+export async function stopLogging(): Promise<void> {
+  for (const throttler
+           of [processingThrottler,
+               keyboardLogThrottler,
+               hoverLogThrottler,
+               dragLogThrottler,
+               clickLogThrottler,
+               resizeLogThrottler,
+  ]) {
+    await throttler.process?.();
+  }
   logging = false;
   unregisterAllLoggables();
   for (const document of documents) {
@@ -169,7 +179,8 @@ async function process(): Promise<void> {
     if (!loggingState.impressionLogged) {
       const overlap = visibleOverlap(element, viewportRectFor(element));
       const visibleSelectOption = element.tagName === 'OPTION' && loggingState.parent?.selectOpen;
-      if (overlap || visibleSelectOption) {
+      const visible = overlap && (!parent || loggingState.parent?.impressionLogged);
+      if (visible || visibleSelectOption) {
         if (overlap) {
           loggingState.size = overlap;
         }
@@ -182,7 +193,9 @@ async function process(): Promise<void> {
     }
     if (!loggingState.processed) {
       const clickLikeHandler = (doubleClick: boolean) => (e: Event) => {
+        // console.error('clickLikeHandler');
         const loggable = e.currentTarget as Element;
+        // maybeCancelDrag(e);
         logClick(clickLogThrottler)(loggable, e, {doubleClick});
       };
       if (loggingState.config.track?.click) {
@@ -311,6 +324,7 @@ function onDragStart(event: Event): void {
   if (!(event instanceof MouseEvent)) {
     return;
   }
+  // console.error('onDragStart');
   dragStartX = event.screenX;
   dragStartY = event.screenY;
   void logDrag(dragLogThrottler)(event);
@@ -320,6 +334,7 @@ function maybeCancelDrag(event: Event): void {
   if (!(event instanceof MouseEvent)) {
     return;
   }
+  // console.error('maybeCancelDrag');
   if (Math.abs(event.screenX - dragStartX) >= DRAG_REPORT_THRESHOLD ||
       Math.abs(event.screenY - dragStartY) >= DRAG_REPORT_THRESHOLD) {
     return;
@@ -370,6 +385,8 @@ async function onResizeOrIntersection(entries: ResizeObserverEntry[]|Intersectio
         flushPendingChangeEvents();
       }
       for (const [element, overlap] of pendingResize.entries()) {
+        // for (const [element, overlap] of [...pendingResize].sort(
+        //          (a, b) => a[1].width * a[1].height - b[1].width * b[1].height)) {
         const loggingState = getLoggingState(element);
         if (!loggingState) {
           continue;
