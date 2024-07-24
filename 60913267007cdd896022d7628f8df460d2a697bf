@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23e634cb_67bbde1c",
+        "filename": "front_end/ui/visual_logging/LoggingDriver.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-07-24T10:50:06Z",
+      "side": 1,
+      "message": "Does the order here matter? E.g. could any of the preceding throttler cause additional work for a later throttler?\n\nIf not we could `await Promise.all([...].map(throttler \u003d\u003e throttler.process?.())`.",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 34
+      },
+      "revId": "60913267007cdd896022d7628f8df460d2a697bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
