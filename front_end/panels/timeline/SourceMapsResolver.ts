@@ -103,6 +103,14 @@ export class SourceMapsResolver extends EventTarget {
     await this.#resolveNamesForNodes();
   }
 
+  async getScriptForEntry(entry: TraceEngine.Types.TraceEvents.SyntheticProfileCall): Promise<string> {
+    const target = this.#targetForThread(entry.tid);
+    const debuggerModel = target?.model(SDK.DebuggerModel.DebuggerModel);
+    const script = debuggerModel?.scriptForId(String(entry.callFrame.scriptId));
+    const content = await script?.requestContent();
+    return content?.content ?? '';
+  }
+
   /**
    * Removes the event listeners and stops tracking newly added sourcemaps.
    * Should be called before destroying an instance of this class to avoid leaks
