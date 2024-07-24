@@ -494,7 +494,6 @@ export class HeaderSectionRow extends HTMLElement {
 
     if (separatorPosition < 1) {
       // Not processing further either case 'abc' or ':abc'
-      nameEl.value = clipboardText;
       nameEl.dispatchEvent(new Event('input', {bubbles: true}));
       return;
     }
