@@ -73,6 +73,25 @@ export const openLayoutPane = async () => {
     const panel = await waitFor(LAYOUT_PANE_TABPANEL_SELECTOR);
     await waitFor('.elements', panel);
   });
+  await expectVeEvents([
+    veClick('Panel: elements > Toolbar: sidebar > PanelTabHeader: elements.layout'),
+    veImpressionsUnder('Panel: elements', [veImpression(
+                                              'Pane', 'layout',
+                                              [
+                                                veImpression('SectionHeader', 'grid-settings'),
+                                                veImpression(
+                                                    'Section', 'grid-settings',
+                                                    [
+                                                      veImpression('DropDown', 'show-grid-line-labels'),
+                                                      veImpression('Toggle', 'extend-grid-lines'),
+                                                      veImpression('Toggle', 'show-grid-areas'),
+                                                      veImpression('Toggle', 'show-grid-track-sizes'),
+                                                    ]),
+                                                veImpression('Section', 'grid-overlays'),
+                                                veImpression('SectionHeader', 'flexbox-overlays'),
+                                                veImpression('Section', 'flexbox-overlays'),
+                                              ])]),
+  ]);
 };
 
 export const waitForAdorners = async (expectedAdorners: {textContent: string, isActive: boolean}[]) => {
@@ -150,6 +169,9 @@ export const waitForAdornerOnSelectedNode = async (expectedAdornerText: string) 
     const adorner = await waitFor(ADORNER_SELECTOR, selectedNode);
     return expectedAdornerText === await adorner.evaluate(node => node.textContent);
   });
+  await expectVeEvents([veImpressionsUnder(
+      'Panel: elements > Tree: elements > TreeItem', [veImpression('Adorner', expectedAdornerText)])]);
+
 };
 
 export const toggleElementCheckboxInLayoutPane = async () => {
@@ -397,6 +419,23 @@ export const forcePseudoState = async (pseudoState: string) => {
   // FIXME(crbug/1112692): Refactor test to remove the timeout.
   await timeout(100);
   await stateEl.click();
+  await expectVeEvents([
+    veClick('Panel: elements > Pane: styles > ToggleSubpane: element-states'),
+    veImpressionsUnder('Panel: elements > Pane: styles', [veImpression(
+                                                             'Pane', 'element-states',
+                                                             [
+                                                               veImpression('Link: learn-more'),
+                                                               veImpression('Toggle: active'),
+                                                               veImpression('Toggle: focus'),
+                                                               veImpression('Toggle: focus-visible'),
+                                                               veImpression('Toggle: focus-within'),
+                                                               veImpression('Toggle: hover'),
+                                                               veImpression('Toggle: target'),
+                                                               veImpression('Toggle: visited'),
+                                                             ])]),
+    veChange(`Panel: elements > Pane: styles > Pane: element-states > Toggle: ${
+        pseudoState === 'Emulate a focused page' ? 'emulate-page-focus' : pseudoState.substr(1)}`),
+  ]);
 };
 
 export const removePseudoState = async (pseudoState: string) => {
@@ -600,17 +639,27 @@ export const getColorSwatchColor = async (parent: puppeteer.ElementHandle<Elemen
   return await swatch.evaluate(node => (node as HTMLElement).style.backgroundColor);
 };
 
-export const shiftClickColorSwatch = async (ruleSection: puppeteer.ElementHandle<Element>, index: number) => {
-  const swatch = await getColorSwatch(ruleSection, index);
+export const shiftClickColorSwatch =
+    async (parent: puppeteer.ElementHandle<Element>, index: number, parentVe: string) => {
+  const swatch = await getColorSwatch(parent, index);
   const {frontend} = getBrowserAndPages();
   await frontend.keyboard.down('Shift');
   await clickElement(swatch);
   await frontend.keyboard.up('Shift');
+  await expectVeEvents([
+    veClick(`${parentVe} > ShowStyleEditor: color`),
+    veImpressionsUnder(
+        `${parentVe} > ShowStyleEditor: color`,
+        [veImpression('Menu', undefined, [veImpression('Action', 'clipped-color'), veImpression('Item', 'color')])]),
+  ]);
 };
 
 export const getElementStyleFontEditorButton = async () => {
   const section = await waitFor(ELEMENT_STYLE_SECTION_SELECTOR);
-  return await $(FONT_EDITOR_SELECTOR, section);
+  const result = await $(FONT_EDITOR_SELECTOR, section);
+  await expectVeEvents([veImpressionsUnder(
+      'Panel: elements > Pane: styles > Section: style-properties', [veImpression('Action', 'font-editor')])]);
+  return result;
 };
 
 export const getFontEditorButtons = async () => {
@@ -654,7 +703,7 @@ export const focusCSSPropertyValue = async (selector: string, propertyName: stri
   await click(CSS_PROPERTY_VALUE_SELECTOR + ' + .styles-semicolon', {root: property});
   await waitForFunction(async () => {
     property = await getCSSPropertyInRule(selector, propertyName);
-    const value = await $(CSS_PROPERTY_VALUE_SELECTOR, property);
+    const value = property ? await $(CSS_PROPERTY_VALUE_SELECTOR, property) : null;
     if (!value) {
       assert.fail(`Could not find property ${propertyName} in rule ${selector}`);
     }
@@ -662,6 +711,8 @@ export const focusCSSPropertyValue = async (selector: string, propertyName: stri
       return node.classList.contains('text-prompt') && node.hasAttribute('contenteditable');
     });
   });
+  await expectVeEvents([veClick(`Panel: elements > Pane: styles > Section: style-properties > Tree > TreeItem: ${
+      propertyName.startsWith('--') ? 'custom-property' : propertyName}`)]);
 };
 
 /**
@@ -690,6 +741,8 @@ export async function editCSSProperty(selector: string, propertyName: string, ne
       return !node.classList.contains('text-prompt') && !node.hasAttribute('contenteditable');
     });
   });
+  await expectVeEvents([veChange(`Panel: elements > Pane: styles > Section: style-properties > Tree > TreeItem: ${
+      propertyName.startsWith('--') ? 'custom-property' : propertyName} > Value`)]);
 }
 
 // Edit a media or container query rule text for the given styles section
@@ -917,6 +970,8 @@ function veImpressionForAccessibilityPane() {
 
 export const toggleAccessibilityTree = async () => {
   await click('aria/Switch to Accessibility Tree view');
+  await expectVeEvents([veClick('Panel: elements > Action: toggle-accessibility-tree')]);
+
 };
 
 export const getPropertiesWithHints = async () => {

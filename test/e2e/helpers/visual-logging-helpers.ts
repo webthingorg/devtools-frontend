@@ -18,7 +18,7 @@ type TestLogEntry = TestImpressionLogEntry|{
 function formatImpressions(impressions: string[]) {
   const result: string[] = [];
   let lastImpression = '';
-  for (const impression of impressions.sort()) {
+  for (const impression of [...new Set(impressions)].sort()) {
     while (!impression.startsWith(lastImpression)) {
       lastImpression = lastImpression.substr(0, lastImpression.lastIndexOf(' > '));
     }
@@ -209,6 +209,7 @@ export async function expectVeEvents(expectedEvents: TestLogEntry[]) {
   for (let i = 0; i < expectedEvents.length; ++i) {
     let bestError: {difference: number, description?: string}|null = null;
     const expectedEvent = expectedEvents[i];
+    // console.error('expectedEvent', 'interaction' in expectedEvent ? expectedEvent.interaction : formatImpressions(expectedEvent.impressions));
     while (true) {
       if (actualEvents.length <= i) {
         bestError ||= {
@@ -220,13 +221,17 @@ export async function expectVeEvents(expectedEvents: TestLogEntry[]) {
         assert.fail(bestError.description + '\n' + dump);
       }
       const error = compareVeEvents(actualEvents[i], expectedEvent);
+      // const actualEvent = actualEvents[i];
+      // console.error('actualEvent', 'interaction' in actualEvent ? actualEvent.interaction : formatImpressions(actualEvent.impressions));
       if (error.difference) {
+        // console.error('no match', error.description);
         unmatchedEvents.push(actualEvents[i]);
         actualEvents.splice(i, 1);
         if (error.difference <= (bestError?.difference || 1)) {
           bestError = error;
         }
       } else {
+        // console.error('match');
         break;
       }
     }
@@ -293,5 +298,6 @@ export async function dumpVeEvents(label: string) {
       await frontend.evaluate(async () => (await globalThis.getVeDebugEventsLog()) as unknown as TestLogEntry[]);
   // eslint-disable-next-line no-console
   console.log(
-      label, actualEvents.map(e => 'interaction' in e ? e.interaction : formatImpressions(e.impressions)).join('\n'));
+      'dumpVeEvents ' + label,
+      actualEvents.map(e => 'interaction' in e ? e.interaction : formatImpressions(e.impressions)).join('\n'));
 }
