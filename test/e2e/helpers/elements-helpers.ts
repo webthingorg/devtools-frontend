@@ -73,6 +73,25 @@ export const openLayoutPane = async () => {
     const panel = await waitFor(LAYOUT_PANE_TABPANEL_SELECTOR);
     await waitFor('.elements', panel);
   });
+  await expectVeEvents([
+    veClick('Panel: elements > Toolbar: sidebar > PanelTabHeader: elements.layout'),
+    veImpressionsUnder('Panel: elements', [veImpression(
+                                              'Pane', 'layout',
+                                              [
+                                                veImpression('SectionHeader', 'grid-settings'),
+                                                veImpression(
+                                                    'Section', 'grid-settings',
+                                                    [
+                                                      veImpression('DropDown', 'show-grid-line-labels'),
+                                                      veImpression('Toggle', 'extend-grid-lines'),
+                                                      veImpression('Toggle', 'show-grid-areas'),
+                                                      veImpression('Toggle', 'show-grid-track-sizes'),
+                                                    ]),
+                                                veImpression('Section', 'grid-overlays'),
+                                                veImpression('SectionHeader', 'flexbox-overlays'),
+                                                veImpression('Section', 'flexbox-overlays'),
+                                              ])]),
+  ]);
 };
 
 export const waitForAdorners = async (expectedAdorners: {textContent: string, isActive: boolean}[]) => {
@@ -400,6 +419,23 @@ export const forcePseudoState = async (pseudoState: string) => {
   // FIXME(crbug/1112692): Refactor test to remove the timeout.
   await timeout(100);
   await stateEl.click();
+  await expectVeEvents([
+    veClick('Panel: elements > Pane: styles > ToggleSubpane: element-states'),
+    veImpressionsUnder('Panel: elements > Pane: styles', [veImpression(
+                                                             'Pane', 'element-states',
+                                                             [
+                                                               veImpression('Link: learn-more'),
+                                                               veImpression('Toggle: active'),
+                                                               veImpression('Toggle: focus'),
+                                                               veImpression('Toggle: focus-visible'),
+                                                               veImpression('Toggle: focus-within'),
+                                                               veImpression('Toggle: hover'),
+                                                               veImpression('Toggle: target'),
+                                                               veImpression('Toggle: visited'),
+                                                             ])]),
+    veChange(`Panel: elements > Pane: styles > Pane: element-states > Toggle: ${
+        pseudoState === 'Emulate a focused page' ? 'emulate-page-focus' : pseudoState.substr(1)}`),
+  ]);
 };
 
 export const removePseudoState = async (pseudoState: string) => {
@@ -675,6 +711,8 @@ export const focusCSSPropertyValue = async (selector: string, propertyName: stri
       return node.classList.contains('text-prompt') && node.hasAttribute('contenteditable');
     });
   });
+  await expectVeEvents([veClick(`Panel: elements > Pane: styles > Section: style-properties > Tree > TreeItem: ${
+      propertyName.startsWith('--') ? 'custom-property' : propertyName}`)]);
 };
 
 /**
@@ -703,6 +741,8 @@ export async function editCSSProperty(selector: string, propertyName: string, ne
       return !node.classList.contains('text-prompt') && !node.hasAttribute('contenteditable');
     });
   });
+  await expectVeEvents([veChange(`Panel: elements > Pane: styles > Section: style-properties > Tree > TreeItem: ${
+      propertyName.startsWith('--') ? 'custom-property' : propertyName} > Value`)]);
 }
 
 // Edit a media or container query rule text for the given styles section
@@ -819,6 +859,13 @@ export const clickOnFirstLinkInStylesPanel = async () => {
 
 export const toggleClassesPane = async () => {
   await click(CLS_BUTTON_SELECTOR);
+  await waitFor('.styles-element-classes-pane');
+  await expectVeEvents([
+    veClick('Panel: elements > Pane: styles > ToggleSubpane: elements-classes'),
+    veImpressionsUnder(
+        'Panel: elements > Pane: styles', [veImpression('Pane', 'elements-classes', [veImpression('TextField')])]),
+  ]);
+
 };
 
 export const typeInClassesPaneInput =
