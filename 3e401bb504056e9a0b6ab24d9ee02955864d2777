@@ -39,6 +39,30 @@
       },
       "revId": "3e401bb504056e9a0b6ab24d9ee02955864d2777",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc396d55_c0da09d5",
+        "filename": "front_end/ui/legacy/components/perf_ui/TimelineOverviewPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-07-25T07:40:29Z",
+      "side": 1,
+      "message": "Not necessary, unless we have a second timeline in the perf panel.",
+      "parentUuid": "134e3f18_524d55ab",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 95
+      },
+      "revId": "3e401bb504056e9a0b6ab24d9ee02955864d2777",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
