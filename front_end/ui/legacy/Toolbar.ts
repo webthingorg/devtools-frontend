@@ -221,7 +221,7 @@ export class Toolbar {
 
   static createActionButton(action: Action, options: ToolbarButtonOptions|undefined = TOOLBAR_BUTTON_DEFAULT_OPTIONS):
       ToolbarButton {
-    const button = action.toggleable() ? makeToggle() : makeButton();
+    const button = (action.toggleable() && !options?.ignoreToggleable) ? makeToggle() : makeButton();
 
     if (options.showLabel) {
       button.setText(options.label?.() || action.title());
@@ -452,6 +452,7 @@ export interface ToolbarButtonOptions {
   label?: () => Platform.UIString.LocalizedString;
   showLabel: boolean;
   userActionCode?: Host.UserMetrics.Action;
+  ignoreToggleable?: boolean;
 }
 
 const TOOLBAR_BUTTON_DEFAULT_OPTIONS: ToolbarButtonOptions = {
@@ -1150,7 +1151,7 @@ export class ToolbarSettingComboBox extends ToolbarComboBox {
   private readonly setting: Common.Settings.Setting<string>;
   private muteSettingListener?: boolean;
   constructor(options: Option[], setting: Common.Settings.Setting<string>, accessibleName: string) {
-    super(null, accessibleName);
+    super(null, accessibleName, undefined, setting.name);
     this.optionsInternal = options;
     this.setting = setting;
     this.selectElementInternal.addEventListener('change', this.valueChanged.bind(this), false);
