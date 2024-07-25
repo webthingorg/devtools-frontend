@@ -57,6 +57,7 @@ const component = new Freestyler.FreestylerChatUi({
   messages,
   selectedNode: {} as unknown as SDK.DOMModel.DOMNode,
   isLoading: false,
+  showFeedbackForm: false,
 });
 
 document.getElementById('container')?.appendChild(component);

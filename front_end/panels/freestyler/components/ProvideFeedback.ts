@@ -64,6 +64,7 @@ const REPORT_URL = 'https://support.google.com/legal/troubleshooter/1114905?hl=e
     Platform.DevToolsPath.UrlString;
 export interface ProvideFeedbackProps {
   onFeedbackSubmit: (rate: Host.AidaClient.Rating, feedback?: string) => void;
+  showFeedbackForm: boolean;
 }
 
 export class ProvideFeedback extends HTMLElement {
@@ -94,7 +95,7 @@ export class ProvideFeedback extends HTMLElement {
     }
 
     this.#currentRating = rating;
-    this.#showFeedbackForm = true;
+    this.#showFeedbackForm = this.#props.showFeedbackForm ? false : true;
     this.#props.onFeedbackSubmit(this.#currentRating);
     this.#render();
   }
