@@ -183,6 +183,7 @@ export interface Props {
   messages: ChatMessage[];
   selectedNode: SDK.DOMModel.DOMNode|null;
   isLoading: boolean;
+  showFeedbackForm: boolean;
   // If there is a `confirmSideEffectDialog`, we show the
   // confirmation dialog for executing that specific code.
   confirmSideEffectDialog?: ConfirmSideEffectDialog;
@@ -277,6 +278,7 @@ export class FreestylerChatUi extends HTMLElement {
         onFeedbackSubmit: (rating, feedback) => {
           this.#props.onFeedbackSubmit(rpcId, rating, feedback);
         },
+        showFeedbackForm: this.#props.showFeedbackForm,
       } as ProvideFeedbackProps}
       ></${ProvideFeedback.litTagName}>`;
     // clang-format on
