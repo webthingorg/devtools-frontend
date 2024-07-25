@@ -150,6 +150,9 @@ export const waitForAdornerOnSelectedNode = async (expectedAdornerText: string) 
     const adorner = await waitFor(ADORNER_SELECTOR, selectedNode);
     return expectedAdornerText === await adorner.evaluate(node => node.textContent);
   });
+  await expectVeEvents([veImpressionsUnder(
+      'Panel: elements > Tree: elements > TreeItem', [veImpression('Adorner', expectedAdornerText)])]);
+
 };
 
 export const toggleElementCheckboxInLayoutPane = async () => {
