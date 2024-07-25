@@ -16,6 +16,23 @@
       "message": "Hi Paul, while implementing rehydrated session, we discovered some problems that came with large script (\u003e 4MB). This patch is the dt-fe side change to address the issue, and I also linked the v8 change in the CL description. Will appreciate a lot if you could take a look at this CL 😊",
       "revId": "a698277e672c97804e303838a5adee5ee1f3f2da",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17acb4da_5deed989",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-07-25T20:13:41Z",
+      "side": 1,
+      "message": "Hi Jack, I\u0027m not sure if Paul is out of office, could you help me take a look at this CL if you get a chance?",
+      "revId": "a698277e672c97804e303838a5adee5ee1f3f2da",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
