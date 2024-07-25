@@ -421,6 +421,7 @@ export class TimelineFilmStripOverview extends TimelineEventOverview {
 
   constructor(filmStrip: TraceEngine.Extras.FilmStrip.Data) {
     super('filmstrip', null);
+    this.element.setAttribute('jslog', `${VisualLogging.section('film-strip')}`);
     this.frameToImagePromise = new Map();
     this.#filmStrip = filmStrip;
     this.lastFrame = null;
