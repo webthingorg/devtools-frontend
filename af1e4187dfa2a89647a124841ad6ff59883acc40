@@ -16,6 +16,24 @@
       "message": "Was this removed intentionally? Does it affect test coverage?",
       "revId": "af1e4187dfa2a89647a124841ad6ff59883acc40",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b53cec0b_8874affb",
+        "filename": "test/e2e/elements/adornment_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-07-25T08:10:25Z",
+      "side": 0,
+      "message": "Yes. It doesn\u0027t work and I am not sure it ever worked (see the change in `editCSSProperty` helper; we used to uncheck a random property). I also have no idea, why was it important to hide the `\u003cvideo\u003e` element before testing the adorner on `\u003caudio\u003e` element. \n\nThis was written by a Summer-of-code student, so I guess we\u0027ll never know.",
+      "parentUuid": "ee76ce40_c8868984",
+      "revId": "af1e4187dfa2a89647a124841ad6ff59883acc40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
