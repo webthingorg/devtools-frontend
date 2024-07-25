@@ -16,6 +16,23 @@
       "message": "Hi Kateryna,\n\nI\u0027m removing unused (non-sys) colors. PTAL!",
       "revId": "d11a98d9ed4b5610fa6e33fa80c84122342e8a89",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbbb50e1_9ead251b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-07-25T13:56:17Z",
+      "side": 1,
+      "message": "This is great, thanks a lot, Kim!:)",
+      "revId": "d11a98d9ed4b5610fa6e33fa80c84122342e8a89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
