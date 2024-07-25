@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f80230bd_67923048",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-25T13:44:03Z",
+      "side": 1,
+      "message": "tiny nits, but otherwise love it",
+      "revId": "1135b8927e9c444f7a8dfaec88e93ee55c3b6aab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fcc3266d_7467a734",
+        "filename": "front_end/models/trace/insights/LargestContentfulPaint.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-25T13:44:03Z",
+      "side": 1,
+      "message": "tiny nit: `lcpResource,` (key and value are the same)",
+      "range": {
+        "startLine": 158,
+        "startChar": 0,
+        "endLine": 158,
+        "endChar": 29
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "0dae1bbb_2ee1f621",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/models/trace/insights/LargestContentfulPaint.ts",
+              "range": {
+                "startLine": 158,
+                "startChar": 0,
+                "endLine": 159,
+                "endChar": 0
+              },
+              "replacement": "    lcpResource,\n"
+            }
+          ]
+        }
+      ],
+      "revId": "1135b8927e9c444f7a8dfaec88e93ee55c3b6aab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fa830cc_ebfb98af",
+        "filename": "front_end/panels/timeline/components/insights/LCPDiscovery.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-25T13:44:03Z",
+      "side": 1,
+      "message": "nit: we tend to prefer interfaces for basic types like this",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 18
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "12734e6d_9963dc03",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/components/insights/LCPDiscovery.ts",
+              "range": {
+                "startLine": 19,
+                "startChar": 0,
+                "endLine": 20,
+                "endChar": 0
+              },
+              "replacement": "interface ImageData {\n"
+            },
+            {
+              "path": "front_end/panels/timeline/components/insights/LCPDiscovery.ts",
+              "range": {
+                "startLine": 24,
+                "startChar": 0,
+                "endLine": 25,
+                "endChar": 0
+              },
+              "replacement": "}\n"
+            }
+          ]
+        }
+      ],
+      "revId": "1135b8927e9c444f7a8dfaec88e93ee55c3b6aab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0cc38c8c_63f95a14",
+        "filename": "front_end/panels/timeline/components/insights/LCPDiscovery.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-25T13:44:03Z",
+      "side": 1,
+      "message": "the component takes the navigationId, so we should pass that into this func",
+      "range": {
+        "startLine": 31,
+        "startChar": 1,
+        "endLine": 34,
+        "endChar": 3
+      },
+      "revId": "1135b8927e9c444f7a8dfaec88e93ee55c3b6aab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b076705_380ed547",
+        "filename": "front_end/panels/timeline/components/insights/LCPDiscovery.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-25T13:44:03Z",
+      "side": 1,
+      "message": "this boolean is unclear - if this is true, did the advice pass?\n\n`isPass` or something might be clearer, wdyt?",
+      "range": {
+        "startLine": 121,
+        "startChar": 14,
+        "endLine": 121,
+        "endChar": 20
+      },
+      "revId": "1135b8927e9c444f7a8dfaec88e93ee55c3b6aab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
