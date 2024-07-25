@@ -34,6 +34,24 @@
       "parentUuid": "ee76ce40_c8868984",
       "revId": "af1e4187dfa2a89647a124841ad6ff59883acc40",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f359cd74_32822ec1",
+        "filename": "test/e2e/elements/adornment_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-07-25T08:11:49Z",
+      "side": 0,
+      "message": "Acknowledged",
+      "parentUuid": "b53cec0b_8874affb",
+      "revId": "af1e4187dfa2a89647a124841ad6ff59883acc40",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
