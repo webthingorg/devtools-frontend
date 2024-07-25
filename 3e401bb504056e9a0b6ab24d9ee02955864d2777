@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca9e5398_138a7f52",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-25T07:20:37Z",
+      "side": 1,
+      "message": "lgtm with one question that\u0027s mostly for my understanding",
+      "revId": "3e401bb504056e9a0b6ab24d9ee02955864d2777",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "134e3f18_524d55ab",
+        "filename": "front_end/ui/legacy/components/perf_ui/TimelineOverviewPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-25T07:20:37Z",
+      "side": 1,
+      "message": "do we need to put a context in here?",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 95
+      },
+      "revId": "3e401bb504056e9a0b6ab24d9ee02955864d2777",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
