@@ -63,6 +63,30 @@
       },
       "revId": "3e401bb504056e9a0b6ab24d9ee02955864d2777",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2063d11_27bc5e80",
+        "filename": "front_end/ui/legacy/components/perf_ui/TimelineOverviewPane.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-25T07:42:08Z",
+      "side": 1,
+      "message": "But the overview grid isn\u0027t the entirely timeline, it\u0027s the minimap part at the top, and is used in both the network panel, and the perf panel. So perhaps we should annotate it as such? wdyt?",
+      "parentUuid": "cc396d55_c0da09d5",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 95
+      },
+      "revId": "3e401bb504056e9a0b6ab24d9ee02955864d2777",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
