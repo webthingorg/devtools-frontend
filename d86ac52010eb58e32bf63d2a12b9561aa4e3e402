@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8271bb4_3fb82f64",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-07-25T06:31:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "37322b77_dab0e1bd",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 70
+      },
+      "revId": "d86ac52010eb58e32bf63d2a12b9561aa4e3e402",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7460a52c_473de3f1",
@@ -47,6 +71,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a8532a0_42133f7e",
+        "filename": "test/e2e/helpers/elements-helpers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 902,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-07-25T06:31:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7460a52c_473de3f1",
+      "range": {
+        "startLine": 902,
+        "startChar": 1,
+        "endLine": 902,
+        "endChar": 64
+      },
+      "revId": "d86ac52010eb58e32bf63d2a12b9561aa4e3e402",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "475adc67_68cfdbfd",
@@ -60,6 +108,30 @@
       "writtenOn": "2024-07-25T05:56:16Z",
       "side": 1,
       "message": "Left-over?",
+      "range": {
+        "startLine": 544,
+        "startChar": 4,
+        "endLine": 544,
+        "endChar": 27
+      },
+      "revId": "d86ac52010eb58e32bf63d2a12b9561aa4e3e402",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46402c0a_f2ae494a",
+        "filename": "test/e2e/host/user-metrics_test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 544,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-07-25T06:31:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "475adc67_68cfdbfd",
       "range": {
         "startLine": 544,
         "startChar": 4,
