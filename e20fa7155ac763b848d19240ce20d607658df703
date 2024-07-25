@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "29e25de6_f2883f3b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-07-25T13:43:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b1fb31cd_fb0dbb62",
+      "revId": "e20fa7155ac763b848d19240ce20d607658df703",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b8f4e3af_87924257",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-07-25T13:11:39Z",
       "side": 1,
       "message": "is it correct?",
+      "revId": "e20fa7155ac763b848d19240ce20d607658df703",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4016fd21_b2de538b",
+        "filename": "front_end/panels/freestyler/components/ProvideFeedback.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-07-25T13:43:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b8f4e3af_87924257",
       "revId": "e20fa7155ac763b848d19240ce20d607658df703",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
