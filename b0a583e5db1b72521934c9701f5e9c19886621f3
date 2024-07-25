@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b22cade3_8ab2a3c4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-25T14:34:54Z",
+      "side": 1,
+      "message": "lgtm with 1 nit :)",
+      "revId": "b0a583e5db1b72521934c9701f5e9c19886621f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dac35529_99cdac44",
+        "filename": "front_end/panels/freestyler/components/ProvideFeedback.test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-25T14:34:54Z",
+      "side": 1,
+      "message": "(nit): I think we don\u0027t need `coordinator` related machinery and assume that `renderElementIntoDOM` works in sync.",
+      "revId": "b0a583e5db1b72521934c9701f5e9c19886621f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed99433e_ff51ed92",
+        "filename": "front_end/panels/freestyler/components/ProvideFeedback.test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-25T14:34:54Z",
+      "side": 1,
+      "message": "(nit): Can we update the description to be \"should not show the feedback form when canShowFeedbackForm is false\" so that it includes the condition in the test name as well.",
+      "revId": "b0a583e5db1b72521934c9701f5e9c19886621f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
