@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e921468_20e7ed03",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2024-07-26T10:05:49Z",
+      "side": 1,
+      "message": "Hey Benedikt - a while back you responded to my question about WCAG 2.5.8 compliance for Devtools UI [1]. We share your concern that reducing the density of the tools isn\u0027t in the best interest of most of developers and discussed this with accessibility folks at Microsoft. One solution that came up was adding a UI control that allows folks who want a less dense tool to opt-in (setting zoom factor to 125%)\n\nI\u0027m aware that zooming is not in strict compliance with WCAG 2.5.8, but we believe it meets the spirit of the requirement -- allowing developers with fine motor challenges to avoid mis-clicking on elements. I\u0027m also aware that developers can zoom via keyboard shortcut and the command menu, but we don\u0027t think that\u0027s sufficient affordance.\n\n[1] https://groups.google.com/a/chromium.org/g/devtools-dev/c/L1LsziSH-n4",
+      "revId": "500ee292c85cfbce5680c52d933a28fa057c7384",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
