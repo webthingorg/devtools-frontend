@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "91119394_0c97c772",
+        "filename": "front_end/panels/application/BackgroundServiceView.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-07-26T13:41:43Z",
+      "side": 1,
+      "message": "I am not aware if there is any convention, I thought this was it would more intuitive that this is a getter. There is also another method `toggled` that sets the value.",
+      "parentUuid": "d7b1de1d_9ef35d75",
+      "revId": "b2336cb787860a54a575a37b8d43633bba4d3adb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "69f106b1_aef2f8d4",
@@ -65,6 +83,24 @@
       "writtenOn": "2024-07-23T12:08:25Z",
       "side": 1,
       "message": "Similar with the question below: why does `ToolbarButton` have toggle-related methods and states, while we have a child class `ToolbarToggle` that seems to be specifically for toggles?",
+      "revId": "b2336cb787860a54a575a37b8d43633bba4d3adb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a1c24356_1c289977",
+        "filename": "front_end/ui/legacy/Toolbar.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 591,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-07-26T13:41:43Z",
+      "side": 1,
+      "message": "I wanted ToolbarToggle to not know how a ToolbarButton is built. That\u0027s why it calls ToolbarButton methods, which then manipulates the button",
+      "parentUuid": "69f106b1_aef2f8d4",
       "revId": "b2336cb787860a54a575a37b8d43633bba4d3adb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -88,6 +124,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b983cc29_09f27f7a",
+        "filename": "front_end/ui/legacy/Toolbar.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 599,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-07-26T13:41:43Z",
+      "side": 1,
+      "message": "Same as above",
+      "parentUuid": "ed4e73cf_a85a2ff4",
+      "revId": "b2336cb787860a54a575a37b8d43633bba4d3adb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "624dd97e_f3d3ffff",
         "filename": "front_end/ui/legacy/Toolbar.ts",
         "patchSetId": 21
@@ -99,6 +153,24 @@
       "writtenOn": "2024-07-23T12:08:25Z",
       "side": 1,
       "message": "Do we need to remove previously prepended adorners before we prepend a new one?",
+      "revId": "b2336cb787860a54a575a37b8d43633bba4d3adb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b520661_a08a223d",
+        "filename": "front_end/ui/legacy/Toolbar.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 730,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-07-26T13:41:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "624dd97e_f3d3ffff",
       "revId": "b2336cb787860a54a575a37b8d43633bba4d3adb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -120,6 +192,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6a83209_d26ba401",
+        "filename": "front_end/ui/legacy/Toolbar.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 957,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-07-26T13:41:43Z",
+      "side": 1,
+      "message": "Actually this isn\u0027t used, removed:)",
+      "parentUuid": "a783f0d3_b555e653",
+      "revId": "b2336cb787860a54a575a37b8d43633bba4d3adb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6e167ba4_da6fb560",
@@ -137,6 +227,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9bdeb66_98ab956c",
+        "filename": "front_end/ui/legacy/Toolbar.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 966,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-07-26T13:41:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e167ba4_da6fb560",
+      "revId": "b2336cb787860a54a575a37b8d43633bba4d3adb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1ec5f84b_8a20ce7c",
@@ -150,6 +258,24 @@
       "writtenOn": "2024-07-23T12:08:25Z",
       "side": 1,
       "message": "Why the negation of the original logic here? I\u0027m not familiar with this part to understand this change. Could you explain a bit more please?",
+      "revId": "b2336cb787860a54a575a37b8d43633bba4d3adb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbeae014_2c040d99",
+        "filename": "front_end/ui/legacy/Toolbar.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 1054,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-07-26T13:41:43Z",
+      "side": 1,
+      "message": "Toggle buttons have a click listener that update the button\u0027s toggle state, so we just need to update the setting to the newly updated state. Does this make sense?",
+      "parentUuid": "1ec5f84b_8a20ce7c",
       "revId": "b2336cb787860a54a575a37b8d43633bba4d3adb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
