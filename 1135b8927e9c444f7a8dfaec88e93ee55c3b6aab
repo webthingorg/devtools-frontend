@@ -59,6 +59,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ecb4778_62243e37",
+        "filename": "front_end/models/trace/insights/LargestContentfulPaint.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-07-26T09:09:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fcc3266d_7467a734",
+      "range": {
+        "startLine": 158,
+        "startChar": 0,
+        "endLine": 158,
+        "endChar": 29
+      },
+      "revId": "1135b8927e9c444f7a8dfaec88e93ee55c3b6aab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2fa830cc_ebfb98af",
@@ -110,6 +134,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "00babb69_40f9c672",
+        "filename": "front_end/panels/timeline/components/insights/LCPDiscovery.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-07-26T09:09:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2fa830cc_ebfb98af",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 18
+      },
+      "revId": "1135b8927e9c444f7a8dfaec88e93ee55c3b6aab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0cc38c8c_63f95a14",
@@ -133,6 +181,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e644c6ae_4007b7d1",
+        "filename": "front_end/panels/timeline/components/insights/LCPDiscovery.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-07-26T09:09:14Z",
+      "side": 1,
+      "message": "Ahhh oops silly copy-paste mistake :)",
+      "parentUuid": "0cc38c8c_63f95a14",
+      "range": {
+        "startLine": 31,
+        "startChar": 1,
+        "endLine": 34,
+        "endChar": 3
+      },
+      "revId": "1135b8927e9c444f7a8dfaec88e93ee55c3b6aab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2b076705_380ed547",
@@ -146,6 +218,30 @@
       "writtenOn": "2024-07-25T13:44:03Z",
       "side": 1,
       "message": "this boolean is unclear - if this is true, did the advice pass?\n\n`isPass` or something might be clearer, wdyt?",
+      "range": {
+        "startLine": 121,
+        "startChar": 14,
+        "endLine": 121,
+        "endChar": 20
+      },
+      "revId": "1135b8927e9c444f7a8dfaec88e93ee55c3b6aab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d85e060f_ae79841d",
+        "filename": "front_end/panels/timeline/components/insights/LCPDiscovery.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-07-26T09:09:14Z",
+      "side": 1,
+      "message": "ah also realized we read the logic from the insight backwards, fixed this too. Done",
+      "parentUuid": "2b076705_380ed547",
       "range": {
         "startLine": 121,
         "startChar": 14,
