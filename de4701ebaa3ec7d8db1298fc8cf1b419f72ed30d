@@ -39,6 +39,30 @@
       },
       "revId": "de4701ebaa3ec7d8db1298fc8cf1b419f72ed30d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af956215_851a84c3",
+        "filename": "front_end/panels/timeline/TimelineLandingPage.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-07-26T10:42:30Z",
+      "side": 1,
+      "message": "It makes the \"record\" button on the landing page be logged as `Action`, not `Toggle`. It doesn\u0027t really act like a `Toggle` as the landing page disappears when the button is clicked.",
+      "parentUuid": "20bb4508_ca8962f1",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 94,
+        "endChar": 116
+      },
+      "revId": "de4701ebaa3ec7d8db1298fc8cf1b419f72ed30d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
