@@ -467,7 +467,7 @@ export class MainImpl {
       ThemeSupport.ThemeSupport.instance({forceNew: true, setting: themeSetting});
     }
 
-    UI.UIUtils.installComponentRootStyles((document.body as Element));
+    UI.UIUtils.installComponentRootStyles(document.documentElement);
 
     this.#addMainEventListeners(document);
 
