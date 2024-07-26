@@ -205,6 +205,11 @@ const UIStrings = {
    * elements panel, only when the user presses Enter.
    */
   searchOnEnterCommand: 'Disable search as you type (press Enter to search)',
+  /**
+   * @description Label for a checkbox in the settings UI. Offers a toggle for users to zoom DevTools
+   * enough to partially meet WCAG 2.5.8 target-size requirement.
+   */
+  toggleMinTargetSize: 'Increase UI element size',
 };
 const str_ = i18n.i18n.registerUIStrings('entrypoints/main/main-meta.ts', UIStrings);
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
@@ -601,6 +606,16 @@ Common.Settings.registerSettingExtension({
     i18nLazyString(UIStrings.darkLower),
     i18nLazyString(UIStrings.lightLower),
   ],
+});
+
+Common.Settings.registerSettingExtension({
+  category: Common.Settings.SettingCategory.APPEARANCE,
+  storageType: Common.Settings.SettingStorageType.Synced,
+  title: i18nLazyString(UIStrings.toggleMinTargetSize),
+  settingName: 'min-target-size',
+  settingType: Common.Settings.SettingType.BOOLEAN,
+  defaultValue: false,
+  reloadRequired: false,
 });
 
 Common.Settings.registerSettingExtension({
