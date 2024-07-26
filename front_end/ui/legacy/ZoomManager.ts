@@ -13,6 +13,11 @@ export class ZoomManager extends Common.ObjectWrapper.ObjectWrapper<EventTypes> 
 
   private constructor(window: Window, frontendHost: Host.InspectorFrontendHostAPI.InspectorFrontendHostAPI) {
     super();
+
+    const minTargetSizeSettings = Common.Settings.Settings.instance().createSetting('min-target-size', false);
+    minTargetSizeSettings.addChangeListener(this.onMinTargetSizeSettingChanged, this);
+    this.onMinTargetSizeSettingChanged();
+
     this.frontendHost = frontendHost;
     this.zoomFactorInternal = this.frontendHost.zoomFactor();
     window.addEventListener('resize', this.onWindowResize.bind(this), true);
@@ -57,6 +62,16 @@ export class ZoomManager extends Common.ObjectWrapper.ObjectWrapper<EventTypes> 
     this.zoomFactorInternal = this.frontendHost.zoomFactor();
     if (oldZoomFactor !== this.zoomFactorInternal) {
       this.dispatchEventToListeners(Events.ZoomChanged, {from: oldZoomFactor, to: this.zoomFactorInternal});
+    }
+  }
+
+  private onMinTargetSizeSettingChanged(): void {
+    const minTargetSizeSettingsValue =
+        Common.Settings.Settings.instance().createSetting('min-target-size', false).get();
+    if (minTargetSizeSettingsValue) {
+      window.document.documentElement.style.zoom = '1.25';
+    } else {
+      window.document.documentElement.style.zoom = '1';
     }
   }
 }
