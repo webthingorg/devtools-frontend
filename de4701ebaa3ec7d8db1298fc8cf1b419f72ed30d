@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c242eefa_bd2293e9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-26T10:10:42Z",
+      "side": 1,
+      "message": "lgtm with a question that I\u0027m unclear on. Thank you!",
+      "revId": "de4701ebaa3ec7d8db1298fc8cf1b419f72ed30d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20bb4508_ca8962f1",
+        "filename": "front_end/panels/timeline/TimelineLandingPage.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-26T10:10:42Z",
+      "side": 1,
+      "message": "what\u0027s the use case for `ignoreToggleable` here ? does this impact the logging?",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 94,
+        "endChar": 116
+      },
+      "revId": "de4701ebaa3ec7d8db1298fc8cf1b419f72ed30d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
