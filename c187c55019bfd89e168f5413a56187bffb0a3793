@@ -16,6 +16,23 @@
       "message": "PTAL.",
       "revId": "c187c55019bfd89e168f5413a56187bffb0a3793",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff672351_e9f1ea11",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-07-26T22:01:33Z",
+      "side": 1,
+      "message": "Drive-by: ran into the same issue and created a but athttps://crbug.com/355622977",
+      "revId": "c187c55019bfd89e168f5413a56187bffb0a3793",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
