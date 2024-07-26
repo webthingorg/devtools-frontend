@@ -107,6 +107,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d648e3f3_26cd7494",
+        "filename": "front_end/ui/legacy/Toolbar.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 591,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-07-26T13:53:00Z",
+      "side": 1,
+      "message": "I guess what I mean is, if from a DevTools developer perspective, I might be confused as to which class to use for a toolbar toggle? From just reading the name, `ToolbarToggle` makes sense, but if I look at `ToolbarButton`, it also has toggle states and I might just use this instead.\n\nAnother more practical way of asking this question is, is it possible to move these toggle-related states and methods (`isToggled()`, `this.button.toggled`, etc.) to `ToolbarToggle`?",
+      "parentUuid": "a1c24356_1c289977",
+      "revId": "b2336cb787860a54a575a37b8d43633bba4d3adb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ed4e73cf_a85a2ff4",
         "filename": "front_end/ui/legacy/Toolbar.ts",
         "patchSetId": 21
