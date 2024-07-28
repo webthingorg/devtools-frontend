@@ -27,7 +27,6 @@ npm-debug.log
 /scripts/javascript_natives/node_modules
 /scripts/protocol_typescript/*.js
 
-/build
 /buildtools
 /out
 /third_party/*
@@ -39,6 +38,7 @@ npm-debug.log
 !/third_party/image_diff
 !/third_party/pyjson5
 !/third_party/typescript
+!/third_party/node
 
 test/screenshots/.generated
 test/perf/.generated
