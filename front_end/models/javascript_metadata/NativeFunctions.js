@@ -6613,6 +6613,10 @@ export const NativeFunctions = [
     signatures: [["type","?options"]]
   },
   {
+    name: "getComposedRanges",
+    signatures: [["...shadowRoots"]]
+  },
+  {
     name: "AnimationEvent",
     signatures: [["type","?eventInitDict"]]
   },
