@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "a6e98a5eb57d88d1f988f159351980df183618d0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6776d930_25cae4ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-29T15:44:40Z",
+      "side": 1,
+      "message": "lgtm! though I know that @nvitkov@chromium.org is also looking into similar stuff, so adding him as a reviewer here :)",
+      "revId": "a6e98a5eb57d88d1f988f159351980df183618d0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
