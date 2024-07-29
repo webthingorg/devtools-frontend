@@ -692,7 +692,7 @@ export class ToolbarButton extends ToolbarItem<ToolbarButton.EventTypes> {
 }
 
 export class ToolbarCombobox extends ToolbarItem<ToolbarButton.EventTypes> {
-  private readonly glyphElement: IconButton.Icon.Icon;
+  private readonly glyphElement: Buttons.Button.Button;
   private textElement: HTMLElement;
   private text?: string;
   private glyph?: string;
@@ -705,7 +705,7 @@ export class ToolbarCombobox extends ToolbarItem<ToolbarButton.EventTypes> {
     this.element.addEventListener('click', this.clicked.bind(this), false);
     this.element.addEventListener('mousedown', this.mouseDown.bind(this), false);
 
-    this.glyphElement = new IconButton.Icon.Icon();
+    this.glyphElement = new Buttons.Button.Button();
     this.glyphElement.className = 'toolbar-glyph hidden';
     this.element.appendChild(this.glyphElement);
     this.textElement = this.element.createChild('div', 'toolbar-text hidden');
@@ -735,7 +735,10 @@ export class ToolbarCombobox extends ToolbarItem<ToolbarButton.EventTypes> {
     if (this.glyph === glyph) {
       return;
     }
-    this.glyphElement.name = !glyph ? null : glyph;
+    if (glyph) {
+      this.glyphElement.data = {iconName: glyph, variant: Buttons.Button.Variant.ICON};
+    }
+    this.glyphElement.iconName = !glyph ? undefined : glyph;
     this.glyphElement.classList.toggle('hidden', !glyph);
     this.element.classList.toggle('toolbar-has-glyph', Boolean(glyph));
     this.glyph = glyph;
