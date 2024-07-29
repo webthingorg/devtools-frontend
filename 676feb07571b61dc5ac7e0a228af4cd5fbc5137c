@@ -51,6 +51,24 @@
       "parentUuid": "7f4e7b68_116907e1",
       "revId": "676feb07571b61dc5ac7e0a228af4cd5fbc5137c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cda2d5de_61626312",
+        "filename": "front_end/ui/legacy/inspectorCommon.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-07-29T12:23:07Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "83be0b55_a296a88a",
+      "revId": "676feb07571b61dc5ac7e0a228af4cd5fbc5137c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
