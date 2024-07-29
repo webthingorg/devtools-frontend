@@ -33,6 +33,24 @@
       "message": "Hey Kalon. Thanks for following up here. I can get behind the idea that we need to offer something to people who have a hard time dealing with dense interfaces. TBH I\u0027m not sure the zoom level is the right approach (at the very least I think we need a better string than \"Increase UI element size\"). This definitely needs a conversation with Peter and Danil, and I feel like it\u0027d be better suited to sort this out in an email thread or document. WDYT?",
       "revId": "500ee292c85cfbce5680c52d933a28fa057c7384",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f2136c5_b225c117",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2024-07-29T07:25:27Z",
+      "side": 1,
+      "message": "This behavior can already be achieved by simply pressing `crtl +`, can\u0027t it? I know several team members who work with a zoomed in DevTools all the time. Not sure we need an extra setting for it? Is there a functional difference to using `ctrl +`, which is kind of the default shortcut for zooming the UI?",
+      "parentUuid": "31e973c5_5ac39989",
+      "revId": "500ee292c85cfbce5680c52d933a28fa057c7384",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
