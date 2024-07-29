@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6758675a_fda20dc4",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1270,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-07-29T18:45:41Z",
+      "side": 1,
+      "message": "This is an inner function that just pulls out the name bits from the surrounding property values. I\u0027m returning an array here so that I can nicely postprocess the result for areas (where I need to split the cells).",
+      "parentUuid": "4145a149_4c0538d8",
+      "revId": "579ebeebf6935ec2cad373723dfd3d7832fffef9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "acac1642_93373ad2",
@@ -48,6 +66,24 @@
       "writtenOn": "2024-07-29T14:43:27Z",
       "side": 1,
       "message": "Are there cases where we need to update `this.#gridNames` while it exists, e.g. when something made current gridNames stale?",
+      "revId": "579ebeebf6935ec2cad373723dfd3d7832fffef9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "642f19a3_e4a07420",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1458,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-07-29T18:45:41Z",
+      "side": 1,
+      "message": "nice catch! I believe this can happen but need to test first. When editing the templates from the styles tab I suspect we\u0027re going to miss the update.",
+      "parentUuid": "acac1642_93373ad2",
       "revId": "579ebeebf6935ec2cad373723dfd3d7832fffef9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
