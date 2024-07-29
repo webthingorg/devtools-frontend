@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "10479e4f_9b804bdc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-07-29T06:08:26Z",
+      "side": 1,
+      "message": "Hi Paul, this is the first part of the CL for rehydrated sessions. Could you take a look at it when you get a chance? Thank you!\nIn case you missed the msg from last week, you can see the whole planned change for hosted mode rehydrated session here: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/5732520",
+      "revId": "cc12a29d67d509312945f41621a25bfb31789b1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
