@@ -33,6 +33,24 @@
       "message": "There seems to be some overlap between `inspectorCommon.css` and `checkbox.css`. Have you thought about deduplicating some of the styles here?",
       "revId": "676feb07571b61dc5ac7e0a228af4cd5fbc5137c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83be0b55_a296a88a",
+        "filename": "front_end/ui/legacy/inspectorCommon.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-07-29T10:42:34Z",
+      "side": 1,
+      "message": "There are two different checkbox implementations, one of which is a component. Int his case we decided not to unify the implementation, but just to update styles. So we need to keep both. Does this make sense?:)",
+      "parentUuid": "7f4e7b68_116907e1",
+      "revId": "676feb07571b61dc5ac7e0a228af4cd5fbc5137c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
