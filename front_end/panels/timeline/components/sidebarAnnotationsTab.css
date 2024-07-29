@@ -4,6 +4,11 @@
  * found in the LICENSE file.
  */
 
+:host {
+  display: block;
+  padding: 0 10px;
+}
+
 .annotations {
   display: block;
   padding: 0;
