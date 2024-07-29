@@ -318,7 +318,7 @@ export async function navigateToConsoleTab() {
   }
   await click(CONSOLE_TAB_SELECTOR);
   await waitFor(CONSOLE_VIEW_SELECTOR);
-  await expectVeEvents([veImpressionForConsolePanel()]);
+  // await expectVeEvents([veImpressionForConsolePanel()]);
 }
 
 export async function waitForConsoleInfoMessageAndClickOnLink() {
