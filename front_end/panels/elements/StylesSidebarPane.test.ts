@@ -204,7 +204,7 @@ describe('StylesSidebarPane', () => {
       it('shows autocomplete item with color swatch for CSS variables with RGB color', async () => {
         const attachedElement = document.createElement('div');
         renderElementIntoDOM(attachedElement);
-        const cssPropertyPrompt = new CSSPropertyPrompt(mockTreeItem, false);
+        const cssPropertyPrompt = new CSSPropertyPrompt(mockTreeItem, false, []);
 
         cssPropertyPrompt.attachAndStartEditing(attachedElement, noop);
         const spyObj = sinon.spy(cssPropertyPrompt.suggestBoxForTest());
@@ -219,7 +219,7 @@ describe('StylesSidebarPane', () => {
       it('shows autocomplete item with color swatch for CSS variables with wide gamut color', async () => {
         const attachedElement = document.createElement('div');
         renderElementIntoDOM(attachedElement);
-        const cssPropertyPrompt = new CSSPropertyPrompt(mockTreeItem, false);
+        const cssPropertyPrompt = new CSSPropertyPrompt(mockTreeItem, false, []);
 
         cssPropertyPrompt.attachAndStartEditing(attachedElement, noop);
         const spyObj = sinon.spy(cssPropertyPrompt.suggestBoxForTest());
@@ -234,7 +234,7 @@ describe('StylesSidebarPane', () => {
       it('shows autocomplete property names for CSS aliases', async () => {
         const attachedElement = document.createElement('div');
         renderElementIntoDOM(attachedElement);
-        const cssPropertyPrompt = new CSSPropertyPrompt(mockTreeItem, true);
+        const cssPropertyPrompt = new CSSPropertyPrompt(mockTreeItem, true, []);
 
         cssPropertyPrompt.attachAndStartEditing(attachedElement, noop);
         const spyObj = sinon.spy(cssPropertyPrompt.suggestBoxForTest());
