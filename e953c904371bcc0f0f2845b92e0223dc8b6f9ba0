@@ -16,6 +16,23 @@
       "message": "Hey folks, can you PTAL?\n\nAdded @kimanh@chromium.org as a reviewer from GM3 side but please feel free to nominate someone else for the review :)",
       "revId": "e953c904371bcc0f0f2845b92e0223dc8b6f9ba0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67a75561_374196f5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-29T16:00:55Z",
+      "side": 1,
+      "message": "One thing I realized after sending the CL is, I didn\u0027t do focus handling \u0026 styling for accessibility. I\u0027ll do it tomorrow 😅",
+      "revId": "e953c904371bcc0f0f2845b92e0223dc8b6f9ba0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
