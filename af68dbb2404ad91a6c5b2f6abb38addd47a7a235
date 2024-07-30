@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fb1c8d5_84517673",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-30T13:08:19Z",
+      "side": 1,
+      "message": "this needs a tweak as it doesn\u0027t read properly",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 35
+      },
+      "revId": "af68dbb2404ad91a6c5b2f6abb38addd47a7a235",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1785d1a_3c535b6f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-30T13:08:19Z",
+      "side": 1,
+      "message": "LGTM. It looks like in the video the range that gets created with a label is then removed when the user goes to create a new one. I guess we are planning to change that in a follow-up as it\u0027s expected that you can have \u003e1 time ranges w/ labels?",
+      "revId": "af68dbb2404ad91a6c5b2f6abb38addd47a7a235",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
