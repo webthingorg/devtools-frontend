@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8046380_5da375f6",
+        "filename": "front_end/panels/elements/StyleEditorWidget.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-07-30T13:32:52Z",
+      "side": 0,
+      "message": "All `Buttons.Button.Button` are keyboard focusable, yes!:)",
+      "parentUuid": "ea572058_4abecaf6",
+      "revId": "234d846cbaa82c0417b3f540062087a8c95813b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e3eb652e_e5448c96",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-07-30T11:14:10Z",
       "side": 0,
       "message": "qq: where is this cancel-button? Does it need to be updated as well?",
+      "revId": "234d846cbaa82c0417b3f540062087a8c95813b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59e3ceb1_63618026",
+        "filename": "front_end/panels/settings/keybindsSettingsTab.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-07-30T13:32:52Z",
+      "side": 0,
+      "message": "I think we needed to change the button order here and this must have done the trick:)",
+      "parentUuid": "e3eb652e_e5448c96",
       "revId": "234d846cbaa82c0417b3f540062087a8c95813b9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "53932aef_915d02c3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-07-30T13:32:52Z",
+      "side": 1,
+      "message": "As discussed offline, in this particular case devtools-button is tested and we are not introducing any functionality changes here",
+      "parentUuid": "841dcdb5_35499953",
+      "revId": "2fdfa2847c0075044698e13ac4167c4927ad9219",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "54906ed9_ef1f53aa",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-07-30T11:14:10Z",
       "side": 1,
       "message": "nit: would it be safer to use `this.glyphElement.classList.add(\u0027toolbar-glyph\u0027, \u0027hidden\u0027)`, since it won\u0027t remove previous class names, in case in the future `new Buttons.Button.Button()` would assign default class names to button elements?",
+      "revId": "2fdfa2847c0075044698e13ac4167c4927ad9219",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58cb8ecf_53067462",
+        "filename": "front_end/ui/legacy/Toolbar.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 711,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-07-30T13:32:52Z",
+      "side": 1,
+      "message": "Done\nWhile I was at that, I figured we don\u0027t need to hide the element, since we are checking if the icon name is present beforehand!",
+      "parentUuid": "54906ed9_ef1f53aa",
       "revId": "2fdfa2847c0075044698e13ac4167c4927ad9219",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -52,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b76117d8_0b50797d",
+        "filename": "front_end/ui/legacy/components/data_grid/ShowMoreDataGridNode.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-07-30T13:32:52Z",
+      "side": 1,
+      "message": "This button\u0027s text content is dynamic, we set it separately in updateLabels (https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/ui/legacy/components/data_grid/ShowMoreDataGridNode.ts;l\u003d120) that we call a few lines below",
+      "parentUuid": "cdfc9f1f_aaff3842",
+      "revId": "2fdfa2847c0075044698e13ac4167c4927ad9219",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8b79b9bb_f5e32736",
@@ -65,6 +119,24 @@
       "writtenOn": "2024-07-30T11:14:10Z",
       "side": 1,
       "message": "Could we remove commented-out code?",
+      "revId": "2fdfa2847c0075044698e13ac4167c4927ad9219",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4fdd7d7b_6bb5665d",
+        "filename": "front_end/ui/legacy/tabbedPane.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-07-30T13:32:52Z",
+      "side": 1,
+      "message": "Sure, thanks for catching this!",
+      "parentUuid": "8b79b9bb_f5e32736",
       "revId": "2fdfa2847c0075044698e13ac4167c4927ad9219",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
