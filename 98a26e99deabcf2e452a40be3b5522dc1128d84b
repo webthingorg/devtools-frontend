@@ -16,6 +16,63 @@
       "message": "PTAL.",
       "revId": "98a26e99deabcf2e452a40be3b5522dc1128d84b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4bc46f20_3ba648a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-07-30T09:53:11Z",
+      "side": 1,
+      "message": "LGTM 😊",
+      "revId": "98a26e99deabcf2e452a40be3b5522dc1128d84b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "283a5a59_0a6a0b3c",
+        "filename": "front_end/panels/timeline/components/sidebarAnnotationsTab.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-07-30T09:53:11Z",
+      "side": 1,
+      "message": "I remember we didn\u0027t actually want Annotations tab to have padding because when an annotation is hovered and the \"bin\" icon shows up, the background should take the whole length. We can remove this and add some padding to an individual annotation.",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 1
+      },
+      "revId": "98a26e99deabcf2e452a40be3b5522dc1128d84b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "385c4f9a_acd3313c",
+        "filename": "front_end/panels/timeline/components/sidebarAnnotationsTab.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-07-30T09:53:11Z",
+      "side": 1,
+      "message": "```suggestion\n  align-items: center;\n  padding: 0 10px;\n```",
+      "revId": "98a26e99deabcf2e452a40be3b5522dc1128d84b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
