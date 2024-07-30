@@ -489,7 +489,19 @@ def _CheckL10nStrings(input_api, output_api):
 
 
 def _CheckNoUncheckedFiles(input_api, output_api):
-    results = []
+    old_sys_path = sys.path[:]
+    devtools_root = input_api.PresubmitLocalPath()
+    depot_tools = input_api.os_path.join(devtools_root, 'third_party', 'depot_tools')
+    try:
+      sys.path.append(depot_tools)
+      from gclient_utils import IsEnvCog
+      if IsEnvCog():
+          return [output_api.PresubmitPromptWarning(
+              'Non-git environment detected, skipping check.'
+          )]
+    finally:
+      sys.path = old_sys_path
+
     process = input_api.subprocess.Popen(['git', 'diff', '--exit-code'],
                                          stdout=input_api.subprocess.PIPE,
                                          stderr=input_api.subprocess.STDOUT)
