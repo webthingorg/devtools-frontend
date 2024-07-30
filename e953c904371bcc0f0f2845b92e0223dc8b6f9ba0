@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "24de3212_36cd1358",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-07-30T08:05:03Z",
+      "side": 1,
+      "message": "Hi Ergün!\n\nFirst off, thanks a lot for thinking of explicitly adding me as a reviewer here :)! \n\nI have added some comments regarding the styles. Also, sorry for the noise on your bug with the deleted comment, I\u0027ve taken your approach with taking screenshots and attaching it to a closed bug for CL reviews 😄, but I accidentally added the screenshot on the wrong bug.\n\nLet me know if there are things that should be clarified regarding the styles! I\u0027m also happy to drop by.",
+      "revId": "e953c904371bcc0f0f2845b92e0223dc8b6f9ba0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0ad583fc_d92b6a15",
@@ -129,6 +146,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "27fb00c4_fad72833",
+        "filename": "front_end/ui/components/switch_control/SwitchControl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-07-30T08:05:03Z",
+      "side": 1,
+      "message": "Question: I can see that this is passing in the tests, but I\u0027m just wondering how 😄 maybe you could explain: the parameter `checked` isn\u0027t used, how come that it exists and is set on the change event?",
+      "revId": "e953c904371bcc0f0f2845b92e0223dc8b6f9ba0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ae531a2b_5cbdf18f",
         "filename": "front_end/ui/components/switch_control/SwitchControl.ts",
         "patchSetId": 2
@@ -146,6 +180,47 @@
         "endLine": 17,
         "endChar": 26
       },
+      "revId": "e953c904371bcc0f0f2845b92e0223dc8b6f9ba0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a69fa238_925e1cc4",
+        "filename": "front_end/ui/components/switch_control/SwitchControl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-07-30T08:05:03Z",
+      "side": 1,
+      "message": "+1 to this; `Switch` is also used for basic components within Chrome.",
+      "parentUuid": "ae531a2b_5cbdf18f",
+      "range": {
+        "startLine": 17,
+        "startChar": 13,
+        "endLine": 17,
+        "endChar": 26
+      },
+      "revId": "e953c904371bcc0f0f2845b92e0223dc8b6f9ba0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e87313e8_61355506",
+        "filename": "front_end/ui/components/switch_control/SwitchControl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-07-30T08:05:03Z",
+      "side": 1,
+      "message": "Is there a reason for using the `render` method directly, instead of scheduling it (`ComponentHelpers.ScheduledRender.scheduleRender`)?",
       "revId": "e953c904371bcc0f0f2845b92e0223dc8b6f9ba0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -187,6 +262,40 @@
           ]
         }
       ],
+      "revId": "e953c904371bcc0f0f2845b92e0223dc8b6f9ba0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cc8e9080_da71b59d",
+        "filename": "front_end/ui/components/switch_control/switchControl.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-07-30T08:05:03Z",
+      "side": 1,
+      "message": "We should use `--sys-size` variables now, e.g. this one would be `--sys-size-8`. This also applies to the other height/widths in the file. They are defined in https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/ui/legacy/designTokens.css;l\u003d16;drc\u003d64f76d758f1f1ec9f7aa8fbf2b45ddd16ce99765.\n\nSee also the design kit regarding px/rem:\nhttps://www.figma.com/design/A5iQBBNAe5zPFpJvUzUgW8/CDT-design-kit?node-id\u003d481-2334\n\n(On a side note, I guess it would be helpful to have px values added as comments to the `designTokens.css`, will take care of that!)\n\nDesign Tokens describe standard tokens for colors, type fonts, sizes, radius etc.",
+      "revId": "e953c904371bcc0f0f2845b92e0223dc8b6f9ba0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a681503a_5e6622ce",
+        "filename": "front_end/ui/components/switch_control/switchControl.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-07-30T08:05:03Z",
+      "side": 1,
+      "message": "Generally: We only want to use `--ref` colors in exceptions, since we need to define light/dark colors for them (as you did here). Mostly, there should already be a `--sys` color that exists that you can use, which changes with light/dark mode automatically.\n\nLooking at the colors: Peter has already defined the colors that you can use, as an example, see https://g-issues.chromium.org/action/issues/356309687/attachments/58290902?download\u003dfalse.\n\nThe colors directly translate to the code using the prefix `--sys-color`, i.e. `--sys-color-outline`. If Peter hasn\u0027t defined any specific color for the dark modes, then I assume it should already be the correct color in dark mode too, but please double check! If the dark mode colors do not fit, you can overwrite them for dark mode.\n\nThis comment applies to all colors that are used here. The `--color-primary` is legacy and still used in a few places, and should no longer be used. There should also be a `--sys-color` that you can use for it.",
       "revId": "e953c904371bcc0f0f2845b92e0223dc8b6f9ba0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
