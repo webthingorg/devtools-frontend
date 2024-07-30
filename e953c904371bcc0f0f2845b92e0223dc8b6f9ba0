@@ -33,6 +33,162 @@
       "message": "One thing I realized after sending the CL is, I didn\u0027t do focus handling \u0026 styling for accessibility. I\u0027ll do it tomorrow 😅",
       "revId": "e953c904371bcc0f0f2845b92e0223dc8b6f9ba0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ad583fc_d92b6a15",
+        "filename": "front_end/ui/components/docs/switch_control/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-07-30T01:32:41Z",
+      "side": 1,
+      "message": "```suggestion\n# Copyright 2024 The Chromium Authors. All rights reserved.\n```",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "e953c904371bcc0f0f2845b92e0223dc8b6f9ba0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a95c721_d8385494",
+        "filename": "front_end/ui/components/docs/switch_control/basic.html",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-07-30T01:32:41Z",
+      "side": 1,
+      "message": "nit: 2024",
+      "range": {
+        "startLine": 2,
+        "startChar": 12,
+        "endLine": 2,
+        "endChar": 16
+      },
+      "revId": "e953c904371bcc0f0f2845b92e0223dc8b6f9ba0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "816c1f52_42dcdd37",
+        "filename": "front_end/ui/components/docs/switch_control/basic.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-07-30T01:32:41Z",
+      "side": 1,
+      "message": "```suggestion\n// Copyright 2024 The Chromium Authors. All rights reserved.\n```",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "e953c904371bcc0f0f2845b92e0223dc8b6f9ba0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0da85baa_53101ec0",
+        "filename": "front_end/ui/components/switch_control/SwitchControl.test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-07-30T01:32:41Z",
+      "side": 1,
+      "message": "```suggestion\n  it(\u0027should emit SwitchControlChangeEvent whenever the checkbox inside is changed\u0027, async () \u003d\u003e {\n```",
+      "range": {
+        "startLine": 23,
+        "startChar": 18,
+        "endLine": 23,
+        "endChar": 42
+      },
+      "revId": "e953c904371bcc0f0f2845b92e0223dc8b6f9ba0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae531a2b_5cbdf18f",
+        "filename": "front_end/ui/components/switch_control/SwitchControl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-07-30T01:32:41Z",
+      "side": 1,
+      "message": "Would just `Switch` be a possible name for the component too, or would this cause a conflict somewhere?",
+      "range": {
+        "startLine": 17,
+        "startChar": 13,
+        "endLine": 17,
+        "endChar": 26
+      },
+      "revId": "e953c904371bcc0f0f2845b92e0223dc8b6f9ba0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a45afede_33ed38ba",
+        "filename": "front_end/ui/components/switch_control/SwitchControl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-07-30T01:32:41Z",
+      "side": 1,
+      "message": "I\u0027m not sure, but maybe `?checked\u003d${this.#checked}` would work as well?",
+      "range": {
+        "startLine": 48,
+        "startChar": 8,
+        "endLine": 48,
+        "endChar": 66
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "885dfff7_0e5e7b12",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/ui/components/switch_control/SwitchControl.ts",
+              "range": {
+                "startLine": 48,
+                "startChar": 0,
+                "endLine": 49,
+                "endChar": 0
+              },
+              "replacement": "        ?checked\u003d${this.#checked}\u003e\n"
+            }
+          ]
+        }
+      ],
+      "revId": "e953c904371bcc0f0f2845b92e0223dc8b6f9ba0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
