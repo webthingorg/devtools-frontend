@@ -6,6 +6,7 @@ import * as Root from '../../core/root/root.js';
 import * as Protocol from '../../generated/protocol.js';
 import {createTarget} from '../../testing/EnvironmentHelpers.js';
 import {describeWithMockConnection} from '../../testing/MockConnection.js';
+import * as Common from '../common/common.js';
 
 import * as SDK from './sdk.js';
 
@@ -15,6 +16,8 @@ describeWithMockConnection('AutofillModel', () => {
   });
 
   it('can enable and disable the Autofill CDP domain', () => {
+    Common.Settings.Settings.instance().moduleSetting('show-test-addresses-in-autofill-menu-on-event').set(true);
+
     const target = createTarget();
     const autofillModel = target.model(SDK.AutofillModel.AutofillModel);
     const enableSpy = sinon.spy(autofillModel!.agent, 'invoke_enable');
@@ -33,6 +36,8 @@ describeWithMockConnection('AutofillModel', () => {
   });
 
   it('sets test addresses by calling the Autofill backend', () => {
+    Common.Settings.Settings.instance().moduleSetting('show-test-addresses-in-autofill-menu-on-event').set(true);
+
     const target = createTarget();
     const autofillModel = target.model(SDK.AutofillModel.AutofillModel);
     const setAddressSpy = sinon.spy(autofillModel!.agent, 'invoke_setAddresses');
@@ -46,6 +51,8 @@ describeWithMockConnection('AutofillModel', () => {
   });
 
   it('dispatches addressFormFilledEvent on autofill event', () => {
+    Common.Settings.Settings.instance().moduleSetting('show-test-addresses-in-autofill-menu-on-event').set(true);
+
     const target = createTarget();
     const autofillModel = target.model(SDK.AutofillModel.AutofillModel);
 
