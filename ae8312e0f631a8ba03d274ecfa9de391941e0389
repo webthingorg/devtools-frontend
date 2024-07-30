@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4137449e_ad4452e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-07-30T14:19:44Z",
+      "side": 1,
+      "message": "Changhao, please kindly take a look:)\n\nThe problem with the previous CL trying to fix this (crrev.com/c/5745068) was that for smaller zoom sizes the pseudo outline was shifted to some side. This still doesn\u0027t solve the issue for small zooms, but is generally better.\nWe will try to come up with a fix, but this is low-prio now",
+      "revId": "ae8312e0f631a8ba03d274ecfa9de391941e0389",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
