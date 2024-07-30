@@ -88,7 +88,7 @@ const UIStrings = {
   /**
    *@description Tooltip to explain why a cookie was blocked
    */
-  thirdPartyPhaseout: 'This cookie was blocked due to third-party cookie phaseout. Learn more in the Issues tab.',
+  thirdPartyblocking: 'This cookie was blocked either because of Chrome flags or browser configuration. Learn more in the Issues panel.',
   /**
    *@description Tooltip to explain why a cookie was blocked
    */
@@ -120,7 +120,7 @@ const UIStrings = {
   /**
    *@description Tooltip to explain why an attempt to set a cookie via `Set-Cookie` HTTP header on a request's response was blocked.
    */
-   thisSetcookieWasBlockedDueThirdPartyPhaseout: 'Setting this cookie was blocked due to third-party cookie phaseout. Learn more in the Issues tab.',
+   thisSetcookieWasBlockedDueThirdPartyblocking: 'Setting this cookie was blocked either because of Chrome flags or browser configuration. Learn more in the Issues panel.',
   /**
    *@description Tooltip to explain why an attempt to set a cookie via `Set-Cookie` HTTP header on a request's response was blocked.
    */
@@ -203,11 +203,11 @@ const UIStrings = {
    /**
     *@description Tooltip to explain why the cookie should have been blocked by third-party cookie phaseout but is exempted.
     */
-   exemptionReasonTPCDDeprecationTrial: 'This cookie is allowed by third-party cookie phaseout deprecation trial. Learn more: goo.gle/ps-dt.',
+   exemptionReasonTPCDDeprecationTrial: 'This cookie is allowed by third-party cookie deprecation trial. Learn more: goo.gle/ps-dt.',
    /**
     *@description Tooltip to explain why the cookie should have been blocked by third-party cookie phaseout but is exempted.
     */
-   exemptionReasonTPCDHeuristics: 'This cookie is allowed by third-party cookie phaseout heuristics. Learn more: goo.gle/hbe',
+   exemptionReasonTPCDHeuristics: 'This cookie is allowed by third-party cookie heuristics. Learn more: goo.gle/hbe',
    /**
     *@description Tooltip to explain why the cookie should have been blocked by third-party cookie phaseout but is exempted.
     */
@@ -344,7 +344,7 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
   #wasIntercepted: boolean;
   #associatedData = new Map<string, object>();
   #hasOverriddenContent: boolean;
-  #hasThirdPartyCookiePhaseoutIssue: boolean;
+  #hasThirdPartyCookieblockingIssue: boolean;
   #serverSentEvents?: ServerSentEvents;
   responseReceivedPromise?: Promise<void>;
   responseReceivedPromiseResolve?: () => void;
@@ -432,7 +432,7 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
 
     this.#wasIntercepted = false;
     this.#hasOverriddenContent = false;
-    this.#hasThirdPartyCookiePhaseoutIssue = false;
+    this.#hasThirdPartyCookieblockingIssue = false;
   }
 
   static create(
@@ -1574,8 +1574,8 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
     this.setConnectTimingFromExtraInfo(extraRequestInfo.connectTiming);
     this.#siteHasCookieInOtherPartition = extraRequestInfo.siteHasCookieInOtherPartition ?? false;
 
-    this.#hasThirdPartyCookiePhaseoutIssue = this.#blockedRequestCookiesInternal.some(
-        item => item.blockedReasons.includes(Protocol.Network.CookieBlockedReason.ThirdPartyPhaseout));
+    this.#hasThirdPartyCookieblockingIssue = this.#blockedRequestCookiesInternal.some(
+        item => item.blockedReasons.includes(Protocol.Network.CookieBlockedReason.ThirdPartyblocking));
   }
 
   hasExtraRequestInfo(): boolean {
@@ -1672,8 +1672,8 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
       if (!cookie) {
         continue;
       }
-      if (blockedCookie.blockedReasons.includes(Protocol.Network.SetCookieBlockedReason.ThirdPartyPhaseout)) {
-        this.#hasThirdPartyCookiePhaseoutIssue = true;
+      if (blockedCookie.blockedReasons.includes(Protocol.Network.SetCookieBlockedReason.ThirdPartyblocking)) {
+        this.#hasThirdPartyCookieblockingIssue = true;
       }
       cookieModel.addBlockedCookie(
           cookie, blockedCookie.blockedReasons.map(blockedReason => ({
@@ -1766,8 +1766,8 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
     this.#associatedData.delete(key);
   }
 
-  hasThirdPartyCookiePhaseoutIssue(): boolean {
-    return this.#hasThirdPartyCookiePhaseoutIssue;
+  hasThirdPartyCookieblockingIssue(): boolean {
+    return this.#hasThirdPartyCookieblockingIssue;
   }
 
   addDataReceivedEvent({timestamp, dataLength, encodedDataLength, data}: Protocol.Network.DataReceivedEvent): void {
@@ -1889,8 +1889,8 @@ export const cookieBlockedReasonToUiString = function(blockedReason: Protocol.Ne
       return i18nString(UIStrings.samePartyFromCrossPartyContext);
     case Protocol.Network.CookieBlockedReason.NameValuePairExceedsMaxSize:
       return i18nString(UIStrings.nameValuePairExceedsMaxSize);
-    case Protocol.Network.CookieBlockedReason.ThirdPartyPhaseout:
-      return i18nString(UIStrings.thirdPartyPhaseout);
+    case Protocol.Network.CookieBlockedReason.ThirdPartyblocking:
+      return i18nString(UIStrings.thirdPartyblocking);
   }
   return '';
 };
@@ -1936,8 +1936,8 @@ export const setCookieBlockedReasonToUiString = function(
       return i18nString(UIStrings.thisSetcookieWasBlockedBecauseTheNameValuePairExceedsMaxSize);
     case Protocol.Network.SetCookieBlockedReason.DisallowedCharacter:
       return i18nString(UIStrings.thisSetcookieHadADisallowedCharacter);
-    case Protocol.Network.SetCookieBlockedReason.ThirdPartyPhaseout:
-      return i18nString(UIStrings.thisSetcookieWasBlockedDueThirdPartyPhaseout);
+    case Protocol.Network.SetCookieBlockedReason.ThirdPartyblocking:
+      return i18nString(UIStrings.thisSetcookieWasBlockedDueThirdPartyblocking);
   }
   return '';
 };
@@ -1962,7 +1962,7 @@ export const cookieBlockedReasonToAttribute = function(blockedReason: Protocol.N
         case Protocol.Network.CookieBlockedReason.SamePartyFromCrossPartyContext:
         case Protocol.Network.CookieBlockedReason.NameValuePairExceedsMaxSize:
         case Protocol.Network.CookieBlockedReason.UserPreferences:
-        case Protocol.Network.CookieBlockedReason.ThirdPartyPhaseout:
+        case Protocol.Network.CookieBlockedReason.ThirdPartyblocking:
         case Protocol.Network.CookieBlockedReason.UnknownError:
           return null;
       }
@@ -1991,7 +1991,7 @@ export const setCookieBlockedReasonToAttribute = function(blockedReason: Protoco
         case Protocol.Network.SetCookieBlockedReason.SamePartyFromCrossPartyContext:
         case Protocol.Network.SetCookieBlockedReason.NameValuePairExceedsMaxSize:
         case Protocol.Network.SetCookieBlockedReason.UserPreferences:
-        case Protocol.Network.SetCookieBlockedReason.ThirdPartyPhaseout:
+        case Protocol.Network.SetCookieBlockedReason.ThirdPartyblocking:
         case Protocol.Network.SetCookieBlockedReason.SyntaxError:
         case Protocol.Network.SetCookieBlockedReason.SchemeNotSupported:
         case Protocol.Network.SetCookieBlockedReason.UnknownError:
