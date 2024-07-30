@@ -264,10 +264,10 @@ export class AISettingsTab extends LegacyWrapper.LegacyWrapper.WrappableComponen
     const tabindex = this.#isConsoleInsightsSettingExpanded ? '0' : '-1';
     const tosLink = UI.XLink.XLink.create(
         'http://policies.google.com/terms', i18nString(UIStrings.termsOfService), undefined, undefined,
-        'terms-of-service');
+        'terms-of-service', tabindex);
     const privacyNoticeLink = UI.XLink.XLink.create(
         'http://policies.google.com/privacy', i18nString(UIStrings.privacyNotice), undefined, undefined,
-        'privacy-notice');
+        'privacy-notice', tabindex);
 
     return LitHtml.html`
       <div class="icon-container centered">
@@ -351,10 +351,10 @@ export class AISettingsTab extends LegacyWrapper.LegacyWrapper.WrappableComponen
 
     const tosLink = UI.XLink.XLink.create(
         'http://policies.google.com/terms', i18nString(UIStrings.termsOfService), undefined, undefined,
-        'terms-of-service');
+        'terms-of-service', tabindex);
     const privacyNoticeLink = UI.XLink.XLink.create(
         'http://policies.google.com/privacy', i18nString(UIStrings.privacyNotice), undefined, undefined,
-        'privacy-notice');
+        'privacy-notice', tabindex);
 
     return LitHtml.html`
       <div class="icon-container centered">
