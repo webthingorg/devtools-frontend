@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as Common from '../../core/common/common.js';
 import * as Root from '../../core/root/root.js';
 import type * as ProtocolProxyApi from '../../generated/protocol-proxy-api.js';
 import type * as Protocol from '../../generated/protocol.js';
@@ -13,17 +14,21 @@ import {Capability, type Target} from './Target.js';
 export class AutofillModel extends SDKModel<EventTypes> implements ProtocolProxyApi.AutofillDispatcher {
   readonly agent: ProtocolProxyApi.AutofillApi;
   #enabled?: boolean;
+  #showTestAddressesInAutofillMenu: Common.Settings.Setting<boolean>;
 
   constructor(target: Target) {
     super(target);
 
     this.agent = target.autofillAgent();
+    this.#showTestAddressesInAutofillMenu =
+        Common.Settings.Settings.instance().createSetting('show-test-addresses-in-autofill-menu-on-event', false);
     target.registerAutofillDispatcher(this);
     this.enable();
   }
 
   enable(): void {
-    if (!Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.AUTOFILL_VIEW) || this.#enabled ||
+    if (!this.#showTestAddressesInAutofillMenu.get() ||
+        !Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.AUTOFILL_VIEW) || this.#enabled ||
         Host.InspectorFrontendHost.isUnderTest()) {
       return;
     }
