@@ -1013,6 +1013,9 @@ export class StylePropertiesSection {
   }
 
   updateVarFunctions(editedTreeElement: StylePropertyTreeElement): void {
+    if (!editedTreeElement.property.name.startsWith('--')) {
+      return;
+    }
     let child = this.propertiesTreeOutline.firstChild();
     while (child) {
       if (child !== editedTreeElement && child instanceof StylePropertyTreeElement) {
