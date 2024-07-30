@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c55db9c1_d8f1eed5",
+        "filename": "front_end/core/sdk/AutofillModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-07-30T23:03:05Z",
+      "side": 1,
+      "message": "Early return here prevents the whole model from being enabled. This means no events/updates for the Autofill panel. I think in the \"don\u0027t show test addresses\" case, we still want to enable the model, just not set any test addresses.",
+      "range": {
+        "startLine": 30,
+        "startChar": 8,
+        "endLine": 30,
+        "endChar": 52
+      },
+      "revId": "760ac5942263b26d4958f4a84b53823cd0fe14b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
