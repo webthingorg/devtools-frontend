@@ -103,6 +103,24 @@
       "parentUuid": "acac1642_93373ad2",
       "revId": "579ebeebf6935ec2cad373723dfd3d7832fffef9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3bb39826_d0e1444b",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1458,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-07-30T15:17:51Z",
+      "side": 1,
+      "message": "This can happen when the template is defined in terms of a custom property that the grid element also inherits. The custom property value can be modified through the styles tab for the grid element, but the update doesn\u0027t propagate. We have this problem in other places, e.g., @property.\n\nI now made sure that we discard #gridNames if any custom property is edited.\n\nNote that we don\u0027t miss manual updates to the template, since the templates aren\u0027t inherited which requires the user to select a different element before modifying the template.",
+      "parentUuid": "642f19a3_e4a07420",
+      "revId": "579ebeebf6935ec2cad373723dfd3d7832fffef9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
