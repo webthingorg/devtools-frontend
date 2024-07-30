@@ -298,6 +298,23 @@
       "message": "Generally: We only want to use `--ref` colors in exceptions, since we need to define light/dark colors for them (as you did here). Mostly, there should already be a `--sys` color that exists that you can use, which changes with light/dark mode automatically.\n\nLooking at the colors: Peter has already defined the colors that you can use, as an example, see https://g-issues.chromium.org/action/issues/356309687/attachments/58290902?download\u003dfalse.\n\nThe colors directly translate to the code using the prefix `--sys-color`, i.e. `--sys-color-outline`. If Peter hasn\u0027t defined any specific color for the dark modes, then I assume it should already be the correct color in dark mode too, but please double check! If the dark mode colors do not fit, you can overwrite them for dark mode.\n\nThis comment applies to all colors that are used here. The `--color-primary` is legacy and still used in a few places, and should no longer be used. There should also be a `--sys-color` that you can use for it.",
       "revId": "e953c904371bcc0f0f2845b92e0223dc8b6f9ba0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc1887bc_7525111f",
+        "filename": "front_end/ui/components/switch_control/switchControl.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-07-30T08:29:37Z",
+      "side": 1,
+      "message": "We also have design tokens for border radius, see https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/ui/legacy/designTokens.css;l\u003d62;drc\u003d64f76d758f1f1ec9f7aa8fbf2b45ddd16ce99765.\n\nIt looks as if this could be `--sys-shape-corner-full`.\n\nSame for the other border radius in this file.",
+      "revId": "e953c904371bcc0f0f2845b92e0223dc8b6f9ba0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
