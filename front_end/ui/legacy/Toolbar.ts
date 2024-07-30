@@ -692,22 +692,25 @@ export class ToolbarButton extends ToolbarItem<ToolbarButton.EventTypes> {
 }
 
 export class ToolbarCombobox extends ToolbarItem<ToolbarButton.EventTypes> {
-  private readonly glyphElement: IconButton.Icon.Icon;
+  private readonly glyphElement?: Buttons.Button.Button;
   private textElement: HTMLElement;
   private text?: string;
   private glyph?: string;
   private adorner?: Adorners.Adorner.Adorner;
 
-  constructor(title: string, isIconDropdown?: boolean, jslogContext?: string) {
+  constructor(title: string, isIconDropdown?: boolean, jslogContext?: string, iconName?: string) {
     const element = document.createElement('button');
     element.classList.add('toolbar-button');
     super(element);
     this.element.addEventListener('click', this.clicked.bind(this), false);
     this.element.addEventListener('mousedown', this.mouseDown.bind(this), false);
 
-    this.glyphElement = new IconButton.Icon.Icon();
-    this.glyphElement.className = 'toolbar-glyph hidden';
-    this.element.appendChild(this.glyphElement);
+    if (iconName) {
+      this.glyphElement = new Buttons.Button.Button();
+      this.setGlyph(iconName);
+      this.glyphElement.className = 'toolbar-glyph hidden';
+      this.element.appendChild(this.glyphElement);
+    }
     this.textElement = this.element.createChild('div', 'toolbar-text hidden');
 
     this.setTitle(title);
@@ -732,10 +735,15 @@ export class ToolbarCombobox extends ToolbarItem<ToolbarButton.EventTypes> {
   }
 
   setGlyph(glyph: string): void {
+    if (!this.glyphElement) {
+      throw new Error('Icon name needs to be defined at menu button creation');
+    }
     if (this.glyph === glyph) {
       return;
     }
-    this.glyphElement.name = !glyph ? null : glyph;
+    if (glyph) {
+      this.glyphElement.data = {variant: Buttons.Button.Variant.ICON, iconName: glyph};
+    }
     this.glyphElement.classList.toggle('hidden', !glyph);
     this.element.classList.toggle('toolbar-has-glyph', Boolean(glyph));
     this.glyph = glyph;
@@ -996,8 +1004,8 @@ export class ToolbarMenuButton extends ToolbarCombobox {
   private triggerTimeout?: number;
   constructor(
       contextMenuHandler: (arg0: ContextMenu) => void, isIconDropdown?: boolean, useSoftMenu?: boolean,
-      jslogContext?: string) {
-    super('', isIconDropdown, jslogContext);
+      jslogContext?: string, iconName?: string) {
+    super('', isIconDropdown, jslogContext, iconName);
     if (jslogContext) {
       this.element.setAttribute('jslog', `${VisualLogging.dropDown().track({click: true}).context(jslogContext)}`);
     }
