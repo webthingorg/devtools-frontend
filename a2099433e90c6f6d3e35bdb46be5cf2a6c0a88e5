@@ -16,6 +16,23 @@
       "message": "Same for this, Kim, also a backmerge:)\n\nI don\u0027t have merge approval for this one yet, but they asked to merge the changes before 11pm today, I hope to get approval later today and land it by that time",
       "revId": "a2099433e90c6f6d3e35bdb46be5cf2a6c0a88e5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "146d8e45_f2b09746",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-07-30T08:45:34Z",
+      "side": 1,
+      "message": "LGTM, thanks Kateryna 😊",
+      "revId": "a2099433e90c6f6d3e35bdb46be5cf2a6c0a88e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
