@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "841dcdb5_35499953",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-07-30T11:14:10Z",
+      "side": 1,
+      "message": "Are we going to add some tests eventually?",
+      "revId": "2fdfa2847c0075044698e13ac4167c4927ad9219",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54906ed9_ef1f53aa",
+        "filename": "front_end/ui/legacy/Toolbar.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 711,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-07-30T11:14:10Z",
+      "side": 1,
+      "message": "nit: would it be safer to use `this.glyphElement.classList.add(\u0027toolbar-glyph\u0027, \u0027hidden\u0027)`, since it won\u0027t remove previous class names, in case in the future `new Buttons.Button.Button()` would assign default class names to button elements?",
+      "revId": "2fdfa2847c0075044698e13ac4167c4927ad9219",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdfc9f1f_aaff3842",
+        "filename": "front_end/ui/legacy/components/data_grid/ShowMoreDataGridNode.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-07-30T11:14:10Z",
+      "side": 1,
+      "message": "Why does this button not have any text?",
+      "revId": "2fdfa2847c0075044698e13ac4167c4927ad9219",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b79b9bb_f5e32736",
+        "filename": "front_end/ui/legacy/tabbedPane.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-07-30T11:14:10Z",
+      "side": 1,
+      "message": "Could we remove commented-out code?",
+      "revId": "2fdfa2847c0075044698e13ac4167c4927ad9219",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
