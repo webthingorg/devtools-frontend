@@ -33,6 +33,24 @@
       "message": "nothing depends on this target. You need to add it to :unittests in //front_end/BUILD.gn",
       "revId": "57f5ed680d6f6bbee5171a349906ca70d82ff5a8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78b586e6_b5037649",
+        "filename": "front_end/panels/settings/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-07-31T22:15:19Z",
+      "side": 1,
+      "message": "Oh, of course. Thanks a lot!",
+      "parentUuid": "5a5198f7_1bade051",
+      "revId": "57f5ed680d6f6bbee5171a349906ca70d82ff5a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
