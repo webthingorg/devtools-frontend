@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "aada79c3b487e2f73a3a29537648bd3ad4a07105",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b872f91_24e5c72b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-07-31T13:40:26Z",
+      "side": 1,
+      "message": "Kim, PTAL regarding GM3, thanks!",
+      "revId": "aada79c3b487e2f73a3a29537648bd3ad4a07105",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
