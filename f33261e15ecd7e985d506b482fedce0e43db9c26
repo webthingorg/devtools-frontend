@@ -33,6 +33,40 @@
       "message": "Kim, PTAL regarding GM3, thanks!",
       "revId": "f33261e15ecd7e985d506b482fedce0e43db9c26",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "318d58f0_a4ccf705",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-31T13:55:17Z",
+      "side": 1,
+      "message": "It looks great to me and you splitting the CLs makes it a lot easier to review; thanks a lot! :)",
+      "revId": "f33261e15ecd7e985d506b482fedce0e43db9c26",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be65f03b_8e2d4c44",
+        "filename": "front_end/panels/settings/AISettingsTab.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-31T13:55:17Z",
+      "side": 1,
+      "message": "(nit): Can you please manually format the lit template and wrap it with `clang-format on/off`? Sorry for the trouble here, I\u0027m hoping to find some time to look into this formatting issue and fix it once for all...",
+      "revId": "f33261e15ecd7e985d506b482fedce0e43db9c26",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
