@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5992eba_a5bd695d",
+        "filename": "front_end/core/host/AidaClient.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-07-31T11:43:05Z",
+      "side": 1,
+      "message": "nit: checkAccessPreconditions or something like that perhaps would be a better name since it does not return all preconditions but the result of evaluating preconditions.",
+      "revId": "c8d274855b3e80ac64c8def8402e4e11a10b954f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
