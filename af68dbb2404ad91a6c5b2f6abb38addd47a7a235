@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "c7bbaff9_3107eb33",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-07-31T09:34:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4fb1c8d5_84517673",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 35
+      },
+      "revId": "af68dbb2404ad91a6c5b2f6abb38addd47a7a235",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b1785d1a_3c535b6f",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 5
@@ -37,6 +61,24 @@
       "writtenOn": "2024-07-30T13:08:19Z",
       "side": 1,
       "message": "LGTM. It looks like in the video the range that gets created with a label is then removed when the user goes to create a new one. I guess we are planning to change that in a follow-up as it\u0027s expected that you can have \u003e1 time ranges w/ labels?",
+      "revId": "af68dbb2404ad91a6c5b2f6abb38addd47a7a235",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1596cc5_d2c62bd8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-07-31T09:34:30Z",
+      "side": 1,
+      "message": "Yes, exactly. I will change it to be saved in a follow-up cl.",
+      "parentUuid": "b1785d1a_3c535b6f",
       "revId": "af68dbb2404ad91a6c5b2f6abb38addd47a7a235",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
