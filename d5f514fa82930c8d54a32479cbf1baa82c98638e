@@ -33,6 +33,57 @@
       "message": "Kim, could you PTAL at this from the GM3 perspective, so mostly at aiSettingsTab.css?",
       "revId": "d5f514fa82930c8d54a32479cbf1baa82c98638e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4bc752da_99abff3f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-31T13:48:26Z",
+      "side": 1,
+      "message": "LGTM with 2 nits :)",
+      "revId": "d5f514fa82930c8d54a32479cbf1baa82c98638e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "188fec11_b69a7bd3",
+        "filename": "front_end/panels/settings/AISettingsTab.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-31T13:48:26Z",
+      "side": 1,
+      "message": "(nit): We don\u0027t need this default constructor I think :)",
+      "revId": "d5f514fa82930c8d54a32479cbf1baa82c98638e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca1c2338_ed97e25c",
+        "filename": "front_end/panels/settings/AISettingsTab.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-31T13:48:26Z",
+      "side": 1,
+      "message": "(nit): Clang formatting fails to format lit templates, can you format this part manually and surround it with `clang-format on/off`?",
+      "revId": "d5f514fa82930c8d54a32479cbf1baa82c98638e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
