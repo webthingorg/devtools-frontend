@@ -13,6 +13,7 @@ import * as DataGrid from '../../ui/components/data_grid/data_grid.js';
 import * as ComponentHelpers from '../../ui/components/helpers/helpers.js';
 import * as Input from '../../ui/components/input/input.js';
 import * as LegacyWrapper from '../../ui/components/legacy_wrapper/legacy_wrapper.js';
+import * as UI from '../../ui/legacy/legacy.js';
 import * as LitHtml from '../../ui/lit-html/lit-html.js';
 import * as VisualLogging from '../../ui/visual_logging/visual_logging.js';
 
@@ -64,6 +65,10 @@ const UIStrings = {
    */
   autoShow: 'Automatically open this panel',
   /**
+   * @description Label for checkbox in the Autofill panel. If checked, test addresses will be added to the Autofill popup.
+   */
+  showTestAddressesInAutofillMenu: 'Show test addresses in Autofill menu',
+  /**
    * @description Tooltip text for a checkbox label in the Autofill panel. If checked, this panel
    * will open automatically whenever a form is being autofilled.
    */
@@ -76,6 +81,10 @@ const UIStrings = {
    * @description Aria text for the section of the autofill view containing the info about the autofilled form fields.
    */
   formInspector: 'Form inspector',
+  /**
+   *@description Message saying that DevTools must be restarted before Autofill settings changes takes effect.
+   */
+  reloadRequired: 'Reload required before the change takes effect.',
   /**
    *@description Link text for a hyperlink to more documentation
    */
@@ -97,6 +106,7 @@ export class AutofillView extends LegacyWrapper.LegacyWrapper.WrappableComponent
   readonly #shadow = this.attachShadow({mode: 'open'});
   readonly #renderBound = this.#render.bind(this);
   #autoOpenViewSetting: Common.Settings.Setting<boolean>;
+  #showTestAddressesInAutofillMenuSetting: Common.Settings.Setting<boolean>;
   #address: string = '';
   #filledFields: Protocol.Autofill.FilledField[] = [];
   #matches: AutofillManager.AutofillManager.Match[] = [];
@@ -106,6 +116,8 @@ export class AutofillView extends LegacyWrapper.LegacyWrapper.WrappableComponent
     super();
     this.#autoOpenViewSetting =
         Common.Settings.Settings.instance().createSetting('auto-open-autofill-view-on-event', true);
+    this.#showTestAddressesInAutofillMenuSetting =
+        Common.Settings.Settings.instance().createSetting('show-test-addresses-in-autofill-menu-on-event', false);
   }
 
   connectedCallback(): void {
@@ -158,24 +170,33 @@ export class AutofillView extends LegacyWrapper.LegacyWrapper.WrappableComponent
       // clang-format off
       LitHtml.render(LitHtml.html`
         <main>
-          <div class="top-right-corner">
-            <label class="checkbox-label" title=${i18nString(UIStrings.autoShowTooltip)}>
-              <input
-                type="checkbox"
-                ?checked=${this.#autoOpenViewSetting.get()}
-                @change=${this.#onAutoOpenCheckboxChanged.bind(this)}
-                jslog=${VisualLogging.toggle(this.#autoOpenViewSetting.name).track({ change: true })}
-              >
-              <span>${i18nString(UIStrings.autoShow)}</span>
-            </label>
-            <x-link href=${AUTOFILL_FEEDBACK_URL} class="feedback link" jslog=${VisualLogging.link('feedback').track({click: true})}>${i18nString(UIStrings.sendFeedback)}</x-link>
-          </div>
-          <div class="placeholder-container" jslog=${VisualLogging.pane('autofill-empty')}>
-            <div class="placeholder">
-              <div>${i18nString(UIStrings.toStartDebugging)}</div>
-              <x-link href=${AUTOFILL_INFO_URL} class="link" jslog=${VisualLogging.link('learn-more').track({click: true})}>${i18nString(UIStrings.learnMore)}</x-link>
+            <div class="top-left-corner">
+              <label class="checkbox-label" title=${i18nString(UIStrings.showTestAddressesInAutofillMenu)}>
+                <input
+                  type="checkbox"
+                  ?checked=${this.#showTestAddressesInAutofillMenuSetting.get()}
+                  @change=${this.#onShowTestAddressesInAutofillMenuChanged.bind(this)}
+                  jslog=${VisualLogging.toggle(this.#showTestAddressesInAutofillMenuSetting.name).track({ change: true })}
+                >
+                  <span>${i18nString(UIStrings.showTestAddressesInAutofillMenu)}</span>
+              </label>
+              <label class="checkbox-label" title=${i18nString(UIStrings.autoShowTooltip)}>
+                <input
+                  type="checkbox"
+                  ?checked=${this.#autoOpenViewSetting.get()}
+                  @change=${this.#onAutoOpenCheckboxChanged.bind(this)}
+                  jslog=${VisualLogging.toggle(this.#autoOpenViewSetting.name).track({ change: true })}
+                >
+                <span>${i18nString(UIStrings.autoShow)}</span>
+              </label>
+              <x-link href=${AUTOFILL_FEEDBACK_URL} class="feedback link" jslog=${VisualLogging.link('feedback').track({click: true})}>${i18nString(UIStrings.sendFeedback)}</x-link>
             </div>
-          </div>
+            <div class="placeholder-container" jslog=${VisualLogging.pane('autofill-empty')}>
+              <div class="placeholder">
+                <div>${i18nString(UIStrings.toStartDebugging)}</div>
+                <x-link href=${AUTOFILL_INFO_URL} class="link" jslog=${VisualLogging.link('learn-more').track({click: true})}>${i18nString(UIStrings.learnMore)}</x-link>
+              </div>
+            </div>
         </main>
       `, this.#shadow, {host: this});
       // clang-format on
@@ -188,17 +209,30 @@ export class AutofillView extends LegacyWrapper.LegacyWrapper.WrappableComponent
       <main>
         <div class="content-container" jslog=${VisualLogging.pane('autofill')}>
           <div class="right-to-left" role="region" aria-label=${i18nString(UIStrings.addressPreview)}>
-            <div class="label-container">
-              <label class="checkbox-label" title=${i18nString(UIStrings.autoShowTooltip)}>
-                <input
-                  type="checkbox"
-                  ?checked=${this.#autoOpenViewSetting.get()}
-                  @change=${this.#onAutoOpenCheckboxChanged.bind(this)}
-                  jslog=${VisualLogging.toggle(this.#autoOpenViewSetting.name).track({ change: true })}
-                >
-                <span>${i18nString(UIStrings.autoShow)}</span>
-              </label>
-              <x-link href=${AUTOFILL_FEEDBACK_URL} class="feedback link" jslog=${VisualLogging.link('feedback').track({click: true})}>${i18nString(UIStrings.sendFeedback)}</x-link>
+            <div class="header">
+		          <div class="label-container">
+		            <label class="checkbox-label" title=${i18nString(UIStrings.showTestAddressesInAutofillMenu)}>
+		              <input
+		                type="checkbox"
+		                ?checked=${this.#showTestAddressesInAutofillMenuSetting.get()}
+		                @change=${this.#onShowTestAddressesInAutofillMenuChanged.bind(this)}
+		                jslog=${VisualLogging.toggle(this.#showTestAddressesInAutofillMenuSetting.name).track({ change: true })}
+		              >
+		              <span>${i18nString(UIStrings.showTestAddressesInAutofillMenu)}</span>
+		            </label>
+		          </div>
+		          <div class="label-container">
+		            <label class="checkbox-label" title=${i18nString(UIStrings.autoShowTooltip)}>
+		              <input
+		                type="checkbox"
+		                ?checked=${this.#autoOpenViewSetting.get()}
+		                @change=${this.#onAutoOpenCheckboxChanged.bind(this)}
+		                jslog=${VisualLogging.toggle(this.#autoOpenViewSetting.name).track({ change: true })}
+		              >
+		              <span>${i18nString(UIStrings.autoShow)}</span>
+		            </label>
+		          </div>
+		  		    <x-link href=${AUTOFILL_FEEDBACK_URL} class="feedback link" jslog=${VisualLogging.link('feedback').track({click: true})}>${i18nString(UIStrings.sendFeedback)}</x-link>
             </div>
             ${this.#renderAddress()}
           </div>
@@ -212,6 +246,12 @@ export class AutofillView extends LegacyWrapper.LegacyWrapper.WrappableComponent
   #onAutoOpenCheckboxChanged(e: Event): void {
     const {checked} = e.target as HTMLInputElement;
     this.#autoOpenViewSetting.set(checked);
+  }
+
+  #onShowTestAddressesInAutofillMenuChanged(e: Event): void {
+    const {checked} = e.target as HTMLInputElement;
+    this.#showTestAddressesInAutofillMenuSetting.set(checked);
+    UI.InspectorView.InspectorView.instance().displayReloadRequiredWarning(i18nString(UIStrings.reloadRequired));
   }
 
   #renderAddress(): LitHtml.LitTemplate {
