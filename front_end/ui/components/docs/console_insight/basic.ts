@@ -97,5 +97,5 @@ document.querySelector('test').style = 'black';
           },
       registerClientEvent: () => Promise.resolve({}),
     },
-    Host.AidaClient.AidaAvailability.AVAILABLE);
+    Host.AidaClient.AccountAvailability.AVAILABLE);
 document.getElementById('container')?.appendChild(component);

@@ -233,7 +233,7 @@ type StateData = {
 
 export class ConsoleInsight extends HTMLElement {
   static async create(promptBuilder: PublicPromptBuilder, aidaClient: PublicAidaClient): Promise<ConsoleInsight> {
-    const aidaAvailability = await Host.AidaClient.AidaClient.getAidaClientAvailability();
+    const aidaAvailability = await Host.AidaClient.AidaClient.getAccountAvailability();
     return new ConsoleInsight(promptBuilder, aidaClient, aidaAvailability);
   }
 
@@ -252,29 +252,29 @@ export class ConsoleInsight extends HTMLElement {
 
   constructor(
       promptBuilder: PublicPromptBuilder, aidaClient: PublicAidaClient,
-      aidaAvailability: Host.AidaClient.AidaAvailability) {
+      aidaAvailability: Host.AidaClient.AccountAvailability) {
     super();
     this.#promptBuilder = promptBuilder;
     this.#aidaClient = aidaClient;
     switch (aidaAvailability) {
-      case Host.AidaClient.AidaAvailability.AVAILABLE:
+      case Host.AidaClient.AccountAvailability.AVAILABLE:
         this.#state = {
           type: State.LOADING,
           consentReminderConfirmed: false,
           consentOnboardingFinished: this.#getOnboardingCompletedSetting().get(),
         };
         break;
-      case Host.AidaClient.AidaAvailability.NO_ACCOUNT_EMAIL:
+      case Host.AidaClient.AccountAvailability.NO_ACCOUNT_EMAIL:
         this.#state = {
           type: State.NOT_LOGGED_IN,
         };
         break;
-      case Host.AidaClient.AidaAvailability.NO_ACTIVE_SYNC:
+      case Host.AidaClient.AccountAvailability.NO_ACTIVE_SYNC:
         this.#state = {
           type: State.SYNC_IS_OFF,
         };
         break;
-      case Host.AidaClient.AidaAvailability.NO_INTERNET:
+      case Host.AidaClient.AccountAvailability.NO_INTERNET:
         this.#state = {
           type: State.OFFLINE,
         };
