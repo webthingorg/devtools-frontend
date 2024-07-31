@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "d5f514fa82930c8d54a32479cbf1baa82c98638e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0dcf3ead_504189a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-07-31T13:39:16Z",
+      "side": 1,
+      "message": "Kim, could you PTAL at this from the GM3 perspective, so mostly at aiSettingsTab.css?",
+      "revId": "d5f514fa82930c8d54a32479cbf1baa82c98638e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
