@@ -95,9 +95,26 @@ const UIStrings = {
    */
   generatedSnippets: 'Use generated code snippets with caution',
   /**
+   *@description Text describing the 'Freestyler' feature
+   */
+  helpUnderstandStyling: 'Helps you understand and fix styling issues',
+  /**
    *@description Text which is a hyperlink to more documentation
    */
   learnMore: 'Learn more',
+  /**
+   *@description Description of the Freestyler feature
+   */
+  explainStyling: 'Get explanations and additional context for styling behaviors',
+  /**
+   *@description Description of the Freestyler feature
+   */
+  receiveStylingSuggestions: 'Receive suggestions and code samples for fixing styling issues',
+  /**
+   *@description Explainer for which data is being sent by the Freestyler feature
+   */
+  freestylerSendsData:
+      'Any DOM or CSS content on the inspected page may be sent to Google to generate explanations. This data may be seen by human reviewers to improve this feature.',
   /**
    *@description Label for a link to the terms of service
    */
@@ -125,7 +142,9 @@ export class AISettingsTab extends LegacyWrapper.LegacyWrapper.WrappableComponen
   static readonly litTagName = LitHtml.literal`devtools-settings-ai-settings-tab`;
   readonly #shadow = this.attachShadow({mode: 'open'});
   #consoleInsightsSetting?: Common.Settings.Setting<boolean>;
+  #freestylerSetting?: Common.Settings.Setting<boolean>;
   #isConsoleInsightsSettingExpanded: boolean;
+  #isFreestylerSettingExpanded: boolean;
   #shouldAnimate = false;  // Allows not animating on initial render
 
   constructor() {
@@ -136,6 +155,13 @@ export class AISettingsTab extends LegacyWrapper.LegacyWrapper.WrappableComponen
     } catch {
       this.#consoleInsightsSetting = undefined;
       this.#isConsoleInsightsSettingExpanded = false;
+    }
+    try {
+      this.#freestylerSetting = Common.Settings.Settings.instance().moduleSetting('freestyler-enabled');
+      this.#isFreestylerSettingExpanded = this.#freestylerSetting.get();
+    } catch {
+      this.#freestylerSetting = undefined;
+      this.#isFreestylerSettingExpanded = false;
     }
   }
 
@@ -160,6 +186,22 @@ export class AISettingsTab extends LegacyWrapper.LegacyWrapper.WrappableComponen
         i18nString(UIStrings.oneOrMoreSettingsHaveChanged));
     if (checked && !this.#isConsoleInsightsSettingExpanded) {
       this.#expandConsoleInsightsSetting();
+    }
+  }
+
+  #expandFreestylerSetting(): void {
+    this.#isFreestylerSettingExpanded = !this.#isFreestylerSettingExpanded;
+    this.#shouldAnimate = true;
+    void this.render();
+  }
+
+  #onFreestylerCheckboxChanged(e: Event): void {
+    const {checked} = e.target as HTMLInputElement;
+    this.#freestylerSetting?.set(checked);
+    UI.InspectorView.InspectorView.instance().displayReloadRequiredWarning(
+        i18nString(UIStrings.oneOrMoreSettingsHaveChanged));
+    if (checked && !this.#isFreestylerSettingExpanded) {
+      this.#expandFreestylerSetting();
     }
   }
 
@@ -310,6 +352,85 @@ export class AISettingsTab extends LegacyWrapper.LegacyWrapper.WrappableComponen
     // clang-format on
   }
 
+  #renderFreestylerSetting(): LitHtml.TemplateResult {
+    const detailsClasses = {
+      'whole-row': true,
+      animate: this.#shouldAnimate,
+      open: this.#isFreestylerSettingExpanded,
+    };
+    const tabindex = this.#isFreestylerSettingExpanded ? '0' : '-1';
+
+    const tosLink = UI.XLink.XLink.create(
+        'http://policies.google.com/terms', i18nString(UIStrings.termsOfService), undefined, undefined,
+        'terms-of-service');
+    const privacyNoticeLink = UI.XLink.XLink.create(
+        'http://policies.google.com/privacy', i18nString(UIStrings.privacyNotice), undefined, undefined,
+        'privacy-notice');
+
+    // Disabled until https://crbug.com/1079231 is fixed.
+    // clang-format off
+    return LitHtml.html`
+      <div class="icon-container centered">
+        <${IconButton.Icon.Icon.litTagName} name="pen-spark"></${IconButton.Icon.Icon.litTagName}>
+      </div>
+      <div class="setting-card">
+        <div>${i18n.i18n.lockedString('Freestyler')}</div>
+        <div class="setting-description">${i18nString(UIStrings.helpUnderstandStyling)}</div>
+      </div>
+      <div class="dropdown centered">
+        <${Buttons.Button.Button.litTagName}
+          title=${this.#isFreestylerSettingExpanded ? i18nString(UIStrings.collapse) : i18nString(UIStrings.expand)}
+          .size=${Buttons.Button.Size.SMALL}
+          .iconUrl=${this.#isFreestylerSettingExpanded ? chevronUpIconUrl : chevronDownIconUrl}
+          .variant=${Buttons.Button.Variant.ICON}
+          @click=${this.#expandFreestylerSetting}
+          jslog=${VisualLogging.action('freestyler.accordion').track({
+            click: true,
+          })}
+        ></${Buttons.Button.Button.litTagName}>
+      </div>
+      <div class="divider"></div>
+      <div class="toggle-container centered">
+        <input
+          type="checkbox"
+          .checked=${this.#freestylerSetting?.get()}
+          @change=${this.#onFreestylerCheckboxChanged.bind(this)}
+          jslog=${VisualLogging.toggle(this.#freestylerSetting?.name).track({
+            change: true,
+          })}
+        />
+      </div>
+      <div class=${LitHtml.Directives.classMap(detailsClasses)}>
+        <div class="overflow-hidden">
+          <div class="expansion-grid">
+            <div class="expansion-grid-whole-row">${i18nString(UIStrings.whenOn)}</div>
+            ${this.#renderSettingItem('lightbulb', i18nString(UIStrings.explainStyling))}
+            ${this.#renderSettingItem('code', i18nString(UIStrings.receiveStylingSuggestions))}
+            <div class="expansion-grid-whole-row">${i18nString(UIStrings.thingsToConsider)}</div>
+            ${this.#renderSettingItem('google', i18nString(UIStrings.freestylerSendsData))}
+            ${this.#renderSettingItem('policy', LitHtml.html`
+              ${i18n.i18n.getFormatLocalizedString(str_, UIStrings.termsOfServicePrivacyNotice, {
+                PH1: tosLink,
+                PH2: privacyNoticeLink,
+              })}
+            `)}
+            ${this.#renderSettingItem('warning', LitHtml.html`
+              <x-link
+                href="http://support.google.com/legal/answer/13505487"
+                class="link"
+                tabindex=${tabindex}
+                jslog=${VisualLogging.link('code-snippets-explainer.freestyler').track({
+                  click: true,
+                })}
+              >${i18nString(UIStrings.generatedSnippets)}</x-link>
+            `)}
+          </div>
+        </div>
+      </div>
+    `;
+    // clang-format on
+  }
+
   override async render(): Promise<void> {
     // Disabled until https://crbug.com/1079231 is fixed.
     // clang-format off
@@ -317,9 +438,12 @@ export class AISettingsTab extends LegacyWrapper.LegacyWrapper.WrappableComponen
       <header>${i18nString(UIStrings.chromeAi)}</header>
       <div class="settings-container-wrapper" jslog=${VisualLogging.pane('chrome-ai')}>
         ${this.#renderSharedDisclaimer()}
-        <div class="settings-container">
-          ${this.#consoleInsightsSetting ? this.#renderConsoleInsightsSetting() : LitHtml.nothing}
-        </div>
+        ${this.#consoleInsightsSetting || this.#freestylerSetting ? LitHtml.html`
+          <div class="settings-container">
+            ${this.#consoleInsightsSetting ? this.#renderConsoleInsightsSetting() : LitHtml.nothing}
+            ${this.#freestylerSetting ? this.#renderFreestylerSetting() : LitHtml.nothing}
+          </div>
+        ` : LitHtml.nothing}
       </div>
     `, this.#shadow, {host: this});
     // clang-format on
