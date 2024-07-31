@@ -70,6 +70,14 @@
   border-left: var(--sys-size-1) solid var(--sys-color-divider);
 }
 
+.icon-container ~ .icon-container,
+.setting-card ~ .setting-card,
+.dropdown ~ .dropdown,
+.divider ~ .divider,
+.toggle-container ~ .toggle-container {
+  border-top: var(--sys-size-1) solid var(--sys-color-divider);
+}
+
 .whole-row {
   grid-column: span 5;
   overflow: hidden;
