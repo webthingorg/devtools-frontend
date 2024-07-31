@@ -16,6 +16,75 @@
       "message": "Addressed review comments \u0026 updated the screenshot, PTAL again :)",
       "revId": "30c76710be02c3188d4cefc3e4d2cf5a93044dc1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4528ec3a_b9461c74",
+        "filename": "front_end/ui/components/docs/switch_control/basic.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-07-31T14:47:21Z",
+      "side": 1,
+      "message": "nit: naming? Maybe drop the `...checked`? And potentially rename depending on the outcome of the discussion regarding component name.",
+      "range": {
+        "startLine": 14,
+        "startChar": 8,
+        "endLine": 14,
+        "endChar": 28
+      },
+      "revId": "30c76710be02c3188d4cefc3e4d2cf5a93044dc1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e66e0db_e8193c1c",
+        "filename": "front_end/ui/components/switch_control/SwitchControl.test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-07-31T14:47:21Z",
+      "side": 1,
+      "message": "super-nit:\n```suggestion\n  it(\u0027checked property should reflect the current value for whether the Switch is checked or not\u0027, () \u003d\u003e {\n```",
+      "range": {
+        "startLine": 11,
+        "startChar": 1,
+        "endLine": 11,
+        "endChar": 106
+      },
+      "revId": "30c76710be02c3188d4cefc3e4d2cf5a93044dc1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2071d060_a3726c15",
+        "filename": "front_end/ui/components/switch_control/switchControl.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-07-31T14:47:21Z",
+      "side": 1,
+      "message": "I noticed that toggling between states via mouse click does not cause a focus ring to appear in the Chrome-settings version. For this component, a focus-ring does appear in that case. Which behavior do we prefer?",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 3
+      },
+      "revId": "30c76710be02c3188d4cefc3e4d2cf5a93044dc1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

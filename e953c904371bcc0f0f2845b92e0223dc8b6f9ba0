@@ -166,6 +166,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ceeffacf_81ab2c83",
+        "filename": "front_end/ui/components/docs/switch_control/basic.html",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-07-31T14:47:21Z",
+      "side": 1,
+      "message": "still 2020",
+      "parentUuid": "41e15b21_9255ed16",
+      "range": {
+        "startLine": 2,
+        "startChar": 12,
+        "endLine": 2,
+        "endChar": 16
+      },
+      "revId": "e953c904371bcc0f0f2845b92e0223dc8b6f9ba0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "816c1f52_42dcdd37",
         "filename": "front_end/ui/components/docs/switch_control/basic.ts",
         "patchSetId": 2
@@ -354,6 +378,30 @@
       "side": 1,
       "message": "The reason I decided to use `SwitchControl` is that somewhat philosophical and practical though I\u0027m not super strong about this too, so let me explain below and you tell me whether we should change the name to `Switch` or not :)\n\nI started using it as `Switch` first but when I went to create examples the first thing I wrote was `const switch \u003d new Switch.Switch.Switch()` and guess what... this is a syntax error since `switch` is a keyword in JS. I thought this is a common pattern in many developers that when we don\u0027t want to create variable names, we use the name of the component in snake case. So I turned it into `SwitchControl` and used as `const switchControl \u003d new SwitchControl.SwitchControl.SwitchControl()`.\n\nSo, WDYT do you think still should we rename it to `Switch`?",
       "parentUuid": "a69fa238_925e1cc4",
+      "range": {
+        "startLine": 17,
+        "startChar": 13,
+        "endLine": 17,
+        "endChar": 26
+      },
+      "revId": "e953c904371bcc0f0f2845b92e0223dc8b6f9ba0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94e5db15_d935c2ff",
+        "filename": "front_end/ui/components/switch_control/SwitchControl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-07-31T14:47:21Z",
+      "side": 1,
+      "message": "Good point. `SwitchControl` still feels too long and complicated to me though and I\u0027d prefer a different name.\n\nAnother option would be `Toggle`, which isn\u0027t a JS keyword, but would not be consistent with GM3 naming.\n\nSo I think my preference order would be \n1) `Switch` (even though it\u0027s a JS keyword)\n2) `Toggle`\n3) `SwitchControl`",
+      "parentUuid": "33db9e1a_80117a8d",
       "range": {
         "startLine": 17,
         "startChar": 13,
