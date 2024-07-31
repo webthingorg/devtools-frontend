@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3935ecd_178b4f9f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-07-31T10:59:56Z",
+      "side": 1,
+      "message": "I do not think AccountAvailability is better. For example, the offline check has nothing to do with the account. Do you want to rename it to something AidaAccessPreconditions?",
+      "revId": "9e3af22b81b69157ff91e506bb41e43aff602eca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
