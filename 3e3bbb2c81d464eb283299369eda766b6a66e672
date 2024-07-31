@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8ab6ee9_7f4c977b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-31T08:55:14Z",
+      "side": 1,
+      "message": "LGTM with comments \u0026 nits",
+      "revId": "3e3bbb2c81d464eb283299369eda766b6a66e672",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6406db3c_9ff65903",
+        "filename": "front_end/panels/elements/StylePropertiesSection.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1016,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-31T08:55:14Z",
+      "side": 1,
+      "message": "Are we sure that this won\u0027t cause any behavior changes? The logic below felt like this triggers `updateTitleIfComputedValueChanged` for all the style property tree elements under this properties tree outline.\n\nSo, even if the edited tree element is not a var definition, this might be needed. WDYT?",
+      "revId": "3e3bbb2c81d464eb283299369eda766b6a66e672",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4eb6408f_05ed265d",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1260,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-31T08:55:14Z",
+      "side": 1,
+      "message": "(nit): Why are we moving through all the parent nodes in here, is it for subgrid too? I think a comment here might be useful for the future.",
+      "revId": "3e3bbb2c81d464eb283299369eda766b6a66e672",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0d72a63_31b4c634",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1585,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-31T08:55:14Z",
+      "side": 1,
+      "message": "I think this is a good idea, though maybe we can rename the function now since it not only updates title if the computed value changed but also discards `gridNames` whenever this function is called. WDYT?",
+      "revId": "3e3bbb2c81d464eb283299369eda766b6a66e672",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
