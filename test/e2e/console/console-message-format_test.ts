@@ -152,12 +152,13 @@ describe('The Console Tab', () => {
 
   it('can show DOM interactions', async () => {
     const messages = await getConsoleMessages('dom-interactions');
+    console.log(JSON.stringify(messages, null, 2))
 
     assert.deepEqual(messages, [
-      '',
-      '',
-      '',
-      '',
+      'div#p',
+      'attr',
+      'attr',
+      'id',
       '#text',
       'HTMLCollection\xA0[select, sel: select]',
       'HTMLCollection\xA0[]',
