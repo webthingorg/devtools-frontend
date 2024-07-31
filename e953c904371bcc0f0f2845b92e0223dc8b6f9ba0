@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "63d2087d_a82d42f3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-31T13:32:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "67a75561_374196f5",
+      "revId": "e953c904371bcc0f0f2845b92e0223dc8b6f9ba0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0ad583fc_d92b6a15",
@@ -65,6 +83,30 @@
       "writtenOn": "2024-07-30T01:32:41Z",
       "side": 1,
       "message": "```suggestion\n# Copyright 2024 The Chromium Authors. All rights reserved.\n```",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "e953c904371bcc0f0f2845b92e0223dc8b6f9ba0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69f0df3d_b7c578a8",
+        "filename": "front_end/ui/components/docs/switch_control/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-31T13:32:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ad583fc_d92b6a15",
       "range": {
         "startLine": 1,
         "startChar": 13,
@@ -98,6 +140,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "41e15b21_9255ed16",
+        "filename": "front_end/ui/components/docs/switch_control/basic.html",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-31T13:32:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5a95c721_d8385494",
+      "range": {
+        "startLine": 2,
+        "startChar": 12,
+        "endLine": 2,
+        "endChar": 16
+      },
+      "revId": "e953c904371bcc0f0f2845b92e0223dc8b6f9ba0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "816c1f52_42dcdd37",
@@ -111,6 +177,30 @@
       "writtenOn": "2024-07-30T01:32:41Z",
       "side": 1,
       "message": "```suggestion\n// Copyright 2024 The Chromium Authors. All rights reserved.\n```",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "e953c904371bcc0f0f2845b92e0223dc8b6f9ba0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "644bc23f_619dd8f8",
+        "filename": "front_end/ui/components/docs/switch_control/basic.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-31T13:32:10Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "816c1f52_42dcdd37",
       "range": {
         "startLine": 1,
         "startChar": 13,
@@ -144,6 +234,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc943cf3_4c8f69e1",
+        "filename": "front_end/ui/components/switch_control/SwitchControl.test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-31T13:32:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0da85baa_53101ec0",
+      "range": {
+        "startLine": 23,
+        "startChar": 18,
+        "endLine": 23,
+        "endChar": 42
+      },
+      "revId": "e953c904371bcc0f0f2845b92e0223dc8b6f9ba0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "27fb00c4_fad72833",
@@ -157,6 +271,24 @@
       "writtenOn": "2024-07-30T08:05:03Z",
       "side": 1,
       "message": "Question: I can see that this is passing in the tests, but I\u0027m just wondering how 😄 maybe you could explain: the parameter `checked` isn\u0027t used, how come that it exists and is set on the change event?",
+      "revId": "e953c904371bcc0f0f2845b92e0223dc8b6f9ba0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3673725_8c1c80de",
+        "filename": "front_end/ui/components/switch_control/SwitchControl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-31T13:32:10Z",
+      "side": 1,
+      "message": "This is a feature of the TS language called \"Parameter Properties\". When you mark the parameters of the constructor with one of the visibility modifiers like \"public\", \"private\", \"protected\" or \"readonly\"; they will be properties of the instance.\n\nIt\u0027s a bit hard to get used to first but I saw from Philip that we\u0027re using it in a few places and decided to continue using it. Though please let me know if you have any concerns using this and I can change it as I don\u0027t have much strict preference here :)\n\nSee: https://www.typescriptlang.org/docs/handbook/2/classes.html#parameter-properties",
+      "parentUuid": "27fb00c4_fad72833",
       "revId": "e953c904371bcc0f0f2845b92e0223dc8b6f9ba0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -210,6 +342,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "33db9e1a_80117a8d",
+        "filename": "front_end/ui/components/switch_control/SwitchControl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-31T13:32:10Z",
+      "side": 1,
+      "message": "The reason I decided to use `SwitchControl` is that somewhat philosophical and practical though I\u0027m not super strong about this too, so let me explain below and you tell me whether we should change the name to `Switch` or not :)\n\nI started using it as `Switch` first but when I went to create examples the first thing I wrote was `const switch \u003d new Switch.Switch.Switch()` and guess what... this is a syntax error since `switch` is a keyword in JS. I thought this is a common pattern in many developers that when we don\u0027t want to create variable names, we use the name of the component in snake case. So I turned it into `SwitchControl` and used as `const switchControl \u003d new SwitchControl.SwitchControl.SwitchControl()`.\n\nSo, WDYT do you think still should we rename it to `Switch`?",
+      "parentUuid": "a69fa238_925e1cc4",
+      "range": {
+        "startLine": 17,
+        "startChar": 13,
+        "endLine": 17,
+        "endChar": 26
+      },
+      "revId": "e953c904371bcc0f0f2845b92e0223dc8b6f9ba0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e87313e8_61355506",
         "filename": "front_end/ui/components/switch_control/SwitchControl.ts",
         "patchSetId": 2
@@ -221,6 +377,24 @@
       "writtenOn": "2024-07-30T08:05:03Z",
       "side": 1,
       "message": "Is there a reason for using the `render` method directly, instead of scheduling it (`ComponentHelpers.ScheduledRender.scheduleRender`)?",
+      "revId": "e953c904371bcc0f0f2845b92e0223dc8b6f9ba0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "883d6d11_d78fdd29",
+        "filename": "front_end/ui/components/switch_control/SwitchControl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-31T13:32:10Z",
+      "side": 1,
+      "message": "I don\u0027t have a reason for using the `render` method directly though I also didn\u0027t see a reason why I should use `scheduleRender` too. Do you know when should we use it and what\u0027s the implications of it from the user\u0027s perspective? How does it affect the UX if we use `scheduleRender` or `render`?",
+      "parentUuid": "e87313e8_61355506",
       "revId": "e953c904371bcc0f0f2845b92e0223dc8b6f9ba0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -266,6 +440,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7bf9e42c_cc38b724",
+        "filename": "front_end/ui/components/switch_control/SwitchControl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-31T13:32:10Z",
+      "side": 1,
+      "message": "Whaaaaaaaat I didn\u0027t know this! Thanks for sharing, it makes much more sense, updated it :)\n\nHere is the documentation also: https://lit.dev/docs/templates/expressions/#boolean-attribute-expressions",
+      "parentUuid": "a45afede_33ed38ba",
+      "range": {
+        "startLine": 48,
+        "startChar": 8,
+        "endLine": 48,
+        "endChar": 66
+      },
+      "revId": "e953c904371bcc0f0f2845b92e0223dc8b6f9ba0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cc8e9080_da71b59d",
@@ -279,6 +477,24 @@
       "writtenOn": "2024-07-30T08:05:03Z",
       "side": 1,
       "message": "We should use `--sys-size` variables now, e.g. this one would be `--sys-size-8`. This also applies to the other height/widths in the file. They are defined in https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/ui/legacy/designTokens.css;l\u003d16;drc\u003d64f76d758f1f1ec9f7aa8fbf2b45ddd16ce99765.\n\nSee also the design kit regarding px/rem:\nhttps://www.figma.com/design/A5iQBBNAe5zPFpJvUzUgW8/CDT-design-kit?node-id\u003d481-2334\n\n(On a side note, I guess it would be helpful to have px values added as comments to the `designTokens.css`, will take care of that!)\n\nDesign Tokens describe standard tokens for colors, type fonts, sizes, radius etc.",
+      "revId": "e953c904371bcc0f0f2845b92e0223dc8b6f9ba0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba54e95f_17ea3497",
+        "filename": "front_end/ui/components/switch_control/switchControl.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-31T13:32:10Z",
+      "side": 1,
+      "message": "As we discussed offline, I\u0027m keeping the width/height hardcoded for now since we don\u0027t have a token defined for 26px and the component that is defined in the design system has 26px width.",
+      "parentUuid": "cc8e9080_da71b59d",
       "revId": "e953c904371bcc0f0f2845b92e0223dc8b6f9ba0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -300,6 +516,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6bc2ead2_a4a83dc4",
+        "filename": "front_end/ui/components/switch_control/switchControl.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-31T13:32:10Z",
+      "side": 1,
+      "message": "Nice, used `--sys` colors and removed special handling from dark mode (as it is directly handled really 😊)",
+      "parentUuid": "a681503a_5e6622ce",
+      "revId": "e953c904371bcc0f0f2845b92e0223dc8b6f9ba0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bc1887bc_7525111f",
@@ -313,6 +547,24 @@
       "writtenOn": "2024-07-30T08:29:37Z",
       "side": 1,
       "message": "We also have design tokens for border radius, see https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/ui/legacy/designTokens.css;l\u003d62;drc\u003d64f76d758f1f1ec9f7aa8fbf2b45ddd16ce99765.\n\nIt looks as if this could be `--sys-shape-corner-full`.\n\nSame for the other border radius in this file.",
+      "revId": "e953c904371bcc0f0f2845b92e0223dc8b6f9ba0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5044db64_a042fe83",
+        "filename": "front_end/ui/components/switch_control/switchControl.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-31T13:32:10Z",
+      "side": 1,
+      "message": "Nice, thanks for sharing! Updated it :)",
+      "parentUuid": "bc1887bc_7525111f",
       "revId": "e953c904371bcc0f0f2845b92e0223dc8b6f9ba0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a457b636_44915531",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-07-31T13:32:10Z",
+      "side": 1,
+      "message": "Addressed review comments \u0026 updated the screenshot, PTAL again :)",
+      "revId": "30c76710be02c3188d4cefc3e4d2cf5a93044dc1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
