@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9779f057_c4ffd59d",
+        "filename": "front_end/panels/timeline/components/insights/LCPDiscovery.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-31T15:47:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "81d201a6_0a2aa504",
+      "range": {
+        "startLine": 136,
+        "startChar": 0,
+        "endLine": 136,
+        "endChar": 23
+      },
+      "revId": "4408fae57bb37e0a02a136b65f1d63cb58182d19",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4908056b_0fb0e8b8",
@@ -71,6 +95,30 @@
       "writtenOn": "2024-07-31T15:44:16Z",
       "side": 1,
       "message": "nit: would adding the call to dispatchInsightToggle on click in the `\u003ch3\u003e` allow us to not have to add this listener?",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 67
+      },
+      "revId": "4408fae57bb37e0a02a136b65f1d63cb58182d19",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11da00da_7316a87b",
+        "filename": "front_end/panels/timeline/components/insights/SidebarInsight.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-31T15:47:02Z",
+      "side": 1,
+      "message": "It would, but I want all the whitespace around the top of the insight to be clickable to dismiss it too.\n\nI\u0027m wondering if I should update the styling to move the padding onto the header, at which point that would happen and then I could take your suggestion and do that. I think that probably is cleaner. I will update this CL and then ping for a re-review. Thanks!",
+      "parentUuid": "4908056b_0fb0e8b8",
       "range": {
         "startLine": 75,
         "startChar": 0,
