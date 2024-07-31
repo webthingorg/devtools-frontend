@@ -121,6 +121,24 @@
       "parentUuid": "642f19a3_e4a07420",
       "revId": "579ebeebf6935ec2cad373723dfd3d7832fffef9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a2f6cae_8bcb5d0b",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1458,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-07-31T09:00:26Z",
+      "side": 1,
+      "message": "I think this sounds fine. Do you think some comments to explain would be helpful here?",
+      "parentUuid": "3bb39826_d0e1444b",
+      "revId": "579ebeebf6935ec2cad373723dfd3d7832fffef9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
