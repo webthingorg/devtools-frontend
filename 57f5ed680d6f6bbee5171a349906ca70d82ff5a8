@@ -16,6 +16,23 @@
       "message": "Philip, I\u0027m trying to add a new unit test, but I\u0027m not able to run the test.\n\nThe output of `npm run test front_end/panels/settings/SettingsScreen.test.ts` is\n\n```\n\u003e test\n\u003e vpython3 third_party/node/node.py --output scripts/run_on_target.mjs gen/test/run.js \"front_end/panels/settings/SettingsScreen.test.ts\"\n\nninja: Entering directory `/usr/local/google/home/wolfi/dev/chromium/src/third_party/devtools-frontend/src/out/Default\u0027\nninja: no work to do.\nChrome Headless 129.0.0.0 (Linux x86_64): Executed 0 of 0 SUCCESS (0.002 secs / 0 secs)\nWARN: \u0027Connection to watch script is closed, CSS changes won\u0027t be applied\u0027\nChrome Headless 129.0.0.0 (Linux x86_64): Executed 0 of 0 SUCCESS (0.002 secs / 0 secs)\n[\u0027third_party/node/linux/node-linux-x64/bin/node\u0027, \u0027scripts/run_on_target.mjs\u0027, \u0027gen/test/run.js\u0027, \u0027front_end/panels/settings/SettingsScreen.test.ts\u0027] failed:\nNone\nNone\n```\n\nWhat am I missing? Why doesn\u0027t the test run?",
       "revId": "57f5ed680d6f6bbee5171a349906ca70d82ff5a8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a5198f7_1bade051",
+        "filename": "front_end/panels/settings/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-07-31T06:39:51Z",
+      "side": 1,
+      "message": "nothing depends on this target. You need to add it to :unittests in //front_end/BUILD.gn",
+      "revId": "57f5ed680d6f6bbee5171a349906ca70d82ff5a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
