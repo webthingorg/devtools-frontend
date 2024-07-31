@@ -305,10 +305,8 @@ export const enum ExperimentName {
 export interface HostConfigConsoleInsights {
   aidaModelId: string;
   aidaTemperature: number;
-  blocked: boolean;
   blockedByAge: boolean;
   blockedByEnterprisePolicy: boolean;
-  blockedByFeatureFlag: boolean;
   blockedByGeo: boolean;
   blockedByRollout: boolean;
   disallowLogging: boolean;
