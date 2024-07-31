@@ -16,6 +16,41 @@
       "message": "Hey Simon, WDYT of this? Otherwise, do you have any suggestions on how we can help with b/343009012?",
       "revId": "6460254250ccb8fa789ac98a91062cd45db0053b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88abd1ba_aa3b8b74",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-07-31T04:46:10Z",
+      "side": 1,
+      "message": "No this looks fine. But please also update the L10n documentation under `docs/` to explain `@meaning` and when/how to use it.\n\nNote that we already imported the UI strings for M128, so the earliest where this applies is M129.",
+      "parentUuid": "6698b7af_c6ae6569",
+      "revId": "6460254250ccb8fa789ac98a91062cd45db0053b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebd928bb_ca932c95",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-07-31T04:46:10Z",
+      "side": 1,
+      "message": "lgtm % missing documentation",
+      "revId": "6460254250ccb8fa789ac98a91062cd45db0053b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
