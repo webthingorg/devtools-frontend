@@ -69,6 +69,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a565c9bb_2e926c75",
+        "filename": "front_end/panels/settings/AISettingsTab.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-07-31T15:21:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "188fec11_b69a7bd3",
+      "revId": "d5f514fa82930c8d54a32479cbf1baa82c98638e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ca1c2338_ed97e25c",
@@ -82,6 +100,24 @@
       "writtenOn": "2024-07-31T13:48:26Z",
       "side": 1,
       "message": "(nit): Clang formatting fails to format lit templates, can you format this part manually and surround it with `clang-format on/off`?",
+      "revId": "d5f514fa82930c8d54a32479cbf1baa82c98638e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49a7d1fd_b07c90f4",
+        "filename": "front_end/panels/settings/AISettingsTab.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-07-31T15:21:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca1c2338_ed97e25c",
       "revId": "d5f514fa82930c8d54a32479cbf1baa82c98638e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
