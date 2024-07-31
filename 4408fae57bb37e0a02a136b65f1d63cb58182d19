@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40e3ac98_773fb041",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-31T14:02:17Z",
+      "side": 1,
+      "message": "PTAL",
+      "revId": "4408fae57bb37e0a02a136b65f1d63cb58182d19",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81d201a6_0a2aa504",
+        "filename": "front_end/panels/timeline/components/insights/LCPDiscovery.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-07-31T14:02:17Z",
+      "side": 1,
+      "message": "this looks like a big diff, but this was formatted really badly so I updated it as part of this CL. The only actual change is the change of event listener.",
+      "range": {
+        "startLine": 136,
+        "startChar": 0,
+        "endLine": 136,
+        "endChar": 23
+      },
+      "revId": "4408fae57bb37e0a02a136b65f1d63cb58182d19",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
