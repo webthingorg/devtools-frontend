@@ -55,19 +55,27 @@ export class SidebarInsight extends HTMLElement {
     void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
   }
 
+  #dispatchInsightToggle(): void {
+    this.dispatchEvent(new CustomEvent('insighttoggleclick'));
+  }
+
   #render(): void {
     let output: LitHtml.TemplateResult;
     if (!this.#expanded) {
       output = LitHtml.html`
-        <div class="insight closed">
+        <div class="insight closed" @click=${this.#dispatchInsightToggle}>
             <h3 class="insight-title">${this.#insightTitle}</h3>
         </div>`;
     } else {
       output = LitHtml.html`
-        <div class="insight">
+        <div class="insight" @click=${this.#dispatchInsightToggle}>
             <h3 class="insight-title">${this.#insightTitle}</h3>
-            <slot name="insight-description"></slot>
-            <slot name="insight-content"></slot>
+            <!-- we don't want clicks on the content
+                 to trigger the insight to be collapsed -->
+            <div @click=${(e: Event): void => e.stopPropagation()}>
+              <slot name="insight-description"></slot>
+              <slot name="insight-content"></slot>
+            </div>
         </div>`;
     }
     LitHtml.render(output, this.#shadow, {host: this});
