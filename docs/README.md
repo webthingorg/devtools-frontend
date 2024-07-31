@@ -22,7 +22,7 @@ below.**
 ### General Development
 
 *   [Get the Code](get_the_code.md)
-*   [UX Style Guide](./styleguide/ux/README.md)
+*   [Chromium DevTools Design System](./styleguide/ux/README.md)
 *   [Contributing Changes](contributing_changes.md)
 *   [Chrome DevTools Design Review Guidelines](design_guidelines.md)
 *   [Release Management](release_management.md)
