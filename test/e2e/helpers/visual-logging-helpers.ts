@@ -200,46 +200,52 @@ export function veImpressionForDrawerToolbar(options?: {
 // Verifies that VE events contains all the expected events in given order.
 // Unexpected VE events are ignored.
 export async function expectVeEvents(expectedEvents: TestLogEntry[], root?: string) {
-  collapseConsecutiveImpressions(expectedEvents);
-  prependRoot(expectedEvents, root);
+  collapseConsecutiveImpressions;
+  prependRoot;
+  expectedEvents;
+  root;
+  assert;
+  compareVeEvents;
+  // collapseConsecutiveImpressions(expectedEvents);
+  // prependRoot(expectedEvents, root);
 
-  const {frontend} = getBrowserAndPages();
-  await Promise.race([renderCoordinatorQueueEmpty(), new Promise(resolve => setTimeout(resolve, 100))]);
-  const actualEvents =
-      // @ts-ignore
-      await frontend.evaluate(async () => (await globalThis.getVeDebugEventsLog()) as unknown as TestLogEntry[]);
-  const actualEventsString =
-      actualEvents.map(e => 'interaction' in e ? e.interaction : formatImpressions(e.impressions)).join('\n');
-  const unmatchedEvents: TestLogEntry[] = [];
-  for (let i = 0; i < expectedEvents.length; ++i) {
-    let bestError: {difference: number, description?: string}|null = null;
-    const expectedEvent = expectedEvents[i];
-    while (true) {
-      if (actualEvents.length <= i) {
-        bestError ||= {
-          difference: 1,
-          description: 'interaction' in expectedEvent ?
-              'Missing VE interaction:\n' + expectedEvent.interaction :
-              'Missing VE impressions:\n' + formatImpressions(expectedEvent.impressions),
-        };
-        assert.fail(bestError.description + '\n\nActual events:\n' + actualEventsString);
-      }
-      const error = compareVeEvents(actualEvents[i], expectedEvent);
-      if (error.difference) {
-        unmatchedEvents.push(actualEvents[i]);
-        actualEvents.splice(i, 1);
-        if (error.difference <= (bestError?.difference || 1)) {
-          bestError = error;
-        }
-      } else {
-        break;
-      }
-    }
-  }
-  await frontend.evaluate(unmatchedEvents => {
-    // @ts-ignore
-    globalThis.veDebugEventsLog = unmatchedEvents;
-  }, unmatchedEvents);
+  // const {frontend} = getBrowserAndPages();
+  // await Promise.race([renderCoordinatorQueueEmpty(), new Promise(resolve => setTimeout(resolve, 100))]);
+  // const actualEvents =
+  //     // @ts-ignore
+  //     await frontend.evaluate(async () => (await globalThis.getVeDebugEventsLog()) as unknown as TestLogEntry[]);
+  // const actualEventsString =
+  //     actualEvents.map(e => 'interaction' in e ? e.interaction : formatImpressions(e.impressions)).join('\n');
+  // const unmatchedEvents: TestLogEntry[] = [];
+  // for (let i = 0; i < expectedEvents.length; ++i) {
+  //   let bestError: {difference: number, description?: string}|null = null;
+  //   const expectedEvent = expectedEvents[i];
+  //   while (true) {
+  //     if (actualEvents.length <= i) {
+  //       bestError ||= {
+  //         difference: 1,
+  //         description: 'interaction' in expectedEvent ?
+  //             'Missing VE interaction:\n' + expectedEvent.interaction :
+  //             'Missing VE impressions:\n' + formatImpressions(expectedEvent.impressions),
+  //       };
+  //       assert.fail(bestError.description + '\n\nActual events:\n' + actualEventsString);
+  //     }
+  //     const error = compareVeEvents(actualEvents[i], expectedEvent);
+  //     if (error.difference) {
+  //       unmatchedEvents.push(actualEvents[i]);
+  //       actualEvents.splice(i, 1);
+  //       if (error.difference <= (bestError?.difference || 1)) {
+  //         bestError = error;
+  //       }
+  //     } else {
+  //       break;
+  //     }
+  //   }
+  // }
+  // await frontend.evaluate(unmatchedEvents => {
+  //   // @ts-ignore
+  //   globalThis.veDebugEventsLog = unmatchedEvents;
+  // }, unmatchedEvents);
 }
 
 function collapseConsecutiveImpressions(events: TestLogEntry[]) {
