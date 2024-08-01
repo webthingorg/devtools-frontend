@@ -33,6 +33,40 @@
       "message": "Kim, PTAL regarding GM3, thanks!",
       "revId": "aada79c3b487e2f73a3a29537648bd3ad4a07105",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d458017_be78ee67",
+        "filename": "front_end/panels/settings/aiSettingsTab.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-01T13:18:25Z",
+      "side": 1,
+      "message": "I think we need also to add a `min-width` here and handle overflow in smaller screen sizes, see the screenshot: https://screenshot.googleplex.com/vjQCgsWhzKcU9be",
+      "revId": "aada79c3b487e2f73a3a29537648bd3ad4a07105",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a26b3d06_539de66f",
+        "filename": "front_end/panels/settings/aiSettingsTab.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-01T13:18:25Z",
+      "side": 1,
+      "message": "I wonder if we can achieve the same layout without fixed widths as I don\u0027t see any widths defined in the design for these columns but they are defined via spacings. WDYT? cc @kimanh@chromium.org :)",
+      "revId": "aada79c3b487e2f73a3a29537648bd3ad4a07105",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
