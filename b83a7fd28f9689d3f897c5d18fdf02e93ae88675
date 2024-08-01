@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b0c46e3_4ea2b60a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-08-01T07:06:27Z",
+      "side": 1,
+      "message": "LGTM on GM3, thanks Wolfgang!",
+      "revId": "b83a7fd28f9689d3f897c5d18fdf02e93ae88675",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
