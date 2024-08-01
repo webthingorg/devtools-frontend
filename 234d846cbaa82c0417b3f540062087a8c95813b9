@@ -34,6 +34,24 @@
       "parentUuid": "2256f45b_535ce754",
       "revId": "234d846cbaa82c0417b3f540062087a8c95813b9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d69c027e_ac8ae7d3",
+        "filename": "front_end/ui/legacy/components/color_picker/ContrastDetails.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-08-01T08:34:33Z",
+      "side": 0,
+      "message": "I see, thanks for explaining!",
+      "parentUuid": "790034a9_fb780b6b",
+      "revId": "234d846cbaa82c0417b3f540062087a8c95813b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
