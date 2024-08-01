@@ -16,6 +16,24 @@
       "message": "LGTM % tests\n\nCan we also add a test inside `XLink.test.ts` for `tabindex` attribute too?",
       "revId": "548d51ec990956c31e6602399f85e5fc110a023b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "227b78ae_fc0ac66d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-08-01T21:22:52Z",
+      "side": 1,
+      "message": "Tests for XLink added, will add tests for AISettingsTab to https://crrev.com/c/5752527",
+      "parentUuid": "7c8116e5_ca70967b",
+      "revId": "548d51ec990956c31e6602399f85e5fc110a023b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
