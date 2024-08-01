@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9edb1e38_ab54c548",
+        "filename": "front_end/panels/settings/aiSettingsTab.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-08-01T20:31:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1d458017_be78ee67",
+      "revId": "aada79c3b487e2f73a3a29537648bd3ad4a07105",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a26b3d06_539de66f",
@@ -83,6 +101,24 @@
       "side": 1,
       "message": "+1, makes a lot of sense! If possible with just spacings, that\u0027s definitely better, especially if we can use the default tokens for this 😄.",
       "parentUuid": "a26b3d06_539de66f",
+      "revId": "aada79c3b487e2f73a3a29537648bd3ad4a07105",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "60d8bba6_93ee2a0c",
+        "filename": "front_end/panels/settings/aiSettingsTab.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-08-01T20:31:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "454c9a7a_b17770df",
       "revId": "aada79c3b487e2f73a3a29537648bd3ad4a07105",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c48ab9d_f0c14978",
+        "filename": "front_end/panels/settings/AISettingsTab.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-08-01T20:31:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e41e43a_f8c16fa4",
+      "revId": "c1faca2357f4ce5427c3f7ede4f152252d83682c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c5e28d09_9d9eef8a",
@@ -48,6 +66,24 @@
       "writtenOn": "2024-08-01T06:45:49Z",
       "side": 1,
       "message": "Can we change this to use the `.data` setter instead of the individual setters? The reasoning behind this is that the data setter will do general checks. Also, you can set the `jsLogContext` on the `Button`\u0027s data. This way, it will be shorter and directly set on the `\u003cbutton\u003e` component underneath.",
+      "revId": "c1faca2357f4ce5427c3f7ede4f152252d83682c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6733e75_b68b47d2",
+        "filename": "front_end/panels/settings/AISettingsTab.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-08-01T20:31:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5e28d09_9d9eef8a",
       "revId": "c1faca2357f4ce5427c3f7ede4f152252d83682c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
