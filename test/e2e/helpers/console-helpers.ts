@@ -116,7 +116,9 @@ export async function getConsoleMessages(testName: string, withAnchor = false, c
   // Have the target load the page.
   await goToResource(`console/${testName}.html`);
 
-  return getCurrentConsoleMessages(withAnchor, Level.All, callback);
+  const messages = await getCurrentConsoleMessages(withAnchor, Level.All, callback);
+
+  return messages.filter(message => !message.includes('favicon.ico'));
 }
 
 export async function getCurrentConsoleMessages(withAnchor = false, level = Level.All, callback?: () => Promise<void>) {
