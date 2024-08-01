@@ -178,9 +178,9 @@ export class NetworkRequestDetails extends HTMLElement {
       // provider, which will add this option for all supporting types. And there are a lot of context menu providers that
       // support `SDK.NetworkRequest.NetworkRequest`, for example `Override content` by PersistenceActions, but we so far
       // just want the one to reveal in network panel, so add a new class which will only be supported by Network panel.
-      const request = new TimelineUtils.NetworkRequest.TimelineNetworkRequest(this.#networkRequest);
+      const timelineNetworkRequest = TimelineUtils.NetworkRequest.createTimelineNetworkRequest(this.#networkRequest);
       const contextMenu = new UI.ContextMenu.ContextMenu(event, {useSoftMenu: true});
-      contextMenu.appendApplicableItems(request);
+      contextMenu.appendApplicableItems(timelineNetworkRequest);
       void contextMenu.show();
     });
     return this.#renderRow(i18n.i18n.lockedString('URL'), linkifiedURL);
