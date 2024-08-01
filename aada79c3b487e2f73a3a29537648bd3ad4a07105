@@ -67,6 +67,24 @@
       "message": "I wonder if we can achieve the same layout without fixed widths as I don\u0027t see any widths defined in the design for these columns but they are defined via spacings. WDYT? cc @kimanh@chromium.org :)",
       "revId": "aada79c3b487e2f73a3a29537648bd3ad4a07105",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "454c9a7a_b17770df",
+        "filename": "front_end/panels/settings/aiSettingsTab.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-08-01T13:43:40Z",
+      "side": 1,
+      "message": "+1, makes a lot of sense! If possible with just spacings, that\u0027s definitely better, especially if we can use the default tokens for this 😄.",
+      "parentUuid": "a26b3d06_539de66f",
+      "revId": "aada79c3b487e2f73a3a29537648bd3ad4a07105",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
