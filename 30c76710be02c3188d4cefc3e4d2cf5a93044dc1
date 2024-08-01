@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9dcd038f_896c1683",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-08-01T07:49:07Z",
+      "side": 1,
+      "message": "Thanks a lot for all the updates! LGTM for GM3 % remaining comments 😊",
+      "revId": "30c76710be02c3188d4cefc3e4d2cf5a93044dc1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4528ec3a_b9461c74",
@@ -77,6 +94,30 @@
       "writtenOn": "2024-07-31T14:47:21Z",
       "side": 1,
       "message": "I noticed that toggling between states via mouse click does not cause a focus ring to appear in the Chrome-settings version. For this component, a focus-ring does appear in that case. Which behavior do we prefer?",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 3
+      },
+      "revId": "30c76710be02c3188d4cefc3e4d2cf5a93044dc1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8dff2ab4_40df657c",
+        "filename": "front_end/ui/components/switch_control/switchControl.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-08-01T07:49:07Z",
+      "side": 1,
+      "message": "We should copy Chrome\u0027s behavior here.",
+      "parentUuid": "2071d060_a3726c15",
       "range": {
         "startLine": 54,
         "startChar": 0,

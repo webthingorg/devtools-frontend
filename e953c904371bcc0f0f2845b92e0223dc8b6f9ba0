@@ -317,6 +317,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5bafd54b_e890cabe",
+        "filename": "front_end/ui/components/switch_control/SwitchControl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-08-01T07:49:07Z",
+      "side": 1,
+      "message": "Ahhh, TIL! Thanks a lot for the explanation, cool feature! No I don\u0027t have concerns 😊.",
+      "parentUuid": "a3673725_8c1c80de",
+      "revId": "e953c904371bcc0f0f2845b92e0223dc8b6f9ba0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ae531a2b_5cbdf18f",
@@ -414,6 +432,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "77c32d26_f4598348",
+        "filename": "front_end/ui/components/switch_control/SwitchControl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-08-01T07:49:07Z",
+      "side": 1,
+      "message": "Ahh, right, good point, still I\u0027m also voting for keeping the `Switch` name.",
+      "parentUuid": "94e5db15_d935c2ff",
+      "range": {
+        "startLine": 17,
+        "startChar": 13,
+        "endLine": 17,
+        "endChar": 26
+      },
+      "revId": "e953c904371bcc0f0f2845b92e0223dc8b6f9ba0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e87313e8_61355506",
         "filename": "front_end/ui/components/switch_control/SwitchControl.ts",
         "patchSetId": 2
@@ -443,6 +485,24 @@
       "side": 1,
       "message": "I don\u0027t have a reason for using the `render` method directly though I also didn\u0027t see a reason why I should use `scheduleRender` too. Do you know when should we use it and what\u0027s the implications of it from the user\u0027s perspective? How does it affect the UX if we use `scheduleRender` or `render`?",
       "parentUuid": "e87313e8_61355506",
+      "revId": "e953c904371bcc0f0f2845b92e0223dc8b6f9ba0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca56e508_9a6235ea",
+        "filename": "front_end/ui/components/switch_control/SwitchControl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-08-01T07:49:07Z",
+      "side": 1,
+      "message": "In the past we\u0027ve been `scheduleRender` in order to throttle rendering, which affected DevTools\u0027 performance (https://docs.google.com/document/d/1Gwd-w7LoW1qnWu3uku438-MQ82m4AinKDIdy9z3fl3Q/edit?resourcekey\u003d0-vxHqiKAvfJ4JAOj4bZ4EFA#heading\u003dh.1cbytf1hoj8z). The `Switch` component is small so it probably doesn\u0027t make a huge difference, so leaving it up to you, but wanted to check 😊",
+      "parentUuid": "883d6d11_d78fdd29",
       "revId": "e953c904371bcc0f0f2845b92e0223dc8b6f9ba0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -549,6 +609,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d573da5a_3e908c7d",
+        "filename": "front_end/ui/components/switch_control/switchControl.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-08-01T07:49:07Z",
+      "side": 1,
+      "message": "But we can still replace the 16px one with `--sys-size-8`, right?",
+      "parentUuid": "ba54e95f_17ea3497",
+      "revId": "e953c904371bcc0f0f2845b92e0223dc8b6f9ba0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "a681503a_5e6622ce",
         "filename": "front_end/ui/components/switch_control/switchControl.css",
         "patchSetId": 2
@@ -578,6 +656,24 @@
       "side": 1,
       "message": "Nice, used `--sys` colors and removed special handling from dark mode (as it is directly handled really 😊)",
       "parentUuid": "a681503a_5e6622ce",
+      "revId": "e953c904371bcc0f0f2845b92e0223dc8b6f9ba0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b839275a_04ce62a4",
+        "filename": "front_end/ui/components/switch_control/switchControl.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-08-01T07:49:07Z",
+      "side": 1,
+      "message": "Awesome!! 😊",
+      "parentUuid": "6bc2ead2_a4a83dc4",
       "revId": "e953c904371bcc0f0f2845b92e0223dc8b6f9ba0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
