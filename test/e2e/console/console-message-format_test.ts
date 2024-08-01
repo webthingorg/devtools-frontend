@@ -150,7 +150,8 @@ describe('The Console Tab', () => {
     ]);
   });
 
-  it('can show DOM interactions', async () => {
+  // Flaky test
+  it.skipOnPlatforms(['mac'], '[crbug.com/1510890]: can show DOM interactions', async () => {
     const messages = await getConsoleMessages('dom-interactions');
 
     assert.deepEqual(messages, [
