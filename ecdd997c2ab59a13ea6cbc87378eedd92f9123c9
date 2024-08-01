@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "7fc248d7_35eb2622",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-01T08:46:52Z",
+      "side": 1,
+      "message": "Good idea, done. I exported the helper directly instead of spying on some side-effect.",
+      "parentUuid": "ac5f238b_ff2a6f8f",
+      "revId": "ecdd997c2ab59a13ea6cbc87378eedd92f9123c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "6b7ee2fb_15d759fa",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
