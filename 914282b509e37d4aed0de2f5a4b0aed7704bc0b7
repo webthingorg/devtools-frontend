@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0010eadd_2d8cb024",
+        "filename": "test/e2e/helpers/cross-tool-helper.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-08-01T11:00:34Z",
+      "side": 1,
+      "message": "which backend state is meant? I think a target would need to be re-created to fully remove the backend state since the agent state is carried over with navigations.",
+      "revId": "914282b509e37d4aed0de2f5a4b0aed7704bc0b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
