@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a19f1d2_9d9f263a",
+        "filename": "front_end/panels/autofill/AutofillView.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-08-01T00:35:39Z",
+      "side": 1,
+      "message": "Would it be possible to turn test addresses on/off without requiring a reload of DevTools?\n\nIn `AutofillModel` extract the call to `invoke_setAddresses()` into a separate function (with a boolean parameter to either turn test addresses on or off).\nIn `AutofillManager` add a function which loops over all targets, gets the `AutofillModel`, and calls the newly created function in each one of them.\nAnd here in `AutofillView`, just call the `AutofillManager`\u0027s function.\n\nWDYT?",
+      "range": {
+        "startLine": 254,
+        "startChar": 0,
+        "endLine": 254,
+        "endChar": 113
+      },
+      "revId": "34399f6622dede3a55b161c15cbcc7a19289e50b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
