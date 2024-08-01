@@ -188,6 +188,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd9a715c_dffd3ef8",
+        "filename": "front_end/ui/components/docs/switch_control/basic.html",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-01T13:01:11Z",
+      "side": 1,
+      "message": "Ah.... now it should be fixed :)",
+      "parentUuid": "ceeffacf_81ab2c83",
+      "range": {
+        "startLine": 2,
+        "startChar": 12,
+        "endLine": 2,
+        "endChar": 16
+      },
+      "revId": "e953c904371bcc0f0f2845b92e0223dc8b6f9ba0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "816c1f52_42dcdd37",
@@ -454,6 +478,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "607c80f5_7cac0d6e",
+        "filename": "front_end/ui/components/switch_control/SwitchControl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-01T13:01:11Z",
+      "side": 1,
+      "message": "That\u0027s super fair, updated it to be `Switch` with 2 votes :)",
+      "parentUuid": "77c32d26_f4598348",
+      "range": {
+        "startLine": 17,
+        "startChar": 13,
+        "endLine": 17,
+        "endChar": 26
+      },
+      "revId": "e953c904371bcc0f0f2845b92e0223dc8b6f9ba0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e87313e8_61355506",
@@ -503,6 +551,24 @@
       "side": 1,
       "message": "In the past we\u0027ve been `scheduleRender` in order to throttle rendering, which affected DevTools\u0027 performance (https://docs.google.com/document/d/1Gwd-w7LoW1qnWu3uku438-MQ82m4AinKDIdy9z3fl3Q/edit?resourcekey\u003d0-vxHqiKAvfJ4JAOj4bZ4EFA#heading\u003dh.1cbytf1hoj8z). The `Switch` component is small so it probably doesn\u0027t make a huge difference, so leaving it up to you, but wanted to check 😊",
       "parentUuid": "883d6d11_d78fdd29",
+      "revId": "e953c904371bcc0f0f2845b92e0223dc8b6f9ba0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a208d1b2_5ce28df9",
+        "filename": "front_end/ui/components/switch_control/SwitchControl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-01T13:01:11Z",
+      "side": 1,
+      "message": "Cool, let\u0027s continue with `#render` directly then :)",
+      "parentUuid": "ca56e508_9a6235ea",
       "revId": "e953c904371bcc0f0f2845b92e0223dc8b6f9ba0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -621,6 +687,24 @@
       "side": 1,
       "message": "But we can still replace the 16px one with `--sys-size-8`, right?",
       "parentUuid": "ba54e95f_17ea3497",
+      "revId": "e953c904371bcc0f0f2845b92e0223dc8b6f9ba0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6539f307_b542ad33",
+        "filename": "front_end/ui/components/switch_control/switchControl.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-01T13:01:11Z",
+      "side": 1,
+      "message": "Yep, updated width/height to use size tokens. One question: when should we use size tokens? Is it only for `width/height` or all the lengths like `border-width` etc too?",
+      "parentUuid": "d573da5a_3e908c7d",
       "revId": "e953c904371bcc0f0f2845b92e0223dc8b6f9ba0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },

@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "77bdd4ce_38c6ba38",
+        "filename": "front_end/ui/components/docs/switch_control/basic.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-01T13:01:11Z",
+      "side": 1,
+      "message": "Ah fair, updated it and made the name `switchInput` after renaming `SwitchControl` to just `Switch`.",
+      "parentUuid": "4528ec3a_b9461c74",
+      "range": {
+        "startLine": 14,
+        "startChar": 8,
+        "endLine": 14,
+        "endChar": 28
+      },
+      "revId": "30c76710be02c3188d4cefc3e4d2cf5a93044dc1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3e66e0db_e8193c1c",
@@ -71,6 +95,30 @@
       "writtenOn": "2024-07-31T14:47:21Z",
       "side": 1,
       "message": "super-nit:\n```suggestion\n  it(\u0027checked property should reflect the current value for whether the Switch is checked or not\u0027, () \u003d\u003e {\n```",
+      "range": {
+        "startLine": 11,
+        "startChar": 1,
+        "endLine": 11,
+        "endChar": 106
+      },
+      "revId": "30c76710be02c3188d4cefc3e4d2cf5a93044dc1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38109df1_d881ca11",
+        "filename": "front_end/ui/components/switch_control/SwitchControl.test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-01T13:01:11Z",
+      "side": 1,
+      "message": "I think I prefer to keep `should` in front as I got used to reading tests like that and also see that there are already many tests in the codebase that start with `should `. Maybe in the long term we can discuss this and find a common way of doing it. WDYT? :)",
+      "parentUuid": "3e66e0db_e8193c1c",
       "range": {
         "startLine": 11,
         "startChar": 1,
@@ -118,6 +166,30 @@
       "side": 1,
       "message": "We should copy Chrome\u0027s behavior here.",
       "parentUuid": "2071d060_a3726c15",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 57,
+        "endChar": 3
+      },
+      "revId": "30c76710be02c3188d4cefc3e4d2cf5a93044dc1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "091b1f6e_6d07a57a",
+        "filename": "front_end/ui/components/switch_control/switchControl.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-01T13:01:11Z",
+      "side": 1,
+      "message": "Ah yes, this was an oversight on my end. I think it should match the Chrome\u0027s behavior too. Updated it :)",
+      "parentUuid": "8dff2ab4_40df657c",
       "range": {
         "startLine": 54,
         "startChar": 0,
