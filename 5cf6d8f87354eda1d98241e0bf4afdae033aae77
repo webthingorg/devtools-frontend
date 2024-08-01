@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "a65f6f5f_301bdd5d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-08-01T15:25:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42fef5c7_9735f200",
+      "revId": "5cf6d8f87354eda1d98241e0bf4afdae033aae77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "10cd4039_2ac721e8",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 5
@@ -48,6 +66,24 @@
       "writtenOn": "2024-08-01T07:05:07Z",
       "side": 1,
       "message": "Is it possible to use a `--sys-size` here, i.e. does it have to be 9px?",
+      "revId": "5cf6d8f87354eda1d98241e0bf4afdae033aae77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55955e38_60a40fa5",
+        "filename": "front_end/panels/settings/aiSettingsTab.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-08-01T15:25:45Z",
+      "side": 1,
+      "message": "I took the 9px value from the existing equivalent non-LitHTML components. But since the following element is absolutely positioned anyway, we don\u0027t need any padding here at all",
+      "parentUuid": "e0eff801_06411285",
       "revId": "5cf6d8f87354eda1d98241e0bf4afdae033aae77",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
