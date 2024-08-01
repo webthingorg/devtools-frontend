@@ -69,6 +69,24 @@
       "parentUuid": "ebd928bb_ca932c95",
       "revId": "6460254250ccb8fa789ac98a91062cd45db0053b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7f4b26c_c7d7d37d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-01T04:06:38Z",
+      "side": 1,
+      "message": "The back-merge for M128 is already in-flight. So even updating the strings in TC won\u0027t fix the issue. IMO it\u0027s fine to wait one more release to have the fixed strings or is it urgent?",
+      "parentUuid": "e84f8584_c441906f",
+      "revId": "6460254250ccb8fa789ac98a91062cd45db0053b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
