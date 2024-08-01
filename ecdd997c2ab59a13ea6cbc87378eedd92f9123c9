@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac5f238b_ff2a6f8f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-08-01T07:57:40Z",
+      "side": 1,
+      "message": "Can we add a test here to make sure that we don\u0027t break this again?",
+      "revId": "ecdd997c2ab59a13ea6cbc87378eedd92f9123c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b7ee2fb_15d759fa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-08-01T07:57:40Z",
+      "side": 1,
+      "message": "Thanks, Simon!",
+      "revId": "ecdd997c2ab59a13ea6cbc87378eedd92f9123c9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
