@@ -16,6 +16,40 @@
       "message": "Hi Paul, this is the first part of the CL for rehydrated sessions. Could you take a look at it when you get a chance? Thank you!\nIn case you missed the msg from last week, you can see the whole planned change for hosted mode rehydrated session here: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/5732520",
       "revId": "cc12a29d67d509312945f41621a25bfb31789b1a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec91bdd7_3e9ac817",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-08-01T23:14:12Z",
+      "side": 1,
+      "message": "Yeah I like this name better than rehydrated_session_app ... or any alternatives.\n\nGood stuff",
+      "revId": "cc12a29d67d509312945f41621a25bfb31789b1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23199cdb_c1b6d9ac",
+        "filename": "front_end/entrypoints/main/BUILD.gn",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-08-01T23:14:12Z",
+      "side": 1,
+      "message": "While the other subset _apps like worker_app and js_app import all of shell.js, this entrypoint is more selective, which is nice. \n\nMaking a note to myself and MUC... we probably could probably follow the pattern here and perhaps eliminate the shell bundle so each entrypoint can be very explicit about its dependent panels.",
+      "revId": "cc12a29d67d509312945f41621a25bfb31789b1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
