@@ -557,6 +557,7 @@ export class SoftContextMenu {
         return;
       }
       this.triggerAction(this.highlightedMenuItemElement, keyboardEvent);
+      VisualLogging.logClick(this.highlightedMenuItemElement, keyboardEvent);
       if (detailsForElement.subItems && this.subMenu) {
         this.subMenu.highlightNext();
       }
