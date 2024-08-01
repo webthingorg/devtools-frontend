@@ -104,7 +104,8 @@ describe('Recorder', function() {
       );
     });
 
-    it('should be able to replay keyboard events', async () => {
+    // Flaky test
+    it.skipOnPlatforms(['mac'], '[crbug.com/1510890]: should be able to replay keyboard events', async () => {
       const {target} = getBrowserAndPages();
       await setupRecorderWithScriptAndReplay({
         title: 'Test Recording',
