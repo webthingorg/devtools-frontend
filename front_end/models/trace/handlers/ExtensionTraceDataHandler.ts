@@ -5,6 +5,7 @@
 import * as Helpers from '../helpers/helpers.js';
 import * as Types from '../types/types.js';
 
+import {data as networkData} from './NetworkRequestsHandler.js';
 import {HandlerState, type TraceEventHandlerName} from './types.js';
 import {data as userTimingsData} from './UserTimingsHandler.js';
 
@@ -43,7 +44,22 @@ function createExtensionFlameChartEntries(): void {
   const mergedRawExtensionEvents = Helpers.Trace.mergeEventsInOrder(pairedMeasures, marks);
 
   extractExtensionEntries(mergedRawExtensionEvents);
-  Helpers.Extensions.buildTrackDataFromExtensionEntries(extensionFlameChartEntries, extensionTrackData);
+  const serverTimingsEntries: Types.Extensions.SyntheticExtensionTrackChartEntry[] = [];
+  networkData().serverTimings.forEach(timing => {
+    serverTimingsEntries.push({
+      name: timing.metric,
+      ph: Types.TraceEvents.Phase.COMPLETE,
+      pid: Types.TraceEvents.ProcessID(0),
+      tid: Types.TraceEvents.ThreadID(0),
+      ts: timing.start as Types.Timing.MicroSeconds,
+      selfTime: Types.Timing.MicroSeconds(0),
+      dur: timing.value as Types.Timing.MicroSeconds,
+      cat: 'devtools.extension',
+      args: {track: 'Server timings'},
+    });
+  });
+  Helpers.Extensions.buildTrackDataFromExtensionEntries(
+      [...extensionFlameChartEntries, ...serverTimingsEntries], extensionTrackData);
 }
 
 export function extractExtensionEntries(
@@ -119,5 +135,5 @@ export function data(): ExtensionTraceData {
 }
 
 export function deps(): TraceEventHandlerName[] {
-  return ['UserTimings'];
+  return ['UserTimings', 'NetworkRequests'];
 }

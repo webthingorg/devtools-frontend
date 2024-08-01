@@ -55,8 +55,10 @@ interface NetworkRequestData {
   byTime: Types.TraceEvents.SyntheticNetworkRequest[];
   eventToInitiator: Map<Types.TraceEvents.SyntheticNetworkRequest, Types.TraceEvents.SyntheticNetworkRequest>;
   webSocket: WebSocketTraceData[];
+  serverTimings: ServerTiming[];
 }
 
+let referenceMark: Types.TraceEvents.TraceEventPerformanceMark;
 const requestMap = new Map<string, TraceEventsForNetworkRequest>();
 const requestsByOrigin = new Map<string, {
   renderBlocking: Types.TraceEvents.SyntheticNetworkRequest[],
@@ -64,6 +66,7 @@ const requestsByOrigin = new Map<string, {
   all: Types.TraceEvents.SyntheticNetworkRequest[],
 }>();
 const requestsByTime: Types.TraceEvents.SyntheticNetworkRequest[] = [];
+const serverTimings: ServerTiming[] = [];
 
 const networkRequestEventByInitiatorUrl = new Map<string, Types.TraceEvents.SyntheticNetworkRequest[]>();
 const eventToInitiatorMap =
@@ -111,7 +114,7 @@ export function reset(): void {
   networkRequestEventByInitiatorUrl.clear();
   eventToInitiatorMap.clear();
   webSocketData.clear();
-
+  serverTimings.length = 0;
   handlerState = HandlerState.UNINITIALIZED;
 }
 
@@ -181,6 +184,10 @@ export function handleEvent(event: Types.TraceEvents.TraceEventData): void {
     }
 
     webSocketData.get(identifier)?.events.push(event);
+  }
+
+  if (Types.TraceEvents.isTraceEventPerformanceMark(event) && event.name === 'devtools-reference-mark') {
+    referenceMark = event;
   }
 }
 
@@ -484,6 +491,7 @@ export async function finalize(): Promise<void> {
     // the captured requests, so here we store all of them together.
     requests.all.push(networkEvent);
     requestsByTime.push(networkEvent);
+    extractServerTimings(networkEvent);
 
     const initiatorUrl = networkEvent.args.data.initiator?.url ||
         Helpers.Trace.getZeroIndexedStackTraceForEvent(networkEvent)?.at(0)?.url;
@@ -504,8 +512,48 @@ export async function finalize(): Promise<void> {
     }
   }
   finalizeWebSocketData();
-
+  serverTimings.sort((a, b) => a.start - b.start);
   handlerState = HandlerState.FINALIZED;
+}
+
+function extractServerTimings(networkEvent: Types.TraceEvents.SyntheticNetworkRequest): void {
+  let serverStart = null;
+  let serverEnd = null;
+  let timingsInRequest: ServerTiming[]|null = null;
+  for (const header of networkEvent.args.data.responseHeaders) {
+    const headerName = header.name.toLocaleLowerCase();
+    if (headerName === 'performance-start') {
+      serverStart = Number.parseFloat(header.value);
+      continue;
+    }
+    if (headerName === 'performance-end') {
+      serverEnd = Number.parseFloat(header.value);
+      continue;
+    }
+    if (headerName === 'server-timing-hehe' || headerName === 'server-timing') {
+      header.name = 'server-timing';
+      timingsInRequest = ServerTiming.parseHeaders([header]);
+      continue;
+    }
+  }
+  if (serverStart && serverEnd && timingsInRequest && referenceMark.args?.data?.startTime) {
+    const tracingoffset = 0;  // referenceMark.ts - referenceMark.args?.data?.startTime * 1_000;
+    const serverStartInMicro = serverStart * 1_000 + tracingoffset;
+    const serverEndInMicro = serverEnd * 1_000 + tracingoffset;
+    serverTimings.push(...convertServerTimings(networkEvent, serverStartInMicro, serverEndInMicro, timingsInRequest));
+  }
+  function convertServerTimings(
+      request: Types.TraceEvents.SyntheticNetworkRequest, serverStart: number, serverEnd: number,
+      timingsInRequest: ServerTiming[]): ServerTiming[] {
+    const clientStart = request.args.data.syntheticData.sendStartTime;
+    const clientEndTime = request.args.data.syntheticData.sendStartTime + request.args.data.syntheticData.waiting;
+    const offset = (serverStart - clientStart + serverEnd - clientEndTime) / 2;
+    // for safety, this could be improved to ensure the server timings are clipped to the request
+    // total window, but that would constraint the server timings to be associated to the incoming
+    // request (maybe that's fine).
+    return timingsInRequest.map(
+        timing => ({...timing, start: timing.start * 1000 - offset, value: timing.value * 1000}));
+  }
 }
 
 export function data(): NetworkRequestData {
@@ -518,6 +566,7 @@ export function data(): NetworkRequestData {
     byTime: requestsByTime,
     eventToInitiator: eventToInitiatorMap,
     webSocket: [...webSocketData.values()],
+    serverTimings: serverTimings,
   };
 }
 
@@ -577,4 +626,278 @@ function createSyntheticWebSocketConnectionEvent(
       },
     },
   };
+}
+
+type NameValue = {
+  name: string,
+  value: string,
+};
+
+const UIStrings = {
+  /**
+   *@description Text in Server Timing
+   */
+  deprecatedSyntaxFoundPleaseUse: 'Deprecated syntax found. Please use: <name>;dur=<duration>;desc=<description>',
+  /**
+   *@description Text in Server Timing
+   *@example {https} PH1
+   */
+  duplicateParameterSIgnored: 'Duplicate parameter "{PH1}" ignored.',
+  /**
+   *@description Text in Server Timing
+   *@example {https} PH1
+   */
+  noValueFoundForParameterS: 'No value found for parameter "{PH1}".',
+  /**
+   *@description Text in Server Timing
+   *@example {https} PH1
+   */
+  unrecognizedParameterS: 'Unrecognized parameter "{PH1}".',
+  /**
+   *@description Text in Server Timing
+   */
+  extraneousTrailingCharacters: 'Extraneous trailing characters.',
+  /**
+   *@description Text in Server Timing
+   *@example {https} PH1
+   *@example {2.0} PH2
+   */
+  unableToParseSValueS: 'Unable to parse "{PH1}" value "{PH2}".',
+};
+
+export class ServerTiming {
+  metric: string;
+  value: number;
+  description: string|null;
+  start: number;
+
+  constructor(metric: string, value: number, description: string|null, start: number) {
+    this.metric = metric;
+    this.value = value;
+    this.description = description;
+    this.start = start;
+  }
+
+  static parseHeaders(headers: NameValue[]): ServerTiming[]|null {
+    const rawServerTimingHeaders = headers.filter(item => item.name.toLowerCase() === 'server-timing');
+    if (!rawServerTimingHeaders.length) {
+      return null;
+    }
+
+    const serverTimings = rawServerTimingHeaders.reduce((memo, header) => {
+      const timing = this.createFromHeaderValue(header.value);
+      memo.push(...timing.map(function(entry) {
+        return new ServerTiming(
+            entry.name, entry.hasOwnProperty('dur') ? entry.dur : null, entry.hasOwnProperty('desc') ? entry.desc : '',
+            entry.hasOwnProperty('start') ? entry.start : null);
+      }));
+      return memo;
+    }, ([] as ServerTiming[]));
+    serverTimings.sort((a, b) => Platform.StringUtilities.compare(a.metric.toLowerCase(), b.metric.toLowerCase()));
+    return serverTimings;
+  }
+
+  /**
+   * TODO(crbug.com/1011811): Instead of using !Object<string, *> we should have a proper type
+   *                          with #name, desc and dur properties.
+   */
+  static createFromHeaderValue(valueString: string): {
+    // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    [x: string]: any,
+  }[] {
+    function trimLeadingWhiteSpace(): void {
+      valueString = valueString.replace(/^\s*/, '');
+    }
+    function consumeDelimiter(char: string): boolean {
+      console.assert(char.length === 1);
+      trimLeadingWhiteSpace();
+      if (valueString.charAt(0) !== char) {
+        return false;
+      }
+
+      valueString = valueString.substring(1);
+      return true;
+    }
+    function consumeToken(): string|null {
+      // https://tools.ietf.org/html/rfc7230#appendix-B
+      const result = /^(?:\s*)([\w!#$%&'*+\-.^`|~]+)(?:\s*)(.*)/.exec(valueString);
+      if (!result) {
+        return null;
+      }
+
+      valueString = result[2];
+      return result[1];
+    }
+    function consumeTokenOrQuotedString(): string|null {
+      trimLeadingWhiteSpace();
+      if (valueString.charAt(0) === '"') {
+        return consumeQuotedString();
+      }
+
+      return consumeToken();
+    }
+    function consumeQuotedString(): string|null {
+      console.assert(valueString.charAt(0) === '"');
+      valueString = valueString.substring(1);  // remove leading DQUOTE
+
+      let value = '';
+      while (valueString.length) {
+        // split into two parts:
+        //  -everything before the first " or \
+        //  -everything else
+        const result = /^([^"\\]*)(.*)/.exec(valueString);
+        if (!result) {
+          return null;  // not a valid quoted-string
+        }
+        value += result[1];
+        if (result[2].charAt(0) === '"') {
+          // we have found our closing "
+          valueString = result[2].substring(1);  // strip off everything after the closing "
+          return value;                          // we are done here
+        }
+
+        console.assert(result[2].charAt(0) === '\\');
+        // special rules for \ found in quoted-string (https://tools.ietf.org/html/rfc7230#section-3.2.6)
+        value += result[2].charAt(1);          // grab the character AFTER the \ (if there was one)
+        valueString = result[2].substring(2);  // strip off \ and next character
+      }
+
+      return null;  // not a valid quoted-string
+    }
+    function consumeExtraneous(): void {
+      const result = /([,;].*)/.exec(valueString);
+      if (result) {
+        valueString = result[1];
+      }
+    }
+
+    const result = [];
+    let name;
+    while ((name = consumeToken()) !== null) {
+      const entry = {name};
+
+      if (valueString.charAt(0) === '=') {
+        this.showWarning(UIStrings.deprecatedSyntaxFoundPleaseUse);
+      }
+
+      while (consumeDelimiter(';')) {
+        let paramName;
+        if ((paramName = consumeToken()) === null) {
+          continue;
+        }
+
+        paramName = paramName.toLowerCase();
+        const parseParameter = this.getParserForParameter(paramName);
+        let paramValue: (string|null)|null = null;
+        if (consumeDelimiter('=')) {
+          // always parse the value, even if we don't recognize the parameter #name
+          paramValue = consumeTokenOrQuotedString();
+          consumeExtraneous();
+        }
+
+        if (parseParameter) {
+          // paramName is valid
+          if (entry.hasOwnProperty(paramName)) {
+            this.showWarning((UIStrings.duplicateParameterSIgnored));
+            continue;
+          }
+
+          if (paramValue === null) {
+            this.showWarning((UIStrings.noValueFoundForParameterS));
+          }
+
+          parseParameter.call(this, entry, paramValue);
+        } else {
+          // paramName is not valid
+          this.showWarning((UIStrings.unrecognizedParameterS));
+        }
+      }
+
+      result.push(entry);
+      if (!consumeDelimiter(',')) {
+        break;
+      }
+    }
+
+    if (valueString.length) {
+      this.showWarning((UIStrings.extraneousTrailingCharacters));
+    }
+    return result;
+  }
+
+  static getParserForParameter(paramName: string):
+      ((arg0: {
+         // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
+         // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         [x: string]: any,
+       },
+        arg1: string|null) => void)|null {
+    switch (paramName) {
+      case 'dur': {
+        function durParser(
+            entry: {
+              // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              [x: string]: any,
+            },
+            // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            paramValue: any): void {
+          entry.dur = 0;
+          if (paramValue !== null) {
+            const duration = parseFloat(paramValue);
+            if (isNaN(duration)) {
+              ServerTiming.showWarning((UIStrings.unableToParseSValueS));
+              return;
+            }
+            entry.dur = duration;
+          }
+        }
+        return durParser;
+      }
+      case 'start': {
+        function startParser(
+            entry: {
+              // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              [x: string]: any,
+            },
+            // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            paramValue: any): void {
+          entry.start = null;
+          if (paramValue !== null) {
+            const start = parseFloat(paramValue);
+            if (isNaN(start)) {
+              ServerTiming.showWarning((UIStrings.unableToParseSValueS));
+              return;
+            }
+            entry.start = start;
+          }
+        }
+        return startParser;
+      }
+      case 'desc': {
+        function descParser(
+            entry: {
+              // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              [x: string]: any,
+            },
+            paramValue: string|null): void {
+          entry.desc = paramValue || '';
+        }
+        return descParser;
+      }
+
+      default: {
+        return null;
+      }
+    }
+  }
+
+  static showWarning(msg: string): void {
+    console.warn(`ServerTiming: ${msg}`);
+  }
 }

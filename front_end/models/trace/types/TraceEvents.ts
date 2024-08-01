@@ -1186,6 +1186,7 @@ export interface TraceEventPerformanceMark extends TraceEventUserTiming {
   args: TraceEventArgs&{
     data?: TraceEventArgsData & {
       detail?: string,
+      startTime?: MilliSeconds,
     },
   };
   ph: Phase.INSTANT|Phase.MARK|Phase.ASYNC_NESTABLE_INSTANT;

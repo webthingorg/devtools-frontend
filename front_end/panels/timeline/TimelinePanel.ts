@@ -1164,6 +1164,8 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
       if (response.getError()) {
         throw new Error(response.getError());
       }
+      await primaryPageTarget.runtimeAgent().invoke_evaluate(
+          {expression: `performance.mark("${'devtools-reference-mark'}")`});
       // Once we get here, we know tracing is active.
       // This is when, if the user has hit "Reload & Record" that we now need to navigate to the original URL.
       // If the user has just hit "record", we don't do any navigating.
