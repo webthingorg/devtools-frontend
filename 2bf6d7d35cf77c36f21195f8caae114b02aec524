@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b0b7848e_a40d2832",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-08-01T22:17:06Z",
+      "side": 1,
+      "message": "1 - Good point! In Chrome settings I don\u0027t see a row that has both a toggle and an expand button in the same row. It\u0027s one or the other there, never both. And in that case, it\u0027s clear what clicking on the row should do.\nBut in our case, there is both an expand button and a checkbox/toggle. Which action should clicking on the row perform?\n\n2 - https://docs.google.com/document/d/1iGtygMGqqCUtZsq4SOcOKGGThgthdwzaTy24NCUmLMk/edit?resourcekey\u003d0-8_aOvxkpS_abnRmfg586bg\u0026tab\u003dt.0#bookmark\u003did.o437atfvfcjp (non-public)",
+      "parentUuid": "2ad365e4_324d21c3",
+      "revId": "2bf6d7d35cf77c36f21195f8caae114b02aec524",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "27e756ea_409bf9bf",
         "filename": "front_end/panels/settings/AISettingsTab.ts",
         "patchSetId": 4
