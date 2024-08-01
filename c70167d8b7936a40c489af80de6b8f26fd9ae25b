@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5226cc9_6a9d6375",
+        "filename": "front_end/panels/explain/explain-meta.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-08-01T15:01:29Z",
+      "side": 1,
+      "message": "If the base::Feature is enabled, but AIDA is blocked by geo/age/whatever, this will now evaluate to false and the setting won\u0027t be shown at all instead of as disabled.",
+      "range": {
+        "startLine": 126,
+        "startChar": 2,
+        "endLine": 126,
+        "endChar": 48
+      },
+      "revId": "c70167d8b7936a40c489af80de6b8f26fd9ae25b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
