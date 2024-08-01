@@ -129,6 +129,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7de5cd3_3f1f6b45",
+        "filename": "front_end/ui/components/switch_control/SwitchControl.test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-08-01T14:12:35Z",
+      "side": 1,
+      "message": "All good, keep it how you prefer it.\n(my reasoning was that usually we want the \u0027describe\u0027 followed by the \u0027it\u0027 to together build a sentence)",
+      "parentUuid": "38109df1_d881ca11",
+      "range": {
+        "startLine": 11,
+        "startChar": 1,
+        "endLine": 11,
+        "endChar": 106
+      },
+      "revId": "30c76710be02c3188d4cefc3e4d2cf5a93044dc1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2071d060_a3726c15",
