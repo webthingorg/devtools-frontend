@@ -16,6 +16,40 @@
       "message": "PTAL",
       "revId": "397b213a093400f858ff3f9a2ef8e9e311619ead",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9140d722_829a0c93",
+        "filename": "front_end/panels/settings/AISettingsTab.test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-01T13:37:44Z",
+      "side": 1,
+      "message": "I think this test tests multiple stuff at the same time and separating them for better readability on the tests would be cool.\n\nCurrently, it tests:\n* Clicking on the checkbox enables the respective setting.\n* Clicking on the checkbox expands an otherwise collapsed setting.\n\nI think it\u0027d be better if we can write these tests separately, like:\n* Clicking on the checkbox should enable/disable the respective module setting.\n* Clicking on the checkbox should expand the setting.",
+      "revId": "397b213a093400f858ff3f9a2ef8e9e311619ead",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b4dd108_e4782400",
+        "filename": "front_end/panels/settings/AISettingsTab.test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-01T13:37:44Z",
+      "side": 1,
+      "message": "Why are we asserting on the module setting here as we expect dropdown button to just expand the section rather than updating the setting?",
+      "revId": "397b213a093400f858ff3f9a2ef8e9e311619ead",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
