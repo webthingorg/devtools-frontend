@@ -33,6 +33,24 @@
       "message": "We have an semi-automated bot that will roll the protocol once it has landed upstream. It\u0027ll also (somewhat) keep that in sync with the Chrome for Testing version we use to run the tests. No need for a manual roll.",
       "revId": "c86f6fae594071c90daa6c67d8d27b3ae835834c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb08fab6_c411a1cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3439269
+      },
+      "writtenOn": "2024-08-01T17:40:59Z",
+      "side": 1,
+      "message": "I see. I have a CL that descends from this CL and implements Detached Elements in the front end. Can the CL be independent of the parent CL when the corresponding Blink and V8 CL\u0027s land, or is there a time delay before the CL see the automated roll?",
+      "parentUuid": "dc065147_03c46b57",
+      "revId": "c86f6fae594071c90daa6c67d8d27b3ae835834c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
