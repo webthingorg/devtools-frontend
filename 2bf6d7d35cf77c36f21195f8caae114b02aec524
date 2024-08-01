@@ -50,6 +50,24 @@
       "message": "Can we change this to use the .data setter instead of the individual setters? The reasoning behind this is that the data setter will do general checks. Also, you can set the jsLogContext on the Button\u0027s data. This way, it will be shorter and directly set on the \u003cbutton\u003e component underneath.\n\n(copy pasted from the other CL😄)",
       "revId": "2bf6d7d35cf77c36f21195f8caae114b02aec524",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb4186ff_9641a150",
+        "filename": "front_end/panels/settings/AISettingsTab.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-08-01T20:39:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "27e756ea_409bf9bf",
+      "revId": "2bf6d7d35cf77c36f21195f8caae114b02aec524",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
