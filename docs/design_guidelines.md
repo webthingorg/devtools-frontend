@@ -106,3 +106,7 @@ If you agree with the design, add an LGTM to the table. If you have blocking con
 ### How does this work together with the Blink Intents process?
 
 The Chromium DevTools Design Review Guidelines complement [Chromium’s feature launch process](https://www.chromium.org/blink/launching-features). If you are launching a new Web platform feature, please follow the Chromium launch process. It likely makes sense to have all the LGTMs gathered at the point in time you would send an Intent to Implement.
+
+### Who should I add as a reviewer if I change DevTools UI?
+
+Please add the current UI rotation reviewer to your design doc, and later also as a reviewer to your CLs: (mailto:devtools-gm3-reviewer@rotations.google.com).
