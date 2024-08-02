@@ -22,6 +22,30 @@
       },
       "revId": "a087ecd39a2013cdabc9505aa77ecdc2786c798e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b4914e7_93aea5b6",
+        "filename": "test/conductor/hooks.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-08-02T09:06:57Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "23569f42_0f321efd",
+      "range": {
+        "startLine": 115,
+        "startChar": 4,
+        "endLine": 115,
+        "endChar": 35
+      },
+      "revId": "a087ecd39a2013cdabc9505aa77ecdc2786c798e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
