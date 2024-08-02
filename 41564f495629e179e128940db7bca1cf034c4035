@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "02ebe729_1e76dfc4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-08-02T17:15:15Z",
+      "side": 1,
+      "message": "And the last test failure is in test/e2e/sources/can-disable-auto-sources-focus_test.ts,\n\nline 41 needs to be changed to data-panel as well: await waitFor(`.panel[data-panel\u003d\"${expectedPanel}\"]`);",
+      "revId": "41564f495629e179e128940db7bca1cf034c4035",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d63050fd_dda5be5b",
         "filename": "test/e2e/cross_tool_integration/workflow_test.ts",
         "patchSetId": 6
