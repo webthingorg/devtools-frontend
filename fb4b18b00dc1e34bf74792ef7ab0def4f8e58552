@@ -140,6 +140,24 @@
       "parentUuid": "d5e2b83b_8365cb32",
       "revId": "fb4b18b00dc1e34bf74792ef7ab0def4f8e58552",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37f92d9c_c13a8ee8",
+        "filename": "front_end/ui/legacy/Panel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-08-02T16:55:30Z",
+      "side": 1,
+      "message": "Or maybe a region is more correct here",
+      "parentUuid": "bdef743c_534f8e37",
+      "revId": "fb4b18b00dc1e34bf74792ef7ab0def4f8e58552",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
