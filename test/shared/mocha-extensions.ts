@@ -39,7 +39,7 @@ function wrapSuiteFunction(fn: (this: Mocha.Suite) => void) {
         return;
       }
       hook.fn = function(this, args) {
-        hookTestTimeout(hook);
+        // hookTestTimeout(hook);
         return originalFn.call(this, args);
       };
     };
@@ -143,6 +143,7 @@ async function timeoutHook(this: Mocha.Runnable, done: Mocha.Done|undefined, err
     this.timedOut = true;
   }
 }
+timeoutHook;
 
 export const it = makeCustomWrappedIt();
 
@@ -192,14 +193,14 @@ export function makeCustomWrappedIt(namePrefix: string = '') {
   return newMochaItFunc;
 }
 
-function hookTestTimeout(test?: Mocha.Runnable) {
-  if (test) {
-    const originalDone = test.callback;
-    test.callback = timeoutHook.bind(test, originalDone);
-    // If a timeout is already scheduled, reset it to install our new hook
-    test.resetTimeout();
-  }
-}
+// function hookTestTimeout(test?: Mocha.Runnable) {
+//   if (test) {
+//     const originalDone = test.callback;
+//     test.callback = timeoutHook.bind(test, originalDone);
+//     // If a timeout is already scheduled, reset it to install our new hook
+//     test.resetTimeout();
+//   }
+// }
 
 function wrapMochaCall(
     call: Mocha.TestFunction|Mocha.PendingTestFunction|Mocha.ExclusiveTestFunction, name: string,
@@ -207,8 +208,8 @@ function wrapMochaCall(
   const test = call(name, function(done: Mocha.Done) {
     // If this is a test retry, the current test will be a clone of the original test, and
     // we need to find it and hook that instead of the original test.
-    const currentTest = test?.ctx?.test ?? test;
-    hookTestTimeout(currentTest);
+    // const currentTest = test?.ctx?.test ?? test;
+    // hookTestTimeout(currentTest);
 
     if (callback.length === 0) {
       async function onError(this: unknown, err?: unknown) {
@@ -224,6 +225,7 @@ function wrapMochaCall(
       (callback as Mocha.Func).bind(this)(done);
     }
   });
+  test;
 }
 
 export const itScreenshot = makeCustomWrappedIt('[screenshot]:');
