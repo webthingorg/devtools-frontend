@@ -51,6 +51,24 @@
       "parentUuid": "dc065147_03c46b57",
       "revId": "c86f6fae594071c90daa6c67d8d27b3ae835834c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77548486_246fba76",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-02T04:46:26Z",
+      "side": 1,
+      "message": "You can use a manual roll like this for developing the prototype. Once we have officially rolled you can re-parent and upload the (prototype) frontend CL.",
+      "parentUuid": "eb08fab6_c411a1cc",
+      "revId": "c86f6fae594071c90daa6c67d8d27b3ae835834c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
