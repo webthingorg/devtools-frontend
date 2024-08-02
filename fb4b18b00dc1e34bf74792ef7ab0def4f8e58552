@@ -71,6 +71,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b210eb4_e508cda3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-08-02T16:54:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ec881bdc_37a228b3",
+      "revId": "fb4b18b00dc1e34bf74792ef7ab0def4f8e58552",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3bbde0b0_93de73ad",
@@ -102,6 +120,24 @@
       "side": 1,
       "message": "Sorry, I should have linked bug 350528330.\n\nWhat it comes down to is that some screen readers don\u0027t know what to do on objects that are expected to have text inside of them, but not have an accessible name themselves. They see this as conflicting information. And it\u0027s not always clear what the author actually intended. Sometimes they seem to intend it as a replacement for the inner content, and other times as supplemental information.",
       "parentUuid": "3bbde0b0_93de73ad",
+      "revId": "fb4b18b00dc1e34bf74792ef7ab0def4f8e58552",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdef743c_534f8e37",
+        "filename": "front_end/ui/legacy/Panel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-08-02T16:54:10Z",
+      "side": 1,
+      "message": "I guess alternatively we could add a `tabpanel` role to this element?",
+      "parentUuid": "d5e2b83b_8365cb32",
       "revId": "fb4b18b00dc1e34bf74792ef7ab0def4f8e58552",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
