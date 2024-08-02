@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "93cc4ff1_1929500d",
+        "filename": "front_end/panels/elements/StylePropertiesSection.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1016,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-08-02T10:13:22Z",
+      "side": 1,
+      "message": "This is checking the edited element. So only if the user modified a custom property decl we\u0027d try to recompute the value. Still would be a potential behavior change in some edge cases (what if the edit causes a different container or style query to pop in? a non-variable edit can still affect variable values that way).",
+      "parentUuid": "6406db3c_9ff65903",
+      "revId": "3e3bbb2c81d464eb283299369eda766b6a66e672",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4eb6408f_05ed265d",
         "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
         "patchSetId": 3
@@ -54,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7527107e_e544906f",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1260,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-08-02T10:13:22Z",
+      "side": 1,
+      "message": "The template is on the grid container. So if we\u0027re in a grid element we need to find the container first to read the template.",
+      "parentUuid": "4eb6408f_05ed265d",
+      "revId": "3e3bbb2c81d464eb283299369eda766b6a66e672",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e2c351da_f008d0fb",
         "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
         "patchSetId": 3
@@ -65,6 +101,24 @@
       "writtenOn": "2024-07-31T08:58:39Z",
       "side": 1,
       "message": "I\u0027m not sure the effect of this async call from perf / ux perspective but wdyt of not waiting here for assigning the grid names since they are not needed directly when rendering the title?\n\nWe can do something like:\n`this.gridNames().then(gridNames \u003d\u003e this.#gridNames \u003d gridNames)` so that rendering of the title doesn\u0027t wait for them to be resolved.",
+      "revId": "3e3bbb2c81d464eb283299369eda766b6a66e672",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df78d7a0_112a04c8",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1459,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-08-02T10:13:22Z",
+      "side": 1,
+      "message": "That would be nice, but sadly the consumer side is synchronous, so I can\u0027t await the names there. It could happen that the gridnames are empty when we show the autocomplete.\n\n(and we\u0027d have to prevent races with the upateTitle path)",
+      "parentUuid": "e2c351da_f008d0fb",
       "revId": "3e3bbb2c81d464eb283299369eda766b6a66e672",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
