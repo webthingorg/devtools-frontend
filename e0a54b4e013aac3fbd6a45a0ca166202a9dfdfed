@@ -16,6 +16,40 @@
       "message": "Can you take a look please? Thanks! 🙏",
       "revId": "e0a54b4e013aac3fbd6a45a0ca166202a9dfdfed",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f10e11e1_b4fa0435",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-02T09:08:26Z",
+      "side": 1,
+      "message": "LGTM! A similar problem I see is, when you use `ALT` to manipulate the values instead of it adding `0.1` it adds `0.1000001` (thanks to floating point arithmetic I guess). Can we do something for that while we\u0027re here too? Otherwise I can create a separate bug :)\n\nYou can try it out:\n* Open https://google.com\n* Inspect `body` element\n* Drag `min-width` value with `ALT` modifier.",
+      "revId": "e0a54b4e013aac3fbd6a45a0ca166202a9dfdfed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08c30818_c95f52f5",
+        "filename": "front_end/ui/legacy/components/inline_editor/CSSLength.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-02T09:08:26Z",
+      "side": 1,
+      "message": "WDYT of not throwing here and continue with returning directly? Otherwise, if somehow there is an error here, it\u0027ll probably break the rendering of the whole styles tab but if we return instead of throwing error, only the rendering of this property declaration will be wrong.",
+      "revId": "e0a54b4e013aac3fbd6a45a0ca166202a9dfdfed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
