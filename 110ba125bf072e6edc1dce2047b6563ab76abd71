@@ -52,6 +52,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f1d601b_003bbda8",
+        "filename": "front_end/panels/timeline/ModificationsManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-08-02T10:21:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ca58648_a8ad1a09",
+      "range": {
+        "startLine": 135,
+        "startChar": 0,
+        "endLine": 135,
+        "endChar": 77
+      },
+      "revId": "110ba125bf072e6edc1dce2047b6563ab76abd71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9e1ceaf2_f872cf5c",
@@ -65,6 +89,30 @@
       "writtenOn": "2024-08-02T07:16:35Z",
       "side": 1,
       "message": "I don\u0027t know how I feel about this where we create the annotation immediately and then modify the range, vs, creating the overlay + turning it into an annotation when the bounds are set, but as discussed I can see the benefits of this way.\n\nThis does need a big comment though - the first question I had was \"why can I only update time ranges and not labels\".",
+      "range": {
+        "startLine": 159,
+        "startChar": 0,
+        "endLine": 159,
+        "endChar": 80
+      },
+      "revId": "110ba125bf072e6edc1dce2047b6563ab76abd71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9972ba85_b285baa5",
+        "filename": "front_end/panels/timeline/ModificationsManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-08-02T10:21:28Z",
+      "side": 1,
+      "message": "We can reconsider this decision again in the future. \nExcept of the reasons we discussed, another argument for creating the annotation straight away is that this way it is in the \u0027annotations list\u0027 and we can show the range and it\u0027s label in the sidebar annotations list as we create it and the text is being typed.\n\nWe don\u0027t need to update the label from the annotation right now. The label will be updated directly from `TimeRangeOverlay`. \nI think we will need to update it from the annotation if we allow to edit the label from the sidebar so I will add it here. That way it will also update all of the fields.",
+      "parentUuid": "9e1ceaf2_f872cf5c",
       "range": {
         "startLine": 159,
         "startChar": 0,
@@ -152,6 +200,30 @@
           ]
         }
       ],
+      "revId": "110ba125bf072e6edc1dce2047b6563ab76abd71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82356924_fd105840",
+        "filename": "front_end/panels/timeline/ModificationsManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-08-02T10:21:28Z",
+      "side": 1,
+      "message": "yes, in one of the follow-ups. Next one will be to create multiple time ranges. Then we can serialize and save/load them.",
+      "parentUuid": "46d4b3cb_b9b078f9",
+      "range": {
+        "startLine": 230,
+        "startChar": 0,
+        "endLine": 230,
+        "endChar": 74
+      },
       "revId": "110ba125bf072e6edc1dce2047b6563ab76abd71",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
