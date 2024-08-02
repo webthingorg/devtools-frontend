@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66182d53_427f4052",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1754,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-08-02T06:03:34Z",
+      "side": 0,
+      "message": "I believe these lines were fixing this issue https://issues.chromium.org/issues/40698929 and they have effect on JAWS. Do you have an alternative solution? (also, it looks like the bug is caused by whitespace trimming)",
+      "revId": "26a5adddb2d3ede552838b66b5e7cc903aaccd5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
