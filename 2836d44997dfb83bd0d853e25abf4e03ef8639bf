@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8fbf5620_5e131165",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-08-02T10:43:25Z",
+      "side": 1,
+      "message": "This CL is per the suggestion after the demo last week.",
+      "revId": "2836d44997dfb83bd0d853e25abf4e03ef8639bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
