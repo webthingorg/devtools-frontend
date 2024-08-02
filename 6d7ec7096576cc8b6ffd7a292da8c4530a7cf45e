@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6e883c8_adcfa072",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-08-02T00:57:49Z",
+      "side": 1,
+      "message": "AIUI, the revealer system allows us to load the timelinepanel on demand, based on an `instanceof` conditional. Using it means we don\u0027t need a hard module dependency. Our fancy meta files create these provider/revealer helpers that kinda do that dependency injection work for us. \n\nI made a class in SDK as we have nothing else in there that can `instanceof` as raw trace data.\n\nI\u0027m thinking this model will work for enhanced traces as well, where we have data we want to \u0027instantiate\u0027 the timeline panel with.. but don\u0027t want to set gn deps on directly.\n\nhows this feel to you jack?  i\u0027m fine if you want a MUC doublecheck on revealers.. my understanding of the system might be a tad dated.",
+      "revId": "6d7ec7096576cc8b6ffd7a292da8c4530a7cf45e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
