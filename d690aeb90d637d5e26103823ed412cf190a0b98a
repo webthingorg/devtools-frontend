@@ -52,6 +52,24 @@
       "parentUuid": "d31d8d1a_131a0c39",
       "revId": "d690aeb90d637d5e26103823ed412cf190a0b98a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a209f1d1_812cd83b",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 1754,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-08-02T17:24:00Z",
+      "side": 0,
+      "message": "The test needs to be updated to locate the elements that do not show up in the a11y tree anymore.\n\nFor the test test/e2e/elements/reveal-correct-node_test.ts the a11y tree state is this:\n\n1) before the change https://screenshot.googleplex.com/3ShNcc4KCtSd4uQ\n2) after the change https://screenshot.googleplex.com/Ak8JdTUnLbh7sZm\n\nSo we need to find a way to locate the same element in a different way. I am not sure there is an easy way, perhaps also using the data property attribute?",
+      "parentUuid": "6ae7cb62_b5dcb219",
+      "revId": "d690aeb90d637d5e26103823ed412cf190a0b98a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
