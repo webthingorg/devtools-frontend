@@ -34,6 +34,19 @@ devtools_entrypoint("bundle") {
   visibility = default_components_visibility
 }
 
+ts_library("button_stories") {
+  sources = [ "button.stories.ts" ]
+
+  deps = [
+    ":button",
+    ":css_files",
+  ]
+}
+
+copy_to_gen("copy_markdown") {
+  sources = [ "Button.stories.mdx" ]
+}
+
 ts_library("unittests") {
   testonly = true
 
