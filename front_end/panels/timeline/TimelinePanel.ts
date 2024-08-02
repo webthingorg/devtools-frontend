@@ -2090,6 +2090,13 @@ export class LoadTimelineHandler implements Common.QueryParamHandler.QueryParamH
   }
 }
 
+export class TraceRevealer implements Common.Revealer.Revealer<SDK.CPUProfilerModel.Trace> {
+  async reveal(trace: SDK.CPUProfilerModel.Trace): Promise<void> {
+    await UI.ViewManager.ViewManager.instance().showView('timeline');
+    await TimelinePanel.instance().loadFromEvents(trace.traceEvents);
+  }
+}
+
 export class ActionDelegate implements UI.ActionRegistration.ActionDelegate {
   handleAction(context: UI.Context.Context, actionId: string): boolean {
     const panel = context.flavor(TimelinePanel);
