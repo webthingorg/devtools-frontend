@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23569f42_0f321efd",
+        "filename": "test/conductor/hooks.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-02T09:02:40Z",
+      "side": 1,
+      "message": "Doesn\u0027t this mean that some DevTools functionality will be broken for users that have certain field trials active? Or does the field trial strictly affect how we test DevTools.",
+      "range": {
+        "startLine": 115,
+        "startChar": 4,
+        "endLine": 115,
+        "endChar": 35
+      },
+      "revId": "a087ecd39a2013cdabc9505aa77ecdc2786c798e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
