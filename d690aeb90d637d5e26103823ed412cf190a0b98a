@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9218df1_28b4d16f",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 1754,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-08-02T17:09:08Z",
+      "side": 0,
+      "message": "this change probably fails the test test/e2e/elements/accessibility-pane_test.ts \"\u0027shows computed name from contents for title element\u0027\" which expects a certain string in the a11y tree",
+      "revId": "d690aeb90d637d5e26103823ed412cf190a0b98a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
