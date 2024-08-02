@@ -16,6 +16,24 @@
       "message": "this change probably fails the test test/e2e/elements/accessibility-pane_test.ts \"\u0027shows computed name from contents for title element\u0027\" which expects a certain string in the a11y tree",
       "revId": "d690aeb90d637d5e26103823ed412cf190a0b98a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d31d8d1a_131a0c39",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 1754,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-08-02T17:12:36Z",
+      "side": 0,
+      "message": "same with elements/reveal-correct-node_test.ts \u0027has a context menu link from an iframe to the corresponding frame details view\u0027",
+      "parentUuid": "d9218df1_28b4d16f",
+      "revId": "d690aeb90d637d5e26103823ed412cf190a0b98a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
