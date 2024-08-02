@@ -34,6 +34,24 @@
       "parentUuid": "d9218df1_28b4d16f",
       "revId": "d690aeb90d637d5e26103823ed412cf190a0b98a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ae7cb62_b5dcb219",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 1754,
+      "author": {
+        "id": 1211408
+      },
+      "writtenOn": "2024-08-02T17:15:09Z",
+      "side": 0,
+      "message": "Thanks for the help. What do you suggest?\n\nAs you can see from the linked bug, there are a ton of parts to this overall change, and it\u0027s more complicated than I would hope. But it\u0027s in the name of consistency for screen reader users. And I think it\u0027s a good idea to disallow breaking user-impacting a11y rules in our own chrome:// and devtools:// UI via DCHECKS.",
+      "parentUuid": "d31d8d1a_131a0c39",
+      "revId": "d690aeb90d637d5e26103823ed412cf190a0b98a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
