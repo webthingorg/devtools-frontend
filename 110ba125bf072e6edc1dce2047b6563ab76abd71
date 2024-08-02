@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ca58648_a8ad1a09",
+        "filename": "front_end/panels/timeline/ModificationsManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-02T07:16:35Z",
+      "side": 1,
+      "message": "use `Platform.assertNever` here to get better TS errors.",
+      "range": {
+        "startLine": 135,
+        "startChar": 0,
+        "endLine": 135,
+        "endChar": 77
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "c788f6db_a758a7d7",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/ModificationsManager.ts",
+              "range": {
+                "startLine": 7,
+                "startChar": 0,
+                "endLine": 7,
+                "endChar": 0
+              },
+              "replacement": "import * as Platform from \u0027../../platform/platform.js\u0027;\n"
+            },
+            {
+              "path": "front_end/panels/timeline/ModificationsManager.ts",
+              "range": {
+                "startLine": 135,
+                "startChar": 0,
+                "endLine": 136,
+                "endChar": 0
+              },
+              "replacement": "        Platform.assertNever(annotation, \u0027Overlay for provided annotation cannot be created\u0027);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "110ba125bf072e6edc1dce2047b6563ab76abd71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e1ceaf2_f872cf5c",
+        "filename": "front_end/panels/timeline/ModificationsManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-02T07:16:35Z",
+      "side": 1,
+      "message": "I don\u0027t know how I feel about this where we create the annotation immediately and then modify the range, vs, creating the overlay + turning it into an annotation when the bounds are set, but as discussed I can see the benefits of this way.\n\nThis does need a big comment though - the first question I had was \"why can I only update time ranges and not labels\".",
+      "range": {
+        "startLine": 159,
+        "startChar": 0,
+        "endLine": 159,
+        "endChar": 80
+      },
+      "revId": "110ba125bf072e6edc1dce2047b6563ab76abd71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46d4b3cb_b9b078f9",
+        "filename": "front_end/panels/timeline/ModificationsManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-02T07:16:35Z",
+      "side": 1,
+      "message": "presumably in a follow-up you will extend this to serialize and load time ranges?",
+      "range": {
+        "startLine": 230,
+        "startChar": 0,
+        "endLine": 230,
+        "endChar": 74
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "501d0ba9_ab44461e",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/ModificationsManager.ts",
+              "range": {
+                "startLine": 226,
+                "startChar": 0,
+                "endLine": 227,
+                "endChar": 0
+              },
+              "replacement": "    const entryLabelsSerialized: TraceEngine.Types.File.EntryLabelAnnotation[] \u003d [];\n    const timeRangesSerialized: TraceEngine.Types.File.TimeRangeAnnotation[] \u003d [];\n"
+            },
+            {
+              "path": "front_end/panels/timeline/ModificationsManager.ts",
+              "range": {
+                "startLine": 238,
+                "startChar": 0,
+                "endLine": 238,
+                "endChar": 0
+              },
+              "replacement": "      } else if (TraceEngine.Types.File.isTimeRangeAnnotation(currAnnotation)) {\n        timeRangesSerialized.push({\n          label: currAnnotation.label,\n          bounds: currAnnotation.bounds,\n        });\n"
+            },
+            {
+              "path": "front_end/panels/timeline/ModificationsManager.ts",
+              "range": {
+                "startLine": 243,
+                "startChar": 0,
+                "endLine": 243,
+                "endChar": 0
+              },
+              "replacement": "      timeRanges: timeRangesSerialized,\n"
+            },
+            {
+              "path": "front_end/panels/timeline/ModificationsManager.ts",
+              "range": {
+                "startLine": 257,
+                "startChar": 0,
+                "endLine": 258,
+                "endChar": 0
+              },
+              "replacement": "    for (const entryLabel of entryLabels) {\n"
+            },
+            {
+              "path": "front_end/panels/timeline/ModificationsManager.ts",
+              "range": {
+                "startLine": 263,
+                "startChar": 0,
+                "endLine": 264,
+                "endChar": 0
+              },
+              "replacement": "    }\n\n    const timeRanges \u003d modifications.annotations.timeRanges;\n    for (const timeRange of timeRanges) {\n      this.createAnnotation({\n        type: \u0027TIME_RANGE\u0027,\n        label: timeRange.label,\n        bounds: timeRange.bounds,\n      });\n    }\n"
+            }
+          ]
+        }
+      ],
+      "revId": "110ba125bf072e6edc1dce2047b6563ab76abd71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
