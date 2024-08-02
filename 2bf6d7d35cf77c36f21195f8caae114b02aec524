@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "66a7e218_9380a3f8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2024-08-02T08:02:04Z",
+      "side": 1,
+      "message": "Ah that was probably a bit unclear in the designs. The left area until the vertical line was meant as a click target. See here: https://screenshot.googleplex.com/6eRH7a8G8wmiDeo.png\n\nYou can also play with the clickdummy to get a feeling for the behavior: https://www.figma.com/proto/aYuqExkCn0fbrltL9p85lq/Chrome-privacy-framework-for-Console-insights?node-id\u003d4004-29516\u0026t\u003dhDFO70ByTv2DpQL7-0\u0026scaling\u003dmin-zoom\u0026content-scaling\u003dfixed\u0026page-id\u003d1%3A63\u0026starting-point-node-id\u003d4004%3A27928\u0026show-proto-sidebar\u003d1\n\nMakes sense?",
+      "parentUuid": "6946072b_4380d24c",
+      "revId": "2bf6d7d35cf77c36f21195f8caae114b02aec524",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "27e756ea_409bf9bf",
         "filename": "front_end/panels/settings/AISettingsTab.ts",
         "patchSetId": 4
