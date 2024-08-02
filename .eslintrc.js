@@ -143,6 +143,7 @@ module.exports = {
      */
     'jsdoc/check-alignment': 'error',
   },
+
   'overrides': [{
     'files': ['*.ts'],
     'parserOptions': {
@@ -270,6 +271,8 @@ module.exports = {
       ]
     }
   }],
+
+  extends: ['plugin:storybook/recommended']
 };
 
 // clang-format on

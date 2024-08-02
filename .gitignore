@@ -46,3 +46,5 @@ test/perf/.generated
 /.vscode/settings.json
 /.vscode/tasks.json
 /.vscode/launch.json
+
+*storybook.log
