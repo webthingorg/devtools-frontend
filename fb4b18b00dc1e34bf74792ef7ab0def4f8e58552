@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ec881bdc_37a228b3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-08-02T15:03:01Z",
+      "side": 1,
+      "message": "`gclient gitmodules` helps restore submodules after a rebase so that submodules are not commited",
+      "parentUuid": "5ee3b5e8_168ec770",
+      "revId": "fb4b18b00dc1e34bf74792ef7ab0def4f8e58552",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3bbde0b0_93de73ad",
         "filename": "front_end/ui/legacy/Panel.ts",
         "patchSetId": 3
