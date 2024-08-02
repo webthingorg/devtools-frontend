@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "92963d05_d273d8ff",
+        "filename": "front_end/panels/timeline/components/LiveMetricsView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 249,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-08-02T13:35:11Z",
+      "side": 1,
+      "message": "That would require us to add a default case to `#getTitle`/`#getThresholds` etc. The easiest thing to do there would be to just default to LCP which is the same thing so would rather just keep it.",
+      "parentUuid": "ce0b8250_c00ef7d7",
+      "range": {
+        "startLine": 245,
+        "startChar": 0,
+        "endLine": 249,
+        "endChar": 0
+      },
+      "revId": "f2352a5a5fce4cc631d568857bf7d8ee58e50cd0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4ee5eb6b_52c622e3",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-08-02T07:05:35Z",
       "side": 1,
       "message": "let\u0027s land this script into the repo - the `scripts` folder is a grab bag of random scripts - you could put this there (maybe in a sub directory if you prefer)\n\nyou will see lots of the scripts are python ones but it\u0027s fine to add JS ones too",
+      "range": {
+        "startLine": 8,
+        "startChar": 3,
+        "endLine": 8,
+        "endChar": 69
+      },
+      "revId": "f2352a5a5fce4cc631d568857bf7d8ee58e50cd0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6be3520_1a5ffaac",
+        "filename": "front_end/panels/timeline/components/MetricCompareStrings.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-08-02T13:35:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ee5eb6b_52c622e3",
       "range": {
         "startLine": 8,
         "startChar": 3,
