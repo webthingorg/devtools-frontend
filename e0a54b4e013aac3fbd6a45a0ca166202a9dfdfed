@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "690533e9_1c04cf32",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-08-02T09:20:30Z",
+      "side": 1,
+      "message": "Good point, let\u0027s put that into a separate bug. I\u0027m not sure what the expectations are here.",
+      "parentUuid": "f10e11e1_b4fa0435",
+      "revId": "e0a54b4e013aac3fbd6a45a0ca166202a9dfdfed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "08c30818_c95f52f5",
@@ -48,6 +66,24 @@
       "writtenOn": "2024-08-02T09:08:26Z",
       "side": 1,
       "message": "WDYT of not throwing here and continue with returning directly? Otherwise, if somehow there is an error here, it\u0027ll probably break the rendering of the whole styles tab but if we return instead of throwing error, only the rendering of this property declaration will be wrong.",
+      "revId": "e0a54b4e013aac3fbd6a45a0ca166202a9dfdfed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "781faee2_0e390d96",
+        "filename": "front_end/ui/legacy/components/inline_editor/CSSLength.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-08-02T09:20:30Z",
+      "side": 1,
+      "message": "I thought about that, but then it\u0027ll be very difficult to find out that something is broken. That\u0027s why I went with throwing here.",
+      "parentUuid": "08c30818_c95f52f5",
       "revId": "e0a54b4e013aac3fbd6a45a0ca166202a9dfdfed",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
