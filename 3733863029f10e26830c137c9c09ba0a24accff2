@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "716210b1_e77b84fa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-02T09:53:38Z",
+      "side": 1,
+      "message": "LGTM! I think before sending the texts for the translation, it\u0027d be cool to update their descriptions to mention \"AI Assistant\" rather than \"Freestyler\".",
+      "revId": "3733863029f10e26830c137c9c09ba0a24accff2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
