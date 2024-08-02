@@ -20,6 +20,40 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f0ef4097_18bb7d8c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-08-02T20:48:37Z",
+      "side": 1,
+      "message": "Is there any behavior change here? Before Lighthouse panel could open a trace in the performance panel, and now it still does but in a better way, right? Any visible difference?",
+      "revId": "6d7ec7096576cc8b6ffd7a292da8c4530a7cf45e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ffcfdce_b8959aac",
+        "filename": "front_end/core/sdk/CPUProfilerModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-08-02T20:48:37Z",
+      "side": 1,
+      "message": "jw... why are imports moving around? is the formatter not applying to all files, or is there just not a format rule for import order (and this was a manual re-sorting by you)?",
+      "revId": "6d7ec7096576cc8b6ffd7a292da8c4530a7cf45e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b708d66e_fef09b5d",
         "filename": "front_end/core/sdk/CPUProfilerModel.ts",
         "patchSetId": 1
