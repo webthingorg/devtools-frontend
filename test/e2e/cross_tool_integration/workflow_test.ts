@@ -38,19 +38,19 @@ describe('A user can navigate across', function() {
   it('Console -> Sources', async () => {
     await navigateToConsoleTab();
     await waitForConsoleInfoMessageAndClickOnLink();
-    await waitFor('.panel[aria-label="sources"]');
+    await waitFor('.panel[data-panel="sources"]');
   });
 
   it('Console -> Issues', async () => {
     await navigateToConsoleTab();
     await click('#console-issues-counter');
-    await waitFor('[aria-label="Issues panel"]');
+    await waitFor('[data-panel="Issues panel"]');
   });
 
   it('Elements -> Sources', async () => {
     await navigateToElementsTab();
     await clickOnFirstLinkInStylesPanel();
-    await waitFor('.panel[aria-label="sources"]');
+    await waitFor('.panel[data-panel="sources"]');
   });
 
   // Flaky test.
@@ -78,7 +78,7 @@ describe('A user can navigate across', function() {
     await navigateToPerformanceSidebarTab('Bottom-Up');
 
     await click('.devtools-link[title*="default.html"]');
-    await waitFor('.panel[aria-label="sources"]');
+    await waitFor('.panel[data-panel="sources"]');
   });
 });
 
