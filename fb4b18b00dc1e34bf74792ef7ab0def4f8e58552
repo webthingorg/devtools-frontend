@@ -158,6 +158,24 @@
       "parentUuid": "bdef743c_534f8e37",
       "revId": "fb4b18b00dc1e34bf74792ef7ab0def4f8e58552",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6fc39ea3_20d996cf",
+        "filename": "front_end/ui/legacy/Panel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1211408
+      },
+      "writtenOn": "2024-08-02T17:04:55Z",
+      "side": 1,
+      "message": "When I looked at the structure earlier, it looked like there were already appropriate ancestors in terms of role, and the name was also correctly set, so it seemed redundant to have a strong semantic on this object.",
+      "parentUuid": "37f92d9c_c13a8ee8",
+      "revId": "fb4b18b00dc1e34bf74792ef7ab0def4f8e58552",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
