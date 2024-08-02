@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5ee3b5e8_168ec770",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1211408
+      },
+      "writtenOn": "2024-08-02T14:56:39Z",
+      "side": 1,
+      "message": "Yes, still trying to figure out how to deal with submodules :)",
+      "parentUuid": "42368f34_4721aec8",
+      "revId": "fb4b18b00dc1e34bf74792ef7ab0def4f8e58552",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3bbde0b0_93de73ad",
         "filename": "front_end/ui/legacy/Panel.ts",
         "patchSetId": 3
@@ -48,6 +66,24 @@
       "writtenOn": "2024-08-02T06:03:34Z",
       "side": 1,
       "message": "Could you clarify why this is not allowed?",
+      "revId": "fb4b18b00dc1e34bf74792ef7ab0def4f8e58552",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5e2b83b_8365cb32",
+        "filename": "front_end/ui/legacy/Panel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1211408
+      },
+      "writtenOn": "2024-08-02T14:56:39Z",
+      "side": 1,
+      "message": "Sorry, I should have linked bug 350528330.\n\nWhat it comes down to is that some screen readers don\u0027t know what to do on objects that are expected to have text inside of them, but not have an accessible name themselves. They see this as conflicting information. And it\u0027s not always clear what the author actually intended. Sometimes they seem to intend it as a replacement for the inner content, and other times as supplemental information.",
+      "parentUuid": "3bbde0b0_93de73ad",
       "revId": "fb4b18b00dc1e34bf74792ef7ab0def4f8e58552",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

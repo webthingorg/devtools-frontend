@@ -16,6 +16,24 @@
       "message": "I believe these lines were fixing this issue https://issues.chromium.org/issues/40698929 and they have effect on JAWS. Do you have an alternative solution? (also, it looks like the bug is caused by whitespace trimming)",
       "revId": "26a5adddb2d3ede552838b66b5e7cc903aaccd5b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1e5f294_8f04363d",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1754,
+      "author": {
+        "id": 1211408
+      },
+      "writtenOn": "2024-08-02T14:56:39Z",
+      "side": 0,
+      "message": "It doesn\u0027t seem to be necessary anymore. When I edited the line I found the same git blame and investigated. The a11y tree looked correct after the change. In any case, a workaround like this shouldn\u0027t be necessary in the markup. I\u0027ll have our a11y analysts do a pass and make sure that issue 40698929 does not regress after this lands, and revert if it breaks things,.",
+      "parentUuid": "66182d53_427f4052",
+      "revId": "26a5adddb2d3ede552838b66b5e7cc903aaccd5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
