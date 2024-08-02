@@ -27,35 +27,61 @@ export class SidebarAnnotationsTab extends HTMLElement {
   }
 
   #renderAnnotation(annotation: TraceEngine.Types.File.Annotation): LitHtml.LitTemplate {
-    // TODO: Render annotations other than Entry Labels
-    if (!TraceEngine.Types.File.isEntryLabelAnnotation(annotation)) {
-      return LitHtml.html``;
+    if(TraceEngine.Types.File.isEntryLabelAnnotation(annotation)) {
+
+      const entryName = TraceEngine.Types.TraceEvents.isProfileCall(annotation.entry) ?
+          annotation.entry.callFrame.functionName :
+          annotation.entry.name;
+  
+      return LitHtml.html`
+        <div class="annotation-container">
+          <div class="annotation">
+            <span class="entry-name">
+              ${entryName}
+            </span>
+            <span class="label">
+            ${annotation.label}
+            </span>
+          </div>
+          <${IconButton.Icon.Icon.litTagName} class="bin-icon" .data=${{
+        iconName: 'bin',
+        color: 'var(--icon-default)',
+        width: '20px',
+        height: '20px',
+      } as IconButton.Icon.IconData} @click=${() => {
+        this.dispatchEvent(new RemoveAnnotation(annotation));
+      }}>
+        </div>
+      `;
+
+    } else if (TraceEngine.Types.File.isTimeRangeAnnotation(annotation)) {
+      console.log("hear");
+
+      return LitHtml.html`
+        <div class="annotation-container">
+          <div class="annotation">
+            <span class="entry-name">
+              ${Math.round(TraceEngine.Helpers.Timing.microSecondsToMilliseconds(annotation.bounds.min))} - ${Math.round(TraceEngine.Helpers.Timing.microSecondsToMilliseconds(annotation.bounds.max))} ms
+            </span>
+            <span class="label">
+            ${annotation.label}
+            </span>
+          </div>
+          <${IconButton.Icon.Icon.litTagName} class="bin-icon" .data=${{
+        iconName: 'bin',
+        color: 'var(--icon-default)',
+        width: '20px',
+        height: '20px',
+      } as IconButton.Icon.IconData} @click=${() => {
+        this.dispatchEvent(new RemoveAnnotation(annotation));
+      }}>
+        </div>
+      `;
+
     }
 
-    const entryName = TraceEngine.Types.TraceEvents.isProfileCall(annotation.entry) ?
-        annotation.entry.callFrame.functionName :
-        annotation.entry.name;
 
-    return LitHtml.html`
-      <div class="annotation-container">
-        <div class="annotation">
-          <span class="entry-name">
-            ${entryName}
-          </span>
-          <span class="label">
-          ${annotation.label}
-          </span>
-        </div>
-        <${IconButton.Icon.Icon.litTagName} class="bin-icon" .data=${{
-      iconName: 'bin',
-      color: 'var(--icon-default)',
-      width: '20px',
-      height: '20px',
-    } as IconButton.Icon.IconData} @click=${() => {
-      this.dispatchEvent(new RemoveAnnotation(annotation));
-    }}>
-      </div>
-    `;
+    return LitHtml.html``;
   }
 
   #render(): void {
@@ -63,7 +89,9 @@ export class SidebarAnnotationsTab extends HTMLElement {
         LitHtml.render(
             LitHtml.html`
               <span class="annotations">
-                ${this.#annotations.map(annotation => this.#renderAnnotation(annotation))}
+                ${this.#annotations.map(annotation => 
+                  this.#renderAnnotation(annotation))
+                }
               </span>`,
             this.#shadow, {host: this});
     // clang-format on
