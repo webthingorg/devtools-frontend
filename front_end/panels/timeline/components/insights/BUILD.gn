@@ -18,6 +18,7 @@ devtools_module("insights") {
   sources = [
     "LCPDiscovery.ts",
     "LCPPhases.ts",
+    "SCSSelectors.ts",
     "SidebarInsight.ts",
     "types.ts",
   ]
