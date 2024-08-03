@@ -14,6 +14,7 @@ devtools_module("metrics") {
     "LargestContentfulPaint.ts",
     "MaxPotentialFID.ts",
     "Metric.ts",
+    "SlowCSSSelector.ts",
     "SpeedIndex.ts",
     "TBTUtils.ts",
     "TotalBlockingTime.ts",
@@ -45,6 +46,7 @@ ts_library("unittests") {
     "FirstContentfulPaint.test.ts",
     "Interactive.test.ts",
     "LargestContentfulPaint.test.ts",
+    "SlowCSSSelector.test.ts",
     "SpeedIndex.test.ts",
     "TBTUtils.test.ts",
   ]

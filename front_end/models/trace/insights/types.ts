@@ -42,6 +42,7 @@ export type InsightResult<R extends Record<string, unknown>> = R&{
     TBT?: number,
     CLS?: number,
     INP?: number,
+    SCS?: number,  // slow CSS selector
     /* eslint-enable @typescript-eslint/naming-convention */
   },
 };
@@ -55,6 +56,14 @@ export type LCPInsightResult = InsightResult<{
   shouldPreloadImage?: boolean,
   lcpResource?: Types.TraceEvents.SyntheticNetworkRequest,
   earliestDiscoveryTimeTs?: Types.Timing.MicroSeconds,
+}>;
+
+export type SCSInsightResult = InsightResult<{
+  totalElapsedMs: Types.Timing.MilliSeconds,
+  totalMatchAttempts: number,
+  totalMatchCount: number,
+  topElapsedMs: Types.TraceEvents.SelectorTiming[],
+  topMatchAttempts: Types.TraceEvents.SelectorTiming[],
 }>;
 
 /**
