@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2432f922_42db7c1a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2024-08-03T00:33:56Z",
+      "side": 1,
+      "message": "Hi Paul and Jack, please take a look this CL to show selector stats in the insights tab in the performance panel.\n\nThanks,\nGavin",
+      "revId": "16c82008a11418d2b004a5c87dd700b77293c9a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
