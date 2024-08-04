@@ -73,9 +73,29 @@ export class SourceMapManager<T extends FrameAssociated> extends Common.ObjectWr
     // in the loop body and trying to iterate over it at the same time
     // leads to an infinite loop.
     const clientData = [...this.#clientData.entries()];
-    for (const [client, {relativeSourceURL, relativeSourceMapURL}] of clientData) {
+    for (const [client, {}] of clientData) {
       this.detachSourceMap(client);
-      this.attachSourceMap(client, relativeSourceURL, relativeSourceMapURL);
+      // If we do this in response to frameNavigated and the frameId is different,
+      // we will eventually get a loadNetworkResource error.47
+      //	    at SourceMapManager.attachSourceMap (http://debug-frontend.test:8000/inspector-sources/core/sdk/SourceMapManager.js:71:13)
+      //	    at SourceMapManager.inspectedURLChanged (http://debug-frontend.test:8000/inspector-sources/core/sdk/SourceMapManager.js:52:12)
+      //	    at TargetManager.dispatchEventToListeners (http://debug-frontend.test:8000/inspector-sources/core/common/Object.js:49:27)
+      //	    at TargetManager.onInspectedURLChange (http://debug-frontend.test:8000/inspector-sources/core/sdk/TargetManager.js:47:10)
+      //	    at Target.setInspectedURL (http://debug-frontend.test:8000/inspector-sources/core/sdk/Target.js:165:33)
+      //	    at ResourceTreeModel.frameNavigated (http://debug-frontend.test:8000/inspector-sources/core/sdk/ResourceTreeModel.js:165:21)
+      //	    at PageDispatcher.frameNavigated (http://debug-frontend.test:8000/inspector-sources/core/sdk/ResourceTreeModel.js:814:29)
+      //	    at DispatcherManager.dispatch (http://debug-frontend.test:8000/inspector-sources/core/protocol_client/InspectorBackend.js:727:11)
+      //	    at Target.dispatch (http://debug-frontend.test:8000/inspector-sources/core/protocol_client/InspectorBackend.js:338:16)
+      //	    at SessionRouter.onMessage (http://debug-frontend.test:8000/inspector-sources/core/protocol_client/InspectorBackend.js:256:22)
+      //	log: loadNetworkResourceeee ,0897BF88786E4DA1FF0817DBE00DBD3F, url ,http://127.0.0.1:8000/devtools/bindings/resources/sourcemap-style.css.map
+      //	log: Error
+      //	    at NetworkManager.loadNetworkResource (http://debug-frontend.test:8000/inspector-sources/core/sdk/NetworkManager.js:207:13)
+      //	    at PageResourceLoader.loadFromTarget (http://debug-frontend.test:8000/inspector-sources/core/sdk/PageResourceLoader.js:247:43)
+      //	    at PageResourceLoader.dispatchLoad (http://debug-frontend.test:8000/inspector-sources/core/sdk/PageResourceLoader.js:195:38)
+      //	    at PageResourceLoader.loadResource (http://debug-frontend.test:8000/inspector-sources/core/sdk/PageResourceLoader.js:158:34)
+      //	    at async loadSourceMap (http://debug-frontend.test:8000/inspector-sources/core/sdk/SourceMapManager.js:160:25)
+      //	error: Request Network.loadNetworkResource failed. {"code":-32602,"message":"Frame not found"}
+      // this.attachSourceMap(client, relativeSourceURL, relativeSourceMapURL);
     }
   }
 
