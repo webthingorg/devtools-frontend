@@ -997,7 +997,8 @@ export function navigate(url, callback) {
   TestRunner.resourceTreeModel.addEventListener(SDK.ResourceTreeModel.Events.Load, _pageNavigated);
   // Note: injected <base> means that url is relative to test
   // and not the inspected page
-  evaluateInPageAnonymously('window.location.replace(\'' + url + '\')');
+  // Changing this to async.
+  evaluateInPageAsync('window.location.replace(\'' + url + '\')');
 }
 
 /**
