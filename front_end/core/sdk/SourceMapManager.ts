@@ -73,9 +73,8 @@ export class SourceMapManager<T extends FrameAssociated> extends Common.ObjectWr
     // in the loop body and trying to iterate over it at the same time
     // leads to an infinite loop.
     const clientData = [...this.#clientData.entries()];
-    for (const [client, {relativeSourceURL, relativeSourceMapURL}] of clientData) {
+    for (const [client, {}] of clientData) {
       this.detachSourceMap(client);
-      this.attachSourceMap(client, relativeSourceURL, relativeSourceMapURL);
     }
   }
 
