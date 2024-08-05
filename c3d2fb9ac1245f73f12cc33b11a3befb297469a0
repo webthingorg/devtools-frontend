@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "da64a9ca_3c8334c0",
+        "filename": "front_end/panels/timeline/components/Sidebar.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-08-05T20:37:51Z",
+      "side": 1,
+      "message": "That it a great suggestion! I changed it to use TraceBounds service instead",
+      "parentUuid": "0f6c145a_7c3caeeb",
+      "range": {
+        "startLine": 105,
+        "startChar": 0,
+        "endLine": 109,
+        "endChar": 1
+      },
+      "revId": "c3d2fb9ac1245f73f12cc33b11a3befb297469a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9fa619b7_93c9edc8",
@@ -61,6 +85,30 @@
           ]
         }
       ],
+      "revId": "c3d2fb9ac1245f73f12cc33b11a3befb297469a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07aeab36_21c1d6e7",
+        "filename": "front_end/panels/timeline/components/SidebarAnnotationsTab.test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-08-05T20:37:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9fa619b7_93c9edc8",
+      "range": {
+        "startLine": 167,
+        "startChar": 51,
+        "endLine": 167,
+        "endChar": 57
+      },
       "revId": "c3d2fb9ac1245f73f12cc33b11a3befb297469a0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
