@@ -406,7 +406,7 @@ export const removePseudoState = async (pseudoState: string) => {
   const stateEl = await waitForAria(pseudoState);
   await stateEl.click();
   await expectVeEvents([
-    veChange(`Panel: elements > Pane: styles > Pane: element-states > Toggle: ${
+    veClick(`Panel: elements > Pane: styles > Pane: element-states > Toggle: ${
         pseudoState === 'Emulate a focused page' ? 'emulate-page-focus' : pseudoState.substr(1)}`),
   ]);
 };

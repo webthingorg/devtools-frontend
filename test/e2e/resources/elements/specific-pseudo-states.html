@@ -1,0 +1,54 @@
+<!--
+  Copyright 2024 The Chromium Authors. All rights reserved.
+  Use of this source code is governed by a BSD-style license that can be
+  found in the LICENSE file.
+-->
+<input id="inputElement">I am input element</input>
+<my-checkbox id="formAssociated">I am form associated element</my-checkbox>
+<button id="buttonElement">I am button element</button>
+<select id="selectElement">I am select element</select>
+<textarea id="textareaElement">I am textarea element</textarea>
+<optgroup id="optgroupElement">I am optgroup element</optgroup>
+<option id="optionElement">I am option element"</option>
+<fieldset id="fieldsetElement">I am fieldset element"</fieldset>
+<object id="objectElement">I am object element</object>
+<img id="imgElement">I am img element"</img>
+
+<input id="inputElementWithMinMax" min="1" max="10"> I am input element with min and max</input>
+
+<input id="inputElementTypeRadio" type="radio"> I am input element with type radio</input>
+<input id="inputElementTypeCheckbox" type="checkbox"> I am input element with type checkbox</input>
+
+<a id="aElementWithHref" href="https://www.google.com">I am a element with href</a>
+<area id="areaElementWithHref">I am area element with href</area>
+<style>
+</style>
+<script>
+  class MyCheckbox extends HTMLElement {
+  static formAssociated = true;
+  static observedAttributes = ['checked'];
+
+  constructor() {
+    super();
+    this._internals = this.attachInternals();
+    this.addEventListener('click', this._onClick.bind(this));
+  }
+
+  get form() { return this._internals.form; }
+  get name() { return this.getAttribute('name'); }
+  get type() { return this.localName; }
+
+  get checked() { return this.hasAttribute('checked'); }
+  set checked(flag) { this.toggleAttribute('checked', Boolean(flag)); }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    // name will always be "checked" due to observedAttributes
+    this._internals.setFormValue(this.checked ? 'on' : null);
+  }
+
+  _onClick(event) {
+    this.checked = !this.checked;
+  }
+}
+customElements.define('my-checkbox', MyCheckbox);
+</script>
