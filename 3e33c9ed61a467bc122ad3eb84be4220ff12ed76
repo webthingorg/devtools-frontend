@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "58ca1f21_fd246925",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-08-05T12:16:19Z",
+      "side": 1,
+      "message": "Thanks for review!",
+      "revId": "3e33c9ed61a467bc122ad3eb84be4220ff12ed76",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "19326855_707568fd",
@@ -55,6 +72,30 @@
           ]
         }
       ],
+      "revId": "3e33c9ed61a467bc122ad3eb84be4220ff12ed76",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46aa8ac8_7f0a64ff",
+        "filename": "front_end/panels/timeline/overlays/components/TimeRangeOverlay.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-08-05T12:16:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19326855_707568fd",
+      "range": {
+        "startLine": 12,
+        "startChar": 31,
+        "endLine": 12,
+        "endChar": 56
+      },
       "revId": "3e33c9ed61a467bc122ad3eb84be4220ff12ed76",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
