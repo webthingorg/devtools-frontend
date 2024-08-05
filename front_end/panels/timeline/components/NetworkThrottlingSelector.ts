@@ -16,6 +16,15 @@ const {html, nothing} = LitHtml;
 
 const UIStrings = {
   /**
+   * @description Text label for a selection box showing which network throttling option is applied.
+   * @example {No throttling} PH1
+   */
+  network: 'Network: {PH1}',
+  /**
+   * @description Text label for a selection box showing that controls network throttling.
+   */
+  networkThrottling: 'Network throttling',
+  /**
    * @description Text label for a menu group that disables network throttling.
    */
   disabled: 'Disabled',
@@ -117,6 +126,8 @@ export class NetworkThrottlingSelector extends HTMLElement {
   }
 
   #render = (): void => {
+    const currentLabel = this.#getConditionsTitle(this.#currentConditions);
+
     // clang-format off
     const output = html`
       <${Menus.SelectMenu.SelectMenu.litTagName}
@@ -127,7 +138,8 @@ export class NetworkThrottlingSelector extends HTMLElement {
         .showSelectedItem=${true}
         .showConnector=${false}
         .jslogContext=${'network-conditions'}
-        .buttonTitle=${this.#getConditionsTitle(this.#currentConditions)}
+        .buttonTitle=${i18nString(UIStrings.network, {PH1: currentLabel})}
+        aria-label=${i18nString(UIStrings.networkThrottling)}
       >
         ${this.#groups.map(group => {
           return html`
