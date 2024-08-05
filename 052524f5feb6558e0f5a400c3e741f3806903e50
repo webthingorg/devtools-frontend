@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a015026_378643b1",
+        "filename": "front_end/models/trace/handlers/NetworkRequestsHandler.test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-05T10:53:23Z",
+      "side": 1,
+      "message": "this seems odd to me - why would a cached request have any network duration?",
+      "range": {
+        "startLine": 120,
+        "startChar": 0,
+        "endLine": 120,
+        "endChar": 73
+      },
+      "revId": "052524f5feb6558e0f5a400c3e741f3806903e50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5bee8aa_59678efb",
+        "filename": "front_end/models/trace/handlers/NetworkRequestsHandler.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-05T10:53:23Z",
+      "side": 1,
+      "message": "can we fix this upstream?",
+      "range": {
+        "startLine": 255,
+        "startChar": 0,
+        "endLine": 255,
+        "endChar": 88
+      },
+      "revId": "052524f5feb6558e0f5a400c3e741f3806903e50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
