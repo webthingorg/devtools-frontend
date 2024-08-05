@@ -33,6 +33,24 @@
       "message": "Hey hey, I\u0027m submitting this CL so that we don\u0027t wait more on it. Please LMK if you request any changes and I\u0027ll create a new CL for them if needed @kimanh@chromium.org :)",
       "revId": "2e40eb333795d0a55fd5c62546bdd7cce41e51a1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9777ca70_a65d3344",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-08-05T05:26:02Z",
+      "side": 1,
+      "message": "LGTM, thanks :)!",
+      "parentUuid": "0be32eec_2d016fbb",
+      "revId": "2e40eb333795d0a55fd5c62546bdd7cce41e51a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
