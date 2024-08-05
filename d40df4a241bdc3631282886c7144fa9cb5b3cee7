@@ -1,0 +1,213 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9b319d7_765ae624",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-08-05T13:22:28Z",
+      "side": 1,
+      "message": "This description is exactly how we display this option, but actually if we get to be more specific here, we actually hide the child entries that are identical to the selected entry.\n(The AI suggestion is nice 😄)",
+      "range": {
+        "startLine": 82,
+        "startChar": 4,
+        "endLine": 82,
+        "endChar": 95
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "615a7ac2_ccd2c398",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+              "range": {
+                "startLine": 82,
+                "startChar": 0,
+                "endLine": 83,
+                "endChar": 0
+              },
+              "replacement": "   *@description Text for Hiding all child entries that are identical to the selected entry from the Flame Chart\n"
+            }
+          ]
+        }
+      ],
+      "revId": "d40df4a241bdc3631282886c7144fa9cb5b3cee7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbe32f7d_ef1b883d",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-08-05T13:22:28Z",
+      "side": 1,
+      "message": "We need to rebuild the initiators before dispatching `Events.DataChanged`, otherwise they do not appear right after applying a context menu action\n\n`this.buildFlowForInitiator(entryIndex)`",
+      "range": {
+        "startLine": 285,
+        "startChar": 4,
+        "endLine": 285,
+        "endChar": 54
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "1887131b_4f5e4663",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+              "range": {
+                "startLine": 285,
+                "startChar": 0,
+                "endLine": 285,
+                "endChar": 0
+              },
+              "replacement": "    this.buildFlowForInitiator(entryIndex);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "d40df4a241bdc3631282886c7144fa9cb5b3cee7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "422786d8_150b6a85",
+        "filename": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-08-05T13:22:28Z",
+      "side": 1,
+      "message": "nit: handleFlameChartTransformKeyboardEvent",
+      "fixSuggestions": [
+        {
+          "fixId": "e3215277_ada03439",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/TimelineFlameChartDataProvider.ts",
+              "range": {
+                "startLine": 293,
+                "startChar": 0,
+                "endLine": 294,
+                "endChar": 0
+              },
+              "replacement": "  handleFlameChartTransformKeyboardEvent(event: KeyboardEvent, entryIndex: number, groupIndex: number): void {\n"
+            }
+          ]
+        }
+      ],
+      "revId": "d40df4a241bdc3631282886c7144fa9cb5b3cee7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "731be0ae_ce87aa0a",
+        "filename": "front_end/panels/timeline/TimelineFlameChartNetworkDataProvider.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-08-05T13:22:28Z",
+      "side": 1,
+      "message": "`_groupIndex` is not used here, let\u0027s remove it",
+      "range": {
+        "startLine": 127,
+        "startChar": 63,
+        "endLine": 127,
+        "endChar": 82
+      },
+      "revId": "d40df4a241bdc3631282886c7144fa9cb5b3cee7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9532157a_ad8f930c",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1203,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-08-05T13:22:28Z",
+      "side": 1,
+      "message": "`be in`",
+      "range": {
+        "startLine": 1203,
+        "startChar": 67,
+        "endLine": 1203,
+        "endChar": 69
+      },
+      "revId": "d40df4a241bdc3631282886c7144fa9cb5b3cee7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f856c0e_1cb82596",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1211,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-08-05T13:22:28Z",
+      "side": 1,
+      "message": "`redrawn`",
+      "range": {
+        "startLine": 1211,
+        "startChar": 33,
+        "endLine": 1211,
+        "endChar": 41
+      },
+      "revId": "d40df4a241bdc3631282886c7144fa9cb5b3cee7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6831e5c_0eef4711",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1213,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-08-05T13:22:28Z",
+      "side": 1,
+      "message": "`,`",
+      "range": {
+        "startLine": 1213,
+        "startChar": 75,
+        "endLine": 1213,
+        "endChar": 76
+      },
+      "revId": "d40df4a241bdc3631282886c7144fa9cb5b3cee7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
