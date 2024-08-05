@@ -16,6 +16,24 @@
       "message": "Quick design feedback:\n\n1 - Max width of the cards (blue card at top, accordions) is --sys-size-35 (36rem \u003d\u003d 576px). They stay centered when DevTools is wider than that: https://screenshot.googleplex.com/Bb6B2VBhojYmWqf.png\n\n2 - The \"Learn more\" link has --ref-typeface-weight-medium but should be --ref-typeface-weight-regular\n\n3 - The default state of the \"feature accordions\" is collapsed when the page is opened the first time.",
       "revId": "3f02a82f3e0b8bdcafbbec9fbed87a334bbd55b7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9af4068a_656f34ac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-08-05T11:51:32Z",
+      "side": 1,
+      "message": "1 - Done\n2 - Wow, my eyes can\u0027t even see the difference! Done.\n3- So on initial render the accordion is collapsed, even when the toggle is enabled? It should only auto-expand when the toggle is turned on by the user? Done.",
+      "parentUuid": "97933744_2de68fd0",
+      "revId": "3f02a82f3e0b8bdcafbbec9fbed87a334bbd55b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
