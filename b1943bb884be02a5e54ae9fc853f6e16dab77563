@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "041fbcec_b3a45762",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-05T09:56:10Z",
+      "side": 1,
+      "message": "PTAL - I don\u0027t usually like to reach for base classes but in this instance it felt very useful, as each of these insight components will need to take the same data in and provide the same behaviour when they are clicked etc",
+      "revId": "b1943bb884be02a5e54ae9fc853f6e16dab77563",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
