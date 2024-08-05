@@ -70,6 +70,24 @@
       "parentUuid": "6ae7cb62_b5dcb219",
       "revId": "d690aeb90d637d5e26103823ed412cf190a0b98a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8ec112a_09d56ac5",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 1754,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-08-05T09:25:16Z",
+      "side": 0,
+      "message": "@changhaohan@chromium.org could you please help us find the best way to rewrite the tests without relying on the incorrect a11y tree state? (see my first two comments on this thread).",
+      "parentUuid": "a209f1d1_812cd83b",
+      "revId": "d690aeb90d637d5e26103823ed412cf190a0b98a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
