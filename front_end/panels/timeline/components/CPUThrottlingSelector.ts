@@ -13,6 +13,15 @@ const {html} = LitHtml;
 
 const UIStrings = {
   /**
+   * @description Text label for a selection box showing which CPU throttling option is applied.
+   * @example {No throttling} PH1
+   */
+  cpu: 'CPU: {PH1}',
+  /**
+   * @description Text label for a selection box showing that controls CPU throttling.
+   */
+  cpuThrottling: 'CPU throttling',
+  /**
    * @description Text label for a menu item indicating that no throttling is applied.
    */
   noThrottling: 'No throttling',
@@ -58,6 +67,9 @@ export class CPUThrottlingSelector extends HTMLElement {
   }
 
   #render = (): void => {
+    const currentLabel = this.#currentRate === 1 ? i18nString(UIStrings.noThrottling) :
+                                                   i18nString(UIStrings.dSlowdown, {PH1: this.#currentRate});
+
     // clang-format off
     const output = html`
       <${Menus.SelectMenu.SelectMenu.litTagName}
@@ -67,7 +79,8 @@ export class CPUThrottlingSelector extends HTMLElement {
             .sideButton=${false}
             .showSelectedItem=${true}
             .showConnector=${false}
-            .buttonTitle=${this.#currentRate === 1 ? i18nString(UIStrings.noThrottling) : i18nString(UIStrings.dSlowdown, {PH1: this.#currentRate})}
+            .buttonTitle=${i18nString(UIStrings.cpu, {PH1: currentLabel})}
+            aria-label=${i18nString(UIStrings.cpuThrottling)}
           >
           ${MobileThrottling.ThrottlingPresets.ThrottlingPresets.cpuThrottlingPresets.map(rate => {
             const title = rate === 1 ? i18nString(UIStrings.noThrottling) : i18nString(UIStrings.dSlowdown, {PH1: rate});
