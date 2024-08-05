@@ -1,0 +1,62 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f8bd3bf_6ea63c9c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-05T11:01:29Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "3e33c9ed61a467bc122ad3eb84be4220ff12ed76",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19326855_707568fd",
+        "filename": "front_end/panels/timeline/overlays/components/TimeRangeOverlay.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-05T11:01:29Z",
+      "side": 1,
+      "message": "nit: drop `event` from the name of the event",
+      "range": {
+        "startLine": 12,
+        "startChar": 31,
+        "endLine": 12,
+        "endChar": 56
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "db6f04ab_0cd5ef1d",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/overlays/components/TimeRangeOverlay.ts",
+              "range": {
+                "startLine": 12,
+                "startChar": 0,
+                "endLine": 13,
+                "endChar": 0
+              },
+              "replacement": "  static readonly eventName \u003d \u0027timerangelabelchange\u0027;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "3e33c9ed61a467bc122ad3eb84be4220ff12ed76",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
