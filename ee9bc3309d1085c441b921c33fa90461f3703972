@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "271462f9_e3fba9e8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-08-05T11:54:00Z",
+      "side": 1,
+      "message": "PTAL again Ergun (your previous +1 still applies, but there have been a bunch of changes since then)",
+      "revId": "ee9bc3309d1085c441b921c33fa90461f3703972",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
