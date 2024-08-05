@@ -64,3 +64,9 @@ label {
 .warning {
   color: var(--color-error-text);
 }
+
+/* Once the user has consented, we want this button on the RHS of the
+ * container, rather than the LHS which is where we put the "Set up" button */
+.configure-btn {
+  float: right;
+}

@@ -175,6 +175,7 @@ export class FieldSettingsDialog extends HTMLElement {
       // clang-format off
       return html`
         <${Buttons.Button.Button.litTagName}
+        class="configure-btn"
           @click=${this.#showDialog}
           .data=${{
             variant: Buttons.Button.Variant.OUTLINED,
@@ -251,7 +252,7 @@ export class FieldSettingsDialog extends HTMLElement {
   #render = (): void => {
     // clang-format off
     const output = html`
-      ${this.#renderOpenButton()}
+        ${this.#renderOpenButton()}
       <${Dialogs.Dialog.Dialog.litTagName}
         @clickoutsidedialog=${this.#closeDialog}
         .showConnector=${true}

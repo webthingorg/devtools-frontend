@@ -42,7 +42,11 @@ const UIStrings = {
   /**
    * @description Title of a view that shows metrics from the local environment and field metrics collected from real users in the field.
    */
-  localAndFieldMetrics: 'Local and Field Metrics',
+  localMetrics: 'Local metrics',
+  /**
+   * @description Title of a view that shows metrics from the local environment and field metrics collected from real users in the field.
+   */
+  localAndFieldMetrics: 'Local and field metrics',
   /**
    * @description Title of a section that lists user interactions.
    */
@@ -644,7 +648,9 @@ export class LiveMetricsView extends HTMLElement {
 
     return html`
       <span id="page-scope-select" class="live-metrics-option">
-        ${i18nString(UIStrings.urlOrOrigin)}
+        <span class="label">
+          ${i18nString(UIStrings.urlOrOrigin)}
+        </span>
         <${Menus.SelectMenu.SelectMenu.litTagName}
           @selectmenuselected=${this.#onPageScopeMenuItemSelected}
           .showDivider=${true}
@@ -734,7 +740,9 @@ export class LiveMetricsView extends HTMLElement {
     // clang-format off
     return html`
       <span id="device-scope-select" class="live-metrics-option">
-        ${i18nString(UIStrings.deviceType)}
+        <span class="label">
+          ${i18nString(UIStrings.deviceType)}
+        </span>
         <${Menus.SelectMenu.SelectMenu.litTagName}
           @selectmenuselected=${this.#onDeviceOptionMenuItemSelected}
           .showDivider=${true}
@@ -762,12 +770,15 @@ export class LiveMetricsView extends HTMLElement {
   }
 
   #render = (): void => {
+    const cruxManager = CrUXManager.CrUXManager.instance();
+    const hasFieldMetrics = cruxManager?.getConfigSetting().get().enabled === true;
+
     // clang-format off
     const output = html`
       <div class="container">
         <div class="live-metrics-view">
           <div class="live-metrics" slot="main">
-            <div class="section-title">${i18nString(UIStrings.localAndFieldMetrics)}</div>
+            <div class="section-title">${hasFieldMetrics ? i18nString(UIStrings.localAndFieldMetrics) : i18nString(UIStrings.localMetrics)}</div>
             <div class="metric-cards">
               <div id="lcp">
                 ${this.#renderLcpCard()}
