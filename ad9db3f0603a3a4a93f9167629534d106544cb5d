@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35a44109_15ace2ba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-05T04:58:03Z",
+      "side": 1,
+      "message": "DBC: For cherry-picks that don\u0027t require any changes you can use the rubber stamper bot :)",
+      "revId": "ad9db3f0603a3a4a93f9167629534d106544cb5d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
