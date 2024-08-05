@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0d9fb0bb_ce6a4427",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-08-05T12:56:22Z",
+      "side": 1,
+      "message": "1 - done\n2 - If this needs a change, lets\u0027 handle it in a follow-up\n3 - done",
+      "parentUuid": "d2d8b6ba_116b428e",
+      "revId": "ee9bc3309d1085c441b921c33fa90461f3703972",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c58fdb06_cec23ca0",
         "filename": "front_end/panels/settings/aiSettingsTab.css",
         "patchSetId": 8
@@ -48,6 +66,24 @@
       "writtenOn": "2024-08-05T12:15:19Z",
       "side": 1,
       "message": "Can we add `min-width: var(--sys-size-28)` to this one as well so that their size changes harmoniously with the `settings-container` when it is getting resized to smaller widths?",
+      "revId": "ee9bc3309d1085c441b921c33fa90461f3703972",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "26a01a77_737d94a3",
+        "filename": "front_end/panels/settings/aiSettingsTab.css",
+        "patchSetId": 8
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-08-05T12:56:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c58fdb06_cec23ca0",
       "revId": "ee9bc3309d1085c441b921c33fa90461f3703972",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
