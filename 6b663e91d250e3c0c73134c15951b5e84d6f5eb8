@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9098d4ff_b947c033",
+        "filename": "front_end/panels/timeline/components/insights/LCPDiscovery.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-08-05T11:31:14Z",
+      "side": 1,
+      "message": "I think you meant\n```suggestion\nimport type * as Overlays from \u0027../../overlays/overlays.js\u0027;\n```",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 55
+      },
+      "revId": "6b663e91d250e3c0c73134c15951b5e84d6f5eb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
