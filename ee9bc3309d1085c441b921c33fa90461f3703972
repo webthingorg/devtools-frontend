@@ -16,6 +16,40 @@
       "message": "PTAL again Ergun (your previous +1 still applies, but there have been a bunch of changes since then)",
       "revId": "ee9bc3309d1085c441b921c33fa90461f3703972",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2d8b6ba_116b428e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-05T12:15:19Z",
+      "side": 1,
+      "message": "The CSS implementation looks great to me! Have 3 visual comments:\n\n1 - The border between the elements should be spanning the whole `settings-container` but instead it looks like this now: https://screenshot.googleplex.com/AaCtFBsUPgcWiiY\n\n2 - To @petermueller@chromium.org, the hover area collides with the right border and it felt a bit off for me; is this the correct hover area? https://screenshot.googleplex.com/8Fr7srwuhivEjsE (to admit, I couldn\u0027t think of a better way)\n\n3 - Singular comment regarding `min-width`.",
+      "revId": "ee9bc3309d1085c441b921c33fa90461f3703972",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c58fdb06_cec23ca0",
+        "filename": "front_end/panels/settings/aiSettingsTab.css",
+        "patchSetId": 8
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-05T12:15:19Z",
+      "side": 1,
+      "message": "Can we add `min-width: var(--sys-size-28)` to this one as well so that their size changes harmoniously with the `settings-container` when it is getting resized to smaller widths?",
+      "revId": "ee9bc3309d1085c441b921c33fa90461f3703972",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
