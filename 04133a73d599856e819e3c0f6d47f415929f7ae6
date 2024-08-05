@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b3204d8_f3f8664a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1542448
+      },
+      "writtenOn": "2024-08-05T17:13:56Z",
+      "side": 1,
+      "message": "Hi, this is a simple accessibility fix. Can you please take a look? Thanks!",
+      "revId": "04133a73d599856e819e3c0f6d47f415929f7ae6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
