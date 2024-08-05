@@ -1,10 +1,9 @@
 // Copyright 2020 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
-
 import {assert} from 'chai';
 
-import {debuggerStatement, getBrowserAndPages, goToResource, step} from '../../shared/helper.js';
+import {click, debuggerStatement, getBrowserAndPages, goToResource, step} from '../../shared/helper.js';
 import {describe, it} from '../../shared/mocha-extensions.js';
 import {
   assertGutterDecorationForDomNodeExists,
@@ -23,7 +22,7 @@ const TARGET_SHOWN_ON_FOCUS_SELECTOR = '.show-on-focus';
 const TARGET_SHOWN_ON_TARGET_SELECTOR = '#show-on-target';
 
 // Flaky test group.
-describe.skip('[crbug.com/1280763]: The Elements tab', () => {
+describe('[crbug.com/1280763]: The Elements tab', () => {
   it('can force :hover state for selected DOM node', async () => {
     const {frontend} = getBrowserAndPages();
 
@@ -157,14 +156,109 @@ describe.skip('[crbug.com/1280763]: The Elements tab', () => {
 
     await step('Verify #result is visible', async () => {
       await forcePseudoState('Emulate a focused page');
+      // await click('[aria-label="Toggle Element State"]');
+      // await click('[title="Emulate a focused page"]');
       await target.keyboard.press('Tab');
       await waitForPartialContentOfSelectedElementsNode('<p id=\u200B"result" class>\u200B');
     });
 
     await step('Verify #result is hidden', async () => {
       await removePseudoState('Emulate a focused page');
+      // await click('[title="Emulate a focused page"]');
       await target.keyboard.press('Tab');
       await waitForPartialContentOfSelectedElementsNode('<p id=\u200B"result" class=\u200B"hide">\u200B');
     });
   });
+
+  it('shows the right specific elements for <input>', async () => {
+    const {frontend} = getBrowserAndPages();
+
+    await goToResource('elements/specific-pseudo-states.html');
+    await waitForElementsStyleSection();
+
+    // Ensure the correct node is selected after opening a file
+    await waitForContentOfSelectedElementsNode('<body>\u200B');
+
+    // Navigate to inputElement
+    await frontend.keyboard.press('ArrowRight');
+    await waitForContentOfSelectedElementsNode('<input id=\u200B"inputElement">\u200B');
+
+    // Open force specific element state table
+    await click('[aria-label="Toggle Element State"]');
+    await click('[title="Force specific element state"]');
+
+    const expected: {[key: string]: boolean} = {
+      'enabled': false,
+      'disabled': false,
+      'valid': false,
+      'invalid': false,
+      'user-valid': false,
+      'user-invalid': false,
+      'required': false,
+      'optional': false,
+      'read-only': true,
+      'read-write': false,
+      'in-range': true,
+      'out-of-range': true,
+      'visited': true,
+      'link': true,
+      'checked': true,
+      'indeterminate': true,
+      'placeholder-shown': false,
+      'autofill': false,
+    };
+
+    for (const key in expected) {
+      const buttonSelector = `pierce/#${key}`;
+      const button = await frontend.waitForSelector(buttonSelector);
+      assert.isTrue(
+          await button?.isHidden() === expected[key],
+          `Button ${key} should be ${expected[key] ? 'visible' : 'hidden'}`);
+    }
+  });
+  // it('shows the right specific elements for <textarea>', async () => {
+  //   const {frontend} = getBrowserAndPages();
+
+  //   await goToResource('elements/specific-pseudo-states.html');
+  //   await waitForElementsStyleSection();
+
+  //   // Ensure the correct node is selected after opening a file
+  //   await waitForContentOfSelectedElementsNode('<body>\u200B');
+
+  //   // Navigate to textareaElement
+  //   await frontend.keyboard.press('ArrowRight');
+  //   await frontend.keyboard.press('ArrowRight');
+  //   await waitForContentOfSelectedElementsNode('<textarea id=\u200B"textareaElement">\u200B');
+
+  //   // Open force specific element state table
+  //   await click('[aria-label="Toggle Element State"]');
+  //   await click('[title="Force specific element state"]');
+
+  //   const expected: {[key: string]: boolean} = {
+  //     'enabled' : false,
+  //     'disabled': false,
+  //     'valid'   : false,
+  //     'invalid' : false,
+  //     'user-valid': false,
+  //     'user-invalid': false,
+  //     'required': false,
+  //     'optional': false,
+  //     'read-only': true,
+  //     'read-write': false,
+  //     'in-range': true,
+  //     'out-of-range': true,
+  //     'visited': true,
+  //     'link': true,
+  //     'checked': true,
+  //     'indeterminate': true,
+  //     'placeholder-shown': false,
+  //     'autofill': true,
+  //   };
+
+  //   for (const key in expected) {
+  //     const buttonSelector = `pierce/#${key}`;
+  //     const button = await frontend.waitForSelector(buttonSelector);
+  //     assert.isTrue(await button?.isHidden() === expected[key], `Button ${key} should be ${expected[key] ? 'visible' : 'hidden'}`);
+  //   }
+  // });
 });
