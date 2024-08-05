@@ -15,6 +15,7 @@ export class SidebarAnnotationsTab extends HTMLElement {
   readonly #shadow = this.attachShadow({mode: 'open'});
   readonly #boundRender = this.#render.bind(this);
   #annotations: TraceEngine.Types.File.Annotation[] = [];
+  #minTraceBoundsMilli: TraceEngine.Types.Timing.MilliSeconds = TraceEngine.Types.Timing.MilliSeconds(0);
 
   set annotations(annotations: TraceEngine.Types.File.Annotation[]) {
     this.#annotations = annotations;
@@ -26,46 +27,75 @@ export class SidebarAnnotationsTab extends HTMLElement {
     void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
   }
 
-  #renderAnnotation(annotation: TraceEngine.Types.File.Annotation): LitHtml.LitTemplate {
-    // TODO: Render annotations other than Entry Labels
-    if (!TraceEngine.Types.File.isEntryLabelAnnotation(annotation)) {
-      return LitHtml.html``;
+  set minTraceBoundsMilli(minBoundsMilli: TraceEngine.Types.Timing.MilliSeconds) {
+    this.#minTraceBoundsMilli = minBoundsMilli;
+  }
+
+  /**
+   * Renders the Annotation 'identifier' or 'name' in the annotations list.
+   * This is the text rendered before the annotation label that we use to indentify the annotation.
+   *
+   * Annotations identifiers for different annotations:
+   * Entry label -> Entry name
+   * Labelled range -> Start to End Range of the label in ms
+   * Connected entries -> Connected entries names
+   *
+   * All identifiers have a different colour background.
+   */
+  #renderAnnotationIdentifier(annotation: TraceEngine.Types.File.Annotation): LitHtml.LitTemplate {
+    if (TraceEngine.Types.File.isEntryLabelAnnotation(annotation)) {
+      const entryName = TraceEngine.Types.TraceEvents.isProfileCall(annotation.entry) ?
+          annotation.entry.callFrame.functionName :
+          annotation.entry.name;
+
+      return LitHtml.html`
+            <span class="entry-name entry-label">
+              ${entryName}
+            </span>
+      `;
+    }
+    if (TraceEngine.Types.File.isTimeRangeAnnotation(annotation)) {
+      const timeRangeStartInMs = Math.round(
+          TraceEngine.Helpers.Timing.microSecondsToMilliseconds(annotation.bounds.min) - this.#minTraceBoundsMilli);
+      const timeRangeEndInMs = Math.round(
+          TraceEngine.Helpers.Timing.microSecondsToMilliseconds(annotation.bounds.max) - this.#minTraceBoundsMilli);
+
+      return LitHtml.html`
+            <span class="entry-name time-range">
+              ${timeRangeStartInMs} - ${timeRangeEndInMs} ms
+            </span>
+      `;
     }
 
-    const entryName = TraceEngine.Types.TraceEvents.isProfileCall(annotation.entry) ?
-        annotation.entry.callFrame.functionName :
-        annotation.entry.name;
-
-    return LitHtml.html`
-      <div class="annotation-container">
-        <div class="annotation">
-          <span class="entry-name">
-            ${entryName}
-          </span>
-          <span class="label">
-          ${annotation.label}
-          </span>
-        </div>
-        <${IconButton.Icon.Icon.litTagName} class="bin-icon" .data=${{
-      iconName: 'bin',
-      color: 'var(--icon-default)',
-      width: '20px',
-      height: '20px',
-    } as IconButton.Icon.IconData} @click=${() => {
-      this.dispatchEvent(new RemoveAnnotation(annotation));
-    }}>
-      </div>
-    `;
+    return LitHtml.html``;
   }
 
   #render(): void {
     // clang-format off
-        LitHtml.render(
-            LitHtml.html`
-              <span class="annotations">
-                ${this.#annotations.map(annotation => this.#renderAnnotation(annotation))}
-              </span>`,
-            this.#shadow, {host: this});
+      LitHtml.render(
+        LitHtml.html`
+          <span class="annotations">
+            ${this.#annotations.map(annotation =>
+              LitHtml.html`
+                <div class="annotation-container">
+                  <div class="annotation">
+                    ${this.#renderAnnotationIdentifier(annotation)}
+                    <span class="label">
+                      ${annotation.label}
+                    </span>
+                  </div>
+                  <${IconButton.Icon.Icon.litTagName} class="bin-icon" .data=${{
+                          iconName: 'bin',
+                          color: 'var(--icon-default)',
+                          width: '20px',
+                          height: '20px',
+                        } as IconButton.Icon.IconData} @click=${() => {
+                          this.dispatchEvent(new RemoveAnnotation(annotation));
+                  }}>
+                </div>`,
+           )}
+          </span>`,
+      this.#shadow, {host: this});
     // clang-format on
   }
 }
