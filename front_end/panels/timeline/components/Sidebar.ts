@@ -51,6 +51,10 @@ export class SidebarWidget extends UI.Widget.VBox {
     this.#annotationsView.setAnnotations(updatedAnnotations);
   }
 
+  setMinTraceBoundsMilli(minBoundsMilli: TraceEngine.Types.Timing.MilliSeconds): void {
+    this.#annotationsView.setMinTraceBoundsMilli(minBoundsMilli);
+  }
+
   setTraceParsedData(traceParsedData: TraceEngine.Handlers.Types.TraceParseData|null): void {
     this.#insightsView.setTraceParsedData(traceParsedData);
   }
@@ -97,5 +101,9 @@ class AnnotationsView extends UI.Widget.VBox {
 
   setAnnotations(annotations: TraceEngine.Types.File.Annotation[]): void {
     this.#component.annotations = annotations;
+  }
+
+  setMinTraceBoundsMilli(minTraceBoundsMilli: TraceEngine.Types.Timing.MilliSeconds): void {
+    this.#component.minTraceBoundsMilli = minTraceBoundsMilli;
   }
 }

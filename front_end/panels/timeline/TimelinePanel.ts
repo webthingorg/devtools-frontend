@@ -1444,6 +1444,9 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
 
         TraceBounds.TraceBounds.BoundsManager.instance().setTimelineVisibleWindow(zoomedInBounds);
       }
+
+      this.#sideBar.setMinTraceBoundsMilli(
+          TraceEngine.Helpers.Timing.traceWindowMilliSeconds(traceParsedData.Meta.traceBounds).min);
     }
 
     if (!traceParsedData) {
