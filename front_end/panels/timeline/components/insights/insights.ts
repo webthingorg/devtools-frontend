@@ -5,6 +5,7 @@
 import * as Helpers from './Helpers.js';
 import * as LCPDiscovery from './LCPDiscovery.js';
 import * as LCPPhases from './LCPPhases.js';
+import * as SCSSelectors from './SCSSelectors.js';
 import * as SidebarInsight from './SidebarInsight.js';
 import * as Types from './types.js';
 
@@ -12,6 +13,7 @@ export {
   Helpers,
   LCPDiscovery,
   LCPPhases,
+  SCSSelectors,
   SidebarInsight,
   Types,
 };
