@@ -22,6 +22,30 @@
       },
       "revId": "6b663e91d250e3c0c73134c15951b5e84d6f5eb8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa711297_56e47462",
+        "filename": "front_end/panels/timeline/components/insights/LCPDiscovery.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-05T11:32:50Z",
+      "side": 1,
+      "message": "Good catch, TY!",
+      "parentUuid": "9098d4ff_b947c033",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 55
+      },
+      "revId": "6b663e91d250e3c0c73134c15951b5e84d6f5eb8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
