@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "57da0b33_17c34d5b",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 3439269
+      },
+      "writtenOn": "2024-08-05T23:21:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c8a54f25_a70a6ca8",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "7c1d490b4261e6dd5c1433bbf9d29e6646d9c15f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "62e98b10_9c047672",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-08-05T19:19:55Z",
       "side": 1,
       "message": "Doesn\u0027t seem like this needs to be a separate field in this class, instead could be created and used within `initGridContainer`",
+      "range": {
+        "startLine": 86,
+        "startChar": 2,
+        "endLine": 86,
+        "endChar": 41
+      },
+      "revId": "7c1d490b4261e6dd5c1433bbf9d29e6646d9c15f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d39fbfe_2bf29ab7",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 3439269
+      },
+      "writtenOn": "2024-08-05T23:21:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "62e98b10_9c047672",
       "range": {
         "startLine": 86,
         "startChar": 2,
@@ -93,6 +141,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "02a33cb5_434032c9",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 3439269
+      },
+      "writtenOn": "2024-08-05T23:21:21Z",
+      "side": 1,
+      "message": "No I do not believe so. Done",
+      "parentUuid": "ea112527_2fed2396",
+      "range": {
+        "startLine": 101,
+        "startChar": 4,
+        "endLine": 101,
+        "endChar": 20
+      },
+      "revId": "7c1d490b4261e6dd5c1433bbf9d29e6646d9c15f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "87979ea5_64781256",
@@ -110,6 +182,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7ba0a42_a6b91391",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 3439269
+      },
+      "writtenOn": "2024-08-05T23:21:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "87979ea5_64781256",
+      "revId": "7c1d490b4261e6dd5c1433bbf9d29e6646d9c15f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "85514922_8f577b72",
@@ -123,6 +213,30 @@
       "writtenOn": "2024-08-05T19:19:55Z",
       "side": 1,
       "message": "nit: new line after }",
+      "range": {
+        "startLine": 109,
+        "startChar": 2,
+        "endLine": 109,
+        "endChar": 3
+      },
+      "revId": "7c1d490b4261e6dd5c1433bbf9d29e6646d9c15f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a3e5b70_52c74d4e",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 3439269
+      },
+      "writtenOn": "2024-08-05T23:21:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85514922_8f577b72",
       "range": {
         "startLine": 109,
         "startChar": 2,
@@ -156,6 +270,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1fdae930_cec0fc8e",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 3439269
+      },
+      "writtenOn": "2024-08-05T23:21:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "677dea65_fbfa55ba",
+      "range": {
+        "startLine": 112,
+        "startChar": 2,
+        "endLine": 112,
+        "endChar": 3
+      },
+      "revId": "7c1d490b4261e6dd5c1433bbf9d29e6646d9c15f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7951406d_2d67077d",
@@ -169,6 +307,30 @@
       "writtenOn": "2024-08-05T19:19:55Z",
       "side": 1,
       "message": "nit: new line",
+      "range": {
+        "startLine": 115,
+        "startChar": 2,
+        "endLine": 115,
+        "endChar": 3
+      },
+      "revId": "7c1d490b4261e6dd5c1433bbf9d29e6646d9c15f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c271eb4_485d0be0",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 3439269
+      },
+      "writtenOn": "2024-08-05T23:21:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7951406d_2d67077d",
       "range": {
         "startLine": 115,
         "startChar": 2,
@@ -202,6 +364,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9492d13_1fe7c58a",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 3439269
+      },
+      "writtenOn": "2024-08-05T23:21:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "273f03d4_6250f3b9",
+      "range": {
+        "startLine": 136,
+        "startChar": 1,
+        "endLine": 136,
+        "endChar": 3
+      },
+      "revId": "7c1d490b4261e6dd5c1433bbf9d29e6646d9c15f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "625d69e7_0ae0d5ec",
@@ -215,6 +401,30 @@
       "writtenOn": "2024-08-05T19:19:55Z",
       "side": 1,
       "message": "nit: new line",
+      "range": {
+        "startLine": 209,
+        "startChar": 2,
+        "endLine": 209,
+        "endChar": 4
+      },
+      "revId": "7c1d490b4261e6dd5c1433bbf9d29e6646d9c15f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd825aa5_ae5f04a3",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 3439269
+      },
+      "writtenOn": "2024-08-05T23:21:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "625d69e7_0ae0d5ec",
       "range": {
         "startLine": 209,
         "startChar": 2,
@@ -271,6 +481,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "78228486_85c1d642",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 3439269
+      },
+      "writtenOn": "2024-08-05T23:21:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8b9b5deb_b33795a9",
+      "range": {
+        "startLine": 229,
+        "startChar": 10,
+        "endLine": 229,
+        "endChar": 13
+      },
+      "revId": "7c1d490b4261e6dd5c1433bbf9d29e6646d9c15f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5ce59faf_5eb58df0",
@@ -284,6 +518,30 @@
       "writtenOn": "2024-08-05T19:19:55Z",
       "side": 1,
       "message": "Since we\u0027re making a CDP call and expect the result in the returned response, do we still need to keep track of the recording state?",
+      "range": {
+        "startLine": 273,
+        "startChar": 2,
+        "endLine": 273,
+        "endChar": 21
+      },
+      "revId": "7c1d490b4261e6dd5c1433bbf9d29e6646d9c15f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d77702f0_f08cf40d",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 3439269
+      },
+      "writtenOn": "2024-08-05T23:21:21Z",
+      "side": 1,
+      "message": "It seems not. Done.",
+      "parentUuid": "5ce59faf_5eb58df0",
       "range": {
         "startLine": 273,
         "startChar": 2,
@@ -317,6 +575,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd8f7673_4a13d8f1",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 3439269
+      },
+      "writtenOn": "2024-08-05T23:21:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1db6854b_968189f9",
+      "range": {
+        "startLine": 298,
+        "startChar": 0,
+        "endLine": 308,
+        "endChar": 5
+      },
+      "revId": "7c1d490b4261e6dd5c1433bbf9d29e6646d9c15f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6b1b6271_699c87e9",
@@ -340,6 +622,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d22e658_3293108e",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 3439269
+      },
+      "writtenOn": "2024-08-05T23:21:21Z",
+      "side": 1,
+      "message": "No. Removed.",
+      "parentUuid": "6b1b6271_699c87e9",
+      "range": {
+        "startLine": 315,
+        "startChar": 0,
+        "endLine": 318,
+        "endChar": 5
+      },
+      "revId": "7c1d490b4261e6dd5c1433bbf9d29e6646d9c15f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f97b1e5a_b9cc1e16",
@@ -353,6 +659,30 @@
       "writtenOn": "2024-08-05T19:19:55Z",
       "side": 1,
       "message": "Correct me if I\u0027m wrong, we set ProfileBeingRecorded and set it back to null almost right away. It is understandable that we need that when it comes to recording, but for detached element, do we still need it?",
+      "range": {
+        "startLine": 320,
+        "startChar": 0,
+        "endLine": 320,
+        "endChar": 39
+      },
+      "revId": "7c1d490b4261e6dd5c1433bbf9d29e6646d9c15f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51de13a0_a322b916",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 3439269
+      },
+      "writtenOn": "2024-08-05T23:21:21Z",
+      "side": 1,
+      "message": "Since we aren\u0027t recording, this seems unnecessary.",
+      "parentUuid": "f97b1e5a_b9cc1e16",
       "range": {
         "startLine": 320,
         "startChar": 0,
