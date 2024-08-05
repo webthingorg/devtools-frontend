@@ -17,6 +17,7 @@ export enum InsightsCategories {
   INP = 'INP',
   LCP = 'LCP',
   CLS = 'CLS',
+  SCS = 'SCS',
   OTHER = 'Other',
 }
 

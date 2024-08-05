@@ -42,7 +42,7 @@ export class SidebarSingleNavigation extends HTMLElement {
     this.#render();
   }
 
-  #metricIsVisible(label: 'LCP'|'CLS'|'INP'): boolean {
+  #metricIsVisible(label: 'LCP'|'CLS'|'INP'|'SCS'): boolean {
     if (this.#data.activeCategory === InsightsCategories.ALL) {
       return true;
     }
@@ -50,7 +50,7 @@ export class SidebarSingleNavigation extends HTMLElement {
   }
 
   #renderMetricValue(
-      label: 'LCP'|'CLS'|'INP', value: string,
+      label: 'LCP'|'CLS'|'INP'|'SCS', value: string,
       classification: TraceEngine.Handlers.ModelHandlers.PageLoadMetrics.ScoreClassification): LitHtml.LitTemplate {
     // clang-format off
     return this.#metricIsVisible(label) ? LitHtml.html`
@@ -157,6 +157,14 @@ export class SidebarSingleNavigation extends HTMLElement {
         .activeInsight=${this.#data.activeInsight}
         .activeCategory=${this.#data.activeCategory}
       </${Insights.LCPDiscovery.LCPDiscovery}>
+    </div>
+    <div>
+      <${Insights.SCSSelectors.SCSSelectors.litTagName}
+        .insights=${insights}
+        .navigationId=${navigationId}
+        .activeInsight=${this.#data.activeInsight}
+        .activeCategory=${this.#data.activeCategory}
+      </${Insights.SCSSelectors.SCSSelectors}>
     </div>`;
     // clang-format on
   }
