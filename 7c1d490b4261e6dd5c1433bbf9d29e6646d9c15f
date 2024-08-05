@@ -1,0 +1,366 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8a54f25_a70a6ca8",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-08-05T19:19:55Z",
+      "side": 1,
+      "message": "update to 2024",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "7c1d490b4261e6dd5c1433bbf9d29e6646d9c15f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62e98b10_9c047672",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-08-05T19:19:55Z",
+      "side": 1,
+      "message": "Doesn\u0027t seem like this needs to be a separate field in this class, instead could be created and used within `initGridContainer`",
+      "range": {
+        "startLine": 86,
+        "startChar": 2,
+        "endLine": 86,
+        "endChar": 41
+      },
+      "revId": "7c1d490b4261e6dd5c1433bbf9d29e6646d9c15f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73b1b25e_27af8b37",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-08-05T19:19:55Z",
+      "side": 1,
+      "message": "May want to consider creating a separate file/class `DetachedElementDataGrid` to isolate the logic for populating contents within the grid",
+      "range": {
+        "startLine": 87,
+        "startChar": 10,
+        "endLine": 87,
+        "endChar": 23
+      },
+      "revId": "7c1d490b4261e6dd5c1433bbf9d29e6646d9c15f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea112527_2fed2396",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-08-05T19:19:55Z",
+      "side": 1,
+      "message": "Doesn\u0027t seem like this field is used in other places within DetachedElementProfileView, is it needed?",
+      "range": {
+        "startLine": 101,
+        "startChar": 4,
+        "endLine": 101,
+        "endChar": 20
+      },
+      "revId": "7c1d490b4261e6dd5c1433bbf9d29e6646d9c15f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87979ea5_64781256",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-08-05T19:19:55Z",
+      "side": 1,
+      "message": "`linkifier` and `linkifierInternal` both don\u0027t seem to be used in this class. Are they needed?",
+      "revId": "7c1d490b4261e6dd5c1433bbf9d29e6646d9c15f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85514922_8f577b72",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-08-05T19:19:55Z",
+      "side": 1,
+      "message": "nit: new line after }",
+      "range": {
+        "startLine": 109,
+        "startChar": 2,
+        "endLine": 109,
+        "endChar": 3
+      },
+      "revId": "7c1d490b4261e6dd5c1433bbf9d29e6646d9c15f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "677dea65_fbfa55ba",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-08-05T19:19:55Z",
+      "side": 1,
+      "message": "nit: new line",
+      "range": {
+        "startLine": 112,
+        "startChar": 2,
+        "endLine": 112,
+        "endChar": 3
+      },
+      "revId": "7c1d490b4261e6dd5c1433bbf9d29e6646d9c15f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7951406d_2d67077d",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-08-05T19:19:55Z",
+      "side": 1,
+      "message": "nit: new line",
+      "range": {
+        "startLine": 115,
+        "startChar": 2,
+        "endLine": 115,
+        "endChar": 3
+      },
+      "revId": "7c1d490b4261e6dd5c1433bbf9d29e6646d9c15f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "273f03d4_6250f3b9",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-08-05T19:19:55Z",
+      "side": 1,
+      "message": "nit: new line",
+      "range": {
+        "startLine": 136,
+        "startChar": 1,
+        "endLine": 136,
+        "endChar": 3
+      },
+      "revId": "7c1d490b4261e6dd5c1433bbf9d29e6646d9c15f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "625d69e7_0ae0d5ec",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-08-05T19:19:55Z",
+      "side": 1,
+      "message": "nit: new line",
+      "range": {
+        "startLine": 209,
+        "startChar": 2,
+        "endLine": 209,
+        "endChar": 4
+      },
+      "revId": "7c1d490b4261e6dd5c1433bbf9d29e6646d9c15f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2a8dbc2_f932fa07",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-08-05T19:19:55Z",
+      "side": 1,
+      "message": "Instead of supporting DOMNode as cellValue in the grid, we could also try supporting LitTemplate as a cellValue so you\u0027re able to do the logic in nodeRenderer ahead of time and while identifying retained node, you can also get the size of the detached elements. Doing so can make sure you only iterate through the element once but not twice.",
+      "range": {
+        "startLine": 210,
+        "startChar": 10,
+        "endLine": 210,
+        "endChar": 26
+      },
+      "revId": "7c1d490b4261e6dd5c1433bbf9d29e6646d9c15f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b9b5deb_b33795a9",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-08-05T19:19:55Z",
+      "side": 1,
+      "message": "Maybe naming it to `targetContainer` or `root`?",
+      "range": {
+        "startLine": 229,
+        "startChar": 10,
+        "endLine": 229,
+        "endChar": 13
+      },
+      "revId": "7c1d490b4261e6dd5c1433bbf9d29e6646d9c15f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ce59faf_5eb58df0",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-08-05T19:19:55Z",
+      "side": 1,
+      "message": "Since we\u0027re making a CDP call and expect the result in the returned response, do we still need to keep track of the recording state?",
+      "range": {
+        "startLine": 273,
+        "startChar": 2,
+        "endLine": 273,
+        "endChar": 21
+      },
+      "revId": "7c1d490b4261e6dd5c1433bbf9d29e6646d9c15f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1db6854b_968189f9",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-08-05T19:19:55Z",
+      "side": 1,
+      "message": "Maybe we can streamline this to\n```\nconst target \u003d heapProfilerModel?.target();\nconst domModel \u003d target?.model(SDK.DOMModel.DOMModel);\n\nif (!heapProfilerModel || !target || !domModel) {\n   return;\n}\n```",
+      "range": {
+        "startLine": 298,
+        "startChar": 0,
+        "endLine": 308,
+        "endChar": 5
+      },
+      "revId": "7c1d490b4261e6dd5c1433bbf9d29e6646d9c15f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b1b6271_699c87e9",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-08-05T19:19:55Z",
+      "side": 1,
+      "message": "Is it necessary for us to retrieve the profile again via `this.profileBeingRecorded`?",
+      "range": {
+        "startLine": 315,
+        "startChar": 0,
+        "endLine": 318,
+        "endChar": 5
+      },
+      "revId": "7c1d490b4261e6dd5c1433bbf9d29e6646d9c15f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f97b1e5a_b9cc1e16",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-08-05T19:19:55Z",
+      "side": 1,
+      "message": "Correct me if I\u0027m wrong, we set ProfileBeingRecorded and set it back to null almost right away. It is understandable that we need that when it comes to recording, but for detached element, do we still need it?",
+      "range": {
+        "startLine": 320,
+        "startChar": 0,
+        "endLine": 320,
+        "endChar": 39
+      },
+      "revId": "7c1d490b4261e6dd5c1433bbf9d29e6646d9c15f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
