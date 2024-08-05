@@ -88,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa90cbf1_b184dd50",
+        "filename": "front_end/core/sdk/CPUProfilerModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-05T10:59:03Z",
+      "side": 1,
+      "message": "this can happen if clang-format things change and it changes how it orders things. So there\u0027s no point doing them all at once as in X months time you would probably need to do it again (at least that\u0027s how I think about it in my head)",
+      "parentUuid": "fa7474c0_dd13dcb6",
+      "revId": "6d7ec7096576cc8b6ffd7a292da8c4530a7cf45e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b708d66e_fef09b5d",
@@ -125,6 +143,30 @@
       "side": 1,
       "message": "\u003e is there a reason you chose to put this here?\n\nI kinda suspected you wouldnt like it hanging off this guy. :p  Anyway I made a dedicated file in SDK for it.  Why SDK? read on..\n\n\u003e \n\u003e I would have expected this to live somewhere else - probably models/trace ? And using those types?\n\nIt\u0027s motivated by the build dependency tree. SDK is a core dependency and always there.\n\nCurrently Timeline is a build and runtime dependency for Lighthouse panel. That means if you do a `autoninja -C out/Release front_end/panels/lighthouse/` it will have to build all of Timeline \u0026 tracemodel first.  (Not a huge deal in reality but.. something.)   \n\nThere\u0027s also a runtime dependency... timeline.js and all its underlings must be loaded and evaluated to show the Lighthouse panel. \nWe do evaluate every module that\u0027s needed by our various panels/ everytime devtools loads.  So .... we can get improved startup time if more stuff is injected on demand.\n\nAfter this CL.. you can see the timeline and underlyings only get requested after clicking \u0027View Trace\u0027: https://imgur.com/q17TB7d (Release build + adjusted --custom-devtools-frontend path required to see this)",
       "parentUuid": "b708d66e_fef09b5d",
+      "range": {
+        "startLine": 186,
+        "startChar": 0,
+        "endLine": 193,
+        "endChar": 1
+      },
+      "revId": "6d7ec7096576cc8b6ffd7a292da8c4530a7cf45e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cdb0c945_7ccf535a",
+        "filename": "front_end/core/sdk/CPUProfilerModel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 193,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-05T10:59:03Z",
+      "side": 1,
+      "message": "I think I care about this less than you,  but fair enough 😄",
+      "parentUuid": "4861dcf0_c15237a7",
       "range": {
         "startLine": 186,
         "startChar": 0,
