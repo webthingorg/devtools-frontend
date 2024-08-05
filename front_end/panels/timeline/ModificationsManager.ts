@@ -128,7 +128,7 @@ export class ModificationsManager extends EventTarget {
       case 'TIME_RANGE':
         return {
           type: 'TIME_RANGE',
-          label: '',
+          label: annotation.label,
           showDuration: true,
           bounds: annotation.bounds,
         };
@@ -226,6 +226,7 @@ export class ModificationsManager extends EventTarget {
   #annotationsJSON(): TraceEngine.Types.File.SerializedAnnotations {
     const annotations = this.getAnnotations();
     const entryLabelsSerialized: TraceEngine.Types.File.EntryLabelAnnotationSerialized[] = [];
+    const labelledTimeRangesSerialized: TraceEngine.Types.File.TimeRangeAnnotationSerialized[] = [];
 
     for (let i = 0; i < annotations.length; i++) {
       const currAnnotation = annotations[i];
@@ -234,14 +235,20 @@ export class ModificationsManager extends EventTarget {
         if (serializedEvent) {
           entryLabelsSerialized.push({
             entry: serializedEvent,
-            label: annotations[i].label,
+            label: currAnnotation.label,
           });
         }
+      } else if(TraceEngine.Types.File.isTimeRangeAnnotation(currAnnotation)) {
+        labelledTimeRangesSerialized.push({
+          bounds: currAnnotation.bounds,
+          label: currAnnotation.label,
+        });
       }
     }
 
     return {
       entryLabels: entryLabelsSerialized,
+      labelledTimeRanges: labelledTimeRangesSerialized,
     };
   }
 
@@ -261,6 +268,15 @@ export class ModificationsManager extends EventTarget {
         type: 'ENTRY_LABEL',
         entry: this.#eventsSerializer.eventForKey(entryLabel.entry, this.#traceParsedData),
         label: entryLabel.label,
+      });
+    });
+
+    const timeRanger = modifications.annotations.labelledTimeRanges;
+    timeRanger.forEach(timeRange => {
+      this.createAnnotation({
+        type: 'TIME_RANGE',
+        bounds: timeRange.bounds,
+        label: timeRange.label,
       });
     });
   }
