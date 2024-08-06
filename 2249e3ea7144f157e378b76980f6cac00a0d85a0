@@ -88,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "64377d40_f95ae1da",
+        "filename": "front_end/ui/visual_logging/KnownContextValues.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-08-06T08:30:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3d6dc523_ae2da798",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 35
+      },
+      "revId": "2249e3ea7144f157e378b76980f6cac00a0d85a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8d644127_54f98caf",
