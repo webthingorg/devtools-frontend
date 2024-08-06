@@ -159,6 +159,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "841fa17f_1d77351b",
+        "filename": "front_end/ui/visual_logging/LoggingConfig.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-06T09:15:28Z",
+      "side": 1,
+      "message": "Ack, I only did a quick check of the code and thought we\u0027d re-check on every event, but that works then as I hoped :) Thanks for the explanation!",
+      "parentUuid": "4e285904_685b469e",
+      "range": {
+        "startLine": 129,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 5
+      },
+      "revId": "2249e3ea7144f157e378b76980f6cac00a0d85a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ef0147b5_ebb320e7",
