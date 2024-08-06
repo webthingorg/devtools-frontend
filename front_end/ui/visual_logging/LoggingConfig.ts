@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import {knownContextValues} from './KnownContextValues.js';
+
 const LOGGING_ATTRIBUTE = 'jslog';
 
 interface TrackConfig {
@@ -124,6 +126,9 @@ export function parseJsLog(jslog: string): LoggingConfig {
   const config: LoggingConfig = {ve};
   const context = getComponent('context:');
   if (context) {
+    if (!knownContextValues.has(context)) {
+      console.error('Unknown VE context:', context);
+    }
     config.context = context;
   }
 
