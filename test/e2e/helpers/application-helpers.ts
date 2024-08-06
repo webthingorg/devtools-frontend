@@ -32,7 +32,7 @@ export async function navigateToApplicationTab(_target: puppeteer.Page, testName
 export async function navigateToServiceWorkers() {
   const SERVICE_WORKER_ROW_SELECTOR = '[aria-label="Service workers"]';
   await click(SERVICE_WORKER_ROW_SELECTOR);
-  await waitFor('.service-worker-list');
+  await waitFor('.service-worker-editor-with-button');
   await expectVeEvents([
     veClick('Panel: resources > Pane: sidebar > Tree > TreeItem: application > TreeItem: service-workers'),
     veImpressionsUnder('Panel: resources', [veImpressionForServiceWorkersView()]),
