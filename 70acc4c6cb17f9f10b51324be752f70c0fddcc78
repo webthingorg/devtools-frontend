@@ -16,6 +16,24 @@
       "message": "We just landed the same in devtools-internal. If this is really the offender we might have to revert that as well. Although I\u0027m unclear how a node update can cause a C++ compilation error. Are we sure it\u0027s not some unrelated upstream issue?",
       "revId": "70acc4c6cb17f9f10b51324be752f70c0fddcc78",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2d70b3e_161cc940",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-08-06T06:17:12Z",
+      "side": 1,
+      "message": "No, I wasn\u0027t sure - this was a suspect since I couldn\u0027t find a directly related CL. But I looked at the Chromium waterfall and it seems as if the same issue happened there before, so closing this issue. Sorry for the noise here!",
+      "parentUuid": "b8c567cc_af82763c",
+      "revId": "70acc4c6cb17f9f10b51324be752f70c0fddcc78",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
