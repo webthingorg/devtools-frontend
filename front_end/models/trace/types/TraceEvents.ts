@@ -2128,6 +2128,9 @@ export function isProfileCall(event: TraceEventData): event is SyntheticProfileC
   return 'callFrame' in event;
 }
 
+export function isJSSample(event: TraceEventData): event is SyntheticJSSample {
+  return event.name === KnownEventName.JSSample;
+}
 export interface TraceEventPaint extends TraceEventComplete {
   name: KnownEventName.Paint;
   args: TraceEventArgs&{
