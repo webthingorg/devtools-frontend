@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as ComponentHelpers from '../../../../ui/components/helpers/helpers.js';
+import * as IconButton from '../../../../ui/components/icon_button/icon_button.js';
 import * as LitHtml from '../../../../ui/lit-html/lit-html.js';
 import type * as Overlays from '../../overlays/overlays.js';
 
@@ -59,27 +60,43 @@ export class SidebarInsight extends HTMLElement {
     this.dispatchEvent(new CustomEvent('insighttoggleclick'));
   }
 
+  #renderHoverIcon(insightIsActive: boolean): LitHtml.TemplateResult {
+    // clang-format off
+    const containerClasses = LitHtml.Directives.classMap({
+      'insight-hover-icon': true,
+      active: insightIsActive,
+    });
+    return LitHtml.html`
+      <div class=${containerClasses} aria-hidden="true">
+        <${IconButton.Icon.Icon.litTagName} name="chevron-down"></${IconButton.Icon.Icon.litTagName}>
+      </div>
+    `;
+    // clang-format on
+  }
+
   #render(): void {
-    let output: LitHtml.TemplateResult;
-    if (!this.#expanded) {
-      output = LitHtml.html`
-        <div class="insight closed">
-          <header @click=${this.#dispatchInsightToggle}>
-            <h3 class="insight-title">${this.#insightTitle}</h3>
-          </header>
-        </div>`;
-    } else {
-      output = LitHtml.html`
-        <div class="insight">
-          <header @click=${this.#dispatchInsightToggle}>
-            <h3 class="insight-title">${this.#insightTitle}</h3>
-          </header>
+    const containerClasses = LitHtml.Directives.classMap({
+      insight: true,
+      closed: !this.#expanded,
+    });
+
+    // clang-format off
+    const output = LitHtml.html`
+      <div class=${containerClasses}>
+        <header @click=${this.#dispatchInsightToggle}>
+          ${this.#renderHoverIcon(this.#expanded)}
+          <h3 class="insight-title">${this.#insightTitle}</h3>
+        </header>
+        ${this.#expanded ? LitHtml.html`
           <div class="insight-body">
             <slot name="insight-description"></slot>
             <slot name="insight-content"></slot>
-          </div>
-        </div>`;
-    }
+          </div>`
+          : LitHtml.nothing
+        }
+      </div>
+    `;
+    // clang-format on
     LitHtml.render(output, this.#shadow, {host: this});
   }
 }
