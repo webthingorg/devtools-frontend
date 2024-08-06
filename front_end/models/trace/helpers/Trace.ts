@@ -218,7 +218,7 @@ export function makeProfileCall(
 
 export function makeSyntheticTraceEntry(
     name: string, ts: Types.Timing.MicroSeconds, pid: Types.TraceEvents.ProcessID,
-    tid: Types.TraceEvents.ThreadID): Types.TraceEvents.SyntheticTraceEntry {
+    tid: Types.TraceEvents.ThreadID): Types.TraceEvents.TraceEventData {
   return {
     cat: '',
     name,
