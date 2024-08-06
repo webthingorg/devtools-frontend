@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "6f04ac60_1b72dc08",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-08-06T08:30:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "73b1ab2f_912bdb50",
+      "range": {
+        "startLine": 11,
+        "startChar": 7,
+        "endLine": 11,
+        "endChar": 9
+      },
+      "revId": "2249e3ea7144f157e378b76980f6cac00a0d85a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "59f52a6c_95cc457a",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 2
@@ -89,6 +113,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4e285904_685b469e",
+        "filename": "front_end/ui/visual_logging/LoggingConfig.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-08-06T08:30:17Z",
+      "side": 1,
+      "message": "This is done close to the declaration time, when we first encounter a new VE and parse its jslog attribute. This is done only once per element. If you mean putting the check into the string builder, we could do that. However, at least in theory, one doesn\u0027t have to use the string builder and can spell out jslog attribute value verbatim, which makes the check a little less robust.",
+      "parentUuid": "8d644127_54f98caf",
+      "range": {
+        "startLine": 129,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 5
+      },
+      "revId": "2249e3ea7144f157e378b76980f6cac00a0d85a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ef0147b5_ebb320e7",
         "filename": "scripts/eslint_rules/lib/jslog_context_list.js",
         "patchSetId": 2
@@ -100,6 +148,30 @@
       "writtenOn": "2024-08-06T05:53:02Z",
       "side": 1,
       "message": "2024",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "2249e3ea7144f157e378b76980f6cac00a0d85a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8099257_9feb74c7",
+        "filename": "scripts/eslint_rules/lib/jslog_context_list.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-08-06T08:30:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef0147b5_ebb320e7",
       "range": {
         "startLine": 1,
         "startChar": 13,
@@ -133,6 +205,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "16d3382c_c4e982d1",
+        "filename": "scripts/eslint_rules/lib/jslog_context_list.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-08-06T08:30:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bad881eb_aa5e87f6",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 9
+      },
+      "revId": "2249e3ea7144f157e378b76980f6cac00a0d85a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "af2a442d_46cd5900",
@@ -156,6 +252,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "40923cb1_aa8542f6",
+        "filename": "scripts/eslint_rules/tests/jslog_context_list_test.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-08-06T08:30:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af2a442d_46cd5900",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "2249e3ea7144f157e378b76980f6cac00a0d85a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4e2de8aa_d80f8c92",
@@ -169,6 +289,30 @@
       "writtenOn": "2024-08-06T05:53:02Z",
       "side": 1,
       "message": "Copy\u0026paste mistake? This test case shouldn\u0027t produce an error IIUC.",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 128,
+        "endChar": 9
+      },
+      "revId": "2249e3ea7144f157e378b76980f6cac00a0d85a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41bce2b4_cc4d96ae",
+        "filename": "scripts/eslint_rules/tests/jslog_context_list_test.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-08-06T08:30:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e2de8aa_d80f8c92",
       "range": {
         "startLine": 125,
         "startChar": 0,
