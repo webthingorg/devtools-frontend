@@ -133,6 +133,7 @@ describeWithEnvironment('TraceModel', function() {
           label: 'entry label',
         },
       ],
+      labelledTimeRanges: [],
     } as TraceModel.Types.File.Modifications['annotations'];
 
     const modifications = {
