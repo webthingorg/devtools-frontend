@@ -222,7 +222,10 @@ export async function expectVeEvents(expectedEvents: TestLogEntry[], root?: stri
               'Missing VE interaction:\n' + expectedEvent.interaction :
               'Missing VE impressions:\n' + formatImpressions(expectedEvent.impressions),
         };
-        assert.fail(bestError.description + '\n\nActual events:\n' + actualEventsString);
+        // @ts-ignore
+        assert.fail(
+            bestError.description + '\n\nActual events:\n' + actualEventsString + '\n' +
+            await frontend.evaluate(async () => (await globalThis.extraDebugInfo.join('\n'))));
       }
       const error = compareVeEvents(actualEvents[i], expectedEvent);
       if (error.difference) {
