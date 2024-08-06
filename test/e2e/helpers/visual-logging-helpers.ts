@@ -204,7 +204,17 @@ export async function expectVeEvents(expectedEvents: TestLogEntry[], root?: stri
   prependRoot(expectedEvents, root);
 
   const {frontend} = getBrowserAndPages();
-  await Promise.race([renderCoordinatorQueueEmpty(), new Promise(resolve => setTimeout(resolve, 100))]);
+  let renderQueueFull = false;
+  await Promise.race([
+    renderCoordinatorQueueEmpty(),
+    new Promise<void>(
+        resolve => setTimeout(
+            () => {
+              renderQueueFull = true;
+              resolve();
+            },
+            100)),
+  ]);
   const actualEvents =
       // @ts-ignore
       await frontend.evaluate(async () => (await globalThis.getVeDebugEventsLog()) as unknown as TestLogEntry[]);
@@ -222,7 +232,11 @@ export async function expectVeEvents(expectedEvents: TestLogEntry[], root?: stri
               'Missing VE interaction:\n' + expectedEvent.interaction :
               'Missing VE impressions:\n' + formatImpressions(expectedEvent.impressions),
         };
-        assert.fail(bestError.description + '\n\nActual events:\n' + actualEventsString);
+        assert.fail(
+            bestError.description + '\n\nActual events:\n' + actualEventsString +
+            '\nRender queue full: ' + renderQueueFull + '\n' +
+            // @ts-ignore
+            await frontend.evaluate(async () => (await globalThis.extraDebugInfo.join('\n'))));
       }
       const error = compareVeEvents(actualEvents[i], expectedEvent);
       if (error.difference) {
