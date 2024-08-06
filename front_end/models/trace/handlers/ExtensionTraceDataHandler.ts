@@ -67,13 +67,23 @@ export function extractExtensionEntries(
       dur: timing.dur as Types.Timing.MicroSeconds,
       cat: 'devtools.extension',
       args: extensionPayload,
+      rawSourceEvent: Types.TraceEvents.isSyntheticUserTiming(timing) ? timing.rawSourceEvent : timing,
     };
+
     if (Types.Extensions.isExtensionPayloadMarker(extensionPayload)) {
-      extensionMarkers.push(extensionSyntheticEntry as Types.Extensions.SyntheticExtensionMarker);
+      const extensionMarker =
+          Helpers.SyntheticEvents.SyntheticEventsManager.getActiveManager()
+              .registerSyntheticBasedEvent<Types.Extensions.SyntheticExtensionMarker>(
+                  extensionSyntheticEntry as Omit<Types.Extensions.SyntheticExtensionMarker, '_tag'>);
+      extensionMarkers.push(extensionMarker);
       continue;
     }
     if (Types.Extensions.isExtensionPayloadTrackEntry(extensionPayload)) {
-      extensionFlameChartEntries.push(extensionSyntheticEntry as Types.Extensions.SyntheticExtensionTrackChartEntry);
+      const extensionTrackEntry =
+          Helpers.SyntheticEvents.SyntheticEventsManager.getActiveManager()
+              .registerSyntheticBasedEvent<Types.Extensions.SyntheticExtensionTrackEntry>(
+                  extensionSyntheticEntry as Omit<Types.Extensions.SyntheticExtensionTrackEntry, '_tag'>);
+      extensionFlameChartEntries.push(extensionTrackEntry);
       continue;
     }
   }
