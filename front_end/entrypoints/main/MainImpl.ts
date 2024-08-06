@@ -171,7 +171,7 @@ export class MainImpl {
           hoverLogThrottler: new Common.Throttler.Throttler(50),
           dragLogThrottler: new Common.Throttler.Throttler(50),
           clickLogThrottler: new Common.Throttler.Throttler(10),
-          resizeLogThrottler: new Common.Throttler.Throttler(10),
+          resizeLogThrottler: new Common.Throttler.Throttler(30),
         };
         void VisualLogging.startLogging(options);
       } else {
