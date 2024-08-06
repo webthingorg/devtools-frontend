@@ -148,6 +148,7 @@ export class TimespanBreakdownOverlay extends HTMLElement {
       }
     }
   }
+
   renderSection(section: EntryBreakdown): LitHtml.TemplateResult {
     const sectionRange = TraceEngine.Helpers.Timing.microSecondsToMilliseconds(section.bounds.range);
     return LitHtml.html`
@@ -159,8 +160,26 @@ export class TimespanBreakdownOverlay extends HTMLElement {
       </div>`;
   }
 
+  renderSingleSection(section: EntryBreakdown): LitHtml.TemplateResult {
+    return LitHtml.html`
+      <div class="timespan-breakdown-overlay-section">
+        <div class="timespan-breakdown-overlay-label">
+          ${section.label}
+        </div>
+      </div>`;
+  }
+
   #render(): void {
-    LitHtml.render(LitHtml.html`${this.#sections?.map(this.renderSection)}`, this.#shadow, {host: this});
+    if (!this.#sections) {
+      LitHtml.render(LitHtml.html``, this.#shadow, {host: this});
+      return;
+    }
+
+    if (this.#sections.length === 1) {
+      LitHtml.render(LitHtml.html`${this.renderSingleSection(this.#sections[0])}`, this.#shadow, {host: this});
+      return;
+    }
+    LitHtml.render(LitHtml.html`${this.#sections.map(this.renderSection)}`, this.#shadow, {host: this});
   }
 }
 
