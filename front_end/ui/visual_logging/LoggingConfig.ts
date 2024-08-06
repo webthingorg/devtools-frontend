@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import {knownContextValues} from './KnownContextValues.js';
+
 const LOGGING_ATTRIBUTE = 'jslog';
 
 interface TrackConfig {
@@ -123,7 +125,10 @@ export function parseJsLog(jslog: string): LoggingConfig {
   }
   const config: LoggingConfig = {ve};
   const context = getComponent('context:');
-  if (context) {
+  if (context && context.trim().length) {
+    if (!knownContextValues.has(context)) {
+      console.error('Unknown VE context:', context);
+    }
     config.context = context;
   }
 
@@ -185,11 +190,17 @@ export function makeConfigStringBuilder(veName: VisualElementName, context?: str
   const components: string[] = [veName];
   if (typeof context !== 'undefined') {
     components.push(`context: ${context}`);
+    if (!knownContextValues.has(context)) {
+      console.error('Unknown VE context:', context);
+    }
   }
   return {
     context: function(value: string|number|undefined): ConfigStringBuilder {
       if (typeof value !== 'undefined') {
         components.push(`context: ${value}`);
+      }
+      if (typeof value === 'string' && !knownContextValues.has(value)) {
+        console.error('Unknown VE context:', value);
       }
       return this;
     },
