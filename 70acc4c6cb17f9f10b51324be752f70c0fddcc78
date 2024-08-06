@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8c567cc_af82763c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-06T05:54:37Z",
+      "side": 1,
+      "message": "We just landed the same in devtools-internal. If this is really the offender we might have to revert that as well. Although I\u0027m unclear how a node update can cause a C++ compilation error. Are we sure it\u0027s not some unrelated upstream issue?",
+      "revId": "70acc4c6cb17f9f10b51324be752f70c0fddcc78",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
