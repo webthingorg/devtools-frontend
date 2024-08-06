@@ -460,6 +460,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f76d7dc1_55a469df",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-06T06:59:57Z",
+      "side": 1,
+      "message": "The general idea of the DataGrid is to have cell values be simple things and do rendering in the `renderer` only. Passing in lit templates to cell values kinda subverts the architecture and might also mess with re-rendering.\n\nPlease note that the lit version of the data grid has some performance problems, so if we expect the grid to be very large, we might be better off using the legacy grid in any case.",
+      "parentUuid": "a2a8dbc2_f932fa07",
+      "range": {
+        "startLine": 210,
+        "startChar": 10,
+        "endLine": 210,
+        "endChar": 26
+      },
+      "revId": "7c1d490b4261e6dd5c1433bbf9d29e6646d9c15f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8b9b5deb_b33795a9",
         "filename": "front_end/panels/profiler/HeapDetachedElementsView.ts",
         "patchSetId": 4

@@ -33,6 +33,207 @@
       "message": "PTAL",
       "revId": "1add932a6fce31cbf3985c5a5d305b78ec7cb3c5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac1ad1ad_b7184f8a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-06T06:59:57Z",
+      "side": 1,
+      "message": "Left some comments. Style-wise we generally prefer private field syntax over the `private` keyword`. (`#bar` insteadd of `private bar`) and `for-of` loops instead of `.forEach`.",
+      "revId": "1add932a6fce31cbf3985c5a5d305b78ec7cb3c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9897d398_b1803c58",
+        "filename": "front_end/panels/elements/BUILD.gn",
+        "patchSetId": 6
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-06T06:59:57Z",
+      "side": 1,
+      "message": "`profiler/*\",`",
+      "range": {
+        "startLine": 117,
+        "startChar": 18,
+        "endLine": 117,
+        "endChar": 35
+      },
+      "revId": "1add932a6fce31cbf3985c5a5d305b78ec7cb3c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64852da7_5d83adfe",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-06T06:59:57Z",
+      "side": 1,
+      "message": "Does \"Detached Elements\" really need to be translated 3 different times?",
+      "range": {
+        "startLine": 49,
+        "startChar": 19,
+        "endLine": 49,
+        "endChar": 39
+      },
+      "revId": "1add932a6fce31cbf3985c5a5d305b78ec7cb3c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa3b7933_3dd074f8",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-06T06:59:57Z",
+      "side": 1,
+      "message": "nit: We prefer `interface` over type where possible.",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 18
+      },
+      "revId": "1add932a6fce31cbf3985c5a5d305b78ec7cb3c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0e91e1a_4b85e090",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-06T06:59:57Z",
+      "side": 1,
+      "message": "Alternative:\n\n```\nconst rows \u003d detachedElements?.map(detachedElementInfo \u003d\u003e {\n  // ...\n  return this.createRowForNode(domNode, ...)\n}) ?? [];\n```",
+      "range": {
+        "startLine": 118,
+        "startChar": 0,
+        "endLine": 119,
+        "endChar": 54
+      },
+      "revId": "1add932a6fce31cbf3985c5a5d305b78ec7cb3c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25a7b684_26d157d8",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-06T06:59:57Z",
+      "side": 1,
+      "message": "Can this really be the case? Then our TS types are wrong.\n\nI propose you replace this with the following:\n```\nif (!(node instanceof SDK.DOMModel.DOMNode)) {\n  throw new Error(`Unexpected cell value ${node}`);\n}\n```\n\nThen TypeScript types `node` as SDK.DOMModel.DOMNode in the whole function.",
+      "range": {
+        "startLine": 154,
+        "startChar": 0,
+        "endLine": 156,
+        "endChar": 5
+      },
+      "revId": "1add932a6fce31cbf3985c5a5d305b78ec7cb3c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6b09781_5a52d26f",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 161,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-06T06:59:57Z",
+      "side": 1,
+      "message": "This should also be dead code.",
+      "range": {
+        "startLine": 159,
+        "startChar": 0,
+        "endLine": 161,
+        "endChar": 5
+      },
+      "revId": "1add932a6fce31cbf3985c5a5d305b78ec7cb3c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "903d74d5_ab586851",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 174,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-06T06:59:57Z",
+      "side": 1,
+      "message": "`const nodes: SDK.DOMModel.DOMNode[] \u003d [node as SDK.DOMModel.DOMNode];`",
+      "range": {
+        "startLine": 172,
+        "startChar": 0,
+        "endLine": 174,
+        "endChar": 45
+      },
+      "revId": "1add932a6fce31cbf3985c5a5d305b78ec7cb3c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0587d4f_333409f6",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsView.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-06T06:59:57Z",
+      "side": 1,
+      "message": "We just checked the size. Also JS doesn\u0027t have pointers, at most it would be a reference.\n\n```\nconst node \u003d nodes.shift() as SDK.DOMMModel.DOMNode;\n```",
+      "range": {
+        "startLine": 178,
+        "startChar": 0,
+        "endLine": 181,
+        "endChar": 7
+      },
+      "revId": "1add932a6fce31cbf3985c5a5d305b78ec7cb3c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
