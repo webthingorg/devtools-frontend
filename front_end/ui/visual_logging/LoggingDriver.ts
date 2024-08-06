@@ -9,7 +9,7 @@ import * as Coordinator from '../components/render_coordinator/render_coordinato
 import {processForDebugging, processStartLoggingForDebugging} from './Debugging.js';
 import {getDomState, visibleOverlap} from './DomState.js';
 import {type Loggable} from './Loggable.js';
-import {getLoggingConfig} from './LoggingConfig.js';
+import {getLoggingConfig, VisualElements} from './LoggingConfig.js';
 import {logChange, logClick, logDrag, logHover, logImpressions, logKeyDown, logResize} from './LoggingEvents.js';
 import {getLoggingState, getOrCreateLoggingState, type LoggingState} from './LoggingState.js';
 import {getNonDomLoggables, hasNonDomLoggables, unregisterAllLoggables, unregisterLoggables} from './NonDomState.js';
@@ -100,8 +100,8 @@ export async function stopLogging(): Promise<void> {
   pendingChange.clear();
 }
 
-export function pendingWorkComplete(): Promise<void> {
-  return Promise
+export async function pendingWorkComplete(): Promise<void> {
+  await Promise
       .all([
         processingThrottler,
         keyboardLogThrottler,
@@ -115,6 +115,7 @@ export function pendingWorkComplete(): Promise<void> {
         }
       }))
       .then(() => {});
+  extraDebugInfo.push(`pendingWorkComplete at ${performance.now()}`);
 }
 
 async function yieldToResize(): Promise<void> {
@@ -155,6 +156,10 @@ const viewportRectFor = (element: Element): DOMRect => {
   return viewportRect;
 };
 
+const extraDebugInfo: string[] = [];
+// @ts-ignore
+globalThis.extraDebugInfo = extraDebugInfo;
+
 async function process(): Promise<void> {
   if (document.hidden) {
     return;
@@ -165,9 +170,20 @@ async function process(): Promise<void> {
   observeMutations(shadowRoots);
   const nonDomRoots: (Loggable|undefined)[] = [undefined];
 
+  let sawTargetPanel = false;
   for (const {element, parent} of loggables) {
     const loggingState = getOrCreateLoggingState(element, getLoggingConfig(element), parent);
     if (!loggingState.impressionLogged) {
+      if (loggingState.config.ve === VisualElements.Panel &&
+          (loggingState.config.context === 'animations' || loggingState.config.context === 'console')) {
+        sawTargetPanel = true;
+        extraDebugInfo.push(`Saw Panel:${loggingState.config.context} at ${startTime}`);
+      }
+      if (loggingState.config.ve === VisualElements.Action &&
+          (loggingState.config.context === 'animations.clear' ||
+           loggingState.config.context === 'console.create-pin')) {
+        extraDebugInfo.push(`Saw Action:${loggingState.config.context} at ${startTime}`);
+      }
       const overlap = visibleOverlap(element, viewportRectFor(element));
       const visibleSelectOption = element.tagName === 'OPTION' && loggingState.parent?.selectOpen;
       const visible = overlap && (!parent || loggingState.parent?.impressionLogged);
@@ -287,8 +303,19 @@ async function process(): Promise<void> {
     unregisterLoggables(root);
   }
   if (visibleLoggables.length) {
+    if (sawTargetPanel) {
+      extraDebugInfo.push(`yielding to interactions. Have click process: ${
+          Boolean(clickLogThrottler.process)},  have keyboard : ${keyboardLogThrottler.process}`);
+    }
     await yieldToInteractions();
+    if (sawTargetPanel) {
+      extraDebugInfo.push(`yielding to resize. Have process: ${
+          Boolean(resizeLogThrottler.process)},  pending entries: ${pendingResize.size}`);
+    }
     await yieldToResize();
+    if (sawTargetPanel) {
+      extraDebugInfo.push('done yielding');
+    }
     flushPendingChangeEvents();
     await logImpressions(visibleLoggables);
   }
@@ -314,6 +341,10 @@ function onDragStart(event: Event): void {
   if (!(event instanceof MouseEvent)) {
     return;
   }
+  if (event.currentTarget && 'id' in event.currentTarget && event.currentTarget.id === 'tab-console') {
+    extraDebugInfo.push('schedule drag for PanelTabHeader:console');
+  }
+  extraDebugInfo;
   dragStartX = event.screenX;
   dragStartY = event.screenY;
   void logDrag(dragLogThrottler)(event);
@@ -325,7 +356,13 @@ function maybeCancelDrag(event: Event): void {
   }
   if (Math.abs(event.screenX - dragStartX) >= DRAG_REPORT_THRESHOLD ||
       Math.abs(event.screenY - dragStartY) >= DRAG_REPORT_THRESHOLD) {
+    if (event.currentTarget && 'id' in event.currentTarget && event.currentTarget.id === 'tab-console') {
+      extraDebugInfo.push('don\'t cancel drag for PanelTabHeader:console because of movement');
+    }
     return;
+  }
+  if (event.currentTarget && 'id' in event.currentTarget && event.currentTarget.id === 'tab-console') {
+    extraDebugInfo.push('cancel drag for PanelTabHeader:console');
   }
   void dragLogThrottler.schedule(cancelLogging, Common.Throttler.Scheduling.AsSoonAsPossible);
 }
@@ -366,6 +403,9 @@ async function onResizeOrIntersection(entries: ResizeObserverEntry[]|Intersectio
     if (hasPendingParent) {
       continue;
     }
+    if (loggingState.config.ve === VisualElements.Panel && loggingState.config.context === 'elements') {
+      extraDebugInfo.push('has pending parent');
+    }
     pendingResize.set(element, overlap);
     void resizeLogThrottler.schedule(async () => {
       if (pendingResize.size) {
@@ -379,6 +419,9 @@ async function onResizeOrIntersection(entries: ResizeObserverEntry[]|Intersectio
         }
         if (Math.abs(overlap.width - loggingState.size.width) >= RESIZE_REPORT_THRESHOLD ||
             Math.abs(overlap.height - loggingState.size.height) >= RESIZE_REPORT_THRESHOLD) {
+          if (loggingState.config.ve === VisualElements.Panel && loggingState.config.context === 'elements') {
+            extraDebugInfo.push('logging Panel:elements resize');
+          }
           logResize(element, overlap);
         }
       }
