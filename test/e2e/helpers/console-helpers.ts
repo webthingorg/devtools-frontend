@@ -310,8 +310,7 @@ export async function navigateToConsoleTab() {
   }
   await click(CONSOLE_TAB_SELECTOR);
   await waitFor(CONSOLE_VIEW_SELECTOR);
-  // TODO: Re-enable these expectations after the flakiness is fixed.
-  // await expectVeEvents([veImpressionForConsolePanel()]);
+  await expectVeEvents([veImpressionForConsolePanel()]);
 }
 
 export async function waitForConsoleInfoMessageAndClickOnLink() {

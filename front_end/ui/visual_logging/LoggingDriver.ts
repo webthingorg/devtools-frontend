@@ -9,7 +9,7 @@ import * as Coordinator from '../components/render_coordinator/render_coordinato
 import {processForDebugging, processStartLoggingForDebugging} from './Debugging.js';
 import {getDomState, visibleOverlap} from './DomState.js';
 import {type Loggable} from './Loggable.js';
-import {getLoggingConfig} from './LoggingConfig.js';
+import {getLoggingConfig, VisualElements} from './LoggingConfig.js';
 import {logChange, logClick, logDrag, logHover, logImpressions, logKeyDown, logResize} from './LoggingEvents.js';
 import {getLoggingState, getOrCreateLoggingState, type LoggingState} from './LoggingState.js';
 import {getNonDomLoggables, hasNonDomLoggables, unregisterAllLoggables, unregisterLoggables} from './NonDomState.js';
@@ -155,6 +155,10 @@ const viewportRectFor = (element: Element): DOMRect => {
   return viewportRect;
 };
 
+const extraDebugInfo: string[] = [];
+// @ts-ignore
+globalThis.extraDebugInfo = extraDebugInfo;
+
 async function process(): Promise<void> {
   if (document.hidden) {
     return;
@@ -165,9 +169,17 @@ async function process(): Promise<void> {
   observeMutations(shadowRoots);
   const nonDomRoots: (Loggable|undefined)[] = [undefined];
 
+  let sawAnimationsPanel = false;
   for (const {element, parent} of loggables) {
     const loggingState = getOrCreateLoggingState(element, getLoggingConfig(element), parent);
     if (!loggingState.impressionLogged) {
+      if (loggingState.config.ve === VisualElements.Panel && loggingState.config.context === 'animations') {
+        sawAnimationsPanel = true;
+        extraDebugInfo.push(`Saw Panel:animations at ${startTime}`);
+      }
+      if (loggingState.config.ve === VisualElements.Action && loggingState.config.context === 'animations.clear') {
+        extraDebugInfo.push(`Saw Action:animations.clear at ${startTime}`);
+      }
       const overlap = visibleOverlap(element, viewportRectFor(element));
       const visibleSelectOption = element.tagName === 'OPTION' && loggingState.parent?.selectOpen;
       const visible = overlap && (!parent || loggingState.parent?.impressionLogged);
@@ -287,8 +299,19 @@ async function process(): Promise<void> {
     unregisterLoggables(root);
   }
   if (visibleLoggables.length) {
+    if (sawAnimationsPanel) {
+      extraDebugInfo.push(`yielding to interactions. Have click process: ${
+          Boolean(clickLogThrottler.process)},  have keyboard : ${keyboardLogThrottler.process}`);
+    }
     await yieldToInteractions();
+    if (sawAnimationsPanel) {
+      extraDebugInfo.push(`yielding to resize. Have process: ${
+          Boolean(resizeLogThrottler.process)},  pending entries: ${pendingResize.size}`);
+    }
     await yieldToResize();
+    if (sawAnimationsPanel) {
+      extraDebugInfo.push('done yielding');
+    }
     flushPendingChangeEvents();
     await logImpressions(visibleLoggables);
   }
@@ -366,6 +389,9 @@ async function onResizeOrIntersection(entries: ResizeObserverEntry[]|Intersectio
     if (hasPendingParent) {
       continue;
     }
+    if (loggingState.config.ve === VisualElements.Panel && loggingState.config.context === 'elements') {
+      extraDebugInfo.push('has pending parent');
+    }
     pendingResize.set(element, overlap);
     void resizeLogThrottler.schedule(async () => {
       if (pendingResize.size) {
@@ -379,6 +405,9 @@ async function onResizeOrIntersection(entries: ResizeObserverEntry[]|Intersectio
         }
         if (Math.abs(overlap.width - loggingState.size.width) >= RESIZE_REPORT_THRESHOLD ||
             Math.abs(overlap.height - loggingState.size.height) >= RESIZE_REPORT_THRESHOLD) {
+          if (loggingState.config.ve === VisualElements.Panel && loggingState.config.context === 'elements') {
+            extraDebugInfo.push('logging Panel:elements resize');
+          }
           logResize(element, overlap);
         }
       }
