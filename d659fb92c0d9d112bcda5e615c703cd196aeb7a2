@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "239caa9e_13ddf4a7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-08-06T13:08:07Z",
+      "side": 1,
+      "message": "Hi Jack!\n\nLGTM too, but a few small comments! I\u0027m mostly referring to the design tokens here: https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/ui/legacy/designTokens.css;l\u003d1;drc\u003d64f76d758f1f1ec9f7aa8fbf2b45ddd16ce99765",
+      "revId": "d659fb92c0d9d112bcda5e615c703cd196aeb7a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1289fbe_1827981f",
+        "filename": "front_end/panels/timeline/components/insights/SidebarInsight.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-08-06T13:08:07Z",
+      "side": 1,
+      "message": "Could you add a `jsLogContext` here for ve logging?",
+      "revId": "d659fb92c0d9d112bcda5e615c703cd196aeb7a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7ae6caa_4727ca9f",
+        "filename": "front_end/panels/timeline/components/insights/sidebarInsight.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-08-06T13:08:07Z",
+      "side": 1,
+      "message": "We can use the standard design token here, i.e. `--sys-size-9`",
+      "revId": "d659fb92c0d9d112bcda5e615c703cd196aeb7a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "069578e2_fd92fe30",
+        "filename": "front_end/panels/timeline/components/insights/sidebarInsight.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-08-06T13:08:07Z",
+      "side": 1,
+      "message": "Same with this token 😊",
+      "revId": "d659fb92c0d9d112bcda5e615c703cd196aeb7a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db32d9fc_c3df1de6",
+        "filename": "front_end/panels/timeline/components/insights/sidebarInsight.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-08-06T13:08:07Z",
+      "side": 1,
+      "message": "If I\u0027m not mistaken, this is the same as `--sys-elevation-level1`, which are the new tokens for shadows. If that\u0027s correct, can we use the new token here?",
+      "revId": "d659fb92c0d9d112bcda5e615c703cd196aeb7a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5ca3441_878de508",
+        "filename": "front_end/panels/timeline/components/insights/sidebarInsight.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-08-06T13:08:07Z",
+      "side": 1,
+      "message": "Does one of the predefined border radius work here? https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/ui/legacy/designTokens.css;l\u003d57;drc\u003d64f76d758f1f1ec9f7aa8fbf2b45ddd16ce99765",
+      "revId": "d659fb92c0d9d112bcda5e615c703cd196aeb7a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
