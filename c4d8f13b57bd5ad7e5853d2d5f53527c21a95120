@@ -16,6 +16,23 @@
       "message": "Hi Sofia, I want to get your feedback on the strings before adding the owner, thanks!",
       "revId": "c4d8f13b57bd5ad7e5853d2d5f53527c21a95120",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6fe0600f_00c13278",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-08-06T10:32:28Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "c4d8f13b57bd5ad7e5853d2d5f53527c21a95120",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
