@@ -59,7 +59,7 @@ export interface ExtensionMarkerPayload extends ExtensionDataPayloadBase {
 /**
  * Synthetic events created for extension tracks.
  */
-export interface SyntheticExtensionTrackChartEntry extends TraceEventData {
+export interface SyntheticExtensionTrackEntry extends TraceEventData {
   args: TraceEventArgs&ExtensionTrackEntryPayload;
   cat: 'devtools.extension';
 }
@@ -72,7 +72,7 @@ export interface SyntheticExtensionMarker extends TraceEventData {
   cat: 'devtools.extension';
 }
 
-export type SyntheticExtensionEntry = SyntheticExtensionTrackChartEntry|SyntheticExtensionMarker;
+export type SyntheticExtensionEntry = SyntheticExtensionTrackEntry|SyntheticExtensionMarker;
 
 export function isExtensionPayloadMarker(payload: {dataType?: string}): payload is ExtensionMarkerPayload {
   return payload.dataType === 'marker';
@@ -102,6 +102,6 @@ export interface ExtensionTrackData {
   // the entries of each of the tracks in the the group. If this is a
   // standalone track, then this contains that track's entries only.
   entriesByTrack: {
-    [x: string]: SyntheticExtensionTrackChartEntry[],
+    [x: string]: SyntheticExtensionTrackEntry[],
   };
 }
