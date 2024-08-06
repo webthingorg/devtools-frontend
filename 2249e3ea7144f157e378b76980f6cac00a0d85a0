@@ -1,0 +1,182 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73b1ab2f_912bdb50",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-06T05:53:02Z",
+      "side": 1,
+      "message": "\"are\"",
+      "range": {
+        "startLine": 11,
+        "startChar": 7,
+        "endLine": 11,
+        "endChar": 9
+      },
+      "revId": "2249e3ea7144f157e378b76980f6cac00a0d85a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59f52a6c_95cc457a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-06T05:53:02Z",
+      "side": 1,
+      "message": "Some comments but mostly lgtm.\n\nI thought initially that it might be better to produce the list as a separate build output so we don\u0027t ship it. But I kinda like this approach better so we can use copybara without any build step and have some runtime verification on top.",
+      "revId": "2249e3ea7144f157e378b76980f6cac00a0d85a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d6dc523_ae2da798",
+        "filename": "front_end/ui/visual_logging/KnownContextValues.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-06T05:53:02Z",
+      "side": 1,
+      "message": "`export const knonwContextValues \u003d new Set([` instead.\n\nWe could do some benchmarking but I suspect that `Set#has` might be more reliable performance-wise in this case than `Array#includes`.",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 5,
+        "endChar": 35
+      },
+      "revId": "2249e3ea7144f157e378b76980f6cac00a0d85a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d644127_54f98caf",
+        "filename": "front_end/ui/visual_logging/LoggingConfig.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-06T05:53:02Z",
+      "side": 1,
+      "message": "Wouldn\u0027t it be better to check this at declaration time, not at logging time?\n\nAs long as:\n\n  * Every jslog attribute is created via our builder.\n  * and we don\u0027t massage them manually.\n  \nWe should be fine checking the context when we create a VE, not every time we log it.",
+      "range": {
+        "startLine": 129,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 5
+      },
+      "revId": "2249e3ea7144f157e378b76980f6cac00a0d85a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef0147b5_ebb320e7",
+        "filename": "scripts/eslint_rules/lib/jslog_context_list.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-06T05:53:02Z",
+      "side": 1,
+      "message": "2024",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "2249e3ea7144f157e378b76980f6cac00a0d85a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bad881eb_aa5e87f6",
+        "filename": "scripts/eslint_rules/lib/jslog_context_list.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-06T05:53:02Z",
+      "side": 1,
+      "message": "I propose either a `switch` or extracting `name` into a variable and use `else if` to speed up this rule a bit.",
+      "range": {
+        "startLine": 55,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 9
+      },
+      "revId": "2249e3ea7144f157e378b76980f6cac00a0d85a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af2a442d_46cd5900",
+        "filename": "scripts/eslint_rules/tests/jslog_context_list_test.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-06T05:53:02Z",
+      "side": 1,
+      "message": "2024",
+      "range": {
+        "startLine": 1,
+        "startChar": 13,
+        "endLine": 1,
+        "endChar": 17
+      },
+      "revId": "2249e3ea7144f157e378b76980f6cac00a0d85a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e2de8aa_d80f8c92",
+        "filename": "scripts/eslint_rules/tests/jslog_context_list_test.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-06T05:53:02Z",
+      "side": 1,
+      "message": "Copy\u0026paste mistake? This test case shouldn\u0027t produce an error IIUC.",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 128,
+        "endChar": 9
+      },
+      "revId": "2249e3ea7144f157e378b76980f6cac00a0d85a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
