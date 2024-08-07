@@ -16,6 +16,40 @@
       "message": "Hey Kim, could you please take a look?:)",
       "revId": "b46eb642a1823b0f4776931ead7610ceb6b95457",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c75a318_1cc43ce1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-08-07T05:18:04Z",
+      "side": 1,
+      "message": "LGTM, thanks Kateryna!",
+      "revId": "b46eb642a1823b0f4776931ead7610ceb6b95457",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26fdd877_bfe8f46e",
+        "filename": "front_end/ui/legacy/Toolbar.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 709,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-08-07T05:18:04Z",
+      "side": 1,
+      "message": "super nit: Maybe move this into the `if (iconName)` case?",
+      "revId": "b46eb642a1823b0f4776931ead7610ceb6b95457",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
