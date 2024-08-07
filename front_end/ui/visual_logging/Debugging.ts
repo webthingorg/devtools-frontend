@@ -245,6 +245,10 @@ function processImpressionsForTestDebugLog(states: LoggingState[]): void {
     if (state.config.context) {
       key += ': ' + state.config.context;
     }
+    if (state.config.context === 'console.create-pin') {
+      // @ts-ignore
+      globalThis.extraDebugInfo.push(`logging Action:console.create-pin at ${performance.now()}`);
+    }
     veTestKeys.set(state.veid, key);
     lastImpressionLogEntry.impressions.push(key);
   }
