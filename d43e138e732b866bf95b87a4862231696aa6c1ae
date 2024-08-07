@@ -68,6 +68,24 @@
       "parentUuid": "88d41bbf_3c186bfd",
       "revId": "d43e138e732b866bf95b87a4862231696aa6c1ae",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "281a9caf_a1597f3a",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-08-07T12:08:14Z",
+      "side": 1,
+      "message": "`      .data\u003d${{variant: Buttons.Button.Variant.ICON,iconName: \u0027dots-vertical\u0027, title: i18nString(UIStrings.tooltipTitle), jslogContext: \u0027hide-issues\u0027} as Buttons.Button.ButtonData}      \n` this works for me. `jslogContext` expects a `string`, maybe that was the issue?",
+      "parentUuid": "805b56ef_c6bd0405",
+      "revId": "d43e138e732b866bf95b87a4862231696aa6c1ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
