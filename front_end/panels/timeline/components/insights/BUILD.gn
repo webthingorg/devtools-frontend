@@ -20,6 +20,7 @@ devtools_module("insights") {
     "LCPDiscovery.ts",
     "LCPPhases.ts",
     "SidebarInsight.ts",
+    "SlowCSSSelector.ts",
     "types.ts",
   ]
 
