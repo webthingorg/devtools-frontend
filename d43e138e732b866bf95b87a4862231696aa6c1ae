@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fb9631d_ec814b60",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-08-07T09:58:09Z",
+      "side": 1,
+      "message": "Thanks for the review, Kim!",
+      "revId": "d43e138e732b866bf95b87a4862231696aa6c1ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "88d41bbf_3c186bfd",
@@ -31,6 +48,24 @@
       "writtenOn": "2024-08-07T05:21:17Z",
       "side": 1,
       "message": "nit: Let\u0027s move the setting of `title` and `jslogContext` into the `.data`",
+      "revId": "d43e138e732b866bf95b87a4862231696aa6c1ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "805b56ef_c6bd0405",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-08-07T09:58:09Z",
+      "side": 1,
+      "message": "I was trying to do that before and it didn\u0027t really work because it couldn\u0027t be cast to `ButtonData` then. Was I doing something wrong and does that somehow work?",
+      "parentUuid": "88d41bbf_3c186bfd",
       "revId": "d43e138e732b866bf95b87a4862231696aa6c1ae",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
