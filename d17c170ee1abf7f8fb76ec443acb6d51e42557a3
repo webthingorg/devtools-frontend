@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "578da07f_ccbe1860",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-07T09:30:23Z",
+      "side": 1,
+      "message": "I don\u0027t know if we need a new overlay type; rather than render a single section differently, we could add a CSS class of `single-breakdown` and update the styles to show the right border, etc, for that section, and override all the checks and styling we do when there are multiple sections. I think that would be cleaner and we could do it as part of this CL. wdyt?",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 35
+      },
+      "revId": "d17c170ee1abf7f8fb76ec443acb6d51e42557a3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c65b0c64_b18f1ddc",
+        "filename": "front_end/panels/timeline/overlays/OverlaysImpl.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 709,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-07T09:30:23Z",
+      "side": 1,
+      "message": "I don\u0027t know if we want to move these here because if `y` is null or `height` is null (which is checked below), we early exit and do not position it.\n\nor is that what fixed the bug you mention?",
+      "range": {
+        "startLine": 704,
+        "startChar": 0,
+        "endLine": 709,
+        "endChar": 0
+      },
+      "revId": "d17c170ee1abf7f8fb76ec443acb6d51e42557a3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
