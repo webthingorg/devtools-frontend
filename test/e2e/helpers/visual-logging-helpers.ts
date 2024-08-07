@@ -204,7 +204,7 @@ export async function expectVeEvents(expectedEvents: TestLogEntry[], root?: stri
   prependRoot(expectedEvents, root);
 
   const {frontend} = getBrowserAndPages();
-  await Promise.race([renderCoordinatorQueueEmpty(), new Promise(resolve => setTimeout(resolve, 100))]);
+  await Promise.race([renderCoordinatorQueueEmpty(), new Promise(resolve => setTimeout(resolve, 200))]);
   const actualEvents =
       // @ts-ignore
       await frontend.evaluate(async () => (await globalThis.getVeDebugEventsLog()) as unknown as TestLogEntry[]);
