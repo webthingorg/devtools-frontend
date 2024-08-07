@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8464c368_aa77495f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-08-07T23:30:35Z",
+      "side": 1,
+      "message": "Hi Simon,\n\nupdating the chromium pin and adding a missing ve logging value, ptal!",
+      "revId": "129e4b6ef44c0ce08ec86dd7b66e9db814f6d9be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
