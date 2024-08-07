@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eed2c72b_c4ffb42a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-08-07T17:58:11Z",
+      "side": 1,
+      "message": "this readme is stale, I\u0027ll update our automation to edit this file",
+      "revId": "cebd927de04d89bdac6f596d6e003884cbd16a19",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
