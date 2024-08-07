@@ -86,6 +86,24 @@
       "parentUuid": "805b56ef_c6bd0405",
       "revId": "d43e138e732b866bf95b87a4862231696aa6c1ae",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53f148d2_175abbab",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-08-07T12:18:10Z",
+      "side": 1,
+      "message": "ah, hm, this is right, however a `dropDown` is logged here, but if we move the `jslogContext` into the `.data`, an `action` will be logged inside of the component instead",
+      "parentUuid": "281a9caf_a1597f3a",
+      "revId": "d43e138e732b866bf95b87a4862231696aa6c1ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
