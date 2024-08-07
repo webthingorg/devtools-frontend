@@ -701,6 +701,12 @@ export class Overlays extends EventTarget {
       return;
     }
 
+    const widthPixels = endX - startX;
+    // The entry selected overlay is always at least 2px wide.
+    const finalWidth = Math.max(2, widthPixels);
+    element.style.width = `${finalWidth}px`;
+    element.style.left = `${startX}px`;
+
     let y = this.yPixelForEventOnChart(overlay.entry);
     if (y === null) {
       return;
@@ -713,10 +719,6 @@ export class Overlays extends EventTarget {
     if (height === null) {
       return;
     }
-    const widthPixels = endX - startX;
-    // The entry selected overlay is always at least 2px wide.
-    const finalWidth = Math.max(2, widthPixels);
-    element.style.width = `${finalWidth}px`;
 
     // If the event is on the main chart, we need to adjust its selected border
     // if the event is cut off the top of the screen, because we need to ensure
@@ -760,7 +762,6 @@ export class Overlays extends EventTarget {
 
     element.style.height = `${height}px`;
     element.style.top = `${y}px`;
-    element.style.left = `${startX}px`;
   }
 
   /**
