@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "26848021_3ec83d98",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-08-07T19:49:05Z",
+      "side": 1,
+      "message": "lgtm but.. some adjacent thoughts i\u0027ve had for a bit.",
+      "revId": "26284e32ae243ccfb2aeaa2fb203591555fd20d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbe9eeea_08285aa9",
+        "filename": "front_end/panels/timeline/components/liveMetricsView.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-08-07T19:49:05Z",
+      "side": 1,
+      "message": "the bottom margin here is 8px too much if there\u0027s no extra-info\n(it doesnt collapse against the padding within the metric card)",
+      "revId": "26284e32ae243ccfb2aeaa2fb203591555fd20d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b9ead3c_c6cbcd4c",
+        "filename": "front_end/panels/timeline/components/liveMetricsView.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-08-07T19:49:05Z",
+      "side": 1,
+      "message": "also.. in what cases is extra-info populated?",
+      "revId": "26284e32ae243ccfb2aeaa2fb203591555fd20d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e4e8425_5e2851a8",
+        "filename": "front_end/panels/timeline/components/liveMetricsView.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-08-07T19:49:05Z",
+      "side": 1,
+      "message": "wdyt about 26px or 28px?   \n\nfeels a bit too much to me at the current size",
+      "revId": "26284e32ae243ccfb2aeaa2fb203591555fd20d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a6b4e67_a3ab56e4",
+        "filename": "front_end/panels/timeline/components/liveMetricsView.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-08-07T19:49:05Z",
+      "side": 1,
+      "message": "i think we need a max-height and overflow-auto on this. \n\nalso in MUC we were talking about how it should probably always show the last added.. (like Console\u0027s behavior) As in a long list of interactions that\u0027s currently.. not possible.   i wonder if theres a css-y solution prefering the end of the overflow box but.. still allowing the user to scroll.. something like touch-action ish",
+      "revId": "26284e32ae243ccfb2aeaa2fb203591555fd20d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
