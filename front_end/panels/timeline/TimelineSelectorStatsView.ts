@@ -6,7 +6,7 @@ import * as i18n from '../../core/i18n/i18n.js';
 import type * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import type * as Protocol from '../../generated/protocol.js';
-import type * as TraceEngine from '../../models/trace/trace.js';
+import * as TraceEngine from '../../models/trace/trace.js';
 import * as DataGrid from '../../ui/components/data_grid/data_grid.js';
 import * as Linkifier from '../../ui/components/linkifier/linkifier.js';
 import * as UI from '../../ui/legacy/legacy.js';
@@ -78,15 +78,7 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('panels/timeline/TimelineSelectorStatsView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
-export const enum SelectorTimingsKey {
-  Elapsed = 'elapsed (us)',
-  RejectPercentage = 'reject_percentage',
-  FastRejectCount = 'fast_reject_count',
-  MatchAttempts = 'match_attempts',
-  MatchCount = 'match_count',
-  Selector = 'selector',
-  StyleSheetId = 'style_sheet_id',
-}
+const SelectorTimingsKey = TraceEngine.Types.TraceEvents.SelectorTimingsKey;
 
 export class TimelineSelectorStatsView extends UI.Widget.VBox {
   #datagrid: DataGrid.DataGridController.DataGridController;
