@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c7eafa0_fc894910",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-07T10:50:09Z",
+      "side": 1,
+      "message": "I think the UI here is a little unclear; it\u0027s not clear in the \"stats\" column what the units are, and the numbers should be formatted with `ms`.\n\n@paulirish@chromium.org would love your opinion on how we present this data in the insight.\n\nWe should also probably get rid of the \"Slow CSS Selectors\" repeated text and maybe have a brief explainer and ideally a link to a useful resource to learn more.",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 31
+      },
+      "revId": "0eac6a1f6307b39d372a7f3622abde940caabe2f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b50bf17_430fb359",
+        "filename": "front_end/models/trace/insights/types.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-07T10:50:09Z",
+      "side": 1,
+      "message": "I know it\u0027s verbose but can we call this SlowCSSSelectorInsightResult please? It took me a minute to make the leap from SCS",
+      "range": {
+        "startLine": 61,
+        "startChar": 12,
+        "endLine": 61,
+        "endChar": 28
+      },
+      "revId": "0eac6a1f6307b39d372a7f3622abde940caabe2f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f0715ca_c2caf020",
+        "filename": "front_end/panels/timeline/components/SidebarSingleNavigation.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-07T10:50:09Z",
+      "side": 1,
+      "message": "I think this is slightly odd; we only intend renderMetricValue to render the CWVs, so probably would not want to include this here.",
+      "range": {
+        "startLine": 53,
+        "startChar": 25,
+        "endLine": 53,
+        "endChar": 37
+      },
+      "revId": "0eac6a1f6307b39d372a7f3622abde940caabe2f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
