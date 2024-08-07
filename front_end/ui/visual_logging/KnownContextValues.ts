@@ -1894,6 +1894,7 @@ export const knownContextValues = new Set([
   'portrait-upside-down',
   'position',
   'position-anchor',
+  'position-area',
   'position-fallback',
   'position-try',
   'position-try-fallbacks',
