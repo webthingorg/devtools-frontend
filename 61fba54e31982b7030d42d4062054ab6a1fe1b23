@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7320b4e_680a987f",
+        "filename": "front_end/ui/visual_logging/KnownContextValues.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-08-07T19:33:51Z",
+      "side": 0,
+      "message": "How come these have been removed?",
+      "revId": "61fba54e31982b7030d42d4062054ab6a1fe1b23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
