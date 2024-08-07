@@ -114,7 +114,7 @@ export function pendingWorkComplete(): Promise<void> {
           await throttler.processCompleted;
         }
       }))
-      .then(() => {});
+      .then(() => new Promise<void>(resolve => setTimeout(resolve, 10)));
 }
 
 async function yieldToResize(): Promise<void> {
