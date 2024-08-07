@@ -12,13 +12,13 @@ vars = {
   'build_with_chromium': False,
 
   'build_url': 'https://chromium.googlesource.com/chromium/src/build.git',
-  'build_revision': 'b3ab9cf31ba526664c34c3452cb3a9d8d0ee7167',
+  'build_revision': 'b54b4378fdd36dd8636d982451216bcb4ab298cd',
 
   'buildtools_url': 'https://chromium.googlesource.com/chromium/src/buildtools.git',
-  'buildtools_revision': 'd2dedd4c7d65e203b9ba11ac82a0e79139c15be0',
+  'buildtools_revision': '568b9649f871394aebd7bb982acdb7bab95f366b',
 
   'depot_tools_url': 'https://chromium.googlesource.com/chromium/tools/depot_tools.git',
-  'depot_tools_revision': '40cece20d0eaae6fd41fcbc008480e71f2e3aed9',
+  'depot_tools_revision': '670ce748bea1fbb87cf707718239bc3a4c3a08ad',
 
   'inspector_protocol_url': 'https://chromium.googlesource.com/deps/inspector_protocol',
   'inspector_protocol_revision': '2915acabcf62efd7257c57bb8a443a7c389c65cb',
@@ -32,7 +32,7 @@ vars = {
   'emscripten_tag': 'ade9d780ff17c88d81aa13860361743e3c1e1396',
 
   # GN CIPD package version.
-  'gn_version': 'git_revision:1b41f0502f87b2056cee5cc9b48f9242693d497b',
+  'gn_version': 'git_revision:05eed8f6252e2dd6b555e0b65192ef03e2c4a276',
 
   'cmake_version': 'version:2@3.21.3',
 
@@ -167,10 +167,10 @@ deps = {
     'bucket': 'chromium-nodejs',
     'objects': [
         {
-            'object_name': '20.11.0/46795170ff5df9831955f163f6966abde581c8af',
-            'sha256sum': '887504c37404898ca41b896f448ee6d7fc24179d8fb6a4b79d028ab7e1b7153d',
-            'size_bytes': 46907205,
-            'generation': 1705443744664744,
+            'object_name': '20.11.0/2cb36010af52bc5e2a2d1e3675c10361c80d8f8d',
+            'sha256sum': '5da5e201155bb3ea99134b404180adebcfa696b0dbc09571d01a09ca5489f53e',
+            'size_bytes': 70017688,
+            'generation': 1705443750949255,
             'output_file': 'node-linux-x64.tar.gz',
         },
     ],
@@ -181,10 +181,10 @@ deps = {
       'bucket': 'chromium-nodejs',
       'objects': [
           {
-              'object_name': '20.11.0/85ccc2202fd4f1615a443248c01a866ae227ba78',
-              'sha256sum': '82db7592d4551f4c186e6a5e7916ff24a624cdd2ab0eedfc06bcb03e8c37ca77',
-              'size_bytes': 43836507,
-              'generation': 1705443728906163,
+              'object_name': '20.11.0/2cb36010af52bc5e2a2d1e3675c10361c80d8f8d',
+              'sha256sum': '5da5e201155bb3ea99134b404180adebcfa696b0dbc09571d01a09ca5489f53e',
+              'size_bytes': 70017688,
+              'generation': 1705443750949255,
               'output_file': 'node-darwin-x64.tar.gz',
           },
       ],
@@ -195,10 +195,10 @@ deps = {
       'bucket': 'chromium-nodejs',
       'objects': [
           {
-              'object_name': '20.11.0/864780996d3be6c9aca03f371a4bd672728f0a75',
-              'sha256sum': 'cbeba59911faacd4557629952beb71f6ac619a8cb155dfe2bcdc81b02056a27b',
-              'size_bytes': 42181332,
-              'generation': 1705443735688942,
+              'object_name': '20.11.0/2cb36010af52bc5e2a2d1e3675c10361c80d8f8d',
+              'sha256sum': '5da5e201155bb3ea99134b404180adebcfa696b0dbc09571d01a09ca5489f53e',
+              'size_bytes': 70017688,
+              'generation': 1705443750949255,
               'output_file': 'node-darwin-arm64.tar.gz',
           },
       ],
