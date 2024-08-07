@@ -88,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "80b73e43_481d3e9c",
+        "filename": "front_end/panels/timeline/components/liveMetricsView.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-08-07T20:15:29Z",
+      "side": 1,
+      "message": "k",
+      "parentUuid": "5d6645dd_d86660b0",
+      "revId": "26284e32ae243ccfb2aeaa2fb203591555fd20d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5e4e8425_5e2851a8",
@@ -123,6 +141,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "956d79c8_4ec33d3a",
+        "filename": "front_end/panels/timeline/components/liveMetricsView.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-08-07T20:15:29Z",
+      "side": 1,
+      "message": "thats fine, i can take it up with Yuin",
+      "parentUuid": "aab3b165_a70c26c1",
+      "revId": "26284e32ae243ccfb2aeaa2fb203591555fd20d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6a6b4e67_a3ab56e4",
@@ -154,6 +190,24 @@
       "side": 1,
       "message": "Hmm this does have `overflow: auto` but the behavior has regressed. Good catch will fix it here.\n\nb/356561095 covers what you mentioned about showing the last added interaction so will do that separately.",
       "parentUuid": "6a6b4e67_a3ab56e4",
+      "revId": "26284e32ae243ccfb2aeaa2fb203591555fd20d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "704b403a_6683a319",
+        "filename": "front_end/panels/timeline/components/liveMetricsView.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-08-07T20:15:29Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "cd933769_a5ffb616",
       "revId": "26284e32ae243ccfb2aeaa2fb203591555fd20d5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
