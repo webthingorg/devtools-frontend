@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b468c479_a500c74f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-08-07T09:34:57Z",
+      "side": 1,
+      "message": "Hi Jack!\n\nI\u0027m updating the theme colors documentation in the component server, ptal!\n(Bots failing on different reasons that have incoming fixes)",
+      "revId": "2e653e0a16d7082bb268539b0b9e05cfbea8bb42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
