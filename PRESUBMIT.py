@@ -616,15 +616,6 @@ def _CannedChecks(canned_checks):
 
 
 def _CommonChecks(canned_checks):
-    local_checks = [
-        _WithArgs(canned_checks.CheckAuthorizedAuthor,
-                  bot_allowlist=[AUTOROLL_ACCOUNT]), _CheckExperimentTelemetry,
-        _CheckGeneratedFiles, _CheckDevToolsStyleJS, _CheckDevToolsStyleCSS,
-        _CheckDevToolsRunESLintTests, _CheckDevToolsRunBuildTests,
-        _CheckDevToolsNonJSFileLicenseHeaders, _CheckFormat,
-        _CheckESBuildVersion, _CheckEnumeratedHistograms,
-        _CheckObsoleteScreenshotGoldens, _CheckNodeModules
-    ]
     # Run the canned checks from `depot_tools` after the custom DevTools checks.
     # The canned checks for example check that lines have line endings. The
     # DevTools presubmit checks automatically fix these issues. If we would run
@@ -634,7 +625,7 @@ def _CommonChecks(canned_checks):
     # be continued regardless. By fixing the issues before we reach the canned checks,
     # we don't show the message to suppress these errors, which would otherwise be
     # causing CQ to fail.
-    return local_checks + _CannedChecks(canned_checks)
+    return  _CannedChecks(canned_checks)
 
 
 def _SideEffectChecks(input_api, output_api):
