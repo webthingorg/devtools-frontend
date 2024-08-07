@@ -484,6 +484,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "56f728fd_6581525f",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsView.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-07T05:24:54Z",
+      "side": 1,
+      "message": "I had a quick chat with folks working on DevTools UI and it would be preferably to use the legacy data grid over the Lit version. The reason is that we want to get rid of the Lit version down the line (due to the aforementioned performance problems).\n\nIt also makes slightly more sense, given that we render another widget (elements tree outline) as cell values.",
+      "parentUuid": "f76d7dc1_55a469df",
+      "range": {
+        "startLine": 210,
+        "startChar": 10,
+        "endLine": 210,
+        "endChar": 26
+      },
+      "revId": "7c1d490b4261e6dd5c1433bbf9d29e6646d9c15f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8b9b5deb_b33795a9",
         "filename": "front_end/panels/profiler/HeapDetachedElementsView.ts",
         "patchSetId": 4
