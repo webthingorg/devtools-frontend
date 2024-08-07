@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff61b597_3471040f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-08-07T13:03:02Z",
+      "side": 1,
+      "message": "Hi Danil,\n\nI\u0027m changing `jslog_context_list.js` in order to use an absolute file path (currently blocking an autoroller). PTAL!",
+      "revId": "0c42185951d3817fb79fdac34215e281f4605759",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
