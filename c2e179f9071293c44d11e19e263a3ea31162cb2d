@@ -16,6 +16,23 @@
       "message": "Benedikt, pleas kindly take a look:)",
       "revId": "c2e179f9071293c44d11e19e263a3ea31162cb2d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a22adf03_2ad17623",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-08-07T11:23:10Z",
+      "side": 1,
+      "message": "Over to Ergun. I\u0027m not an expert here, especially I\u0027m not sure I understand why we need `z-index` in the first place.",
+      "revId": "c2e179f9071293c44d11e19e263a3ea31162cb2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
