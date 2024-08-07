@@ -141,6 +141,10 @@
   margin-bottom: 8px;
 }
 
+.card-metric-label {
+  font-weight: var(--ref-typeface-weight-medium);
+}
+
 .metric-value {
   text-wrap: nowrap;
 }
