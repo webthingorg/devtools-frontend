@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "458da9e1_a6fc430c",
+        "filename": "front_end/ui/visual_logging/LoggingDriver.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-08-07T13:36:45Z",
+      "side": 1,
+      "message": "I\u0027m not sure I understand how this helps. What\u0027s this function call racing with exactly?",
+      "revId": "e9222efa966261fa9e863ddcfe0d87f69c509174",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41329f80_07278c44",
+        "filename": "test/e2e/helpers/visual-logging-helpers.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-08-07T13:36:45Z",
+      "side": 1,
+      "message": "Can we only await renderCoordinatorQueueEmpty here? We\u0027re waiting for the UI to settle here, right? Can it happen that the UI doesn\u0027t settle? In that case, would waiting for 200ms max actually help?",
+      "revId": "e9222efa966261fa9e863ddcfe0d87f69c509174",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
