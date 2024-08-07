@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46cecca7_7865b38d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-08-07T20:06:39Z",
+      "side": 1,
+      "message": "Hi Adam,\n\nI\u0027m disabling a flaky network test (that closed the tree), ptal!",
+      "revId": "62f283197b766b2d2768e09fa9fc789605684ded",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
