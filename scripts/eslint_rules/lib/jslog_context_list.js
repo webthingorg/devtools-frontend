@@ -79,7 +79,7 @@ module.exports = {
           return;
         }
         const finalContents = LICENSE_HEADER + 'export const knownContextValues = new Set([\n' +
-            [...formattedValues].sort().join('\n') + '\n]);';
+            [...formattedValues].sort().join('\n') + '\n]);\n';
         fs.writeFileSync(FILE, finalContents, 'utf-8');
       }
     };
