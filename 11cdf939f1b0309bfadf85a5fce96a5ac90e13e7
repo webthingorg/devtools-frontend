@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ae034cb_8f3280ad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-08-07T17:13:53Z",
+      "side": 1,
+      "message": "LGTM % 1 comment",
+      "revId": "11cdf939f1b0309bfadf85a5fce96a5ac90e13e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b373b79_b909cdf4",
+        "filename": "front_end/panels/timeline/fixtures/traces/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-08-07T17:13:53Z",
+      "side": 1,
+      "message": "Why 3? This is a type right?",
+      "revId": "11cdf939f1b0309bfadf85a5fce96a5ac90e13e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
