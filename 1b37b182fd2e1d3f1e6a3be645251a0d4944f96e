@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e5239a8_56fcb5fd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-08-07T11:53:20Z",
+      "side": 1,
+      "message": "Benedikt, could you please take a look?\nI double-checked with Peter, he\u0027s fine with this too",
+      "revId": "1b37b182fd2e1d3f1e6a3be645251a0d4944f96e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
