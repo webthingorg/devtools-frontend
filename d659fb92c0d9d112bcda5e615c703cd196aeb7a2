@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e6046af_1a9e24e6",
+        "filename": "front_end/panels/timeline/components/insights/SidebarInsight.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-07T12:51:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b1289fbe_1827981f",
+      "revId": "d659fb92c0d9d112bcda5e615c703cd196aeb7a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f7ae6caa_4727ca9f",
@@ -48,6 +66,24 @@
       "writtenOn": "2024-08-06T13:08:07Z",
       "side": 1,
       "message": "We can use the standard design token here, i.e. `--sys-size-9`",
+      "revId": "d659fb92c0d9d112bcda5e615c703cd196aeb7a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59124edb_a75a192a",
+        "filename": "front_end/panels/timeline/components/insights/sidebarInsight.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-07T12:51:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7ae6caa_4727ca9f",
       "revId": "d659fb92c0d9d112bcda5e615c703cd196aeb7a2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -69,6 +105,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee214415_a1096db6",
+        "filename": "front_end/panels/timeline/components/insights/sidebarInsight.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-07T12:51:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "069578e2_fd92fe30",
+      "revId": "d659fb92c0d9d112bcda5e615c703cd196aeb7a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "db32d9fc_c3df1de6",
@@ -86,6 +140,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bef28756_df078b6d",
+        "filename": "front_end/panels/timeline/components/insights/sidebarInsight.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-07T12:51:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db32d9fc_c3df1de6",
+      "revId": "d659fb92c0d9d112bcda5e615c703cd196aeb7a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d5ca3441_878de508",
@@ -99,6 +171,24 @@
       "writtenOn": "2024-08-06T13:08:07Z",
       "side": 1,
       "message": "Does one of the predefined border radius work here? https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/ui/legacy/designTokens.css;l\u003d57;drc\u003d64f76d758f1f1ec9f7aa8fbf2b45ddd16ce99765",
+      "revId": "d659fb92c0d9d112bcda5e615c703cd196aeb7a2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3665af81_e2765de7",
+        "filename": "front_end/panels/timeline/components/insights/sidebarInsight.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-07T12:51:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d5ca3441_878de508",
       "revId": "d659fb92c0d9d112bcda5e615c703cd196aeb7a2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
