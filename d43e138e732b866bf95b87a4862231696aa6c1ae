@@ -104,6 +104,24 @@
       "parentUuid": "281a9caf_a1597f3a",
       "revId": "d43e138e732b866bf95b87a4862231696aa6c1ae",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29546209_c4d3b536",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-08-07T12:20:39Z",
+      "side": 1,
+      "message": "Ah, right, in that case maybe just move the title inside?",
+      "parentUuid": "53f148d2_175abbab",
+      "revId": "d43e138e732b866bf95b87a4862231696aa6c1ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
