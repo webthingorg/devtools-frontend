@@ -52,6 +52,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab524687_7834b609",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-08-07T09:54:51Z",
+      "side": 1,
+      "message": "Thanks Kateryna LGTM!",
+      "revId": "b46eb642a1823b0f4776931ead7610ceb6b95457",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "26fdd877_bfe8f46e",
@@ -83,6 +100,24 @@
       "side": 1,
       "message": "the super constructor has not been called then yet and there is no `this` at that point; do you want me to wrap it in an if clause?",
       "parentUuid": "26fdd877_bfe8f46e",
+      "revId": "b46eb642a1823b0f4776931ead7610ceb6b95457",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85c97a25_03589c43",
+        "filename": "front_end/ui/legacy/Toolbar.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 709,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-08-07T09:54:51Z",
+      "side": 1,
+      "message": "Ohh I see! Makes sense, no that\u0027s fine like that!",
+      "parentUuid": "59a79b02_8ac5a994",
       "revId": "b46eb642a1823b0f4776931ead7610ceb6b95457",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
