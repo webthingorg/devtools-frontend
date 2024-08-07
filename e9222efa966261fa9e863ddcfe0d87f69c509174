@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1f4bea38_94c2b493",
+        "filename": "front_end/ui/visual_logging/LoggingDriver.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-08-07T13:47:56Z",
+      "side": 1,
+      "message": "See the last failure in https://logs.chromium.org/logs/devtools-frontend/buildbucket/cr-buildbucket/8740280078985527521/+/u/Run_tests/E2E_Tests/E2E_Tests_shards_results/E2E_Tests__Shard__0__on_Ubuntu-22.04/stdout\n\n\nRelevants bits are:\n\n    AssertionError: Missing VE impressions:\n    Panel: console \u003e Toolbar \u003e Action: console.clear\n                             \u003e Action: console.create-pin\n\n    Saw Panel:console at 2337.399999999907\n    Saw Action:console.create-pin at 2356.5\n    pendingWorkComplete at 2440.600000000093\n    logging Action:console.create-pin at 2441.2999999998137\n\n\nThis is for the code at\n https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/5753452/16\n \nWhen reading VE events logs, we block on `pendingWorkComplete`, which waits for all the throttlers to be finished. As it appears, the work in the throttler can happen a millisecond later then the promise is resolved.",
+      "parentUuid": "458da9e1_a6fc430c",
+      "revId": "e9222efa966261fa9e863ddcfe0d87f69c509174",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "41329f80_07278c44",
         "filename": "test/e2e/helpers/visual-logging-helpers.ts",
         "patchSetId": 5
@@ -31,6 +49,24 @@
       "writtenOn": "2024-08-07T13:36:45Z",
       "side": 1,
       "message": "Can we only await renderCoordinatorQueueEmpty here? We\u0027re waiting for the UI to settle here, right? Can it happen that the UI doesn\u0027t settle? In that case, would waiting for 200ms max actually help?",
+      "revId": "e9222efa966261fa9e863ddcfe0d87f69c509174",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5231c5f6_21e790b8",
+        "filename": "test/e2e/helpers/visual-logging-helpers.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-08-07T13:47:56Z",
+      "side": 1,
+      "message": "Unfortunately we can\u0027t. In some tests, like those for the CSS animation, UI never settles. We are waiting for the new impressions to be logged, which is done in a coordinator queue.",
+      "parentUuid": "41329f80_07278c44",
       "revId": "e9222efa966261fa9e863ddcfe0d87f69c509174",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
