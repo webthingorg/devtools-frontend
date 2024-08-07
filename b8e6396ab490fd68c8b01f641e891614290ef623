@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "968eb459_91c22acd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-07T09:20:00Z",
+      "side": 1,
+      "message": "ha, I had this on my list to look at too! I like this implementation; another approach I was thinking about was defining a \"zoom in range\" for each insight (so for LCP we would zoom from 0-LCP time), but I like the idea of calculating it based off the active insights.\n\nLet\u0027s go with this and we can iterate if we want!",
+      "revId": "b8e6396ab490fd68c8b01f641e891614290ef623",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
