@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96bbb516_8961b5ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-07T12:51:12Z",
+      "side": 1,
+      "message": "PTAL - this resolves comments from the previous CL!",
+      "revId": "e064c208c5c337cb47e1ee679bdd5685cdff619f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0db0adc_d40d6036",
+        "filename": "front_end/panels/timeline/components/insights/SidebarInsight.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-07T12:51:12Z",
+      "side": 1,
+      "message": "@kim I opted to put the jslog here - it still fires when the button is clicked, but also when the insight is clicked anywhere to toggle it.",
+      "range": {
+        "startLine": 93,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 132
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "2165cd72_0c2e9401",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/components/insights/SidebarInsight.ts",
+              "range": {
+                "startLine": 93,
+                "startChar": 0,
+                "endLine": 94,
+                "endChar": 0
+              },
+              "replacement": "        \u003cheader @click\u003d${this.#dispatchInsightToggle}\u003e\n"
+            },
+            {
+              "path": "front_end/panels/timeline/components/insights/SidebarInsight.ts",
+              "range": {
+                "startLine": 104,
+                "startChar": 0,
+                "endLine": 104,
+                "endChar": 0
+              },
+              "replacement": "      \u003c/div\u003e\n      \u003cdiv class\u003d\"insight-toggle-button\" @click\u003d${this.#dispatchInsightToggle} jslog\u003d${VisualLogging.action(\u0027timeline.toggle-insight\u0027).track({click: true})}\u003e\n"
+            }
+          ]
+        }
+      ],
+      "revId": "e064c208c5c337cb47e1ee679bdd5685cdff619f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
