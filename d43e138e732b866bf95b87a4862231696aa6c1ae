@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2ed6431_dbee0b60",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-08-07T05:21:17Z",
+      "side": 1,
+      "message": "LGTM, thanks Kateryna!",
+      "revId": "d43e138e732b866bf95b87a4862231696aa6c1ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88d41bbf_3c186bfd",
+        "filename": "front_end/panels/issues/components/HideIssuesMenu.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-08-07T05:21:17Z",
+      "side": 1,
+      "message": "nit: Let\u0027s move the setting of `title` and `jslogContext` into the `.data`",
+      "revId": "d43e138e732b866bf95b87a4862231696aa6c1ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
