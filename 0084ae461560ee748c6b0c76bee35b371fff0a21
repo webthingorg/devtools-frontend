@@ -56,6 +56,30 @@
       },
       "revId": "0084ae461560ee748c6b0c76bee35b371fff0a21",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a70c20d_d4bdf5d8",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 772,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-08T09:16:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "567e58ff_a7e40965",
+      "range": {
+        "startLine": 772,
+        "startChar": 46,
+        "endLine": 772,
+        "endChar": 62
+      },
+      "revId": "0084ae461560ee748c6b0c76bee35b371fff0a21",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
