@@ -16,6 +16,40 @@
       "message": "Can you take a look please? Thanks! 🙏",
       "revId": "d20960c1968e2684759fe518d8e28ba0a0d1ddb7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "801e7575_91fc4ba6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-08-08T17:31:55Z",
+      "side": 1,
+      "message": "LGTM, thanks",
+      "revId": "d20960c1968e2684759fe518d8e28ba0a0d1ddb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "249b351c_b1709dc4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-08-08T17:31:55Z",
+      "side": 1,
+      "message": "LGTM, thanks Benedikt!",
+      "revId": "d20960c1968e2684759fe518d8e28ba0a0d1ddb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
