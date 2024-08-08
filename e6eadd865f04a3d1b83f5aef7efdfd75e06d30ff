@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc0797a5_d6c2ae8c",
+        "filename": "front_end/core/sdk/SourceMapManager.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1247388
+      },
+      "writtenOn": "2024-08-08T15:19:37Z",
+      "side": 0,
+      "message": "FYI we might get here in response to frameNavigated, and if the frameId is different than before the navigation (due to RenderFrame changing), we\nwill eventually get a loadNetworkResource error `{\"code\":-32602,\"message\":\"Frame not found\"}`, and we got there from:\n```\nat NetworkManager.loadNetworkResource (http://debug-frontend.test:8000/inspector-sources/core/sdk/NetworkManager.js:207:13)\nat PageResourceLoader.loadFromTarget (http://debug-frontend.test:8000/inspector-sources/core/sdk/PageResourceLoader.js:247:43)\nat PageResourceLoader.dispatchLoad (http://debug-frontend.test:8000/inspector-sources/core/sdk/PageResourceLoader.js:195:38)\nat PageResourceLoader.loadResource (http://debug-frontend.test:8000/inspector-sources/core/sdk/PageResourceLoader.js:158:34)\n at async loadSourceMap (http://debug-frontend.test:8000/inspector-sources/core/sdk/SourceMapManager.js:160:25)\n```\n\nwhich traces back to this part:\n```\nat SourceMapManager.attachSourceMap (http://debug-frontend.test:8000/inspector-sources/core/sdk/SourceMapManager.js:71:13)\nat SourceMapManager.inspectedURLChanged (http://debug-frontend.test:8000/inspector-sources/core/sdk/SourceMapManager.js:52:12)\nat TargetManager.dispatchEventToListeners (http://debug-frontend.test:8000/inspector-sources/core/common/Object.js:49:27)\nat TargetManager.onInspectedURLChange (http://debug-frontend.test:8000/inspector-sources/core/sdk/TargetManager.js:47:10)\nat Target.setInspectedURL (http://debug-frontend.test:8000/inspector-sources/core/sdk/Target.js:165:33)\nat ResourceTreeModel.frameNavigated (http://debug-frontend.test:8000/inspector-sources/core/sdk/ResourceTreeModel.js:165:21)\nat PageDispatcher.frameNavigated (http://debug-frontend.test:8000/inspector-sources/core/sdk/ResourceTreeModel.js:814:29)\nat DispatcherManager.dispatch (http://debug-frontend.test:8000/inspector-sources/core/protocol_client/InspectorBackend.js:727:11)\nat Target.dispatch (http://debug-frontend.test:8000/inspector-sources/core/protocol_client/InspectorBackend.js:338:16)\nat SessionRouter.onMessage (http://debug-frontend.test:8000/inspector-sources/core/protocol_client/InspectorBackend.js:256:22)\n```   \n      \nThis is trying to avoid that by not reattaching sourcemap on URL change, but that is probably not the way to resolve the problem (well, especially because tests are failing). Any thoughts @bmeurer@chromium.org? Maybe we just need to pass the frameId all the way through?",
+      "range": {
+        "startLine": 78,
+        "startChar": 6,
+        "endLine": 78,
+        "endChar": 76
+      },
+      "revId": "e6eadd865f04a3d1b83f5aef7efdfd75e06d30ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
