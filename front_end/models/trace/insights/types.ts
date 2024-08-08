@@ -57,6 +57,14 @@ export type LCPInsightResult = InsightResult<{
   earliestDiscoveryTimeTs?: Types.Timing.MicroSeconds,
 }>;
 
+export type SlowCSSSelectorInsightResult = InsightResult<{
+  totalElapsedMs: Types.Timing.MilliSeconds,
+  totalMatchAttempts: number,
+  totalMatchCount: number,
+  topElapsedMs: Types.TraceEvents.SelectorTiming[],
+  topMatchAttempts: Types.TraceEvents.SelectorTiming[],
+}>;
+
 /**
  * Contains insights for a specific navigation.
  */
