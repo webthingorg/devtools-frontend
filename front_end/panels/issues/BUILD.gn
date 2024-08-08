@@ -46,6 +46,7 @@ devtools_module("issues") {
     "../../core/sdk:bundle",
     "../../models/issues_manager:bundle",
     "../../models/logs:bundle",
+    "../../models/source_map_extensions:bundle",
     "../../panels/console_counters:bundle",
     "../../panels/network/forward:bundle",
     "../../ui/components/adorners:bundle",
