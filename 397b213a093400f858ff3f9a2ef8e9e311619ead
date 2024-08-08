@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "938a3d47_c1531c3c",
+        "filename": "front_end/panels/settings/AISettingsTab.test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-08-08T10:25:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9140d722_829a0c93",
+      "revId": "397b213a093400f858ff3f9a2ef8e9e311619ead",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3b4dd108_e4782400",
@@ -48,6 +66,24 @@
       "writtenOn": "2024-08-01T13:37:44Z",
       "side": 1,
       "message": "Why are we asserting on the module setting here as we expect dropdown button to just expand the section rather than updating the setting?",
+      "revId": "397b213a093400f858ff3f9a2ef8e9e311619ead",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d70c421_6500c2b3",
+        "filename": "front_end/panels/settings/AISettingsTab.test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-08-08T10:25:03Z",
+      "side": 1,
+      "message": "I want to not only ensure that the expected thing happens, but also that nothing unexpected happens (no unintended side-effect).",
+      "parentUuid": "3b4dd108_e4782400",
       "revId": "397b213a093400f858ff3f9a2ef8e9e311619ead",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
