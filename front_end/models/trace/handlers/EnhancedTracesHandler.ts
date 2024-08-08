@@ -2,57 +2,17 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import {
+  type EnhancedTracesData,
+  type ExecutionContext,
+  type Script,
+  type Target,
+} from '../../../core/sdk/RehydratingObject.js';
 import * as Types from '../types/types.js';
 
 import {HandlerState} from './types.js';
 
 export const EnhancedTracesVersion: number = 1;
-
-export interface Script {
-  scriptId: number;
-  isolate: string;
-  url: string;
-  executionContextId: number;
-  startLine: number;
-  startColumn: number;
-  endLine: number;
-  endColumn: number;
-  hash: string;
-  isModule?: boolean;
-  hasSourceUrl?: boolean;
-  sourceMapUrl?: string;
-  length?: number;
-  sourceText?: string;
-  auxData?: ExecutionContextAuxData;
-}
-
-export interface ExecutionContextAuxData {
-  frameId?: string;
-  isDefault?: boolean;
-  type?: string;
-}
-
-export interface ExecutionContext {
-  id: number;
-  origin: string;
-  v8Context?: string;
-  auxData?: ExecutionContextAuxData;
-  isolate?: string;
-}
-
-export interface Target {
-  targetId: string;
-  type: string;
-  url: string;
-  pid?: number;
-  isolate?: string;
-}
-
-export interface EnhancedTracesData {
-  targets: Target[];
-  executionContexts: ExecutionContext[];
-  scripts: Script[];
-}
 
 let handlerState = HandlerState.UNINITIALIZED;
 
