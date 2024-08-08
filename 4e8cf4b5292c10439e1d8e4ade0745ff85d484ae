@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f91545f4_90efa75f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-08T10:46:27Z",
+      "side": 1,
+      "message": "ptal",
+      "revId": "4e8cf4b5292c10439e1d8e4ade0745ff85d484ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "10d52223_b56fdf8a",
+        "filename": "front_end/panels/timeline/timelinePanel.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-08T10:46:27Z",
+      "side": 1,
+      "message": "had to move this to keep stylelint happy...",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 93,
+        "endChar": 1
+      },
+      "revId": "4e8cf4b5292c10439e1d8e4ade0745ff85d484ae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
