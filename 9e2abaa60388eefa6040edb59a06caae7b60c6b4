@@ -1,0 +1,62 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7647c6e_8efa07dd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-08-08T17:58:06Z",
+      "side": 1,
+      "message": "This looks reasonable, but please give me another day to catch up on the context of this change (i.e. the doc linked to in the bug)",
+      "revId": "9e2abaa60388eefa6040edb59a06caae7b60c6b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76a05c6b_9ba1712a",
+        "filename": "front_end/core/sdk/PreloadingModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 547,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-08-08T17:58:06Z",
+      "side": 1,
+      "message": "This appears to be unused",
+      "range": {
+        "startLine": 545,
+        "startChar": 0,
+        "endLine": 547,
+        "endChar": 3
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "f374964f_a7add476",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/core/sdk/PreloadingModel.ts",
+              "range": {
+                "startLine": 544,
+                "startChar": 0,
+                "endLine": 548,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "9e2abaa60388eefa6040edb59a06caae7b60c6b4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
