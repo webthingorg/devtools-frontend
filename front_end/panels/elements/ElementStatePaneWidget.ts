@@ -33,13 +33,41 @@ const UIStrings = {
    * @description Explanation text for the 'Emulate a focused page' setting in the Rendering tool.
    */
   emulatesAFocusedPage: 'Keep page focused. Commonly used for debugging disappearing elements.',
+  /**
+   * @description Similar with forceElementState but allows users to force specific state of the selected element.
+   */
+  elementSpecificStates: 'Force specific element state',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/elements/ElementStatePaneWidget.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
+const SpecificPseudoStates: {[key: string]: number} = {
+  'enabled': 0,
+  'disabled': 1,
+  'valid': 2,
+  'invalid': 3,
+  'user-valid': 4,
+  'user-invalid': 5,
+  'required': 6,
+  'optional': 7,
+  'read-only': 8,
+  'read-write': 9,
+  'in-range': 10,
+  'out-of-range': 11,
+  'visited': 12,
+  'link': 13,
+  'checked': 14,
+  'indeterminate': 15,
+  'placeholder-shown': 16,
+  'autofill': 17,
+};
+
 export class ElementStatePaneWidget extends UI.Widget.Widget {
   private readonly inputs: HTMLInputElement[];
   private readonly inputStates: WeakMap<HTMLInputElement, string>;
   private cssModel?: SDK.CSSModel.CSSModel|null;
+  private specificPseudoStateDivs: HTMLDivElement[];
+  private readonly throttler: Common.Throttler.Throttler;
+
   constructor() {
     super(true);
     this.contentElement.className = 'styles-element-state-pane';
@@ -65,17 +93,19 @@ export class ElementStatePaneWidget extends UI.Widget.Widget {
       }
       node.domModel().cssModel().forcePseudoState(node, state, event.target.checked);
     };
-    const createElementStateCheckbox = (state: string): Element => {
-      const td = document.createElement('td');
+    const createElementStateCheckbox = (state: string): HTMLDivElement => {
+      const div = document.createElement('div');
+      div.id = state;
       const label = UI.UIUtils.CheckboxLabel.create(':' + state, undefined, undefined, undefined, true);
       const input = label.checkboxElement;
       this.inputStates.set(input, state);
       input.addEventListener('click', (clickListener as EventListener), false);
       input.setAttribute('jslog', `${VisualLogging.toggle().track({click: true}).context(state)}`);
       inputs.push(input);
-      td.appendChild(label);
-      return td;
+      div.appendChild(label);
+      return div;
     };
+
     const createEmulateFocusedPageCheckbox = (): Element => {
       const div = document.createElement('div');
       div.classList.add('page-state-checkbox');
@@ -112,22 +142,50 @@ export class ElementStatePaneWidget extends UI.Widget.Widget {
     // Populate element states
     this.contentElement.appendChild(createSectionHeader(i18nString(UIStrings.forceElementState)));
 
-    const table = document.createElement('table');
-    table.classList.add('source-code');
-    UI.ARIAUtils.markAsPresentation(table);
+    const persistentContainer = document.createElement('div');
+    persistentContainer.classList.add('source-code');
+    persistentContainer.classList.add('pseudo-states-container');
+    UI.ARIAUtils.markAsPresentation(persistentContainer);
 
-    let tr = table.createChild('tr');
-    tr.appendChild(createElementStateCheckbox('active'));
-    tr.appendChild(createElementStateCheckbox('hover'));
-    tr = table.createChild('tr');
-    tr.appendChild(createElementStateCheckbox('focus'));
-    tr.appendChild(createElementStateCheckbox('visited'));
-    tr = table.createChild('tr');
-    tr.appendChild(createElementStateCheckbox('focus-within'));
-    tr.appendChild(createElementStateCheckbox('focus-visible'));
-    tr = table.createChild('tr');
-    tr.appendChild(createElementStateCheckbox('target'));
-    this.contentElement.appendChild(table);
+    persistentContainer.appendChild(createElementStateCheckbox('active'));
+    persistentContainer.appendChild(createElementStateCheckbox('hover'));
+    persistentContainer.appendChild(createElementStateCheckbox('focus'));
+    persistentContainer.appendChild(createElementStateCheckbox('focus-within'));
+    persistentContainer.appendChild(createElementStateCheckbox('focus-visible'));
+    persistentContainer.appendChild(createElementStateCheckbox('target'));
+    this.contentElement.appendChild(persistentContainer);
+
+    const elementSpecifiContainer = document.createElement('div');
+    elementSpecifiContainer.classList.add('source-code');
+    elementSpecifiContainer.classList.add('pseudo-states-container');
+    elementSpecifiContainer.classList.add('specific-pseudo-states');
+    UI.ARIAUtils.markAsPresentation(elementSpecifiContainer);
+
+    this.specificPseudoStateDivs = [];
+    const specificPseudoStates: string[] = Object.keys(SpecificPseudoStates);
+    for (const specificPseudoState of specificPseudoStates) {
+      const checkbox = createElementStateCheckbox(specificPseudoState);
+      checkbox.classList.toggle('hidden');
+      elementSpecifiContainer.appendChild(checkbox);
+      this.specificPseudoStateDivs.push(checkbox);
+    }
+
+    const specificHeader = document.createElement('details');
+    const sectionHeaderContainer = document.createElement('summary');
+    sectionHeaderContainer.classList.add('section-header');
+    UI.UIUtils.createTextChild(sectionHeaderContainer.createChild('span'), i18nString(UIStrings.elementSpecificStates));
+    specificHeader.appendChild(sectionHeaderContainer);
+
+    sectionHeaderContainer.addEventListener('click', () => {
+      for (const div of this.specificPseudoStateDivs) {
+        div.classList.toggle('hidden');
+      }
+    });
+    specificHeader.classList.add('force-specific-element-header');
+    this.contentElement.appendChild(specificHeader);
+    specificHeader.appendChild(elementSpecifiContainer);
+
+    this.throttler = new Common.Throttler.Throttler(100);
     UI.Context.Context.instance().addFlavorChangeListener(SDK.DOMModel.DOMNode, this.update, this);
   }
   private updateModel(cssModel: SDK.CSSModel.CSSModel|null): void {
@@ -166,9 +224,118 @@ export class ElementStatePaneWidget extends UI.Widget.Widget {
         input.checked = false;
       }
     }
-    ButtonProvider.instance().item().setChecked(this.inputs.some(input => input.checked));
+    void this.throttler.schedule(this.updateElementSpecificStatesTable.bind(this, node));
+    ButtonProvider.instance().item().setToggled(this.inputs.some(input => input.checked));
+  }
+
+  private async updateElementSpecificStatesTable(node: SDK.DOMModel.DOMNode|null = null): Promise<void> {
+    if (!node || node.nodeType() !== Node.ELEMENT_NODE) {
+      return;
+    }
+    const isElementOfTypes = (node: SDK.DOMModel.DOMNode, types: string[]): boolean => {
+      return types.includes(node.nodeName()?.toLowerCase());
+    };
+    const isInputWithTypeRadioOrCheckbox = (node: SDK.DOMModel.DOMNode): boolean => {
+      return isElementOfTypes(node, ['input']) &&
+          (node.getAttribute('type') === 'checkbox' || node.getAttribute('type') === 'radio');
+    };
+    // An autonomous custom element is called a form-associated custom element if the element is associated with a custom element definition whose form-associated field is set to true.
+    // https://html.spec.whatwg.org/multipage/custom-elements.html#form-associated-custom-element
+    const isFormAssociatedCustomElement = async(node: SDK.DOMModel.DOMNode): Promise<boolean> => {
+      function getFormAssociatedField(this: HTMLElement): boolean {
+        return ('formAssociated' in this.constructor && this.constructor.formAssociated === true);
+      }
+      const response = await node.callFunction(getFormAssociatedField);
+      return response ? response.value : false;
+    };
+
+    const isFormAssociated = await isFormAssociatedCustomElement(node);
+
+    if (isElementOfTypes(node, ['button', 'input', 'select', 'textarea', 'optgroup', 'option', 'fieldset']) ||
+        isFormAssociated) {
+      this.specificPseudoStateDivs[SpecificPseudoStates['enabled']].hidden = false;
+      this.specificPseudoStateDivs[SpecificPseudoStates['disabled']].hidden = false;
+    } else {
+      this.specificPseudoStateDivs[SpecificPseudoStates['enabled']].hidden = true;
+      this.specificPseudoStateDivs[SpecificPseudoStates['disabled']].hidden = true;
+    }
+
+    if (isElementOfTypes(node, ['button', 'fieldset', 'input', 'object', 'output', 'select', 'textarea', 'img']) ||
+        isFormAssociated) {
+      this.specificPseudoStateDivs[SpecificPseudoStates['valid']].hidden = false;
+      this.specificPseudoStateDivs[SpecificPseudoStates['invalid']].hidden = false;
+    } else {
+      this.specificPseudoStateDivs[SpecificPseudoStates['valid']].hidden = true;
+      this.specificPseudoStateDivs[SpecificPseudoStates['invalid']].hidden = true;
+    }
+
+    if (isElementOfTypes(node, ['input', 'select', 'textarea'])) {
+      this.specificPseudoStateDivs[SpecificPseudoStates['user-valid']].hidden = false;
+      this.specificPseudoStateDivs[SpecificPseudoStates['user-invalid']].hidden = false;
+      this.specificPseudoStateDivs[SpecificPseudoStates['required']].hidden = false;
+      this.specificPseudoStateDivs[SpecificPseudoStates['optional']].hidden = false;
+    } else {
+      this.specificPseudoStateDivs[SpecificPseudoStates['user-valid']].hidden = true;
+      this.specificPseudoStateDivs[SpecificPseudoStates['user-invalid']].hidden = true;
+      this.specificPseudoStateDivs[SpecificPseudoStates['required']].hidden = true;
+      this.specificPseudoStateDivs[SpecificPseudoStates['optional']].hidden = true;
+    }
+
+    if (isElementOfTypes(node, ['input', 'textarea'])) {
+      this.specificPseudoStateDivs[SpecificPseudoStates['read-only']].hidden = true;
+      this.specificPseudoStateDivs[SpecificPseudoStates['read-write']].hidden = false;
+    } else {
+      this.specificPseudoStateDivs[SpecificPseudoStates['read-only']].hidden = false;
+      this.specificPseudoStateDivs[SpecificPseudoStates['read-write']].hidden = true;
+    }
+
+    if (isElementOfTypes(node, ['input']) &&
+        (node.getAttribute('min') !== undefined || node.getAttribute('max') !== undefined)) {
+      this.specificPseudoStateDivs[SpecificPseudoStates['in-range']].hidden = false;
+      this.specificPseudoStateDivs[SpecificPseudoStates['out-of-range']].hidden = false;
+    } else {
+      this.specificPseudoStateDivs[SpecificPseudoStates['in-range']].hidden = true;
+      this.specificPseudoStateDivs[SpecificPseudoStates['out-of-range']].hidden = true;
+    }
+
+    if (isElementOfTypes(node, ['a', 'area']) && node.getAttribute('href') !== undefined) {
+      this.specificPseudoStateDivs[SpecificPseudoStates['visited']].hidden = false;
+      this.specificPseudoStateDivs[SpecificPseudoStates['link']].hidden = false;
+    } else {
+      this.specificPseudoStateDivs[SpecificPseudoStates['visited']].hidden = true;
+      this.specificPseudoStateDivs[SpecificPseudoStates['link']].hidden = true;
+    }
+
+    if (isInputWithTypeRadioOrCheckbox(node) || isElementOfTypes(node, ['option'])) {
+      this.specificPseudoStateDivs[SpecificPseudoStates['checked']].hidden = false;
+    } else {
+      this.specificPseudoStateDivs[SpecificPseudoStates['checked']].hidden = true;
+    }
+
+    if (isInputWithTypeRadioOrCheckbox(node) || isElementOfTypes(node, ['progress'])) {
+      this.specificPseudoStateDivs[SpecificPseudoStates['indeterminate']].hidden = false;
+    } else {
+      this.specificPseudoStateDivs[SpecificPseudoStates['indeterminate']].hidden = true;
+    }
+
+    if (isElementOfTypes(node, ['input', 'textarea'])) {
+      this.specificPseudoStateDivs[SpecificPseudoStates['placeholder-shown']].hidden = false;
+    } else {
+      this.specificPseudoStateDivs[SpecificPseudoStates['placeholder-shown']].hidden = true;
+    }
+
+    if (isElementOfTypes(node, ['input'])) {
+      this.specificPseudoStateDivs[SpecificPseudoStates['autofill']].hidden = false;
+    } else {
+      this.specificPseudoStateDivs[SpecificPseudoStates['autofill']].hidden = true;
+    }
+    this.updateElementSpecificStatesTableForTest();
+    return;
+  }
+  updateElementSpecificStatesTableForTest(): void {
   }
 }
+
 let buttonProviderInstance: ButtonProvider;
 export class ButtonProvider implements UI.Toolbar.Provider {
   private readonly button: UI.Toolbar.ToolbarToggle;
