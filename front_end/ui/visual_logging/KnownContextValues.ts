@@ -586,6 +586,7 @@ export const knownContextValues = new Set([
   'control',
   'converter-@puppeteer/replay',
   'converter-JSON',
+  'converter-Puppeteer (for Firefox)',
   'converter-Puppeteer (including Lighthouse analysis)',
   'converter-Puppeteer',
   'converter-Puppeteer(includingLighthouseanalysis)',
