@@ -16,6 +16,58 @@
       "message": "Updated. PTAL again.",
       "revId": "548831135d0cd13bd714f0f7783af0322b0f1e09",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2a34576_1c334249",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-08T10:47:51Z",
+      "side": 1,
+      "message": "LGTM with one typo! :)",
+      "revId": "548831135d0cd13bd714f0f7783af0322b0f1e09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e8fb0fe_783e0b17",
+        "filename": "front_end/panels/settings/AISettingsTab.test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-08T10:47:51Z",
+      "side": 1,
+      "message": "(nit): /s/collaps/collapse",
+      "fixSuggestions": [
+        {
+          "fixId": "6a521da7_2a4f6e2a",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/settings/AISettingsTab.test.ts",
+              "range": {
+                "startLine": 65,
+                "startChar": 0,
+                "endLine": 66,
+                "endChar": 0
+              },
+              "replacement": "  it(\u0027can expand and collapse details via click\u0027, async () \u003d\u003e {\n"
+            }
+          ]
+        }
+      ],
+      "revId": "548831135d0cd13bd714f0f7783af0322b0f1e09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
