@@ -51,6 +51,24 @@
       "parentUuid": "6b373b79_b909cdf4",
       "revId": "11cdf939f1b0309bfadf85a5fce96a5ac90e13e7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b63e1fdb_2cb57661",
+        "filename": "front_end/panels/timeline/fixtures/traces/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-08T08:09:35Z",
+      "side": 1,
+      "message": "Wow I have no idea how I managed to do this! 😊",
+      "parentUuid": "138493f7_b8d65e90",
+      "revId": "11cdf939f1b0309bfadf85a5fce96a5ac90e13e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
