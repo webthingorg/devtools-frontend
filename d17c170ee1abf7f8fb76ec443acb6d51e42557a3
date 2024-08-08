@@ -93,6 +93,30 @@
       },
       "revId": "d17c170ee1abf7f8fb76ec443acb6d51e42557a3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2199e6ee_d20c3252",
+        "filename": "front_end/panels/timeline/overlays/OverlaysImpl.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 709,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-08T08:20:17Z",
+      "side": 1,
+      "message": "Ah understood! thanks. I wonder if any other overlays do that...\n\nI\u0027m a bit surprised to have hit this because we turn the visibility off (or should do) when the overlay is off screen which should mean that it should not be seen, so perhaps we have a bug there...might be worth looking at",
+      "parentUuid": "8d9c1352_6f4ddf36",
+      "range": {
+        "startLine": 704,
+        "startChar": 0,
+        "endLine": 709,
+        "endChar": 0
+      },
+      "revId": "d17c170ee1abf7f8fb76ec443acb6d51e42557a3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

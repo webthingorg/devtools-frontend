@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d824bf23_202feaa0",
+        "filename": "front_end/panels/timeline/overlays/components/TimespanBreakdownOverlay.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-08T08:20:17Z",
+      "side": 1,
+      "message": "sorry, I don\u0027t think my comment was very clear.\n\nI don\u0027t think we should do this and render differently, I think we should render the same HTML, but in `renderSection` apply a class of `single-section` to the section, so we can correctly ensure it has all the borders around it, etc.",
+      "range": {
+        "startLine": 176,
+        "startChar": 0,
+        "endLine": 181,
+        "endChar": 5
+      },
+      "revId": "9adb7ed08204ee40a020dec2a242a24d3334045c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
