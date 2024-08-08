@@ -88,3 +88,8 @@
     text-align: right;
   }
 }
+
+.single-breakdown {
+  font-style: italic;
+  background-image: linear-gradient(180deg, var(--sys-color-on-primary), transparent);
+}
