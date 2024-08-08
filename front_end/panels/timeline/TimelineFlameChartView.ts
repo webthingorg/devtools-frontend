@@ -46,10 +46,20 @@ const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 const MAX_HIGHLIGHTED_SEARCH_ELEMENTS: number = 200;
 
+interface SearchResult {
+  provider: 'main'|'network';
+  index: number;
+  startTimeMilli: TraceEngine.Types.Timing.MilliSeconds;
+}
+
 export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.FlameChart.FlameChartDelegate,
                                                                       UI.SearchableView.Searchable {
   private readonly delegate: TimelineModeViewDelegate;
-  private searchResults!: number[]|undefined;
+  /**
+   * Tracks the indexes of matched entries when the user searches the panel.
+   * Defaults to undefined which indicates the user has not searched.
+   */
+  private searchResults: SearchResult[]|undefined = undefined;
   private eventListeners: Common.EventTarget.EventDescriptor[];
   // TODO(crbug.com/1172300) Ignored during the jsdoc to ts migration
   private readonly networkSplitWidget: UI.SplitWidget.SplitWidget;
@@ -78,7 +88,7 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
   private readonly groupBySetting: Common.Settings.Setting<any>;
   private searchableView!: UI.SearchableView.SearchableView;
   private needsResizeToPreferredHeights?: boolean;
-  private selectedSearchResult?: number;
+  private selectedSearchResult?: SearchResult;
   private searchRegex?: RegExp;
   #traceEngineData: TraceEngine.Handlers.Types.TraceParseData|null;
   #traceInsightsData: TraceEngine.Insights.Types.TraceInsightData|null = null;
@@ -678,13 +688,20 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
 
   // UI.SearchableView.Searchable implementation
 
+  searchResultIndexForEntryIndex(index: number): number {
+    if (!this.searchResults) {
+      return -1;
+    }
+    return this.searchResults.findIndex(result => result.index === index);
+  }
+
   jumpToNextSearchResult(): void {
     if (!this.searchResults || !this.searchResults.length) {
       return;
     }
     const index =
         typeof this.selectedSearchResult !== 'undefined' ? this.searchResults.indexOf(this.selectedSearchResult) : -1;
-    this.selectSearchResult(Platform.NumberUtilities.mod(index + 1, this.searchResults.length));
+    this.#selectSearchResult(Platform.NumberUtilities.mod(index + 1, this.searchResults.length));
   }
 
   jumpToPreviousSearchResult(): void {
@@ -693,7 +710,7 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     }
     const index =
         typeof this.selectedSearchResult !== 'undefined' ? this.searchResults.indexOf(this.selectedSearchResult) : 0;
-    this.selectSearchResult(Platform.NumberUtilities.mod(index - 1, this.searchResults.length));
+    this.#selectSearchResult(Platform.NumberUtilities.mod(index - 1, this.searchResults.length));
   }
 
   supportsCaseSensitiveSearch(): boolean {
@@ -704,13 +721,28 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     return true;
   }
 
-  private selectSearchResult(index: number): void {
-    this.searchableView.updateCurrentMatchIndex(index);
-    if (this.searchResults) {
-      this.selectedSearchResult = this.searchResults[index];
-      this.delegate.select(this.mainDataProvider.createSelection(this.selectedSearchResult));
-      this.mainFlameChart.showPopoverForSearchResult(this.selectedSearchResult);
+  #selectSearchResult(searchResultIndex: number): void {
+    this.searchableView.updateCurrentMatchIndex(searchResultIndex);
+    const matchedResult = this.searchResults?.at(searchResultIndex) ?? null;
+    if (!matchedResult) {
+      return;
     }
+
+    switch (matchedResult.provider) {
+      case 'main': {
+        this.delegate.select(this.mainDataProvider.createSelection(matchedResult.index));
+        this.mainFlameChart.showPopoverForSearchResult(matchedResult.index);
+        break;
+      }
+      case 'network': {
+        this.delegate.select(this.networkDataProvider.createSelection(matchedResult.index));
+        this.networkFlameChart.showPopoverForSearchResult(matchedResult.index);
+        break;
+      }
+      default:
+        Platform.assertNever(matchedResult.provider, `Unknown SearchResult[provider]: ${matchedResult.provider}`);
+    }
+    this.selectedSearchResult = matchedResult;
   }
 
   private updateSearchResults(shouldJump: boolean, jumpBackwards?: boolean): void {
@@ -719,31 +751,61 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
       return;
     }
 
-    const oldSelectedSearchResult = (this.selectedSearchResult as number);
+    const oldSelectedSearchResult = this.selectedSearchResult;
     delete this.selectedSearchResult;
     this.searchResults = [];
     this.mainFlameChart.removeSearchResultHighlights();
+    this.networkFlameChart.removeSearchResultHighlights();
     if (!this.searchRegex) {
       return;
     }
     const regExpFilter = new TimelineRegExp(this.searchRegex);
     const visibleWindow = traceBoundsState.milli.timelineTraceWindow;
-    this.searchResults = this.mainDataProvider.search(visibleWindow.min, visibleWindow.max, regExpFilter);
+
+    /**
+     * Get the matches for the user's search result. We search both providers
+     * but before storing the results we need to "tag" the results with the
+     * provider they came from. We do this so that when the user highlights a
+     * search result we know which flame chart to talk to to highlight it.
+     */
+    const mainMatches = this.mainDataProvider.search(visibleWindow.min, visibleWindow.max, regExpFilter)
+                            .map(r => ({...r, provider: 'main'})) as SearchResult[];
+
+    const networkMatches = this.networkDataProvider.search(visibleWindow.min, visibleWindow.max, regExpFilter)
+                               .map(r => ({...r, provider: 'network'})) as SearchResult[];
+
+    this.searchResults = mainMatches.concat(networkMatches).sort((m1, m2) => {
+      return m1.startTimeMilli - m2.startTimeMilli;
+    });
+
     this.searchableView.updateSearchMatchesCount(this.searchResults.length);
+
     // To avoid too many highlights when the search regex matches too many entries,
     // for example, when user only types in "e" as the search query,
     // We only highlight the search results when the number of matches is less than or equal to 200.
     if (this.searchResults.length <= MAX_HIGHLIGHTED_SEARCH_ELEMENTS) {
-      this.mainFlameChart.highlightAllEntries(this.searchResults);
+      this.mainFlameChart.highlightAllEntries(mainMatches.map(m => m.index));
+      this.networkFlameChart.highlightAllEntries(networkMatches.map(m => m.index));
     }
     if (!shouldJump || !this.searchResults.length) {
       return;
     }
-    let selectedIndex = this.searchResults.indexOf(oldSelectedSearchResult);
+    let selectedIndex = this.#indexOfSearchResult(oldSelectedSearchResult);
     if (selectedIndex === -1) {
       selectedIndex = jumpBackwards ? this.searchResults.length - 1 : 0;
     }
-    this.selectSearchResult(selectedIndex);
+    this.#selectSearchResult(selectedIndex);
+  }
+
+  #indexOfSearchResult(target?: SearchResult): number {
+    if (!target) {
+      return -1;
+    }
+
+    return this.searchResults?.findIndex(result => {
+      return result.provider === target.provider && result.index === target.index;
+    }) ??
+        -1;
   }
 
   /**
@@ -752,7 +814,7 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
    * to their position in the data provider entry data array.
    * Public only for tests.
    */
-  getSearchResults(): number[]|undefined {
+  getSearchResults(): SearchResult[]|undefined {
     return this.searchResults;
   }
 
@@ -765,6 +827,8 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     delete this.searchRegex;
     this.mainFlameChart.showPopoverForSearchResult(-1);
     this.mainFlameChart.removeSearchResultHighlights();
+    this.networkFlameChart.showPopoverForSearchResult(-1);
+    this.networkFlameChart.removeSearchResultHighlights();
   }
 
   performSearch(searchConfig: UI.SearchableView.SearchConfig, shouldJump: boolean, jumpBackwards?: boolean): void {
