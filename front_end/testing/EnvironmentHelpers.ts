@@ -490,13 +490,15 @@ export function expectConsoleLogs(expectedLogs: {warn?: string[], log?: string[]
   });
 }
 
-export function getGetHostConfigStub(config: RecursivePartial<Root.Runtime.HostConfig>): sinon.SinonStub {
+export function getGetHostConfigStub(config: Platform.TypeScriptUtilities.RecursivePartial<Root.Runtime.HostConfig>):
+    sinon.SinonStub {
   const settings = Common.Settings.Settings.instance();
   return sinon.stub(settings, 'getHostConfig').returns({
     devToolsConsoleInsights: {
       enabled: false,
       aidaModelId: '',
       aidaTemperature: 0.2,
+      disallowLogging: false,
       ...config.devToolsConsoleInsights,
     } as Root.Runtime.HostConfigConsoleInsights,
     devToolsFreestylerDogfood: {
@@ -512,7 +514,3 @@ export function getGetHostConfigStub(config: RecursivePartial<Root.Runtime.HostC
     isOffTheRecord: false,
   });
 }
-
-type RecursivePartial<T> = {
-  [P in keyof T]?: RecursivePartial<T[P]>;
-};

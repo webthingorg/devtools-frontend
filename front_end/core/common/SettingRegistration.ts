@@ -89,7 +89,8 @@ export function registerSettingExtension(registration: SettingRegistration): voi
   registeredSettings.push(registration);
 }
 
-export function getRegisteredSettings(config?: Root.Runtime.HostConfig): Array<SettingRegistration> {
+export function getRegisteredSettings(config: Platform.TypeScriptUtilities.RecursivePartial<Root.Runtime.HostConfig>):
+    Array<SettingRegistration> {
   return registeredSettings.filter(
       setting => Root.Runtime.Runtime.isDescriptorEnabled(
           {experiment: setting.experiment, condition: setting.condition}, config));
@@ -278,7 +279,8 @@ export interface SettingRegistration {
    * A function that returns true if the setting should be disabled, along with
    * the reason why.
    */
-  disabledCondition?: (config?: Root.Runtime.HostConfig) => DisabledConditionResult;
+  disabledCondition?:
+      (config?: Platform.TypeScriptUtilities.RecursivePartial<Root.Runtime.HostConfig>) => DisabledConditionResult;
 
   /**
    * If a setting is deprecated, define this notice to show an appropriate warning according to the `warning` propertiy.

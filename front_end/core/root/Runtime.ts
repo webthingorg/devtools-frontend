@@ -87,7 +87,7 @@ export class Runtime {
         experiment: ((string | undefined)|null),
         condition?: Condition,
       },
-      config?: HostConfig): boolean {
+      config?: Platform.TypeScriptUtilities.RecursivePartial<HostConfig>): boolean {
     const {experiment} = descriptor;
     if (experiment === '*') {
       return true;
@@ -346,7 +346,7 @@ export interface HostConfig {
  * When defining conditions make sure that objects used by the function have
  * been instantiated.
  */
-export type Condition = (config?: HostConfig) => boolean;
+export type Condition = (config?: Platform.TypeScriptUtilities.RecursivePartial<HostConfig>) => boolean;
 
 export const conditions = {
   canDock: () => Boolean(Runtime.queryParam('can_dock')),
