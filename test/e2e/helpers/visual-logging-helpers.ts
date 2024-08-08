@@ -196,10 +196,21 @@ export function veImpressionForDrawerToolbar(options?: {
     veImpression('Close'),
   ]);
 }
-
+//
 // Verifies that VE events contains all the expected events in given order.
 // Unexpected VE events are ignored.
 export async function expectVeEvents(expectedEvents: TestLogEntry[], root?: string) {
+  collapseConsecutiveImpressions(expectedEvents);
+  prependRoot(expectedEvents, root);
+
+  const {frontend} = getBrowserAndPages();
+  // @ts-ignore
+  await frontend.evaluate(async expectedEvents => await globalThis.expectVeEvents(expectedEvents), expectedEvents);
+}
+
+// Verifies that VE events contains all the expected events in given order.
+// Unexpected VE events are ignored.
+export async function expectVeEventsOrig(expectedEvents: TestLogEntry[], root?: string) {
   collapseConsecutiveImpressions(expectedEvents);
   prependRoot(expectedEvents, root);
 

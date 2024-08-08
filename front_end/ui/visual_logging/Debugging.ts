@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as Platform from '../../core/platform/platform.js';
 import {assertNotNullOrUndefined} from '../../core/platform/platform.js';
 
 import {type Loggable} from './Loggable.js';
@@ -116,6 +117,9 @@ export function processEventForTestDebugging(
     event: EventType, state: LoggingState|null, _extraInfo?: EventAttributes): void {
   lastImpressionLogEntry = null;
   maybeLogDebugEvent({interaction: `${event}: ${veTestKeys.get(state?.veid || 0) || ''}`});
+  if (pendingExpectedEvents) {
+    checkVeEvents(pendingExpectedEvents);
+  }
 }
 
 export function processEventForAdHocAnalysisDebugging(
@@ -247,6 +251,9 @@ function processImpressionsForTestDebugLog(states: LoggingState[]): void {
     }
     veTestKeys.set(state.veid, key);
     lastImpressionLogEntry.impressions.push(key);
+  }
+  if (pendingExpectedEvents) {
+    checkVeEvents(pendingExpectedEvents);
   }
 }
 
@@ -574,6 +581,154 @@ async function getVeDebugEventsLog(): Promise<(IntuitiveLogEntry | AdHocAnalysis
   lastImpressionLogEntry = null;
   return veDebugEventsLog;
 }
+// Compares the 'actual' log entry against the 'expected'. The difference of 0
+// indicates that events match. Positive values, maximum 1.0, means no match,
+// higher values represent larger difference.
+// For impressions events to match, all expected impressions need to be present
+// in the actual event. Unexected impressions in the actual event are ignored.
+// Interaction events need to match exactly.
+function compareVeEvents(actual: TestLogEntry, expected: TestLogEntry): {difference: number, description?: string} {
+  if ('interaction' in expected && 'interaction' in actual) {
+    if (expected.interaction !== actual.interaction) {
+      return {
+        difference: editDistance(expected.interaction, actual.interaction) /
+            Math.max(expected.interaction.length, actual.interaction.length),
+        description: `Missing VE interaction: ${expected.interaction}, got: ${actual.interaction}`,
+      };
+    }
+    return {difference: 0};
+  }
+  if ('impressions' in expected && 'impressions' in actual) {
+    const actualSet = new Set(actual.impressions);
+    const expectedSet = new Set(expected.impressions);
+    const missing = [...expectedSet].filter(k => !actualSet.has(k));
+
+    if (missing.length) {
+      return {
+        difference: missing.length / expected.impressions.length,
+        // description: 'Missing VE impressions:\n' + formatImpressions(missing),
+      };
+    }
+    return {difference: 0};
+  }
+  return {
+    difference: 1,
+    // description: 'interaction' in expected ? 'Missing VE interaction:\n' + expected.interaction :
+    //                                          'Missing VE impressions:\n' + formatImpressions(expected.impressions),
+  };
+}
+
+let pendingExpectedEvents: TestLogEntry[]|null = null;
+let missingExpectedEvents: TestLogEntry[]|null = null;
+let pendingExpectVeEventsResult = Platform.PromiseUtilities.promiseWithResolvers<void>();
+let pendingRejectionTimeout: number|null = null;
+
+function formatImpressions(impressions: string[]): string[] {
+  const result: string[] = [];
+  let lastImpression = '';
+  for (const impression of impressions.sort()) {
+    if (impression === lastImpression) {
+      continue;
+    }
+    while (!impression.startsWith(lastImpression)) {
+      lastImpression = lastImpression.substr(0, lastImpression.lastIndexOf(' > '));
+    }
+    result.push(' '.repeat(lastImpression.length) + impression.substr(lastImpression.length));
+    lastImpression = impression;
+  }
+  return result.join('\n');
+}
+
+// Verifies that VE events contains all the expected events in given order.
+// Unexpected VE events are ignored.
+export async function expectVeEvents(expectedEvents: TestLogEntry[]): Promise<void> {
+  // console.error('expectVeEvents 0', typeof expectedEvents);
+  if (pendingExpectedEvents) {
+    throw new Error('Already await for VE events');
+  }
+  // console.error('expectVeEvents 1');
+  pendingExpectedEvents = expectedEvents;
+  pendingExpectVeEventsResult = Platform.PromiseUtilities.promiseWithResolvers<void>();
+  // console.error('expectVeEvents 2');
+  checkVeEvents(pendingExpectedEvents);
+  // console.error('expectVeEvents 3');
+  pendingRejectionTimeout = setTimeout(() => {
+    if (missingExpectedEvents) {
+      const actualEventsString = (veDebugEventsLog as TestLogEntry[])
+                                     .map(e => 'interaction' in e ? e.interaction : formatImpressions(e.impressions))
+                                     .join('\n');
+      pendingExpectVeEventsResult.reject(new Error(
+          'Missing VE Events: ' +
+          missingExpectedEvents.map(e => 'interaction' in e ? e.interaction : formatImpressions(e.impressions))
+              .join('\n') +
+          '\nActual events:\n' + actualEventsString));
+    }
+  }, 5000);
+  // console.error('expectVeEvents 4');
+  return pendingExpectVeEventsResult.promise;
+}
+
+function checkVeEvents(expectedEvents: TestLogEntry[]): void {
+  // console.error('checkVeEvents 0' , typeof expectedEvents);
+  const actualEvents = [...veDebugEventsLog] as TestLogEntry[];
+  // const actualEventsString =
+  //     actualEvents.map(e => 'interaction' in e ? e.interaction : formatImpressions(e.impressions)).join('\n');
+  const unmatchedEvents: TestLogEntry[] = [];
+  for (let i = 0; i < expectedEvents.length; ++i) {
+    // console.error('checkVeEvents 1');
+    const expectedEvent = expectedEvents[i];
+    while (true) {
+      // console.error('checkVeEvents 2');
+      if (actualEvents.length <= i) {
+        missingExpectedEvents = expectedEvents.slice(i);
+        return;
+      }
+      // console.error('checkVeEvents 3');
+      const error = compareVeEvents(actualEvents[i], expectedEvent);
+      if (error.difference) {
+        unmatchedEvents.push(actualEvents[i]);
+        actualEvents.splice(i, 1);
+      } else {
+        break;
+      }
+    }
+  }
+  // console.error('checkVeEvents 4');
+  // veDebugEventsLog.splice(0, Infinity, ...unmatchedEvents);
+  pendingExpectedEvents = null;
+  if (pendingRejectionTimeout) {
+    clearTimeout(pendingRejectionTimeout);
+    pendingRejectionTimeout = null;
+  }
+  pendingExpectVeEventsResult.resolve();
+}
+
+//
+// Computes the Levenshtein edit distance between two strings.
+function editDistance(a: string, b: string): number {
+  const v0: number[] = [];
+  const v1: number[] = [];
+  if (a === b) {
+    return 0;
+  }
+  if (!a.length || !b.length) {
+    return Math.max(a.length, b.length);
+  }
+  for (let i = 0; i < b.length + 1; i++) {
+    v0[i] = i;
+  }
+  for (let i = 0; i < a.length; i++) {
+    v1[0] = i + 1;
+    for (let j = 0; j < b.length; j++) {
+      const cost = Number(a[i] !== b[j]);
+      v1[j + 1] = Math.min(v1[j] + 1, v0[j + 1] + 1, v0[j] + cost);
+    }
+    for (let j = 0; j < v0.length; j++) {
+      v0[j] = v1[j];
+    }
+  }
+  return v1[b.length];
+}
 
 // @ts-ignore
 globalThis.setVeDebugLoggingEnabled = setVeDebugLoggingEnabled;
@@ -587,3 +742,5 @@ globalThis.exportAdHocAnalysisLogForSql = exportAdHocAnalysisLogForSql;
 globalThis.buildStateFlow = buildStateFlow;
 // @ts-ignore
 globalThis.getVeDebugEventsLog = getVeDebugEventsLog;
+// @ts-ignore
+globalThis.expectVeEvents = expectVeEvents;
