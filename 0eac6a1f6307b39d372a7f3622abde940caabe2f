@@ -47,6 +47,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c311c0e_625bd521",
+        "filename": "front_end/models/trace/insights/types.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2024-08-08T00:01:50Z",
+      "side": 1,
+      "message": "replaced SCSInsightResult with SlowCSSSelectorInsightResult as suggested. Thanks.",
+      "parentUuid": "1b50bf17_430fb359",
+      "range": {
+        "startLine": 61,
+        "startChar": 12,
+        "endLine": 61,
+        "endChar": 28
+      },
+      "revId": "0eac6a1f6307b39d372a7f3622abde940caabe2f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5f0715ca_c2caf020",
@@ -60,6 +84,30 @@
       "writtenOn": "2024-08-07T10:50:09Z",
       "side": 1,
       "message": "I think this is slightly odd; we only intend renderMetricValue to render the CWVs, so probably would not want to include this here.",
+      "range": {
+        "startLine": 53,
+        "startChar": 25,
+        "endLine": 53,
+        "endChar": 37
+      },
+      "revId": "0eac6a1f6307b39d372a7f3622abde940caabe2f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "76bcd2e5_7cdf3230",
+        "filename": "front_end/panels/timeline/components/SidebarSingleNavigation.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2024-08-08T00:01:50Z",
+      "side": 1,
+      "message": "removed CSS from metrics.",
+      "parentUuid": "5f0715ca_c2caf020",
       "range": {
         "startLine": 53,
         "startChar": 25,

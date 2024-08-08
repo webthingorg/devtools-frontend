@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b1d68e5_546a78f4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2024-08-08T00:01:50Z",
+      "side": 1,
+      "message": "Hi Jack,\n\nI have replaced SCS with SlowCSSSelector and extended the class from BaseInsight as suggested. Please take a look.\n\nThanks,\nGavin",
+      "revId": "3276bc6a51165f43e76f606a2eb7a343a65500c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
