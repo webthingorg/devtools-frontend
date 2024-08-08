@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ef52ae2_4d22c947",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-08-08T08:22:59Z",
+      "side": 1,
+      "message": "Hi Simon,\n\nI\u0027m partly rolling DEPS (removed the node updates). PTAL!",
+      "revId": "0ca72819391a374846d3abd60b21b7266c10d24d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
