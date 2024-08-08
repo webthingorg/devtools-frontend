@@ -55,9 +55,14 @@ export class CLSCulprits extends BaseInsight {
             } as SidebarInsight.InsightDetails}
             @insighttoggleclick=${this.onSidebarClick}>
                 <div slot="insight-description" class="insight-description">
-                    <p>Layout shifts happen when existing elements unexpectedly move.
-                         Shifts are caused by nodes changing size or newly added. Investigate
-                         and fix these culprits.</p>
+                    <p>
+                      Layout shifts happen when existing elements unexpectedly move.
+                      Shifts are caused by nodes changing size or newly added. Investigate
+                      and fix these culprits.
+                      <x-link class="link" href="https://web.dev/articles/cls">
+                        Learn more about Cumulative Layout Shift.
+                      </x-link>
+                    </p>
                 </div>
             </${SidebarInsight.SidebarInsight}>
         </div>`;
