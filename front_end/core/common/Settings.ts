@@ -57,11 +57,12 @@ export class Settings {
   #eventSupport: ObjectWrapper<GenericEvents>;
   #registry: Map<string, Setting<unknown>>;
   readonly moduleSettings: Map<string, Setting<unknown>>;
-  readonly #config?: Root.Runtime.HostConfig;
+  readonly #config: Platform.TypeScriptUtilities.RecursivePartial<Root.Runtime.HostConfig>;
 
   private constructor(
       readonly syncedStorage: SettingsStorage, readonly globalStorage: SettingsStorage,
-      readonly localStorage: SettingsStorage, config?: Root.Runtime.HostConfig) {
+      readonly localStorage: SettingsStorage,
+      config?: Platform.TypeScriptUtilities.RecursivePartial<Root.Runtime.HostConfig>) {
     this.#sessionStorage = new SettingsStorage({});
 
     this.settingNameSet = new Set();
@@ -72,7 +73,7 @@ export class Settings {
     this.#registry = new Map();
     this.moduleSettings = new Map();
 
-    this.#config = config;
+    this.#config = config || {};
     for (const registration of this.getRegisteredSettings()) {
       const {settingName, defaultValue, storageType} = registration;
       const isRegex = registration.settingType === SettingType.REGEX;
@@ -105,7 +106,7 @@ export class Settings {
     syncedStorage: SettingsStorage|null,
     globalStorage: SettingsStorage|null,
     localStorage: SettingsStorage|null,
-    config?: Root.Runtime.HostConfig,
+    config?: Platform.TypeScriptUtilities.RecursivePartial<Root.Runtime.HostConfig>,
   } = {forceNew: null, syncedStorage: null, globalStorage: null, localStorage: null}): Settings {
     const {forceNew, syncedStorage, globalStorage, localStorage, config} = opts;
     if (!settingsInstance || forceNew) {
@@ -123,7 +124,7 @@ export class Settings {
     settingsInstance = undefined;
   }
 
-  getHostConfig(): Root.Runtime.HostConfig|undefined {
+  getHostConfig(): Platform.TypeScriptUtilities.RecursivePartial<Root.Runtime.HostConfig> {
     return this.#config;
   }
 

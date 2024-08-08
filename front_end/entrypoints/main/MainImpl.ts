@@ -150,9 +150,10 @@ export class MainImpl {
     const prefsPromise = new Promise<{[key: string]: string}>(resolve => {
       Host.InspectorFrontendHost.InspectorFrontendHostInstance.getPreferences(resolve);
     });
-    const configPromise = new Promise<Root.Runtime.HostConfig>(resolve => {
-      Host.InspectorFrontendHost.InspectorFrontendHostInstance.getHostConfig(resolve);
-    });
+    const configPromise =
+        new Promise<Platform.TypeScriptUtilities.RecursivePartial<Root.Runtime.HostConfig>>(resolve => {
+          Host.InspectorFrontendHost.InspectorFrontendHostInstance.getHostConfig(resolve);
+        });
     const [prefs, config] = await Promise.all([prefsPromise, configPromise]);
 
     console.timeStamp('Main._gotPreferences');
@@ -231,7 +232,7 @@ export class MainImpl {
       prefs: {
         [x: string]: string,
       },
-      config: Root.Runtime.HostConfig): void {
+      config: Platform.TypeScriptUtilities.RecursivePartial<Root.Runtime.HostConfig>): void {
     this.#initializeExperiments();
     let storagePrefix = '';
     if (Host.Platform.isCustomDevtoolsFrontend()) {
