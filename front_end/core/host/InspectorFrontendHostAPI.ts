@@ -307,7 +307,7 @@ export interface InspectorFrontendHostAPI {
 
   getSyncInformation(callback: (arg0: SyncInformation) => void): void;
 
-  getHostConfig(callback: (arg0: Root.Runtime.HostConfig) => void): void;
+  getHostConfig(callback: (arg0: Platform.TypeScriptUtilities.RecursivePartial<Root.Runtime.HostConfig>) => void): void;
 
   upgradeDraggedFileSystemPermissions(fileSystem: FileSystem): void;
 
