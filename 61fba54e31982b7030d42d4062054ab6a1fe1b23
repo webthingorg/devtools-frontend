@@ -16,6 +16,24 @@
       "message": "How come these have been removed?",
       "revId": "61fba54e31982b7030d42d4062054ab6a1fe1b23",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "403b6b0e_7d504ede",
+        "filename": "front_end/ui/visual_logging/KnownContextValues.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-08-08T06:56:14Z",
+      "side": 0,
+      "message": "Something must have gone wrong during a rebase, fixed!",
+      "parentUuid": "d7320b4e_680a987f",
+      "revId": "61fba54e31982b7030d42d4062054ab6a1fe1b23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
