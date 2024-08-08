@@ -1,0 +1,85 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a9bdb02_74b0fde1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-08T08:27:50Z",
+      "side": 1,
+      "message": "lgtm with nits",
+      "revId": "a275ac3af7083b1bf16395cc496627c685fb8a1b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84c42d19_7f3dc4ab",
+        "filename": "front_end/panels/timeline/components/insights/CLSCulprits.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-08T08:27:50Z",
+      "side": 1,
+      "message": "don\u0027t need this (if you are just calling super, you can just not override it)",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 3
+      },
+      "revId": "a275ac3af7083b1bf16395cc496627c685fb8a1b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ff5e3a2_e181ae47",
+        "filename": "front_end/panels/timeline/components/insights/CLSCulprits.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-08T08:27:50Z",
+      "side": 1,
+      "message": "should be a lower case u",
+      "range": {
+        "startLine": 62,
+        "startChar": 67,
+        "endLine": 62,
+        "endChar": 79
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "d653c0a7_ec296688",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/components/insights/CLSCulprits.ts",
+              "range": {
+                "startLine": 62,
+                "startChar": 0,
+                "endLine": 63,
+                "endChar": 0
+              },
+              "replacement": "                    \u003cp\u003eLayout shifts happen when existing elements unexpectedly move.\n"
+            }
+          ]
+        }
+      ],
+      "revId": "a275ac3af7083b1bf16395cc496627c685fb8a1b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
