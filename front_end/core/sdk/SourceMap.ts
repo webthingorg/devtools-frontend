@@ -145,7 +145,7 @@ function comparePositions(a: Position, b: Position): number {
   return a.lineNumber - b.lineNumber || a.columnNumber - b.columnNumber;
 }
 
-export interface ScopeEntry {
+export interface ScopeEntry {  // Same thing as a functionDescriptor?
   scopeName(): string;
   start(): Position;
   end(): Position;
