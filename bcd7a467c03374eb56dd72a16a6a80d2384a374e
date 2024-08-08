@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96ab36ee_51b07ff8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-08-08T13:28:30Z",
+      "side": 1,
+      "message": "LGTM % double-checking",
+      "revId": "bcd7a467c03374eb56dd72a16a6a80d2384a374e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df1cfbe9_3fa64445",
+        "filename": "front_end/ui/visual_logging/KnownContextValues.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 508,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-08-08T13:28:30Z",
+      "side": 1,
+      "message": "Just double-checking because of the `z`; is this correct?:)",
+      "range": {
+        "startLine": 508,
+        "startChar": 8,
+        "endLine": 508,
+        "endChar": 9
+      },
+      "revId": "bcd7a467c03374eb56dd72a16a6a80d2384a374e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
