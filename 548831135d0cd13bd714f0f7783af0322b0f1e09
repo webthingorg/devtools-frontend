@@ -68,6 +68,24 @@
       ],
       "revId": "548831135d0cd13bd714f0f7783af0322b0f1e09",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30434420_42a3c67e",
+        "filename": "front_end/panels/settings/AISettingsTab.test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-08-08T10:49:06Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "8e8fb0fe_783e0b17",
+      "revId": "548831135d0cd13bd714f0f7783af0322b0f1e09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
