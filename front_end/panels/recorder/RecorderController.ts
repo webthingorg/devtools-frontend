@@ -157,6 +157,7 @@ const CONVERTER_ID_TO_METRIC: Record<string, Host.UserMetrics.RecordingExported|
   [Models.ConverterIds.ConverterIds.JSON]: Host.UserMetrics.RecordingExported.ToJSON,
   [Models.ConverterIds.ConverterIds.Replay]: Host.UserMetrics.RecordingExported.ToPuppeteerReplay,
   [Models.ConverterIds.ConverterIds.Puppeteer]: Host.UserMetrics.RecordingExported.ToPuppeteer,
+  [Models.ConverterIds.ConverterIds.PuppeteerFirefox]: Host.UserMetrics.RecordingExported.ToPuppeteer,
   [Models.ConverterIds.ConverterIds.Lighthouse]: Host.UserMetrics.RecordingExported.ToLighthouse,
 };
 
@@ -222,6 +223,7 @@ export class RecorderController extends LitElement {
       new Converters.JSONConverter.JSONConverter(textEditorIndent),
       new Converters.PuppeteerReplayConverter.PuppeteerReplayConverter(textEditorIndent),
       new Converters.PuppeteerConverter.PuppeteerConverter(textEditorIndent),
+      new Converters.PuppeteerFirefoxConverter.PuppeteerFirefoxConverter(textEditorIndent),
       new Converters.LighthouseConverter.LighthouseConverter(textEditorIndent),
     ]);
 

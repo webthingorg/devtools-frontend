@@ -588,6 +588,7 @@ export const knownContextValues = new Set([
   'converter-JSON',
   'converter-Puppeteer (including Lighthouse analysis)',
   'converter-Puppeteer',
+  'converter-Puppeteer (for Firefox)',
   'converter-Puppeteer(includingLighthouseanalysis)',
   'converter-TestExtension',
   'converter-json',
