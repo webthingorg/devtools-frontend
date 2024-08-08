@@ -71,8 +71,10 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
   private readonly countersView: CountersGraph;
   private readonly detailsSplitWidget: UI.SplitWidget.SplitWidget;
   private readonly detailsView: TimelineDetailsView;
-  private readonly onMainAnnotateEntry: (event: Common.EventTarget.EventTargetEvent<number>) => void;
-  private readonly onNetworkAnnotateEntry: (event: Common.EventTarget.EventTargetEvent<number>) => void;
+  private readonly onMainAddEntryLabelAnnotation: (event: Common.EventTarget.EventTargetEvent<number>) => void;
+  private readonly onNetworkAddEntryLabelAnnotation: (event: Common.EventTarget.EventTargetEvent<number>) => void;
+  private readonly onMainAddEntriesLinkAnnotation: (event: Common.EventTarget.EventTargetEvent<number>) => void;
+  private readonly onNetworkAddEntriesLinkAnnotation: (event: Common.EventTarget.EventTargetEvent<number>) => void;
   private readonly onMainEntrySelected: (event: Common.EventTarget.EventTargetEvent<number>) => void;
   private readonly onNetworkEntrySelected: (event: Common.EventTarget.EventTargetEvent<number>) => void;
   readonly #boundRefreshAfterIgnoreList: () => void;
@@ -235,12 +237,20 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     this.detailsSplitWidget.setSidebarWidget(this.detailsView);
     this.detailsSplitWidget.show(this.element);
 
-    this.onMainAnnotateEntry = this.onAnnotateEntry.bind(this, this.mainDataProvider);
-    this.onNetworkAnnotateEntry = this.onAnnotateEntry.bind(this, this.networkDataProvider);
+    this.onMainAddEntryLabelAnnotation = this.onAddEntryLabelAnnotation.bind(this, this.mainDataProvider);
+    this.onNetworkAddEntryLabelAnnotation = this.onAddEntryLabelAnnotation.bind(this, this.networkDataProvider);
+    this.onMainAddEntriesLinkAnnotation = this.onAddEntriesLinkAnnotation.bind(this, this.mainDataProvider);
+    this.onNetworkAddEntriesLinkAnnotation = this.onAddEntriesLinkAnnotation.bind(this, this.networkDataProvider);
     if (Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.TIMELINE_ANNOTATIONS)) {
-      this.mainFlameChart.addEventListener(PerfUI.FlameChart.Events.AnnotateEntry, this.onMainAnnotateEntry, this);
+      this.mainFlameChart.addEventListener(
+          PerfUI.FlameChart.Events.EntryLabelAnnotationAdded, this.onMainAddEntryLabelAnnotation, this);
       this.networkFlameChart.addEventListener(
-          PerfUI.FlameChart.Events.AnnotateEntry, this.onNetworkAnnotateEntry, this);
+          PerfUI.FlameChart.Events.EntryLabelAnnotationAdded, this.onNetworkAddEntryLabelAnnotation, this);
+
+      this.mainFlameChart.addEventListener(
+          PerfUI.FlameChart.Events.EntriesLinkAnnotationAdded, this.onMainAddEntriesLinkAnnotation, this);
+      this.networkFlameChart.addEventListener(
+          PerfUI.FlameChart.Events.EntriesLinkAnnotationAdded, this.onNetworkAddEntriesLinkAnnotation, this);
     }
     this.onMainEntrySelected = this.onEntrySelected.bind(this, this.mainDataProvider);
     this.onNetworkEntrySelected = this.onEntrySelected.bind(this, this.networkDataProvider);
@@ -661,7 +671,7 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     this.#overlays.update();
   }
 
-  private onAnnotateEntry(
+  private onAddEntryLabelAnnotation(
       dataProvider: TimelineFlameChartDataProvider|TimelineFlameChartNetworkDataProvider,
       event: Common.EventTarget.EventTargetEvent<number>): void {
     const selection = dataProvider.createSelection(event.data);
@@ -674,6 +684,18 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
         entry: selection.object,
         label: '',
       });
+    }
+  }
+
+  private onAddEntriesLinkAnnotation(
+      dataProvider: TimelineFlameChartDataProvider|TimelineFlameChartNetworkDataProvider,
+      event: Common.EventTarget.EventTargetEvent<number>): void {
+    const selection = dataProvider.createSelection(event.data);
+    if (selection &&
+        (TimelineSelection.isTraceEventSelection(selection.object) ||
+         TimelineSelection.isSyntheticNetworkRequestDetailsEventSelection(selection.object))) {
+      this.setSelection(selection);
+      // TODO: Create the annotation through ModificationsManager and add a way to update its
     }
   }
 
