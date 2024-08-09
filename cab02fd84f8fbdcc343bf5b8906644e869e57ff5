@@ -103,6 +103,24 @@
       "parentUuid": "aee22906_59913d20",
       "revId": "cab02fd84f8fbdcc343bf5b8906644e869e57ff5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7190c43f_982ab755",
+        "filename": "front_end/entrypoints/main/SettingTracker.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-09T10:40:32Z",
+      "side": 1,
+      "message": "Nice, thank you for the explanation! :)",
+      "parentUuid": "adf194a2_be635658",
+      "revId": "cab02fd84f8fbdcc343bf5b8906644e869e57ff5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
