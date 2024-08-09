@@ -34,6 +34,69 @@
       "parentUuid": "aa035cb2_e37247fa",
       "revId": "0894bc0720b4902836d28c3db47a4236e145e26f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d81250bc_9e0dbab9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-09T09:37:31Z",
+      "side": 1,
+      "message": "lgtm with two small thoughts - nice!\n\nnicely done using the data grid... I regret the `renderer` pattern because of the exact reason you\u0027ve had to use arrow funcs for the listeners...",
+      "revId": "0894bc0720b4902836d28c3db47a4236e145e26f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d9fe6af_2aadd86c",
+        "filename": "front_end/models/crux-manager/CrUXManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-09T09:37:31Z",
+      "side": 1,
+      "message": "don\u0027t feel strongly and it\u0027s not going to make a huge perf difference at all, but I wonder if it would make more sense to store the mappings in a Map, where the key is the origin.\n\nThen this could be `const mapping \u003d mappings.get(unmapped.origin)`.\n\nwdyt? (non blocking)",
+      "range": {
+        "startLine": 181,
+        "startChar": 0,
+        "endLine": 181,
+        "endChar": 46
+      },
+      "revId": "0894bc0720b4902836d28c3db47a4236e145e26f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46f035f0_8cf1033c",
+        "filename": "front_end/panels/timeline/components/FieldSettingsDialog.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-09T09:37:31Z",
+      "side": 1,
+      "message": "tiny nit, I tend to prefer explicit `null` rather than empty string...but again, take it or leave it.",
+      "range": {
+        "startLine": 311,
+        "startChar": 0,
+        "endLine": 311,
+        "endChar": 34
+      },
+      "revId": "0894bc0720b4902836d28c3db47a4236e145e26f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
