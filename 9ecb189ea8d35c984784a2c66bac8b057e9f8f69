@@ -64,6 +64,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "025f6cae_704fb0d9",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 654,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-09T13:18:07Z",
+      "side": 1,
+      "message": "Big plus one; I would like to move out all the various UI steps into their own component and just always show one of them. My plan in the future is to try to have each view be its own component/widget and greatly simplify all this.",
+      "parentUuid": "2c3ac38d_f1dacf9c",
+      "range": {
+        "startLine": 654,
+        "startChar": 3,
+        "endLine": 654,
+        "endChar": 13
+      },
+      "revId": "9ecb189ea8d35c984784a2c66bac8b057e9f8f69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6f7120ec_0fa15b63",
@@ -77,6 +101,30 @@
       "writtenOn": "2024-08-09T12:21:32Z",
       "side": 1,
       "message": "I think we shouldn\u0027t reset the source map resolver when changing views as long as we aren\u0027t starting a new recording. If the user switches between views and comes back, ideally the names of the JS calls remain the same, but if we reset this between the switches, the resolved names would be lost.",
+      "range": {
+        "startLine": 661,
+        "startChar": 9,
+        "endLine": 661,
+        "endChar": 81
+      },
+      "revId": "9ecb189ea8d35c984784a2c66bac8b057e9f8f69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee98fbaf_13b35a5c",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 661,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-09T13:18:07Z",
+      "side": 1,
+      "message": "I\u0027m not sure if this is correct but I admit I am getting a bit lost!\n\nRight now the flow is:\n\nIn the `setModelForActiveTrace` (which was `setModel`) we install the SourceMapsResolver. This binds the event listeners but also immediately walks through the profiles in the trace and tries to update any function names it can based on the set of active source maps.\n\nResolved names are also stored in a cache of PID\u003d\u003eTID\u003d\u003eNodeId so that in TimelineUIUtils we can loop up function names to use.\n\nSo, given that, if the user records or loads a new trace I think we should:\n\n1. clear the cache of PID\u003d\u003eTID\u003d\u003eNodeId entries\n2. uninstall the event listeners\n3. reinstall the source maps resolver, which rebinds the listeners and also eagerly tries to resolve names of functions in samples\n\nIf we make sure that this happens any time the user swaps traces, or records a new one, I think this should work as expected.\n\nIf I load Trace A, then Trace B, and then go back to Trace A, we would have cleared the cache, but then when I go back to Trace A for a second time, we will reinstall the listeners + re-evaluate the source maps and still resolve the correct names.\n\nThere is clearly an optimisation where we cache resolved names against the trace data to avoid re-lookups, but I won\u0027t do that now.\n\nDoes that make sense to you? Feel free to push back if I am getting it wrong 😄\n\n2.",
+      "parentUuid": "6f7120ec_0fa15b63",
       "range": {
         "startLine": 661,
         "startChar": 9,
