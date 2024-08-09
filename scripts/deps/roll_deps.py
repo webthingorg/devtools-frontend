@@ -93,25 +93,10 @@ def update(options):
     subprocess.check_call(['gclient', 'sync'], cwd=options.chromium_dir)
 
 
-def get_hook_action(options, hook_name, project_dir):
-    """Parses Chromium DEPS file and returns the action for the given hook.
-    """
-    sys.path.append(os.path.join(project_dir, 'third_party', 'depot_tools'))
-    import gclient_eval
-
-    filepath = os.path.join(project_dir, 'DEPS')
-    with open(filepath) as deps_file:
-        deps = gclient_eval.Parse(deps_file.read(), filepath)
-    for hook in deps['hooks']:
-        if hook['name'] == hook_name:
-            return hook['action']
-    raise RuntimeError(f'{hook_name} hook not found in DEPS')
-
-
 def sync_node(options):
     """Executes the nodejs sync hook from Devtools DEPS file."""
-    action = get_hook_action(options, 'node_linux64', options.devtools_dir)
-    subprocess.check_call(action, cwd=options.devtools_dir)
+    subprocess.check_call(['gclient', 'sync', '--nohooks'],
+                          cwd=options.devtools_dir)
 
 
 def copy_files(options):
