@@ -24,6 +24,20 @@ export class RemoveAnnotation extends Event {
   }
 }
 
+export class MetricSelected extends Event {
+  static readonly eventName = 'sidebarmetricclick';
+
+  constructor(public metricEvent: TraceEngine.Types.TraceEvents.TraceEventData) {
+    super(MetricSelected.eventName, {bubbles: true, composed: true});
+  }
+}
+
+declare global {
+  interface GlobalEventHandlersEventMap {
+    [MetricSelected.eventName]: MetricSelected;
+  }
+}
+
 export const enum SidebarTabs {
   INSIGHTS = 'insights',
   ANNOTATIONS = 'annotations',
