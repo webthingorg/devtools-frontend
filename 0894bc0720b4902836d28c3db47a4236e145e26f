@@ -76,6 +76,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "72c49f62_1e2c4c0e",
+        "filename": "front_end/models/crux-manager/CrUXManager.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-08-09T16:21:05Z",
+      "side": 1,
+      "message": "This is a good point but I hesitate for a couple reasons:\n- Assuming settings need to be JSON serializable this map would need to convert into an array at some point anyway\n- I think the order of the mappings could become important at some point (e.g. reordering mappings). `Map` does preserve order but it\u0027s hard to control the order like in a list.",
+      "parentUuid": "1d9fe6af_2aadd86c",
+      "range": {
+        "startLine": 181,
+        "startChar": 0,
+        "endLine": 181,
+        "endChar": 46
+      },
+      "revId": "0894bc0720b4902836d28c3db47a4236e145e26f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "46f035f0_8cf1033c",
@@ -89,6 +113,30 @@
       "writtenOn": "2024-08-09T09:37:31Z",
       "side": 1,
       "message": "tiny nit, I tend to prefer explicit `null` rather than empty string...but again, take it or leave it.",
+      "range": {
+        "startLine": 311,
+        "startChar": 0,
+        "endLine": 311,
+        "endChar": 34
+      },
+      "revId": "0894bc0720b4902836d28c3db47a4236e145e26f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d263d53_bcfbaa9d",
+        "filename": "front_end/panels/timeline/components/FieldSettingsDialog.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-08-09T16:21:05Z",
+      "side": 1,
+      "message": "Good suggestion for the future but there are existing properties that use the ` \u003d \u0027\u0027` pattern and I want to stay consistent. Updating everything would add too much churn IMO.",
+      "parentUuid": "46f035f0_8cf1033c",
       "range": {
         "startLine": 311,
         "startChar": 0,
