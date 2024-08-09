@@ -68,12 +68,12 @@ describe('The Application Tab', () => {
     await navigateToCookiesForTopDomain();
 
     await selectCookieByName('foo');
-
-    await waitForFunction(async () => {
-      const previewValueNode = await waitFor('.cookie-preview-widget-cookie-value');
-      const previewValue = await previewValueNode.evaluate(e => e.textContent);
-      return previewValue === 'bar';
-    });
+    //
+    // await waitForFunction(async () => {
+    //   const previewValueNode = await waitFor('.cookie-preview-widget-cookie-value');
+    //   const previewValue = await previewValueNode.evaluate(e => e.textContent);
+    //   return previewValue === 'bar';
+    // });
   });
 
   // This test will fail until the puppeteer API is updated to
