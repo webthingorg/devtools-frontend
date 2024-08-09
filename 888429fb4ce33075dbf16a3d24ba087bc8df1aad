@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "35cf0d30_ef12d78e",
+        "filename": "front_end/core/sdk/DOMModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-08-09T23:27:40Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "b6769035_4c9692fa",
+      "revId": "888429fb4ce33075dbf16a3d24ba087bc8df1aad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1affee26_bd7ac8a7",
