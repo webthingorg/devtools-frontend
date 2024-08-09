@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf1c23a5_c1b30d1a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-09T11:20:05Z",
+      "side": 1,
+      "message": "frontend",
+      "range": {
+        "startLine": 7,
+        "startChar": 38,
+        "endLine": 7,
+        "endChar": 46
+      },
+      "revId": "0173d74ec4e3a81500fcb9f54c9c3cb1bc4819de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6acd84c8_57194037",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-09T11:20:05Z",
+      "side": 1,
+      "message": "I\u0027m missing some context. Is this to address general test flakiness? The bug only links to general VE work and the CL description has no indication.",
+      "revId": "0173d74ec4e3a81500fcb9f54c9c3cb1bc4819de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
