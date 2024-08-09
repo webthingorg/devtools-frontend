@@ -133,6 +133,30 @@
       },
       "revId": "9ecb189ea8d35c984784a2c66bac8b057e9f8f69",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1f709d0_c487e2e3",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 661,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-08-09T13:42:49Z",
+      "side": 1,
+      "message": "I just remembered that we store resolved the names in two places, in the cache you mention but we also change the profile nodes that are part of the traceParsedData to have the resolved name. The cache you mention is the one where the data loss would happen in this scenario:\n\n1. User records a trace (trace 1) -\u003e names are resolved\n\n2. User navigates and records another trace (trace 2) -\u003e resolved names from trace 1 are deleted, names are resolved for trace 2.\n\n3. User switches back to trace 1 -\u003e names cannot be resolved because scripts have changed etc.\n\nAlthough this is already the case before this CL, so solving it is definetly non-blocking, but good thing it served to realize about the issue! 😄",
+      "parentUuid": "ee98fbaf_13b35a5c",
+      "range": {
+        "startLine": 661,
+        "startChar": 9,
+        "endLine": 661,
+        "endChar": 81
+      },
+      "revId": "9ecb189ea8d35c984784a2c66bac8b057e9f8f69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
