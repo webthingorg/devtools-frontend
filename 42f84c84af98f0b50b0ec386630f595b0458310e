@@ -33,6 +33,24 @@
       "message": "WDYT of instead of marking `HostConfig` as `RecursivePartial` in the places we use it, directly define it as an recursive partial object?\n\nlike\n```\nexport type HostConfig \u003d Platform.TypeScriptUtilities.RecursivePartial\u003c{\n  devToolsConsoleInsights: HostConfigConsoleInsights;\n  devToolsFreestylerDogfood: HostConfigFreestylerDogfood;\n  devToolsVeLogging: HostConfigVeLogging;\n  /**\n   * OffTheRecord here indicates that the user\u0027s profile is either incognito,\n   * or guest mode, rather than a \"normal\" profile.\n   */\n  isOffTheRecord: boolean;\n}\u003e\n```\n\nThat way we don\u0027t leave to the people if they should assume it will be a recursive partial object or not while they are using it and we say \"it will be a recursive partial object\".",
       "revId": "42f84c84af98f0b50b0ec386630f595b0458310e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40bbdcf6_b4eda1ec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-08-09T09:04:21Z",
+      "side": 1,
+      "message": "I agree let\u0027s make it always partial.",
+      "parentUuid": "97c04f3b_d71a1892",
+      "revId": "42f84c84af98f0b50b0ec386630f595b0458310e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
