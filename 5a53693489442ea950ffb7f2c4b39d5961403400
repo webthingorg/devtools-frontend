@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c89e49e0_88a57496",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-09T19:36:42Z",
+      "side": 1,
+      "message": "I actually wasn\u0027t able to create a simple reproduction case... I wonder if it might be somehow related to `LitHtml`. I\u0027m trying to understand in which cases we should look for this issue.",
+      "parentUuid": "ff73e23b_da2ae1e8",
+      "revId": "5a53693489442ea950ffb7f2c4b39d5961403400",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "43630159_e7302544",
