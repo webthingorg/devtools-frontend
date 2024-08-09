@@ -34,6 +34,24 @@
       "parentUuid": "adca16aa_58a3f6e6",
       "revId": "b75a62998723af7b3c13c704b6ae2b8df4a18772",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "393a320d_b8b723a5",
+        "filename": "front_end/core/sdk/DOMModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 582,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-08-09T22:54:15Z",
+      "side": 1,
+      "message": "Done (not adding comment, but I think the refactor made it way more readable)",
+      "parentUuid": "a2af155d_4a64b8fd",
+      "revId": "b75a62998723af7b3c13c704b6ae2b8df4a18772",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
