@@ -569,16 +569,32 @@ export class DOMNode {
   }
 
   path(): string {
-    function canPush(node: DOMNode): number|false|null {
-      return (node.index !== undefined || (node.isShadowRoot() && node.parentNode)) && node.#nodeNameInternal.length;
+    function canPush(node: DOMNode): boolean {
+      if (!node.#nodeNameInternal.length) {
+        return false;
+      }
+      if (node.index !== undefined) {
+        return true;
+      }
+      if (!node.parentNode) {
+        return false;
+      }
+      return node.isShadowRoot() || node.nodeType() === Node.DOCUMENT_NODE;
     }
 
     const path = [];
     let node: (DOMNode|null) = (this as DOMNode | null);
     while (node && canPush(node)) {
-      const index = typeof node.index === 'number' ?
-          node.index :
-          (node.shadowRootType() === DOMNode.ShadowRootTypes.UserAgent ? 'u' : 'a');
+      let index: number|'u'|'a';
+      if (typeof node.index === 'number') {
+        index = node.index;
+      } else if (node.isShadowRoot()) {
+        index = node.shadowRootType() === DOMNode.ShadowRootTypes.UserAgent ? 'u' : 'a';
+      } else {
+        // Should only occur when `node.nodeType() === Node.DOCUMENT_NODE` - but let's also
+        // use this as the fallback case (which is not expected to happen).
+        index = 0;
+      }
       path.push([index, node.#nodeNameInternal]);
       node = node.parentNode;
     }
