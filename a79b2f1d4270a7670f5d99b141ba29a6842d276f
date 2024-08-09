@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f7da6e9_98918fb3",
+        "filename": "front_end/panels/timeline/TimelineSelection.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-08-09T21:13:03Z",
+      "side": 1,
+      "message": "ah yup you\u0027re right, fixed !",
+      "parentUuid": "b770311f_920ab4ce",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 100
+      },
+      "revId": "a79b2f1d4270a7670f5d99b141ba29a6842d276f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "be1f0458_1edd8566",
@@ -61,6 +85,30 @@
       "side": 1,
       "message": "I don\u0027t think we should reduce the opacity on hover...maybe we could scale it up by 5% or something?\n\nAlso code wise, this can just be `\u0026:hover`, you don\u0027t need to repeat `.metric` as you are within that block already",
       "parentUuid": "be1f0458_1edd8566",
+      "range": {
+        "startLine": 21,
+        "startChar": 1,
+        "endLine": 23,
+        "endChar": 3
+      },
+      "revId": "a79b2f1d4270a7670f5d99b141ba29a6842d276f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4d564f2_f4a0ca4d",
+        "filename": "front_end/panels/timeline/components/sidebarSingleNavigation.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-08-09T21:13:03Z",
+      "side": 1,
+      "message": "i like this! thanks 😊",
+      "parentUuid": "6161c7ae_4d642467",
       "range": {
         "startLine": 21,
         "startChar": 1,
