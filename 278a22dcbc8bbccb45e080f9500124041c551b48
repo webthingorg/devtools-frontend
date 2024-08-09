@@ -70,6 +70,24 @@
       "parentUuid": "d180295c_60e36cea",
       "revId": "278a22dcbc8bbccb45e080f9500124041c551b48",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf6f7e86_01c79e8d",
+        "filename": "front_end/ui/visual_logging/Debugging.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 623,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-08-09T12:39:49Z",
+      "side": 1,
+      "message": "not sure how common this is, I remember cases where I wanted to be able to provide extra info. Implemetation is could be relatively simple, I think: We could pass a callback `setDescription` here[0] which when called updates the description of that async scope that was just pushed. waitForFunction can forward the callback into the awaited function.\n\nI don\u0027t want to block you on this, though, if you feel a constant timeout is sufficiently safe and ergonomic then let\u0027s go ahead with it!\n\n[0] https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/test/shared/async-scope.ts;drc\u003dbafb48fafc3ddf1d069745ee7910b2063d8d0997;l\u003d54",
+      "parentUuid": "127d0e93_38486604",
+      "revId": "278a22dcbc8bbccb45e080f9500124041c551b48",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
