@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b042c46e_b313f4e6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-08-09T11:26:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cf1c23a5_c1b30d1a",
+      "range": {
+        "startLine": 7,
+        "startChar": 38,
+        "endLine": 7,
+        "endChar": 46
+      },
+      "revId": "0173d74ec4e3a81500fcb9f54c9c3cb1bc4819de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6acd84c8_57194037",
@@ -37,6 +61,24 @@
       "writtenOn": "2024-08-09T11:20:05Z",
       "side": 1,
       "message": "I\u0027m missing some context. Is this to address general test flakiness? The bug only links to general VE work and the CL description has no indication.",
+      "revId": "0173d74ec4e3a81500fcb9f54c9c3cb1bc4819de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c72a9d52_a4fac3a6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-08-09T11:26:37Z",
+      "side": 1,
+      "message": "Sorry. This came out as a result of discussion with Philip in and about the https://crrev.com/c/5766435 Offline he asked something like: \"What we do in a lot of tests is wait for the system to be in a certain state. Could that work here?\" which made me think about this approach. \n\nOne source of flakiness was timing of the reading of VE events log correctly. The writes are block on the render coordinator queue and throttlers. We can\u0027t wait until the queue is fully empty as in some tests it never is (due to CSS animations). So we used to wait with timeout, which I was going to increase. For the throttlers, turns out there could be a race between different microtasks, so that we will read event some milliseconds before the last event is being written. I added small delay to address this, but as Philip correctly points out, this might only delay the problem.\n\nWith this approach we circumvent the whole issue by implementing something like `waitFor` but for VE events.",
+      "parentUuid": "6acd84c8_57194037",
       "revId": "0173d74ec4e3a81500fcb9f54c9c3cb1bc4819de",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
