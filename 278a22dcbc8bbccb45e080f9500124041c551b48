@@ -16,6 +16,24 @@
       "message": "is this used in both unit and e2e tests?\n\nFor e2e tests I have the feeling that it\u0027d be cleaner to do the waiting and comparisons on the test side for a cleaner error message. The setTimeout-ed error check could easily happen _before_ the test timeout, if the test itself sets a longer one.",
       "revId": "278a22dcbc8bbccb45e080f9500124041c551b48",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2bcb2b2_05e8c4d8",
+        "filename": "front_end/ui/visual_logging/Debugging.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 623,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-08-09T12:19:47Z",
+      "side": 1,
+      "message": "This is for the e2e only. The setTimeout-ed error check is meant to happen before the test timeout, so that we get a clean error message. 5s is more then enough to address all the races.",
+      "parentUuid": "c4bb5b9d_1697c949",
+      "revId": "278a22dcbc8bbccb45e080f9500124041c551b48",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
