@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "f77d2957_b2b42717",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-08-09T08:06:24Z",
+      "side": 1,
+      "message": "Let\u0027s put the screenshot on the bug. Then we don\u0027t bake external urls into the git log.",
+      "revId": "905a6bf3a7c23d2f2ce2a6c0bafd24137234512a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "cdce4146_81e3afd2",
