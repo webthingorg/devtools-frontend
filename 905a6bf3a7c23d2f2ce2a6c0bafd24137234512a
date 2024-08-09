@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cdce4146_81e3afd2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-08-09T08:04:46Z",
+      "side": 1,
+      "message": "Some nits, otherwise looks great!",
+      "revId": "905a6bf3a7c23d2f2ce2a6c0bafd24137234512a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60efd0a2_c8e81f0d",
+        "filename": "front_end/panels/elements/ElementStatePaneWidget.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-08-09T08:04:46Z",
+      "side": 1,
+      "message": "nit: How about creating an enum for the pseudos?",
+      "revId": "905a6bf3a7c23d2f2ce2a6c0bafd24137234512a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6edfced0_5586d399",
+        "filename": "front_end/panels/elements/ElementStatePaneWidget.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-08-09T08:04:46Z",
+      "side": 1,
+      "message": "nit: I think it\u0027d be more robust to have a Map\u003cPseudoSelector, HTMLDivAlement\u003e or {[key in PseudoSelector]: HTMLDivElement} here",
+      "revId": "905a6bf3a7c23d2f2ce2a6c0bafd24137234512a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1a35446_97e1c92e",
+        "filename": "front_end/panels/elements/ElementStatePaneWidget.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-08-09T08:04:46Z",
+      "side": 1,
+      "message": "superfluous return",
+      "revId": "905a6bf3a7c23d2f2ce2a6c0bafd24137234512a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
