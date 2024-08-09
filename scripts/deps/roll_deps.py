@@ -74,7 +74,7 @@ def parse_options(cli_args):
     parser.add_argument('--update-node',
                         action="store_true",
                         default=False,
-                        help='If set it syncs nodejs.')
+                        help='Obsolete.')
     parser.add_argument(
         '--output',
         default=None,
@@ -106,12 +106,6 @@ def get_hook_action(options, hook_name, project_dir):
         if hook['name'] == hook_name:
             return hook['action']
     raise RuntimeError(f'{hook_name} hook not found in DEPS')
-
-
-def sync_node(options):
-    """Executes the nodejs sync hook from Devtools DEPS file."""
-    action = get_hook_action(options, 'node_linux64', options.devtools_dir)
-    subprocess.check_call(action, cwd=options.devtools_dir)
 
 
 def copy_files(options):
@@ -212,7 +206,7 @@ if __name__ == '__main__':
     if OPTIONS.ref == ReferenceMode.Tot:
         update(OPTIONS)
     if OPTIONS.update_node:
-        sync_node(OPTIONS)
+        print('Ignoring --update-node. Node is updated by an autoroller.')
     copy_files(OPTIONS)
     generate_signatures(OPTIONS)
     generate_dom_pinned_properties(OPTIONS)
