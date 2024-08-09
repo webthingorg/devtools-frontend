@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "f4b3f6b4_3f143af9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 3514702
+      },
+      "writtenOn": "2024-08-09T15:23:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f77d2957_b2b42717",
+      "revId": "905a6bf3a7c23d2f2ce2a6c0bafd24137234512a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "cdce4146_81e3afd2",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 8
@@ -69,6 +87,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a5d8db6_2ba0d804",
+        "filename": "front_end/panels/elements/ElementStatePaneWidget.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 3514702
+      },
+      "writtenOn": "2024-08-09T15:23:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de0c0bb6_c9e3a1cf",
+      "revId": "905a6bf3a7c23d2f2ce2a6c0bafd24137234512a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "60efd0a2_c8e81f0d",
@@ -86,6 +122,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b1aac9d_e61b6ace",
+        "filename": "front_end/panels/elements/ElementStatePaneWidget.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 3514702
+      },
+      "writtenOn": "2024-08-09T15:23:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60efd0a2_c8e81f0d",
+      "revId": "905a6bf3a7c23d2f2ce2a6c0bafd24137234512a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6edfced0_5586d399",
@@ -99,6 +153,24 @@
       "writtenOn": "2024-08-09T08:04:46Z",
       "side": 1,
       "message": "nit: I think it\u0027d be more robust to have a Map\u003cPseudoSelector, HTMLDivAlement\u003e or {[key in PseudoSelector]: HTMLDivElement} here",
+      "revId": "905a6bf3a7c23d2f2ce2a6c0bafd24137234512a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f1cf6fc_a183cf30",
+        "filename": "front_end/panels/elements/ElementStatePaneWidget.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 3514702
+      },
+      "writtenOn": "2024-08-09T15:23:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6edfced0_5586d399",
       "revId": "905a6bf3a7c23d2f2ce2a6c0bafd24137234512a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -139,6 +211,42 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "814dc022_c2cca51e",
+        "filename": "front_end/panels/elements/ElementStatePaneWidget.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 3514702
+      },
+      "writtenOn": "2024-08-09T15:23:05Z",
+      "side": 1,
+      "message": "In the `updateElementSpecificStatesTable` method, I\u0027ve added `hidden\u003dtrue` to all checkboxes if the selected node is not an element node (and it doesn\u0027t have `:read-only`).\n\nPlease let me know if this works for you.",
+      "parentUuid": "fc1e66de_44a0fa2f",
+      "revId": "905a6bf3a7c23d2f2ce2a6c0bafd24137234512a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "193f18a8_3513130e",
+        "filename": "front_end/panels/elements/ElementStatePaneWidget.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 3514702
+      },
+      "writtenOn": "2024-08-09T15:23:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3d79ebec_a47d1206",
+      "revId": "905a6bf3a7c23d2f2ce2a6c0bafd24137234512a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e57b953b_84fef1c4",
         "filename": "front_end/panels/elements/ElementStatePaneWidget.ts",
         "patchSetId": 8
@@ -150,6 +258,24 @@
       "writtenOn": "2024-08-09T09:34:01Z",
       "side": 1,
       "message": "I think we don\u0027t need this marking the checkboxes `hidden` and then marking them non-hidden when the header is clicked. `\u003cdetail\u003e\u003csummary\u003e` elements should automatically handle this. WDYT?",
+      "revId": "905a6bf3a7c23d2f2ce2a6c0bafd24137234512a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b977500_4eb17adf",
+        "filename": "front_end/panels/elements/ElementStatePaneWidget.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 3514702
+      },
+      "writtenOn": "2024-08-09T15:23:05Z",
+      "side": 1,
+      "message": "Fixed",
+      "parentUuid": "e57b953b_84fef1c4",
       "revId": "905a6bf3a7c23d2f2ce2a6c0bafd24137234512a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -190,6 +316,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "54743020_11eac796",
+        "filename": "front_end/panels/elements/ElementStatePaneWidget.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 3514702
+      },
+      "writtenOn": "2024-08-09T15:23:05Z",
+      "side": 1,
+      "message": "What elements do you mean by default elements?\nThe :read-only pseudo-class must match all other HTML elements[1] that :read-write doesn’t.\n\n[1] - https://html.spec.whatwg.org/multipage/semantics-other.html#selector-read-only",
+      "parentUuid": "f21dfb7d_77ed861a",
+      "revId": "905a6bf3a7c23d2f2ce2a6c0bafd24137234512a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d1a35446_97e1c92e",
         "filename": "front_end/panels/elements/ElementStatePaneWidget.ts",
         "patchSetId": 8
@@ -201,6 +345,24 @@
       "writtenOn": "2024-08-09T08:04:46Z",
       "side": 1,
       "message": "superfluous return",
+      "revId": "905a6bf3a7c23d2f2ce2a6c0bafd24137234512a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "520a39d9_732b49be",
+        "filename": "front_end/panels/elements/ElementStatePaneWidget.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 3514702
+      },
+      "writtenOn": "2024-08-09T15:23:05Z",
+      "side": 1,
+      "message": "Removed",
+      "parentUuid": "d1a35446_97e1c92e",
       "revId": "905a6bf3a7c23d2f2ce2a6c0bafd24137234512a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
