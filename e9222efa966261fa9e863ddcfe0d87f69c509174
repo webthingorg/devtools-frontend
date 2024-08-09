@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fedf8676_be1cbc24",
+        "filename": "front_end/ui/visual_logging/LoggingDriver.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-08-09T09:06:18Z",
+      "side": 1,
+      "message": "As discussed offline, it seems to be  better to move the `expectVeEvent` logic to the frontend and wait there for the matching events. crrev.com/c/5772851 has the code. I have reverted this and the other timeout change and keeping only the drag and hover change.",
+      "parentUuid": "1f4bea38_94c2b493",
+      "revId": "e9222efa966261fa9e863ddcfe0d87f69c509174",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "41329f80_07278c44",
@@ -67,6 +85,24 @@
       "side": 1,
       "message": "Unfortunately we can\u0027t. In some tests, like those for the CSS animation, UI never settles. We are waiting for the new impressions to be logged, which is done in a coordinator queue.",
       "parentUuid": "41329f80_07278c44",
+      "revId": "e9222efa966261fa9e863ddcfe0d87f69c509174",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92b90d47_30a7300d",
+        "filename": "test/e2e/helpers/visual-logging-helpers.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-08-09T09:06:18Z",
+      "side": 1,
+      "message": "Reverted in favor of crrev.com/c/5772851",
+      "parentUuid": "5231c5f6_21e790b8",
       "revId": "e9222efa966261fa9e863ddcfe0d87f69c509174",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
