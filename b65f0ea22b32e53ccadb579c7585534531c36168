@@ -16,6 +16,40 @@
       "message": "PTAL",
       "revId": "b65f0ea22b32e53ccadb579c7585534531c36168",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b031c4ff_2fb0e954",
+        "filename": "front_end/panels/settings/AISettingsTab.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-09T18:54:49Z",
+      "side": 1,
+      "message": "Instead of using the `@click` even here, can we use `@change` event from the `Switch` and use its `checked` property to decide on whether to toggle console insights setting or not?\n\nThat way it\u0027d be more accessible: I\u0027m expecting `@click` to be not emitted when you focus the element and press `space` key, however `@change` event gets emitted for that case.\n\nI think also think it\u0027s more canonical to use the `@change` event for these kind of use cases. WDYT?",
+      "revId": "b65f0ea22b32e53ccadb579c7585534531c36168",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48a4d58e_9a5e813c",
+        "filename": "front_end/ui/components/switch/SwitchImpl.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-09T18:54:49Z",
+      "side": 1,
+      "message": "Question: I didn\u0027t exactly understand why this is needed, was the `checked` property not getting picked up somehow? 🤔",
+      "revId": "b65f0ea22b32e53ccadb579c7585534531c36168",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
