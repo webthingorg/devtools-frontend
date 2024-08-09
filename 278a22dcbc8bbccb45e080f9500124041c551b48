@@ -34,6 +34,24 @@
       "parentUuid": "c4bb5b9d_1697c949",
       "revId": "278a22dcbc8bbccb45e080f9500124041c551b48",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d180295c_60e36cea",
+        "filename": "front_end/ui/visual_logging/Debugging.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 623,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-08-09T12:29:14Z",
+      "side": 1,
+      "message": "I see, that makes sense! But couldn\u0027t it also happen that the test times out a good bit before that 5s? There would be cases where we wouldn\u0027t get an error message on such a timeout then.\n\nI really like the idea of being able to log extra messages on a timeout. waitForFunction takes already a `description` to log extra state but that\u0027s static, we could have a variant that accepts dynamic state info that\u0027s logged on a timeout?",
+      "parentUuid": "d2bcb2b2_05e8c4d8",
+      "revId": "278a22dcbc8bbccb45e080f9500124041c551b48",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
