@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd2b0ae3_d10e44b1",
+        "filename": "front_end/core/sdk/DOMModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 573,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-08-09T22:37:58Z",
+      "side": 1,
+      "message": "thank you for this expansion! so much easier to follow.",
+      "revId": "888429fb4ce33075dbf16a3d24ba087bc8df1aad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1affee26_bd7ac8a7",
+        "filename": "front_end/core/sdk/DOMModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-08-09T22:37:58Z",
+      "side": 1,
+      "message": "+1 if you still wanna call this key. but no prob either way",
+      "revId": "888429fb4ce33075dbf16a3d24ba087bc8df1aad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec275368_0ccb4cd7",
+        "filename": "front_end/core/sdk/DOMModel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 594,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-08-09T22:37:58Z",
+      "side": 1,
+      "message": "as mentioned offline i think a clearer \u0027d\u0027 signal might be nice here. (and who knows maybe there\u0027s a future reason for us to differentiate document types... )",
+      "revId": "888429fb4ce33075dbf16a3d24ba087bc8df1aad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
