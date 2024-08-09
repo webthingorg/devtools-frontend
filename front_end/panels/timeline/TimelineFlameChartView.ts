@@ -319,6 +319,12 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     };
   }
 
+  selectSidebarMetric(event: TraceEngine.Types.TraceEvents.TraceEventData): void {
+    if (event) {
+      this.setSelection(TimelineSelection.fromTraceEvent(event));
+    }
+  }
+
   #processFlameChartMouseMoveEvent(data: PerfUI.FlameChart.EventTypes['MouseMove']): void {
     const {mouseEvent, timeInMicroSeconds} = data;
 

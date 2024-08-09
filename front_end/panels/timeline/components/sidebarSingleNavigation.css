@@ -17,6 +17,10 @@
 .metric {
   margin-top: 10px;
   flex: 1;
+
+  &.metric:hover {
+    opacity: 75%;
+  }
 }
 
 .metric-value {
