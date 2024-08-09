@@ -51,6 +51,8 @@ import * as Workspace from '../workspace/workspace.js';
 
 import {PrivateAPI} from './ExtensionAPI.js';
 import {ExtensionButton, ExtensionPanel, ExtensionSidebarPane} from './ExtensionPanel.js';
+import {FunctionNameGuesserExtensionEndpoint} from './FunctionNameGuesserExtensionEndpoint.js';
+import {FunctionNameGuesserPluginManager} from './FunctionNameGuesserPluginManager.js';
 import {HostUrlPattern} from './HostUrlPattern.js';
 import {LanguageExtensionEndpoint} from './LanguageExtensionEndpoint.js';
 import {RecorderExtensionEndpoint} from './RecorderExtensionEndpoint.js';
@@ -218,6 +220,9 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
     this.registerHandler(PrivateAPI.Commands.CreateRecorderView, this.onCreateRecorderView.bind(this));
     this.registerHandler(PrivateAPI.Commands.ShowRecorderView, this.onShowRecorderView.bind(this));
     this.registerHandler(PrivateAPI.Commands.ShowNetworkPanel, this.onShowNetworkPanel.bind(this));
+    this.registerHandler(
+        PrivateAPI.Commands.RegisterFunctionNameGuesserExtensionPlugin,
+        this.registerFunctionNameGuesserExtensionEndpoint.bind(this));
     window.addEventListener('message', this.onWindowMessage, false);  // Only for main window.
 
     const existingTabId =
@@ -423,6 +428,18 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
     const {pluginName, mediaType, port, capabilities} = message;
     RecorderPluginManager.instance().addPlugin(
         new RecorderExtensionEndpoint(pluginName, port, capabilities, mediaType));
+    return this.status.OK();
+  }
+
+  private registerFunctionNameGuesserExtensionEndpoint(
+      message: PrivateAPI.ExtensionServerRequestMessage, _shared_port: MessagePort): Record {
+    if (message.command !== PrivateAPI.Commands.RegisterFunctionNameGuesserExtensionPlugin) {
+      return this.status.E_BADARG(
+          'command', `expected ${PrivateAPI.Commands.RegisterFunctionNameGuesserExtensionPlugin}`);
+    }
+    const {pluginName, capabilities, port} = message;
+    FunctionNameGuesserPluginManager.instance().addPlugin(
+        new FunctionNameGuesserExtensionEndpoint(pluginName, port, capabilities));
     return this.status.OK();
   }
 
