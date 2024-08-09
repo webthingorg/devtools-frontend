@@ -16,6 +16,24 @@
       "message": "`elif`?",
       "revId": "9b90b4e32c1e45eddc8e39624222f2be9a532b41",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d73133b_c8aa03e1",
+        "filename": "scripts/deps/roll_deps.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-09T08:59:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "469c9e4d_0932920d",
+      "revId": "9b90b4e32c1e45eddc8e39624222f2be9a532b41",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
