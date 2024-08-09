@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f00517cb_1ca6116a",
+        "filename": "front_end/panels/timeline/components/SidebarSingleNavigation.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-08-09T21:58:12Z",
+      "side": 1,
+      "message": "why not the others? :)   \n\nwe can probably get rid of this guard.  (assuming all metrics\u0027 event are fine to send to setSelection)",
+      "revId": "9a5c286609dc9108079ff876fcc30702eb1b049c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "edd13ef8_36f5ef14",
+        "filename": "front_end/panels/timeline/components/SidebarSingleNavigation.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-08-09T21:58:12Z",
+      "side": 1,
+      "message": "Also I\u0027m not used to seeing a new class created per event type.. (i\u0027m not sure why RemoveAnnotation did).\n\nYou can look at `TimelineFlameChartDataProviderEvents.DataChanged` for inspiration.\nBasically its just a const enum and exporting an `EventTypes` object.",
+      "revId": "9a5c286609dc9108079ff876fcc30702eb1b049c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96004c48_85500da7",
+        "filename": "front_end/panels/timeline/components/SidebarSingleNavigation.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-08-09T21:58:12Z",
+      "side": 1,
+      "message": "i think we can generalize this a bit to be for any event we want to reveal in the flamechart.. (not just metric events). I\u0027m thinking about layout shift clusters etc...\n\nThis event could be called `EventReferenceClick`  (or EventChosen or something)\nand instead of being a metric type it\u0027s just TraceEventData.\n\nyou can get rid of the one off sidebarMetricClicked method in both files..  cuz in the panels\u0027 event handler you can just do \n\n`this.flameChart.setSelection(TimelineSelection.fromTraceEvent(event));`\n\nholler if that doesn\u0027t make sense.. but... i think it\u0027ll cut your diff down quite a bit.. for even more functionality.",
+      "revId": "9a5c286609dc9108079ff876fcc30702eb1b049c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
