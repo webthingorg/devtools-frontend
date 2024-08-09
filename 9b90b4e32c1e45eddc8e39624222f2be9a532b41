@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "469c9e4d_0932920d",
+        "filename": "scripts/deps/roll_deps.py",
+        "patchSetId": 2
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-08-09T08:51:44Z",
+      "side": 1,
+      "message": "`elif`?",
+      "revId": "9b90b4e32c1e45eddc8e39624222f2be9a532b41",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
