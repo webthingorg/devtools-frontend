@@ -8,7 +8,7 @@ import * as ComponentHelpers from '../../../ui/components/helpers/helpers.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 
 import * as Insights from './insights/insights.js';
-import {type ActiveInsight} from './Sidebar.js';
+import {type ActiveInsight, MetricSelected} from './Sidebar.js';
 import {InsightsCategories} from './SidebarInsightsTab.js';
 import styles from './sidebarSingleNavigation.css.js';
 
@@ -49,12 +49,31 @@ export class SidebarSingleNavigation extends HTMLElement {
     return label === this.#data.activeCategory;
   }
 
+  #metricClicked(label: string): void {
+    if (label !== 'LCP') {
+      return;
+    }
+
+    if (!this.#data.traceParsedData || !this.#data.navigationId) {
+      return;
+    }
+
+    const mainFrameMetrics = this.#data.traceParsedData.PageLoadMetrics.metricScoresByFrameId.get(
+        this.#data.traceParsedData.Meta.mainFrameId);
+    const forNavigation = mainFrameMetrics?.get(this.#data.navigationId);
+    const lcpMetric = forNavigation?.get(TraceEngine.Handlers.ModelHandlers.PageLoadMetrics.MetricName.LCP);
+
+    if (lcpMetric?.event) {
+      this.dispatchEvent(new MetricSelected(lcpMetric.event));
+    }
+  }
+
   #renderMetricValue(
       label: 'LCP'|'CLS'|'INP', value: string,
       classification: TraceEngine.Handlers.ModelHandlers.PageLoadMetrics.ScoreClassification): LitHtml.LitTemplate {
     // clang-format off
     return this.#metricIsVisible(label) ? LitHtml.html`
-      <div class="metric">
+      <div class="metric" @click=${() => this.#metricClicked(label)}>
         <div class="metric-value metric-value-${classification}">${value}</div>
         <div class="metric-label">${label}</div>
       </div>
