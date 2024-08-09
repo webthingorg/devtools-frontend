@@ -478,6 +478,11 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
       this.#setActiveInsight({name, navigationId, createOverlayFn});
     });
 
+    this.#sideBar.contentElement.addEventListener(TimelineComponents.Sidebar.MetricSelected.eventName, event => {
+      const {metricEvent} = event;
+      this.#sidebarMetricClicked(metricEvent);
+    });
+
     this.#sideBar.element.addEventListener(TimelineComponents.Sidebar.RemoveAnnotation.eventName, event => {
       const {removedAnnotation} = (event as TimelineComponents.Sidebar.RemoveAnnotation);
       ModificationsManager.activeManager()?.removeAnnotation(removedAnnotation);
@@ -522,6 +527,10 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
   #setActiveInsight(insight: TimelineComponents.Sidebar.ActiveInsight|null): void {
     this.#sideBar.setActiveInsight(insight);
     this.flameChart.setActiveInsight(insight);
+  }
+
+  #sidebarMetricClicked(event: TraceEngine.Types.TraceEvents.TraceEventData): void {
+    this.flameChart.selectSidebarMetric(event);
   }
 
   static instance(opts: {

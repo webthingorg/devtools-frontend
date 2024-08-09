@@ -4,8 +4,9 @@
 
 import * as TraceEngine from '../../models/trace/trace.js';
 
-type PermittedObjectTypes =
-    TraceEngine.Handlers.ModelHandlers.Frames.TimelineFrame|TraceEngine.Types.TraceEvents.TraceEventData|SelectionRange;
+type PermittedObjectTypes = TraceEngine.Handlers.ModelHandlers.Frames.TimelineFrame|
+                            TraceEngine.Types.TraceEvents.TraceEventData|SelectionRange|
+                            TraceEngine.Types.TraceEvents.TraceEventLargestContentfulPaintCandidate;
 
 const SelectionRangeSymbol = Symbol('SelectionRange');
 export type SelectionRange = typeof SelectionRangeSymbol;
