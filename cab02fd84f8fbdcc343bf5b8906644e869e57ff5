@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "574c4cd5_658b3259",
+        "filename": "front_end/core/root/Runtime.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 334,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-08-09T10:38:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7bd80ace_936d3fe3",
+      "revId": "cab02fd84f8fbdcc343bf5b8906644e869e57ff5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aee22906_59913d20",
@@ -65,6 +83,24 @@
       "writtenOn": "2024-08-09T09:45:17Z",
       "side": 1,
       "message": "Question: as far as I understand, in the case where `devtoolsConsoleInsights` is not coming from `HostConfig`; `config.devtoolsConsoleInsights?.optIn` evaluates to `undefined` and the expression becomes `undefined !\u003d\u003d true` which is evaluated as `true`.\n\nSo, we set `enabledSetting` to be `true` for that case. Is that intended?",
+      "revId": "cab02fd84f8fbdcc343bf5b8906644e869e57ff5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "adf194a2_be635658",
+        "filename": "front_end/entrypoints/main/SettingTracker.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-08-09T10:38:39Z",
+      "side": 1,
+      "message": "Yes, I believe this is intended. In the current implementation the DevTools setting should be enabled by default. And only when receiving the opt-in flag, it should be initially set to false.\n\nIn the new first-run experience, I believe this will change to disabled by default - but how this should effect existing profiles/settings still needs to be discussed.",
+      "parentUuid": "aee22906_59913d20",
       "revId": "cab02fd84f8fbdcc343bf5b8906644e869e57ff5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
