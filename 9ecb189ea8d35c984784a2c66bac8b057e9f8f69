@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f430d30f_1cb9e0f7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-08-09T12:21:32Z",
+      "side": 1,
+      "message": "LGTM with thoughts about the source map names resolver uninstalling across views.",
+      "revId": "9ecb189ea8d35c984784a2c66bac8b057e9f8f69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb97f777_0ccd9d00",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 618,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-08-09T12:21:32Z",
+      "side": 1,
+      "message": "I was thinking we could simplify this by using a single `m1.mode \u003d\u003d\u003d  m2.mode` and handling `traceIndex` when it applies , but I guess this last bit makes the \"simplification\" not really more simple 😂",
+      "range": {
+        "startLine": 618,
+        "startChar": 0,
+        "endLine": 618,
+        "endChar": 67
+      },
+      "revId": "9ecb189ea8d35c984784a2c66bac8b057e9f8f69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c3ac38d_f1dacf9c",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 654,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-08-09T12:21:32Z",
+      "side": 1,
+      "message": "I like the direction this is taking simplify how views are handled. I wonder if in the long term we want separate decoupled components for each view and simplify the implementation of this class",
+      "range": {
+        "startLine": 654,
+        "startChar": 3,
+        "endLine": 654,
+        "endChar": 13
+      },
+      "revId": "9ecb189ea8d35c984784a2c66bac8b057e9f8f69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f7120ec_0fa15b63",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 661,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-08-09T12:21:32Z",
+      "side": 1,
+      "message": "I think we shouldn\u0027t reset the source map resolver when changing views as long as we aren\u0027t starting a new recording. If the user switches between views and comes back, ideally the names of the JS calls remain the same, but if we reset this between the switches, the resolved names would be lost.",
+      "range": {
+        "startLine": 661,
+        "startChar": 9,
+        "endLine": 661,
+        "endChar": 81
+      },
+      "revId": "9ecb189ea8d35c984784a2c66bac8b057e9f8f69",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
