@@ -52,6 +52,24 @@
       "parentUuid": "d2bcb2b2_05e8c4d8",
       "revId": "278a22dcbc8bbccb45e080f9500124041c551b48",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "127d0e93_38486604",
+        "filename": "front_end/ui/visual_logging/Debugging.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 623,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-08-09T12:30:58Z",
+      "side": 1,
+      "message": "Hmm... how common is that? How about we decrease the timeout to smth like 2s which should also be enough, and care about test timeouts when they actually happen?",
+      "parentUuid": "d180295c_60e36cea",
+      "revId": "278a22dcbc8bbccb45e080f9500124041c551b48",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
