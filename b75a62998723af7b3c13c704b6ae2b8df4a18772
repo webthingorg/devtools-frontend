@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "adca16aa_58a3f6e6",
+        "filename": "front_end/core/sdk/DOMModel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 582,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-08-09T21:39:51Z",
+      "side": 1,
+      "message": "CDT\u0027s DOM model wires the inner iframes #document element `parentNode` to point to the host iframe element (unlike what is exposed to Web APIs). very cool.",
+      "revId": "b75a62998723af7b3c13c704b6ae2b8df4a18772",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
