@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2e271a6_53affd73",
+        "filename": "scripts/deps/roll_deps.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-08-09T08:40:48Z",
+      "side": 1,
+      "message": "Maybe only do this if `options.ref !\u003d ReferenceMode.Tot` otherwise we would have run a full sync as part of `update` in the chromium dir (but question is if we need to make sure we pick up the right node from `chromium_dir` then).",
+      "revId": "509949164bc12eafc4a4bbbc9499799e9e953959",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
