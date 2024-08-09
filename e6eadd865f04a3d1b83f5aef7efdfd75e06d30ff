@@ -22,6 +22,30 @@
       },
       "revId": "e6eadd865f04a3d1b83f5aef7efdfd75e06d30ff",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26224e80_2bda0735",
+        "filename": "front_end/core/sdk/SourceMapManager.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-08-09T05:57:01Z",
+      "side": 0,
+      "message": "Thanks a lot for investigating. As you point out, this is not the correct fix. I think the correct fix is to update the frame IDs in the DevTools front-end upon navigation for scripts and sheets.\n\nLooking at `Script.ts`, we get the frame ID from the `ResourceTreeModel`, which is assumed to have the correct frame IDs (although I think that also needs double checking), so it might be sufficient to just reset the cached frame IDs (or don\u0027t cache them at all).",
+      "parentUuid": "dc0797a5_d6c2ae8c",
+      "range": {
+        "startLine": 78,
+        "startChar": 6,
+        "endLine": 78,
+        "endChar": 76
+      },
+      "revId": "e6eadd865f04a3d1b83f5aef7efdfd75e06d30ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
