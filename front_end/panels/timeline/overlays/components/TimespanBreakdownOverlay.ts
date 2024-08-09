@@ -148,10 +148,11 @@ export class TimespanBreakdownOverlay extends HTMLElement {
       }
     }
   }
+
   renderSection(section: EntryBreakdown): LitHtml.TemplateResult {
     const sectionRange = TraceEngine.Helpers.Timing.microSecondsToMilliseconds(section.bounds.range);
     return LitHtml.html`
-      <div class="timespan-breakdown-overlay-section">
+      <div class="timespan-breakdown-overlay-section single-breakdown">
         <div class="timespan-breakdown-overlay-label">
           <span class="duration-text">${i18n.TimeUtilities.preciseMillisToString(sectionRange, 2)}</span>
           ${section.label}
