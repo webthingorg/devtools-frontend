@@ -331,16 +331,16 @@ export interface HostConfigVeLogging {
   testing: boolean;
 }
 
-export interface HostConfig {
-  devToolsConsoleInsights: HostConfigConsoleInsights;
-  devToolsFreestylerDogfood: HostConfigFreestylerDogfood;
-  devToolsVeLogging: HostConfigVeLogging;
+export type HostConfig = Platform.TypeScriptUtilities.RecursivePartial<{
+  devToolsConsoleInsights: HostConfigConsoleInsights,
+  devToolsFreestylerDogfood: HostConfigFreestylerDogfood,
+  devToolsVeLogging: HostConfigVeLogging,
   /**
    * OffTheRecord here indicates that the user's profile is either incognito,
    * or guest mode, rather than a "normal" profile.
    */
-  isOffTheRecord: boolean;
-}
+  isOffTheRecord: boolean,
+}>;
 
 /**
  * When defining conditions make sure that objects used by the function have
