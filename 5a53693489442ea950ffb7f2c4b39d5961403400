@@ -16,6 +16,40 @@
       "message": "PTAL",
       "revId": "5a53693489442ea950ffb7f2c4b39d5961403400",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff73e23b_da2ae1e8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-09T19:17:47Z",
+      "side": 1,
+      "message": "Awesome catch! :)\n\nand wow, I didn\u0027t know this is the default behavior actually.",
+      "revId": "5a53693489442ea950ffb7f2c4b39d5961403400",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43630159_e7302544",
+        "filename": "front_end/ui/components/switch/SwitchImpl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-09T19:17:47Z",
+      "side": 1,
+      "message": "(nit): Can we use css to fix this issue by adding `pointer-events: none` to this `.slider` element? :)",
+      "revId": "5a53693489442ea950ffb7f2c4b39d5961403400",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
