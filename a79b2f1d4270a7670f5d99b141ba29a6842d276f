@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be1f0458_1edd8566",
+        "filename": "front_end/panels/timeline/components/sidebarSingleNavigation.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-08-09T01:03:20Z",
+      "side": 1,
+      "message": "maybe there is a better way to do this?",
+      "range": {
+        "startLine": 21,
+        "startChar": 1,
+        "endLine": 23,
+        "endChar": 3
+      },
+      "revId": "a79b2f1d4270a7670f5d99b141ba29a6842d276f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
