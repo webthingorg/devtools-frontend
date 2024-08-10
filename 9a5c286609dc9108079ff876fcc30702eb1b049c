@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "45f80292_30e5ab83",
+        "filename": "front_end/panels/timeline/components/SidebarSingleNavigation.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-08-10T00:42:09Z",
+      "side": 1,
+      "message": "went ahead and included allowing selecting the worst layout shift event :)",
+      "parentUuid": "f00517cb_1ca6116a",
+      "revId": "9a5c286609dc9108079ff876fcc30702eb1b049c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "edd13ef8_36f5ef14",
@@ -48,6 +66,24 @@
       "writtenOn": "2024-08-09T21:58:12Z",
       "side": 1,
       "message": "i think we can generalize this a bit to be for any event we want to reveal in the flamechart.. (not just metric events). I\u0027m thinking about layout shift clusters etc...\n\nThis event could be called `EventReferenceClick`  (or EventChosen or something)\nand instead of being a metric type it\u0027s just TraceEventData.\n\nyou can get rid of the one off sidebarMetricClicked method in both files..  cuz in the panels\u0027 event handler you can just do \n\n`this.flameChart.setSelection(TimelineSelection.fromTraceEvent(event));`\n\nholler if that doesn\u0027t make sense.. but... i think it\u0027ll cut your diff down quite a bit.. for even more functionality.",
+      "revId": "9a5c286609dc9108079ff876fcc30702eb1b049c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "525f878b_541835c2",
+        "filename": "front_end/panels/timeline/components/SidebarSingleNavigation.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-08-10T00:42:09Z",
+      "side": 1,
+      "message": "ooo nice! rearranged to generalize this!",
+      "parentUuid": "96004c48_85500da7",
       "revId": "9a5c286609dc9108079ff876fcc30702eb1b049c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
