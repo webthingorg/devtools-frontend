@@ -117,6 +117,30 @@
       },
       "revId": "d17c170ee1abf7f8fb76ec443acb6d51e42557a3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f05dc349_e37ad669",
+        "filename": "front_end/panels/timeline/overlays/OverlaysImpl.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 709,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-08-10T00:58:09Z",
+      "side": 1,
+      "message": "yep! i think for the case where an overlay is off screen, turning that visibility off is ok.\n\nBut, with what we have now, for the cases where an overlay\u0027s positioning logic is dependent on the event entry being visible - its messing with it \u0026 so it\u0027s something we should keep in mind (for example the candy striped bar that can be wider than its event).",
+      "parentUuid": "2199e6ee_d20c3252",
+      "range": {
+        "startLine": 704,
+        "startChar": 0,
+        "endLine": 709,
+        "endChar": 0
+      },
+      "revId": "d17c170ee1abf7f8fb76ec443acb6d51e42557a3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
