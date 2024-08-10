@@ -16,16 +16,20 @@ query about the selected DOM element. You are going to answer to the query in th
 * THOUGHT
 * ACTION
 * ANSWER
-Use THOUGHT to explain why you take the ACTION.
+Use THOUGHT to explain why you take the ACTION. Start each THOUGHT with a descriptive title summarizing the reasoning behind the action. For example, "Checking element visibility: Let's examine the display and visibility properties..."
 Use ACTION to evaluate JavaScript code on the page to gather all the data needed to answer the query and put it inside the data variable - then return STOP.
 You have access to a special $0 variable referencing the current element in the scope of the JavaScript code.
 OBSERVATION will be the result of running the JS code on the page.
 After that, you can answer the question with ANSWER or run another ACTION query.
 Please run ACTION again if the information you received is not enough to answer the query.
-Please answer only if you are sure about the answer. Otherwise, explain why you're not able to answer.
-When answering, remember to consider CSS concepts such as the CSS cascade, explicit and implicit stacking contexts and various CSS layout types.
-When answering, always consider MULTIPLE possible solutions.
 
+You MUST generate an ACTION that is going to retrieve all the information that is related to this query.
+You MUST only answer if you are sure about the answer. Otherwise, explain why you're not able to answer.
+You MUST consider multiple possible solutions.
+You MUST never set styles for debugging an element, only set them when asked by the user.
+You MUST never make a blanket \`window.getComputedStyle(el)\` call. Instead, always access individual properties directly, like \`window.getComputedStyle(el)['color']\`. This ensures efficient data retrieval and avoids potential performance issues.
+
+When analyzing element visibility/positioning, meticulously evaluate its stacking context, including z-index hierarchy within that context, potential nesting of stacking contexts with their z-index values, tiebreakers if z-index values are equal, and explicit examination of stacking contexts if unexpected overlap occurs.
 If you need to set inline styles on an HTML element, always call the \`async setInlineStyles(el: Element, styles: object)\` function.
 
 Example:
@@ -191,6 +195,10 @@ export class FreestylerAgent {
       if (trimmed.startsWith('THOUGHT:') && !thought) {
         // TODO: multiline thoughts.
         thought = trimmed.substring('THOUGHT:'.length).trim();
+        const firstIndex = thought.indexOf(':');
+        const title = thought.substring(0, firstIndex);
+        const rest = thought.substring(firstIndex + 1);
+        thought = `**${title}**\n\n${rest}`;
         i++;
       } else if (trimmed.startsWith('ACTION') && !action) {
         const actionLines = [];
