@@ -471,76 +471,93 @@ export class MetricCard extends HTMLElement {
         PH1: this.#data.metric,
         PH2: localValueEl,
         PH3: fieldValueEl,
-        PH4: this.#getBucketLabel(localRating),
+        PH4: this.#getPercentLabelForRating(localRating),
       })}</div>
     `;
     // clang-format on
   }
 
-  #densityToCSSPercent(density?: number): string {
-    if (density === undefined) {
-      density = 0;
+  #bucketIndexForRating(rating: MetricRating): number {
+    switch (rating) {
+      case 'good':
+        return 0;
+      case 'needs-improvement':
+        return 1;
+      case 'poor':
+        return 2;
     }
+  }
+
+  #getBarWidthForRating(rating: MetricRating): string {
+    const histogram = this.#data.histogram;
+    const density = histogram?.[this.#bucketIndexForRating(rating)].density || 0;
     const percent = Math.round(density * 100);
     return `${percent}%`;
   }
 
-  #getBucketLabel(rating: MetricRating): string {
+  #getPercentLabelForRating(rating: MetricRating): string {
     const histogram = this.#data.histogram;
     if (histogram === undefined) {
       return '-';
     }
 
-    let bucket;
-    switch (rating) {
-      case 'good':
-        bucket = 0;
-        break;
-      case 'needs-improvement':
-        bucket = 1;
-        break;
-      case 'poor':
-        bucket = 2;
-        break;
-    }
-
     // A missing density value should be interpreted as 0%
-    const density = histogram[bucket].density || 0;
+    const density = histogram[this.#bucketIndexForRating(rating)].density || 0;
     const percent = Math.round(density * 100);
     return i18nString(UIStrings.percentage, {PH1: percent});
   }
 
   #renderFieldHistogram(): LitHtml.LitTemplate {
-    const histogram = this.#data.histogram;
-
-    const goodPercent = this.#densityToCSSPercent(histogram?.[0].density);
-    const needsImprovementPercent = this.#densityToCSSPercent(histogram?.[1].density);
-    const poorPercent = this.#densityToCSSPercent(histogram?.[2].density);
+    const fieldEnabled = CrUXManager.CrUXManager.instance().getConfigSetting().get().enabled;
 
     const format = this.#getFormatFn();
     const thresholds = this.#getThresholds();
 
     // clang-format off
+    const goodLabel = html`
+      <div class="bucket-label">
+        <span>${i18nString(UIStrings.good)}</span>
+        <span class="bucket-range">${i18nString(UIStrings.leqRange, {PH1: format(thresholds[0])})}</span>
+      </div>
+    `;
+
+    const needsImprovementLabel = html`
+      <div class="bucket-label">
+        <span>${i18nString(UIStrings.needsImprovement)}</span>
+        <span class="bucket-range">${i18nString(UIStrings.betweenRange, {PH1: format(thresholds[0]), PH2: format(thresholds[1])})}</span>
+      </div>
+    `;
+
+    const poorLabel = html`
+      <div class="bucket-label">
+        <span>${i18nString(UIStrings.poor)}</span>
+        <span class="bucket-range">${i18nString(UIStrings.gtRange, {PH1: format(thresholds[1])})}</span>
+      </div>
+    `;
+    // clang-format on
+
+    if (!fieldEnabled) {
+      return html`
+        <div class="bucket-summaries">
+          ${goodLabel}
+          ${needsImprovementLabel}
+          ${poorLabel}
+        </div>
+      `;
+    }
+
+    // clang-format off
     return html`
-      <div class="field-data-histogram">
-        <span class="histogram-label">
-          ${i18nString(UIStrings.good)}
-          <span class="histogram-range">${i18nString(UIStrings.leqRange, {PH1: format(thresholds[0])})}</span>
-        </span>
-        <span class="histogram-bar good-bg" style="width: ${goodPercent}"></span>
-        <span class="histogram-percent">${this.#getBucketLabel('good')}</span>
-        <span class="histogram-label">
-          ${i18nString(UIStrings.needsImprovement)}
-          <span class="histogram-range">${i18nString(UIStrings.betweenRange, {PH1: format(thresholds[0]), PH2: format(thresholds[1])})}</span>
-        </span>
-        <span class="histogram-bar needs-improvement-bg" style="width: ${needsImprovementPercent}"></span>
-        <span class="histogram-percent">${this.#getBucketLabel('needs-improvement')}</span>
-        <span class="histogram-label">
-          ${i18nString(UIStrings.poor)}
-          <span class="histogram-range">${i18nString(UIStrings.gtRange, {PH1: format(thresholds[1])})}</span>
-        </span>
-        <span class="histogram-bar poor-bg" style="width: ${poorPercent}"></span>
-        <span class="histogram-percent">${this.#getBucketLabel('poor')}</span>
+      <div class="bucket-summaries histogram">
+        ${goodLabel}
+        <div class="histogram-bar good-bg" style="width: ${this.#getBarWidthForRating('good')}"></div>
+        <div class="histogram-percent">${this.#getPercentLabelForRating('good')}</div>
+        ${needsImprovementLabel}
+        <div class="histogram-bar needs-improvement-bg" style="width: ${this.#getBarWidthForRating('needs-improvement')}"></div>
+        <div class="histogram-percent">${this.#getPercentLabelForRating('needs-improvement')}</div>
+        ${poorLabel}
+        <div class="histogram-bar poor-bg" style="width: ${this.#getBarWidthForRating('poor')}"></div>
+        <div class="histogram-percent">${this.#getPercentLabelForRating('poor')}</div>
       </div>
     `;
     // clang-format on
@@ -555,7 +572,7 @@ export class MetricCard extends HTMLElement {
         <h3 class="card-title">
           ${this.#getTitle()}
         </h3>
-        <div class="card-metric-values"
+        <div class="card-values"
           @mouseenter=${this.#showDialog}
           @mouseleave=${this.#closeDialog}
           on-render=${ComponentHelpers.Directives.nodeRenderedCallback(node => {
@@ -563,15 +580,15 @@ export class MetricCard extends HTMLElement {
           })}
           aria-describedby="tooltip-content"
         >
-          <span class="local-value">
-            ${renderMetricValue(this.#getLocalValue(), this.#getThresholds(), this.#getFormatFn())}
-          </span>
+          <div class="card-value-block">
+            <div class="card-value" id="local-value">${renderMetricValue(this.#getLocalValue(), this.#getThresholds(), this.#getFormatFn())}</div>
+            ${fieldEnabled ? html`<div class="card-metric-label">${i18nString(UIStrings.localValue)}</div>` : nothing}
+          </div>
           ${fieldEnabled ? html`
-            <span class="field-value">
-              ${renderMetricValue(this.#getFieldValue(), this.#getThresholds(), this.#getFormatFn())}
-            </span>
-            <span class="card-metric-label">${i18nString(UIStrings.localValue)}</span>
-            <span class="card-metric-label">${i18nString(UIStrings.field75thPercentile)}</span>
+            <div class="card-value-block">
+              <div class="card-value" id="field-value">${renderMetricValue(this.#getFieldValue(), this.#getThresholds(), this.#getFormatFn())}</div>
+              <div class="card-value-label">${i18nString(UIStrings.field75thPercentile)}</div>
+            </div>
           `: nothing}
         </div>
         <${Dialogs.Dialog.Dialog.litTagName}
