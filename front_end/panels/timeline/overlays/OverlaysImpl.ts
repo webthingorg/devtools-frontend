@@ -98,6 +98,7 @@ export interface CandyStripedTimeRange {
 export interface TimespanBreakdown {
   type: 'TIMESPAN_BREAKDOWN';
   sections: Array<Components.TimespanBreakdownOverlay.EntryBreakdown>;
+  entry?: TraceEngine.Types.TraceEvents.TraceEventData;
 }
 
 export interface CursorTimestampMarker {
@@ -596,6 +597,7 @@ export class Overlays extends EventTarget {
     if (overlay.sections.length === 0) {
       return;
     }
+    // Handle horizontal positioning.
     const leftEdgePixel = this.#xPixelForMicroSeconds('main', overlay.sections[0].bounds.min);
     const rightEdgePixel =
         this.#xPixelForMicroSeconds('main', overlay.sections[overlay.sections.length - 1].bounds.max);
@@ -608,7 +610,11 @@ export class Overlays extends EventTarget {
     element.style.width = `${rangeWidth}px`;
     element.style.bottom = '0px';
 
-    if (elementSections?.length === overlay.sections.length) {
+    if (!(elementSections?.length)) {
+      return;
+    }
+
+    if (elementSections.length === overlay.sections.length) {
       let count = 0;
       for (const section of overlay.sections) {
         const leftPixel = this.#xPixelForMicroSeconds('main', section.bounds.min);
@@ -622,6 +628,39 @@ export class Overlays extends EventTarget {
         sectionElement.style.left = `${leftPixel}px`;
         sectionElement.style.width = `${rangeWidth}px`;
         count++;
+      }
+    }
+
+    // Handle vertical positioning.
+    // For now, for a single breakdown, let's position based on the entry.
+    if (overlay.sections.length === 1) {
+      if (!overlay.entry) {
+        return;
+      }
+
+      const chartName = this.#chartForOverlayEntry(overlay.entry);
+      if (chartName === 'network') {
+        const networkHeight = this.networkChartOffsetHeight();
+        element.style.maxHeight = `${networkHeight}px`;
+
+        const y = this.yPixelForEventOnChart(overlay.entry);
+        if (y === null) {
+          return;
+        }
+
+        const totalHeight = this.pixelHeightForEventOnChart(overlay.entry) ?? 0;
+        // Space between the top of the entry and the top of the network chart.
+        const topSpace = y - totalHeight;
+        const pxPadding = 7;
+        elementSections[0].style.height = `${topSpace - pxPadding}px`;
+        element.style.top = `${y - topSpace}px`;
+        element.style.fontStyle = 'italic';
+
+        const label = elementSections[0].querySelector('.timespan-breakdown-overlay-label');
+        const msDetails = label?.querySelector('span');
+        if (msDetails) {
+          label?.removeChild(msDetails);
+        }
       }
     }
   }
@@ -699,6 +738,12 @@ export class Overlays extends EventTarget {
       return;
     }
 
+    const widthPixels = endX - startX;
+    // The entry selected overlay is always at least 2px wide.
+    const finalWidth = Math.max(2, widthPixels);
+    element.style.width = `${finalWidth}px`;
+    element.style.left = `${startX}px`;
+
     let y = this.yPixelForEventOnChart(overlay.entry);
     if (y === null) {
       return;
@@ -711,10 +756,6 @@ export class Overlays extends EventTarget {
     if (height === null) {
       return;
     }
-    const widthPixels = endX - startX;
-    // The entry selected overlay is always at least 2px wide.
-    const finalWidth = Math.max(2, widthPixels);
-    element.style.width = `${finalWidth}px`;
 
     // If the event is on the main chart, we need to adjust its selected border
     // if the event is cut off the top of the screen, because we need to ensure
@@ -744,12 +785,18 @@ export class Overlays extends EventTarget {
       // If the event is on the network chart, we use the same logic as above
       // for the main chart, but to check if the event is cut off the bottom of
       // the network track and only part of the overlay is visible.
-      // We don't need to worry about the even going off the top of the panel
+      // We don't need to worry about the event going off the top of the panel
       // as we can show the full overlay and it gets cut off by the minimap UI.
       const networkHeight = this.#dimensions.charts.network?.heightPixels ?? 0;
       const lastVisibleY = y + totalHeight;
       const cutOffBottom = lastVisibleY > networkHeight;
+      const cutOffTop = y > networkHeight;
+      element.classList.toggle('cut-off-top', cutOffTop);
       element.classList.toggle('cut-off-bottom', cutOffBottom);
+      if (cutOffTop) {
+        element.style.visibility = 'hidden';
+        return;
+      }
       if (cutOffBottom) {
         // Adjust the height of the overlay to be the amount of visible pixels.
         height = networkHeight - y;
@@ -758,7 +805,6 @@ export class Overlays extends EventTarget {
 
     element.style.height = `${height}px`;
     element.style.top = `${y}px`;
-    element.style.left = `${startX}px`;
   }
 
   /**
