@@ -71,6 +71,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a3f8cf9_e988f63e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-12T09:20:44Z",
+      "side": 1,
+      "message": "Yeah, let\u0027s fix this here and we can try to find a reproducible example later :)",
+      "parentUuid": "ab49d4a2_7d364d68",
+      "revId": "5a53693489442ea950ffb7f2c4b39d5961403400",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "43630159_e7302544",
@@ -102,6 +120,24 @@
       "side": 1,
       "message": "I just tried this: this makes the right half of the switch unresponsive to any clicks.",
       "parentUuid": "43630159_e7302544",
+      "revId": "5a53693489442ea950ffb7f2c4b39d5961403400",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c901145_7fe3cfdb",
+        "filename": "front_end/ui/components/switch/SwitchImpl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-12T09:20:44Z",
+      "side": 1,
+      "message": "Ah fair, thanks for checking it!",
+      "parentUuid": "bf84e9bc_72819d14",
       "revId": "5a53693489442ea950ffb7f2c4b39d5961403400",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
