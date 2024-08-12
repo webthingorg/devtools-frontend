@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "155cb8cb_abe27e72",
+        "filename": "front_end/panels/settings/AISettingsTab.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-08-12T12:23:50Z",
+      "side": 1,
+      "message": "Ah, yes, this wouldn\u0027t work when toggling the switch via keyboard. Updated.",
+      "parentUuid": "b031c4ff_2fb0e954",
+      "revId": "b65f0ea22b32e53ccadb579c7585534531c36168",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "48a4d58e_9a5e813c",
@@ -48,6 +66,24 @@
       "writtenOn": "2024-08-09T18:54:49Z",
       "side": 1,
       "message": "Question: I didn\u0027t exactly understand why this is needed, was the `checked` property not getting picked up somehow? 🤔",
+      "revId": "b65f0ea22b32e53ccadb579c7585534531c36168",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f4dc34d_6302a1bd",
+        "filename": "front_end/ui/components/switch/SwitchImpl.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-08-12T12:23:50Z",
+      "side": 1,
+      "message": "Without `.` changes to the same setting in Settings-\u003ePreferences would not get picked up by the Chrome AI settings page.",
+      "parentUuid": "48a4d58e_9a5e813c",
       "revId": "b65f0ea22b32e53ccadb579c7585534531c36168",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
