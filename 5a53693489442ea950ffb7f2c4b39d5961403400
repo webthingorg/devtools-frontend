@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ab49d4a2_7d364d68",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-08-12T09:17:21Z",
+      "side": 1,
+      "message": "Simple repro: add an onclick to the label `\u003clabel role\u003d\"button\" @click\u003d${ev \u003d\u003e console.log(ev.target)}\u003e` and then run the components server and look at the console output for the Switch\u0027s example page.\n\nI too am confused about what exactly is causing this.",
+      "parentUuid": "c89e49e0_88a57496",
+      "revId": "5a53693489442ea950ffb7f2c4b39d5961403400",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "43630159_e7302544",
         "filename": "front_end/ui/components/switch/SwitchImpl.ts",
         "patchSetId": 2
@@ -66,6 +84,24 @@
       "writtenOn": "2024-08-09T19:17:47Z",
       "side": 1,
       "message": "(nit): Can we use css to fix this issue by adding `pointer-events: none` to this `.slider` element? :)",
+      "revId": "5a53693489442ea950ffb7f2c4b39d5961403400",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf84e9bc_72819d14",
+        "filename": "front_end/ui/components/switch/SwitchImpl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-08-12T09:17:21Z",
+      "side": 1,
+      "message": "I just tried this: this makes the right half of the switch unresponsive to any clicks.",
+      "parentUuid": "43630159_e7302544",
       "revId": "5a53693489442ea950ffb7f2c4b39d5961403400",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
