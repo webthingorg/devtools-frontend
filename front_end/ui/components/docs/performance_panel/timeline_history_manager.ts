@@ -29,6 +29,7 @@ TraceLoader.TraceLoader.initTraceBoundsManager(traceParsedData1);
 new Timeline.TimelineHistoryManager.TimelineHistoryManager().addRecording({
   data: {
     traceParseDataIndex: 0,
+    type: 'TRACE_INDEX',
   },
   filmStripForPreview: TraceEngine.Extras.FilmStrip.fromTraceData(traceParsedData1),
   traceParsedData: traceParsedData1,
@@ -45,6 +46,7 @@ if (!container) {
 new Timeline.TimelineHistoryManager.TimelineHistoryManager().addRecording({
   data: {
     traceParseDataIndex: 1,
+    type: 'TRACE_INDEX',
   },
   filmStripForPreview: TraceEngine.Extras.FilmStrip.fromTraceData(traceParsedData2),
   traceParsedData: traceParsedData2,
