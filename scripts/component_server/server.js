@@ -12,75 +12,17 @@ const {createInstrumenter} = require('istanbul-lib-instrument');
 const convertSourceMap = require('convert-source-map');
 const defaultIstanbulSchema = require('@istanbuljs/schema');
 
-const {getTestRunnerConfigSetting} = require('../test/test_config_helpers.js');
-
-const match = require('minimatch');
-
 const tracesMode = argv.traces || false;
 const serverPort = parseInt(process.env.PORT, 10) || (tracesMode ? 11010 : 8090);
-
-/**
- * When you run npm run components-server we run the script as is from scripts/,
- * but when this server is run as part of a test suite it's run from
- * out/Default/gen/scripts, so we have to do a bit of path mangling to figure
- * out where we are.
- */
-const [target, isRunningInGen] = (() => {
-  const regex = new RegExp(`out\\${path.sep}(.*)\\${path.sep}gen`);
-  const match = regex.exec(__dirname);
-  if (match) {
-    return [match[1], true];
-  }
-  return [argv.target || process.env.TARGET || 'Default', false];
-})();
 
 /**
  * This configures the base of the URLs that are injected into each component
  * doc example to load. By default it's /, so that we load /front_end/..., but
  * this can be configured if you have a different file structure.
  */
-const sharedResourcesBase =
-    argv.sharedResourcesBase || getTestRunnerConfigSetting('component-server-shared-resources-path', '/');
+const sharedResourcesBase = '/';
 
-/**
- * The server assumes that examples live in
- * devtoolsRoot/out/Target/gen/front_end/ui/components/docs, but if you need to add a
- * prefix you can pass this argument. Passing `foo` will redirect the server to
- * look in devtoolsRoot/out/Target/gen/foo/front_end/ui/components/docs.
- */
-const componentDocsBaseArg = argv.componentDocsBase || process.env.COMPONENT_DOCS_BASE ||
-    getTestRunnerConfigSetting('component-server-base-path', '');
-
-let pathToOutTargetDir = __dirname;
-/**
- * If we are in the gen directory, we need to find the out/Default folder to use
- * as our base to find files from. We could do this with path.join(x, '..',
- * '..') until we get the right folder, but that's brittle. It's better to
- * search up for out/Default to be robust to any folder structures.
- */
-while (isRunningInGen && !pathToOutTargetDir.endsWith(`out${path.sep}${target}`)) {
-  pathToOutTargetDir = path.resolve(pathToOutTargetDir, '..');
-}
-
-/* If we are not running in out/Default, we'll assume the script is running from the repo root, and navigate to {CWD}/out/Target */
-const pathToBuiltOutTargetDirectory =
-    isRunningInGen ? pathToOutTargetDir : path.resolve(path.join(process.cwd(), 'out', target));
-
-let devtoolsRootFolder = path.resolve(path.join(pathToBuiltOutTargetDirectory, 'gen'));
-const fullCheckoutDevtoolsRootFolder = path.join(devtoolsRootFolder, 'third_party', 'devtools-frontend', 'src');
-if (__dirname.startsWith(fullCheckoutDevtoolsRootFolder)) {
-  devtoolsRootFolder = fullCheckoutDevtoolsRootFolder;
-}
-
-const componentDocsBaseFolder = path.join(devtoolsRootFolder, componentDocsBaseArg);
-
-if (!fs.existsSync(devtoolsRootFolder)) {
-  console.error(`ERROR: Generated front_end folder (${devtoolsRootFolder}) does not exist.`);
-  console.log(
-      'The components server works from the built Ninja output; you may need to run Ninja to update your built DevTools.');
-  console.log('If you build to a target other than default, you need to pass --target=X as an argument');
-  process.exit(1);
-}
+const devtoolsRootFolder = path.resolve(__dirname, '..', '..');
 
 process.on('uncaughtException', error => {
   console.error('uncaughtException', error);
@@ -97,7 +39,7 @@ server.once('listening', () => {
   }
   console.log(`Started components server at http://localhost:${serverPort}\n`);
   console.log(`ui/components/docs location: ${
-      path.relative(process.cwd(), path.join(componentDocsBaseFolder, 'front_end', 'ui', 'components', 'docs'))}`);
+      path.relative(process.cwd(), path.join(devtoolsRootFolder, 'front_end', 'ui', 'components', 'docs'))}`);
 });
 
 server.once('error', error => {
@@ -205,7 +147,7 @@ function createServerIndexFile(componentNames) {
 }
 
 async function getExamplesForPath(filePath) {
-  const componentDirectory = path.join(componentDocsBaseFolder, filePath);
+  const componentDirectory = path.join(devtoolsRootFolder, filePath);
   if (!await checkFileExists(componentDirectory)) {
     return null;
   }
@@ -247,8 +189,6 @@ async function checkFileExists(filePath) {
 
 const EXCLUDED_COVERAGE_FOLDERS = new Set(['third_party', 'ui/components/docs', 'Images']);
 
-const USER_DEFINED_COVERAGE_FOLDERS = process.env['COVERAGE_FOLDERS'];
-
 /**
  * @param {string} filePath
  * @returns {boolean}
@@ -259,11 +199,6 @@ function isIncludedForCoverageComputation(filePath) {
       return false;
     }
   }
-  if (USER_DEFINED_COVERAGE_FOLDERS) {
-    const matchPattern = `/${USER_DEFINED_COVERAGE_FOLDERS}/**/*.{js,mjs}`;
-    return match(filePath, matchPattern);
-  }
-
   return true;
 }
 
@@ -289,9 +224,9 @@ async function requestHandler(request, response) {
   }
   if (['/', '/index.html'].includes(filePath) && tracesMode === false) {
     const components =
-        await fs.promises.readdir(path.join(componentDocsBaseFolder, 'front_end', 'ui', 'components', 'docs'));
+        await fs.promises.readdir(path.join(devtoolsRootFolder, 'front_end', 'ui', 'components', 'docs'));
     const html = createServerIndexFile(components.filter(filePath => {
-      const stats = fs.lstatSync(path.join(componentDocsBaseFolder, 'front_end', 'ui', 'components', 'docs', filePath));
+      const stats = fs.lstatSync(path.join(devtoolsRootFolder, 'front_end', 'ui', 'components', 'docs', filePath));
       // Filter out some build config files (tsconfig, d.ts, etc), and just list the directories.
       return stats.isDirectory();
     }));
@@ -314,19 +249,8 @@ async function requestHandler(request, response) {
      *  that components use are available.
      */
 
-    /**
-     * We also let the user provide a different base path for any shared
-     * resources that we load. But if this is provided along with the
-     * componentDocsBaseArg, and the two are the same, we don't want to use the
-     * shared resources base, as it's part of the componentDocsBaseArg and
-     * therefore the URL is already correct.
-     *
-     * If we didn't get a componentDocsBaseArg or we did and it's different to
-     * the sharedResourcesBase, we use sharedResourcesBase.
-     */
-    const baseUrlForSharedResource =
-        componentDocsBaseArg && componentDocsBaseArg.endsWith(sharedResourcesBase) ? '/' : `/${sharedResourcesBase}`;
-    const fullPath = path.join(componentDocsBaseFolder, filePath);
+    const baseUrlForSharedResource = '/';
+    const fullPath = path.join(devtoolsRootFolder, filePath);
     if (!(await checkFileExists(fullPath))) {
       send404(response, '404, File not found');
       return;
@@ -348,9 +272,8 @@ async function requestHandler(request, response) {
 
   } else {
     // This means it's an asset like a JS file or an image.
-    let fullPath = path.join(componentDocsBaseFolder, filePath);
-    if (fullPath.endsWith(path.join('locales', 'en-US.json')) &&
-        !componentDocsBaseFolder.includes(sharedResourcesBase)) {
+    let fullPath = path.join(devtoolsRootFolder, filePath);
+    if (fullPath.endsWith(path.join('locales', 'en-US.json')) && !devtoolsRootFolder.includes(sharedResourcesBase)) {
       /**
        * If the path is for locales/en-US.json we special case the loading of that to fix the path so it works properly in the server.
        * We also make sure that we take into account the shared resources base;
@@ -359,9 +282,9 @@ async function requestHandler(request, response) {
        * base to be duplicated in the fullPath.
        */
       // Rewrite this path so we can load up the locale in the component-docs
-      let prefix = componentDocsBaseFolder;
-      if (sharedResourcesBase && !componentDocsBaseFolder.includes(sharedResourcesBase)) {
-        prefix = path.join(componentDocsBaseFolder, sharedResourcesBase);
+      let prefix = devtoolsRootFolder;
+      if (sharedResourcesBase && !devtoolsRootFolder.includes(sharedResourcesBase)) {
+        prefix = path.join(devtoolsRootFolder, sharedResourcesBase);
       }
       fullPath = path.join(prefix, 'front_end', 'core', 'i18n', 'locales', 'en-US.json');
     }
