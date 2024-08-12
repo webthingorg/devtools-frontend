@@ -1,0 +1,62 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "914235bb_ec9846b2",
+        "filename": "front_end/panels/timeline/overlays/OverlaysImpl.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 617,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-12T09:42:14Z",
+      "side": 1,
+      "message": "when would this not be true?",
+      "range": {
+        "startLine": 617,
+        "startChar": 0,
+        "endLine": 617,
+        "endChar": 61
+      },
+      "revId": "33aa081bbaf69cca854c0e75d16d5cd7c174003d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac07e89d_ef7e3d75",
+        "filename": "front_end/panels/timeline/overlays/OverlaysImpl.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 635,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-12T09:42:14Z",
+      "side": 1,
+      "message": "ahhh, I had forgotten that for this overlay we want to position it based on an entry...\n\nperhaps it does make sense for this to be a new overlay then, but we can hopefully reuse a bunch of the positioning and css! sorry for the back and forth. wdyt?",
+      "fixSuggestions": [
+        {
+          "fixId": "cc319b19_85b97850",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/overlays/OverlaysImpl.ts",
+              "range": {
+                "startLine": 635,
+                "startChar": 0,
+                "endLine": 636,
+                "endChar": 0
+              },
+              "replacement": "    // For now, for a single breakdown, let\u0027s position it based on the entry.\n"
+            }
+          ]
+        }
+      ],
+      "revId": "33aa081bbaf69cca854c0e75d16d5cd7c174003d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
