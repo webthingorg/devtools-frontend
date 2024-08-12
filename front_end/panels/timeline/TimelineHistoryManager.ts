@@ -5,7 +5,9 @@
 import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as Platform from '../../core/platform/platform.js';
+import * as CrUXManager from '../../models/crux-manager/crux-manager.js';
 import * as TraceEngine from '../../models/trace/trace.js';
+import * as IconButton from '../../ui/components/icon_button/icon_button.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as VisualLogging from '../../ui/visual_logging/visual_logging.js';
 
@@ -18,6 +20,14 @@ import {
 import timelineHistoryManagerStyles from './timelineHistoryManager.css.js';
 import {type TimelineMiniMap} from './TimelineMiniMap.js';
 
+/**
+ * The dropdown works by returning an index which is the trace index; but we
+ * also need a way to signify that the user picked the "Landing Page" option. We
+ * represent that as the number 999 - with the assumption being that the user
+ * will never import 998+ traces in one session...
+ */
+export const LANDING_PAGE_INDEX_DROPDOWN_CHOICE = 999;
+
 const UIStrings = {
   /**
    *@description Screen reader label for the Timeline History dropdown button
@@ -25,6 +35,14 @@ const UIStrings = {
    *@example {Show recent timeline sessions} PH2
    */
   currentSessionSS: 'Current Session: {PH1}. {PH2}',
+  /**
+   *@description the title shown when the user is viewing the landing page which is showing only local metrics.
+   */
+  landingPageTitleLocalMetrics: 'Local metrics',
+  /**
+   *@description the title shown when the user is viewing the landing page which is showing local and field metrics.
+   */
+  landingPageTitleLocalAndFieldMetrics: 'Local and field metrics',
   /**
    *@description Text that shows there is no recording
    */
@@ -142,6 +160,25 @@ export class TimelineHistoryManager {
     ];
     this.totalHeight = this.allOverviews.reduce((acc, entry) => acc + entry.height, 0);
     this.enabled = true;
+
+    CrUXManager.CrUXManager.instance().addEventListener(CrUXManager.Events.FieldDataChanged, () => {
+      this.#updateLandingPageTitleIfActive();
+    });
+  }
+
+  /**
+   * If the user changes the CrUX consent status, the title shown in the
+   * dropdown could be outdated, as we show "Local" or "Local and field"
+   * depending on if the user has consented.
+   * This method will be called whenever the CrUXManager detects a change, and
+   * we use it as a chance to re-evaluate if the title needs changing or not.
+   */
+  #updateLandingPageTitleIfActive(): void {
+    if (this.lastActiveTraceIndex === LANDING_PAGE_INDEX_DROPDOWN_CHOICE) {
+      const title = this.title(LANDING_PAGE_INDEX_DROPDOWN_CHOICE);
+      this.buttonInternal.setTitle(title);
+      this.buttonInternal.setText(title);
+    }
   }
 
   addRecording(newInput: NewHistoryRecordingData): void {
@@ -194,7 +231,7 @@ export class TimelineHistoryManager {
   }
 
   async showHistoryDropDown(): Promise<RecordingData|null> {
-    if (this.recordings.length < 2 || !this.enabled) {
+    if (this.recordings.length < 1 || !this.enabled) {
       return null;
     }
 
@@ -205,12 +242,19 @@ export class TimelineHistoryManager {
     if (activeTraceIndex === null) {
       return null;
     }
+
+    if (activeTraceIndex === LANDING_PAGE_INDEX_DROPDOWN_CHOICE) {
+      this.#setActiveTraceIndex(LANDING_PAGE_INDEX_DROPDOWN_CHOICE);
+      return {traceParseDataIndex: LANDING_PAGE_INDEX_DROPDOWN_CHOICE};
+    }
+
     const index = this.recordings.findIndex(recording => recording.traceParseDataIndex === activeTraceIndex);
     if (index < 0) {
       console.assert(false, 'selected recording not found');
       return null;
     }
-    this.setCurrentModel(activeTraceIndex);
+
+    this.#setActiveTraceIndex(activeTraceIndex);
     return this.recordings[index];
   }
 
@@ -228,16 +272,19 @@ export class TimelineHistoryManager {
     }
     const newIndex = Platform.NumberUtilities.clamp(index + direction, 0, this.recordings.length - 1);
     const {traceParseDataIndex} = this.recordings[newIndex];
-    this.setCurrentModel(traceParseDataIndex);
+    this.#setActiveTraceIndex(traceParseDataIndex);
     return this.recordings[newIndex];
   }
 
-  private setCurrentModel(index: number): void {
-    const data = TimelineHistoryManager.dataForTraceIndex(index);
-    if (!data) {
-      throw new Error('Unable to find data for model');
+  #setActiveTraceIndex(index: number): void {
+    if (index !== LANDING_PAGE_INDEX_DROPDOWN_CHOICE) {
+      const data = TimelineHistoryManager.dataForTraceIndex(index);
+      if (!data) {
+        throw new Error('Unable to find data for model');
+      }
+      data.lastUsed = Date.now();
     }
-    data.lastUsed = Date.now();
+
     this.lastActiveTraceIndex = index;
     const modelTitle = this.title(index);
     const buttonTitle = this.action.title();
@@ -247,7 +294,7 @@ export class TimelineHistoryManager {
   }
 
   private updateState(): void {
-    this.action.setEnabled(this.recordings.length > 1 && this.enabled);
+    this.action.setEnabled(this.recordings.length > 0 && this.enabled);
   }
 
   static previewElement(traceDataIndex: number): Element {
@@ -275,6 +322,10 @@ export class TimelineHistoryManager {
   }
 
   private title(index: number): string {
+    if (index === LANDING_PAGE_INDEX_DROPDOWN_CHOICE) {
+      return titleForLandingPageItem();
+    }
+
     const data = TimelineHistoryManager.dataForTraceIndex(index);
     if (!data) {
       throw new Error('Unable to find data for model');
@@ -433,7 +484,7 @@ export class DropDown implements UI.ListControl.ListDelegate<number> {
     if (DropDown.instance) {
       return Promise.resolve(null);
     }
-    const instance = new DropDown(availableTraceDataIndexes);
+    const instance = new DropDown([LANDING_PAGE_INDEX_DROPDOWN_CHOICE, ...availableTraceDataIndexes]);
     return instance.show(anchor, activeTraceDataIndex);
   }
 
@@ -499,10 +550,29 @@ export class DropDown implements UI.ListControl.ListDelegate<number> {
   }
 
   createElementForItem(traceDataIndex: number): Element {
+    if (traceDataIndex === LANDING_PAGE_INDEX_DROPDOWN_CHOICE) {
+      return this.#createLandingPageListItem();
+    }
     const element = TimelineHistoryManager.previewElement(traceDataIndex);
     UI.ARIAUtils.markAsMenuItem(element);
     element.classList.remove('selected');
     return element;
+  }
+
+  #createLandingPageListItem(): HTMLElement {
+    const div = document.createElement('div');
+    UI.ARIAUtils.markAsMenuItem(div);
+    div.classList.remove('selected');
+    div.classList.add('preview-item');
+    div.classList.add('landing-page-item');
+
+    const icon = IconButton.Icon.create('arrow-back');
+    div.appendChild(icon);
+
+    const text = document.createElement('span');
+    text.innerText = titleForLandingPageItem();
+    div.appendChild(text);
+    return div;
   }
 
   heightForItem(_traceDataIndex: number): number {
@@ -514,7 +584,7 @@ export class DropDown implements UI.ListControl.ListDelegate<number> {
     return true;
   }
 
-  selectedItemChanged(from: number|null, to: number|null, fromElement: Element|null, toElement: Element|null): void {
+  selectedItemChanged(_from: number|null, _to: number|null, fromElement: Element|null, toElement: Element|null): void {
     if (fromElement) {
       fromElement.classList.remove('selected');
     }
@@ -528,6 +598,16 @@ export class DropDown implements UI.ListControl.ListDelegate<number> {
   }
 
   private static instance: DropDown|null = null;
+}
+
+/**
+ * Get the title for the "back to landing page" dropdown item, which differs based on if the user has consented to CrUX (and we can show field metrics) or not. Implemented here because both TimelineHistoryManager and Dropdown classes need it.
+ */
+function titleForLandingPageItem(): string {
+  const hasMetrics = CrUXManager.CrUXManager.instance().isEnabled();
+  const title = hasMetrics ? i18nString(UIStrings.landingPageTitleLocalAndFieldMetrics) :
+                             i18nString(UIStrings.landingPageTitleLocalMetrics);
+  return title;
 }
 
 export class ToolbarButton extends UI.Toolbar.ToolbarItem {

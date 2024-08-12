@@ -22,6 +22,36 @@ describeWithEnvironment('TimelineHistoryManager', function() {
     UI.ActionRegistry.ActionRegistry.reset();
   });
 
+  it('shows the dropdown including a landing page link', async function() {
+    const {traceData} = await TraceLoader.traceEngine(this, 'web-dev-with-commit.json.gz');
+    historyManager.addRecording(
+        {
+          data: {
+            traceParseDataIndex: 1,
+          },
+          filmStripForPreview: null,
+          traceParsedData: traceData,
+          startTime: null,
+        },
+    );
+
+    const showPromise = historyManager.showHistoryDropDown();
+    const glassPane = document.querySelector('div[data-devtools-glass-pane]');
+    const dropdown =
+        glassPane?.shadowRoot?.querySelector('.widget')?.shadowRoot?.querySelector<HTMLElement>('.drop-down');
+    assert.isOk(dropdown);
+
+    const menuItemText = Array.from(dropdown.querySelectorAll<HTMLDivElement>('[role="menuitem"]'), elem => {
+      return elem.innerText.replaceAll('\n', '');
+    });
+    assert.deepEqual(menuItemText, ['Local metrics', 'web.dev5.39 s']);
+
+    // Cancel the dropdown, which also resolves the show() promise, meaning we
+    // don't leak it into other tests.
+    historyManager.cancelIfShowing();
+    await showPromise;
+  });
+
   it('can select from multiple parsed data objects', async function() {
     // Add two parsed data objects to the history manager.
     const {traceData: trace1Data} = await TraceLoader.traceEngine(this, 'slow-interaction-button-click.json.gz');
