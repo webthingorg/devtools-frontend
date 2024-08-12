@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e417a570_88b392b3",
+        "filename": "scripts/component_server/server.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2024-08-12T10:55:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5224a389_d7816521",
+      "revId": "ff8fae39b301985a92347014c0d99d3ea292c7c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "20c9b67c_1a671186",
@@ -73,6 +91,30 @@
       "side": 1,
       "message": "the name sounds fine, and I think ../../ is correct",
       "parentUuid": "20c9b67c_1a671186",
+      "range": {
+        "startLine": 35,
+        "startChar": 6,
+        "endLine": 35,
+        "endChar": 24
+      },
+      "revId": "ff8fae39b301985a92347014c0d99d3ea292c7c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e63e648_d71eb4ee",
+        "filename": "scripts/component_server/server.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1368735
+      },
+      "writtenOn": "2024-08-12T10:55:03Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "5d77586b_7f00a502",
       "range": {
         "startLine": 35,
         "startChar": 6,
