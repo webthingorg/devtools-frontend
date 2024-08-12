@@ -251,28 +251,30 @@
   box-sizing: border-box;
 }
 
-.field-data-histogram {
+.bucket-summaries {
+  margin-top: 8px;
+}
+
+.bucket-summaries.histogram {
   display: grid;
   grid-template-columns: max-content 100px max-content;
   grid-auto-rows: 1fr;
   column-gap: 8px;
   justify-items: flex-end;
   align-items: center;
-  flex: 1;
-  margin-top: 8px;
 }
 
-.histogram-bar {
-  height: 6px;
-}
-
-.histogram-label {
+.bucket-label {
   width: 100%;
   font-weight: var(--ref-typeface-weight-medium);
 }
 
-.histogram-range {
+.bucket-range {
   color: var(--sys-color-token-subtle);
+}
+
+.histogram-bar {
+  height: 6px;
 }
 
 .histogram-percent {
@@ -315,7 +317,7 @@
 .tooltip-content {
   margin: 0 12px;
   min-width: min-content;
-  width: 300px;
+  max-width: 300px;
 }
 
 .detailed-compare-text {

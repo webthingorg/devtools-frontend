@@ -29,7 +29,7 @@ function getFieldMetricValue(view: Element, metric: string): HTMLElement|null {
 
 function getFieldHistogramPercents(view: Element, metric: string): string[] {
   const card = view.shadowRoot!.querySelector(`#${metric} devtools-metric-card`);
-  const histogram = card!.shadowRoot!.querySelector('.field-data-histogram') as HTMLElement;
+  const histogram = card!.shadowRoot!.querySelector('.bucket-summaries') as HTMLElement;
   const percents = Array.from(histogram.querySelectorAll('.histogram-percent')) as HTMLElement[];
   return percents.map(p => p.textContent || '');
 }
@@ -317,13 +317,13 @@ describeWithMockConnection('LiveMetricsView', () => {
       await coordinator.done();
 
       const lcpPercents = getFieldHistogramPercents(view, 'lcp');
-      assert.deepStrictEqual(lcpPercents, ['-', '-', '-']);
+      assert.lengthOf(lcpPercents, 0);
 
       const clsPercents = getFieldHistogramPercents(view, 'cls');
-      assert.deepStrictEqual(clsPercents, ['-', '-', '-']);
+      assert.lengthOf(clsPercents, 0);
 
       const inpPercents = getFieldHistogramPercents(view, 'inp');
-      assert.deepStrictEqual(inpPercents, ['-', '-', '-']);
+      assert.lengthOf(inpPercents, 0);
 
       const lcpFieldEl = getFieldMetricValue(view, 'lcp');
       assert.isNull(lcpFieldEl);
@@ -393,6 +393,55 @@ describeWithMockConnection('LiveMetricsView', () => {
 
       const fieldMessage = getFieldMessage(view);
       assert.strictEqual(fieldMessage!.innerText, 'Collection period: Jan 1, 2024 - Jan 29, 2024');
+
+      const dataDescriptions = getDataDescriptions(view);
+      assert.match(dataDescriptions.innerText, /local metrics/);
+      assert.match(dataDescriptions.innerText, /field data/);
+
+      const title = getLiveMetricsTitle(view);
+      assert.strictEqual(title.innerText, 'Local and field metrics');
+    });
+
+    it('should show empty values when crux is enabled but there is no field data', async () => {
+      const view = new Components.LiveMetricsView.LiveMetricsView();
+      renderElementIntoDOM(view);
+
+      await coordinator.done();
+
+      target.model(SDK.ResourceTreeModel.ResourceTreeModel)
+          ?.dispatchEventToListeners(SDK.ResourceTreeModel.Events.FrameNavigated, {
+            url: 'https://example.com',
+            isPrimaryFrame: () => true,
+          } as SDK.ResourceTreeModel.ResourceTreeFrame);
+
+      await coordinator.done();
+
+      const lcpPercents = getFieldHistogramPercents(view, 'lcp');
+      assert.deepStrictEqual(lcpPercents, ['-', '-', '-']);
+
+      const clsPercents = getFieldHistogramPercents(view, 'cls');
+      assert.deepStrictEqual(clsPercents, ['-', '-', '-']);
+
+      const inpPercents = getFieldHistogramPercents(view, 'inp');
+      assert.deepStrictEqual(inpPercents, ['-', '-', '-']);
+
+      const lcpFieldEl = getFieldMetricValue(view, 'lcp');
+      assert.strictEqual(lcpFieldEl!.textContent, '-');
+
+      const clsFieldEl = getFieldMetricValue(view, 'cls');
+      assert.strictEqual(clsFieldEl!.textContent, '-');
+
+      const inpFieldEl = getFieldMetricValue(view, 'inp');
+      assert.strictEqual(inpFieldEl!.textContent, '-');
+
+      const throttlingRec = getThrottlingRecommendation(view);
+      assert.isNull(throttlingRec);
+
+      const deviceRec = getDeviceRecommendation(view);
+      assert.isNull(deviceRec);
+
+      const fieldMessage = getFieldMessage(view);
+      assert.isNull(fieldMessage);
 
       const dataDescriptions = getDataDescriptions(view);
       assert.match(dataDescriptions.innerText, /local metrics/);
