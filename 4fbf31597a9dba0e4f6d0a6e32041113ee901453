@@ -46,6 +46,30 @@
       },
       "revId": "4fbf31597a9dba0e4f6d0a6e32041113ee901453",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "162dd124_7611e507",
+        "filename": "front_end/panels/timeline/overlays/OverlaysImpl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 920,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-12T15:54:01Z",
+      "side": 1,
+      "message": "Nope, this is fine, but we should leave a comment - any time we do something \"odd\" (or that might look odd to a new reader) that\u0027s a good sign we should leave an explainer.\n\nSo in this case, we don\u0027t have events on the overlays because we want users to interact with the flame chart beneath it, so we have to bind to the parent (which I think will be the timeline flamechart view).\n\nMy only other thought is it might be cleaner to pass in the parent in the constructor() rather than use `parentElement`. wdyt?",
+      "parentUuid": "0b8ed6ae_441348e1",
+      "range": {
+        "startLine": 920,
+        "startChar": 0,
+        "endLine": 920,
+        "endChar": 87
+      },
+      "revId": "4fbf31597a9dba0e4f6d0a6e32041113ee901453",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
