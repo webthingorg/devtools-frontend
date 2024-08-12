@@ -48,16 +48,18 @@ export const logResize = (loggable: Loggable, size: DOMRect): void => {
 
 export const logClick = (throttler: Common.Throttler.Throttler) => (
     loggable: Loggable, event: Event, options?: {doubleClick?: boolean}) => {
-  const loggingState = getLoggingState(loggable);
-  if (!loggingState) {
-    return;
-  }
-  const clickEvent:
-      Host.InspectorFrontendHostAPI.ClickEvent = {veid: loggingState.veid, doubleClick: Boolean(options?.doubleClick)};
-  if (event instanceof MouseEvent && 'sourceCapabilities' in event && event.sourceCapabilities) {
-    clickEvent.mouseButton = event.button;
-  }
   void throttler.schedule(async () => {
+    const loggingState = getLoggingState(loggable);
+    if (!loggingState) {
+      return;
+    }
+    const clickEvent: Host.InspectorFrontendHostAPI.ClickEvent = {
+      veid: loggingState.veid,
+      doubleClick: Boolean(options?.doubleClick),
+    };
+    if (event instanceof MouseEvent && 'sourceCapabilities' in event && event.sourceCapabilities) {
+      clickEvent.mouseButton = event.button;
+    }
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.recordClick(clickEvent);
     processEventForDebugging(
         'Click', loggingState, {mouseButton: clickEvent.mouseButton, doubleClick: clickEvent.doubleClick});
