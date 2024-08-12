@@ -65,3 +65,10 @@
   max-width: 100%;
   max-height: 100%;
 }
+
+.landing-page-item {
+  font: var(--sys-typescale-body4-regular);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
