@@ -526,7 +526,7 @@ export class FreestylerChatUi extends HTMLElement {
               placeholder=${getInputPlaceholderString(
                 this.#props.aidaAvailability,
               )}
-              jslog=${VisualLogging.textField('query').track({ change: true })}
+              jslog=${VisualLogging.textField('query').track({ keydown: 'Enter' })}
             >${
                 this.#props.isLoading
                   ? LitHtml.html`
@@ -565,7 +565,13 @@ export class FreestylerChatUi extends HTMLElement {
           </div>
           <span class="chat-input-disclaimer">${i18nString(
             UIStringsTemp.inputDisclaimer,
-          )} See <x-link class="link" href=${DOGFOOD_INFO}>dogfood terms</x-link>.</span>
+          )} See <x-link
+              class="link"
+              href=${DOGFOOD_INFO}
+              jslog=${VisualLogging.action('freestyler.dogfood-info').track({
+                click: true,
+              })}
+            >dogfood terms</x-link>.</span>
         </form>
       </div>
     `;
@@ -585,7 +591,13 @@ export class FreestylerChatUi extends HTMLElement {
             <li>${i18nString(UIStringsTemp.consentTextDataDisclaimer)}</li>
             <li>${i18nString(UIStringsTemp.consentTextVisibilityDisclaimer)}</li>
             <li>${i18nString(UIStringsTemp.consentTextDoNotUseDisclaimer)}</li>
-            <li>See <x-link class="link" href=${DOGFOOD_INFO}>dogfood terms</x-link>.</li>
+            <li>See <x-link
+              class="link"
+              href=${DOGFOOD_INFO}
+              jslog=${VisualLogging.action('freestyler.dogfood-info').track({
+                click: true,
+              })}
+            >dogfood terms</x-link>.</li>
           </ul>
           <${Buttons.Button.Button.litTagName}
             class="accept-button"
