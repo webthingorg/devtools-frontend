@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "ffdf854645203007fbc98ebc4c1fe678dd2b34be",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8477cd17_a2374136",
+        "filename": "front_end/panels/timeline/timelineHistoryManager.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-08-12T14:23:12Z",
+      "side": 1,
+      "message": "Hey, Jack, could you please use a size token in here?:) that would be a `--sys-size-5` for 8px!",
+      "range": {
+        "startLine": 73,
+        "startChar": 7,
+        "endLine": 73,
+        "endChar": 11
+      },
+      "revId": "ffdf854645203007fbc98ebc4c1fe678dd2b34be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
