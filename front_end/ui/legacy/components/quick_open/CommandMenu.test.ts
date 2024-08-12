@@ -71,7 +71,7 @@ describeWithLocale('CommandMenu', () => {
     command.execute();
 
     assert.isTrue(
-        reveal.calledOnceWithExactly(setting, false),
+        reveal.calledOnceWithExactly(setting, {omitFocus: false}),
         'Revealer was either not called or was called with unexpected arguments');
   });
 });

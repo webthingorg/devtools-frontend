@@ -163,7 +163,7 @@ describeWithMockConnection('LayoutPane', () => {
     const button = component.shadowRoot.querySelector('.show-element');
     assert.instanceOf(button, HTMLElement);
     button.click();
-    assert.isTrue(reveal.calledOnceWith(node, false));
+    assert.isTrue(reveal.calledOnceWith(node, {omitFocus: false}));
   });
 
   it('expands/collapses <details> using ArrowLeft/ArrowRight keys', async () => {

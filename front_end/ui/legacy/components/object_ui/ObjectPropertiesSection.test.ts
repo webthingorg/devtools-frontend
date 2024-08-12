@@ -209,7 +209,7 @@ describe('ObjectPropertiesSection', () => {
 
         dispatchClickEvent(icon);
 
-        sinon.assert.calledOnceWithMatch(reveal, sinon.match({object, expression}), false);
+        sinon.assert.calledOnceWithMatch(reveal, sinon.match({object, expression}), {omitFocus: false});
       });
     });
   });

@@ -305,6 +305,23 @@ export class NetworkManager extends SDKModel<EventTypes> {
     return this.dispatcher.requestForId(id);
   }
 
+  static tryFindRequestAmongManagers(id: string): NetworkRequest|null {
+    const targetManager = TargetManager.instance();
+    for (const target of targetManager.targets()) {
+      const model = target.model(NetworkManager);
+      if (!model) {
+        continue;
+      }
+
+      const request = model.requestForId(id);
+      if (request) {
+        return request;
+      }
+    }
+
+    return null;
+  }
+
   requestForLoaderId(loaderId: Protocol.Network.LoaderId): NetworkRequest|null {
     return this.dispatcher.requestForLoaderId(loaderId);
   }
