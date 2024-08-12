@@ -16,6 +16,23 @@
       "message": "Hi Alex!\n\nI\u0027m using legacy CSS styles for the Button component (as we already do with the Icon component), as we\u0027re getting errors with adopted style sheets at the moment. PTAL!",
       "revId": "2d2d963482db99a2b83684f1ddf15d33b86a3939",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce826016_3de36273",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-08-12T12:27:56Z",
+      "side": 1,
+      "message": "Thanks, submitting!",
+      "revId": "2d2d963482db99a2b83684f1ddf15d33b86a3939",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
