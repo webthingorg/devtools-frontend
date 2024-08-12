@@ -84,7 +84,7 @@ describeWithEnvironment('Overlays', () => {
     // Now set an event to be at 50 microseconds.
     const event = makeInstantEvent('test-event', 50);
 
-    const xPosition = overlays.xPixelForEventOnChart(event);
+    const xPosition = overlays.xPixelForEventStartOnChart(event);
     assert.strictEqual(xPosition, 50);
   });
 
