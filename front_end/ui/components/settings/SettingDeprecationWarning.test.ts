@@ -62,7 +62,7 @@ describe('SettingDeprecationWarning', () => {
     element.click();
 
     assert.isTrue(
-        reveal.calledOnceWithExactly(experiment, false),
+        reveal.calledOnceWithExactly(experiment, {omitFocus: false}),
         'Revealer was either not called or was called with unexpected arguments');
   });
 });

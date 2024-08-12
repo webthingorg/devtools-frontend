@@ -108,7 +108,7 @@ describe('Revealer', () => {
 
       await reveal(revealable, true);
 
-      sinon.assert.calledOnceWithExactly(revealStub, revealable, true);
+      sinon.assert.calledOnceWithExactly(revealStub, revealable, {omitFocus: true});
     });
 
     it('defaults to not omitting focus', async () => {
@@ -116,7 +116,7 @@ describe('Revealer', () => {
 
       await reveal(revealable);
 
-      sinon.assert.calledOnceWithExactly(revealStub, revealable, false);
+      sinon.assert.calledOnceWithExactly(revealStub, revealable, {omitFocus: false});
     });
   });
 });
