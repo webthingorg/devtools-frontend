@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12287df3_dccb92ee",
+        "filename": "front_end/panels/timeline/overlays/OverlaysImpl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 920,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-12T14:24:57Z",
+      "side": 1,
+      "message": "why do we need to add this to the parent element?",
+      "range": {
+        "startLine": 920,
+        "startChar": 0,
+        "endLine": 920,
+        "endChar": 87
+      },
+      "revId": "4fbf31597a9dba0e4f6d0a6e32041113ee901453",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
