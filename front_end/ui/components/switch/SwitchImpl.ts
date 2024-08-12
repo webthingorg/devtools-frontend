@@ -56,7 +56,7 @@ export class Switch extends HTMLElement {
       <input type="checkbox"
         @change=${this.#handleChange}
         ?disabled=${this.#disabled}
-        ?checked=${this.#checked}>
+        .checked=${this.#checked}>
       <span class="slider" @click=${(ev: Event) => ev.stopPropagation()}></span>
     </label>
     `, this.#shadow, {host: this});
