@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f8a41c5_1d53e2ce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-08-12T18:20:37Z",
+      "side": 1,
+      "message": "Overall looks good! 1 blocking comment",
+      "revId": "5e0c5dd4f1160304aedc5329beffdf9f732cb274",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99989908_12fc276b",
+        "filename": "front_end/panels/timeline/TimelineHistoryManager.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 528,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-08-12T18:20:37Z",
+      "side": 1,
+      "message": "WDYT about hiding this option if the new landing page experiment is disabled? I think this would be more than just a 1-line change unfortunately (e.g. the logic on L338 would need to change).\n\nMy main concern is that the title of \"Local and field metrics\" would be confusing if the experiment is disabled. Maybe a simpler solution would be to use a different title if the experiment is disabled like \"Back to landing page\".",
+      "revId": "5e0c5dd4f1160304aedc5329beffdf9f732cb274",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f48ea2e_5a63226c",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-08-12T18:20:37Z",
+      "side": 1,
+      "message": "nit: is this formatting necessary?",
+      "revId": "5e0c5dd4f1160304aedc5329beffdf9f732cb274",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
