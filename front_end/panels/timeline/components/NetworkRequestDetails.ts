@@ -2,9 +2,10 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as Common from '../../../core/common/common.js';
 import * as i18n from '../../../core/i18n/i18n.js';
 import * as Platform from '../../../core/platform/platform.js';
-import type * as SDK from '../../../core/sdk/sdk.js';
+import * as SDK from '../../../core/sdk/sdk.js';
 import * as TraceEngine from '../../../models/trace/trace.js';
 import * as PerfUI from '../../../ui/legacy/components/perf_ui/perf_ui.js';
 import * as LegacyComponents from '../../../ui/legacy/components/utils/utils.js';
@@ -95,6 +96,10 @@ const UIStrings = {
    */
   requestSentAndWaiting: 'Request sent and waiting',
   /**
+   * @description Text that links a request from the Timeline tool to the Network tool
+   */
+  revealInNetworkTool: 'Reveal in Network tool',
+  /**
    *@description Text that refers to the content downloading time of a network request
    */
   contentDownloading: 'Content downloading',
@@ -156,6 +161,40 @@ export class NetworkRequestDetails extends HTMLElement {
     return LitHtml.html`
       <div class="network-request-details-row"><div class="title">${title}</div><div class="value">${value}</div></div>
     `;
+  }
+
+  #renderLinkToNetworkRequest(): LitHtml.TemplateResult|null {
+    if (!this.#networkRequest || !this.#networkRequest.args.data.requestId) {
+      return null;
+    }
+
+    const sdkRequest =
+        SDK.NetworkManager.NetworkManager.tryFindRequestAmongManagers(this.#networkRequest.args.data.requestId);
+    if (!sdkRequest) {
+      return null;
+    }
+
+    return LitHtml.html`
+      <div class="network-request-details-row">
+        <x-link class="devtools-link" @click=${this.#handleRevealNetworkRequest}>
+          ${i18nString(UIStrings.revealInNetworkTool)}
+        </x-link>
+      </div>
+    `;
+  }
+
+  #handleRevealNetworkRequest(): void {
+    if (!this.#networkRequest || !this.#networkRequest.args.data.requestId) {
+      return;
+    }
+
+    const sdkRequest =
+        SDK.NetworkManager.NetworkManager.tryFindRequestAmongManagers(this.#networkRequest.args.data.requestId);
+    if (!sdkRequest) {
+      return;
+    }
+
+    void Common.Revealer.RevealerRegistry.instance().reveal(sdkRequest, {activateRequest: true});
   }
 
   #renderURL(): LitHtml.TemplateResult|null {
@@ -355,6 +394,7 @@ export class NetworkRequestDetails extends HTMLElement {
       <div class="network-request-details-body">
         <div class="network-request-details-col">
           ${this.#renderURL()}
+          ${this.#renderLinkToNetworkRequest()}
           ${this.#renderRow(i18nString(UIStrings.requestMethod), networkData.requestMethod)}
           ${this.#renderRow(i18nString(UIStrings.initialPriority), PerfUI.NetworkPriorities.uiLabelForNetworkPriority(networkData.initialPriority))}
           ${this.#renderRow(i18nString(UIStrings.priority), PerfUI.NetworkPriorities.uiLabelForNetworkPriority(networkData.priority))}

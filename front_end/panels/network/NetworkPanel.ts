@@ -800,11 +800,30 @@ export class NetworkPanel extends UI.Panel.Panel implements
   }
 }
 
+export interface NetworkRequestRevealerOptions extends Common.Revealer.RevealableOptions {
+  omitFocus?: boolean;
+  activateRequest?: boolean;
+}
+
 export class RequestRevealer implements Common.Revealer.Revealer<SDK.NetworkRequest.NetworkRequest> {
-  reveal(request: SDK.NetworkRequest.NetworkRequest): Promise<void> {
+  async reveal(request: SDK.NetworkRequest.NetworkRequest): Promise<void> {
     const panel = NetworkPanel.instance();
-    return UI.ViewManager.ViewManager.instance().showView('network').then(
-        panel.revealAndHighlightRequest.bind(panel, request));
+    await UI.ViewManager.ViewManager.instance().showView('network');
+    panel.revealAndHighlightRequest(request);
+  }
+
+  async revealWithOptions(
+      request: SDK.NetworkRequest.NetworkRequest, revealerOptions: Common.Revealer.RevealableOptions): Promise<void> {
+    const options = revealerOptions as NetworkRequestRevealerOptions;
+
+    const panel = NetworkPanel.instance();
+    await UI.ViewManager.ViewManager.instance().showView('network');
+
+    if (options?.activateRequest) {
+      await panel.selectAndActivateRequest(request);
+    } else {
+      panel.revealAndHighlightRequest(request);
+    }
   }
 }
 

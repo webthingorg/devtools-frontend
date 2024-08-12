@@ -50,6 +50,11 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('core/common/Revealer.ts', UIStrings);
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type RevealableOptions = Record<string, any>&{
+  omitFocus?: boolean,
+};
+
 /**
  * Interface for global revealers, which are entities responsible for
  * dealing with revealing certain types of objects. For example, the
@@ -58,6 +63,7 @@ const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined
  */
 export interface Revealer<T> {
   reveal(revealable: T, omitFocus?: boolean): Promise<void>;
+  revealWithOptions?: (revealable: T, options: RevealableOptions) => Promise<void>;
 }
 
 let revealerRegistry: RevealerRegistry|undefined;
@@ -106,7 +112,19 @@ export class RevealerRegistry {
    * @param revealable the object to reveal.
    * @param omitFocus whether to omit focusing on the presentation of `revealable` afterwards.
    */
-  async reveal(revealable: unknown, omitFocus: boolean): Promise<void> {
+  async reveal(revealable: unknown, omitFocus: boolean): Promise<void>;
+  async reveal(revealable: unknown, options: Partial<RevealableOptions>): Promise<void>;
+  async reveal(revealable: unknown, options: boolean|Partial<RevealableOptions>): Promise<void> {
+    let finalOptions: Partial<RevealableOptions>;
+    if (typeof options === 'undefined') {
+      finalOptions = {};
+    } else if (typeof options === 'boolean') {
+      finalOptions = {
+        omitFocus: options,
+      };
+    } else {
+      finalOptions = options;
+    }
     const revealers = await Promise.all(
         this.getApplicableRegisteredRevealers(revealable).map(registration => registration.loadRevealer()));
     if (revealers.length < 1) {
@@ -115,7 +133,12 @@ export class RevealerRegistry {
     if (revealers.length > 1) {
       throw new Error(`Conflicting reveals found for ${revealable}`);
     }
-    return await revealers[0].reveal(revealable, omitFocus);
+
+    if (revealers[0].revealWithOptions) {
+      return await revealers[0].revealWithOptions(revealable, finalOptions);
+    }
+
+    return await revealers[0].reveal(revealable, finalOptions.omitFocus);
   }
 
   getApplicableRegisteredRevealers(revealable: unknown): RevealerRegistration<unknown>[] {
