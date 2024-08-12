@@ -22,6 +22,30 @@
       },
       "revId": "4fbf31597a9dba0e4f6d0a6e32041113ee901453",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0b8ed6ae_441348e1",
+        "filename": "front_end/panels/timeline/overlays/OverlaysImpl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 920,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-08-12T15:52:01Z",
+      "side": 1,
+      "message": "on `this.#overlaysContainer` only the children receive the mouseevents. I tried changing the `pointer-events` property, but then the flamechart underneath is not interactable.\nDo you have another solution in mind?",
+      "parentUuid": "12287df3_dccb92ee",
+      "range": {
+        "startLine": 920,
+        "startChar": 0,
+        "endLine": 920,
+        "endChar": 87
+      },
+      "revId": "4fbf31597a9dba0e4f6d0a6e32041113ee901453",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
