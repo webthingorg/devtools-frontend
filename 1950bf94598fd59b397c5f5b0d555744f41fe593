@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "518f2bca_6983e84f",
+        "filename": "front_end/panels/settings/AISettingsTab.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-08-13T13:28:30Z",
+      "side": 1,
+      "message": "We want to keep the click event (see my response to the other comment).",
+      "parentUuid": "44ff657f_7a07a5df",
+      "revId": "1950bf94598fd59b397c5f5b0d555744f41fe593",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4ea25079_20ef5bac",
@@ -35,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "77d72425_06a81209",
+        "filename": "front_end/panels/settings/AISettingsTab.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-08-13T13:28:30Z",
+      "side": 1,
+      "message": "The design states that not only the switch itself, but also the area surrounding it, should toggle the setting.",
+      "parentUuid": "4ea25079_20ef5bac",
+      "revId": "1950bf94598fd59b397c5f5b0d555744f41fe593",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4f7b6040_45b32354",
@@ -48,6 +84,24 @@
       "writtenOn": "2024-08-13T10:05:08Z",
       "side": 1,
       "message": "For `jslog`, we need to update the Switch component to accept a `jslogContext` and add the `change` event listener to its checkbox. Otherwise this won\u0027t be tracked.",
+      "revId": "1950bf94598fd59b397c5f5b0d555744f41fe593",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5fa49437_f8524d66",
+        "filename": "front_end/panels/settings/AISettingsTab.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-08-13T13:28:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4f7b6040_45b32354",
       "revId": "1950bf94598fd59b397c5f5b0d555744f41fe593",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
