@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "73380b11_c37c57b7",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-08-13T13:02:19Z",
+      "side": 1,
+      "message": "you can also mention the title in the steps above",
+      "parentUuid": "16b12fb8_6ca26107",
+      "revId": "16a4e3fd87e58a2d72d529c961e346ce2f51b6e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4402afb5_56ddb4b7",
         "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
         "patchSetId": 3
