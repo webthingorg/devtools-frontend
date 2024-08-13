@@ -421,6 +421,19 @@ export class CSSModel extends SDKModel<EventTypes> {
     const attributesStyle = response.attributesStyle ?
         new CSSStyleDeclaration(this, null, response.attributesStyle, Type.Attributes) :
         null;
+    this.styleSheetAdded({
+      styleSheetId: response.inlineStyle.styleSheetId as unknown as any,
+      frameId: '' as any,
+      sourceURL: 'chrome://inline-styles',
+      origin: 'regular' as any,
+      title: '',
+      disabled: false,
+      isInline: false,
+      isMutable: true,
+      isConstructed: false,
+      ...response.inlineStyle.range || {startLine: 0, startColumn: 0, endColumn: 0, endLine: 0},
+      length: response.inlineStyle.cssText?.length || 0,
+    });
     return new InlineStyleResult(inlineStyle, attributesStyle);
   }
 
@@ -647,6 +660,9 @@ export class CSSModel extends SDKModel<EventTypes> {
   }
 
   styleSheetAdded(header: Protocol.CSS.CSSStyleSheetHeader): void {
+    if (this.#styleSheetIdToHeader.get(header.styleSheetId)) {
+      return;
+    }
     console.assert(!this.#styleSheetIdToHeader.get(header.styleSheetId));
     if (header.loadingFailed) {
       // When the stylesheet fails to load, treat it as a constructed stylesheet. Failed sheets can still be modified

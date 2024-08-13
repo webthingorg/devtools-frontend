@@ -157,7 +157,8 @@ export class StylesSourceMapping implements SourceMapping {
   }
 
   private styleSheetChanged(event: Common.EventTarget.EventTargetEvent<SDK.CSSModel.StyleSheetChangedEvent>): void {
-    const header = this.#cssModel.styleSheetHeaderForId(event.data.styleSheetId);
+    const header = this.#cssModel.styleSheetHeaderForId(event.data.styleSheetId) ||
+        this.#cssModel.styleSheetHeaderForId('style-sheet-' + event.data.styleSheetId.replace('.', '-') as any);
     if (!header || !this.acceptsHeader(header)) {
       return;
     }
