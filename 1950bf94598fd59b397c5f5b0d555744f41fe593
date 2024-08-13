@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44ff657f_7a07a5df",
+        "filename": "front_end/panels/settings/AISettingsTab.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-13T10:05:08Z",
+      "side": 1,
+      "message": "If we can remove the `@click` event, we can update this `Event` to be `SwitchChangeEvent` directly :)",
+      "revId": "1950bf94598fd59b397c5f5b0d555744f41fe593",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ea25079_20ef5bac",
+        "filename": "front_end/panels/settings/AISettingsTab.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-13T10:05:08Z",
+      "side": 1,
+      "message": "Why do we still need the `@click` event here? 🤔",
+      "revId": "1950bf94598fd59b397c5f5b0d555744f41fe593",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f7b6040_45b32354",
+        "filename": "front_end/panels/settings/AISettingsTab.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-13T10:05:08Z",
+      "side": 1,
+      "message": "For `jslog`, we need to update the Switch component to accept a `jslogContext` and add the `change` event listener to its checkbox. Otherwise this won\u0027t be tracked.",
+      "revId": "1950bf94598fd59b397c5f5b0d555744f41fe593",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
