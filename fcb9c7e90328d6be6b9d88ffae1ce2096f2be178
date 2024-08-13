@@ -16,6 +16,24 @@
       "message": "idk if I should be linking to Lighthouse docs, but the first link in this comment would be good\n\nwdyt of having a markdown element? long term .. much easier to write markdown than html for this stuff, so the earlier the better",
       "revId": "fcb9c7e90328d6be6b9d88ffae1ce2096f2be178",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df9b4cfd_b0bec2a7",
+        "filename": "front_end/panels/timeline/components/insights/Viewport.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-13T11:50:38Z",
+      "side": 1,
+      "message": "We\u0027re going to struggle with Markdown because we need to adapt this to use the l10n framework in DevTools, so we will need to have it in plain text / HTML (we can embed links into the translations).",
+      "parentUuid": "612c2e10_1ef2342d",
+      "revId": "fcb9c7e90328d6be6b9d88ffae1ce2096f2be178",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
