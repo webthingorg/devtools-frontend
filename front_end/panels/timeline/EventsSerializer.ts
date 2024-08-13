@@ -15,7 +15,21 @@ export class EventsSerializer {
       return `${TraceEngine.Types.File.EventKeyType.ProfileCall}-${event.pid}-${event.tid}-${
           TraceEngine.Types.TraceEvents.SampleIndex(event.sampleIndex)}-${event.nodeId}`;
     }
-    const rawEvents = TraceEngine.Helpers.SyntheticEvents.SyntheticEventsManager.getActiveManager().getRawTraceEvents();
+    const syntheticEventsManager = TraceEngine.Helpers.SyntheticEvents.SyntheticEventsManager.getActiveManager();
+    const rawEvents = syntheticEventsManager.getRawTraceEvents();
+    if (TraceEngine.Types.TraceEvents.isSyntheticServerTiming(event)) {
+      const rawEventIndex = rawEvents.indexOf(event.rawSourceEvent);
+      const syntheticRequest = syntheticEventsManager.syntheticEventForRawEventIndex(rawEventIndex) as
+          TraceEngine.Types.TraceEvents.SyntheticNetworkRequest;
+      const timingsInRequest = syntheticRequest.args?.data?.syntheticServerTimings;
+      const serverTimingPosition = timingsInRequest?.indexOf(event);
+
+      if (serverTimingPosition === undefined || serverTimingPosition < 0) {
+        throw new Error(
+            'Attempted to get a key for a synthetic server timing event paired to an unknown synthetic request.');
+      }
+      return `${TraceEngine.Types.File.EventKeyType.ServerTiming}-${rawEventIndex}-${serverTimingPosition}`;
+    }
     const key: TraceEngine.Types.File.SyntheticEventKey|TraceEngine.Types.File.RawEventKey =
         TraceEngine.Types.TraceEvents.isSyntheticBasedEvent(event) ?
         `${TraceEngine.Types.File.EventKeyType.SyntheticEvent}-${rawEvents.indexOf(event.rawSourceEvent)}` :
@@ -50,6 +64,16 @@ export class EventsSerializer {
           TraceEngine.Helpers.SyntheticEvents.SyntheticEventsManager.getActiveManager().getRawTraceEvents();
       return rawEvents[eventValues.rawIndex];
     }
+    if (EventsSerializer.isServerTimingKey(eventValues)) {
+      const serverTimings =
+          TraceEngine.Helpers.SyntheticEvents.SyntheticEventsManager.getActiveManager().getServerTimings();
+      const serverTiming = serverTimings.at(eventValues.rawIndex)?.at(eventValues.timingPosition);
+      if (!serverTiming) {
+        throw new Error(`Attempted to get a synthetic server timing from an unknown pair of indexes: (${
+            eventValues.rawIndex}, ${eventValues.timingPosition})`);
+      }
+      return serverTiming;
+    }
     throw new Error(`Unknown trace event serializable key values: ${(eventValues as Array<unknown>).join('-')}`);
   }
 
@@ -64,6 +88,10 @@ export class EventsSerializer {
   static isSyntheticEventKey(key: TraceEngine.Types.File.TraceEventSerializableKeyValues):
       key is TraceEngine.Types.File.SyntheticEventKeyValues {
     return key.type === TraceEngine.Types.File.EventKeyType.SyntheticEvent;
+  }
+  static isServerTimingKey(key: TraceEngine.Types.File.TraceEventSerializableKeyValues):
+      key is TraceEngine.Types.File.ServerTimingKeyValues {
+    return key.type === TraceEngine.Types.File.EventKeyType.ServerTiming;
   }
 
   #getModifiedProfileCallByKeyValues(

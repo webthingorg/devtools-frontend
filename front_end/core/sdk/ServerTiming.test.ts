@@ -3,15 +3,17 @@
 // found in the LICENSE file.
 
 import {describeWithLocale} from '../../testing/EnvironmentHelpers.js';
+import * as Platform from '../platform/platform.js';
 
 import * as SDK from './sdk.js';
 
 describe('ServerTiming', () => {
   it('can be instantiated correctly', () => {
-    const serverTiming = new SDK.ServerTiming.ServerTiming('example metric', 1, 'example description');
+    const serverTiming = new SDK.ServerTiming.ServerTiming('example metric', 1, 'example description', 0);
     assert.strictEqual(serverTiming.metric, 'example metric', 'metric was not set correctly');
     assert.strictEqual(serverTiming.value, 1, 'value was not set correctly');
     assert.strictEqual(serverTiming.description, 'example description', 'description was not set correctly');
+    assert.strictEqual(serverTiming.start, 0, 'start was not set correctly');
   });
 });
 
@@ -93,6 +95,13 @@ describeWithLocale('SDK.ServerTiming.ServerTiming.createFromHeaderValue', () => 
     ]);
   });
 
+  it('parses Server Timing metric starts correctly', () => {
+    assert.deepEqual(
+        SDK.ServerTiming.ServerTiming.createFromHeaderValue('metric;start=123.4'), [{name: 'metric', start: 123.4}]);
+    assert.deepEqual(
+        SDK.ServerTiming.ServerTiming.createFromHeaderValue('metric;start="123.4"'), [{name: 'metric', start: 123.4}]);
+  });
+
   it('handles spaces in Server Timing headers correctly', () => {
     assert.deepEqual(SDK.ServerTiming.ServerTiming.createFromHeaderValue('metric ; '), [{name: 'metric'}]);
     assert.deepEqual(SDK.ServerTiming.ServerTiming.createFromHeaderValue('metric , '), [{name: 'metric'}]);
@@ -104,6 +113,9 @@ describeWithLocale('SDK.ServerTiming.ServerTiming.createFromHeaderValue', () => 
     ]);
     assert.deepEqual(SDK.ServerTiming.ServerTiming.createFromHeaderValue('metric;desc = "description"'), [
       {name: 'metric', desc: 'description'},
+    ]);
+    assert.deepEqual(SDK.ServerTiming.ServerTiming.createFromHeaderValue('metric;start = "2"'), [
+      {name: 'metric', start: 2},
     ]);
   });
 
@@ -118,6 +130,12 @@ describeWithLocale('SDK.ServerTiming.ServerTiming.createFromHeaderValue', () => 
         SDK.ServerTiming.ServerTiming.createFromHeaderValue('metric\t;\tdesc\t=\tdescription\t;\tdur\t=\t123.4'), [
           {name: 'metric', desc: 'description', dur: 123.4},
         ]);
+    assert.deepEqual(
+        SDK.ServerTiming.ServerTiming.createFromHeaderValue(
+            'metric\t;\tdesc\t=\tdescription\t;\tdur\t=\t123.4;\tstart\t=\t4.5'),
+        [
+          {name: 'metric', desc: 'description', dur: 123.4, start: 4.5},
+        ]);
     assert.deepEqual(SDK.ServerTiming.ServerTiming.createFromHeaderValue('metric;desc\t=\t"description"'), [
       {name: 'metric', desc: 'description'},
     ]);
@@ -126,11 +144,11 @@ describeWithLocale('SDK.ServerTiming.ServerTiming.createFromHeaderValue', () => 
   it('handles Server Timing headers with multiple entries correctly', () => {
     assert.deepEqual(
         SDK.ServerTiming.ServerTiming.createFromHeaderValue(
-            'metric1;dur=12.3;desc=description1,metric2;dur=45.6;desc=description2,metric3;dur=78.9;desc=description3'),
+            'metric1;dur=12.3;desc=description1,metric2;dur=45.6;desc=description2,metric3;dur=78.9;desc=description3;start=2'),
         [
           {name: 'metric1', dur: 12.3, desc: 'description1'},
           {name: 'metric2', dur: 45.6, desc: 'description2'},
-          {name: 'metric3', dur: 78.9, desc: 'description3'},
+          {name: 'metric3', dur: 78.9, desc: 'description3', start: 2},
         ]);
     assert.deepEqual(
         SDK.ServerTiming.ServerTiming.createFromHeaderValue('metric1,metric2 ,metric3, metric4 , metric5'), [
@@ -215,8 +233,8 @@ describeWithLocale('SDK.ServerTiming.ServerTiming.createFromHeaderValue', () => 
   });
 
   it('handles case-sensitivity correctly', () => {
-    assert.deepEqual(SDK.ServerTiming.ServerTiming.createFromHeaderValue('metric;DuR=123.4;DeSc=description'), [
-      {name: 'metric', dur: 123.4, desc: 'description'},
+    assert.deepEqual(SDK.ServerTiming.ServerTiming.createFromHeaderValue('metric;DuR=123.4;DeSc=description;StARt=4'), [
+      {name: 'metric', dur: 123.4, desc: 'description', start: 4},
     ]);
   });
 
@@ -309,7 +327,7 @@ describeWithLocale('SDK.ServerTiming.ServerTiming.createFromHeaderValue', () => 
     // TODO: These tests require mocking `Common.console.warn`.
     // For now, we override `SDK.ServerTiming.ServerTiming.showWarning` to throw an
     // exception instead of logging it.
-    SDK.ServerTiming.ServerTiming.showWarning = message => {
+    Platform.ServerTimings.ServerTiming.showWarning = message => {
       throw new Error(message);
     };
 
