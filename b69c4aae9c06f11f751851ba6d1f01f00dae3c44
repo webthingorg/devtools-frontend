@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c3046d1_d7cb0e4b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-08-13T11:08:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cf5e009b_af01246d",
+      "range": {
+        "startLine": 7,
+        "startChar": 7,
+        "endLine": 7,
+        "endChar": 12
+      },
+      "revId": "b69c4aae9c06f11f751851ba6d1f01f00dae3c44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a3cf7921_b1b1839c",
@@ -47,6 +71,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0c18e36_5136f0a0",
+        "filename": "front_end/panels/explain/explain-meta.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-08-13T11:08:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3cf7921_b1b1839c",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 47,
+        "endChar": 114
+      },
+      "revId": "b69c4aae9c06f11f751851ba6d1f01f00dae3c44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9508e04b_96356a0e",
@@ -60,6 +108,30 @@
       "writtenOn": "2024-08-13T10:45:57Z",
       "side": 1,
       "message": "same",
+      "range": {
+        "startLine": 51,
+        "startChar": 2,
+        "endLine": 51,
+        "endChar": 78
+      },
+      "revId": "b69c4aae9c06f11f751851ba6d1f01f00dae3c44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65089844_fa5f018a",
+        "filename": "front_end/panels/explain/explain-meta.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-08-13T11:08:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9508e04b_96356a0e",
       "range": {
         "startLine": 51,
         "startChar": 2,
