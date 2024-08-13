@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf5e009b_af01246d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-08-13T10:45:32Z",
+      "side": 1,
+      "message": "do you mean the dot/period?",
+      "range": {
+        "startLine": 7,
+        "startChar": 7,
+        "endLine": 7,
+        "endChar": 12
+      },
+      "revId": "b69c4aae9c06f11f751851ba6d1f01f00dae3c44",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
