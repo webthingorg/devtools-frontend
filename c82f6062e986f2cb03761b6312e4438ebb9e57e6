@@ -16,6 +16,24 @@
       "message": "(nit): Should it be `link` instead of `action` as it is a link? Applies to the other link too.",
       "revId": "c82f6062e986f2cb03761b6312e4438ebb9e57e6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9c73341_930d61ac",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 571,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-08-13T08:46:40Z",
+      "side": 1,
+      "message": "Update them everywhere as we used it in another place.",
+      "parentUuid": "90ea59e9_f0fa1334",
+      "revId": "c82f6062e986f2cb03761b6312e4438ebb9e57e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
