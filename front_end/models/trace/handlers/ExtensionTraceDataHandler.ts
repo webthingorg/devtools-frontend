@@ -133,5 +133,5 @@ export function data(): ExtensionTraceData {
 }
 
 export function deps(): TraceEventHandlerName[] {
-  return ['UserTimings'];
+  return ['UserTimings', 'NetworkRequests'];
 }
