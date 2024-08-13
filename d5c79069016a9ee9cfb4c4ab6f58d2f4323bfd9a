@@ -16,6 +16,46 @@
       "message": "PTAL!\n+szuend for the OWNER\u0027s +1 on the script",
       "revId": "d5c79069016a9ee9cfb4c4ab6f58d2f4323bfd9a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11a3d633_fd06d80d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-13T11:22:13Z",
+      "side": 1,
+      "message": "lgtm with q",
+      "revId": "d5c79069016a9ee9cfb4c4ab6f58d2f4323bfd9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61696efa_e37e69f8",
+        "filename": "scripts/build/generate_supported_css.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-13T11:22:13Z",
+      "side": 1,
+      "message": "This is quiet confusing to me. Either \"affected_by_all\" must not be in entry OR it must be present and `True`?",
+      "range": {
+        "startLine": 74,
+        "startChar": 7,
+        "endLine": 74,
+        "endChar": 69
+      },
+      "revId": "d5c79069016a9ee9cfb4c4ab6f58d2f4323bfd9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
