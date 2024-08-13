@@ -13,9 +13,17 @@ let activeManager: SyntheticEventsManager|null = null;
 export class SyntheticEventsManager {
   /**
    * All synthetic entries created in a trace from a corresponding trace events.
-   * (ProfileCalls are excluded because)
+   * (ProfileCalls are excluded because they are not based on a real trace event)
    */
   #syntheticTraceEvents: Types.TraceEvents.SyntheticBasedEvent[] = [];
+  /**
+   * Server timings created from metrics taken from the Server-Timing
+   * response headers. The top level array is indexed by the position
+   * of the raw network event containing the timing. The second level
+   * is indexed by the position of the timing within the Server-Timing
+   * header in the network event.
+   */
+  #serverTimings: Types.TraceEvents.SyntheticServerTiming[][] = [];
   /**
    * All raw entries from a trace.
    */
@@ -66,6 +74,18 @@ export class SyntheticEventsManager {
     }
   }
 
+  static registerServerTiming(syntheticEvent: Omit<Types.TraceEvents.SyntheticServerTiming, '_tag'>):
+      Types.TraceEvents.SyntheticServerTiming {
+    try {
+      return SyntheticEventsManager.getActiveManager().registerSyntheticServerTiming(syntheticEvent);
+    } catch (e) {
+      // If no active manager has been initialized, we assume the trace engine is
+      // not running as part of the Performance panel. In this case we don't
+      // register synthetic events because we don't need to support timeline
+      // modifications serialization.
+      return syntheticEvent as Types.TraceEvents.SyntheticServerTiming;
+    }
+  }
   private constructor(rawEvents: readonly Types.TraceEvents.TraceEventData[]) {
     this.#rawTraceEvents = rawEvents;
   }
@@ -84,6 +104,33 @@ export class SyntheticEventsManager {
     this.#syntheticTraceEvents[rawIndex] = eventAsSynthetic;
     return eventAsSynthetic;
   }
+  /**
+   * Registers and returns a branded synthetic server timing event.
+   * Synthetic timing events need to be created with this method to
+   * ensure they are registered and made available to load events using
+   * serialized keys.
+   */
+  registerSyntheticServerTiming(syntheticEvent: Omit<Types.TraceEvents.SyntheticServerTiming, '_tag'>):
+      Types.TraceEvents.SyntheticServerTiming {
+    const rawIndex = this.#rawTraceEvents.indexOf(syntheticEvent.rawSourceEvent);
+    const syntheticRequest = this.#syntheticTraceEvents.at(rawIndex);
+    if (rawIndex < 0) {
+      throw new Error('Attempted to register a synthetic server timing event paired to an unknown raw event.');
+    }
+    if (!syntheticRequest) {
+      throw new Error('Attempted to register a synthetic server timing event paired to an unknown synthetic request.');
+    }
+    const eventAsSynthetic = syntheticEvent as Types.TraceEvents.SyntheticServerTiming;
+
+    const timingsInRequest =
+        (syntheticRequest as Types.TraceEvents.SyntheticNetworkRequest).args?.data?.syntheticServerTimings;
+    const serverTimingPosition = timingsInRequest?.indexOf(eventAsSynthetic);
+    if (serverTimingPosition === undefined || serverTimingPosition < 0) {
+      throw new Error('Attempted to register a synthetic server timing event paired to an unknown synthetic request.');
+    }
+    this.#serverTimings[rawIndex][serverTimingPosition] = eventAsSynthetic;
+    return eventAsSynthetic;
+  }
 
   syntheticEventForRawEventIndex(rawEventIndex: number): Types.TraceEvents.SyntheticBasedEvent {
     const syntheticEvent = this.#syntheticTraceEvents.at(rawEventIndex);
@@ -99,5 +146,9 @@ export class SyntheticEventsManager {
 
   getRawTraceEvents(): readonly Types.TraceEvents.TraceEventData[] {
     return this.#rawTraceEvents;
+  }
+
+  getServerTimings(): readonly Types.TraceEvents.SyntheticServerTiming[][] {
+    return this.#serverTimings;
   }
 }

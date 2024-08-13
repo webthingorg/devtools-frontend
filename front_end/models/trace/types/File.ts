@@ -25,6 +25,7 @@ export const enum EventKeyType {
   RawEvent = 'r',
   SyntheticEvent = 's',
   ProfileCall = 'p',
+  ServerTiming = 'b',
 }
 
 /**
@@ -104,7 +105,11 @@ export function isEntryLabelAnnotation(annotation: Annotation): annotation is En
 export type RawEventKey = `${EventKeyType.RawEvent}-${number}`;
 export type SyntheticEventKey = `${EventKeyType.SyntheticEvent}-${number}`;
 export type ProfileCallKey = `${EventKeyType.ProfileCall}-${ProcessID}-${ThreadID}-${SampleIndex}-${Protocol.integer}`;
-export type TraceEventSerializableKey = RawEventKey|ProfileCallKey|SyntheticEventKey;
+// The first number a server timing key represents the index of the raw
+// network request the timing came in and the second number represents
+// the position of the timing within the timing list in the request.
+export type ServerTimingKey = `${EventKeyType.ServerTiming}-${number}-${number}`;
+export type TraceEventSerializableKey = RawEventKey|ProfileCallKey|SyntheticEventKey|ServerTimingKey;
 
 // Serializable keys values objects contain data that maps the keys to original Trace Events
 export type RawEventKeyValues = {
@@ -125,7 +130,17 @@ export type ProfileCallKeyValues = {
   protocol: Protocol.integer,
 };
 
-export type TraceEventSerializableKeyValues = RawEventKeyValues|ProfileCallKeyValues|SyntheticEventKeyValues;
+export type ServerTimingKeyValues = {
+  type: EventKeyType.ServerTiming,
+  // The position of the corresponding raw network request event.
+  rawIndex: number,
+  // The position of the server timing iming in the Server-Timing
+  // response header.
+  timingPosition: number,
+};
+
+export type TraceEventSerializableKeyValues =
+    RawEventKeyValues|ProfileCallKeyValues|SyntheticEventKeyValues|ServerTimingKeyValues;
 
 export interface Modifications {
   entriesModifications: {
