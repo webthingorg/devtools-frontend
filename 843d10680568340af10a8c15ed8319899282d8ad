@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb88379e_570fc152",
+        "filename": "front_end/ui/legacy/components/source_frame/PreviewFactory.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-13T11:38:32Z",
+      "side": 0,
+      "message": "Ouch!",
+      "range": {
+        "startLine": 49,
+        "startChar": 6,
+        "endLine": 49,
+        "endChar": 37
+      },
+      "revId": "843d10680568340af10a8c15ed8319899282d8ad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
