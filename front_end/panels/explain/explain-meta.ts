@@ -30,25 +30,25 @@ const UIStrings = {
    * @description Message shown to the user if the DevTools locale is not
    * supported.
    */
-  wrongLocale: 'To use this feature, update your Language preference in DevTools Settings to English.',
+  wrongLocale: 'To use this feature, update your Language preference in DevTools Settings to English',
   /**
    * @description Message shown to the user if the age check is not successful.
    */
-  ageRestricted: 'This feature is only available to users who are 18 years of age or older.',
+  ageRestricted: 'This feature is only available to users who are 18 years of age or older',
   /**
    * @description Message shown to the user if the user's region is not
    * supported.
    */
-  geoRestricted: 'This feature is unavailable in your region.',
+  geoRestricted: 'This feature is unavailable in your region',
   /**
    * @description Message shown to the user if the enterprise policy does
    * not allow this feature.
    */
-  policyRestricted: 'Your organization turned off this feature. Contact your administrators for more information.',
+  policyRestricted: 'Your organization turned off this feature. Contact your administrators for more information',
   /**
    * @description  Message shown to the user if the feature roll out is currently happening.
    */
-  rolloutRestricted: 'This feature is currently being rolled out. Stay tuned.',
+  rolloutRestricted: 'This feature is currently being rolled out. Stay tuned',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/explain/explain-meta.ts', UIStrings);
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
