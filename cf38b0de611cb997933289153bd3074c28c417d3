@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0823a2db_de3ba5ce",
+        "filename": "front_end/panels/timeline/components/Sidebar.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-13T11:06:01Z",
+      "side": 1,
+      "message": "I think there has been some confusion, there are two distinct event dispatching systems in devtools and in this CL you are inadvertently using a hybrid of both of them.\n\nThe first is the widget system; this uses the bespoke `dispatchEventToListeners` API, and we define those events via this convention you have used here.\n\nThe second is the regular browser event system which we use with custom elements; for that we follow the pattern used for the `RemoveAnnotation` event above, where we define the event as a custom event. There is some documentation on this here: https://github.com/ChromeDevTools/devtools-frontend/blob/main/front_end/ui/components/docs/building-ui-documentation/ComponentEvents.md\n\nIn this instance, because you are dispatching the event from `SidebarSingleNavigation`, you should use the \"browser\" system, and therefore follow the pattern used by `RemoveAnnotation`.",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 2
+      },
+      "revId": "cf38b0de611cb997933289153bd3074c28c417d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
