@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "37a75376_ea283bd8",
+        "filename": "front_end/panels/timeline/overlays/OverlaysImpl.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 617,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-08-13T01:10:56Z",
+      "side": 1,
+      "message": "this should always be true, this was mostly a sanity check for myself, but doesn\u0027t do anything here. ill rm!",
+      "parentUuid": "914235bb_ec9846b2",
+      "range": {
+        "startLine": 617,
+        "startChar": 0,
+        "endLine": 617,
+        "endChar": 61
+      },
+      "revId": "33aa081bbaf69cca854c0e75d16d5cd7c174003d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ac07e89d_ef7e3d75",
@@ -77,6 +101,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cad8034_01993818",
+        "filename": "front_end/panels/timeline/overlays/OverlaysImpl.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 635,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-08-13T01:10:56Z",
+      "side": 1,
+      "message": "Done. Added comments 👍",
+      "parentUuid": "4837d1f0_c090ede1",
+      "revId": "33aa081bbaf69cca854c0e75d16d5cd7c174003d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "814109ae_3a656d5f",
@@ -90,6 +132,30 @@
       "writtenOn": "2024-08-12T09:58:16Z",
       "side": 1,
       "message": "I think we don\u0027t need this check, I think this can just all become:\n\n```\nif(overlay.entry) {\n  // position vertically based on the entry\u0027s vertical position\n}\n```",
+      "range": {
+        "startLine": 636,
+        "startChar": 0,
+        "endLine": 636,
+        "endChar": 40
+      },
+      "revId": "33aa081bbaf69cca854c0e75d16d5cd7c174003d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9628992b_2c93b95e",
+        "filename": "front_end/panels/timeline/overlays/OverlaysImpl.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 636,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-08-13T01:10:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "814109ae_3a656d5f",
       "range": {
         "startLine": 636,
         "startChar": 0,
@@ -123,6 +189,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e82abdc_8fbfc896",
+        "filename": "front_end/panels/timeline/overlays/OverlaysImpl.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 663,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-08-13T01:10:56Z",
+      "side": 1,
+      "message": "removed to follow the mock! there\u0027s no ms label for this overlay",
+      "parentUuid": "905ad8f4_7d7d2ea7",
+      "range": {
+        "startLine": 660,
+        "startChar": 7,
+        "endLine": 663,
+        "endChar": 9
+      },
+      "revId": "33aa081bbaf69cca854c0e75d16d5cd7c174003d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a9da6cfe_7e9ab3a7",
@@ -136,6 +226,30 @@
       "writtenOn": "2024-08-12T09:58:16Z",
       "side": 1,
       "message": "for other overlays if they are cut off the top we just change their height rather than make it entirely invisible...think we should probably do the same here\n\nAt the very least, these `position` type methods don\u0027t usually set visibility here, so we should probably do this in the method that calls this (where I think we already have code to try to set the visibility and detect if it is off screen)",
+      "range": {
+        "startLine": 797,
+        "startChar": 0,
+        "endLine": 797,
+        "endChar": 44
+      },
+      "revId": "33aa081bbaf69cca854c0e75d16d5cd7c174003d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5679087_6a101988",
+        "filename": "front_end/panels/timeline/overlays/OverlaysImpl.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 797,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-08-13T01:10:56Z",
+      "side": 1,
+      "message": "Done. left this vertical check for the function that calls it.",
+      "parentUuid": "a9da6cfe_7e9ab3a7",
       "range": {
         "startLine": 797,
         "startChar": 0,
