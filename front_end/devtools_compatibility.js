@@ -636,12 +636,68 @@ const InspectorFrontendHostImpl = class {
     DevToolsAPI.sendMessageToEmbedder('getSyncInformation', [], callback);
   }
 
+  // /**
+  //  * @override
+  // //  * @param {!function{!InspectorFrontendAPI.}}
+  //  * @param {function(Object<string, Object<string, string|boolean>>):void} callback
+  //  */
+  // getHostConfig(callback) {
+  //   DevToolsAPI.sendMessageToEmbedder('getHostConfig', [], callback);
+  // }
+
   /**
    * @override
    * @param {function(Object<string, Object<string, string|boolean>>):void} callback
    */
   getHostConfig(callback) {
-    DevToolsAPI.sendMessageToEmbedder('getHostConfig', [], /** @type {function(?Object)} */ (callback));
+    DevToolsAPI.sendMessageToEmbedder('getHostConfig', [], hostConfig => {
+      const majorVersion = getRemoteMajorVersion();
+      if (majorVersion && majorVersion < 129 && hostConfig?.aidaAvailability) {
+        // TODO: new to old
+        callback(hostConfig);
+        return;
+      }
+      if (hostConfig && !hostConfig.aidaAvailability) {
+        callback(this.hostConfigOldToNew(hostConfig));
+        return;
+      }
+      callback(hostConfig);
+    });
+  }
+
+  /**
+   * @param {Object<string, Object<string, string|boolean>} old
+   */
+  hostConfigOldToNew(old) {
+    const aidaAvailability = {
+      enabled: old.devToolsConsoleInsights.enabled,  // not a perfect match, but good enough temporarily
+      blockedByAge: old.devToolsConsoleInsights.blockedByAge,
+      blockedByEnterprisePolicy: old.devToolsConsoleInsights.blockedByEnterprisePolicy,
+      blockedByGeo: old.devToolsConsoleInsights.blockedByGeo,
+      disallowLogging: old.devToolsConsoleInsights.disallowLogging,
+    };
+    const devToolsConsoleInsights = {
+      enabled: old.devToolsConsoleInsights.enabled,
+      modelId: old.devToolsConsoleInsights.aidaModelId,
+      temperature: old.devToolsConsoleInsights.aidaTemperature,
+    };
+    const devToolsFreestylerDogfood = {
+      enabled: old.devToolsFreestylerDogfood.enabled,
+      modelId: old.devToolsFreestylerDogfood.aidaModelId,
+      temperature: old.devToolsFreestylerDogfood.aidaTemperature,
+    };
+    const devToolsExplainThisResourceDogfood = {
+      enabled: old.devToolsExplainThisResourceDogfood.enabled,
+      modelId: old.devToolsExplainThisResourceDogfood.aidaModelId,
+      temperature: old.devToolsExplainThisResourceDogfood.aidaTemperature,
+    };
+    return {
+      ...old,
+      aidaAvailability,
+      devToolsConsoleInsights,
+      devToolsExplainThisResourceDogfood,
+      devToolsFreestylerDogfood
+    };
   }
 
   /**
