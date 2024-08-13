@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe47292c_90d6a18f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-13T13:41:07Z",
+      "side": 1,
+      "message": "LGTM after:\n* Not showing `:read-only` for non-applicable elements.\n* Hiding the table when there are no specific pseudo states.",
+      "revId": "86873044b061238ee86611de728d245437b2d4b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdaa4f37_2650a428",
+        "filename": "front_end/panels/elements/ElementStatePaneWidget.test.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-13T13:41:07Z",
+      "side": 1,
+      "message": "(nit): We can rename this to `assertExpectedPseudoClasses`, WDYT?",
+      "revId": "86873044b061238ee86611de728d245437b2d4b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96c26fb2_3c729a02",
+        "filename": "front_end/panels/elements/ElementStatePaneWidget.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-13T13:41:07Z",
+      "side": 1,
+      "message": "I think we should show `read-only` and `read-write` states for same kind of elements: input \u0026 textarea. However, in here, we\u0027re hiding `:read-only` for them. In addition to that, we\u0027re showing it for regular elements. So, this should be updated :)",
+      "revId": "86873044b061238ee86611de728d245437b2d4b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
