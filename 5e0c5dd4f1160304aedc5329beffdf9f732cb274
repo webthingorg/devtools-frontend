@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "68f41826_94604601",
+        "filename": "front_end/panels/timeline/TimelineHistoryManager.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 528,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-13T10:56:56Z",
+      "side": 1,
+      "message": "Ah good point I did not think about the experiment being disabled! I will update. I agree about hiding this if that is the case as there\u0027s no real need to go back to the landing page if you don\u0027t have this experiment on.",
+      "parentUuid": "99989908_12fc276b",
+      "revId": "5e0c5dd4f1160304aedc5329beffdf9f732cb274",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8f48ea2e_5a63226c",
@@ -48,6 +66,24 @@
       "writtenOn": "2024-08-12T18:20:37Z",
       "side": 1,
       "message": "nit: is this formatting necessary?",
+      "revId": "5e0c5dd4f1160304aedc5329beffdf9f732cb274",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75c7e853_774ad124",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-13T10:56:56Z",
+      "side": 1,
+      "message": "Not sure why this happened; but have manually removed the trailing comma which made clang-format put it onto one line.",
+      "parentUuid": "8f48ea2e_5a63226c",
       "revId": "5e0c5dd4f1160304aedc5329beffdf9f732cb274",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
