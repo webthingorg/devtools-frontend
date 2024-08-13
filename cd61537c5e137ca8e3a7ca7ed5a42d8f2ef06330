@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e5baf8a_6d032547",
+        "filename": "front_end/ui/legacy/components/source_frame/ImageView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-13T11:14:18Z",
+      "side": 1,
+      "message": "I forgot about SVG where this makes sense.",
+      "range": {
+        "startLine": 170,
+        "startChar": 17,
+        "endLine": 170,
+        "endChar": 61
+      },
+      "revId": "cd61537c5e137ca8e3a7ca7ed5a42d8f2ef06330",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
