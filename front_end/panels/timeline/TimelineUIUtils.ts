@@ -928,6 +928,7 @@ export class TimelineUIUtils {
         break;
       }
       case TraceEngine.Types.TraceEvents.KnownEventName.ProfileCall: {
+        // details = this.createFunctionDetails(event, event.callFrame, target, linkifier, isFreshRecording);
         details = document.createElement('span');
         // This check is only added for convenience with the type checker.
         if (!TraceEngine.Types.TraceEvents.isProfileCall(event)) {
@@ -953,7 +954,13 @@ export class TimelineUIUtils {
       }
 
       default: {
-        if (TraceEngine.Helpers.Trace.eventHasCategory(event, TraceEngine.Types.TraceEvents.Categories.Console)) {
+        /**
+         * Some events have a stack trace which is extracted by default at @see TimelineUIUtils.generateCauses
+         * thus, we prevent extracting the stack trace again here.
+         */
+        if (TraceEngine.Helpers.Trace.eventHasCategory(event, TraceEngine.Types.TraceEvents.Categories.Console) ||
+            TraceEngine.Types.TraceEvents.isTraceEventUserTiming(event) ||
+            TraceEngine.Types.Extensions.isSyntheticExtensionEntry(event)) {
           detailsText = null;
         } else {
           details = this.linkifyTopCallFrame(event, target, linkifier, isFreshRecording) ?? null;
