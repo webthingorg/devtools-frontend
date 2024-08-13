@@ -641,7 +641,82 @@ const InspectorFrontendHostImpl = class {
    * @param {function(Object<string, Object<string, string|boolean>>):void} callback
    */
   getHostConfig(callback) {
-    DevToolsAPI.sendMessageToEmbedder('getHostConfig', [], /** @type {function(?Object)} */ (callback));
+    DevToolsAPI.sendMessageToEmbedder('getHostConfig', [], hostConfig => {
+      const majorVersion = getRemoteMajorVersion();
+      if (majorVersion && majorVersion < 129 && hostConfig?.aidaAvailability) {
+        return callback(this.hostConfigNewToOld(hostConfig));
+      }
+      if (hostConfig && !hostConfig.aidaAvailability && hostConfig.devToolsConsoleInsights) {
+        return callback(this.hostConfigOldToNew(hostConfig));
+      }
+      return callback(hostConfig);
+    });
+  }
+
+  /**
+   * @param {Object<string, Object<string, string|boolean>>} oldConfig
+   */
+  hostConfigOldToNew(oldConfig) {
+    const aidaAvailability = {
+      enabled: oldConfig.devToolsConsoleInsights.enabled,  // not a perfect match, but good enough temporarily
+      blockedByAge: oldConfig.devToolsConsoleInsights.blockedByAge,
+      blockedByEnterprisePolicy: oldConfig.devToolsConsoleInsights.blockedByEnterprisePolicy,
+      blockedByGeo: oldConfig.devToolsConsoleInsights.blockedByGeo,
+      disallowLogging: oldConfig.devToolsConsoleInsights.disallowLogging,
+    };
+    const devToolsConsoleInsights = {
+      enabled: oldConfig.devToolsConsoleInsights.enabled,
+      modelId: oldConfig.devToolsConsoleInsights.aidaModelId,
+      temperature: oldConfig.devToolsConsoleInsights.aidaTemperature,
+    };
+    const devToolsFreestylerDogfood = {
+      enabled: oldConfig.devToolsFreestylerDogfood.enabled,
+      modelId: oldConfig.devToolsFreestylerDogfood.aidaModelId,
+      temperature: oldConfig.devToolsFreestylerDogfood.aidaTemperature,
+    };
+    const devToolsExplainThisResourceDogfood = {
+      enabled: oldConfig.devToolsExplainThisResourceDogfood.enabled,
+      modelId: oldConfig.devToolsExplainThisResourceDogfood.aidaModelId,
+      temperature: oldConfig.devToolsExplainThisResourceDogfood.aidaTemperature,
+    };
+    return {
+      ...oldConfig,
+      aidaAvailability,
+      devToolsConsoleInsights,
+      devToolsExplainThisResourceDogfood,
+      devToolsFreestylerDogfood,
+    };
+  }
+
+  /**
+   * @param {Object<string, Object<string, string|boolean>>} newConfig
+   */
+  hostConfigNewToOld(newConfig) {
+    const devToolsConsoleInsights = {
+      enabled: newConfig.devToolsConsoleInsights.enabled && newConfig.aidaAvailability.enabled,
+      aidaModelId: newConfig.devToolsConsoleInsights.modelId,
+      aidaTemperature: newConfig.devToolsConsoleInsights.temperature,
+      blockedByAge: newConfig.aidaAvailability.blockedByAge,
+      blockedByEnterprisePolicy: newConfig.aidaAvailability.blockedByEnterprisePolicy,
+      blockedByGeo: newConfig.aidaAvailability.blockedByGeo,
+      blockedByRollout: false,
+      disallowLogging: newConfig.aidaAvailability.disallowLogging,
+      optIn: false,
+    };
+    const devToolsFreestylerDogfood = {
+      enabled: newConfig.devToolsFreestylerDogfood.enabled && newConfig.aidaAvailability.enabled,
+      aidaModelId: newConfig.devToolsFreestylerDogfood.modelId,
+      aidaTemperature: newConfig.devToolsFreestylerDogfood.temperature,
+      blockedByAge: newConfig.aidaAvailability.blockedByAge,
+      blockedByEnterprisePolicy: newConfig.aidaAvailability.blockedByEnterprisePolicy,
+      blockedByGeo: newConfig.aidaAvailability.blockedByGeo,
+    };
+    return {
+      devToolsConsoleInsights,
+      devToolsFreestylerDogfood,
+      devToolsVeLogging: newConfig.devToolsVeLogging,
+      isOffTheRecord: newConfig.isOffTheRecord,
+    };
   }
 
   /**
