@@ -1,0 +1,62 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "527847f6_a459b928",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-13T15:20:32Z",
+      "side": 1,
+      "message": "lgtm w/ one typo",
+      "revId": "bc65d62d1da426017a81229f25aca4a5a1687433",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d35045bd_0b40b882",
+        "filename": "front_end/ui/legacy/components/perf_ui/PieChart.test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-13T15:20:32Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 181,
+        "startChar": 8,
+        "endLine": 181,
+        "endChar": 12
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "0cfd2e93_313f70ba",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/ui/legacy/components/perf_ui/PieChart.test.ts",
+              "range": {
+                "startLine": 181,
+                "startChar": 0,
+                "endLine": 182,
+                "endChar": 0
+              },
+              "replacement": "    it(\u0027can focus legend with keyboard \u0027, () \u003d\u003e {\n"
+            }
+          ]
+        }
+      ],
+      "revId": "bc65d62d1da426017a81229f25aca4a5a1687433",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
