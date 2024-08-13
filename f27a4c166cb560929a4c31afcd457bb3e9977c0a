@@ -1,0 +1,45 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b2c89bb_a24d2a73",
+        "filename": "front_end/panels/timeline/overlays/OverlaysImpl.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 646,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-08-13T01:36:45Z",
+      "side": 1,
+      "message": "the height of the breakdown was a bit off and went over the line between the main \u0026 network charts.\n\nadding this fixed the height closer to the line than it was before (though it\u0027s still not exactly right?), but it doesn\u0027t quite make sense to me why the `networkHeight` isn\u0027t enough to represent the max. any thoughts here?",
+      "range": {
+        "startLine": 646,
+        "startChar": 64,
+        "endLine": 646,
+        "endChar": 75
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "7d8dfec1_ce6206f6",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/overlays/OverlaysImpl.ts",
+              "range": {
+                "startLine": 646,
+                "startChar": 0,
+                "endLine": 647,
+                "endChar": 0
+              },
+              "replacement": "        elementSections[0].style.maxHeight \u003d `${networkHeight - totalHeight - 1}px`;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "f27a4c166cb560929a4c31afcd457bb3e9977c0a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
