@@ -22,6 +22,30 @@
       },
       "revId": "cf38b0de611cb997933289153bd3074c28c417d3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2621b6ed_e1cc7b03",
+        "filename": "front_end/panels/timeline/components/Sidebar.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-08-13T14:56:16Z",
+      "side": 1,
+      "message": "Ah, that explains things, thanks! will revert back to having the browser event system",
+      "parentUuid": "0823a2db_de3ba5ce",
+      "range": {
+        "startLine": 26,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 2
+      },
+      "revId": "cf38b0de611cb997933289153bd3074c28c417d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
