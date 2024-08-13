@@ -58,8 +58,7 @@ export class TimingsTrackAppender implements TrackAppender {
     const extensionMarkersAreEmpty = extensionMarkers.length === 0;
     const performanceMarks = this.#traceParsedData.UserTimings.performanceMarks.filter(
         m => !TraceEngine.Handlers.ModelHandlers.ExtensionTraceData.extensionDataInTiming(m));
-    const performanceMeasures = this.#traceParsedData.UserTimings.performanceMeasures.filter(
-        m => !TraceEngine.Handlers.ModelHandlers.ExtensionTraceData.extensionDataInTiming(m));
+    const performanceMeasures = this.#traceParsedData.ServerTimings.serverTimings;
     const timestampEvents = this.#traceParsedData.UserTimings.timestampEvents;
     const consoleTimings = this.#traceParsedData.UserTimings.consoleTimings;
 

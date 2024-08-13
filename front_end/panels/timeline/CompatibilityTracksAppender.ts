@@ -55,7 +55,8 @@ export function entryIsVisibleInTimeline(
     return Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.TIMELINE_SHOW_POST_MESSAGE_EVENTS);
   }
 
-  if (TraceEngine.Types.Extensions.isSyntheticExtensionEntry(entry)) {
+  if (TraceEngine.Types.Extensions.isSyntheticExtensionEntry(entry) ||
+      TraceEngine.Types.TraceEvents.isSyntheticServerTiming(entry)) {
     return true;
   }
 
@@ -119,9 +120,17 @@ export interface TrackAppender {
   highlightedEntryInfo(event: TraceEngine.Types.TraceEvents.TraceEventData): HighlightedEntryInfo;
 }
 
-export const TrackNames =
-    ['Animations', 'Timings', 'Interactions', 'GPU', 'LayoutShifts', 'Thread', 'Thread_AuctionWorklet', 'Extension'] as
-    const;
+export const TrackNames = [
+  'Animations',
+  'Timings',
+  'Interactions',
+  'GPU',
+  'LayoutShifts',
+  'Thread',
+  'Thread_AuctionWorklet',
+  'Extension',
+  'ServerTimings',
+] as const;
 // Network track will use TrackAppender interface, but it won't be shown in Main flamechart.
 // So manually add it to TrackAppenderName.
 export type TrackAppenderName = typeof TrackNames[number]|'Network';

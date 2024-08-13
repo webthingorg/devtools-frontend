@@ -56,7 +56,6 @@ interface NetworkRequestData {
   eventToInitiator: Map<Types.TraceEvents.SyntheticNetworkRequest, Types.TraceEvents.SyntheticNetworkRequest>;
   webSocket: WebSocketTraceData[];
 }
-
 const requestMap = new Map<string, TraceEventsForNetworkRequest>();
 const requestsByOrigin = new Map<string, {
   renderBlocking: Types.TraceEvents.SyntheticNetworkRequest[],
