@@ -1141,6 +1141,8 @@ export const knownContextValues = new Set([
   'frames-per-issue',
   'freestyler',
   'freestyler.accordion',
+  'freestyler.clear',
+  'freestyler.dogfood-info',
   'freestyler.element-panel-context',
   'freestyler.feedback',
   'freestyler.style-tab-context',
