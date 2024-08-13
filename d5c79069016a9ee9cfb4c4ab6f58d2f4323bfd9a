@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "15f03e4f_9b45b000",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-08-13T11:17:37Z",
+      "side": 1,
+      "message": "PTAL!\n+szuend for the OWNER\u0027s +1 on the script",
+      "revId": "d5c79069016a9ee9cfb4c4ab6f58d2f4323bfd9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
