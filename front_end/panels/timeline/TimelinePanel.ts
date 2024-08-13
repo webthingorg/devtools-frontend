@@ -478,6 +478,14 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
       this.#setActiveInsight({name, navigationId, createOverlayFn});
     });
 
+    this.#sideBar.contentElement.addEventListener(
+        TimelineComponents.Sidebar.Events.SidebarMetricClick, (event: Event) => {
+          const customEvent = event as
+              CustomEvent<TimelineComponents.Sidebar.EventTypes[TimelineComponents.Sidebar.Events.SidebarMetricClick]>;
+          const metricEvent = customEvent.detail.metricEvent;
+          this.flameChart.setSelection(TimelineSelection.fromTraceEvent(metricEvent));
+        });
+
     this.#sideBar.element.addEventListener(TimelineComponents.Sidebar.RemoveAnnotation.eventName, event => {
       const {removedAnnotation} = (event as TimelineComponents.Sidebar.RemoveAnnotation);
       ModificationsManager.activeManager()?.removeAnnotation(removedAnnotation);

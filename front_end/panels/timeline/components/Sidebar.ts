@@ -24,6 +24,14 @@ export class RemoveAnnotation extends Event {
   }
 }
 
+export const enum Events {
+  SidebarMetricClick = 'sidebarmetricclick',
+}
+
+export type EventTypes = {
+  [Events.SidebarMetricClick]: {metricEvent: TraceEngine.Types.TraceEvents.TraceEventData},
+};
+
 export const enum SidebarTabs {
   INSIGHTS = 'insights',
   ANNOTATIONS = 'annotations',
