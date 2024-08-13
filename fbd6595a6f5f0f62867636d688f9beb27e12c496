@@ -16,6 +16,24 @@
       "message": "super optional thought: would `Infinity` also work?",
       "revId": "fbd6595a6f5f0f62867636d688f9beb27e12c496",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8631e515_742081f4",
+        "filename": "front_end/panels/timeline/TimelineHistoryManager.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-13T15:53:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f3eb4a8d_d438ed7a",
+      "revId": "fbd6595a6f5f0f62867636d688f9beb27e12c496",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
