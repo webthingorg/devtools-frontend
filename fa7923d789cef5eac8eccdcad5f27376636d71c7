@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2aa49af5_2f80721a",
+        "filename": "front_end/panels/timeline/components/SidebarSingleNavigation.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-08-13T00:06:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5790824_40a9f0a3",
+      "range": {
+        "startLine": 52,
+        "startChar": 2,
+        "endLine": 55,
+        "endChar": 0
+      },
+      "revId": "fa7923d789cef5eac8eccdcad5f27376636d71c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8564ec33_f0378748",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-08-12T14:30:52Z",
       "side": 1,
       "message": "we are going to calculate this worst shift on every render, which could add up over time.\n\nThis feels like something the LayoutShiftsHandler should calculate at parse time, wdyt?",
+      "range": {
+        "startLine": 135,
+        "startChar": 0,
+        "endLine": 135,
+        "endChar": 105
+      },
+      "revId": "fa7923d789cef5eac8eccdcad5f27376636d71c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ac6136f_8148938b",
+        "filename": "front_end/panels/timeline/components/SidebarSingleNavigation.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-08-13T00:06:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8564ec33_f0378748",
       "range": {
         "startLine": 135,
         "startChar": 0,
