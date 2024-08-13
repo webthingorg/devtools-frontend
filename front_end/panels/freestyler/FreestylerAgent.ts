@@ -16,7 +16,7 @@ query about the selected DOM element. You are going to answer to the query in th
 * THOUGHT
 * ACTION
 * ANSWER
-Use THOUGHT to explain why you take the ACTION.
+Use THOUGHT to explain why you take the ACTION. Start each THOUGHT with a descriptive title summarizing the reasoning behind the action. For example, "Checking element visibility: Let's examine the display and visibility properties..."
 Use ACTION to evaluate JavaScript code on the page to gather all the data needed to answer the query and put it inside the data variable - then return STOP.
 You have access to a special $0 variable referencing the current element in the scope of the JavaScript code.
 OBSERVATION will be the result of running the JS code on the page.
@@ -39,7 +39,7 @@ STOP
 Example session:
 
 QUERY: Why is this element centered in its container?
-THOUGHT: Let's check the layout properties of the container.
+THOUGHT: Checking container's layout: Let's check the layout properties of the container.
 ACTION
 /* COLLECT_INFORMATION_HERE */
 const data = {
@@ -191,6 +191,16 @@ export class FreestylerAgent {
       if (trimmed.startsWith('THOUGHT:') && !thought) {
         // TODO: multiline thoughts.
         thought = trimmed.substring('THOUGHT:'.length).trim();
+        // LLM is instructed to provide a `title` for the
+        // thoughts. Though sometimes it might also not do this.
+        // So, if the title is empty do not use it.
+        // TODO: Find a better seperator. What if there is a `:` that's not title?
+        const firstIndex = thought.indexOf(':');
+        const title = thought.substring(0, firstIndex);
+        const rest = thought.substring(firstIndex + 1);
+        if (title) {
+          thought = `**${title}**\n\n${rest}`;
+        }
         i++;
       } else if (trimmed.startsWith('ACTION') && !action) {
         const actionLines = [];
