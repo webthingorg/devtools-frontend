@@ -129,6 +129,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "32a7502d_9b0882e8",
+        "filename": "front_end/core/sdk/NetworkManager.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-14T07:35:46Z",
+      "side": 1,
+      "message": "This will not work as expected, as the time network request info arrives in the frontend is decoupled from when it might appear in the timeline.\n\nWe have an existing helper class to work around this:\n\nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/models/logs/RequestResolver.ts;l\u003d20;drc\u003d0fbc2a2af874c8bb911b5438ce46f3daf589d772",
+      "range": {
+        "startLine": 308,
+        "startChar": 0,
+        "endLine": 323,
+        "endChar": 3
+      },
+      "revId": "00fe3f08471e234c669ff62673ba595ab7284455",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9b6fd3cd_961ec9a5",
         "filename": "front_end/panels/timeline/components/NetworkRequestDetails.ts",
         "patchSetId": 3
