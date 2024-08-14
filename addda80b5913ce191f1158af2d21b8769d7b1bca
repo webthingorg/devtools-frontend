@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cde40c66_dba95c09",
+        "filename": "front_end/models/trace/handlers/ServerTimingsHandler.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-14T13:49:04Z",
+      "side": 1,
+      "message": "is this supposed to be hardcoded to 0?!",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 28
+      },
+      "revId": "addda80b5913ce191f1158af2d21b8769d7b1bca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
