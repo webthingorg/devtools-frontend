@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d2a5e39_29b15357",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-08-14T08:03:56Z",
+      "side": 1,
+      "message": "Hi Kateryna!\n\nI\u0027m adding the documentation. PTAL!\n(The generated docs can be found through the link next to the patchset information)",
+      "revId": "80859765cd755f4719ce9e2c929eb0ed163b70f6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
