@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2132bd5_0ad7150e",
+        "filename": "front_end/models/trace/handlers/ServerTimingsHandler.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-08-14T13:52:50Z",
+      "side": 1,
+      "message": "ah good catch! this wasn\u0027t meant to be here (it was a leftover from a previous version)! Fixed",
+      "parentUuid": "cde40c66_dba95c09",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 28
+      },
+      "revId": "addda80b5913ce191f1158af2d21b8769d7b1bca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "03c08d8b_d0b6746f",
@@ -71,6 +95,30 @@
           ]
         }
       ],
+      "revId": "addda80b5913ce191f1158af2d21b8769d7b1bca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "93d233e0_d06b63e1",
+        "filename": "front_end/models/trace/handlers/ServerTimingsHandler.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-08-14T13:52:50Z",
+      "side": 1,
+      "message": "I thought about \"convert\" because this converts the server timestamps to client timestamps, but I like `createSyntheticServerTiming` too :). Done.",
+      "parentUuid": "03c08d8b_d0b6746f",
+      "range": {
+        "startLine": 84,
+        "startChar": 9,
+        "endLine": 84,
+        "endChar": 29
+      },
       "revId": "addda80b5913ce191f1158af2d21b8769d7b1bca",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
