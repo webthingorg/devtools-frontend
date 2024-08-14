@@ -75,9 +75,9 @@ function extractServerTimings(): void {
     if (!serverStart || !serverEnd || !timingsInRequest) {
       continue;
     }
-    const tracingoffset = 0;
-    const serverStartInMicro = serverStart * 1_000 + tracingoffset;
-    const serverEndInMicro = serverEnd * 1_000 + tracingoffset;
+
+    const serverStartInMicro = serverStart * 1_000;
+    const serverEndInMicro = serverEnd * 1_000;
     serverTimings.push(...convertServerTimings(networkEvent, serverStartInMicro, serverEndInMicro, timingsInRequest));
   }
 }
