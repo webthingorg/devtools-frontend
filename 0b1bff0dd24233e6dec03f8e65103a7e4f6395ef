@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9175de69_11a127d6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-14T09:59:10Z",
+      "side": 1,
+      "message": "The concern I have here is actually if we want to select the event; I think if someone has clicked on an insight, we probably don\u0027t want to select the event in the timeline - I think that would be unexpected for the user; especially when the insight is made up of multiple events.\n\nI think it would be worth extracting the \"reveal\" logic into a standalone method, and then we can call that + setSelection if we want, rather than force setSelection to also effectively act as a revealer.\n\nIt is also a bit odd that setSelection in this CL has a mode where it selects the event, but does not draw the selected outline - I think that would be confusing to the user too.",
+      "revId": "0b1bff0dd24233e6dec03f8e65103a7e4f6395ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
