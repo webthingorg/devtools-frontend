@@ -292,8 +292,19 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     if (insight) {
       const newInsightOverlays = insight.createOverlayFn();
       this.#currentInsightOverlays = newInsightOverlays;
+      let event: TraceEngine.Types.TraceEvents.TraceEventData|null = null;
       for (const overlay of this.#currentInsightOverlays) {
         this.addOverlay(overlay);
+        if ('entry' in overlay) {
+          const entry = overlay.entry as TraceEngine.Types.TraceEvents.TraceEventData;
+          if (entry) {
+            event = entry;
+          }
+        }
+      }
+      if (event) {
+        // Reveal the event found from the overlays.
+        this.revealEvent(event);
       }
       const newBounds = this.calculateZoom(this.#currentInsightOverlays);
       TraceBounds.TraceBounds.BoundsManager.instance().setTimelineVisibleWindow(newBounds);
@@ -622,7 +633,14 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     }
   }
 
-  setSelection(selection: TimelineSelection|null): void {
+  revealEvent(event: TraceEngine.Types.TraceEvents.TraceEventData): void {
+    const mainIndex = this.mainDataProvider.indexForEvent(event);
+    const networkIndex = this.networkDataProvider.indexForEvent(event);
+    mainIndex && this.mainFlameChart.revealEntry(mainIndex);
+    networkIndex && this.networkFlameChart.revealEntry(networkIndex);
+  }
+
+  setSelectionAndReveal(selection: TimelineSelection|null): void {
     const mainIndex = this.mainDataProvider.entryIndexForSelection(selection);
     const networkIndex = this.networkDataProvider.entryIndexForSelection(selection);
     this.mainFlameChart.setSelectedEntry(mainIndex);
@@ -685,7 +703,7 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     if (selection &&
         (TimelineSelection.isTraceEventSelection(selection.object) ||
          TimelineSelection.isSyntheticNetworkRequestDetailsEventSelection(selection.object))) {
-      this.setSelection(selection);
+      this.setSelectionAndReveal(selection);
       ModificationsManager.activeManager()?.createAnnotation({
         type: 'ENTRY_LABEL',
         entry: selection.object,
@@ -702,7 +720,7 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
         (event.data.entryToIndex) ? this.#selectionIfTraceEvent(event.data.entryToIndex, dataProvider) : null;
 
     if (fromSelectionObject) {
-      this.setSelection(dataProvider.createSelection(event.data.entryFromIndex));
+      this.setSelectionAndReveal(dataProvider.createSelection(event.data.entryFromIndex));
 
       if (this.#linkSelectionAnnotation) {
         // Only the entry that the link points to can be updated.
