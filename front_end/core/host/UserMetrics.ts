@@ -1035,6 +1035,7 @@ export enum DevtoolsExperiments {
   'timeline-rpp-sidebar' = 95,
   'timeline-observations' = 96,
   'gen-ai-settings-panel' = 97,
+  'timeline-server-timings' = 96,
 
   // Increment this when new experiments are added.
   'MaxValue' = 98,
