@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea2a9afc_6715d9cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-08-14T14:29:00Z",
+      "side": 1,
+      "message": "Hi Ergün,\n\nThanks a lot for the review! And oh, I totally missed the regression. Thanks for pointing that out!! I\u0027ve addressed the issues, ptal!",
+      "revId": "ce0633d68190dfba8de7bc16494c15d632aa478d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "041ce842_acf42db1",
+        "filename": "front_end/ui/legacy/treeoutline.css",
+        "patchSetId": 7
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-08-14T14:29:00Z",
+      "side": 1,
+      "message": "The \"solution\" to the regression with the triangle was to adapt the css to use `padding-left` instead of a margin that I previously used. The reason is the following: we are currently calculating where the click can be to be considered as \"the click was within the triangle\" using the left padding. See the code here: https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/ui/legacy/Treeoutline.ts;l\u003d1396;drc\u003d16493feab1822fbdd6e6f79894b397ca1ceab870\n\nThe calculation is not ideal. I\u0027ve looked into changing the calculation to at least use the `before` element, but that didn\u0027t work. Eventually we should move to using `span` for the triangle.\n\nThe reason for the very specific `3px` margin is that the triangle needs to have a size of 14px as it is a mask image. Ideally I would specify 20px (has a sys size) for the entire before element, but then the triangle is shifted.",
+      "revId": "ce0633d68190dfba8de7bc16494c15d632aa478d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

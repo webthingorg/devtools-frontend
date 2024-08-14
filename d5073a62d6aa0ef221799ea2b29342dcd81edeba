@@ -102,6 +102,24 @@
       "parentUuid": "65248edf_e24ca185",
       "revId": "d5073a62d6aa0ef221799ea2b29342dcd81edeba",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd4b89be_a8070f6c",
+        "filename": "front_end/ui/legacy/treeoutline.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-08-14T14:29:00Z",
+      "side": 1,
+      "message": "Makes sense, have updated the css file! Thanks for the suggestion!",
+      "parentUuid": "2eb8877d_de94c627",
+      "revId": "d5073a62d6aa0ef221799ea2b29342dcd81edeba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
