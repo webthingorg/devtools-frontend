@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "60df618e_124afd1e",
+        "filename": "front_end/panels/elements/ElementStatePaneWidget.test.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 3514702
+      },
+      "writtenOn": "2024-08-14T11:28:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bdaa4f37_2650a428",
+      "revId": "86873044b061238ee86611de728d245437b2d4b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "96c26fb2_3c729a02",
@@ -48,6 +66,24 @@
       "writtenOn": "2024-08-13T13:41:07Z",
       "side": 1,
       "message": "I think we should show `read-only` and `read-write` states for same kind of elements: input \u0026 textarea. However, in here, we\u0027re hiding `:read-only` for them. In addition to that, we\u0027re showing it for regular elements. So, this should be updated :)",
+      "revId": "86873044b061238ee86611de728d245437b2d4b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd3f6519_1986cdaf",
+        "filename": "front_end/panels/elements/ElementStatePaneWidget.ts",
+        "patchSetId": 15
+      },
+      "lineNbr": 322,
+      "author": {
+        "id": 3514702
+      },
+      "writtenOn": "2024-08-14T11:28:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96c26fb2_3c729a02",
       "revId": "86873044b061238ee86611de728d245437b2d4b8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

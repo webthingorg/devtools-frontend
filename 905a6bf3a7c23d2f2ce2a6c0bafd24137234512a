@@ -245,6 +245,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "266072f9_7110c7e9",
+        "filename": "front_end/panels/elements/ElementStatePaneWidget.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 3514702
+      },
+      "writtenOn": "2024-08-14T11:28:10Z",
+      "side": 1,
+      "message": "Done after changing the conditions for :read-only.",
+      "parentUuid": "814dc022_c2cca51e",
+      "revId": "905a6bf3a7c23d2f2ce2a6c0bafd24137234512a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e57b953b_84fef1c4",
@@ -328,6 +346,24 @@
       "side": 1,
       "message": "What elements do you mean by default elements?\nThe :read-only pseudo-class must match all other HTML elements[1] that :read-write doesn’t.\n\n[1] - https://html.spec.whatwg.org/multipage/semantics-other.html#selector-read-only",
       "parentUuid": "f21dfb7d_77ed861a",
+      "revId": "905a6bf3a7c23d2f2ce2a6c0bafd24137234512a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e151acf0_6e1bd507",
+        "filename": "front_end/panels/elements/ElementStatePaneWidget.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 285,
+      "author": {
+        "id": 3514702
+      },
+      "writtenOn": "2024-08-14T11:28:10Z",
+      "side": 1,
+      "message": "[Discussed offline] We decided to only show the :read-only pseudo state in the table for form elements to avoid loading the table with only one checkbox in most cases.",
+      "parentUuid": "54743020_11eac796",
       "revId": "905a6bf3a7c23d2f2ce2a6c0bafd24137234512a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
