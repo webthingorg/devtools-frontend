@@ -60,6 +60,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "5ae52330_6b3f35db",
+        "filename": "front_end/entrypoints/heap_snapshot_worker/HeapSnapshot.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 687,
+      "author": {
+        "id": 1325508
+      },
+      "writtenOn": "2024-08-14T15:41:59Z",
+      "side": 1,
+      "message": "Good catch, thanks.",
+      "parentUuid": "d601f7da_e42ad91f",
+      "range": {
+        "startLine": 684,
+        "startChar": 0,
+        "endLine": 687,
+        "endChar": 29
+      },
+      "revId": "a9b82781a3df1052a42943f6886747e823d03619",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "64af4ab1_55cf77c9",
         "filename": "front_end/entrypoints/heap_snapshot_worker/HeapSnapshot.ts",
         "patchSetId": 5
