@@ -56,6 +56,30 @@
       },
       "revId": "b64e36cee99ef4ca05770655782b525dde25f7dd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2765e72e_1cbe1232",
+        "filename": "front_end/panels/timeline/TimingsTrackAppender.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-14T12:35:57Z",
+      "side": 1,
+      "message": "I think doing that gathering within a `sort` is probably more confusing; given there aren\u0027t a huge set of markers I don\u0027t mind the extra pass over them.",
+      "parentUuid": "2d3401fe_3add74b6",
+      "range": {
+        "startLine": 173,
+        "startChar": 36,
+        "endLine": 173,
+        "endChar": 49
+      },
+      "revId": "b64e36cee99ef4ca05770655782b525dde25f7dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
