@@ -290,11 +290,21 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     if (insight) {
       const newInsightOverlays = insight.createOverlayFn();
       this.#currentInsightOverlays = newInsightOverlays;
+      const relatedEvents: Set<TraceEngine.Types.TraceEvents.TraceEventData> = new Set();
       for (const overlay of this.#currentInsightOverlays) {
+        if ('entry' in overlay) {
+          overlay.entry && relatedEvents.add(overlay.entry as TraceEngine.Types.TraceEvents.TraceEventData);
+        }
         this.addOverlay(overlay);
       }
       const newBounds = this.calculateZoom(this.#currentInsightOverlays);
-      TraceBounds.TraceBounds.BoundsManager.instance().setTimelineVisibleWindow(newBounds);
+
+      const [relatedEvent] = relatedEvents;
+      if (relatedEvent) {
+        // Don't create the overlay. Just select so that the overlays are vertically focused.
+        this.setSelection(TimelineSelection.fromTraceEvent(relatedEvent));
+      }
+      TraceBounds.TraceBounds.BoundsManager.instance().setTimelineVisibleWindow(newBounds, {shouldAnimate: true});
     }
   }
 
@@ -620,7 +630,9 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     }
   }
 
-  setSelection(selection: TimelineSelection|null): void {
+  // Sets the selection of an entry.
+  // If drawOverlay is true, it will also draw its overlay.
+  setSelection(selection: TimelineSelection|null, drawOverlay?: boolean): void {
     const mainIndex = this.mainDataProvider.entryIndexForSelection(selection);
     const networkIndex = this.networkDataProvider.entryIndexForSelection(selection);
     this.mainFlameChart.setSelectedEntry(mainIndex);
@@ -649,7 +661,7 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     }
 
     // Create the entry selected overlay if the selection represents a frame or trace event (either network, or anything else)
-    if (selection &&
+    if (drawOverlay && selection &&
         (TimelineSelection.isTraceEventSelection(selection.object) ||
          TimelineSelection.isSyntheticNetworkRequestDetailsEventSelection(selection.object) ||
          TimelineSelection.isFrameObject(selection.object))) {
@@ -683,7 +695,7 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     if (selection &&
         (TimelineSelection.isTraceEventSelection(selection.object) ||
          TimelineSelection.isSyntheticNetworkRequestDetailsEventSelection(selection.object))) {
-      this.setSelection(selection);
+      this.setSelection(selection, true);
       ModificationsManager.activeManager()?.createAnnotation({
         type: 'ENTRY_LABEL',
         entry: selection.object,
