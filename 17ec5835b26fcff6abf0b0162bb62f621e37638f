@@ -16,6 +16,23 @@
       "message": "This CL is somewhat opinionated, and my thoughts are summarized in the description. The main goal here is to make the interactions log appear less \"buggy\" at the expense of delivering maximum information.",
       "revId": "17ec5835b26fcff6abf0b0162bb62f621e37638f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2995773_c53fcbac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-08-14T20:24:52Z",
+      "side": 1,
+      "message": "I was skeptical but.. if it feels weird to you, (and you\u0027re the biggest user rn) then OK.\nAlso broad 👍s from the chat discussion.",
+      "revId": "17ec5835b26fcff6abf0b0162bb62f621e37638f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
