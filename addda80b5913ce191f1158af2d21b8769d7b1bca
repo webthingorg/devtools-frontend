@@ -22,6 +22,57 @@
       },
       "revId": "addda80b5913ce191f1158af2d21b8769d7b1bca",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03c08d8b_d0b6746f",
+        "filename": "front_end/models/trace/handlers/ServerTimingsHandler.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-14T13:50:23Z",
+      "side": 1,
+      "message": "nit: I would probably call this something like `createSyntheticServerTiming`",
+      "range": {
+        "startLine": 84,
+        "startChar": 9,
+        "endLine": 84,
+        "endChar": 29
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "c3dec397_5ca66a56",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/models/trace/handlers/ServerTimingsHandler.ts",
+              "range": {
+                "startLine": 81,
+                "startChar": 0,
+                "endLine": 82,
+                "endChar": 0
+              },
+              "replacement": "    serverTimings.push(...createSyntheticServerTimings(networkEvent, serverStartInMicro, serverEndInMicro, timingsInRequest));\n"
+            },
+            {
+              "path": "front_end/models/trace/handlers/ServerTimingsHandler.ts",
+              "range": {
+                "startLine": 84,
+                "startChar": 0,
+                "endLine": 85,
+                "endChar": 0
+              },
+              "replacement": "function createSyntheticServerTimings(\n"
+            }
+          ]
+        }
+      ],
+      "revId": "addda80b5913ce191f1158af2d21b8769d7b1bca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
