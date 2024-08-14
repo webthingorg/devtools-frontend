@@ -16,6 +16,69 @@
       "message": "Hi Simon, would you please review this change? Thanks!",
       "revId": "a9b82781a3df1052a42943f6886747e823d03619",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8fadca6_3068667b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-14T05:43:14Z",
+      "side": 1,
+      "message": "lgtm, I\u0027m not so worried about the bit twiddling. I don\u0027t think we\u0027ll have to change that code too often and as you pointed out it\u0027s not very pervasive.",
+      "revId": "a9b82781a3df1052a42943f6886747e823d03619",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d601f7da_e42ad91f",
+        "filename": "front_end/entrypoints/heap_snapshot_worker/HeapSnapshot.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 687,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-14T05:43:14Z",
+      "side": 1,
+      "message": "nit: Use UPPER_CASE_SNAKE_CASE for constants :)",
+      "range": {
+        "startLine": 684,
+        "startChar": 0,
+        "endLine": 687,
+        "endChar": 29
+      },
+      "revId": "a9b82781a3df1052a42943f6886747e823d03619",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64af4ab1_55cf77c9",
+        "filename": "front_end/entrypoints/heap_snapshot_worker/HeapSnapshot.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1864,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-14T05:43:14Z",
+      "side": 1,
+      "message": "Kudos, it\u0027s very easy to follow the logic in this function!",
+      "range": {
+        "startLine": 1864,
+        "startChar": 10,
+        "endLine": 1864,
+        "endChar": 30
+      },
+      "revId": "a9b82781a3df1052a42943f6886747e823d03619",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
