@@ -46,7 +46,7 @@ describeWithMockConnection('StylePropertyTreeElement', () => {
     mockMatchedStyles.computeCSSVariable.callsFake((style, name) => {
       return {
         value: mockVariableMap[name],
-        declaration: sinon.createStubInstance(SDK.CSSProperty.CSSProperty),
+        declaration: sinon.createStubInstance(SDK.CSSMatchedStyles.CSSVariableDeclaration),
       };
     });
     mockCssStyleDeclaration.leadingProperties.returns([]);
@@ -386,9 +386,12 @@ describeWithMockConnection('StylePropertyTreeElement', () => {
       const cssCustomPropertyDef = new SDK.CSSProperty.CSSProperty(
           mockCssStyleDeclaration, 0, '--prop', 'value', true, false, true, false, '', undefined);
       mockMatchedStyles.computeCSSVariable.callsFake(
-          (_, name) => name === '--prop' ?
-              {value: 'computedvalue', declaration: cssCustomPropertyDef, fromFallback: false} :
-              null);
+          (_, name) => name === '--prop' ? {
+            value: 'computedvalue',
+            declaration: new SDK.CSSMatchedStyles.CSSVariableDeclaration(cssCustomPropertyDef),
+            fromFallback: false,
+          } :
+                                           null);
       const renderValueSpy = sinon.spy(Elements.PropertyRenderer.Renderer, 'renderValueElement');
 
       const stylePropertyTreeElement = getTreeElement('prop', 'var(--prop)');
@@ -413,8 +416,11 @@ describeWithMockConnection('StylePropertyTreeElement', () => {
 
       const registration = sinon.createStubInstance(SDK.CSSMatchedStyles.CSSRegisteredProperty);
       mockMatchedStyles.getRegisteredProperty.callsFake(name => name === '--prop' ? registration : undefined);
-      mockMatchedStyles.computeCSSVariable.returns(
-          {value: 'computedvalue', declaration: sinon.createStubInstance(SDK.CSSProperty.CSSProperty)});
+      mockMatchedStyles.computeCSSVariable.returns({
+        value: 'computedvalue',
+        declaration:
+            new SDK.CSSMatchedStyles.CSSVariableDeclaration(sinon.createStubInstance(SDK.CSSProperty.CSSProperty)),
+      });
       const popoverContents = addElementPopoverHook.args[0][1].contents();
       assert.isTrue(popoverContents instanceof ElementsComponents.CSSVariableValueView.CSSVariableValueView);
       const {details} = popoverContents as ElementsComponents.CSSVariableValueView.CSSVariableValueView;
@@ -429,7 +435,8 @@ describeWithMockConnection('StylePropertyTreeElement', () => {
     it('linkifies var functions to initial-value registrations', async () => {
       mockMatchedStyles.computeCSSVariable.returns({
         value: 'computedvalue',
-        declaration: sinon.createStubInstance(SDK.CSSMatchedStyles.CSSRegisteredProperty, {propertyName: '--prop'}),
+        declaration: new SDK.CSSMatchedStyles.CSSVariableDeclaration(
+            sinon.createStubInstance(SDK.CSSMatchedStyles.CSSRegisteredProperty, {propertyName: '--prop'})),
       });
       const renderValueSpy = sinon.spy(Elements.PropertyRenderer.Renderer, 'renderValueElement');
 

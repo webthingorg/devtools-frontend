@@ -144,7 +144,7 @@ describe('CSSMatchedStyles', () => {
            expectedDeclaration: SDK.CSSProperty.CSSProperty|SDK.CSSMatchedStyles.CSSRegisteredProperty) => {
             const {value, declaration} = matchedStyles.computeCSSVariable(startingCascade, name)!;
             assert.strictEqual(value, expectedValue);
-            assert.strictEqual(declaration, expectedDeclaration);
+            assert.strictEqual(declaration.declaration, expectedDeclaration);
           };
 
       const styles = matchedStyles.nodeStyles();
