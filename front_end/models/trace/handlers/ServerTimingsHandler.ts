@@ -66,6 +66,7 @@ function extractServerTimings(): void {
       // also support server timing headers with the `-test` suffix
       // while this feature is experimental, to enable easier trials.
       if (headerName === 'server-timing' || headerName === 'server-timing-test') {
+        header.name = 'server-timing';
         timingsInRequest = Platform.ServerTiming.ServerTiming.parseHeaders([header]);
         continue;
       }
@@ -75,13 +76,14 @@ function extractServerTimings(): void {
     if (!serverStart || !serverEnd || !timingsInRequest) {
       continue;
     }
-    const tracingoffset = 0;
-    const serverStartInMicro = serverStart * 1_000 + tracingoffset;
-    const serverEndInMicro = serverEnd * 1_000 + tracingoffset;
-    serverTimings.push(...convertServerTimings(networkEvent, serverStartInMicro, serverEndInMicro, timingsInRequest));
+
+    const serverStartInMicro = serverStart * 1_000;
+    const serverEndInMicro = serverEnd * 1_000;
+    serverTimings.push(
+        ...createSyntheticServerTiming(networkEvent, serverStartInMicro, serverEndInMicro, timingsInRequest));
   }
 }
-function convertServerTimings(
+function createSyntheticServerTiming(
     request: Types.TraceEvents.SyntheticNetworkRequest, serverStart: number, serverEnd: number,
     timingsInRequest: Platform.ServerTiming.ServerTiming[]): Types.TraceEvents.SyntheticServerTiming[] {
   const clientStart = request.args.data.syntheticData.sendStartTime;
