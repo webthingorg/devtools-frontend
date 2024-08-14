@@ -16,6 +16,24 @@
       "message": "The concern I have here is actually if we want to select the event; I think if someone has clicked on an insight, we probably don\u0027t want to select the event in the timeline - I think that would be unexpected for the user; especially when the insight is made up of multiple events.\n\nI think it would be worth extracting the \"reveal\" logic into a standalone method, and then we can call that + setSelection if we want, rather than force setSelection to also effectively act as a revealer.\n\nIt is also a bit odd that setSelection in this CL has a mode where it selects the event, but does not draw the selected outline - I think that would be confusing to the user too.",
       "revId": "0b1bff0dd24233e6dec03f8e65103a7e4f6395ef",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbf8caac_87fc3aec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-08-14T18:37:43Z",
+      "side": 1,
+      "message": "yeah this CL does make a lot of assumptions. I feel good about going back to just separating the logic (reveal and selection).  \n\n\u003e It is also a bit odd that setSelection in this CL has a mode where it selects the event, but does not draw the selected outline - I think that would be confusing to the user too\n\nthat\u0027s fair! this was a small feature that i chatted w Paul about offline that we both thought would be cool \u0026 make the experience (sidebar + overlay + summary panel/bottom drawer) more functional hehe. but yeah, this was not something openly discussed or agreed upon :)",
+      "parentUuid": "9175de69_11a127d6",
+      "revId": "0b1bff0dd24233e6dec03f8e65103a7e4f6395ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
