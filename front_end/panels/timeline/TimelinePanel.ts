@@ -1995,7 +1995,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
 
   select(selection: TimelineSelection|null): void {
     this.selection = selection;
-    this.flameChart.setSelection(selection);
+    this.flameChart.setSelection(selection, true);
   }
 
   selectEntryAtTime(events: TraceEngine.Types.TraceEvents.TraceEventData[]|null, time: number): void {
