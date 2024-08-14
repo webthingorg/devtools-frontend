@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec9e6fdc_7907b967",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-14T09:39:08Z",
+      "side": 1,
+      "message": "lgtm with some nits / suggestions. Nice!",
+      "revId": "148b1d7ec7c0cc3d59ec3cde198269efffd0cc9d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6dc65cb_096f943a",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 710,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-14T09:39:08Z",
+      "side": 1,
+      "message": "nit: I would pull this out into its own function called `#selectionIfTraceEvent` or something like that.\n\n(maybe this method could go directly onto `TimelineSelection` too actually)",
+      "range": {
+        "startLine": 700,
+        "startChar": 4,
+        "endLine": 710,
+        "endChar": 0
+      },
+      "revId": "148b1d7ec7c0cc3d59ec3cde198269efffd0cc9d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29940e70_6959aa41",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 718,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-14T09:39:08Z",
+      "side": 1,
+      "message": "nit: now this conditional\u0027s branches are getting a bit larger, let\u0027s have the positive case first:\n\n```\nif(this.#linkSelectionAnnotation) {}else{}\n```",
+      "range": {
+        "startLine": 717,
+        "startChar": 5,
+        "endLine": 718,
+        "endChar": 41
+      },
+      "revId": "148b1d7ec7c0cc3d59ec3cde198269efffd0cc9d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "400341fa_b3191294",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-14T09:39:08Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 329,
+        "startChar": 59,
+        "endLine": 329,
+        "endChar": 65
+      },
+      "revId": "148b1d7ec7c0cc3d59ec3cde198269efffd0cc9d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd8dc02e_d74fd55f",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1350,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-14T09:39:08Z",
+      "side": 1,
+      "message": "nit: this comment is a bit unclear - what is the change?",
+      "range": {
+        "startLine": 1350,
+        "startChar": 0,
+        "endLine": 1350,
+        "endChar": 34
+      },
+      "revId": "148b1d7ec7c0cc3d59ec3cde198269efffd0cc9d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb57f04c_03a5d435",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 4021,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-14T09:39:08Z",
+      "side": 1,
+      "message": "do you think we should call these `entryFromIndex` and `entryToIndex` to make it clear what they refer to?",
+      "range": {
+        "startLine": 4021,
+        "startChar": 4,
+        "endLine": 4021,
+        "endChar": 13
+      },
+      "revId": "148b1d7ec7c0cc3d59ec3cde198269efffd0cc9d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
