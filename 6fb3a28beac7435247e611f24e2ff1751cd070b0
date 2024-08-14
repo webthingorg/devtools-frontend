@@ -33,6 +33,23 @@
       "message": "I am curious, why we are changing the icon here? Is this in the mocks?\nOtherwise LGTM:)",
       "revId": "6fb3a28beac7435247e611f24e2ff1751cd070b0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1e5a401_75527938",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-08-14T22:16:22Z",
+      "side": 1,
+      "message": "Thanks for the review! This came up during the branch review with Peter (the second last one). The previous icon was a document icon, which doesn\u0027t really reflect what we\u0027re doing under \u0027Profiles\u0027. Under \u0027Profiles\u0027 you can select which kind of snapshot/dump you want to generate, so the tune button fits a bit better to what this is about 😊.",
+      "revId": "6fb3a28beac7435247e611f24e2ff1751cd070b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
