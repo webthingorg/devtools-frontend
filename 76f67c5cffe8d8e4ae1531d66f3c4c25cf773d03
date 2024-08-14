@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c9d7405_f5b95eae",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-08-14T15:36:11Z",
+      "side": 1,
+      "message": "Overall LGTM but two nits + looks like tryjobs are failing",
+      "revId": "76f67c5cffe8d8e4ae1531d66f3c4c25cf773d03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4fd33b3_849a9b11",
+        "filename": "front_end/panels/timeline/components/LiveMetricsView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1212,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-08-14T15:36:11Z",
+      "side": 1,
+      "message": "nit: call this `timeline.landing.interaction-event-timing`?",
+      "revId": "76f67c5cffe8d8e4ae1531d66f3c4c25cf773d03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
