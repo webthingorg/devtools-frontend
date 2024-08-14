@@ -16,6 +16,23 @@
       "message": "Hi Kateryna!\n\nI\u0027m adding the tune icon for the memory panel. PTAL!",
       "revId": "6fb3a28beac7435247e611f24e2ff1751cd070b0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e23cd354_774b35d7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-08-14T21:11:47Z",
+      "side": 1,
+      "message": "I am curious, why we are changing the icon here? Is this in the mocks?\nOtherwise LGTM:)",
+      "revId": "6fb3a28beac7435247e611f24e2ff1751cd070b0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
