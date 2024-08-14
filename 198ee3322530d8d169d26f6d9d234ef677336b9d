@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "433a752e_31e0aed0",
+        "filename": "front_end/panels/timeline/ExtensionTrackAppender.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 104,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-08-14T11:31:14Z",
+      "side": 0,
+      "message": "drive-by fix: this is not supposed to be true and we don\u0027t want to return a color as a title for an event 😂",
+      "range": {
+        "startLine": 104,
+        "startChar": 0,
+        "endLine": 104,
+        "endChar": 73
+      },
+      "revId": "198ee3322530d8d169d26f6d9d234ef677336b9d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
