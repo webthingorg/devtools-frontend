@@ -262,11 +262,12 @@ export class FreestylerPanel extends UI.Panel.Panel {
     // TODO: We should only show "Fix this issue" button when the answer suggests fix or fixes.
     // We shouldn't show this when the answer is complete like a confirmation without any suggestion.
     const suggestingFix = !isFixQuery;
-    let systemMessage: ModelChatMessage = {
+    const systemMessage: ModelChatMessage = {
       entity: ChatMessageEntity.MODEL,
       suggestingFix,
       steps: [],
     };
+    this.#viewProps.messages.push(systemMessage);
     this.doUpdate();
 
     this.#runAbortController = new AbortController();
@@ -279,12 +280,7 @@ export class FreestylerPanel extends UI.Panel.Panel {
     });
     for await (const data of this.#agent.run(text, {signal, isFixQuery})) {
       if (data.step === Step.QUERYING) {
-        systemMessage = {
-          entity: ChatMessageEntity.MODEL,
-          suggestingFix,
-          steps: [],
-        };
-        this.#viewProps.messages.push(systemMessage);
+        this.#viewProps.isLoading = true;
         this.doUpdate();
         this.#viewOutput.freestylerChatUi?.scrollToLastMessage();
         continue;

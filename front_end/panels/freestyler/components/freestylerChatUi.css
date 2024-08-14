@@ -93,29 +93,33 @@
   word-break: break-word;
   border-bottom: var(--sys-size-1) solid var(--sys-color-divider);
 
-  :not(:first-child) {
+  &:not(:first-child) {
     margin-top: var(--sys-size-5);
   }
 
-  &.query {
-    .account-info {
-      display: flex;
-      align-items: center;
-      gap: var(--sys-size-4);
-      padding-bottom: var(--sys-size-5);
+  &:last-child {
+    border-bottom: 0;
+  }
 
-      .account-email {
-        font-weight: bold;
-      }
+  .message-info {
+    display: flex;
+    align-items: center;
+    gap: var(--sys-size-4);
+    padding-bottom: var(--sys-size-5);
+
+    .message-name {
+      font-weight: bold;
     }
+  }
 
+  &.query {
     img {
-      background-size: 32px 32px;
+      background-size: 20px 20px;
       border: 0;
       border-radius: 50%;
       display: block;
-      height: 32px;
-      width: 32px;
+      height: 20px;
+      width: 20px;
     }
   }
 
