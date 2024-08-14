@@ -33,6 +33,24 @@
       "message": "this lgtm; I am a bit nervous about it not directly having tests (I know it does via the SDK model, but the trace engine won\u0027t go that route).\n\nwdyt about moving the bulk of the tests into core/platform, but then having a couple for the SDK to test the l10n?",
       "revId": "88e40f8a6bad998ab6c330f20525d245921e51dc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83e785a1_8a163866",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-08-14T09:57:00Z",
+      "side": 1,
+      "message": "Done.\nLeft some basic tests at sdk/ and the ones for the warning logging cases, since in theory that\u0027s where the implementations could differ. PTAnotherL :)",
+      "parentUuid": "ddf6cbf6_644563bb",
+      "revId": "88e40f8a6bad998ab6c330f20525d245921e51dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
