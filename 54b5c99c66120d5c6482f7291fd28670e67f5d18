@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9306024e_4b9977b6",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 643,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-08-14T20:27:25Z",
+      "side": 1,
+      "message": "i\u0027ve renamed this here to clarify that this does do both under the hood - since outside of this we could call the `revealEvent` function.",
+      "range": {
+        "startLine": 643,
+        "startChar": 2,
+        "endLine": 643,
+        "endChar": 23
+      },
+      "revId": "54b5c99c66120d5c6482f7291fd28670e67f5d18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
