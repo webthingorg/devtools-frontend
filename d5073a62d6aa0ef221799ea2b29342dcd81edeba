@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3d240ae_5039a986",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-08-14T08:34:58Z",
+      "side": 1,
+      "message": "Oh, and focus styles are missing. I haven\u0027t figured out how to do it properly yet (regular sources tree also didn\u0027t have focus styles), so I\u0027m planning to split this out and focus on that as soon as I\u0027ve updated all file trees. (The problem here: using `:focus-visible` doesn\u0027t work, as we set the focus via js, and that means that a mouse click will also lead to a focus ring which is unwanted.)",
+      "revId": "d5073a62d6aa0ef221799ea2b29342dcd81edeba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c0226229_2db21dd3",
