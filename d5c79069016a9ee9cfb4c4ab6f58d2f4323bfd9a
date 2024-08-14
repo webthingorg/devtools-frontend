@@ -80,6 +80,30 @@
       },
       "revId": "d5c79069016a9ee9cfb4c4ab6f58d2f4323bfd9a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5abe66b_82b6e565",
+        "filename": "scripts/build/generate_supported_css.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-14T04:46:54Z",
+      "side": 1,
+      "message": "I\u0027m fine with the code as-is if we add a comment explaining this quirkiness. Otherwise most folks would assume it\u0027s a bug.",
+      "parentUuid": "c7a192b3_be884795",
+      "range": {
+        "startLine": 74,
+        "startChar": 7,
+        "endLine": 74,
+        "endChar": 69
+      },
+      "revId": "d5c79069016a9ee9cfb4c4ab6f58d2f4323bfd9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
