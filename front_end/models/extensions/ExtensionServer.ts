@@ -46,7 +46,7 @@ import * as UI from '../../ui/legacy/legacy.js';
 import * as ThemeSupport from '../../ui/legacy/theme_support/theme_support.js';
 import * as Bindings from '../bindings/bindings.js';
 import * as HAR from '../har/har.js';
-import type * as TextUtils from '../text_utils/text_utils.js';
+import * as TextUtils from '../text_utils/text_utils.js';
 import * as Workspace from '../workspace/workspace.js';
 
 import {PrivateAPI} from './ExtensionAPI.js';
@@ -958,8 +958,11 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
       this.dispatchCallback(message.requestId, port, this.status.E_FAILED('Permission denied'));
       return undefined;
     }
-    const {content, isEncoded} = await contentProvider.requestContent();
-    this.dispatchCallback(message.requestId, port, {encoding: isEncoded ? 'base64' : '', content: content});
+    const contentData =
+        TextUtils.ContentData.ContentData.contentDataOrEmpty(await contentProvider.requestContentData());
+    const encoding = !contentData.isTextContent ? 'base64' : '';
+    const content = contentData.isTextContent ? contentData.text : contentData.base64;
+    this.dispatchCallback(message.requestId, port, {encoding, content});
   }
 
   private onGetRequestContent(message: PrivateAPI.ExtensionServerRequestMessage, port: MessagePort): Record|undefined {
