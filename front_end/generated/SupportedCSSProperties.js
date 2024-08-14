@@ -3335,6 +3335,13 @@ export const generatedProperties = [
   "name": "text-autospace"
  },
  {
+  "longhands": [
+   "text-box-trim",
+   "text-box-edge"
+  ],
+  "name": "text-box"
+ },
+ {
   "inherited": true,
   "name": "text-box-edge"
  },
