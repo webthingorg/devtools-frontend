@@ -16,6 +16,91 @@
       "message": "Hi Alex and Mathias - this is a relatively small feature request that needed a slightly larger change (in tests) to accommodate the new optional RevealerRegistration API that fits alongside the original. Could you PTAL when you have a chance? Thanks!",
       "revId": "00fe3f08471e234c669ff62673ba595ab7284455",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4f9dd40_50c54f19",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-08-14T07:04:28Z",
+      "side": 1,
+      "message": "szuend@ could you please chime in on the best way to add revealers for network requests?",
+      "revId": "00fe3f08471e234c669ff62673ba595ab7284455",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf946bd9_71d6c54d",
+        "filename": "front_end/core/common/Revealer.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-08-14T07:04:28Z",
+      "side": 1,
+      "message": "do we need to both ways to reveal? I think we should change reveal to accept options instead of adding the second method.",
+      "revId": "00fe3f08471e234c669ff62673ba595ab7284455",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15f36eb8_d62b4fa7",
+        "filename": "front_end/core/common/Revealer.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-08-14T07:04:28Z",
+      "side": 1,
+      "message": "let\u0027s make the RevealableOptions to be a parameter on the Revealer interface:\n\n```\ninterface Revealer\u003cT, RevealOptions extends {omitFocus?: boolean}\u003e {\n\n}\n```",
+      "revId": "00fe3f08471e234c669ff62673ba595ab7284455",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b6fd3cd_961ec9a5",
+        "filename": "front_end/panels/timeline/components/NetworkRequestDetails.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-08-14T07:04:28Z",
+      "side": 1,
+      "message": "We do not usually call the Network panel a \u0027tool\u0027. So perhaps we can change it `Reveal in Network panel`?\n\nP.S. there is already \u0027Reveal in Network panel\u0027 functionality so perhaps we do not need a different way?",
+      "revId": "00fe3f08471e234c669ff62673ba595ab7284455",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4dc930f2_236af7fd",
+        "filename": "front_end/panels/timeline/components/NetworkRequestDetails.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-08-14T07:04:28Z",
+      "side": 1,
+      "message": "There already seems to be a mechanism to reveal network requests:\n\n```\n          const requestLocation \u003d NetworkForward.UIRequestLocation.UIRequestLocation.tab(\n              request, NetworkForward.UIRequestLocation.UIRequestTabs.HeadersComponent);\n          return Common.Revealer.reveal(requestLocation);\n```\n\nDo we need a different mechanism? (the example above is from front_end/panels/application/components/FrameDetailsView.ts) Is it possible to add an option to the UIRequestLocation location and reveal that instead?",
+      "revId": "00fe3f08471e234c669ff62673ba595ab7284455",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
