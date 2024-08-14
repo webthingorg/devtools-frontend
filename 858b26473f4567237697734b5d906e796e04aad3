@@ -33,6 +33,40 @@
       "message": "friendly ping kenoss@, could you take a look?",
       "revId": "858b26473f4567237697734b5d906e796e04aad3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3670845_bbe9bbc6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2024-08-14T08:47:18Z",
+      "side": 1,
+      "message": "LGTM % a comment\n\nThanks!",
+      "revId": "858b26473f4567237697734b5d906e796e04aad3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "352aa59f_e52ba8df",
+        "filename": "front_end/core/sdk/PreloadingModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1541419
+      },
+      "writtenOn": "2024-08-14T08:47:18Z",
+      "side": 1,
+      "message": "An internal doc says something like \"prefer iterating with for..of over forEach if you need generic iteration.\" (I\u0027ll send it in DM.)",
+      "revId": "858b26473f4567237697734b5d906e796e04aad3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
