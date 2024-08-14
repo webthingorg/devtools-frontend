@@ -16,6 +16,24 @@
       "message": "lgtm\n\nI have some questions long term about how we show this data ; is it just all in one track w/ some way of showing which server/request it came from, or is it 1 track per server, etc, and how many different servers do we typically expect to have data for, and what order we should put them in, etc, but I think those can all be answered later, and for the sake of getting the experiment out this lgtm.",
       "revId": "1fb099ade60bfddfeaa097a0b0c124173cb4d90c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90eeb560_8cc1d7a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-08-14T18:54:08Z",
+      "side": 1,
+      "message": "right now the implementation adds one track per server origin, and adds tracks in the order in which origins appear within network requests events. I think we can get many of these questions answered once this is tried out and we get feedback, then we can comeback and think about track order, grouping, etc.",
+      "parentUuid": "d5c4cfa9_0963f203",
+      "revId": "1fb099ade60bfddfeaa097a0b0c124173cb4d90c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
