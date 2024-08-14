@@ -52,6 +52,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "96f119d8_702e0abb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2024-08-14T20:54:54Z",
+      "side": 1,
+      "message": "Looks like I missed that this functionality had recently been added! Simon, Alex - is there still interest in the RevealOptions refactor? If so, I can make those changes, otherwise, I can abandon -- let me know.",
+      "revId": "00fe3f08471e234c669ff62673ba595ab7284455",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cf946bd9_71d6c54d",
@@ -87,6 +104,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2094a1b_b3b94bff",
+        "filename": "front_end/core/common/Revealer.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2024-08-14T20:54:54Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "f561362a_96261649",
+      "revId": "00fe3f08471e234c669ff62673ba595ab7284455",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "15f36eb8_d62b4fa7",
@@ -106,6 +141,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1ef5f1f8_79a183b0",
+        "filename": "front_end/core/common/Revealer.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2024-08-14T20:54:54Z",
+      "side": 1,
+      "message": "That didn\u0027t work; the type inference on the caller can\u0027t work with that definition (call sites that define new properties get the \u0027this type can\u0027t be assigned to the other type\u0027 error). I kept the type definition seen above (export type RevealableOptions) but I\u0027ll update to avoid the overload.",
+      "parentUuid": "15f36eb8_d62b4fa7",
+      "revId": "00fe3f08471e234c669ff62673ba595ab7284455",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bf269fac_662cee36",
         "filename": "front_end/core/common/Revealer.ts",
         "patchSetId": 3
@@ -117,6 +170,30 @@
       "writtenOn": "2024-08-14T07:29:43Z",
       "side": 1,
       "message": "as discussed above, lets just do a refactoring and turn `omitFocus` into an optional options bag here and above.",
+      "range": {
+        "startLine": 182,
+        "startChar": 0,
+        "endLine": 189,
+        "endChar": 0
+      },
+      "revId": "00fe3f08471e234c669ff62673ba595ab7284455",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a12543c_e15821bf",
+        "filename": "front_end/core/common/Revealer.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 189,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2024-08-14T20:54:54Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "bf269fac_662cee36",
       "range": {
         "startLine": 182,
         "startChar": 0,
@@ -152,6 +229,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2172461e_663afb75",
+        "filename": "front_end/core/sdk/NetworkManager.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2024-08-14T20:54:54Z",
+      "side": 1,
+      "message": "Super! I didn\u0027t realize that this existed.",
+      "parentUuid": "32a7502d_9b0882e8",
+      "range": {
+        "startLine": 308,
+        "startChar": 0,
+        "endLine": 323,
+        "endChar": 3
+      },
+      "revId": "00fe3f08471e234c669ff62673ba595ab7284455",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9b6fd3cd_961ec9a5",
         "filename": "front_end/panels/timeline/components/NetworkRequestDetails.ts",
         "patchSetId": 3
@@ -163,6 +264,24 @@
       "writtenOn": "2024-08-14T07:04:28Z",
       "side": 1,
       "message": "We do not usually call the Network panel a \u0027tool\u0027. So perhaps we can change it `Reveal in Network panel`?\n\nP.S. there is already \u0027Reveal in Network panel\u0027 functionality so perhaps we do not need a different way?",
+      "revId": "00fe3f08471e234c669ff62673ba595ab7284455",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "635f45cf_c257b13a",
+        "filename": "front_end/panels/timeline/components/NetworkRequestDetails.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2024-08-14T20:54:54Z",
+      "side": 1,
+      "message": "I think this is new since I started looking at how to implement my CL! Probably makes my change irrelevant. Thanks for pointing this out.",
+      "parentUuid": "9b6fd3cd_961ec9a5",
       "revId": "00fe3f08471e234c669ff62673ba595ab7284455",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
