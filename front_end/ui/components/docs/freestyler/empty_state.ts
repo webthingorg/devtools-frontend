@@ -27,6 +27,9 @@ const component = new Freestyler.FreestylerChatUi({
   selectedNode: {} as unknown as SDK.DOMModel.DOMNode,
   isLoading: false,
   canShowFeedbackForm: false,
+  syncInfo: {
+    isSyncActive: true,
+  },
 });
 
 document.getElementById('container')?.appendChild(component);
