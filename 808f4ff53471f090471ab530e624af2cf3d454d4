@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57a239ae_766014b9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-08-14T10:59:10Z",
+      "side": 1,
+      "message": "Alex, Ergun: PTAL overall\nSimon: PTAL at devtools_compatibility",
+      "revId": "808f4ff53471f090471ab530e624af2cf3d454d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
