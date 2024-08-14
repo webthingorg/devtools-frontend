@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16e3ddd8_1f079be7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-14T08:54:10Z",
+      "side": 1,
+      "message": "Added Benedikt but he is OOO until next week, but that will be OK 😊",
+      "revId": "76da276ae4d07dcf17eb43be92c62b20b8d98593",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
