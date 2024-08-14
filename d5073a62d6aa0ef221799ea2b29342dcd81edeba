@@ -84,6 +84,24 @@
       "message": "Most of these changes are just reshuffling existing css rules. I needed to do that in order to conform to the \u0027no descending specificity\u0027 rule. The new rules that I added are tagged with `tree-variant-navigation`. I couldn\u0027t manage to keep them all in one nested CSS block due to the specifcity.",
       "revId": "d5073a62d6aa0ef221799ea2b29342dcd81edeba",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2eb8877d_de94c627",
+        "filename": "front_end/ui/legacy/treeoutline.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-14T12:02:24Z",
+      "side": 1,
+      "message": "I think this hurts readability on the reviewer side and introduces unnecessary changes on the history of that part of the code which\u0027d make blaming harder on the long term.\n\nEspecially after we started using nesting, this rule became more and more of a problem. So, WDYT of disabling it for this file and reverting the changes related to conforming to this rule?\n\nThen, for the long term, I\u0027m thinking of writing a short proposal to remove this from the codebase or find an alternative solution that considers nesting too. WDYT?",
+      "parentUuid": "65248edf_e24ca185",
+      "revId": "d5073a62d6aa0ef221799ea2b29342dcd81edeba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
