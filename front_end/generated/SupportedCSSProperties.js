@@ -781,6 +781,7 @@ export const generatedProperties = [
    "text-align-last",
    "text-anchor",
    "text-autospace",
+   "text-box",
    "text-box-edge",
    "text-box-trim",
    "text-combine-upright",
@@ -3881,6 +3882,13 @@ export const generatedProperties = [
    "no-autospace"
   ],
   "name": "text-autospace"
+ },
+ {
+  "longhands": [
+   "text-box-trim",
+   "text-box-edge"
+  ],
+  "name": "text-box"
  },
  {
   "inherited": true,
