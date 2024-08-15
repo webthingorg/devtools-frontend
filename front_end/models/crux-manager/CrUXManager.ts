@@ -275,6 +275,10 @@ export class CrUXManager extends Common.ObjectWrapper.ObjectWrapper<EventTypes> 
       return cachedResponse;
     }
 
+    if (normalizedUrl.hostname === 'localhost') {
+      return null;
+    }
+
     // We shouldn't cache the result in the case of an error
     // The error could be a transient issue with the network/CrUX server/etc.
     try {
