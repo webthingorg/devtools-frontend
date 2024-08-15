@@ -1,6 +1,52 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "31ce3ebc_c3a55de9",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-15T10:14:22Z",
+      "side": 1,
+      "message": "What I would be tempted to do here is:\n\n1. gather all entries for all the overlays\n2. use the earliest one (by timestamp) as the one to reveal\n\nOtherwise I think this code will pick a random one based on the order of overlays if there are multiple",
+      "range": {
+        "startLine": 295,
+        "startChar": 3,
+        "endLine": 305,
+        "endChar": 10
+      },
+      "revId": "54b5c99c66120d5c6482f7291fd28670e67f5d18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6466a26_3b7ef166",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 639,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-15T10:14:22Z",
+      "side": 1,
+      "message": "nit: we prefer the more explicit `if(mainIndex) {}` for these",
+      "range": {
+        "startLine": 639,
+        "startChar": 0,
+        "endLine": 639,
+        "endChar": 60
+      },
+      "revId": "54b5c99c66120d5c6482f7291fd28670e67f5d18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "9306024e_4b9977b6",
@@ -14,6 +60,30 @@
       "writtenOn": "2024-08-14T20:27:25Z",
       "side": 1,
       "message": "i\u0027ve renamed this here to clarify that this does do both under the hood - since outside of this we could call the `revealEvent` function.",
+      "range": {
+        "startLine": 643,
+        "startChar": 2,
+        "endLine": 643,
+        "endChar": 23
+      },
+      "revId": "54b5c99c66120d5c6482f7291fd28670e67f5d18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fddb5d90_b0a25d68",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 643,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-15T10:14:22Z",
+      "side": 1,
+      "message": "love it",
+      "parentUuid": "9306024e_4b9977b6",
       "range": {
         "startLine": 643,
         "startChar": 2,
