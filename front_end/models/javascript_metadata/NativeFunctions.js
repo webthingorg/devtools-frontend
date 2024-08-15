@@ -225,7 +225,7 @@ export const NativeFunctions = [
   {
     name: "create",
     signatures: [["?options"]],
-    receivers: ["CredentialsContainer"]
+    receivers: ["CredentialsContainer","AIWriterFactory"]
   },
   {
     name: "defineProperty",
@@ -1983,6 +1983,11 @@ export const NativeFunctions = [
     name: "write",
     signatures: [["chunk","controller"]],
     receivers: ["UnderlyingSinkBase"]
+  },
+  {
+    name: "write",
+    signatures: [["input","?options"]],
+    receivers: ["AIWriter"]
   },
   {
     name: "write",
@@ -7239,6 +7244,10 @@ export const NativeFunctions = [
     signatures: [["input"]]
   },
   {
+    name: "writeStreaming",
+    signatures: [["input","?options"]]
+  },
+  {
     name: "registerAnimator",
     signatures: [["name","animatorCtor"]]
   },
@@ -8198,6 +8207,10 @@ export const NativeFunctions = [
   {
     name: "setHeaderExtensionsToNegotiate",
     signatures: [["extensions"]]
+  },
+  {
+    name: "createProcessor",
+    signatures: [["worker","?options","?transfer"]]
   },
   {
     name: "readReceivedAcks",
