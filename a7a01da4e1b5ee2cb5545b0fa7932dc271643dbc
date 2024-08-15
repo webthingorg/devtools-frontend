@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19c9b1df_f37b039b",
+        "filename": "front_end/generated/SupportedCSSProperties.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2024-08-15T02:45:48Z",
+      "side": 1,
+      "message": "Should we remove shorthand properties like animation?",
+      "revId": "a7a01da4e1b5ee2cb5545b0fa7932dc271643dbc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
