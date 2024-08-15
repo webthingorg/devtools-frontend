@@ -10,17 +10,12 @@ import * as Types from '../types/types.js';
 
 import {findLCPRequest} from './Common.js';
 import {
-  type InsightResult,
   InsightWarning,
   type LanternContext,
   type NavigationInsightContext,
+  type RenderBlockingInsightResult,
   type RequiredData,
 } from './types.js';
-
-export type RenderBlockingInsightResult = InsightResult<{
-  renderBlockingRequests: Types.TraceEvents.SyntheticNetworkRequest[],
-  requestIdToWastedMs?: Map<string, number>,
-}>;
 
 // Because of the way we detect blocking stylesheets, asynchronously loaded
 // CSS with link[rel=preload] and an onload handler (see https://github.com/filamentgroup/loadCSS)
