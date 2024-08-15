@@ -57,6 +57,11 @@ export type LCPInsightResult = InsightResult<{
   earliestDiscoveryTimeTs?: Types.Timing.MicroSeconds,
 }>;
 
+export type RenderBlockingInsightResult = InsightResult<{
+  renderBlockingRequests: Types.TraceEvents.SyntheticNetworkRequest[],
+  requestIdToWastedMs?: Map<string, number>,
+}>;
+
 /**
  * Contains insights for a specific navigation.
  */
