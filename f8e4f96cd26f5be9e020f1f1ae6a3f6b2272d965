@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da325e2b_06b69be3",
+        "filename": "front_end/panels/sources/NavigatorView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 770,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-08-15T02:46:17Z",
+      "side": 1,
+      "message": "I\u0027m pretty sure some tryjob failures were caused by b/349392953. This is an attempt to fix it.",
+      "revId": "f8e4f96cd26f5be9e020f1f1ae6a3f6b2272d965",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
