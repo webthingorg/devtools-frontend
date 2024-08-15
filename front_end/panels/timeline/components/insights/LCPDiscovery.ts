@@ -25,7 +25,6 @@ const UIStrings = {
 };
 
 const str_ = i18n.i18n.registerUIStrings('panels/timeline/components/insights/LCPDiscovery.ts', UIStrings);
-const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 interface LCPImageDiscoveryData {
   shouldIncreasePriorityHint: boolean;
@@ -132,7 +131,7 @@ export class LCPDiscovery extends BaseInsight {
         imageResults.resource.ts,
     );
 
-    const delayMs = TraceEngine.Helpers.Timing.microSecondsToMilliseconds(delay.range);
+    const label = LitHtml.html`<p class="discovery-delay"> ${this.#renderDiscoveryDelay(delay.range)}</p>`;
 
     return [
       {
@@ -149,7 +148,7 @@ export class LCPDiscovery extends BaseInsight {
         type: 'TIMESPAN_BREAKDOWN',
         sections: [{
           bounds: delay,
-          label: i18nString(UIStrings.lcpLoadDelay, {PH1: i18n.TimeUtilities.preciseMillisToString(delayMs, 2)}),
+          label,
         }],
         entry: imageResults.resource,
       },
