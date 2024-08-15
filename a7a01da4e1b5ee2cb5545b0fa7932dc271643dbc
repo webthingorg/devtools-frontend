@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d239d422_7b7d37cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2024-08-15T02:49:05Z",
+      "side": 1,
+      "message": "This is because it would be strange to have `text-box-edge` in the `all` property if the associated flag was not turned on.",
+      "parentUuid": "a57f80c6_4a27d691",
+      "revId": "a7a01da4e1b5ee2cb5545b0fa7932dc271643dbc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "19c9b1df_f37b039b",
