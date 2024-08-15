@@ -33,6 +33,24 @@
       "message": "nit: call this `timeline.landing.interaction-event-timing`?",
       "revId": "76f67c5cffe8d8e4ae1531d66f3c4c25cf773d03",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47dcff9c_392e7b72",
+        "filename": "front_end/panels/timeline/components/LiveMetricsView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1212,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-15T10:04:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b4fd33b3_849a9b11",
+      "revId": "76f67c5cffe8d8e4ae1531d66f3c4c25cf773d03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
