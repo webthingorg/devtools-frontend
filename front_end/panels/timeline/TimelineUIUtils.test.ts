@@ -756,6 +756,10 @@ describeWithMockConnection('TimelineUIUtils', function() {
             {title: 'Related Node', value: 'A test node name'},
           ],
       );
+
+      // Layout Shift has an insight title card.
+      const titleText = details.querySelector('.timeline-details-chip-decorative-title')?.textContent;
+      assert.strictEqual(titleText, 'Insight Layout Shift culprits');
     });
 
     it('renders the details for an extension entry properly', async function() {

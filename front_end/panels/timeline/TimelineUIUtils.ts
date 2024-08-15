@@ -1111,7 +1111,12 @@ export class TimelineUIUtils {
     const isMarker = traceParseData && isMarkerEvent(traceParseData, event);
     const color = isMarker ? TimelineUIUtils.markerStyleForEvent(event).color : defaultColorForEvent;
 
-    contentHelper.addSection(TimelineUIUtils.eventTitle(event), color);
+    // This is an insight, also include the decorative title.
+    if (TraceEngine.Types.TraceEvents.isSyntheticLayoutShift(event)) {
+      contentHelper.addSection(TimelineUIUtils.eventTitle(event), color, 'Layout Shift culprits');
+    } else {
+      contentHelper.addSection(TimelineUIUtils.eventTitle(event), color);
+    }
 
     // TODO: as part of the removal of the old engine, produce a typesafe way
     // to look up args and data for events.
@@ -2314,13 +2319,22 @@ export class TimelineDetailsContentHelper {
     this.fragment.appendChild(this.element);
   }
 
-  addSection(title: string, swatchColor?: string): void {
+  addSection(title: string, swatchColor?: string, insightTitle?: string): void {
     if (!this.tableElement.hasChildNodes()) {
       this.element.removeChildren();
     } else {
       this.element = document.createElement('div');
       this.element.classList.add('timeline-details-view-block');
       this.fragment.appendChild(this.element);
+    }
+
+    // Add a decorative title if we're handling an insight.
+    if (insightTitle) {
+      const decorativeTitle = this.element.createChild('div', 'timeline-details-chip-decorative-title');
+      const insight = decorativeTitle.createChild('span', 'insight-keyword');
+      UI.UIUtils.createTextChild(insight, 'Insight');
+
+      UI.UIUtils.createTextChild(decorativeTitle, ` ${insightTitle}`);
     }
 
     if (title) {
