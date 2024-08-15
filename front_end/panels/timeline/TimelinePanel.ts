@@ -1575,7 +1575,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     this.flameChart.setModel(traceParsedData, isCpuProfile);
     this.flameChart.resizeToPreferredHeights();
     // Reset the visual selection as we've just swapped to a new trace.
-    this.flameChart.setSelection(null);
+    this.flameChart.setSelectionAndReveal(null);
     this.#sideBar.setTraceParsedData(traceParsedData);
 
     this.searchableViewInternal.showWidget();
@@ -1999,7 +1999,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
 
   select(selection: TimelineSelection|null): void {
     this.selection = selection;
-    this.flameChart.setSelection(selection);
+    this.flameChart.setSelectionAndReveal(selection);
   }
 
   selectEntryAtTime(events: TraceEngine.Types.TraceEvents.TraceEventData[]|null, time: number): void {
