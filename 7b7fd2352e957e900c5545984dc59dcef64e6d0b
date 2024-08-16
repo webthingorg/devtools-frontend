@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4fe4bfaf_894265be",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-08-16T12:34:56Z",
+      "side": 1,
+      "message": "Ergun, PTAL.\nContrary to the design, I kept the round shape of the expanded button. Let\u0027s check with Peter what he prefers.",
+      "revId": "7b7fd2352e957e900c5545984dc59dcef64e6d0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
