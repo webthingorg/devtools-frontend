@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8407a1a6_89246f07",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-08-16T00:11:08Z",
+      "side": 1,
+      "message": "Hi Simon, I re-created this CL for detached element tool frontend as Giovanni finished his internship at Microsoft and I\u0027ll be handling the rest of the project. The comments from the original CL have been addressed, PTAL, thanks!",
+      "revId": "a1ab9899aaa924eeff36e998e9d09ce9f12c1ed8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
