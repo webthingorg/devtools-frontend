@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8068661e_95e25ea6",
+        "filename": "front_end/models/trace/LanternComputationData.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-08-16T22:08:07Z",
+      "side": 0,
+      "message": "this was LH-specific to deal with redirects, but LH can pass in whatever frame/nav it needs to keep same results.",
+      "revId": "f87b5ff3c818a93f8869b231e19b383822bf5e0f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
