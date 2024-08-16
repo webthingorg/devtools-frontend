@@ -225,7 +225,7 @@ export const NativeFunctions = [
   {
     name: "create",
     signatures: [["?options"]],
-    receivers: ["CredentialsContainer"]
+    receivers: ["CredentialsContainer","AIRewriterFactory","AIWriterFactory"]
   },
   {
     name: "defineProperty",
@@ -1986,6 +1986,11 @@ export const NativeFunctions = [
   },
   {
     name: "write",
+    signatures: [["input","?options"]],
+    receivers: ["AIWriter"]
+  },
+  {
+    name: "write",
     signatures: [["message","?options"]],
     receivers: ["NDEFReader"]
   },
@@ -3032,7 +3037,7 @@ export const NativeFunctions = [
   {
     name: "getCapabilities",
     signatures: [["kind"]],
-    receivers: ["RTCRtpReceiver","RTCRtpSender"]
+    receivers: ["RTCRtpReceiver"]
   },
   {
     name: "observe",
@@ -3591,7 +3596,7 @@ export const NativeFunctions = [
   },
   {
     name: "setParameters",
-    signatures: [["parameters","?setParameterOptions"],["parameters","?options"]]
+    signatures: [["parameters","?setParameterOptions"]]
   },
   {
     name: "setStreams",
@@ -7227,6 +7232,14 @@ export const NativeFunctions = [
     signatures: [["feature"]]
   },
   {
+    name: "rewrite",
+    signatures: [["input","?options"]]
+  },
+  {
+    name: "rewriteStreaming",
+    signatures: [["input","?options"]]
+  },
+  {
     name: "summarize",
     signatures: [["input"]]
   },
@@ -7237,6 +7250,10 @@ export const NativeFunctions = [
   {
     name: "promptStreaming",
     signatures: [["input"]]
+  },
+  {
+    name: "writeStreaming",
+    signatures: [["input","?options"]]
   },
   {
     name: "registerAnimator",
@@ -7384,10 +7401,6 @@ export const NativeFunctions = [
   {
     name: "beginLayer",
     signatures: [["?options"]]
-  },
-  {
-    name: "scrollPathIntoView",
-    signatures: [["?path"]]
   },
   {
     name: "drawFormattedText",
@@ -8198,6 +8211,10 @@ export const NativeFunctions = [
   {
     name: "setHeaderExtensionsToNegotiate",
     signatures: [["extensions"]]
+  },
+  {
+    name: "createProcessor",
+    signatures: [["worker","?options","?transfer"]]
   },
   {
     name: "readReceivedAcks",
