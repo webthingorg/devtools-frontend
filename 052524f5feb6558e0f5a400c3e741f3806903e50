@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a9ef92d_dd0ef6aa",
+        "filename": "front_end/models/trace/handlers/NetworkRequestsHandler.test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-08-16T10:52:04Z",
+      "side": 1,
+      "message": "So network duration, is the time between end redirect time(last send request\u0027s time) and finish time, so it will roughly contain the queuing and stalled and downloading, so it might not be 0.\nSo I think maybe we should get a better name or just remove it, since this is used in NPP but not RPP. And if we decide to remove, I prefer to do in a separate CL and remove a few fields and rewrite the test code.",
+      "parentUuid": "4a015026_378643b1",
+      "range": {
+        "startLine": 120,
+        "startChar": 0,
+        "endLine": 120,
+        "endChar": 73
+      },
+      "revId": "052524f5feb6558e0f5a400c3e741f3806903e50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f5bee8aa_59678efb",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-08-05T10:53:23Z",
       "side": 1,
       "message": "can we fix this upstream?",
+      "range": {
+        "startLine": 255,
+        "startChar": 0,
+        "endLine": 255,
+        "endChar": 88
+      },
+      "revId": "052524f5feb6558e0f5a400c3e741f3806903e50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4dd95b61_55bd08d1",
+        "filename": "front_end/models/trace/handlers/NetworkRequestsHandler.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-08-16T10:52:04Z",
+      "side": 1,
+      "message": "Maybe. So a synthetic network request is constructed by several events, and they are dispatched separately. So if the `resourceMarkAsCached` event is dispatched first, we can discard other events, which can fix this problem. Otherwise this can\u0027t be fixed",
+      "parentUuid": "f5bee8aa_59678efb",
       "range": {
         "startLine": 255,
         "startChar": 0,
