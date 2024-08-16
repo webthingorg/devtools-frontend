@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "30c11496c280274f31dd8420ef7ae80dbbf0fc90",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "723ccf63_f8b0b0f2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-08-16T12:59:54Z",
+      "side": 1,
+      "message": "LGTM from DevTools perspective; Koji, could you see if this looks good to you from spec\u0027s perspective? Thanks!",
+      "revId": "30c11496c280274f31dd8420ef7ae80dbbf0fc90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
