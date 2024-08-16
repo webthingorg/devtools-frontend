@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7241057_c3be2706",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-08-16T21:13:06Z",
+      "side": 1,
+      "message": "i\u0027ll add parsing for the content string later, but I\u0027m waiting on guidance from chat on how to add \"metaviewport-parser\"",
+      "revId": "116f2a8ab6063a1ef8654e0166ed0811c8aec7fe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
