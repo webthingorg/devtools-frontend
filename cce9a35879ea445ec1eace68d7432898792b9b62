@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9117e46a_0293a79b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-08-16T23:35:42Z",
+      "side": 1,
+      "message": "This is a minor change to add a type indexed by insight name (w/o union w/ Error); and it also makes how all the InsightResult types are defined consistent and contained at the top of each insight.",
+      "revId": "cce9a35879ea445ec1eace68d7432898792b9b62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
