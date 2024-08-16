@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "63cbce39_4f018c62",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-16T07:12:11Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "c7d98fd2_2a277345",
+      "revId": "d5073a62d6aa0ef221799ea2b29342dcd81edeba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c0226229_2db21dd3",
@@ -65,6 +83,24 @@
       "writtenOn": "2024-08-14T08:29:34Z",
       "side": 1,
       "message": "We will also need to add \u0027Outline\u0027 (e.g. outline views,as used in the a11y tree) later on, but that will happen some time later.",
+      "revId": "d5073a62d6aa0ef221799ea2b29342dcd81edeba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "394b4689_ab00bf1a",
+        "filename": "front_end/ui/legacy/Treeoutline.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 392,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-16T07:12:11Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "c0226229_2db21dd3",
       "revId": "d5073a62d6aa0ef221799ea2b29342dcd81edeba",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
