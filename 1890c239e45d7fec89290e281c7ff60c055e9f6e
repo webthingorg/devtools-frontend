@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cca8132b_f1f547a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-08-17T23:36:58Z",
+      "side": 1,
+      "message": "Thanks for the comments! I\u0027ve replied and uploaded a new patchset, ptal!",
+      "revId": "1890c239e45d7fec89290e281c7ff60c055e9f6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

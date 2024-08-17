@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "237c357f_14f1e6ec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-08-17T23:36:58Z",
+      "side": 1,
+      "message": "Yes, I\u0027d leave this out for after branch point. Thinking about when to land this, I think it will be safest to wait with this CL until I\u0027m back from vacation (I\u0027ll be out on vacation for 2 weeks), since it touches regularly used UX. I hope that is fine with you too! And thanks for bringing this up 😊",
+      "parentUuid": "3cd9a14f_f8833020",
+      "revId": "ce0633d68190dfba8de7bc16494c15d632aa478d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "041ce842_acf42db1",
         "filename": "front_end/ui/legacy/treeoutline.css",
         "patchSetId": 7
@@ -70,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "89cfefb9_9c3a87dc",
+        "filename": "front_end/ui/legacy/treeoutline.css",
+        "patchSetId": 7
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-08-17T23:36:58Z",
+      "side": 1,
+      "message": "Good point! If I understand correctly, this is a general Treeoutline problem right (let me know if I\u0027m misunderstanding)? In that case, wdyt about fixing the calculation instead? The calculation could contain a bit more meaning by using variable names. I think it is centered if we consider that the arrow icon width is 10px, but that it has some padding within the icon too, so we actually end up with the arrow icon starting around 2px \"later\". I have fixed this up in the latest patch set, but let me know if you don\u0027t agree with this and I can change it to the css only change that you suggested 😊!",
+      "parentUuid": "60e0052e_52ff7dc3",
+      "revId": "ce0633d68190dfba8de7bc16494c15d632aa478d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e357384a_03f0f6c2",
@@ -83,6 +119,24 @@
       "writtenOn": "2024-08-16T07:12:11Z",
       "side": 1,
       "message": "(super design nit): It looks like the selected color of the icons and the file icon almost has the same color so it\u0027s a bit confusing to understand whether the element with file icon is selected or not: https://imgur.com/a/0thgqgD\n\nMarking this already resolved as I think this might need tweaks from the design part but just wanted to highlight :)",
+      "revId": "ce0633d68190dfba8de7bc16494c15d632aa478d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2c93188_2eec33d6",
+        "filename": "front_end/ui/legacy/treeoutline.css",
+        "patchSetId": 7
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-08-17T23:36:58Z",
+      "side": 1,
+      "message": "Good point! I\u0027ll add this to UX questions for Peter!",
+      "parentUuid": "e357384a_03f0f6c2",
       "revId": "ce0633d68190dfba8de7bc16494c15d632aa478d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
