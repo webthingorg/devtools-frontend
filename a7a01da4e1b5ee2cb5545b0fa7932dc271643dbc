@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "864d759f_c8585894",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-08-19T13:31:34Z",
+      "side": 1,
+      "message": "I don\u0027t think the impact of such flags is super high. After all they are rare. Checking whether the experiment is enabled is non-trivial, so I\u0027m hesitant to special-case this for `all`, given the impact. WDYT?",
+      "parentUuid": "d239d422_7b7d37cf",
+      "revId": "a7a01da4e1b5ee2cb5545b0fa7932dc271643dbc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "19c9b1df_f37b039b",
@@ -49,6 +67,24 @@
       "writtenOn": "2024-08-15T02:45:48Z",
       "side": 1,
       "message": "Should we remove shorthand properties like animation?",
+      "revId": "a7a01da4e1b5ee2cb5545b0fa7932dc271643dbc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1720d6e0_7cefbf10",
+        "filename": "front_end/generated/SupportedCSSProperties.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-08-19T13:31:34Z",
+      "side": 1,
+      "message": "Done in https://crrev.com/c/5793100",
+      "parentUuid": "19c9b1df_f37b039b",
       "revId": "a7a01da4e1b5ee2cb5545b0fa7932dc271643dbc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
