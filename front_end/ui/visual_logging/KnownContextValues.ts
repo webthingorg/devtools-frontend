@@ -3,6 +3,10 @@
 // found in the LICENSE file.
 
 export const knownContextValues = new Set([
+  'prop1',
+  'prop2',
+  'badproperty',
+  'zoo',
   '%',
   '*',
   '-webkit-border-horizontal-spacing',
