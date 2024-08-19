@@ -34,6 +34,29 @@
       "parentUuid": "4f77edc8_68a354d3",
       "revId": "216449936bc49196baec7ac13ecf87ce43360642",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8814d41_5f12bcd9",
+        "filename": "test/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-19T10:43:21Z",
+      "side": 1,
+      "message": "These are also split across 2 locations, depending if they need an HTTP server. `web_tests/inspector-protocol/` and `web_tests/http/tests/inspector-protocol/`",
+      "range": {
+        "startLine": 77,
+        "startChar": 2,
+        "endLine": 77,
+        "endChar": 32
+      },
+      "revId": "216449936bc49196baec7ac13ecf87ce43360642",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
