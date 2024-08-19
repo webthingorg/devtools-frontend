@@ -16,6 +16,207 @@
       "message": "Hi Simon, I re-created this CL for detached element tool frontend as Giovanni finished his internship at Microsoft and I\u0027ll be handling the rest of the project. The comments from the original CL have been addressed, PTAL, thanks!",
       "revId": "a1ab9899aaa924eeff36e998e9d09ce9f12c1ed8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73bdcfb7_823b60cc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-19T07:37:58Z",
+      "side": 1,
+      "message": "Nice, thanks!\n\nMostly nits/typos. The only thing I\u0027m worried about is that currently we could use the wrong DOMModel with the detached info.",
+      "revId": "a1ab9899aaa924eeff36e998e9d09ce9f12c1ed8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9909de0_cdf6de08",
+        "filename": "front_end/panels/profiler/BUILD.gn",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-19T07:37:58Z",
+      "side": 1,
+      "message": "Should not be required now I think.",
+      "range": {
+        "startLine": 60,
+        "startChar": 4,
+        "endLine": 60,
+        "endChar": 43
+      },
+      "revId": "a1ab9899aaa924eeff36e998e9d09ce9f12c1ed8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2f6d42e_9b875c93",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsDataGrid.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-19T07:37:58Z",
+      "side": 1,
+      "message": "According to https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/docs/styleguide/ux/writing.md it\u0027s encouraged to use \"Sentence case\" in DevTools UI strings.\n\nThat is use `Detached nodes`, `Node count` and `Detached elements list` here and below.",
+      "range": {
+        "startLine": 17,
+        "startChar": 18,
+        "endLine": 17,
+        "endChar": 32
+      },
+      "revId": "a1ab9899aaa924eeff36e998e9d09ce9f12c1ed8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0118b951_1e6dcdad",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsDataGrid.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-19T07:37:58Z",
+      "side": 1,
+      "message": "super nit: `const columns: DataGrid.DataGrid.ColumnDescriptor[] \u003d [];`.\n\nI\u0027ve grown allergic to `as` 😄",
+      "range": {
+        "startLine": 32,
+        "startChar": 4,
+        "endLine": 32,
+        "endChar": 65
+      },
+      "revId": "a1ab9899aaa924eeff36e998e9d09ce9f12c1ed8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e048fdd_d52c953c",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsDataGrid.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-19T07:37:58Z",
+      "side": 1,
+      "message": "typo: `HeapDetachedElementsDataGridNode`.",
+      "range": {
+        "startLine": 57,
+        "startChar": 13,
+        "endLine": 57,
+        "endChar": 45
+      },
+      "revId": "a1ab9899aaa924eeff36e998e9d09ce9f12c1ed8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "554937b7_554277a5",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsDataGrid.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-19T07:37:58Z",
+      "side": 1,
+      "message": "Not sure how well this plays on pages with OOPIFs. Maybe it would be better to also pass the DOMModel along from which we obtained the `detachedElementInfo`. Wdyt?",
+      "range": {
+        "startLine": 65,
+        "startChar": 4,
+        "endLine": 65,
+        "endChar": 96
+      },
+      "revId": "a1ab9899aaa924eeff36e998e9d09ce9f12c1ed8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbff9d5d_f32a292e",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsDataGrid.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-19T07:37:58Z",
+      "side": 1,
+      "message": "Any reason why this is an arrow function?",
+      "range": {
+        "startLine": 112,
+        "startChar": 2,
+        "endLine": 112,
+        "endChar": 64
+      },
+      "revId": "a1ab9899aaa924eeff36e998e9d09ce9f12c1ed8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3113378c_d9ae6e3b",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsDataGrid.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-19T07:37:58Z",
+      "side": 1,
+      "message": "The cast should not be required here (and below). `node` is already typed as `DOMNode`.",
+      "range": {
+        "startLine": 115,
+        "startChar": 35,
+        "endLine": 115,
+        "endChar": 59
+      },
+      "revId": "a1ab9899aaa924eeff36e998e9d09ce9f12c1ed8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25f7d5ea_72380081",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-19T07:37:58Z",
+      "side": 1,
+      "message": "Also sentence case for these UI strings.",
+      "range": {
+        "startLine": 25,
+        "startChar": 26,
+        "endLine": 25,
+        "endChar": 51
+      },
+      "revId": "a1ab9899aaa924eeff36e998e9d09ce9f12c1ed8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
