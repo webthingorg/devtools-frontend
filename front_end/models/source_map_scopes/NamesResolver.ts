@@ -1,7 +1,7 @@
 // Copyright 2022 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
-
+import {type Chrome} from '../../../extension-api/ExtensionAPI.js';
 import * as Common from '../../core/common/common.js';
 import * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
@@ -765,6 +765,41 @@ export class RemoteObject extends SDK.RemoteObject.RemoteObject {
   }
 }
 
+interface ExtensionManagerConstructor {
+  instance(): ExternalExtensionManager;
+}
+
+export interface ExtensionPlugin {
+  getFunctionRanges(fileName: string, sourceContent: string): Promise<Chrome.DevTools.FunctionDescriptor[]>;
+}
+
+interface ExternalExtensionManager {
+  findFunctionParserExtensionsForFile(sourceUrl: string): ExtensionPlugin[];
+}
+
+let extensionManager: ExternalExtensionManager|null = null;
+async function loadExtensionManager(): Promise<ExternalExtensionManager|null> {
+  if (!extensionManager) {
+    try {
+      const extensionsModulePath: string = '../../models/source_map_extensions/source_map_extensions.js';
+      const extensionsModule = await import(extensionsModulePath);
+      const extensionsManagerStatics =
+          extensionsModule?.ExtensionManager.ExtensionManager as ExtensionManagerConstructor;
+      extensionManager = extensionsManagerStatics?.instance();
+      return extensionManager;
+    } catch (e) {
+      console.error('Error Loading', e);
+      throw new Error(e);
+    }
+  }
+  return extensionManager;
+}
+
+// Cache: sourceMap -> Map(sourceUrl -> FunctionDescriptor[])
+const functionDescriptorCache:
+    WeakMap<SDK.SourceMap.SourceMap, Map<Platform.DevToolsPath.UrlString, Chrome.DevTools.FunctionDescriptor[]>> =
+        new WeakMap();
+
 // Resolve the frame's function name using the name associated with the opening
 // paren that starts the scope. If there is no name associated with the scope
 // start or if the function scope does not start with a left paren (e.g., arrow
@@ -779,11 +814,45 @@ async function getFunctionNameFromScopeStart(
     return null;
   }
 
+  const sourceContent = await getTextFor(script);
+  const content = sourceContent?.value();
   const mappingEntry = sourceMap.findEntry(lineNumber, columnNumber);
   if (!mappingEntry || !mappingEntry.sourceURL) {
     return null;
   }
 
+  // extract into function call - getFunctionNameViaExtensionOrCache(sourceMap, script, UnminficationMode,)
+  const extensionMangerInstance = await loadExtensionManager();
+  if (extensionMangerInstance && content) {
+    // check if we can leverage cache
+    let functionDescriptorsViaSourceUrlMap = functionDescriptorCache.get(sourceMap);
+    if (!functionDescriptorsViaSourceUrlMap) {
+      functionDescriptorsViaSourceUrlMap = new Map();
+      functionDescriptorCache.set(sourceMap, functionDescriptorsViaSourceUrlMap);
+    }
+
+    let parsed = functionDescriptorsViaSourceUrlMap.get(script.sourceURL);
+    if (!parsed) {
+      const extensions = extensionMangerInstance?.findFunctionParserExtensionsForFile(script.sourceURL);
+      if (extensions && extensions.length) {
+        for (const extension of extensions) {
+          parsed = await extension.getFunctionRanges(script.sourceURL, content);
+
+          if (parsed && parsed.length) {
+            functionDescriptorsViaSourceUrlMap.set(script.sourceURL, parsed);
+            break;  // obtained parsed FunctionnDescriptors via extension
+          }
+        }
+      }
+      // no extensions to parse file do nothing, proceed to default
+    }
+    if (parsed) {
+      const best = sourceMap.findBestCandidate(parsed, lineNumber, columnNumber) as Chrome.DevTools.FunctionDescriptor;
+      if (best) {
+        return best.nameAsFunction;
+      }
+    }
+  }
   const scopeName =
       sourceMap.findScopeEntry(mappingEntry.sourceURL, mappingEntry.sourceLineNumber, mappingEntry.sourceColumnNumber)
           ?.scopeName();

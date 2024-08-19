@@ -93,6 +93,7 @@ export namespace PrivateAPI {
     ShowRecorderView = 'showRecorderView',
     ShowNetworkPanel = 'showNetworkPanel',
     ReportResourceLoad = 'reportResourceLoad',
+    RegisterFunctionNameGuesserExtensionPlugin = 'RegisterFunctionNameGuesserExtensionPlugin',
   }
 
   export const enum LanguageExtensionPluginCommands {
@@ -128,11 +129,26 @@ export namespace PrivateAPI {
     UnregisteredRecorderExtensionPlugin = 'unregisteredRecorderExtensionPlugin',
   }
 
+  export const enum FunctionNameGuesserExtensionPluginCommands {
+    GetFunctionRanges = 'getFunctionRanges',
+  }
+
+  export const enum FunctionNameGuesserExtensionPluginEvents {
+    UnregisterFunctionNameGuesserExtensionPlugin = 'UnregisterFunctionNameGuesserExtensionPlugin',
+  }
+
   export interface EvaluateOptions {
     frameURL?: string;
     useContentScriptContext?: boolean;
     scriptExecutionContext?: string;
   }
+
+  type RegisterFunctionNameGuesserExtensionPluginRequest = {
+    command: Commands.RegisterFunctionNameGuesserExtensionPlugin,
+    pluginName: string,
+    port: MessagePort,
+    capabilities: string[],
+  };
 
   type RegisterLanguageExtensionPluginRequest = {
     command: Commands.RegisterLanguageExtensionPlugin,
@@ -242,13 +258,14 @@ export namespace PrivateAPI {
   };
 
   export type ServerRequests = ShowRecorderViewRequest|CreateRecorderViewRequest|RegisterRecorderExtensionPluginRequest|
-      RegisterLanguageExtensionPluginRequest|SubscribeRequest|UnsubscribeRequest|AddRequestHeadersRequest|
-      ApplyStyleSheetRequest|CreatePanelRequest|ShowPanelRequest|CreateToolbarButtonRequest|UpdateButtonRequest|
-      CreateSidebarPaneRequest|SetSidebarHeightRequest|SetSidebarContentRequest|SetSidebarPageRequest|
-      OpenResourceRequest|SetOpenResourceHandlerRequest|SetThemeChangeHandlerRequest|ReloadRequest|
-      EvaluateOnInspectedPageRequest|GetRequestContentRequest|GetResourceContentRequest|SetResourceContentRequest|
-      ForwardKeyboardEventRequest|GetHARRequest|GetPageResourcesRequest|GetWasmLinearMemoryRequest|GetWasmLocalRequest|
-      GetWasmGlobalRequest|GetWasmOpRequest|ShowNetworkPanelRequest|ReportResourceLoadRequest;
+      RegisterFunctionNameGuesserExtensionPluginRequest|RegisterLanguageExtensionPluginRequest|SubscribeRequest|
+      UnsubscribeRequest|AddRequestHeadersRequest|ApplyStyleSheetRequest|CreatePanelRequest|ShowPanelRequest|
+      CreateToolbarButtonRequest|UpdateButtonRequest|CreateSidebarPaneRequest|SetSidebarHeightRequest|
+      SetSidebarContentRequest|SetSidebarPageRequest|OpenResourceRequest|SetOpenResourceHandlerRequest|
+      SetThemeChangeHandlerRequest|ReloadRequest|EvaluateOnInspectedPageRequest|GetRequestContentRequest|
+      GetResourceContentRequest|SetResourceContentRequest|ForwardKeyboardEventRequest|GetHARRequest|
+      GetPageResourcesRequest|GetWasmLinearMemoryRequest|GetWasmLocalRequest|GetWasmGlobalRequest|GetWasmOpRequest|
+      ShowNetworkPanelRequest|ReportResourceLoadRequest;
   export type ExtensionServerRequestMessage = PrivateAPI.ServerRequests&{requestId?: number};
 
   type AddRawModuleRequest = {
@@ -322,6 +339,16 @@ export namespace PrivateAPI {
   };
 
   export type RecorderExtensionRequests = StringifyRequest|StringifyStepRequest|ReplayRequest;
+
+  type GetFunctionRangesRequest = {
+    method: FunctionNameGuesserExtensionPluginCommands.GetFunctionRanges,
+    parameters: {
+      fileName: string,
+      sourceContent: string,
+    },
+  };
+
+  export type FunctionNameGuesserExtensionRequests = GetFunctionRangesRequest;
 }
 
 declare global {
@@ -355,6 +382,7 @@ namespace APIImpl {
     network: PublicAPI.Chrome.DevTools.Network;
     panels: PublicAPI.Chrome.DevTools.Panels;
     inspectedWindow: PublicAPI.Chrome.DevTools.InspectedWindow;
+    functionNameGuesser: PublicAPI.Chrome.DevTools.FunctionNameGuesserExtensions;  // extract
   }
 
   export interface ExtensionServerClient {
@@ -422,6 +450,10 @@ namespace APIImpl {
 
   export interface RecorderExtensions extends PublicAPI.Chrome.DevTools.RecorderExtensions {
     _plugins: Map<PublicAPI.Chrome.DevTools.RecorderExtensionPlugin, MessagePort>;
+  }
+
+  export interface FunctionNameGuesserExtensions extends PublicAPI.Chrome.DevTools.FunctionNameGuesserExtensions {
+    _plugins: Map<PublicAPI.Chrome.DevTools.FunctionNameGuesserExtensionPlugin, MessagePort>;
   }
 
   export interface ExtensionPanel extends ExtensionView, PublicAPI.Chrome.DevTools.ExtensionPanel {
@@ -529,6 +561,7 @@ self.injectedExtensionAPI = function(
     this.languageServices = new (Constructor(LanguageServicesAPI))();
     this.recorder = new (Constructor(RecorderServicesAPI))();
     this.performance = new (Constructor(Performance))();
+    this.functionNameGuesser = new (Constructor(FunctionNameGuesserServicesAPI))();
     defineDeprecatedProperty(this, 'webInspector', 'resources', 'network');
   }
 
@@ -822,6 +855,66 @@ self.injectedExtensionAPI = function(
         },
   };
 
+  /** FunctionNameGuesserServicesAPIImpl */
+  function FunctionNameGuesserServicesAPIImpl(this: APIImpl.FunctionNameGuesserExtensions): void {
+    this._plugins = new Map();
+  }
+
+  async function registerFunctionNameGuesserExtensionPluginImpl(
+      this: APIImpl.FunctionNameGuesserExtensions, plugin: PublicAPI.Chrome.DevTools.FunctionNameGuesserExtensionPlugin,
+      pluginName: string, capabilities: string[]): Promise<void> {
+    if (this._plugins.has(plugin)) {
+      throw new Error(`Tried to register plugin '${pluginName}' twice`);
+    }
+    const channel = new MessageChannel();
+    const port = channel.port1;
+    this._plugins.set(plugin, port);
+    port.onmessage =
+        ({data}: MessageEvent<{requestId: number}&PrivateAPI.FunctionNameGuesserExtensionRequests>): void => {
+          const {requestId} = data;
+          dispatchMethodCall(data)
+              .then(result => port.postMessage({requestId, result}))
+              .catch(error => port.postMessage({requestId, error: {message: error.message}}));
+        };
+
+    async function dispatchMethodCall(request: PrivateAPI.FunctionNameGuesserExtensionRequests): Promise<unknown> {
+      switch (request.method) {
+        case PrivateAPI.FunctionNameGuesserExtensionPluginCommands.GetFunctionRanges:
+          return (plugin as PublicAPI.Chrome.DevTools.FunctionNameGuesserExtensionPlugin)
+              .getFunctionRanges(request.parameters.fileName, request.parameters.sourceContent);
+        default:
+          throw new Error(`Unknown GetFunctionGuesser plugin method ${request.method}`);
+      }
+    }
+
+    await new Promise<void>(resolve => {
+      extensionServer.sendRequest(
+          {
+            command: PrivateAPI.Commands.RegisterFunctionNameGuesserExtensionPlugin,
+            pluginName,
+            capabilities,
+            port: channel.port2,
+          },
+          () => resolve(), [channel.port2]);
+    });
+  }
+
+  (FunctionNameGuesserServicesAPIImpl.prototype as PublicAPI.Chrome.DevTools.FunctionNameGuesserExtensions) = {
+    registerFunctionNameGuesserExtensionPlugin: registerFunctionNameGuesserExtensionPluginImpl,
+    unregisterFunctionNameGuesserExtensionPlugin: async function(
+        this: APIImpl.FunctionNameGuesserExtensions,
+        plugin: PublicAPI.Chrome.DevTools.FunctionNameGuesserExtensionPlugin): Promise<void> {
+      const port = this._plugins.get(plugin);
+      if (!port) {
+        throw new Error('Tied to unregister a plugin that ws not previously registered');
+      }
+      this._plugins.delete(plugin);
+      port.postMessage(
+          {event: PrivateAPI.FunctionNameGuesserExtensionPluginEvents.UnregisterFunctionNameGuesserExtensionPlugin});
+      port.close();
+    },
+  };
+
   function LanguageServicesAPIImpl(this: APIImpl.LanguageExtensions): void {
     this._plugins = new Map();
   }
@@ -1015,6 +1108,7 @@ self.injectedExtensionAPI = function(
 
   const LanguageServicesAPI = declareInterfaceClass(LanguageServicesAPIImpl);
   const RecorderServicesAPI = declareInterfaceClass(RecorderServicesAPIImpl);
+  const FunctionNameGuesserServicesAPI = declareInterfaceClass(FunctionNameGuesserServicesAPIImpl);
   const Performance = declareInterfaceClass(PerformanceImpl);
   const Button = declareInterfaceClass(ButtonImpl);
   const EventSink = declareInterfaceClass(EventSinkImpl);
@@ -1462,6 +1556,7 @@ self.injectedExtensionAPI = function(
   chrome.devtools!.languageServices = coreAPI.languageServices;
   chrome.devtools!.recorder = coreAPI.recorder;
   chrome.devtools!.performance = coreAPI.performance;
+  chrome.devtools!.functionNameGuesser = coreAPI.functionNameGuesser;
 
   // default to expose experimental APIs for now.
   if (extensionInfo.exposeExperimentalAPIs !== false) {
