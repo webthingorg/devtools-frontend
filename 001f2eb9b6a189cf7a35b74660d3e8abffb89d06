@@ -22,6 +22,30 @@
       },
       "revId": "001f2eb9b6a189cf7a35b74660d3e8abffb89d06",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5c3596d_60e1c6f6",
+        "filename": "front_end/panels/timeline/overlays/components/TimespanBreakdownOverlay.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-08-19T21:22:11Z",
+      "side": 1,
+      "message": "looking ahead, there are other breakdown overlays where this is helpful. sgtm, i like this!",
+      "parentUuid": "75abad99_276838e1",
+      "range": {
+        "startLine": 155,
+        "startChar": 5,
+        "endLine": 164,
+        "endChar": 14
+      },
+      "revId": "001f2eb9b6a189cf7a35b74660d3e8abffb89d06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
