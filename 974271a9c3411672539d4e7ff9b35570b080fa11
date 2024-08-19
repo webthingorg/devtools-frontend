@@ -39,6 +39,30 @@
       },
       "revId": "974271a9c3411672539d4e7ff9b35570b080fa11",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c172caef_5aee9ae7",
+        "filename": "front_end/entrypoints/heap_snapshot_worker/HeapSnapshot.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 3229,
+      "author": {
+        "id": 1325508
+      },
+      "writtenOn": "2024-08-19T13:21:40Z",
+      "side": 1,
+      "message": "Good point, thanks!",
+      "parentUuid": "2f9de9d3_67329cc4",
+      "range": {
+        "startLine": 3228,
+        "startChar": 0,
+        "endLine": 3229,
+        "endChar": 42
+      },
+      "revId": "974271a9c3411672539d4e7ff9b35570b080fa11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
