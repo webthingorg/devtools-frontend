@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d4ecc86_f6789c46",
+        "filename": "front_end/panels/timeline/overlays/components/TimespanBreakdownOverlay.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-08-19T23:29:10Z",
+      "side": 1,
+      "message": "I\u0027ve seen this pattern used before, but it isn\u0027t ideal because the styles need to be defined on the component that consumes the template not the component that provides it. There are also some caveats when adding event listeners.\n\nOld comment from Jack:\nhttps://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/5775242/comments/d81250bc_9e0dbab9\n\nThat being said, I don\u0027t really have a solution that\u0027s cleaner so it\u0027s probably fine.",
+      "revId": "31e8400261528c8342f00ad4dcec5fa3ec166c9d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f4219ed_c3701327",
+        "filename": "front_end/panels/timeline/overlays/components/timespanBreakdownOverlay.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-08-19T23:29:10Z",
+      "side": 1,
+      "message": "Is this just to remove the default margins from the `\u003cp\u003e` element. WDYT about using a div and removing this class instead?",
+      "revId": "31e8400261528c8342f00ad4dcec5fa3ec166c9d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20470410_5d1d87db",
+        "filename": "front_end/panels/timeline/overlays/components/timespanBreakdownOverlay.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-08-19T23:29:10Z",
+      "side": 1,
+      "message": "I know the mocks show red text but it\u0027s very weird to see this number highlighted in red when the actual delay was very small (e.g. I saw this on a 15ms \"delay\").\n\nWe don\u0027t have a rating system for LCP request delay so I actually think that black text (maybe bold instead of color change) would be better.",
+      "revId": "31e8400261528c8342f00ad4dcec5fa3ec166c9d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
