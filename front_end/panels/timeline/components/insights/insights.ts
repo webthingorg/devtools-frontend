@@ -8,6 +8,7 @@ import * as LCPDiscovery from './LCPDiscovery.js';
 import * as LCPPhases from './LCPPhases.js';
 import * as SidebarInsight from './SidebarInsight.js';
 import * as Types from './types.js';
+import * as Viewport from './Viewport.js';
 
 export {
   CLSCulprits,
@@ -16,4 +17,5 @@ export {
   LCPPhases,
   SidebarInsight,
   Types,
+  Viewport,
 };
