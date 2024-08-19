@@ -16,6 +16,23 @@
       "message": "Please take a look. Thanks!",
       "revId": "a6f4051393f66e0b08e553c5d183c9bbdfcc1c0c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bda77aa7_5f943b80",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-19T07:08:29Z",
+      "side": 1,
+      "message": "Thanks! Looks like this was broken by the tab target introduction. Thanks for fixing!",
+      "revId": "a6f4051393f66e0b08e553c5d183c9bbdfcc1c0c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
