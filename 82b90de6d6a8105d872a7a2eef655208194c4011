@@ -16,6 +16,40 @@
       "message": "Addressed the comments and updated the CL",
       "revId": "82b90de6d6a8105d872a7a2eef655208194c4011",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c856d16e_f5a867d9",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsDataGrid.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2024-08-19T22:13:28Z",
+      "side": 1,
+      "message": "Nit: I\u0027m kind of allergic to the repetitive `?.` here. \n\nSeems like this could be resolved by surrounding the if-check on line 139 with an `if (treeElement) {` test.",
+      "revId": "82b90de6d6a8105d872a7a2eef655208194c4011",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6fc588c3_22fee17f",
+        "filename": "test/e2e/memory/memory_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2024-08-19T22:13:28Z",
+      "side": 1,
+      "message": "Do you need to `await step` here like other tests?",
+      "revId": "82b90de6d6a8105d872a7a2eef655208194c4011",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
