@@ -16,6 +16,29 @@
       "message": "Hi Simon, would you please review this change? Thanks!",
       "revId": "974271a9c3411672539d4e7ff9b35570b080fa11",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f9de9d3_67329cc4",
+        "filename": "front_end/entrypoints/heap_snapshot_worker/HeapSnapshot.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 3229,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-19T06:39:48Z",
+      "side": 1,
+      "message": "Since we are here we could clean this up as:\n\n```\nlet string: string|undefined \u003d snapshot.lazyStringCache[this.nodeIndex];\nif (string \u003d\u003d\u003d undefined) {\n```",
+      "range": {
+        "startLine": 3228,
+        "startChar": 0,
+        "endLine": 3229,
+        "endChar": 42
+      },
+      "revId": "974271a9c3411672539d4e7ff9b35570b080fa11",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
