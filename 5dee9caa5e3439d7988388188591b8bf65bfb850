@@ -50,6 +50,24 @@
       "message": "Have you considered using ESM instead?",
       "revId": "5dee9caa5e3439d7988388188591b8bf65bfb850",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "097031dd_829e371e",
+        "filename": "scripts/test/run_lint_check.js",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-08-19T15:28:33Z",
+      "side": 1,
+      "message": "I did, but I actually prefer this way for scripts... probably for historical reasons... also I can just use `__dirname` and don\u0027t need to mess with `import.meta.url` 😂",
+      "parentUuid": "50afe416_7cf7d07a",
+      "revId": "5dee9caa5e3439d7988388188591b8bf65bfb850",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
