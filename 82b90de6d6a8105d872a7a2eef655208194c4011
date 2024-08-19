@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c50e5cc_b7a1e3ad",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsDataGrid.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-08-19T23:11:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c856d16e_f5a867d9",
+      "revId": "82b90de6d6a8105d872a7a2eef655208194c4011",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6fc588c3_22fee17f",
@@ -48,6 +66,24 @@
       "writtenOn": "2024-08-19T22:13:28Z",
       "side": 1,
       "message": "Do you need to `await step` here like other tests?",
+      "revId": "82b90de6d6a8105d872a7a2eef655208194c4011",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47c6b9c2_3989f79a",
+        "filename": "test/e2e/memory/memory_test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 301,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-08-19T23:11:58Z",
+      "side": 1,
+      "message": "I don\u0027t think it\u0027s needed for this specific test",
+      "parentUuid": "6fc588c3_22fee17f",
       "revId": "82b90de6d6a8105d872a7a2eef655208194c4011",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
