@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8463464a_571d7550",
+        "filename": "front_end/panels/profiler/BUILD.gn",
+        "patchSetId": 5
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-08-19T21:06:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9909de0_cdf6de08",
+      "range": {
+        "startLine": 60,
+        "startChar": 4,
+        "endLine": 60,
+        "endChar": 43
+      },
+      "revId": "a1ab9899aaa924eeff36e998e9d09ce9f12c1ed8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d2f6d42e_9b875c93",
@@ -71,6 +95,30 @@
       "writtenOn": "2024-08-19T07:37:58Z",
       "side": 1,
       "message": "According to https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/docs/styleguide/ux/writing.md it\u0027s encouraged to use \"Sentence case\" in DevTools UI strings.\n\nThat is use `Detached nodes`, `Node count` and `Detached elements list` here and below.",
+      "range": {
+        "startLine": 17,
+        "startChar": 18,
+        "endLine": 17,
+        "endChar": 32
+      },
+      "revId": "a1ab9899aaa924eeff36e998e9d09ce9f12c1ed8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1266592_ac36cad6",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsDataGrid.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-08-19T21:06:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d2f6d42e_9b875c93",
       "range": {
         "startLine": 17,
         "startChar": 18,
@@ -104,6 +152,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "05ec4cf0_0cb0a836",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsDataGrid.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-08-19T21:06:39Z",
+      "side": 1,
+      "message": "Done 😄",
+      "parentUuid": "0118b951_1e6dcdad",
+      "range": {
+        "startLine": 32,
+        "startChar": 4,
+        "endLine": 32,
+        "endChar": 65
+      },
+      "revId": "a1ab9899aaa924eeff36e998e9d09ce9f12c1ed8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7e048fdd_d52c953c",
@@ -117,6 +189,30 @@
       "writtenOn": "2024-08-19T07:37:58Z",
       "side": 1,
       "message": "typo: `HeapDetachedElementsDataGridNode`.",
+      "range": {
+        "startLine": 57,
+        "startChar": 13,
+        "endLine": 57,
+        "endChar": 45
+      },
+      "revId": "a1ab9899aaa924eeff36e998e9d09ce9f12c1ed8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58033f08_f4807458",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsDataGrid.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-08-19T21:06:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e048fdd_d52c953c",
       "range": {
         "startLine": 57,
         "startChar": 13,
@@ -150,6 +246,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "366661f5_79665d54",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsDataGrid.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-08-19T21:06:39Z",
+      "side": 1,
+      "message": "I updated the logic here to get the DOMModel from the target associated to the heapProfilerModel, which should be more accurate.",
+      "parentUuid": "554937b7_554277a5",
+      "range": {
+        "startLine": 65,
+        "startChar": 4,
+        "endLine": 65,
+        "endChar": 96
+      },
+      "revId": "a1ab9899aaa924eeff36e998e9d09ce9f12c1ed8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cbff9d5d_f32a292e",
@@ -163,6 +283,30 @@
       "writtenOn": "2024-08-19T07:37:58Z",
       "side": 1,
       "message": "Any reason why this is an arrow function?",
+      "range": {
+        "startLine": 112,
+        "startChar": 2,
+        "endLine": 112,
+        "endChar": 64
+      },
+      "revId": "a1ab9899aaa924eeff36e998e9d09ce9f12c1ed8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "348c6986_94280665",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsDataGrid.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-08-19T21:06:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cbff9d5d_f32a292e",
       "range": {
         "startLine": 112,
         "startChar": 2,
@@ -196,6 +340,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "06adc8e9_45f54490",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsDataGrid.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-08-19T21:06:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3113378c_d9ae6e3b",
+      "range": {
+        "startLine": 115,
+        "startChar": 35,
+        "endLine": 115,
+        "endChar": 59
+      },
+      "revId": "a1ab9899aaa924eeff36e998e9d09ce9f12c1ed8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "25f7d5ea_72380081",
@@ -209,6 +377,30 @@
       "writtenOn": "2024-08-19T07:37:58Z",
       "side": 1,
       "message": "Also sentence case for these UI strings.",
+      "range": {
+        "startLine": 25,
+        "startChar": 26,
+        "endLine": 25,
+        "endChar": 51
+      },
+      "revId": "a1ab9899aaa924eeff36e998e9d09ce9f12c1ed8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe6cdf4d_9d3c5c9e",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-08-19T21:06:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25f7d5ea_72380081",
       "range": {
         "startLine": 25,
         "startChar": 26,
