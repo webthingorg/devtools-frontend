@@ -133,6 +133,30 @@
       },
       "revId": "052524f5feb6558e0f5a400c3e741f3806903e50",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c710f5d1_bd3ee49d",
+        "filename": "front_end/models/trace/handlers/NetworkRequestsHandler.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 255,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-08-20T13:12:08Z",
+      "side": 1,
+      "message": "I guess the `timing` data could be fixed in this case at the point the `ResourceReceiveResponse` trace event is dispatched?\nhttps://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/renderer/core/inspector/inspector_trace_events.cc;l\u003d1073;drc\u003d82dff63dbf9db05e9274e11d9128af7b9f51ceaa",
+      "parentUuid": "4dd95b61_55bd08d1",
+      "range": {
+        "startLine": 255,
+        "startChar": 0,
+        "endLine": 255,
+        "endChar": 88
+      },
+      "revId": "052524f5feb6558e0f5a400c3e741f3806903e50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
