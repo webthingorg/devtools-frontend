@@ -16,6 +16,24 @@
       "message": "Instead of ignoring this, how about declaring these properties on `Window`? Some tests do this, see e.g. `//test/shared/helper.ts`",
       "revId": "e2ce7331c7df01a9c6e81daeba58a716e90e59bf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd011a72_5d8dde5c",
+        "filename": "test/e2e/helpers/visual-logging-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-08-20T15:06:45Z",
+      "side": 1,
+      "message": "Yes, but it doesn\u0027t bring any extra type safety, does it?",
+      "parentUuid": "6068e4bf_63dbf8d8",
+      "revId": "e2ce7331c7df01a9c6e81daeba58a716e90e59bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
