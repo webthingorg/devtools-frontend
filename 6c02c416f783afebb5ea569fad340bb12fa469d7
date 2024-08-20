@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "475e1337_0a23f788",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-08-20T10:21:33Z",
+      "side": 1,
+      "message": "nit: just none 😊",
+      "revId": "6c02c416f783afebb5ea569fad340bb12fa469d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "9bb7d67e_8eb782ee",
