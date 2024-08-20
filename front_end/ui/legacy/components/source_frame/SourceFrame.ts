@@ -146,7 +146,7 @@ export const LINE_NUMBER_FORMATTER = CodeMirror.Facet.define<FormatFn, FormatFn>
 
 export class SourceFrameImpl extends Common.ObjectWrapper.eventMixin<EventTypes, typeof UI.View.SimpleView>(
     UI.View.SimpleView) implements UI.SearchableView.Searchable, UI.SearchableView.Replaceable, Transformer {
-  private readonly lazyContent: () => Promise<TextUtils.ContentProvider.DeferredContent>;
+  private readonly lazyContent: () => Promise<TextUtils.ContentData.ContentDataOrError>;
   private prettyInternal: boolean;
   private rawContent: string|CodeMirror.Text|null;
   private formattedMap: Formatter.ScriptFormatter.FormatterSourceMapping|null;
@@ -181,7 +181,7 @@ export class SourceFrameImpl extends Common.ObjectWrapper.eventMixin<EventTypes,
   private selfXssWarningDisabledSetting: Common.Settings.Setting<boolean>;
 
   constructor(
-      lazyContent: () => Promise<TextUtils.ContentProvider.DeferredContent>,
+      lazyContent: () => Promise<TextUtils.ContentData.ContentDataOrError>,
       private readonly options: SourceFrameOptions = {}) {
     super(i18nString(UIStrings.source));
 
@@ -537,13 +537,13 @@ export class SourceFrameImpl extends Common.ObjectWrapper.eventMixin<EventTypes,
   private async ensureContentLoaded(): Promise<void> {
     if (!this.contentRequested) {
       this.contentRequested = true;
-      await this.setDeferredContent(this.lazyContent());
+      await this.setContentDataOrError(this.lazyContent());
 
       this.contentSet = true;
     }
   }
 
-  protected async setDeferredContent(deferredContentPromise: Promise<TextUtils.ContentProvider.DeferredContent>):
+  protected async setContentDataOrError(contentDataPromise: Promise<TextUtils.ContentData.ContentDataOrError>):
       Promise<void> {
     const progressIndicator = new UI.ProgressIndicator.ProgressIndicator();
     progressIndicator.setTitle(i18nString(UIStrings.loading));
@@ -551,22 +551,19 @@ export class SourceFrameImpl extends Common.ObjectWrapper.eventMixin<EventTypes,
     this.progressToolbarItem.element.appendChild(progressIndicator.element);
 
     progressIndicator.setWorked(1);
-    const deferredContent = await deferredContentPromise;
+    const contentData = await contentDataPromise;
 
     let error, content;
-    if (deferredContent.content === null) {
-      error = deferredContent.error;
-      content = deferredContent.error;
-    } else if (deferredContent.isEncoded) {
-      const view = new DataView(Common.Base64.decode(deferredContent.content));
-      const decoder = new TextDecoder();
-      content = decoder.decode(view, {stream: true});
-    } else if ('wasmDisassemblyInfo' in deferredContent && deferredContent.wasmDisassemblyInfo) {
-      const {wasmDisassemblyInfo} = deferredContent;
-      content = CodeMirror.Text.of(wasmDisassemblyInfo.lines);
-      this.wasmDisassemblyInternal = wasmDisassemblyInfo;
+    let isMinified = false;
+    if (TextUtils.ContentData.ContentData.isError(contentData)) {
+      error = contentData.error;
+      content = contentData.error;
+    } else if (contentData instanceof TextUtils.WasmDisassembly.WasmDisassembly) {
+      content = CodeMirror.Text.of(contentData.lines);
+      this.wasmDisassemblyInternal = contentData;
     } else {
-      content = deferredContent.content;
+      content = contentData.text;
+      isMinified = TextUtils.TextUtils.isMinified(contentData.text);
       this.wasmDisassemblyInternal = null;
     }
 
@@ -585,12 +582,10 @@ export class SourceFrameImpl extends Common.ObjectWrapper.eventMixin<EventTypes,
       this.loadError = true;
       this.textEditor.state = this.placeholderEditorState(error);
       this.prettyToggle.setEnabled(false);
+    } else if (this.shouldAutoPrettyPrint && isMinified) {
+      await this.setPretty(true);
     } else {
-      if (this.shouldAutoPrettyPrint && TextUtils.TextUtils.isMinified(deferredContent.content || '')) {
-        await this.setPretty(true);
-      } else {
-        await this.setContent(this.rawContent || '');
-      }
+      await this.setContent(this.rawContent || '');
     }
   }
 

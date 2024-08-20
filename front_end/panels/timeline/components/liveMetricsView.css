@@ -136,6 +136,7 @@
 }
 
 .card-values {
+  position: relative;
   display: flex;
   column-gap: 8px;
   margin-bottom: 8px;
@@ -253,28 +254,31 @@
   box-sizing: border-box;
 }
 
-.field-data-histogram {
+.bucket-summaries {
+  margin-top: 8px;
+  overflow-x: auto;
+}
+
+.bucket-summaries.histogram {
   display: grid;
-  grid-template-columns: max-content 100px max-content;
+  grid-template-columns: minmax(min-content, auto) minmax(20px, auto) max-content;
   grid-auto-rows: 1fr;
   column-gap: 8px;
   justify-items: flex-end;
   align-items: center;
-  flex: 1;
-  margin-top: 8px;
+}
+
+.bucket-label {
+  justify-self: start;
+  font-weight: var(--ref-typeface-weight-medium);
+}
+
+.bucket-range {
+  color: var(--sys-color-token-subtle);
 }
 
 .histogram-bar {
   height: 6px;
-}
-
-.histogram-label {
-  width: 100%;
-  font-weight: var(--ref-typeface-weight-medium);
-}
-
-.histogram-range {
-  color: var(--sys-color-token-subtle);
 }
 
 .histogram-percent {
@@ -314,10 +318,20 @@
   color: var(--sys-color-token-subtle);
 }
 
-.tooltip-content {
-  margin: 0 12px;
-  min-width: min-content;
-  width: 300px;
+.tooltip {
+  display: none;
+  width: min(var(--tooltip-container-width, 350px), 350px);
+  max-width: max-content;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  box-sizing: border-box;
+  padding: var(--sys-size-5) var(--sys-size-6);
+  border-radius: var(--sys-shape-corner-small);
+  background-color: var(--sys-color-cdt-base-container);
+  box-shadow: var(--drop-shadow-depth-3);
 }
 
 .detailed-compare-text {

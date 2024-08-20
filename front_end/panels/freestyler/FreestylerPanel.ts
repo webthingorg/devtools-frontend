@@ -265,7 +265,7 @@ export class FreestylerPanel extends UI.Panel.Panel {
     const systemMessage: ModelChatMessage = {
       entity: ChatMessageEntity.MODEL,
       suggestingFix,
-      steps: [],
+      steps: new Map(),
     };
     this.#viewProps.messages.push(systemMessage);
     this.doUpdate();
@@ -276,10 +276,15 @@ export class FreestylerPanel extends UI.Panel.Panel {
     signal.addEventListener('abort', () => {
       systemMessage.rpcId = undefined;
       systemMessage.suggestingFix = false;
-      systemMessage.steps.push({step: Step.ERROR, text: i18nString(UIStringsTemp.stoppedResponse)});
+      systemMessage.steps.set('aborted', {
+        step: Step.ERROR,
+        id: 'aborted',
+        text: i18nString(UIStringsTemp.stoppedResponse),
+      });
     });
     for await (const data of this.#agent.run(text, {signal, isFixQuery})) {
       if (data.step === Step.QUERYING) {
+        systemMessage.steps.set(data.id, data);
         this.#viewProps.isLoading = true;
         this.doUpdate();
         this.#viewOutput.freestylerChatUi?.scrollToLastMessage();
@@ -294,7 +299,8 @@ export class FreestylerPanel extends UI.Panel.Panel {
       }
 
       systemMessage.rpcId = data.rpcId;
-      systemMessage.steps.push(data);
+      systemMessage.steps.set(data.id, data);
+
       this.doUpdate();
       this.#viewOutput.freestylerChatUi?.scrollToLastMessage();
     }
