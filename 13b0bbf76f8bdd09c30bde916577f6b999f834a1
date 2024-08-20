@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3985fb9_6e9f07ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-08-20T16:12:42Z",
+      "side": 1,
+      "message": "LGTM with small styling nits to simplify.\n\nMore generally, what\u0027s the plan to test these overlays?",
+      "revId": "13b0bbf76f8bdd09c30bde916577f6b999f834a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51a00546_b123c336",
+        "filename": "front_end/panels/timeline/overlays/components/EntriesLinkOverlay.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-08-20T16:12:42Z",
+      "side": 1,
+      "message": "I think we don\u0027t need these because we have the exact same calls right before the `if`",
+      "range": {
+        "startLine": 80,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 93
+      },
+      "revId": "13b0bbf76f8bdd09c30bde916577f6b999f834a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97572e01_297faddf",
+        "filename": "front_end/panels/timeline/overlays/components/EntriesLinkOverlay.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-08-20T16:12:42Z",
+      "side": 1,
+      "message": "if this value is doesn\u0027t change in the `else` statement we can declare it once outside the `if`.",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 74
+      },
+      "revId": "13b0bbf76f8bdd09c30bde916577f6b999f834a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
