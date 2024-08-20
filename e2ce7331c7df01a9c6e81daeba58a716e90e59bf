@@ -34,6 +34,24 @@
       "parentUuid": "6068e4bf_63dbf8d8",
       "revId": "e2ce7331c7df01a9c6e81daeba58a716e90e59bf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e2dad91_8ea1bcd5",
+        "filename": "test/e2e/helpers/visual-logging-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-08-20T15:11:48Z",
+      "side": 1,
+      "message": "Not for the call to getUnmatchedVeEvents, but for everything else that goes on in that line or might go on in the future. ts-ignore blurs out the entire line which I always find a little worrying. But I\u0027m nitpicking, I don\u0027t consider this blocking :)",
+      "parentUuid": "dd011a72_5d8dde5c",
+      "revId": "e2ce7331c7df01a9c6e81daeba58a716e90e59bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
