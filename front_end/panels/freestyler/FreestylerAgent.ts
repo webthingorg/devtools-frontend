@@ -70,12 +70,14 @@ export enum Step {
 
 export interface CommonStepData {
   step: Step.ANSWER|Step.ERROR;
+  id: string;
   text: string;
   rpcId?: number;
 }
 
 export interface ThoughtStepData {
   step: Step.THOUGHT;
+  id: string;
   text: string;
   title?: string;
   rpcId?: number;
@@ -83,6 +85,7 @@ export interface ThoughtStepData {
 
 export interface ActionStepData {
   step: Step.ACTION;
+  id: string;
   code: string;
   output: string;
   rpcId?: number;
@@ -90,9 +93,10 @@ export interface ActionStepData {
 
 export interface QueryStepData {
   step: Step.QUERYING;
+  id: string;
 }
 
-export type StepData = CommonStepData|ActionStepData|ThoughtStepData;
+export type StepData = CommonStepData|ActionStepData|ThoughtStepData|QueryStepData;
 
 async function executeJsCode(code: string, {throwOnSideEffect}: {throwOnSideEffect: boolean}): Promise<string> {
   const target = UI.Context.Context.instance().flavor(SDK.Target.Target);
@@ -330,7 +334,6 @@ export class FreestylerAgent {
   async *
       run(query: string, options: {signal?: AbortSignal, isFixQuery: boolean} = {isFixQuery: false}):
           AsyncGenerator<StepData|QueryStepData, void, void> {
-    await this.#setupContext();
     const genericErrorMessage = 'Sorry, I could not help you with this query.';
     const structuredLog = [];
     query = `QUERY: ${query}`;
@@ -339,9 +342,17 @@ export class FreestylerAgent {
     options.signal?.addEventListener('abort', () => {
       this.#chatHistory.delete(currentRunId);
     });
-    for (let i = 0; i < MAX_STEPS; i++) {
-      yield {step: Step.QUERYING};
 
+    // We need the first id for queueing to match
+    // the one of the first response
+    let id: string = crypto.randomUUID();
+    yield {
+      step: Step.QUERYING,
+      id,
+    };
+    await this.#setupContext();
+
+    for (let i = 0; i < MAX_STEPS; i++) {
       const request = FreestylerAgent.buildRequest({
         input: query,
         preamble,
@@ -362,7 +373,7 @@ export class FreestylerAgent {
           break;
         }
 
-        yield {step: Step.ERROR, text: genericErrorMessage, rpcId};
+        yield {step: Step.ERROR, id, text: genericErrorMessage, rpcId};
         break;
       }
 
@@ -395,23 +406,38 @@ export class FreestylerAgent {
       // the action.
       if (action) {
         if (thought) {
-          yield {step: Step.THOUGHT, text: thought, title, rpcId};
+          yield {
+            step: Step.THOUGHT,
+            id,
+            text: thought,
+            title,
+            rpcId,
+          };
+          id = crypto.randomUUID();
         }
         debugLog(`Action to execute: ${action}`);
         const observation = await this.#generateObservation(action, {throwOnSideEffect: !options.isFixQuery});
         debugLog(`Action result: ${observation}`);
-        yield {step: Step.ACTION, code: action, output: observation, rpcId};
+        yield {
+          step: Step.ACTION,
+          id,
+          code: action,
+          output: observation,
+          rpcId,
+        };
+        id = crypto.randomUUID();
         query = `OBSERVATION: ${observation}`;
       } else if (answer) {
-        yield {step: Step.ANSWER, text: answer, rpcId};
+        yield {step: Step.ANSWER, id, text: answer, rpcId};
         break;
       } else {
-        yield {step: Step.ERROR, text: genericErrorMessage, rpcId};
+        yield {step: Step.ERROR, id, text: genericErrorMessage, rpcId};
         break;
       }
 
       if (i === MAX_STEPS - 1) {
-        yield {step: Step.ERROR, text: 'Max steps reached, please try again.'};
+        yield {step: Step.ERROR, id, text: 'Max steps reached, please try again.'};
+        break;
       }
     }
     if (isDebugMode()) {
