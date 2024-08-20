@@ -1,0 +1,160 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b5d9c89_a64734fe",
+        "filename": "front_end/panels/freestyler/ExtensionScope.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-08-20T14:34:59Z",
+      "side": 1,
+      "message": "Can the the return value of this change? If so shouldn\u0027t we store the previous one?",
+      "revId": "77589019941fd1fb51d1743d35d2a00d82a73d34",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8d6934c3_61186605",
+        "filename": "front_end/panels/freestyler/ExtensionScope.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-08-20T14:34:59Z",
+      "side": 1,
+      "message": "Nit: You can map the object entries",
+      "fixSuggestions": [
+        {
+          "fixId": "350bf5cf_d14727fc",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/freestyler/ExtensionScope.ts",
+              "range": {
+                "startLine": 123,
+                "startChar": 0,
+                "endLine": 127,
+                "endChar": 0
+              },
+              "replacement": "    const lines \u003d Object.entries(styles).map(([key, value]) \u003d\u003e `${key}: ${value};`);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "77589019941fd1fb51d1743d35d2a00d82a73d34",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "265aa303_17cd715c",
+        "filename": "front_end/panels/freestyler/ExtensionScope.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-08-20T14:34:59Z",
+      "side": 1,
+      "message": "Nit you can use `FREESTYLER_BINDING_NAME` instead of the name",
+      "fixSuggestions": [
+        {
+          "fixId": "68c2b8b6_93f6bfe2",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/freestyler/ExtensionScope.ts",
+              "range": {
+                "startLine": 159,
+                "startChar": 0,
+                "endLine": 160,
+                "endChar": 0
+              },
+              "replacement": "  ${FREESTYLER_BINDING_NAME}(String(freestyler.id));\n"
+            }
+          ]
+        }
+      ],
+      "revId": "77589019941fd1fb51d1743d35d2a00d82a73d34",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5083d268_cb0a6d1f",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-08-20T14:34:59Z",
+      "side": 1,
+      "message": "Doesn\u0027t this need uninstall as well?",
+      "fixSuggestions": [
+        {
+          "fixId": "abb64906_1093a2a5",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/freestyler/FreestylerAgent.ts",
+              "range": {
+                "startLine": 137,
+                "startChar": 0,
+                "endLine": 138,
+                "endChar": 0
+              },
+              "replacement": "    install(): Promise\u003cvoid\u003e,\n    uninstall(): Promise\u003cvoid\u003e,\n"
+            }
+          ]
+        }
+      ],
+      "revId": "77589019941fd1fb51d1743d35d2a00d82a73d34",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c12f0c1_93e793ab",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-08-20T14:34:59Z",
+      "side": 1,
+      "message": "This can be of type AgentOptions.createExtensionScope",
+      "revId": "77589019941fd1fb51d1743d35d2a00d82a73d34",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e4d9821_3df9fa4f",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-08-20T14:34:59Z",
+      "side": 1,
+      "message": "Let\u0027s just provide the arrow function here?",
+      "revId": "77589019941fd1fb51d1743d35d2a00d82a73d34",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
