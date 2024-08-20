@@ -1243,6 +1243,11 @@ declare namespace ProtocolProxyApi {
     topLayerElementsUpdated(): void;
 
     /**
+     * Fired if the node has a scrollbar or lose one.
+     */
+    scrollAdorner(params: Protocol.DOM.ScrollAdornerEvent): void;
+
+    /**
      * Called when a pseudo element is removed from an element.
      */
     pseudoElementRemoved(params: Protocol.DOM.PseudoElementRemovedEvent): void;

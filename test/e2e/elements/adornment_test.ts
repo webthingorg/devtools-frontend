@@ -141,4 +141,13 @@ describe('Adornment in the Elements Tab', function() {
     await editCSSProperty('.grid', 'display', 'inline-grid');
     await waitForAdornerOnSelectedNode('grid');
   });
+
+  // it('displays scroll adorner', async () => {
+  //   await goToResource('elements/adornment-scroll.html');
+  //   await prepareElementsTab();
+
+  //   await waitForAdorners([
+  //     {textContent: 'scroll', isActive: false},
+  //   ]);
+  // });
 });

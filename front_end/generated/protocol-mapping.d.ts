@@ -136,6 +136,10 @@ export namespace ProtocolMapping {
      */
     'DOM.topLayerElementsUpdated': [];
     /**
+     * Fired if the node has a scrollbar or lose one.
+     */
+    'DOM.scrollAdorner': [Protocol.DOM.ScrollAdornerEvent];
+    /**
      * Called when a pseudo element is removed from an element.
      */
     'DOM.pseudoElementRemoved': [Protocol.DOM.PseudoElementRemovedEvent];

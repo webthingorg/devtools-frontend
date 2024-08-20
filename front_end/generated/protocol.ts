@@ -3954,6 +3954,7 @@ export namespace DOM {
     isSVG?: boolean;
     compatibilityMode?: CompatibilityMode;
     assignedSlot?: BackendNode;
+    isScrollable?: boolean;
   }
 
   /**
@@ -4954,6 +4955,20 @@ export namespace DOM {
      * The added pseudo element.
      */
     pseudoElement: Node;
+  }
+
+  /**
+   * Fired if the node has a scrollbar or lose one.
+   */
+  export interface ScrollAdornerEvent {
+    /**
+     * The id of the node
+     */
+    nodeId: DOM.NodeId;
+    /**
+     * Switch
+     */
+    isScrollable: boolean;
   }
 
   /**
