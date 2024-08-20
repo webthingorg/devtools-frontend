@@ -7,6 +7,7 @@ import * as BreadcrumbsUI from './BreadcrumbsUI.js';
 import * as CPUThrottlingSelector from './CPUThrottlingSelector.js';
 import * as DetailsView from './DetailsView.js';
 import * as FieldSettingsDialog from './FieldSettingsDialog.js';
+import * as NodeLink from './insights/NodeLink.js';
 import * as InteractionBreakdown from './InteractionBreakdown.js';
 import * as LiveMetricsView from './LiveMetricsView.js';
 import * as NetworkRequestDetails from './NetworkRequestDetails.js';
@@ -27,6 +28,7 @@ export {
   NetworkRequestDetails,
   NetworkRequestTooltip,
   NetworkThrottlingSelector,
+  NodeLink,
   Sidebar,
   SidebarAnnotationsTab,
   Utils,
