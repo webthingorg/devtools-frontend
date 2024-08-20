@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "8f8c54096822093eaec7504a55ded7ace695a5a9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3dde0877_56d59d31",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-08-20T13:35:53Z",
+      "side": 1,
+      "message": "LGTM and HBD 🎉",
+      "revId": "8f8c54096822093eaec7504a55ded7ace695a5a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
