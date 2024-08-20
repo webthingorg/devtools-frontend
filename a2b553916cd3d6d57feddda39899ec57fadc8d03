@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "090ae800_8b77daeb",
+        "filename": "front_end/panels/timeline/overlays/components/timespanBreakdownOverlay.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-08-20T23:24:13Z",
+      "side": 1,
+      "message": "The el is a `div` now so we don\u0027t need this class right?",
+      "revId": "a2b553916cd3d6d57feddda39899ec57fadc8d03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1002add9_25351eab",
+        "filename": "front_end/panels/timeline/overlays/components/timespanBreakdownOverlay.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-08-20T23:24:13Z",
+      "side": 1,
+      "message": "nit: this is the font weight specified in the mocks\n```suggestion\n    font-weight: var(--ref-typeface-weight-medium);\n```",
+      "revId": "a2b553916cd3d6d57feddda39899ec57fadc8d03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
