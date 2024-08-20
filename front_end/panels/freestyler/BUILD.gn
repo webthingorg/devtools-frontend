@@ -18,6 +18,8 @@ generate_css("css_files") {
 
 devtools_module("freestyler") {
   sources = [
+    "ChangeManager.ts",
+    "ExtensionScope.ts",
     "FreestylerAgent.ts",
     "FreestylerEvaluateAction.ts",
     "FreestylerPanel.ts",
