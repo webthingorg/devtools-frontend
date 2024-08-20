@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d79cd828_6b5d7a4a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-08-20T09:17:00Z",
+      "side": 1,
+      "message": "Hey Andres, since Jack is OOO, can you take a look? Thx 😊",
+      "revId": "052524f5feb6558e0f5a400c3e741f3806903e50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4a015026_378643b1",
