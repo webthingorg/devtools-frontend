@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "19046ddf_b4a5aea3",
+        "filename": "extension-api/ExtensionAPI.d.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 287,
+      "author": {
+        "id": 1554938
+      },
+      "writtenOn": "2024-08-20T16:59:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e91d5c4_ac66b258",
+      "revId": "6dd732d4825e7f99efca50ed2a986a50b5810d6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "706ec044_7e5867eb",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-08-09T22:43:31Z",
       "side": 1,
       "message": "I know this is how we did it in Edge, but I think instead let\u0027s move this to FunctionDescriptor. More details on the comment about that type.",
+      "revId": "6dd732d4825e7f99efca50ed2a986a50b5810d6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "801fdcdc_c779b400",
+        "filename": "extension-api/ExtensionAPI.d.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1554938
+      },
+      "writtenOn": "2024-08-20T16:59:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "706ec044_7e5867eb",
       "revId": "6dd732d4825e7f99efca50ed2a986a50b5810d6e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -52,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2786ee4e_7a3906b8",
+        "filename": "extension-api/ExtensionAPI.d.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1554938
+      },
+      "writtenOn": "2024-08-20T16:59:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "986df30e_4440f828",
+      "revId": "6dd732d4825e7f99efca50ed2a986a50b5810d6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f6ebba64_9fb463d1",
@@ -65,6 +119,24 @@
       "writtenOn": "2024-08-09T22:43:31Z",
       "side": 1,
       "message": "Nit: I believe other instances do not capitalize \u0027R\u0027 in `unregister`",
+      "revId": "6dd732d4825e7f99efca50ed2a986a50b5810d6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "452476e1_3a62261c",
+        "filename": "extension-api/ExtensionAPI.d.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 317,
+      "author": {
+        "id": 1554938
+      },
+      "writtenOn": "2024-08-20T16:59:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6ebba64_9fb463d1",
       "revId": "6dd732d4825e7f99efca50ed2a986a50b5810d6e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -86,6 +158,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "72e0e7d1_3b65d4b4",
+        "filename": "front_end/models/extensions/ExtensionAPI.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1554938
+      },
+      "writtenOn": "2024-08-20T16:59:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f1500ca_06fe41c9",
+      "revId": "6dd732d4825e7f99efca50ed2a986a50b5810d6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aa5b7576_252610c0",
@@ -99,6 +189,24 @@
       "writtenOn": "2024-08-09T22:43:31Z",
       "side": 1,
       "message": "Nit: Since we\u0027re in a class, there\u0027s no need to use arrow syntax to declare these functions. Just use:\n\n```ts\n  findFunctionParserExtensionsForFile(sourceUrl: string): ExtensionPlugin[] {\n```",
+      "revId": "6dd732d4825e7f99efca50ed2a986a50b5810d6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6aba99d_0c07155e",
+        "filename": "front_end/models/source_map_extensions/ExtensionManager.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1554938
+      },
+      "writtenOn": "2024-08-20T16:59:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa5b7576_252610c0",
       "revId": "6dd732d4825e7f99efca50ed2a986a50b5810d6e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -120,6 +228,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9218bd9f_40fbc2d4",
+        "filename": "front_end/models/source_map_extensions/ExtensionManager.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1554938
+      },
+      "writtenOn": "2024-08-20T16:59:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "550f5876_5fb10bbc",
+      "revId": "6dd732d4825e7f99efca50ed2a986a50b5810d6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "da3ec722_4f30e6ea",
@@ -133,6 +259,24 @@
       "writtenOn": "2024-08-09T22:43:31Z",
       "side": 1,
       "message": "This should be a private function, and probably belongs in the source map scopes module.",
+      "revId": "6dd732d4825e7f99efca50ed2a986a50b5810d6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d05b908_00de4f41",
+        "filename": "front_end/models/source_map_extensions/ExtensionManager.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1554938
+      },
+      "writtenOn": "2024-08-20T16:59:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da3ec722_4f30e6ea",
       "revId": "6dd732d4825e7f99efca50ed2a986a50b5810d6e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
