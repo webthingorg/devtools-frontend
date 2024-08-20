@@ -315,6 +315,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb030b72_6de9a460",
+        "filename": "front_end/models/source_map_scopes/NamesResolver.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 768,
+      "author": {
+        "id": 1554938
+      },
+      "writtenOn": "2024-08-20T21:46:44Z",
+      "side": 1,
+      "message": "Done. Created an ExtensionContext.ts handles this 1, and 3. The ExtensionManager resolves suitable plugins given a `sourceURL` based on the defined plugin capabilities.",
+      "parentUuid": "780d05f3_61a9fba5",
+      "revId": "6dd732d4825e7f99efca50ed2a986a50b5810d6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a9aab60b_8380d248",
@@ -328,6 +346,24 @@
       "writtenOn": "2024-08-09T22:43:31Z",
       "side": 1,
       "message": "You\u0027d be prompted better to do this comment by moving this into another file ;)",
+      "revId": "6dd732d4825e7f99efca50ed2a986a50b5810d6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82e4dc97_22b2cc53",
+        "filename": "front_end/models/source_map_scopes/NamesResolver.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 831,
+      "author": {
+        "id": 1554938
+      },
+      "writtenOn": "2024-08-20T21:46:44Z",
+      "side": 1,
+      "message": "Done. Moved this Functionality into ExtensionContext.ts",
+      "parentUuid": "a9aab60b_8380d248",
       "revId": "6dd732d4825e7f99efca50ed2a986a50b5810d6e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
