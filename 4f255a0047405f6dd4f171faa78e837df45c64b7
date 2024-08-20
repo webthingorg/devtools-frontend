@@ -33,6 +33,24 @@
       "message": "nit: should this be translated?",
       "revId": "4f255a0047405f6dd4f171faa78e837df45c64b7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ddcfab59_c03f06ac",
+        "filename": "front_end/panels/timeline/components/insights/Viewport.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-08-20T18:58:57Z",
+      "side": 1,
+      "message": "Probably, but no titles are localized right now, so deferring for a later general cleanup. idk if it being a property is problematic, atm",
+      "parentUuid": "1e4e62ab_e517f8f4",
+      "revId": "4f255a0047405f6dd4f171faa78e837df45c64b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
