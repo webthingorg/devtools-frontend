@@ -16,6 +16,24 @@
       "message": "Sorry I don\u0027t completely understand overlays and stuff. Why did this need to be removed?",
       "revId": "740321fbc581cf39796e721497b370b9ab61599b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e896de1_33e51d1c",
+        "filename": "front_end/panels/timeline/overlays/OverlaysImpl.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 738,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-08-20T22:48:52Z",
+      "side": 0,
+      "message": "this was initially removed to satisfy the mocks! this was for the lcp discovery overlay, which doesn\u0027t have the msDetails data.",
+      "parentUuid": "cd44cb62_3919072e",
+      "revId": "740321fbc581cf39796e721497b370b9ab61599b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

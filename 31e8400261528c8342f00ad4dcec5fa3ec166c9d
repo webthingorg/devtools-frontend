@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ebcabcd_41b0f7a3",
+        "filename": "front_end/panels/timeline/overlays/components/TimespanBreakdownOverlay.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-08-20T22:48:52Z",
+      "side": 1,
+      "message": "yeah where the styles need to be defined is also something i thought about while building this. interesting note about event listeners, thanks for the link!\n\nyeah at this time this feels like the best way to make the breakdowns reusable without having to build a new overlay type per insight :/ but as these develop, happy to improve on this! sg!",
+      "parentUuid": "1d4ecc86_f6789c46",
+      "revId": "31e8400261528c8342f00ad4dcec5fa3ec166c9d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5f4219ed_c3701327",
@@ -35,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6951977_66255d12",
+        "filename": "front_end/panels/timeline/overlays/components/timespanBreakdownOverlay.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-08-20T22:48:52Z",
+      "side": 1,
+      "message": "this sgtm :)",
+      "parentUuid": "5f4219ed_c3701327",
+      "revId": "31e8400261528c8342f00ad4dcec5fa3ec166c9d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "20470410_5d1d87db",
@@ -48,6 +84,24 @@
       "writtenOn": "2024-08-19T23:29:10Z",
       "side": 1,
       "message": "I know the mocks show red text but it\u0027s very weird to see this number highlighted in red when the actual delay was very small (e.g. I saw this on a 15ms \"delay\").\n\nWe don\u0027t have a rating system for LCP request delay so I actually think that black text (maybe bold instead of color change) would be better.",
+      "revId": "31e8400261528c8342f00ad4dcec5fa3ec166c9d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e598666a_216b1fa3",
+        "filename": "front_end/panels/timeline/overlays/components/timespanBreakdownOverlay.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-08-20T22:48:52Z",
+      "side": 1,
+      "message": "yeah this is a good point, i agree that for such a small delay red text isn\u0027t necessary. fwiw, while we don\u0027t have a rating system for LCP request delay, this overlay+sidebar insight are only visible when there are improvements that could be made for LCP discovery. though whether those improvements are worth is more of a primo prio question..\n\nso i feel good leaving this as bold for now!",
+      "parentUuid": "20470410_5d1d87db",
       "revId": "31e8400261528c8342f00ad4dcec5fa3ec166c9d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
