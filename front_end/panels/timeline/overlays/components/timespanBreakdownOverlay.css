@@ -67,6 +67,14 @@
     display: block;
   }
 
+  .discovery-delay {
+    margin-top: 0;
+  }
+
+  .discovery-time-ms {
+    font-weight: bold;
+  }
+
   &.labelHidden {
     /* Have to use this not display: none so it maintains its width */
     user-select: none;
