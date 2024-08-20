@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f76bb239_d05be456",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2024-08-20T22:24:06Z",
+      "side": 1,
+      "message": "Found a functional issue with this, PTAL",
+      "revId": "92e675affeeb4d80606a805e1b1bb472a5f37eb2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d10b96ca_f9ea4a82",
+        "filename": "front_end/models/source_map_scopes/ExtensionContext.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2024-08-20T22:24:06Z",
+      "side": 1,
+      "message": "The parameter here - `script.sourceURL` - is wrong. You want to be passing the URL of the source mapped file; for example, instead of `compiled.js`, you want to pass in `source-file-1.ts`. \n\nI suspect that the parameter list to this function (`getFunctionNameViaExtensionOrCache`) is inadequate for this; in the calling function, you have obtained a `mappingEntry`, which contains the `sourceURL` property (which is going to correspond to `source-file-1.ts` in my example). So that\u0027s the first part where this doesn\u0027t work as expected.\n\nBut then...",
+      "revId": "92e675affeeb4d80606a805e1b1bb472a5f37eb2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37cdcffb_e1ba1bc1",
+        "filename": "front_end/models/source_map_scopes/ExtensionContext.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2024-08-20T22:24:06Z",
+      "side": 1,
+      "message": "...the `content` you pass here also corresponds to the `compiled.js` file, not the `source-file-1.ts` file. So you\u0027re not really succeeding in getting unminified names, except for some callbacks.",
+      "revId": "92e675affeeb4d80606a805e1b1bb472a5f37eb2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
