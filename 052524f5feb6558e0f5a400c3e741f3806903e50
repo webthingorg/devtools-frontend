@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2a06f430_1b49bbf4",
+        "filename": "front_end/models/trace/handlers/NetworkRequestsHandler.test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-08-20T13:42:03Z",
+      "side": 1,
+      "message": "This is the time between |receiveHeadersEnd| and |sendEnd|. don\u0027t know why it is not zero.\nThis is also not 0 in network panel, some example (see `waiting for server response`):\nhttps://screenshot.googleplex.com/9QXkfr46CkmpwiK",
+      "parentUuid": "3369c2c2_4c988f23",
+      "range": {
+        "startLine": 118,
+        "startChar": 57,
+        "endLine": 118,
+        "endChar": 62
+      },
+      "revId": "052524f5feb6558e0f5a400c3e741f3806903e50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4a015026_378643b1",
         "filename": "front_end/models/trace/handlers/NetworkRequestsHandler.test.ts",
         "patchSetId": 2
