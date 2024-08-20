@@ -99,6 +99,8 @@ function launchChrome() {
     'FencedFrames',
     'PrivacySandboxAdsAPIsOverride',
     'AutofillEnableDevtoolsIssues',
+
+    'DeferRendererTasksAfterInput<DeferRendererTasksAfterInput',
   ];
   const launchArgs = [
     '--remote-allow-origins=*',
