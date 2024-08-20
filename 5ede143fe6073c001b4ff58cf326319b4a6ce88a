@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd4347a8_c48ac499",
+        "filename": "front_end/panels/timeline/components/LiveMetricsView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-08-20T20:12:00Z",
+      "side": 1,
+      "message": "FYI I eyeballed these numbers. Happy to look into new heuristics or adjust these but it was clear that the previous iteration was not strict enough.",
+      "revId": "5ede143fe6073c001b4ff58cf326319b4a6ce88a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
