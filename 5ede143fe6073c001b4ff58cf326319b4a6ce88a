@@ -16,6 +16,24 @@
       "message": "FYI I eyeballed these numbers. Happy to look into new heuristics or adjust these but it was clear that the previous iteration was not strict enough.",
       "revId": "5ede143fe6073c001b4ff58cf326319b4a6ce88a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12b7abaf_44070590",
+        "filename": "front_end/panels/timeline/components/LiveMetricsView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-08-20T20:30:47Z",
+      "side": 1,
+      "message": "These numbers are probably fine as any others, but I attempted to provide some sort of guideline: basing it off the gap between thresholds.\n\nLCP: Let\u0027s anchor to 1000 here as you have. (4000 - 2500) \u003d 1500, divide by 1.5 to get 1000\nCLS: (0.25 - 0.1) / 1.5 \u003d 0.1\nINP: (500 - 200) / 1.5 \u003d 200 \n\nWhat I\u0027d really want to use is the variance of the metric in the field (either per-origin or across the entire web), but if we can assume the threshold correlate with a global variance for these metrics that\u0027s similar enough.",
+      "parentUuid": "cd4347a8_c48ac499",
+      "revId": "5ede143fe6073c001b4ff58cf326319b4a6ce88a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
