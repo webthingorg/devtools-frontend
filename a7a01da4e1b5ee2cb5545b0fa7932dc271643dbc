@@ -54,6 +54,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f034b679_fd8c3838",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2024-08-20T02:45:38Z",
+      "side": 1,
+      "message": "Well, if the cost of realization is significant, it can be left out for now.",
+      "parentUuid": "864d759f_c8585894",
+      "revId": "a7a01da4e1b5ee2cb5545b0fa7932dc271643dbc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "19c9b1df_f37b039b",
@@ -85,6 +103,24 @@
       "side": 1,
       "message": "Done in https://crrev.com/c/5793100",
       "parentUuid": "19c9b1df_f37b039b",
+      "revId": "a7a01da4e1b5ee2cb5545b0fa7932dc271643dbc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f20b9415_7c634839",
+        "filename": "front_end/generated/SupportedCSSProperties.js",
+        "patchSetId": 3
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2024-08-20T02:45:38Z",
+      "side": 1,
+      "message": "Nice!",
+      "parentUuid": "1720d6e0_7cefbf10",
       "revId": "a7a01da4e1b5ee2cb5545b0fa7932dc271643dbc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
