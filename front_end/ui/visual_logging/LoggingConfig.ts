@@ -127,7 +127,7 @@ export function parseJsLog(jslog: string): LoggingConfig {
   const context = getComponent('context:');
   if (context && context.trim().length) {
     if (!knownContextValues.has(context)) {
-      console.error('Unknown VE context:', context);
+      // console.error('Unknown VE context:', context);
     }
     config.context = context;
   }
@@ -191,7 +191,7 @@ export function makeConfigStringBuilder(veName: VisualElementName, context?: str
   if (typeof context === 'string' && context.trim().length) {
     components.push(`context: ${context}`);
     if (!knownContextValues.has(context)) {
-      console.error('Unknown VE context:', context);
+      // console.error('Unknown VE context:', context);
     }
   }
   return {
@@ -200,7 +200,7 @@ export function makeConfigStringBuilder(veName: VisualElementName, context?: str
         components.push(`context: ${value}`);
       }
       if (typeof value === 'string' && value.length && !knownContextValues.has(value)) {
-        console.error('Unknown VE context:', value);
+        // console.error('Unknown VE context:', value);
       }
       return this;
     },
