@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6068e4bf_63dbf8d8",
+        "filename": "test/e2e/helpers/visual-logging-helpers.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-08-20T15:05:32Z",
+      "side": 1,
+      "message": "Instead of ignoring this, how about declaring these properties on `Window`? Some tests do this, see e.g. `//test/shared/helper.ts`",
+      "revId": "e2ce7331c7df01a9c6e81daeba58a716e90e59bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
