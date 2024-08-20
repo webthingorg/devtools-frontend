@@ -1,0 +1,31 @@
+# Copyright 2023 The Chromium Authors. All rights reserved.
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+import("../../../scripts/build/ninja/devtools_entrypoint.gni")
+import("../../../scripts/build/ninja/devtools_module.gni")
+import("../../../third_party/typescript/typescript.gni")
+import("../visibility.gni")
+
+devtools_module("source_map_extensions") {
+  sources = [ "ExtensionManager.ts" ]
+
+  deps = [
+    "../../../extension-api",
+    "../../core/common:bundle",
+    "../../models/extensions:bundle",
+  ]
+}
+
+devtools_entrypoint("bundle") {
+  entrypoint = "source_map_extensions.ts"
+
+  deps = [ ":source_map_extensions" ]
+
+  visibility = [
+    ":*",
+    "../../entrypoints/main/*",
+  ]
+
+  visibility += devtools_models_visibility
+}

@@ -1,7 +1,6 @@
 // Copyright 2022 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
-
 import * as Common from '../../core/common/common.js';
 import * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
@@ -11,6 +10,7 @@ import * as Formatter from '../formatter/formatter.js';
 import * as TextUtils from '../text_utils/text_utils.js';
 import type * as Workspace from '../workspace/workspace.js';
 
+import * as ExtensionContext from './ExtensionContext.js';
 import {scopeTreeForScript} from './ScopeTreeCache.js';
 
 interface CachedScopeMap {
@@ -779,9 +779,19 @@ async function getFunctionNameFromScopeStart(
     return null;
   }
 
+  const sourceContent = await getTextFor(script);
+  const content = sourceContent?.value();
   const mappingEntry = sourceMap.findEntry(lineNumber, columnNumber);
   if (!mappingEntry || !mappingEntry.sourceURL) {
     return null;
+  }
+
+  if (content) {
+    const resolvedName =
+        await ExtensionContext.getFunctionNameViaExtensionOrCache(sourceMap, script, content, lineNumber, columnNumber);
+    if (resolvedName) {
+      return resolvedName;
+    }
   }
 
   const scopeName =

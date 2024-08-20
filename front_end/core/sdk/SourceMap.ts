@@ -31,7 +31,7 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-
+import {type Chrome} from '../../../extension-api/ExtensionAPI.js';
 import * as TextUtils from '../../models/text_utils/text_utils.js';
 import * as Common from '../common/common.js';
 import * as Platform from '../platform/platform.js';
@@ -145,7 +145,7 @@ function comparePositions(a: Position, b: Position): number {
   return a.lineNumber - b.lineNumber || a.columnNumber - b.columnNumber;
 }
 
-export interface ScopeEntry {
+export interface ScopeEntry {  // Same thing as a functionDescriptor?
   scopeName(): string;
   start(): Position;
   end(): Position;
@@ -312,6 +312,107 @@ export class SourceMap {
     const sourceRange =
         new TextUtils.TextRange.TextRange(startSourceLine, startSourceColumn, endSourceLine, endSourceColumn);
     return {range, sourceRange, sourceURL};
+  }
+
+  findBestCandidate(
+      choices: Chrome.DevTools.FunctionDescriptor[], resolvedLineNumber: number,
+      resolvedColumnNumber: number): Chrome.DevTools.FunctionDescriptor|null {
+    return choices.reduce<Chrome.DevTools.FunctionDescriptor|null>((best, candidate) => {
+      // Cases covered:
+      //  1. function a() { }
+      //  2.  /* resolved line here */
+      //  3. function b() { }
+      // both descs. for a() and b() should be discarded
+      if (candidate.startLine > resolvedLineNumber || candidate.endLine < resolvedLineNumber) {
+        return best;
+      }
+
+      if (this.isWithinRange(
+              candidate.startLine, candidate.startColumn, candidate.endLine, candidate.endColumn, resolvedLineNumber,
+              resolvedColumnNumber)) {
+        if (best) {
+          if (candidate.startLine > best.startLine) {
+            return candidate;
+          }
+          if (candidate.startLine === best.startLine && candidate.startColumn > best.startColumn) {
+            return candidate;
+          }
+          if (candidate.endLine < best.endLine) {
+            return candidate;
+          }
+          if (candidate.endLine === best.endLine && candidate.endColumn < best.endColumn) {
+            return candidate;
+          }
+
+          return best;
+        }
+      }
+
+      // if we don't have a 'best' yet, the resolved location is at least within this desc, so choose it
+      if (!best) {
+        return candidate;
+      }
+
+      // otherwise we need to see if we're in an interior function that is better-named
+      if (candidate.startLine === best.startLine) {
+        if (candidate.startColumn >= best.startColumn) {
+          return candidate;
+        }
+      }
+
+      if (candidate.startLine >= best.startLine) {
+        return candidate;
+      }
+
+      return best;
+    }, null);
+  }
+
+  /**
+   * Checks to see whether the line/col pair of cy/cx is within the range defined by start (sy/sx) and end (ey/ex)
+   * @param sy Start line
+   * @param sx Start column
+   * @param ey End line
+   * @param ex End column
+   * @param cy Candidate line
+   * @param cx Candidate column
+   */
+  private isWithinRange(sy: number, sx: number, ey: number, ex: number, cy: number, cx: number): boolean {
+    if (cy < sy || cy > ey) {
+      // early bail: candidate line is before or after range, by line
+      return false;
+    }
+
+    if (cy > sy && cy < ey) {
+      // early exit: candidate line is definitely within the range, by line
+      return true;
+    }
+
+    // Now we know that the line is either the start or end line (or both if the function is one line long)
+    if (cy === sy) {
+      // candidate line is starting line
+      if (cx < sx) {
+        // candidate column is before starting column
+        return false;
+      }
+
+      if (sy === ey) {
+        // if the function is a single line, we need to check to make sure that the candidate isn't after
+        if (cx > ex) {
+          return false;
+        }
+      }
+
+      return true;
+    }
+
+    // Finally, candidate line is ending line; assert cy === ey
+    if (cx > ex) {
+      // Location is after the end of the range
+      return false;
+    }
+
+    return true;
   }
 
   sourceLineMapping(sourceURL: Platform.DevToolsPath.UrlString, lineNumber: number, columnNumber: number):
