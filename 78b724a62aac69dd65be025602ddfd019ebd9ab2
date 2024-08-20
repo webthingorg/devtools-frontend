@@ -1,0 +1,103 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c700a6fb_c938c9d1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-08-20T11:29:25Z",
+      "side": 1,
+      "message": "LGTM with a suggestion 😊",
+      "revId": "78b724a62aac69dd65be025602ddfd019ebd9ab2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d99a9718_185aa116",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-08-20T11:29:25Z",
+      "side": 1,
+      "message": "It would be more efficient to go through the array and find the entry with the smallest timestamp than sorting the array (if we don\u0027t actually need it sorted).\n\nWhat do you think about switching it to this?\n\n```  \nif (entries.length \u003e 0) {\n     const earliestEntry \u003d entries.reduce((earliest, current) \u003d\u003e \n       (earliest.ts \u003c current.ts ? earliest : current), entries[0]);\n\n    // Reveal the earliest event found from the overlays.\n    this.revealEvent(earliestEntry);\n}\n```",
+      "range": {
+        "startLine": 307,
+        "startChar": 8,
+        "endLine": 307,
+        "endChar": 44
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "fef40f70_d91a9ec7",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/TimelineFlameChartView.ts",
+              "range": {
+                "startLine": 307,
+                "startChar": 0,
+                "endLine": 308,
+                "endChar": 0
+              },
+              "replacement": "        entries.sort((a, b) \u003d\u003e a.ts \u003c b.ts ? -1 : 1);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "78b724a62aac69dd65be025602ddfd019ebd9ab2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3346df77_80059266",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 644,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-08-20T11:29:25Z",
+      "side": 1,
+      "message": "nit: `else if`. The index cannot exist in both.",
+      "range": {
+        "startLine": 644,
+        "startChar": 3,
+        "endLine": 644,
+        "endChar": 23
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "d9017f03_afb5b341",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/TimelineFlameChartView.ts",
+              "range": {
+                "startLine": 643,
+                "startChar": 0,
+                "endLine": 645,
+                "endChar": 0
+              },
+              "replacement": "    } else if (networkIndex) {\n"
+            }
+          ]
+        }
+      ],
+      "revId": "78b724a62aac69dd65be025602ddfd019ebd9ab2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
