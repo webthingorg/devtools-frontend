@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02c9c55d_385909ff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2024-08-20T22:59:52Z",
+      "side": 1,
+      "message": "Thank you, Benedikt and Simon, for helping us land this change!",
+      "revId": "ca519fdca2f6afb8d364daa7003c05431acfea02",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
