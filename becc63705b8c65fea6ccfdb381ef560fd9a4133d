@@ -16,6 +16,46 @@
       "message": "Fixed e2e test and addressed comments",
       "revId": "becc63705b8c65fea6ccfdb381ef560fd9a4133d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39e07f66_028ce64e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-20T04:15:54Z",
+      "side": 1,
+      "message": "Benedikt, can you stamp? Needs a second +1.",
+      "revId": "becc63705b8c65fea6ccfdb381ef560fd9a4133d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f33985e_8762d713",
+        "filename": "front_end/panels/profiler/HeapDetachedElementsView.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-20T04:15:54Z",
+      "side": 1,
+      "message": "Instead of getting this from the UI flavor wdyt about just calling `this.profile.heapProfilerModel()` then it\u0027s always 100% the right target.\n\nUI.Context flavor could change on you if there is an `await` somewhere and the user selects something different meanwhile (not sure if thats possible but better save then sorry).",
+      "range": {
+        "startLine": 77,
+        "startChar": 4,
+        "endLine": 77,
+        "endChar": 108
+      },
+      "revId": "becc63705b8c65fea6ccfdb381ef560fd9a4133d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
