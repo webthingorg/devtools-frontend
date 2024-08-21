@@ -16,6 +16,24 @@
       "message": "(nit): empty class name here :)",
       "revId": "784f72bc2decfbf408ccd2d546749158fb291723",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0936109c_03bb1ea9",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-08-21T09:51:15Z",
+      "side": 1,
+      "message": "Removed in the follow up CL.",
+      "parentUuid": "8c00ee06_0e43454b",
+      "revId": "784f72bc2decfbf408ccd2d546749158fb291723",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
