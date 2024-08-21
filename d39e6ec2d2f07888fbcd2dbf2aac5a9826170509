@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c91af15_5fb3a9fd",
+        "filename": "front_end/panels/freestyler/FreestylerPanel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-21T08:02:53Z",
+      "side": 1,
+      "message": "WDYT of not passing `syncInfo` to `FreestylerChatUi` but directly the parameters (`accountEmail` and `accountImage`) needed for rendering?",
+      "revId": "d39e6ec2d2f07888fbcd2dbf2aac5a9826170509",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66c8c784_fa2ef49d",
+        "filename": "front_end/panels/freestyler/components/freestylerChatUi.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-21T08:02:53Z",
+      "side": 1,
+      "message": "I think, in this design we don\u0027t need additional margin here; WDYT?",
+      "revId": "d39e6ec2d2f07888fbcd2dbf2aac5a9826170509",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46cba2b8_5ab97e63",
+        "filename": "front_end/panels/freestyler/components/freestylerChatUi.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-21T08:02:53Z",
+      "side": 1,
+      "message": "After this change, the rule started targeting the children of the `.chat-message` that are not first child. In turn, it adds margin top to the elements such as the account email and the execution result. I think we don\u0027t need this, WDYT?",
+      "revId": "d39e6ec2d2f07888fbcd2dbf2aac5a9826170509",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2cf7d097_68f99a87",
+        "filename": "front_end/panels/freestyler/components/freestylerChatUi.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-21T08:02:53Z",
+      "side": 1,
+      "message": "(question): Do we need this `32px 32px` background-size? After I remove it, it seemed like nothing was changing.",
+      "revId": "d39e6ec2d2f07888fbcd2dbf2aac5a9826170509",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8690527d_ba1ebc40",
+        "filename": "front_end/panels/freestyler/components/freestylerChatUi.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-21T08:02:53Z",
+      "side": 1,
+      "message": "(nit): We can use `var(--sys-shape-corner-full)` for circular border-radius.",
+      "revId": "d39e6ec2d2f07888fbcd2dbf2aac5a9826170509",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "382d1828_058018f0",
+        "filename": "front_end/panels/freestyler/components/freestylerChatUi.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-21T08:02:53Z",
+      "side": 1,
+      "message": "It looks like this is `var(--sys-size-9)` in the design, should we update here?",
+      "revId": "d39e6ec2d2f07888fbcd2dbf2aac5a9826170509",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
