@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4cbf9d42_81cd7c83",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-08-21T19:34:42Z",
+      "side": 1,
+      "message": "MetricCard component diff if it helps: https://diff.googleplex.com/#key\u003dpJD1pqLSHpqM",
+      "revId": "cd025aad26134b33401a1899d683831ef27a1c0c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
