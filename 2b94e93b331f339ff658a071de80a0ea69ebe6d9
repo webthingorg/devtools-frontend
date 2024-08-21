@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c85f733a_7db8f3ec",
+        "filename": "front_end/panels/timeline/components/insights/LCPRenderBlocking.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-08-21T19:02:10Z",
+      "side": 1,
+      "message": "Can we rename this to just `RenderBlocking.ts`? Also drop `lcp` from the tag name and stuff below. I think we should avoid an explicit attachment to LCP for this one.",
+      "revId": "2b94e93b331f339ff658a071de80a0ea69ebe6d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c3a74c22_61e50ff4",
+        "filename": "front_end/panels/timeline/components/insights/SidebarInsight.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-08-21T19:02:10Z",
+      "side": 1,
+      "message": "We should consider using this function to generate the time values: https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/core/i18n/time-utilities.ts;l\u003d64?q\u003dtime-utilities.ts\u0026ss\u003dchromium\n\nWould just generate the string from that and then plug it into PH1",
+      "revId": "2b94e93b331f339ff658a071de80a0ea69ebe6d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d00d83e_ebe75cda",
+        "filename": "front_end/panels/timeline/components/insights/sidebarInsight.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-08-21T19:02:10Z",
+      "side": 1,
+      "message": "I would prefer if this wasn\u0027t a static color in case the savings are very big. Would making this bold for now work?",
+      "revId": "2b94e93b331f339ff658a071de80a0ea69ebe6d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
