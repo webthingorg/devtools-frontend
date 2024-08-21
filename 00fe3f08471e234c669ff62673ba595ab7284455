@@ -69,6 +69,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "31ad590d_d06b615c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-08-21T19:51:17Z",
+      "side": 1,
+      "message": "Would the new option still be needed if the existing reveal implementation is used? I think if there is only omitFocus, we can keep it as is for now.",
+      "parentUuid": "96f119d8_702e0abb",
+      "revId": "00fe3f08471e234c669ff62673ba595ab7284455",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cf946bd9_71d6c54d",
@@ -153,6 +171,24 @@
       "side": 1,
       "message": "That didn\u0027t work; the type inference on the caller can\u0027t work with that definition (call sites that define new properties get the \u0027this type can\u0027t be assigned to the other type\u0027 error). I kept the type definition seen above (export type RevealableOptions) but I\u0027ll update to avoid the overload.",
       "parentUuid": "15f36eb8_d62b4fa7",
+      "revId": "00fe3f08471e234c669ff62673ba595ab7284455",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bcb5f84d_26d87755",
+        "filename": "front_end/core/common/Revealer.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-08-21T19:51:17Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "1ef5f1f8_79a183b0",
       "revId": "00fe3f08471e234c669ff62673ba595ab7284455",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
