@@ -10,10 +10,15 @@ import {
   focusElementsTree,
   INACTIVE_GRID_ADORNER_SELECTOR,
   toggleAdornerSetting,
+  toggleClassesPane,
+  typeInClassesPaneInput,
   waitForAdornerOnSelectedNode,
   waitForAdorners,
+  waitForAndClickTreeElementWithPartialText,
   waitForContentOfSelectedElementsNode,
   waitForElementsStyleSection,
+  waitForNoAdornerOnSelectedNode,
+  waitForPartialContentOfSelectedElementsNode,
 } from '../helpers/elements-helpers.js';
 
 const prepareElementsTab = async () => {
@@ -49,6 +54,7 @@ describe('Adornment in the Elements Tab', function() {
 
     await waitForAdorners([
       {textContent: 'scroll-snap', isActive: false},
+      {textContent: 'scroll', isActive: false},
     ]);
   });
 
@@ -140,5 +146,97 @@ describe('Adornment in the Elements Tab', function() {
 
     await editCSSProperty('.grid', 'display', 'inline-grid');
     await waitForAdornerOnSelectedNode('grid');
+  });
+
+  it('displays scroll adorner for an element with overflow:scroll and scrollable contents', async () => {
+    await goToResource('elements/adornment-scroll.html');
+    await prepareElementsTab();
+    await waitForAndClickTreeElementWithPartialText('scroller');
+
+    await waitForAdornerOnSelectedNode('scroll');
+  });
+
+  it('displays scroll adorner for an element with `overflow: hidden` changed to `overflow: scroll`', async () => {
+    await goToResource('elements/adornment-scroll.html');
+    await prepareElementsTab();
+    await waitForAndClickTreeElementWithPartialText('overflow-hidden');
+    await waitForNoAdornerOnSelectedNode();
+
+    await editCSSProperty('#overflow-hidden', 'overflow', 'scroll');
+    await waitForAdornerOnSelectedNode('scroll');
+  });
+
+  it('displays scroll adorner for an element with `overflow: visible` changed to `overflow: scroll`', async () => {
+    await goToResource('elements/adornment-scroll.html');
+    await prepareElementsTab();
+    await waitForAndClickTreeElementWithPartialText('overflow-visible');
+    await waitForNoAdornerOnSelectedNode();
+
+    await editCSSProperty('#overflow-visible', 'overflow', 'scroll');
+    await waitForAdornerOnSelectedNode('scroll');
+  });
+
+  it('removes scroll adorner for an element whose content shrinks', async () => {
+    await goToResource('elements/adornment-scroll.html');
+    await prepareElementsTab();
+    await waitForAndClickTreeElementWithPartialText('content-shrinking');
+    await waitForAdornerOnSelectedNode('scroll');
+
+    await toggleClassesPane();
+    await typeInClassesPaneInput('shrunk');
+
+    await waitForNoAdornerOnSelectedNode();
+  });
+
+  it('displays scroll adorner for document node in an iframe', async () => {
+    await goToResource('elements/adornment-scroll.html');
+    const {frontend} = getBrowserAndPages();
+    await prepareElementsTab();
+
+    await waitForAndClickTreeElementWithPartialText('iframe');
+    await waitForPartialContentOfSelectedElementsNode('"iframe"');
+    await waitForNoAdornerOnSelectedNode();
+
+    await frontend.keyboard.press('ArrowDown');
+    await waitForPartialContentOfSelectedElementsNode('document');
+    await waitForNoAdornerOnSelectedNode();
+
+    await frontend.keyboard.press('ArrowDown');
+    await waitForPartialContentOfSelectedElementsNode('<html>');
+    await waitForAdornerOnSelectedNode('scroll');
+
+    await frontend.keyboard.press('ArrowDown');
+    await frontend.keyboard.press('ArrowLeft');
+    await frontend.keyboard.press('ArrowDown');
+    await waitForPartialContentOfSelectedElementsNode('<body>');
+    await waitForNoAdornerOnSelectedNode();
+  });
+
+  it('displays scroll adorner for the body node in an iframe', async () => {
+    await goToResource('elements/adornment-scroll.html');
+    const {frontend} = getBrowserAndPages();
+    await prepareElementsTab();
+
+    await waitForAndClickTreeElementWithPartialText('iframe-with-scrollable-body');
+    await waitForPartialContentOfSelectedElementsNode('"iframe-with-scrollable-body"');
+    await waitForNoAdornerOnSelectedNode();
+
+    await frontend.keyboard.press('ArrowDown');
+    await waitForPartialContentOfSelectedElementsNode('document');
+    await waitForNoAdornerOnSelectedNode();
+
+    await frontend.keyboard.press('ArrowDown');
+    await waitForPartialContentOfSelectedElementsNode('DOCTYPE');
+    await waitForNoAdornerOnSelectedNode();
+
+    await frontend.keyboard.press('ArrowDown');
+    await waitForPartialContentOfSelectedElementsNode('<html>');
+    await waitForNoAdornerOnSelectedNode();
+
+    await frontend.keyboard.press('ArrowDown');
+    await frontend.keyboard.press('ArrowLeft');
+    await frontend.keyboard.press('ArrowDown');
+    await waitForPartialContentOfSelectedElementsNode('<body>');
+    await waitForAdornerOnSelectedNode('scroll');
   });
 });
