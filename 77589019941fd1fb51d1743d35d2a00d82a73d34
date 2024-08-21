@@ -54,6 +54,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "beaa2527_a28b5ce8",
+        "filename": "front_end/panels/freestyler/ExtensionScope.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-08-21T09:53:25Z",
+      "side": 1,
+      "message": "I see, no, I do not think it is possible. Models are static and depend on the target type.",
+      "parentUuid": "cbede1d4_4116445b",
+      "revId": "77589019941fd1fb51d1743d35d2a00d82a73d34",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8d6934c3_61186605",
