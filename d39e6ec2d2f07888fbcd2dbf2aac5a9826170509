@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c47f8407_5f3db766",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-21T09:05:16Z",
+      "side": 1,
+      "message": "As discussed, we can skip doing the CSS tweaks and go over them all at once after all CLs are submitted :)",
+      "revId": "d39e6ec2d2f07888fbcd2dbf2aac5a9826170509",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5c91af15_5fb3a9fd",
@@ -32,6 +49,24 @@
       "side": 1,
       "message": "Well if we expose the User full name that\u0027s one extra property, why do you think this is worth doing?",
       "parentUuid": "5c91af15_5fb3a9fd",
+      "revId": "d39e6ec2d2f07888fbcd2dbf2aac5a9826170509",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c248c3da_7b752e3b",
+        "filename": "front_end/panels/freestyler/FreestylerPanel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-21T09:05:16Z",
+      "side": 1,
+      "message": "It feels like a better practice to me to only pass the props that are strictly needed inside the component, be it from the testing perspective or from the understanding perspective.\n\nWhen we pass `syncInfo`, it\u0027s not strictly clear why it needs the `syncInfo` but if we pass `accountEmail` and `accountImage` it\u0027s clear that it\u0027ll be used for rendering these in the component. So, the props reflect better what the component needs and does when we pass the least required props. WDYT?",
+      "parentUuid": "62aab003_d800b3dd",
       "revId": "d39e6ec2d2f07888fbcd2dbf2aac5a9826170509",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
