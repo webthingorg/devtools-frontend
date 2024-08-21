@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4a077fdd_18803a4c",
+        "filename": "front_end/panels/freestyler/ExtensionScope.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-08-21T09:47:14Z",
+      "side": 1,
+      "message": "could you elaborate? the comment does not seem to be related to the line it is on",
+      "parentUuid": "9b5d9c89_a64734fe",
+      "revId": "77589019941fd1fb51d1743d35d2a00d82a73d34",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8d6934c3_61186605",
         "filename": "front_end/panels/freestyler/ExtensionScope.ts",
         "patchSetId": 8
@@ -49,6 +67,24 @@
           ]
         }
       ],
+      "revId": "77589019941fd1fb51d1743d35d2a00d82a73d34",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28f3b35b_8c11f547",
+        "filename": "front_end/panels/freestyler/ExtensionScope.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-08-21T09:47:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8d6934c3_61186605",
       "revId": "77589019941fd1fb51d1743d35d2a00d82a73d34",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -84,6 +120,24 @@
           ]
         }
       ],
+      "revId": "77589019941fd1fb51d1743d35d2a00d82a73d34",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ffb0768_29d7734c",
+        "filename": "front_end/panels/freestyler/ExtensionScope.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-08-21T09:47:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "265aa303_17cd715c",
       "revId": "77589019941fd1fb51d1743d35d2a00d82a73d34",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -125,6 +179,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e755b75b_9a1f29ef",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-08-21T09:47:14Z",
+      "side": 1,
+      "message": "could you elaborate? the formatting is automatic here.",
+      "parentUuid": "5083d268_cb0a6d1f",
+      "revId": "77589019941fd1fb51d1743d35d2a00d82a73d34",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6c12f0c1_93e793ab",
         "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
         "patchSetId": 8
@@ -136,6 +208,24 @@
       "writtenOn": "2024-08-20T14:34:59Z",
       "side": 1,
       "message": "This can be of type AgentOptions.createExtensionScope",
+      "revId": "77589019941fd1fb51d1743d35d2a00d82a73d34",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6fba9ab9_64ee5010",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-08-21T09:47:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c12f0c1_93e793ab",
       "revId": "77589019941fd1fb51d1743d35d2a00d82a73d34",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -153,6 +243,24 @@
       "writtenOn": "2024-08-20T14:34:59Z",
       "side": 1,
       "message": "Let\u0027s just provide the arrow function here?",
+      "revId": "77589019941fd1fb51d1743d35d2a00d82a73d34",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13b46bab_cffd512f",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-08-21T09:47:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e4d9821_3df9fa4f",
       "revId": "77589019941fd1fb51d1743d35d2a00d82a73d34",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
