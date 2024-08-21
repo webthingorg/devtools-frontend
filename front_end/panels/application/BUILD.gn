@@ -41,6 +41,7 @@ devtools_module("application") {
     "CookieItemsView.ts",
     "DOMStorageItemsView.ts",
     "DOMStorageModel.ts",
+    "DataGridWithPreview.ts",
     "IndexedDBModel.ts",
     "IndexedDBViews.ts",
     "InterestGroupStorageModel.ts",
