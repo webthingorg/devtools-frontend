@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f490e0e_604d9f7b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-21T12:50:20Z",
+      "side": 1,
+      "message": "lgtm with 1 comment",
+      "revId": "358ed6a719203d34b38e365c5a6cdaa1e41bcb4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0934b01_7194068c",
+        "filename": "front_end/panels/console/consoleView.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-21T12:50:20Z",
+      "side": 1,
+      "message": "I see that in the design, the border-radius is 4px; should we also update it?",
+      "revId": "358ed6a719203d34b38e365c5a6cdaa1e41bcb4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
