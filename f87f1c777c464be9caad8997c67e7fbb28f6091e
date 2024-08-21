@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "44d954a6_23f79bcb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-08-21T07:57:41Z",
+      "side": 1,
+      "message": "Preview: https://chromium.googlesource.com/devtools/devtools-frontend/+/f87f1c777c464be9caad8997c67e7fbb28f6091e/docs/styleguide/ux/writing.md\n\nCan you take a look please? Thanks! 🙏",
+      "revId": "f87f1c777c464be9caad8997c67e7fbb28f6091e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
