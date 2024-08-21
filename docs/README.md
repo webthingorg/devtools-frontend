@@ -23,11 +23,10 @@ below.**
 
 ### General Development
 
-*   [Get the Code](get_the_code.md)
+*   [Get the Code](./get_the_code.md)
+*   [Contribution Guide](./contributing/README.md)
 *   [UX Style Guide](./styleguide/ux/README.md)
 *   [Testing Guide](../test/README.md)
-*   [Contributing Changes](contributing_changes.md)
-*   [Chrome DevTools Design Review Guidelines](design_guidelines.md)
 *   [Release Management](release_management.md)
 *   [Dependencies](dependencies.md)
 *   [Localization](l10n.md)
