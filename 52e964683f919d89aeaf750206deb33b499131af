@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f95ac435_579292d2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-08-21T12:16:07Z",
+      "side": 1,
+      "message": "Ran them through pngcrush.",
+      "parentUuid": "75a97607_0e7386db",
+      "revId": "52e964683f919d89aeaf750206deb33b499131af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f69503aa_6e1610f5",
@@ -48,6 +66,30 @@
       "writtenOn": "2024-08-21T12:07:04Z",
       "side": 1,
       "message": "```suggestion\nto re-generate `devtools-frontend/src/front_end/models/javascript_metadata/NativeFunctions.js` ([Example CL](http://crrev.com/c/3432787)).\n```",
+      "range": {
+        "startLine": 47,
+        "startChar": 38,
+        "endLine": 47,
+        "endChar": 48
+      },
+      "revId": "52e964683f919d89aeaf750206deb33b499131af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11e2e8f6_b3ac3094",
+        "filename": "docs/checklist/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-08-21T12:16:07Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "f69503aa_6e1610f5",
       "range": {
         "startLine": 47,
         "startChar": 38,
