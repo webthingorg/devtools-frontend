@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67bca370_31e4f2d8",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-21T13:15:57Z",
+      "side": 1,
+      "message": "Just as a note here too, we can use deterministic id creation with `runId`, `stepIndex` and the step type. Though can also be handled in the incoming CL too :)",
+      "revId": "59d6c96c84e678161664f569ff2700287bcbe96e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2237fb93_424120ff",
+        "filename": "front_end/panels/freestyler/FreestylerPanel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-21T13:15:57Z",
+      "side": 1,
+      "message": "question: I didn\u0027t exactly understand why we needed a map here as we only use `values()` to iterate over its values. Why do we need a map here?",
+      "revId": "59d6c96c84e678161664f569ff2700287bcbe96e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1791ce3_9073aa7d",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-21T13:15:57Z",
+      "side": 1,
+      "message": "(nit): We can either remove `Step.QUERYING` returning `nothing` special case or add the other cases above too and remove the return statement, WDYT?",
+      "revId": "59d6c96c84e678161664f569ff2700287bcbe96e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd0a3b84_c9226eee",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-21T13:15:57Z",
+      "side": 1,
+      "message": "While we\u0027re here, instead of rendering the step name for `THOUGHT`, WDYT of rendering its `title` here? Then we can remove the `maybeTextWithTitle` inside rendering its details and just render `step.text`.\n\nWe can also do this in the incoming CL too, however you prefer :)",
+      "revId": "59d6c96c84e678161664f569ff2700287bcbe96e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c98b0bce_9d7111f3",
+        "filename": "front_end/panels/freestyler/components/freestylerChatUi.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-21T13:15:57Z",
+      "side": 1,
+      "message": "(nit): tough -\u003e thought :)",
+      "revId": "59d6c96c84e678161664f569ff2700287bcbe96e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
