@@ -310,7 +310,35 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
         const adorner = this.adorn(config);
         UI.Tooltip.Tooltip.install(adorner, i18nString(UIStrings.thisFrameWasIdentifiedAsAnAd));
       }
+
+      if (node.isScrollable()) {
+        this.pushScrollAdorner(this.tagTypeContext);
+      }
     }
+
+    node.domModel().addEventListener(SDK.DOMModel.Events.ScrollAdorner, event => {
+      if (!isOpeningTag(this.tagTypeContext)) {
+        return;
+      }
+      const nodeIdFromBackend = event.data.nodeId;
+      const isScrollable = event.data.isScrollable;
+      // eslint-disable-next-line
+      console.log('recieved in the frontennd:', nodeIdFromBackend, isScrollable);
+
+      if (node.id === nodeIdFromBackend) {
+        // eslint-disable-next-line
+        console.log('match for ', node.id);
+
+        if (isScrollable) {
+          this.pushScrollAdorner(this.tagTypeContext);
+        } else {
+          // eslint-disable-next-line
+          console.log('remove adorner for node: ', node.id);
+          this.removeAllAdorners();
+          // this.removeScrollAdorner();
+        }
+      }
+    });
     this.expandAllButtonElement = null;
   }
 
@@ -2443,6 +2471,64 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
 
     context.styleAdorners.push(adorner);
   }
+
+  pushScrollAdorner(context: OpeningTagContext): void {
+    const node = this.node();
+    const nodeId = node.id;
+    // eslint-disable-next-line
+    console.log('pushing scroll adorner for node =', nodeId);
+    if (!nodeId) {
+      return;
+    }
+    const config = ElementsComponents.AdornerManager.getRegisteredAdorner(
+        ElementsComponents.AdornerManager.RegisteredAdorners.SCROLL);
+    const adorner = this.adorn(config);
+    adorner.classList.add('scroll');
+
+    const onClick = ((() => {
+                       const model = node.domModel().overlayModel();
+                       // TO be changed, these are copied from flex
+                       if (adorner.isActive()) {
+                         model.highlightFlexContainerInPersistentOverlay(nodeId);
+                       } else {
+                         model.hideFlexContainerInPersistentOverlay(nodeId);
+                       }
+                     }) as EventListener);
+
+    adorner.addInteraction(onClick, {
+      isToggle: true,
+      shouldPropagateOnKeydown: false,
+      ariaLabelDefault: i18nString(UIStrings.enableFlexMode),
+      ariaLabelActive: i18nString(UIStrings.disableFlexMode),
+    });
+
+    // node.domModel().overlayModel().addEventListener(
+    //     SDK.OverlayModel.Events.PersistentFlexContainerOverlayStateChanged, event => {
+    //       const {nodeId: eventNodeId, enabled} = event.data;
+    //       if (eventNodeId !== nodeId) {
+    //         return;
+    //       }
+
+    //       adorner.toggle(enabled);
+    //     });
+    context.adorners.push(adorner);
+    this.updateAdorners(context);
+    // if (node.domModel().overlayModel().isHighlightedFlexContainerInPersistentOverlay(nodeId)) {
+    //   adorner.toggle(true);
+    // }
+  }
+
+  // removeScrollAdorner(): void {
+  //   if (!isOpeningTag(this.tagTypeContext)) {
+  //     return;
+  //   }
+  //   const scrollAdorner = this.tagTypeContext.styleAdorners.find(x => x.data?.name === 'scroll');
+  //   if (scrollAdorner) {
+  //     this.removeAdorner(scrollAdorner, this.tagTypeContext);
+  //   } else {
+  //     console.warn('not found to be removed');
+  //   }
+  // }
 }
 
 export const InitialChildrenLimit = 500;

@@ -2795,6 +2795,7 @@ domain DOM
       optional boolean isSVG
       optional CompatibilityMode compatibilityMode
       optional BackendNode assignedSlot
+      optional boolean isScrollable
 
   # A structure to hold the top-level node of a detached tree and an array of its retained descendants.
   type DetachedElementInfo extends object
@@ -3483,6 +3484,14 @@ domain DOM
 
   # Called when top layer elements are changed.
   experimental event topLayerElementsUpdated
+
+  # Fired if the node has a scrollbar or lose one.
+  experimental event scrollAdorner
+    parameters
+      # The id of the node
+      DOM.NodeId nodeId
+      # Switch
+      boolean isScrollable
 
   # Called when a pseudo element is removed from an element.
   experimental event pseudoElementRemoved
