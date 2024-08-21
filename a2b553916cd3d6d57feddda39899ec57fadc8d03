@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "63440221_d677e204",
+        "filename": "front_end/panels/timeline/overlays/components/timespanBreakdownOverlay.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-08-21T02:27:13Z",
+      "side": 1,
+      "message": "ooops yes! Done",
+      "parentUuid": "090ae800_8b77daeb",
+      "revId": "a2b553916cd3d6d57feddda39899ec57fadc8d03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1002add9_25351eab",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-08-20T23:24:13Z",
       "side": 1,
       "message": "nit: this is the font weight specified in the mocks\n```suggestion\n    font-weight: var(--ref-typeface-weight-medium);\n```",
+      "revId": "a2b553916cd3d6d57feddda39899ec57fadc8d03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86b6d234_b2a1471c",
+        "filename": "front_end/panels/timeline/overlays/components/timespanBreakdownOverlay.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-08-21T02:27:13Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "1002add9_25351eab",
       "revId": "a2b553916cd3d6d57feddda39899ec57fadc8d03",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
