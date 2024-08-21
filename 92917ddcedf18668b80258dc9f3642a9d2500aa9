@@ -1,0 +1,285 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79ea1c70_269a5316",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 21
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-08-21T12:18:07Z",
+      "side": 1,
+      "message": "Thanks a lot, Kim! I left some comments:)",
+      "revId": "92917ddcedf18668b80258dc9f3642a9d2500aa9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2848f0fb_0263ff74",
+        "filename": "docs/design_guidelines.md",
+        "patchSetId": 21
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-08-21T12:18:07Z",
+      "side": 1,
+      "message": "I think it\u0027s only possible to CC rotation reviewer, but not add it as a reviewer to CLs",
+      "range": {
+        "startLine": 113,
+        "startChar": 0,
+        "endLine": 113,
+        "endChar": 20
+      },
+      "revId": "92917ddcedf18668b80258dc9f3642a9d2500aa9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0728ded9_04530686",
+        "filename": "docs/styleguide/ux/components.md",
+        "patchSetId": 21
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-08-21T12:18:07Z",
+      "side": 1,
+      "message": "I wonder if we should also mention toggle icon buttons as well as checked states (this forces a dot to appear next to the icon, e.g. when hover element state is forced), wdyt?",
+      "range": {
+        "startLine": 44,
+        "startChar": 4,
+        "endLine": 44,
+        "endChar": 17
+      },
+      "revId": "92917ddcedf18668b80258dc9f3642a9d2500aa9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0f60752_bb3234d4",
+        "filename": "docs/styleguide/ux/components.md",
+        "patchSetId": 21
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-08-21T12:18:07Z",
+      "side": 1,
+      "message": "We are repeating some of the developer guidelines here, but not for all button types. Should we do it for all of them then?",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 43
+      },
+      "revId": "92917ddcedf18668b80258dc9f3642a9d2500aa9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76910d99_f5841010",
+        "filename": "docs/styleguide/ux/styles.md",
+        "patchSetId": 21
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-08-21T12:18:07Z",
+      "side": 1,
+      "message": "nit: sets",
+      "range": {
+        "startLine": 7,
+        "startChar": 16,
+        "endLine": 7,
+        "endChar": 19
+      },
+      "revId": "92917ddcedf18668b80258dc9f3642a9d2500aa9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "742e86f7_144f2431",
+        "filename": "docs/styleguide/ux/styles.md",
+        "patchSetId": 21
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-08-21T12:18:07Z",
+      "side": 1,
+      "message": "nit: find and / or view?",
+      "range": {
+        "startLine": 20,
+        "startChar": 8,
+        "endLine": 20,
+        "endChar": 17
+      },
+      "revId": "92917ddcedf18668b80258dc9f3642a9d2500aa9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0567a472_36f7ad51",
+        "filename": "docs/styleguide/ux/styles.md",
+        "patchSetId": 21
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-08-21T12:18:07Z",
+      "side": 1,
+      "message": "Did Peter give you this note? If not, let\u0027s double check with him, it might be that `primary` also refers to the main theme\u0027s color (e.g. in default team an app color with `primary in name` would be expected to be blue-ish).",
+      "range": {
+        "startLine": 37,
+        "startChar": 33,
+        "endLine": 37,
+        "endChar": 91
+      },
+      "revId": "92917ddcedf18668b80258dc9f3642a9d2500aa9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5360267_16914ac8",
+        "filename": "docs/styleguide/ux/styles.md",
+        "patchSetId": 21
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-08-21T12:18:07Z",
+      "side": 1,
+      "message": "nit: `,`",
+      "range": {
+        "startLine": 52,
+        "startChar": 13,
+        "endLine": 52,
+        "endChar": 14
+      },
+      "revId": "92917ddcedf18668b80258dc9f3642a9d2500aa9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e7a7526_3e19aa2c",
+        "filename": "docs/styleguide/ux/styles.md",
+        "patchSetId": 21
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-08-21T12:18:07Z",
+      "side": 1,
+      "message": "I think it\u0027s the other way around, when DevTools is unfocused, we use neutral colors, no?",
+      "range": {
+        "startLine": 81,
+        "startChar": 44,
+        "endLine": 81,
+        "endChar": 70
+      },
+      "revId": "92917ddcedf18668b80258dc9f3642a9d2500aa9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bab48947_99ffe499",
+        "filename": "docs/styleguide/ux/styles.md",
+        "patchSetId": 21
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-08-21T12:18:07Z",
+      "side": 1,
+      "message": "Should we also add the active state with the ripple color?",
+      "revId": "92917ddcedf18668b80258dc9f3642a9d2500aa9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9396ea17_93973917",
+        "filename": "docs/styleguide/ux/styles.md",
+        "patchSetId": 21
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-08-21T12:18:07Z",
+      "side": 1,
+      "message": "nit: `layered on top` might read better",
+      "range": {
+        "startLine": 124,
+        "startChar": 49,
+        "endLine": 124,
+        "endChar": 57
+      },
+      "revId": "92917ddcedf18668b80258dc9f3642a9d2500aa9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc06839b_763511c6",
+        "filename": "docs/styleguide/ux/styles.md",
+        "patchSetId": 21
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-08-21T12:18:07Z",
+      "side": 1,
+      "message": "I think this is outdated and should be `--sys-color-state-disabled`",
+      "revId": "92917ddcedf18668b80258dc9f3642a9d2500aa9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f5af0cd_26d6bc92",
+        "filename": "docs/styleguide/ux/styles.md",
+        "patchSetId": 21
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-08-21T12:18:07Z",
+      "side": 1,
+      "message": "Same as above, also do we want to repeat this here?",
+      "range": {
+        "startLine": 177,
+        "startChar": 15,
+        "endLine": 177,
+        "endChar": 24
+      },
+      "revId": "92917ddcedf18668b80258dc9f3642a9d2500aa9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
