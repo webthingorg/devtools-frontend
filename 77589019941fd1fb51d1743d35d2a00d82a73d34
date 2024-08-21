@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cbede1d4_4116445b",
+        "filename": "front_end/panels/freestyler/ExtensionScope.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-08-21T09:50:09Z",
+      "side": 1,
+      "message": "Can `target.model(SDK.RuntimeModel.RuntimeModel)` change what it returns? \nFor example in the uninstall we call it again, can in between the two call the value change such that we install listeners on one and then try to remove listeners on another?",
+      "parentUuid": "4a077fdd_18803a4c",
+      "revId": "77589019941fd1fb51d1743d35d2a00d82a73d34",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8d6934c3_61186605",
         "filename": "front_end/panels/freestyler/ExtensionScope.ts",
         "patchSetId": 8
@@ -191,6 +209,24 @@
       "side": 1,
       "message": "could you elaborate? the formatting is automatic here.",
       "parentUuid": "5083d268_cb0a6d1f",
+      "revId": "77589019941fd1fb51d1743d35d2a00d82a73d34",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17287ef1_ae58b4c7",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-08-21T09:50:09Z",
+      "side": 1,
+      "message": "I missed that the the uninstall is on the same line...",
+      "parentUuid": "e755b75b_9a1f29ef",
       "revId": "77589019941fd1fb51d1743d35d2a00d82a73d34",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
