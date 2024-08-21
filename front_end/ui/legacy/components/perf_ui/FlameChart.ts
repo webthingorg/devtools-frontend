@@ -617,7 +617,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     return this.rawTimelineData || null;
   }
 
-  private revealEntry(entryIndex: number): void {
+  revealEntry(entryIndex: number): void {
     const timelineData = this.timelineData();
     if (!timelineData) {
       return;
