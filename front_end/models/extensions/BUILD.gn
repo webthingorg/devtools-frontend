@@ -14,6 +14,8 @@ devtools_module("extensions") {
     "ExtensionPanel.ts",
     "ExtensionServer.ts",
     "ExtensionView.ts",
+    "FunctionNameGuesserExtensionEndpoint.ts",
+    "FunctionNameGuesserPluginManager.ts",
     "HostUrlPattern.ts",
     "LanguageExtensionEndpoint.ts",
     "RecorderExtensionEndpoint.ts",
@@ -48,6 +50,7 @@ devtools_entrypoint("bundle") {
   visibility = [
     ":*",
     "../../entrypoints/main/*",
+    "../../models/source_map_extensions/*",
     "../../panels/elements/*",
     "../../panels/recorder/*",
     "../../panels/sources/*",
