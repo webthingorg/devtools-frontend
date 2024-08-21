@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "62aab003_d800b3dd",
+        "filename": "front_end/panels/freestyler/FreestylerPanel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-08-21T08:52:21Z",
+      "side": 1,
+      "message": "Well if we expose the User full name that\u0027s one extra property, why do you think this is worth doing?",
+      "parentUuid": "5c91af15_5fb3a9fd",
+      "revId": "d39e6ec2d2f07888fbcd2dbf2aac5a9826170509",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "66c8c784_fa2ef49d",
         "filename": "front_end/panels/freestyler/components/freestylerChatUi.css",
         "patchSetId": 3
@@ -71,6 +89,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "70d80102_73fea693",
+        "filename": "front_end/panels/freestyler/components/freestylerChatUi.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-08-21T08:52:21Z",
+      "side": 1,
+      "message": "Good question I took it from the settings panel, will check and update if needed.\nAlso send a CL for the settings panel as well.",
+      "parentUuid": "2cf7d097_68f99a87",
+      "revId": "d39e6ec2d2f07888fbcd2dbf2aac5a9826170509",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8690527d_ba1ebc40",
         "filename": "front_end/panels/freestyler/components/freestylerChatUi.css",
         "patchSetId": 3
@@ -88,6 +124,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3d555e75_047dff8b",
+        "filename": "front_end/panels/freestyler/components/freestylerChatUi.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-08-21T08:52:21Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "8690527d_ba1ebc40",
+      "revId": "d39e6ec2d2f07888fbcd2dbf2aac5a9826170509",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "382d1828_058018f0",
         "filename": "front_end/panels/freestyler/components/freestylerChatUi.css",
         "patchSetId": 3
@@ -99,6 +153,24 @@
       "writtenOn": "2024-08-21T08:02:53Z",
       "side": 1,
       "message": "It looks like this is `var(--sys-size-9)` in the design, should we update here?",
+      "revId": "d39e6ec2d2f07888fbcd2dbf2aac5a9826170509",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb81f9b0_34f128a0",
+        "filename": "front_end/panels/freestyler/components/freestylerChatUi.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-08-21T08:52:21Z",
+      "side": 1,
+      "message": "Addresses in the follow up CL",
+      "parentUuid": "382d1828_058018f0",
       "revId": "d39e6ec2d2f07888fbcd2dbf2aac5a9826170509",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
