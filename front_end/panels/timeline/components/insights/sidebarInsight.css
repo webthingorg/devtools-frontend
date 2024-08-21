@@ -133,3 +133,7 @@
 ::slotted(*) {
   font: var(--sys-typescale-body4-regular);
 }
+
+.insight-savings {
+  color: var(--app-color-performance-good);
+}

@@ -20,6 +20,7 @@ devtools_module("insights") {
     "Helpers.ts",
     "LCPDiscovery.ts",
     "LCPPhases.ts",
+    "LCPRenderBlocking.ts",
     "NodeLink.ts",
     "SidebarInsight.ts",
     "Viewport.ts",

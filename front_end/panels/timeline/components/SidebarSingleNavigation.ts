@@ -170,6 +170,14 @@ export class SidebarSingleNavigation extends HTMLElement {
       </${Insights.LCPDiscovery.LCPDiscovery}>
     </div>
     <div>
+      <${Insights.RenderBlockingRequests.RenderBlockingRequests.litTagName}
+        .insights=${insights}
+        .navigationId=${navigationId}
+        .activeInsight=${this.#data.activeInsight}
+        .activeCategory=${this.#data.activeCategory}
+      </${Insights.RenderBlockingRequests.RenderBlockingRequests}>
+    </div>
+    <div>
       <${Insights.CLSCulprits.CLSCulprits.litTagName}
         .insights=${insights}
         .navigationId=${navigationId}
