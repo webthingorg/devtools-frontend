@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "151f3ca9_08e938c4",
+        "filename": "front_end/panels/freestyler/components/freestylerChatUi.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-08-21T09:03:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "66c8c784_fa2ef49d",
+      "revId": "d39e6ec2d2f07888fbcd2dbf2aac5a9826170509",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "46cba2b8_5ab97e63",
@@ -66,6 +84,24 @@
       "writtenOn": "2024-08-21T08:02:53Z",
       "side": 1,
       "message": "After this change, the rule started targeting the children of the `.chat-message` that are not first child. In turn, it adds margin top to the elements such as the account email and the execution result. I think we don\u0027t need this, WDYT?",
+      "revId": "d39e6ec2d2f07888fbcd2dbf2aac5a9826170509",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a28924de_dea8de37",
+        "filename": "front_end/panels/freestyler/components/freestylerChatUi.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-08-21T09:03:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "46cba2b8_5ab97e63",
       "revId": "d39e6ec2d2f07888fbcd2dbf2aac5a9826170509",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
