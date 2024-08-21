@@ -129,6 +129,14 @@ const UIStringsTemp = {
    *@description Button text for "Fix this issue" button
    */
   fixThisIssue: 'Fix this issue',
+  /**
+   *@description The name of the CSS assistant that helps you debug CSS issues
+   */
+  cssAssistant: 'CSS assistant',
+  /**
+   *@description The fallback text when we can't find the user full name
+   */
+  you: 'You',
 };
 // const str_ = i18n.i18n.registerUIStrings('panels/freestyler/components/FreestylerChatUi.ts', UIStrings);
 // const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -316,33 +324,33 @@ export class FreestylerChatUi extends HTMLElement {
     // clang-format on
   }
 
-  #renderStep(step: StepData): LitHtml.TemplateResult {
-    if (step.step === Step.ACTION) {
-      // clang-format off
-      return LitHtml.html`
-        <div class="action-result">
-          <${MarkdownView.CodeBlock.CodeBlock.litTagName}
-            .code=${step.code.trim()}
-            .codeLang=${'js'}
-            .displayToolbar=${false}
-            .displayNotice=${true}
-          ></${MarkdownView.CodeBlock.CodeBlock.litTagName}>
-          <div class="js-code-output">${step.output}</div>
-        </div>
-      `;
-      // clang-format on
-    }
+  #renderStep(step: StepData): LitHtml.LitTemplate {
+    switch (step.step) {
+      case Step.ERROR:
+        return LitHtml.html`<p class="error-step">${this.#renderTextAsMarkdown(step.text)}</p>`;
 
-    if (step.step === Step.ERROR) {
-      return LitHtml.html`<p class="error-step">${this.#renderTextAsMarkdown(step.text)}</p>`;
-    }
+      case Step.THOUGHT: {
+        const maybeTextWithTitle = step.title ? `**${step.title}**\n\n${step.text}` : step.text;
+        return LitHtml.html`<p>${this.#renderTextAsMarkdown(maybeTextWithTitle)}</p>`;
+      }
+      case Step.ACTION:
+        // clang-format off
+        return LitHtml.html`
+          <div class="action-result">
+            <${MarkdownView.CodeBlock.CodeBlock.litTagName}
+              .code=${step.code.trim()}
+              .codeLang=${'js'}
+              .displayToolbar=${false}
+              .displayNotice=${true}
+            ></${MarkdownView.CodeBlock.CodeBlock.litTagName}>
+            <div class="js-code-output">${step.output}</div>
+          </div>
+        `;
+        // clang-format on
 
-    if (step.step === Step.THOUGHT) {
-      const maybeTextWithTitle = step.title ? `**${step.title}**\n\n${step.text}` : step.text;
-      return LitHtml.html`<p>${this.#renderTextAsMarkdown(maybeTextWithTitle)}</p>`;
+      case Step.ANSWER:
+        return LitHtml.html`<p class="answer-step">${this.#renderTextAsMarkdown(step.text)}</p>`;
     }
-
-    return LitHtml.html`<p>${this.#renderTextAsMarkdown(step.text)}</p>`;
   }
 
   #renderSideEffectConfirmationUi(confirmSideEffectDialog: ConfirmSideEffectDialog): LitHtml.TemplateResult {
@@ -387,20 +395,21 @@ export class FreestylerChatUi extends HTMLElement {
 
   #renderChatMessage = (message: ChatMessage, {isLast}: {isLast: boolean}): LitHtml.TemplateResult => {
     if (message.entity === ChatMessageEntity.USER) {
+      const name = this.#props.userInfo.accountEmail ?? i18nString(UIStringsTemp.you);
       // clang-format off
       return LitHtml.html`<div
         class="chat-message query"
         jslog=${VisualLogging.section('question')}
       >
-        <div class="account-info">
+        <div class="message-info">
           <img src="data:image/png;base64, ${this.#props.userInfo.accountImage}" alt="Account avatar" />
-          <div class="account-email">
-            <span>${this.#props.userInfo.accountEmail}</span>
+          <div class="message-name">
+            <span>${name}</span>
           </div>
         </div>
-        <span>${
+        <div>${
           message.text
-        }</span>
+        }</div>
       </div>`;
       // clang-format on
     }
@@ -411,7 +420,19 @@ export class FreestylerChatUi extends HTMLElement {
     // clang-format off
     return LitHtml.html`
       <div class="chat-message answer" jslog=${VisualLogging.section('answer')}>
-        ${message.steps.map(step => this.#renderStep(step))}
+        <div class="message-info">
+          <${IconButton.Icon.Icon.litTagName}
+            name="pen-spark"
+          ></${IconButton.Icon.Icon.litTagName}>
+          <div class="message-name">
+            <span>${
+              i18nString(UIStringsTemp.cssAssistant)
+            }</span>
+          </div>
+        </div>
+        <div class="  ">
+          ${message.steps.map(step => this.#renderStep(step))}
+        </div>
         ${this.#props.confirmSideEffectDialog && isLast
             ? this.#renderSideEffectConfirmationUi(this.#props.confirmSideEffectDialog)
             : LitHtml.nothing
@@ -532,6 +553,7 @@ export class FreestylerChatUi extends HTMLElement {
     const isAidaAvailable = this.#props.aidaAvailability === Host.AidaClient.AidaAccessPreconditions.AVAILABLE;
     const isInputDisabled =
         !Boolean(this.#props.selectedNode) || !isAidaAvailable || Boolean(this.#props.confirmSideEffectDialog);
+
     // clang-format off
     return LitHtml.html`
       <div class="chat-ui">
