@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "61da2db3_d7d02e75",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-21T13:16:28Z",
+      "side": 1,
+      "message": "lgtm \u0026 the incoming CL with merging thought \u0026 action and rendering title in the \u003csummary\u003e element",
+      "revId": "59d6c96c84e678161664f569ff2700287bcbe96e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "67bca370_31e4f2d8",
