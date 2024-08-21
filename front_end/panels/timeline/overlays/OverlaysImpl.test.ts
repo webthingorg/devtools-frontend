@@ -57,10 +57,16 @@ describeWithEnvironment('Overlays', () => {
 
   it('can calculate the x position of an event based on the dimensions and its timestamp', async () => {
     const flameChartsContainer = document.createElement('div');
+    const mainFlameChartsContainer = flameChartsContainer.createChild('div');
+    const networkFlameChartsContainer = flameChartsContainer.createChild('div');
     const container = flameChartsContainer.createChild('div');
+
     const overlays = new Overlays.Overlays.Overlays({
       container,
-      flameChartsContainer,
+      flameChartsContainers: {
+        main: mainFlameChartsContainer,
+        network: networkFlameChartsContainer,
+      },
       charts: createCharts(),
     });
 
@@ -95,11 +101,16 @@ describeWithEnvironment('Overlays', () => {
     const charts = createCharts(traceData);
 
     const flameChartsContainer = document.createElement('div');
+    const mainFlameChartsContainer = flameChartsContainer.createChild('div');
+    const networkFlameChartsContainer = flameChartsContainer.createChild('div');
     const container = flameChartsContainer.createChild('div');
 
     const overlays = new Overlays.Overlays.Overlays({
       container,
-      flameChartsContainer,
+      flameChartsContainers: {
+        main: mainFlameChartsContainer,
+        network: networkFlameChartsContainer,
+      },
       charts,
     });
 
@@ -135,11 +146,17 @@ describeWithEnvironment('Overlays', () => {
     const charts = createCharts(traceData);
 
     const flameChartsContainer = document.createElement('div');
+    const mainFlameChartsContainer = flameChartsContainer.createChild('div');
+    const networkFlameChartsContainer = flameChartsContainer.createChild('div');
     const container = flameChartsContainer.createChild('div');
+
     const overlays = new Overlays.Overlays.Overlays({
       container,
-      flameChartsContainer,
-      charts,
+      flameChartsContainers: {
+        main: mainFlameChartsContainer,
+        network: networkFlameChartsContainer,
+      },
+      charts: createCharts(),
     });
 
     overlays.updateChartDimensions('main', {
@@ -175,11 +192,17 @@ describeWithEnvironment('Overlays', () => {
     const charts = createCharts(traceData);
 
     const flameChartsContainer = document.createElement('div');
+    const mainFlameChartsContainer = flameChartsContainer.createChild('div');
+    const networkFlameChartsContainer = flameChartsContainer.createChild('div');
     const container = flameChartsContainer.createChild('div');
+
     const overlays = new Overlays.Overlays.Overlays({
       container,
-      flameChartsContainer,
-      charts,
+      flameChartsContainers: {
+        main: mainFlameChartsContainer,
+        network: networkFlameChartsContainer,
+      },
+      charts: createCharts(),
     });
 
     overlays.updateChartDimensions('main', {
@@ -222,13 +245,18 @@ describeWithEnvironment('Overlays', () => {
       const charts = createCharts(traceData);
 
       const flameChartsContainer = document.createElement('div');
+      const mainFlameChartsContainer = flameChartsContainer.createChild('div');
+      const networkFlameChartsContainer = flameChartsContainer.createChild('div');
       const container = flameChartsContainer.createChild('div');
+
       const overlays = new Overlays.Overlays.Overlays({
         container,
-        flameChartsContainer,
-        charts,
+        flameChartsContainers: {
+          main: mainFlameChartsContainer,
+          network: networkFlameChartsContainer,
+        },
+        charts: createCharts(),
       });
-
       const currManager = Timeline.ModificationsManager.ModificationsManager.activeManager();
       // The Annotations Overlays are added through the ModificationsManager listener
       currManager?.addEventListener(Timeline.ModificationsManager.AnnotationModifiedEvent.eventName, event => {
