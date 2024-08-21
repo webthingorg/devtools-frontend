@@ -16,6 +16,91 @@
       "message": "Preview: https://chromium.googlesource.com/devtools/devtools-frontend/+/7e3b85137e75b3e8d48af1220bcd3c9162d17763/docs/contributing/README.md\n\nCan you take a look please? Thanks! 🙏",
       "revId": "7e3b85137e75b3e8d48af1220bcd3c9162d17763",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e7c7308_e5ed964a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-08-21T18:38:26Z",
+      "side": 1,
+      "message": "Couple comments, generally LGTM!",
+      "revId": "7e3b85137e75b3e8d48af1220bcd3c9162d17763",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61a45426_ac1c8951",
+        "filename": "docs/contributing/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-08-21T18:38:26Z",
+      "side": 1,
+      "message": "Should this link point here now?",
+      "revId": "7e3b85137e75b3e8d48af1220bcd3c9162d17763",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e4331ed_9d28e47a",
+        "filename": "docs/contributing/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-08-21T18:38:26Z",
+      "side": 1,
+      "message": "Indentation level is one off",
+      "revId": "7e3b85137e75b3e8d48af1220bcd3c9162d17763",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6626edbe_bccb56d8",
+        "filename": "docs/contributing/changes.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-08-21T18:38:26Z",
+      "side": 1,
+      "message": "It\u0027s not a label anymore",
+      "revId": "7e3b85137e75b3e8d48af1220bcd3c9162d17763",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e3e548a_dac038f9",
+        "filename": "docs/contributing/design.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-08-21T18:38:26Z",
+      "side": 1,
+      "message": "If it\u0027s google internal should this be in the public docs? Also below",
+      "revId": "7e3b85137e75b3e8d48af1220bcd3c9162d17763",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
