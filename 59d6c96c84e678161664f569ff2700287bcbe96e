@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5e50ea8_aeeef473",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-08-21T13:30:01Z",
+      "side": 1,
+      "message": "Will do in a separate CL.",
+      "parentUuid": "67bca370_31e4f2d8",
+      "revId": "59d6c96c84e678161664f569ff2700287bcbe96e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2237fb93_424120ff",
@@ -48,6 +66,24 @@
       "writtenOn": "2024-08-21T13:15:57Z",
       "side": 1,
       "message": "question: I didn\u0027t exactly understand why we needed a map here as we only use `values()` to iterate over its values. Why do we need a map here?",
+      "revId": "59d6c96c84e678161664f569ff2700287bcbe96e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57e83a25_a641aaf0",
+        "filename": "front_end/panels/freestyler/FreestylerPanel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-08-21T13:30:01Z",
+      "side": 1,
+      "message": "The issue comes when we are creating the first thing `Step.Querying` the idea, is that the Map handles overwrites for us by using the id as key.\nThe alternative solution is to always check if the array has `Step.Querying` and remove it if it exits `array.splice`, I have no strong opinion here.",
+      "parentUuid": "2237fb93_424120ff",
       "revId": "59d6c96c84e678161664f569ff2700287bcbe96e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -69,6 +105,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eba09a73_52737f53",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-08-21T13:30:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1791ce3_9073aa7d",
+      "revId": "59d6c96c84e678161664f569ff2700287bcbe96e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cd0a3b84_c9226eee",
@@ -86,6 +140,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c4d5735_1b1e3e45",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 376,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-08-21T13:30:01Z",
+      "side": 1,
+      "message": "Will do in a separate CL.",
+      "parentUuid": "cd0a3b84_c9226eee",
+      "revId": "59d6c96c84e678161664f569ff2700287bcbe96e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c98b0bce_9d7111f3",
@@ -99,6 +171,24 @@
       "writtenOn": "2024-08-21T13:15:57Z",
       "side": 1,
       "message": "(nit): tough -\u003e thought :)",
+      "revId": "59d6c96c84e678161664f569ff2700287bcbe96e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6f719b2_14178e38",
+        "filename": "front_end/panels/freestyler/components/freestylerChatUi.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-08-21T13:30:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c98b0bce_9d7111f3",
       "revId": "59d6c96c84e678161664f569ff2700287bcbe96e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
