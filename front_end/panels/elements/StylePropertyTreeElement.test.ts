@@ -1496,7 +1496,7 @@ describeWithMockConnection('StylePropertyTreeElement', () => {
       const stylePropertyTreeElement = getTreeElement('grid-row', 'somename');
       await stylePropertyTreeElement.onpopulate();
       stylePropertyTreeElement.updateTitle();
-      stylePropertyTreeElement.startEditingValue();
+      await stylePropertyTreeElement.startEditingValue();
       const autocompletions = await suggestions();
       assert.deepEqual(
           autocompletions.map(({text}) => text),
@@ -1508,7 +1508,7 @@ describeWithMockConnection('StylePropertyTreeElement', () => {
       const stylePropertyTreeElement = getTreeElement('grid-column', 'somename');
       await stylePropertyTreeElement.onpopulate();
       stylePropertyTreeElement.updateTitle();
-      stylePropertyTreeElement.startEditingValue();
+      await stylePropertyTreeElement.startEditingValue();
       const autocompletions = await suggestions();
       assert.deepEqual(
           autocompletions.map(({text}) => text),
@@ -1520,7 +1520,7 @@ describeWithMockConnection('StylePropertyTreeElement', () => {
       const stylePropertyTreeElement = getTreeElement('grid-area', 'somename');
       await stylePropertyTreeElement.onpopulate();
       stylePropertyTreeElement.updateTitle();
-      stylePropertyTreeElement.startEditingValue();
+      await stylePropertyTreeElement.startEditingValue();
       const autocompletions = await suggestions();
       assert.deepEqual(autocompletions.map(({text}) => text), [
         'area-name-a',
