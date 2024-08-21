@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba5804f9_2c2d9ea9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-08-21T21:01:15Z",
+      "side": 1,
+      "message": "More helpful diff for the largest test block: https://diff.googleplex.com/#key\u003d8gYbvWyNw7zo",
+      "revId": "5feaf3b24319c226cdab94c1456c222211d87c3a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
