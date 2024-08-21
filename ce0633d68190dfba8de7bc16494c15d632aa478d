@@ -106,6 +106,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc644e74_1c20e6f6",
+        "filename": "front_end/ui/legacy/treeoutline.css",
+        "patchSetId": 7
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-21T13:22:33Z",
+      "side": 1,
+      "message": "That sgtm too! Though then we need to consider all the cases where TreeOutline is used as I see that there were workarounds of that issue by adding `margin-left: -3px` for example in the elements panel. So, with this, its click area moves a bit to the right and is not centered.\n\nIf we can go through all those cases and make sure that it works as expected, I\u0027m fine with updating the calculation. Otherwise, I\u0027d prefer doing the `margin-left: -3px` trick here too and fixing the calculation in a separate CL with all the usages updated for the new calculation.",
+      "parentUuid": "89cfefb9_9c3a87dc",
+      "revId": "ce0633d68190dfba8de7bc16494c15d632aa478d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "e357384a_03f0f6c2",
