@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d57c0bcd_de455968",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-08-21T13:21:13Z",
+      "side": 1,
+      "message": "Preview: https://crrev.com/7be157d40b387f9bc956a9b20d684ad4196152bf/docs/checklist/ui.md\n\nCan you take a look please? Thanks! 🙏",
+      "revId": "7be157d40b387f9bc956a9b20d684ad4196152bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
