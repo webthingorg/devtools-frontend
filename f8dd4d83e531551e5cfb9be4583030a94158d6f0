@@ -16,6 +16,24 @@
       "message": "I don\u0027t understand this part why do we need to JSON.stringify it?",
       "revId": "f8dd4d83e531551e5cfb9be4583030a94158d6f0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e026851c_b890b364",
+        "filename": "test/e2e/freestyler/freestyler_test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-08-21T13:09:48Z",
+      "side": 1,
+      "message": "why not? we need a JS literal string value",
+      "parentUuid": "cc84d525_4a0cf719",
+      "revId": "f8dd4d83e531551e5cfb9be4583030a94158d6f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
