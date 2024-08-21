@@ -1214,7 +1214,7 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
   private parentsComputedStyles: Map<string, string>|null = null;
   private contextForTest!: Context|undefined;
   #propertyTextFromSource: string;
-  #gridNames: Set<string>|undefined = undefined;
+  #gridNames: Promise<Set<string>>|undefined = undefined;
 
   constructor(
       {stylesPane, section, matchedStyles, property, isShorthand, inherited, overloaded, newProperty}:
@@ -1250,7 +1250,15 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
     this.#propertyTextFromSource = property.propertyText || '';
   }
 
-  async gridNames(): Promise<Set<string>> {
+  gridNames(): Promise<Set<string>> {
+    if (!this.#gridNames) {
+      this.#gridNames = this.#parseGridNames();
+    }
+
+    return this.#gridNames;
+  }
+
+  async #parseGridNames(): Promise<Set<string>> {
     if (!SDK.CSSMetadata.cssMetadata().isGridNameAwareProperty(this.name)) {
       return new Set();
     }
@@ -1452,9 +1460,7 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
   }
 
   override async onpopulate(): Promise<void> {
-    if (!this.#gridNames) {
-      this.#gridNames = await this.gridNames();
-    }
+    await this.gridNames();
 
     // Only populate once and if this property is a shorthand.
     if (this.childCount() || !this.isShorthand) {
@@ -1825,10 +1831,10 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
         selectedElement.enclosingNodeOrSelfWithClass('styles-semicolon');
     if (!selectedElement || selectedElement === this.nameElement) {
       VisualLogging.logClick(this.nameElement as Element, event);
-      this.startEditingName();
+      void this.startEditingName();
     } else {
       VisualLogging.logClick(this.valueElement as Element, event);
-      this.startEditingValue();
+      void this.startEditingValue();
     }
   }
 
@@ -1963,7 +1969,7 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
     }
   }
 
-  startEditingValue(): void {
+  startEditingValue(): Promise<void> {
     const context: Context = {
       expanded: this.expanded,
       hasChildren: this.isExpandable(),
@@ -1979,10 +1985,10 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
       context.previousContent = splitResult.map(result => result.value.trim()).join('\n');
     }
 
-    this.#startEditing(context);
+    return this.#startEditing(context);
   }
 
-  startEditingName(): void {
+  startEditingName(): Promise<void> {
     const context: Context = {
       expanded: this.expanded,
       hasChildren: this.isExpandable(),
@@ -1991,10 +1997,10 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
       previousContent: this.name.split('\n').map(l => l.trim()).join('\n'),
     };
 
-    this.#startEditing(context);
+    return this.#startEditing(context);
   }
 
-  #startEditing(context: Context): void {
+  async #startEditing(context: Context): Promise<void> {
     this.contextForTest = context;
 
     // FIXME: we don't allow editing of longhand properties under a shorthand right now.
@@ -2076,7 +2082,7 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
     this.parentPaneInternal.setEditingStyle(true, this);
     selectedElement.parentElement?.scrollIntoViewIfNeeded(false);
 
-    this.prompt = new CSSPropertyPrompt(this, context.isEditingName, Array.from(this.#gridNames ?? []));
+    this.prompt = new CSSPropertyPrompt(this, context.isEditingName, Array.from(await this.gridNames()));
     this.prompt.setAutocompletionTimeout(0);
 
     this.prompt.addEventListener(UI.TextPrompt.Events.TextChanged, () => {
@@ -2296,6 +2302,9 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
     this.removePrompt();
     this.editingEnded(context);
     const isEditingName = context.isEditingName;
+    if (isEditingName) {
+      this.#gridNames = undefined;
+    }
     // If the underlying property has been ripped out, always assume that the value having been entered was
     // a name-value pair and attempt to process it via the SDK.
     if (!this.nameElement || !this.valueElement) {
@@ -2381,9 +2390,9 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
       // User just tabbed through without changes.
       if (moveTo && moveTo.parent) {
         if (isEditingName) {
-          moveTo.startEditingValue();
+          void moveTo.startEditingValue();
         } else {
-          moveTo.startEditingName();
+          void moveTo.startEditingName();
         }
         return;
       }
@@ -2403,14 +2412,14 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
           if (treeElement) {
             if (alreadyNew && blankInput) {
               if (moveDirection === 'forward') {
-                treeElement.startEditingName();
+                void treeElement.startEditingName();
               } else {
-                treeElement.startEditingValue();
+                void treeElement.startEditingValue();
               }
             } else if (!isEditingName || isPropertySplitPaste) {
-              treeElement.startEditingName();
+              void treeElement.startEditingName();
             } else {
-              treeElement.startEditingValue();
+              void treeElement.startEditingValue();
             }
             return;
           }
@@ -2426,7 +2435,7 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
           return;
         }
 
-        section.addNewBlankProperty().startEditingName();
+        void section.addNewBlankProperty().startEditingName();
         return;
       }
 
