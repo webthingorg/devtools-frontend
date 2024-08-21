@@ -829,7 +829,7 @@ ANSWER: this is the answer`,
         {
           step: Freestyler.Step.THOUGHT,
           id: '1-0',
-          text: 'I am thinking.',
+          thought: 'I am thinking.',
           title: undefined,
           rpcId: undefined,
         },
