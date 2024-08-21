@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99c4eb79_aa722db2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3542200
+      },
+      "writtenOn": "2024-08-21T22:59:14Z",
+      "side": 1,
+      "message": "Now that the backend changes in https://chromium-review.googlesource.com/c/chromium/src/+/5726981 have been merged, this is the last part of the changes needed to make network requests made within worklets show up in devtools.\n\nLet me know if there are tests that would be appropriate to add on this side as well and I\u0027ll be happy to add them!",
+      "revId": "d15d0b717853f7e0007f0cf0bf92cf6bf580c2ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
