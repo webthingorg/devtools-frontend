@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9c84a88_e79c4f6d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-21T05:17:08Z",
+      "side": 1,
+      "message": "Nice!\n\nBtw, while the i18n extraction code and format is still mostly the same with LH, I rewrote the runtime part of i18n a while ago because DevTools doesn\u0027t need to be able to switch locales during a session. That makes the impl a lot simpler and more performant.",
+      "revId": "1f0dcabbec1fbf6693cb212b42a8a4e9153897ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
