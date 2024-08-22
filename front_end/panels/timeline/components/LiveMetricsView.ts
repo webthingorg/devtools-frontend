@@ -482,6 +482,7 @@ export class LiveMetricsView extends LegacyWrapper.LegacyWrapper.WrappableCompon
       <${NetworkThrottlingSelector.litTagName} class="live-metrics-option"></${NetworkThrottlingSelector.litTagName}>
       <${Settings.SettingCheckbox.SettingCheckbox.litTagName} class="live-metrics-option" .data=${{
         setting: Common.Settings.Settings.instance().moduleSetting('cache-disabled'),
+        textOverride: 'Disable network cache',
       } as Settings.SettingCheckbox.SettingCheckboxData}>
       </${Settings.SettingCheckbox.SettingCheckbox.litTagName}>
     `;
