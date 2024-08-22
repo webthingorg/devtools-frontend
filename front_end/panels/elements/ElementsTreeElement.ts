@@ -310,6 +310,11 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
         const adorner = this.adorn(config);
         UI.Tooltip.Tooltip.install(adorner, i18nString(UIStrings.thisFrameWasIdentifiedAsAnAd));
       }
+
+      if (node.isScrollable()) {
+        this.pushScrollAdorner();
+      }
+      node.domModel().addEventListener(SDK.DOMModel.Events.ScrollbarFlagUpdated, this.updateScrollAdorner, this);
     }
     this.expandAllButtonElement = null;
   }
@@ -2442,6 +2447,30 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     });
 
     context.styleAdorners.push(adorner);
+  }
+  private updateScrollAdorner(
+      event: Common.EventTarget.EventTargetEvent<{nodeId: Protocol.DOM.NodeId, isScrollable: boolean}>): void {
+    if (!isOpeningTag(this.tagTypeContext)) {
+      return;
+    }
+    const {nodeId: nodeIdFromBackend, isScrollable} = event.data;
+    if (this.node().id === nodeIdFromBackend) {
+      if (isScrollable) {
+        this.pushScrollAdorner();
+      } else {
+        const scrollAdorner = this.tagTypeContext.adorners.find(x => x.name === 'scroll');
+        if (scrollAdorner) {
+          this.removeAdorner(scrollAdorner, this.tagTypeContext);
+        }
+      }
+    }
+  }
+
+  pushScrollAdorner(): void {
+    const config = ElementsComponents.AdornerManager.getRegisteredAdorner(
+        ElementsComponents.AdornerManager.RegisteredAdorners.SCROLL);
+    const adorner = this.adorn(config);
+    adorner.classList.add('scroll');
   }
 }
 
