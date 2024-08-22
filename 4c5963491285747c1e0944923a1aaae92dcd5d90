@@ -46,6 +46,30 @@
       },
       "revId": "4c5963491285747c1e0944923a1aaae92dcd5d90",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b8e8e1b_347e1f25",
+        "filename": "front_end/panels/timeline/components/insights/SidebarInsight.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-08-22T19:31:14Z",
+      "side": 1,
+      "message": "Ah, makes sense. Thanks!",
+      "parentUuid": "748b6dd6_168270bc",
+      "range": {
+        "startLine": 29,
+        "startChar": 21,
+        "endLine": 29,
+        "endChar": 37
+      },
+      "revId": "4c5963491285747c1e0944923a1aaae92dcd5d90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
