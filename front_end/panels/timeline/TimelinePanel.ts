@@ -1611,7 +1611,10 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
           entryTo: overlay.entryTo,
         });
       }
-      this.#sideBar.setAnnotations(currentManager.getAnnotations());
+
+      const annotations = currentManager.getAnnotations();
+      const annotationEntryToColorMap = this.buildColorsAnnotationsMap(annotations);
+      this.#sideBar.setAnnotations(annotations, annotationEntryToColorMap);
     });
 
     // Create breadcrumbs.
@@ -1635,7 +1638,9 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
       currModificationManager.getOverlays().forEach(overlay => {
         this.flameChart.addOverlay(overlay);
       });
-      this.#sideBar.setAnnotations(currModificationManager.getAnnotations());
+      const annotations = currModificationManager.getAnnotations();
+      const annotationEntryToColorMap = this.buildColorsAnnotationsMap(annotations);
+      this.#sideBar.setAnnotations(annotations, annotationEntryToColorMap);
     }
 
     // Set up line level profiling with CPU profiles, if we found any.
@@ -1680,6 +1685,42 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     } else {
       this.#splitWidget.hideSidebar();
     }
+  }
+
+  // Build a map mapping annotated entries to the colours that are used to display them in the FlameChart.
+  // We need this map to display the entries in the sidebar with the same colours.
+  private buildColorsAnnotationsMap(annotations: TraceEngine.Types.File.Annotation[]):
+      Map<TraceEngine.Types.TraceEvents.TraceEventData, string> {
+    const annotationEntryToColorMap = new Map<TraceEngine.Types.TraceEvents.TraceEventData, string>();
+
+    for (const annotation of annotations) {
+      if (TraceEngine.Types.File.isEntryLabelAnnotation(annotation)) {
+        annotationEntryToColorMap.set(annotation.entry, this.getEntryColorByEntry(annotation.entry));
+      } else if (TraceEngine.Types.File.isEntriesLinkAnnotation(annotation)) {
+        annotationEntryToColorMap.set(annotation.entryFrom, this.getEntryColorByEntry(annotation.entryFrom));
+        if (annotation.entryTo) {
+          annotationEntryToColorMap.set(annotation.entryTo, this.getEntryColorByEntry(annotation.entryTo));
+        }
+      }
+    }
+
+    return annotationEntryToColorMap;
+  }
+
+  private getEntryColorByEntry(entry: TraceEngine.Types.TraceEvents.TraceEventData): string {
+    const mainIndex = this.flameChart.getMainDataProvider().indexForEvent(entry);
+    const networkIndex = this.flameChart.getNetworkDataProvider().indexForEvent(entry);
+    if (mainIndex) {
+      const color = this.flameChart.getMainDataProvider().entryColor(mainIndex);
+      return color;
+    }
+    if (networkIndex) {
+      const color = this.flameChart.getNetworkDataProvider().entryColor(networkIndex);
+      return color;
+    }
+
+    console.warn('Could not get entry color for ', entry);
+    return 'white';
   }
 
   private recordingStarted(config?: {navigateToUrl: Platform.DevToolsPath.UrlString}): void {
