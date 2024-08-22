@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "45b8e42c_1e4397c8",
+        "filename": "front_end/panels/timeline/components/insights/LCPRenderBlocking.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-08-22T02:46:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c85f733a_7db8f3ec",
+      "revId": "2b94e93b331f339ff658a071de80a0ea69ebe6d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c3a74c22_61e50ff4",
@@ -35,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4368458e_c61066d8",
+        "filename": "front_end/panels/timeline/components/insights/SidebarInsight.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-08-22T02:46:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c3a74c22_61e50ff4",
+      "revId": "2b94e93b331f339ff658a071de80a0ea69ebe6d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1d00d83e_ebe75cda",
@@ -48,6 +84,24 @@
       "writtenOn": "2024-08-21T19:02:10Z",
       "side": 1,
       "message": "I would prefer if this wasn\u0027t a static color in case the savings are very big. Would making this bold for now work?",
+      "revId": "2b94e93b331f339ff658a071de80a0ea69ebe6d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6a4a8eb_ab91ddcf",
+        "filename": "front_end/panels/timeline/components/insights/sidebarInsight.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 138,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-08-22T02:46:31Z",
+      "side": 1,
+      "message": "ah yep, sure! Done",
+      "parentUuid": "1d00d83e_ebe75cda",
       "revId": "2b94e93b331f339ff658a071de80a0ea69ebe6d9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

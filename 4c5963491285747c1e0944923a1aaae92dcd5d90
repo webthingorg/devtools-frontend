@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11f75a4c_8da74953",
+        "filename": "front_end/panels/timeline/components/insights/SidebarInsight.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-08-22T02:46:31Z",
+      "side": 1,
+      "message": "@asraine@chromium.org is there a reason why these aren\u0027t of type milliseconds instead?",
+      "range": {
+        "startLine": 29,
+        "startChar": 21,
+        "endLine": 29,
+        "endChar": 37
+      },
+      "revId": "4c5963491285747c1e0944923a1aaae92dcd5d90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
