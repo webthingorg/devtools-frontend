@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f18a3b2_47d9ff2a",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1723,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-08-22T15:15:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a78fb806_eb259d97",
+      "range": {
+        "startLine": 1723,
+        "startChar": 12,
+        "endLine": 1723,
+        "endChar": 17
+      },
+      "revId": "9aefd0691bc55b90cb1966c3d98236a93f3e6cbe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6744f0e1_582f8f24",
@@ -61,6 +85,30 @@
           ]
         }
       ],
+      "revId": "9aefd0691bc55b90cb1966c3d98236a93f3e6cbe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "758fdc6d_8f434f95",
+        "filename": "front_end/panels/timeline/components/SidebarAnnotationsTab.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-08-22T15:15:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6744f0e1_582f8f24",
+      "range": {
+        "startLine": 90,
+        "startChar": 8,
+        "endLine": 108,
+        "endChar": 26
+      },
       "revId": "9aefd0691bc55b90cb1966c3d98236a93f3e6cbe",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
