@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "534548e6_b259a106",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-08-22T11:53:00Z",
+      "side": 1,
+      "message": "I was thinking of have a formatter for Markdown as well, since we\u0027re kind of inconsistent right now. I\u0027m open to suggestions.",
+      "parentUuid": "34f9a590_8dda19c1",
+      "revId": "7001ebe4ce099b71246f810aa4861ed23b6643e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "80037a73_19a1da32",
@@ -66,6 +84,24 @@
       "writtenOn": "2024-08-22T11:29:05Z",
       "side": 1,
       "message": "[non-blocking] It seems unusual for one repository to dictate how patches against another repository should be handled. WDYT about hosting this section in the README on https://github.com/ChromeDevTools/devtools-dbg-stories instead? That way, if something changes upstream, the docs specific to that repo could be changed in one go.",
+      "revId": "7001ebe4ce099b71246f810aa4861ed23b6643e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5833b94a_7bcadadf",
+        "filename": "docs/contributing/changes.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-08-22T11:53:00Z",
+      "side": 1,
+      "message": "Nice idea!",
+      "parentUuid": "80037a73_19a1da32",
       "revId": "7001ebe4ce099b71246f810aa4861ed23b6643e3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
