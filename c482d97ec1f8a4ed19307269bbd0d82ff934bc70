@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fe376cd_d94c9f25",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1552597
+      },
+      "writtenOn": "2024-08-22T21:29:38Z",
+      "side": 1,
+      "message": "LGTM with one nit!",
+      "revId": "c482d97ec1f8a4ed19307269bbd0d82ff934bc70",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42e0ef3f_d1d40e43",
+        "filename": "front_end/panels/timeline/components/MetricCard.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1552597
+      },
+      "writtenOn": "2024-08-22T21:29:38Z",
+      "side": 1,
+      "message": "Nit, and know this is only a comment, but I think we should explicitly avoid \"interaction\" since scrolling it not counted as an \"interaction\" for INP (https://web.dev/articles/inp#whats_in_an_interaction). I know intract and interaction are the same thing, and this is CLS, but still would prefer to avoid.\n\n```suggestion\n   * @description Text block explaining how a user interacts with the page can cause different amounts of layout shifts.\n```",
+      "revId": "c482d97ec1f8a4ed19307269bbd0d82ff934bc70",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
