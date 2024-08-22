@@ -378,7 +378,7 @@ const resolveScope = async(script: SDK.Script.Script, scopeChain: Formatter.Form
 export const resolveScopeChain =
     async function(callFrame: SDK.DebuggerModel.CallFrame): Promise<SDK.DebuggerModel.ScopeChainEntry[]> {
   const {pluginManager} = Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance();
-  const scopeChain = await pluginManager.resolveScopeChain(callFrame);
+  let scopeChain: SDK.DebuggerModel.ScopeChainEntry[]|null|undefined = await pluginManager.resolveScopeChain(callFrame);
   if (scopeChain) {
     return scopeChain;
   }
@@ -387,6 +387,14 @@ export const resolveScopeChain =
     return callFrame.scopeChain();
   }
   const thisObject = await resolveThisObject(callFrame);
+
+  const sourceMap = await callFrame.script.debuggerModel.sourceMapManager().sourceMapForClientPromise(callFrame.script);
+  // scopeChain = await sourceMap?.scopeInfo()?.resolveScopeChain(callFrame, sourceMap.findEntry(callFrame.location().lineNumber, callFrame.location().columnNumber, callFrame.inlineFrameIndex)!);
+  scopeChain = await sourceMap?.scopeInfo()?.resolveMappedScopeChain(callFrame);
+  if (scopeChain) {
+    return scopeChain;
+  }
+
   return callFrame.scopeChain().map(scope => new ScopeWithSourceMappedVariables(scope, thisObject));
 };
 
@@ -803,6 +811,11 @@ async function getFunctionNameFromScopeStart(
 }
 
 export async function resolveDebuggerFrameFunctionName(frame: SDK.DebuggerModel.CallFrame): Promise<string|null> {
+  const sourceMap = await frame.debuggerModel.sourceMapManager().sourceMapForClientPromise(frame.script);
+  const name = sourceMap?.scopeInfo()?.findFunctionName(frame);
+  if (typeof name === 'string') {
+    return name;
+  }
   const startLocation = frame.localScope()?.range()?.start;
   if (!startLocation) {
     return null;

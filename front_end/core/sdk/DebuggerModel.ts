@@ -685,10 +685,11 @@ export class DebuggerModel extends SDKModel<EventTypes> {
     // We should change this so the "Debugger Plugin" and "Source Map" have a bottle neck where they expand
     // call frames and that bottleneck should support attaching/detaching source maps while paused.
     const finalFrames: CallFrame[] = [];
-    for (const frame of pausedDetails.callFrames) {
+    for (let i = 0; i < pausedDetails.callFrames.length; ++i) {
+      const frame = pausedDetails.callFrames[i];
       const sourceMap = await this.sourceMapManager().sourceMapForClientPromise(frame.script);
       if (sourceMap?.hasScopeInfo()) {
-        finalFrames.push(...sourceMap.expandCallFrame(frame));
+        finalFrames.push(...sourceMap.expandCallFrame(frame, pausedDetails.callFrames[i - 1]));
       } else {
         finalFrames.push(frame);
       }

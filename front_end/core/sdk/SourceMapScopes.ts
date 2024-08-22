@@ -30,6 +30,8 @@ export interface OriginalScope {
   name?: string;
   variables: string[];
   children: OriginalScope[];
+  parent?: OriginalScope;
+  index: number;
 }
 
 /**
@@ -87,10 +89,10 @@ interface OriginalScopeTree {
 }
 
 export function decodeOriginalScopes(encodedOriginalScopes: string[], names: string[]): OriginalScopeTree[] {
-  return encodedOriginalScopes.map(scope => decodeOriginalScope(scope, names));
+  return encodedOriginalScopes.map((scope, index) => decodeOriginalScope(scope, index, names));
 }
 
-function decodeOriginalScope(encodedOriginalScope: string, names: string[]): OriginalScopeTree {
+function decodeOriginalScope(encodedOriginalScope: string, originalIndex: number, names: string[]): OriginalScopeTree {
   const scopeForItemIndex = new Map<number, OriginalScope>();
   const scopeStack: OriginalScope[] = [];
   let line = 0;
@@ -107,7 +109,8 @@ function decodeOriginalScope(encodedOriginalScope: string, names: string[]): Ori
       }
       const name = resolveName(item.name, names);
       const variables = item.variables.map(idx => names[idx]);
-      const scope: OriginalScope = {start: {line, column}, end: {line, column}, kind, name, variables, children: []};
+      const scope: OriginalScope =
+          {start: {line, column}, end: {line, column}, kind, name, variables, children: [], index: originalIndex};
       scopeStack.push(scope);
       scopeForItemIndex.set(index, scope);
     } else {
@@ -121,6 +124,7 @@ function decodeOriginalScope(encodedOriginalScope: string, names: string[]): Ori
         // We are done. There might be more top-level scopes but we only allow one.
         return {root: scope, scopeForItemIndex};
       }
+      scope.parent = scopeStack[scopeStack.length - 1];
       scopeStack[scopeStack.length - 1].children.push(scope);
     }
   }

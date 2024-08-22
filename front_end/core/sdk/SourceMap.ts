@@ -112,16 +112,18 @@ export function parseSourceMap(content: string): SourceMapV3 {
 export class SourceMapEntry {
   lineNumber: number;
   columnNumber: number;
+  sourceIndex: number;
   sourceURL: Platform.DevToolsPath.UrlString|undefined;
   sourceLineNumber: number;
   sourceColumnNumber: number;
   name: string|undefined;
 
   constructor(
-      lineNumber: number, columnNumber: number, sourceURL?: Platform.DevToolsPath.UrlString, sourceLineNumber?: number,
-      sourceColumnNumber?: number, name?: string) {
+      lineNumber: number, columnNumber: number, sourceIndex: number, sourceURL?: Platform.DevToolsPath.UrlString,
+      sourceLineNumber?: number, sourceColumnNumber?: number, name?: string) {
     this.lineNumber = lineNumber;
     this.columnNumber = columnNumber;
+    this.sourceIndex = sourceIndex;
     this.sourceURL = sourceURL;
     this.sourceLineNumber = (sourceLineNumber as number);
     this.sourceColumnNumber = (sourceColumnNumber as number);
@@ -240,6 +242,11 @@ export class SourceMap {
     return this.#scopesInfo !== null;
   }
 
+  scopeInfo(): SourceMapScopesInfo|null {
+    this.#ensureMappingsProcessed();
+    return this.#scopesInfo;
+  }
+
   findEntry(lineNumber: number, columnNumber: number, inlineFrameIndex?: number): SourceMapEntry|null {
     this.#ensureMappingsProcessed();
     if (inlineFrameIndex && this.#scopesInfo !== null) {
@@ -254,6 +261,7 @@ export class SourceMap {
       return {
         lineNumber,
         columnNumber,
+        sourceIndex: callsite.sourceIndex,
         sourceURL: this.sourceURLs()[callsite.sourceIndex],
         sourceLineNumber: callsite.line,
         sourceColumnNumber: callsite.column,
@@ -533,7 +541,7 @@ export class SourceMap {
 
       columnNumber += tokenIter.nextVLQ();
       if (!tokenIter.hasNext() || this.isSeparator(tokenIter.peek())) {
-        this.mappings().push(new SourceMapEntry(lineNumber, columnNumber));
+        this.mappings().push(new SourceMapEntry(lineNumber, columnNumber, sourceIndex));
         continue;
       }
 
@@ -549,13 +557,13 @@ export class SourceMap {
 
       if (!tokenIter.hasNext() || this.isSeparator(tokenIter.peek())) {
         this.mappings().push(
-            new SourceMapEntry(lineNumber, columnNumber, sourceURL, sourceLineNumber, sourceColumnNumber));
+            new SourceMapEntry(lineNumber, columnNumber, sourceIndex, sourceURL, sourceLineNumber, sourceColumnNumber));
         continue;
       }
 
       nameIndex += tokenIter.nextVLQ();
       this.mappings().push(new SourceMapEntry(
-          lineNumber, columnNumber, sourceURL, sourceLineNumber, sourceColumnNumber, names[nameIndex]));
+          lineNumber, columnNumber, sourceIndex, sourceURL, sourceLineNumber, sourceColumnNumber, names[nameIndex]));
     }
 
     if (Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.USE_SOURCE_MAP_SCOPES)) {
@@ -645,7 +653,7 @@ export class SourceMap {
 
   #parseScopes(map: SourceMapV3Object): void {
     if (map.originalScopes && map.generatedRanges) {
-      this.#scopesInfo = SourceMapScopesInfo.parseFromMap(map);
+      this.#scopesInfo = SourceMapScopesInfo.parseFromMap(this, map);
     }
   }
 
@@ -823,7 +831,7 @@ export class SourceMap {
         this.hasIgnoreListHint(sourceURL) === other.hasIgnoreListHint(sourceURL);
   }
 
-  expandCallFrame(frame: CallFrame): CallFrame[] {
+  expandCallFrame(frame: CallFrame, previousFrame?: CallFrame): CallFrame[] {
     this.#ensureMappingsProcessed();
     if (this.#scopesInfo === null) {
       return [frame];
@@ -834,6 +842,9 @@ export class SourceMap {
     const result: CallFrame[] = [];
     for (const [index, fn] of functionNames.entries()) {
       result.push(frame.createVirtualCallFrame(index, fn.name));
+    }
+    if (result.length > 0 || !previousFrame || this.#scopesInfo.hasOriginalScope(frame)) {
+      result.push(frame.createVirtualCallFrame(result.length, frame.functionName));
     }
     return result;
   }
