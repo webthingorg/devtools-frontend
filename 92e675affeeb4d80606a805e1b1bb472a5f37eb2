@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c75d7c43_90b7de16",
+        "filename": "front_end/models/source_map_scopes/ExtensionContext.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1554938
+      },
+      "writtenOn": "2024-08-22T21:57:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d10b96ca_f9ea4a82",
+      "revId": "92e675affeeb4d80606a805e1b1bb472a5f37eb2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "37cdcffb_e1ba1bc1",
@@ -48,6 +66,24 @@
       "writtenOn": "2024-08-20T22:24:06Z",
       "side": 1,
       "message": "...the `content` you pass here also corresponds to the `compiled.js` file, not the `source-file-1.ts` file. So you\u0027re not really succeeding in getting unminified names, except for some callbacks.",
+      "revId": "92e675affeeb4d80606a805e1b1bb472a5f37eb2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f5cdba2_8fb77867",
+        "filename": "front_end/models/source_map_scopes/ExtensionContext.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1554938
+      },
+      "writtenOn": "2024-08-22T21:57:58Z",
+      "side": 1,
+      "message": "That\u0027s right. Thanks for catching this!",
+      "parentUuid": "37cdcffb_e1ba1bc1",
       "revId": "92e675affeeb4d80606a805e1b1bb472a5f37eb2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
