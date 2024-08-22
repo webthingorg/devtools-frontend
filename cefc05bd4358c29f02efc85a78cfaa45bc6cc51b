@@ -1,0 +1,79 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2601df63_7819c8f3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1243185
+      },
+      "writtenOn": "2024-08-22T21:49:54Z",
+      "side": 1,
+      "message": "LGTM2!\n\nMy only other comment is it may be worth eventually getting user feedback on the strings to see if a more terse version (e.g. drop \"Consider...\" in favor of just telling them directly to try something) doesn\u0027t deter or discourage anyone",
+      "revId": "cefc05bd4358c29f02efc85a78cfaa45bc6cc51b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15fa20a7_45eb6c9f",
+        "filename": "front_end/panels/timeline/components/MetricCard.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1243185
+      },
+      "writtenOn": "2024-08-22T21:49:54Z",
+      "side": 1,
+      "message": "```suggestion\n      \u0027How a user interacts with the page influences interaction delays. Consider testing common interactions.\u0027,\n```\n\nSeems worth being concrete in this case since user interactions are the only things that can trigger INP",
+      "range": {
+        "startLine": 119,
+        "startChar": 0,
+        "endLine": 119,
+        "endChar": 6
+      },
+      "revId": "cefc05bd4358c29f02efc85a78cfaa45bc6cc51b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "212db808_2c04ef8d",
+        "filename": "front_end/panels/timeline/components/MetricCard.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1243185
+      },
+      "writtenOn": "2024-08-22T21:49:54Z",
+      "side": 1,
+      "message": "Thinking about advice fatigue, is it possible to add extra logic to gate this (or gate it as part of Type 3 or 4 or whatever :) on unreasonable viewports?\n\nDifferent viewports do trigger different LCPs, but e.g. if you\u0027re testing with a pretty typical desktop viewport it\u0027s unlikely that both\n1) the viewport is the most likely reason the local LCP is significantly different than the field LCP\n_and_\n2) that by tweaking your viewport you\u0027ll discover that moving from 16:10 to 16:9 or whatever better matches your typical user\n\nMaybe only show these viewport strings if the window is outside some aspect ratio ranges defined for mobile and desktop? (can probably pull those from UMA, definitely in UKM)",
+      "fixSuggestions": [
+        {
+          "fixId": "de789681_0cb842ff",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/components/MetricCard.ts",
+              "range": {
+                "startLine": 105,
+                "startChar": 0,
+                "endLine": 106,
+                "endChar": 0
+              },
+              "replacement": "  recViewportLCP: \u0027Screen size can influence what the LCP element is. Consider testing different viewport sizes. For example, a viewport that is too small may cause the LCP element to be below the fold.\u0027,\n"
+            }
+          ]
+        }
+      ],
+      "revId": "cefc05bd4358c29f02efc85a78cfaa45bc6cc51b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
