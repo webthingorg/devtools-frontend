@@ -17,6 +17,7 @@ export const loadComponentDocExample = async (urlComponent: string) => {
   url.searchParams.set('fontFamily', fontsByPlatform[platform]);
   await frontend.goto(url.toString(), {
     waitUntil: 'networkidle0',
+    timeout: 5_000,
   });
   // Hide the outer UI to prevent interaction tests from accidentally clicking on it.
   await frontend.evaluate(() => window.dispatchEvent(new Event('hidecomponentdocsui')));
@@ -28,10 +29,7 @@ export const preloadForCodeCoverage = (name: string) => {
   }
 
   before(async function() {
-    this.timeout(0);
     const {frontend} = getBrowserAndPages();
-    // Double Puppeteer's Default
-    frontend.setDefaultNavigationTimeout(60_000);
     await frontend.setExtraHTTPHeaders({
       'devtools-compute-coverage': '1',
     });
