@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93983b65_035f8c9f",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 3848,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-08-22T10:32:47Z",
+      "side": 1,
+      "message": "nits\n```suggestion\n  EntriesLinkAnnotationCreated \u003d \u0027EntriesLinkAnnotationCreated,\n  ```",
+      "range": {
+        "startLine": 3848,
+        "startChar": 34,
+        "endLine": 3848,
+        "endChar": 62
+      },
+      "revId": "044c8ac0cc93aed4a5fb2245ae73c48407efe93b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "259be4f7_85346840",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 3874,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-08-22T10:32:47Z",
+      "side": 1,
+      "message": "Some idea about the name, maybe do in a separate CL\nSo I feel the \u0027Link\u0027 here is a little bit confusing, I initially feel this is the url of the event, so maybe change to a more unique name?",
+      "range": {
+        "startLine": 3874,
+        "startChar": 10,
+        "endLine": 3874,
+        "endChar": 38
+      },
+      "revId": "044c8ac0cc93aed4a5fb2245ae73c48407efe93b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
