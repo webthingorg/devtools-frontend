@@ -85,6 +85,46 @@ const UIStrings = {
    * @description Label for a tooltip that provides more details.
    */
   viewCardDetails: 'View card details',
+  /**
+   * @description Text block recommending a site developer look at their test environment followed by bullet points that highlight specific things about the test environment.
+   */
+  considerTesting: 'Consider the test conditions:',
+  /**
+   * @description Text block explaining how network conditions affect LCP and recommends network throttling to simulate different network conditions.
+   */
+  recThrottlingLCP:
+      'Real users may experience longer page loads due to slower network conditions. Increasing network throttling will simulate slower network conditions.',
+  /**
+   * @description Text block explaining how CPU speed affects INP and recommends CPU throttling to simulate different device CPUs.
+   */
+  recThrottlingINP:
+      'Real users may experience longer interactions due to slower CPU speeds. Increasing CPU throttling will simulate a slower device.',
+  /**
+   * @description Text block explaining viewport size can affect LCP.
+   */
+  recViewportLCP: 'Screen size can influence what the LCP element is. Consider testing different viewport sizes.',
+  /**
+   * @description Text block explaining viewport size can affect CLS/layout shifts.
+   */
+  recViewportCLS: 'Screen size can influence what layout shifts happen. Consider testing different viewport sizes.',
+  /**
+   * @description Text block explaining how different interactions can cause different amounts of layout shifts.
+   */
+  recJourneyCLS:
+      'How a user interacts with the page can create different layout shifts. Consider testing common interactions like scrolling the page.',
+  /**
+   * @description Text block explaining how different interactions can have different delays.
+   */
+  recJourneyINP:
+      'How a user interacts with the page can cause different interaction delays. Consider testing common interactions.',
+  /**
+   * @description Text block explaining how dynamic content can affect LCP.
+   */
+  recDynamicContentLCP: 'The LCP element can vary between page loads if content is dynamic.',
+  /**
+   * @description Text block explaining how dynamic content can affect CLS/layout shifts.
+   */
+  recDynamicContentCLS: 'Dynamic content can influence what layout shifts happen.',
 };
 
 const str_ = i18n.i18n.registerUIStrings('panels/timeline/components/MetricCard.ts', UIStrings);
@@ -275,6 +315,9 @@ export class MetricCard extends HTMLElement {
     return fieldValue;
   }
 
+  /**
+   * Returns if the local value is better/worse/similar compared to field.
+   */
   #getCompareRating(): 'better'|'worse'|'similar'|undefined {
     const localValue = this.#getLocalValue();
     const fieldValue = this.#getFieldValue();
@@ -330,6 +373,55 @@ export class MetricCard extends HTMLElement {
       </div>
     `;
     // clang-format on
+  }
+
+  #renderEnvironmentRecommendations(): LitHtml.LitTemplate {
+    const compare = this.#getCompareRating();
+    if (!compare || compare === 'similar') {
+      return LitHtml.nothing;
+    }
+
+    const recs: string[] = [];
+    const metric = this.#data.metric;
+
+    // Recommend using throttling
+    if (metric === 'LCP' && compare === 'better') {
+      recs.push(i18nString(UIStrings.recThrottlingLCP));
+    } else if (metric === 'INP' && compare === 'better') {
+      recs.push(i18nString(UIStrings.recThrottlingINP));
+    }
+
+    // Recommend trying new viewport sizes
+    if (metric === 'LCP') {
+      recs.push(i18nString(UIStrings.recViewportLCP));
+    } else if (metric === 'CLS') {
+      recs.push(i18nString(UIStrings.recViewportCLS));
+    }
+
+    // Recommend trying new user journeys
+    if (metric === 'CLS') {
+      recs.push(i18nString(UIStrings.recJourneyCLS));
+    } else if (metric === 'INP') {
+      recs.push(i18nString(UIStrings.recJourneyINP));
+    }
+
+    // Recommend accounting for dynamic content
+    if (metric === 'LCP') {
+      recs.push(i18nString(UIStrings.recDynamicContentLCP));
+    } else if (metric === 'CLS') {
+      recs.push(i18nString(UIStrings.recDynamicContentCLS));
+    }
+
+    if (!recs.length) {
+      return LitHtml.nothing;
+    }
+
+    return html`
+      <div class="environment-recs-intro">${i18nString(UIStrings.considerTesting)}</div>
+      <ul class="environment-recs">
+        ${recs.map(rec => html`<li>${rec}</li>`)}
+      </ul>
+    `;
   }
 
   #getMetricValueLogContext(isLocal: boolean): string {
@@ -501,6 +593,7 @@ export class MetricCard extends HTMLElement {
         </div>
         ${fieldEnabled ? html`<hr class="divider">` : nothing}
         ${this.#renderCompareString()}
+        ${this.#renderEnvironmentRecommendations()}
         <slot name="extra-info"><slot>
       </div>
     `;
