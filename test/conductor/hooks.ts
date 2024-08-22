@@ -199,9 +199,13 @@ export async function setupPages(currentTest: string|undefined) {
 export async function resetPages(currentTest: string|undefined) {
   const {frontend, target} = getBrowserAndPages();
 
+  await new Promise(resolve => setTimeout(resolve, 100));
   await watchForHang(currentTest, () => target.bringToFront());
+  await new Promise(resolve => setTimeout(resolve, 100));
   await watchForHang(currentTest, () => targetTab.reset());
+  await new Promise(resolve => setTimeout(resolve, 100));
   await watchForHang(currentTest, () => frontend.bringToFront());
+  await new Promise(resolve => setTimeout(resolve, 100));
 
   if (TestConfig.serverType === 'hosted-mode') {
     await watchForHang(currentTest, () => frontendTab.reset());
