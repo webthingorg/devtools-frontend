@@ -34,6 +34,40 @@
       "parentUuid": "a87e958f_8748c197",
       "revId": "7001ebe4ce099b71246f810aa4861ed23b6643e3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34f9a590_8dda19c1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2024-08-22T11:29:05Z",
+      "side": 1,
+      "message": "Content LGTM.\n\nQuestion: Is the hard-wrapping intentional? We didn’t hard-wrap Markdown before but I’ve noticed these changes (and your earlier CLs) now do it.\n\n1. If so, we should update `.editorconfig` accordingly, and apply this preference to the entire file (not just the new sections), and all other Markdown files in this repo.\n2. If not, we should not selectively hard-wrap.\n\n(non-blocking; whatever option you prefer can be done as a follow-up)",
+      "revId": "7001ebe4ce099b71246f810aa4861ed23b6643e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80037a73_19a1da32",
+        "filename": "docs/contributing/changes.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 145,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2024-08-22T11:29:05Z",
+      "side": 1,
+      "message": "[non-blocking] It seems unusual for one repository to dictate how patches against another repository should be handled. WDYT about hosting this section in the README on https://github.com/ChromeDevTools/devtools-dbg-stories instead? That way, if something changes upstream, the docs specific to that repo could be changed in one go.",
+      "revId": "7001ebe4ce099b71246f810aa4861ed23b6643e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
