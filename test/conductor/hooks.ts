@@ -102,7 +102,6 @@ function launchChrome() {
   ];
 
   const disabledFeatures = [
-    'DeferRendererTasksAfterInput',  // crbug.com/361078921
     'PMProcessPriorityPolicy',       // crbug.com/361252079
   ];
   const launchArgs = [
