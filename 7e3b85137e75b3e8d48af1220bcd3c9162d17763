@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "df9c1c9c_bc4bc6e8",
+        "filename": "docs/contributing/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-08-22T06:07:32Z",
+      "side": 1,
+      "message": "I\u0027ll update the link to point to this file once the I have completely subsumed that document.",
+      "parentUuid": "61a45426_ac1c8951",
+      "revId": "7e3b85137e75b3e8d48af1220bcd3c9162d17763",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6e4331ed_9d28e47a",
@@ -65,6 +83,24 @@
       "writtenOn": "2024-08-21T18:38:26Z",
       "side": 1,
       "message": "Indentation level is one off",
+      "revId": "7e3b85137e75b3e8d48af1220bcd3c9162d17763",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9861c319_f0915038",
+        "filename": "docs/contributing/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-08-22T06:07:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e4331ed_9d28e47a",
       "revId": "7e3b85137e75b3e8d48af1220bcd3c9162d17763",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -86,6 +122,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d749863_b3609061",
+        "filename": "docs/contributing/changes.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-08-22T06:07:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6626edbe_bccb56d8",
+      "revId": "7e3b85137e75b3e8d48af1220bcd3c9162d17763",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2e3e548a_dac038f9",
@@ -99,6 +153,24 @@
       "writtenOn": "2024-08-21T18:38:26Z",
       "side": 1,
       "message": "If it\u0027s google internal should this be in the public docs? Also below",
+      "revId": "7e3b85137e75b3e8d48af1220bcd3c9162d17763",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a65ca524_577fde7d",
+        "filename": "docs/contributing/design.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-08-22T06:07:32Z",
+      "side": 1,
+      "message": "Yes. I\u0027ve checked with Chromium docs and they also mentioned a lot of Googler only information. In general I think it\u0027s important to have all the information on one topic in a single place.",
+      "parentUuid": "2e3e548a_dac038f9",
       "revId": "7e3b85137e75b3e8d48af1220bcd3c9162d17763",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
