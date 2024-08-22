@@ -28,7 +28,7 @@ export const preloadForCodeCoverage = (name: string) => {
   }
 
   before(async function() {
-    this.timeout(0);
+    this.timeout(80_000);
     const {frontend} = getBrowserAndPages();
     // Double Puppeteer's Default
     frontend.setDefaultNavigationTimeout(60_000);
