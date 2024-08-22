@@ -522,6 +522,8 @@ const colorAwareProperties = new Set<string>([
   'stroke',
   'text-decoration-color',
   'text-shadow',
+  'text-emphasis',
+  'text-emphasis-color',
   '-webkit-border-after',
   '-webkit-border-after-color',
   '-webkit-border-before',
@@ -557,6 +559,22 @@ const angleAwareProperties = new Set<string>([
   'offset',
   'offset-rotate',
   'font-style',
+]);
+
+const textEmphasisPosition = new Set([
+  'over',
+  'under',
+  'over right',  // Initial value
+  'over left',
+  'under right',
+  'under left',
+]);
+
+// https://drafts.csswg.org/css-text-decor/#text-emphasis-style-property
+const textEmphasisStyle = new Set([
+  'none', 'dot', 'circle', 'double-circle', 'triangle', 'sesame', 'filled', 'open', 'dot open', 'circle open',
+  'double-circle open', 'triangle open', 'sesame open',
+  '"❤️"',  // <string>
 ]);
 
 // manually maintained list of property #values to add into autocomplete list
@@ -607,7 +625,8 @@ const extraPropertyValues = new Map<string, Set<string>>([
     ]),
   ],
   ['dominant-baseline', new Set(['text-before-edge', 'text-after-edge', 'use-script', 'no-change', 'reset-size'])],
-  ['-webkit-text-emphasis-position', new Set(['over', 'under'])],
+  ['text-emphasis-position', textEmphasisPosition],
+  ['-webkit-text-emphasis-position', textEmphasisPosition],
   ['alignment-baseline', new Set(['before-edge', 'after-edge', 'text-before-edge', 'text-after-edge', 'hanging'])],
   ['page-break-before', new Set(['left', 'right', 'always', 'avoid'])],
   ['border-image', new Set(['repeat', 'stretch', 'space', 'round'])],
@@ -694,7 +713,8 @@ const extraPropertyValues = new Map<string, Set<string>>([
   ],
   ['vertical-align', new Set(['top', 'bottom', '-webkit-baseline-middle'])],
   ['page-break-after', new Set(['left', 'right', 'always', 'avoid'])],
-  ['-webkit-text-emphasis-style', new Set(['circle', 'filled', 'open', 'dot', 'double-circle', 'triangle', 'sesame'])],
+  ['text-emphasis-style', textEmphasisStyle],
+  ['-webkit-text-emphasis-style', textEmphasisStyle],
   [
     'transform',
     new Set([
