@@ -1,0 +1,68 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a78fb806_eb259d97",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1723,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-08-22T14:34:01Z",
+      "side": 1,
+      "message": "Let\u0027s use `--app-color-system`, which is the fall back color we used for default network request.\n```suggestion\n    return \u0027ThemeSupport.ThemeSupport.instance().getComputedValue(\u0027--app-color-system\u0027)\u0027;\n```",
+      "range": {
+        "startLine": 1723,
+        "startChar": 12,
+        "endLine": 1723,
+        "endChar": 17
+      },
+      "revId": "9aefd0691bc55b90cb1966c3d98236a93f3e6cbe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6744f0e1_582f8f24",
+        "filename": "front_end/panels/timeline/components/SidebarAnnotationsTab.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-08-22T14:34:01Z",
+      "side": 1,
+      "message": "nits: add the indent",
+      "range": {
+        "startLine": 90,
+        "startChar": 8,
+        "endLine": 108,
+        "endChar": 26
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "b86c9df5_bbc9bdc9",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/components/SidebarAnnotationsTab.ts",
+              "range": {
+                "startLine": 91,
+                "startChar": 0,
+                "endLine": 108,
+                "endChar": 0
+              },
+              "replacement": "        return LitHtml.html`\n          \u003cdiv class\u003d\"entries-link\"\u003e\n            \u003cspan class\u003d\"annotation-identifier\"  style\u003d\"background-color: ${fromColor}\"\u003e\n              ${entryFromName}\n            \u003c/span\u003e\n            \u003c${IconButton.Icon.Icon.litTagName} class\u003d\"inline-icon\" .data\u003d${{\n              iconName: \u0027arrow-forward\u0027,\n              color: \u0027var(--icon-default)\u0027,\n              width: \u002718px\u0027,\n              height: \u002718px\u0027,\n            } as IconButton.Icon.IconData}\u003e\n            \u003c/${IconButton.Icon.Icon.litTagName}\u003e\n            ${(entryToName !\u003d\u003d \u0027\u0027 ?\n              LitHtml.html`\u003cspan class\u003d\"annotation-identifier\" style\u003d\"background-color: ${toColor}\" \u003e${entryToName}\u003c/span\u003e`\n            : \u0027\u0027)}\n          \u003c/div\u003e\n        `;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "9aefd0691bc55b90cb1966c3d98236a93f3e6cbe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
