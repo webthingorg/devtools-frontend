@@ -237,6 +237,10 @@ export class TimelineLoader implements Common.StringOutputStream.OutputStream {
     return this.#traceIsCPUProfile;
   }
 
+  public isEnhancedTraces(): boolean {
+    return this.#metadata?.enhancedTraceVersion !== undefined;
+  }
+
   private async finalizeTrace(): Promise<void> {
     await (this.client as Client)
         .loadingComplete(

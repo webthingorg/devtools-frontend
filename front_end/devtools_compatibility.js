@@ -1134,7 +1134,13 @@ const InspectorFrontendHostImpl = class {
   recordKeyDown(keyDownEvent) {
     DevToolsAPI.sendMessageToEmbedder('recordKeyDown', [keyDownEvent], null);
   }
-
+  /**
+   * @override
+   * @param {InspectorFrotnendHostAPI.File} file
+   */
+  launchRehydrationDevtools(file) {
+    console.error('Rehydration session not yet supported in native mode, please use hosted mode for file ' + file);
+  }
   // Backward-compatible methods below this line --------------------------------------------
 
   /**

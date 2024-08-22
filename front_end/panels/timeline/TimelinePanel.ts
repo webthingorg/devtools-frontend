@@ -551,6 +551,21 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
       },
       targetRemoved: (_: SDK.Target.Target) => {},
     });
+
+    if (Root.Runtime.getPathName().includes('rehydrated_devtools_app')) {
+      // const rehydratingConnection = RehydratingConnection.getRehydratingConnection();
+      // if (!rehydratingConnection.readyToLoad()) {
+      //   // most likely not ready yet, set a callback to get get it set up
+      //   rehydratingConnection.setLoadCallback(this.#setUpRehydratedDevtools);
+      // } else {
+      //   this.#setUpRehydratedDevtools(rehydratingConnection.traceEvnets);
+      // }
+    }
+  }
+
+  #setUpRehydratedDevtools(traceEvents: TraceEngine.Types.TraceEvents.TraceEventData[]) {
+    this.prepareToLoadTimeline();
+    // this.loader = TimelineLoader.loadFromEvents(traceEvents, this);
   }
 
   #setActiveInsight(insight: TimelineComponents.Sidebar.ActiveInsight|null): void {
@@ -1144,9 +1159,15 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     if (this.state !== State.Idle) {
       return;
     }
-    this.prepareToLoadTimeline();
     this.loader = await TimelineLoader.loadFromFile(file, this);
-    this.createFileSelector();
+    if (this.loader.isEnhancedTraces()) {
+      requestAnimationFrame(() => {
+        Host.InspectorFrontendHost.InspectorFrontendHostInstance.launchRehydratedDevtools(file);
+      })
+    } else {
+      this.prepareToLoadTimeline();
+      this.createFileSelector();
+    }
   }
 
   async loadFromURL(url: Platform.DevToolsPath.UrlString): Promise<void> {
