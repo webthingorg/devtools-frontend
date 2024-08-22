@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54d40dd5_6e5176dd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2024-08-22T09:38:35Z",
+      "side": 1,
+      "message": "Is this just migrating the content or also making it no longer “notoriously outdated”?",
+      "revId": "b70e5a78d3642d82c2bf99f87692346ca3918b77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
