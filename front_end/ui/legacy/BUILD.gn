@@ -80,6 +80,7 @@ devtools_module("ui") {
     "Context.ts",
     "ContextFlavorListener.ts",
     "ContextMenu.ts",
+    "DataGridWithPreview.ts",
     "Dialog.ts",
     "DockController.ts",
     "DropTarget.ts",
