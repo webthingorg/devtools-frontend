@@ -70,14 +70,21 @@ export enum Step {
   QUERYING = 'querying',
 }
 
-export interface CommonStepData {
-  step: Step.ANSWER|Step.ERROR;
+export interface AnswerResponse {
+  step: Step.ANSWER;
   id: string;
   text: string;
   rpcId?: number;
 }
 
-export interface ThoughtStepData {
+export interface ErrorResponse {
+  step: Step.ERROR;
+  id: string;
+  error: string;
+  rpcId?: number;
+}
+
+export interface ThoughtResponse {
   step: Step.THOUGHT;
   id: string;
   thought: string;
@@ -85,25 +92,20 @@ export interface ThoughtStepData {
   rpcId?: number;
 }
 
-export interface ActionStepData {
+export interface ActionResponse {
   step: Step.ACTION;
   id: string;
   code: string;
   output: string;
-  // These are coming from the Step.Though
-  // if present
-  thought?: string;
-  title?: string;
-  // Identifier
   rpcId?: number;
 }
 
-export interface QueryStepData {
+export interface QueryResponse {
   step: Step.QUERYING;
   id: string;
 }
 
-export type StepData = CommonStepData|ActionStepData|ThoughtStepData|QueryStepData;
+export type ResponseData = AnswerResponse|ErrorResponse|ActionResponse|ThoughtResponse|QueryResponse;
 
 // TODO: this should use the current execution context pased on the
 // node.
@@ -342,7 +344,7 @@ export class FreestylerAgent {
   #runId = 0;
   async *
       run(query: string, options: {signal?: AbortSignal, isFixQuery: boolean} = {isFixQuery: false}):
-          AsyncGenerator<StepData|QueryStepData, void, void> {
+          AsyncGenerator<ResponseData, void, void> {
     const genericErrorMessage = 'Sorry, I could not help you with this query.';
     const structuredLog = [];
     query = `QUERY: ${query}`;
@@ -383,7 +385,7 @@ export class FreestylerAgent {
           break;
         }
 
-        yield {step: Step.ERROR, id, text: genericErrorMessage, rpcId};
+        yield {step: Step.ERROR, id, error: genericErrorMessage, rpcId};
         break;
       }
 
@@ -435,8 +437,6 @@ export class FreestylerAgent {
             code: action,
             id,
             output: observation,
-            thought,
-            title,
             rpcId,
           };
 
@@ -448,12 +448,12 @@ export class FreestylerAgent {
         yield {step: Step.ANSWER, id, text: answer, rpcId};
         break;
       } else {
-        yield {step: Step.ERROR, id, text: genericErrorMessage, rpcId};
+        yield {step: Step.ERROR, id, error: genericErrorMessage, rpcId};
         break;
       }
 
       if (i === MAX_STEPS - 1) {
-        yield {step: Step.ERROR, id, text: 'Max steps reached, please try again.'};
+        yield {step: Step.ERROR, id, error: 'Max steps reached, please try again.'};
         break;
       }
     }

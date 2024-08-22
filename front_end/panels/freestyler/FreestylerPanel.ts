@@ -271,7 +271,7 @@ export class FreestylerPanel extends UI.Panel.Panel {
     const suggestingFix = !isFixQuery;
     const systemMessage: ModelChatMessage = {
       entity: ChatMessageEntity.MODEL,
-      suggestingFix,
+      suggestingFix: false,
       steps: new Map(),
     };
     this.#viewProps.messages.push(systemMessage);
@@ -283,30 +283,52 @@ export class FreestylerPanel extends UI.Panel.Panel {
     signal.addEventListener('abort', () => {
       systemMessage.rpcId = undefined;
       systemMessage.suggestingFix = false;
-      systemMessage.steps.set('aborted', {
-        step: Step.ERROR,
-        id: 'aborted',
-        text: i18nString(UIStringsTemp.stoppedResponse),
-      });
+      systemMessage.error = i18nString(UIStringsTemp.stoppedResponse);
     });
     for await (const data of this.#agent.run(text, {signal, isFixQuery})) {
-      if (data.step === Step.QUERYING) {
-        systemMessage.steps.set(data.id, data);
-        this.#viewProps.isLoading = true;
-        this.doUpdate();
-        this.#viewOutput.freestylerChatUi?.scrollToLastMessage();
-        continue;
-      }
+      switch (data.step) {
+        case Step.QUERYING: {
+          systemMessage.steps.set(data.id, {
+            id: data.id,
+            type: Step.QUERYING,
+          });
+          break;
+        }
+        case Step.THOUGHT: {
+          systemMessage.steps.set(data.id, {
+            id: data.id,
+            type: Step.THOUGHT,
+            thought: data.thought,
+            title: data.title,
+          });
+          break;
+        }
+        case Step.ACTION: {
+          const thoughtStep = systemMessage.steps.get(data.id);
+          systemMessage.steps.set(data.id, {
+            id: data.id,
+            type: Step.THOUGHT,
+            thought: thoughtStep?.thought,
+            title: thoughtStep?.title,
+            code: data.code,
+            output: data.output,
+          });
 
-      if (data.step === Step.ANSWER || data.step === Step.ERROR) {
-        this.#viewProps.isLoading = false;
-      }
-      if (data.step === Step.ERROR) {
-        systemMessage.suggestingFix = false;
-      }
+          break;
+        }
+        case Step.ANSWER: {
+          systemMessage.suggestingFix = suggestingFix;
+          systemMessage.answer = data.text;
+          systemMessage.rpcId = data.rpcId;
+          this.#viewProps.isLoading = false;
+          break;
+        }
 
-      systemMessage.rpcId = data.rpcId;
-      systemMessage.steps.set(data.id, data);
+        case Step.ERROR: {
+          systemMessage.error = data.error;
+          this.#viewProps.isLoading = false;
+        }
+      }
 
       this.doUpdate();
       this.#viewOutput.freestylerChatUi?.scrollToLastMessage();
