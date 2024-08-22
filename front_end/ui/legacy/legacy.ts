@@ -8,6 +8,7 @@ import * as ARIAUtils from './ARIAUtils.js';
 import * as Context from './Context.js';
 import * as ContextFlavorListener from './ContextFlavorListener.js';
 import * as ContextMenu from './ContextMenu.js';
+import * as DataGridWithPreview from './DataGridWithPreview.js';
 import * as Dialog from './Dialog.js';
 import * as DockController from './DockController.js';
 import * as DropTarget from './DropTarget.js';
@@ -63,6 +64,7 @@ export {
   Context,
   ContextFlavorListener,
   ContextMenu,
+  DataGridWithPreview,
   Dialog,
   DockController,
   DropTarget,
