@@ -33,6 +33,24 @@
       "message": "Nit, and know this is only a comment, but I think we should explicitly avoid \"interaction\" since scrolling it not counted as an \"interaction\" for INP (https://web.dev/articles/inp#whats_in_an_interaction). I know intract and interaction are the same thing, and this is CLS, but still would prefer to avoid.\n\n```suggestion\n   * @description Text block explaining how a user interacts with the page can cause different amounts of layout shifts.\n```",
       "revId": "c482d97ec1f8a4ed19307269bbd0d82ff934bc70",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "feecbbf5_3db6db1a",
+        "filename": "front_end/panels/timeline/components/MetricCard.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-08-22T21:34:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "42e0ef3f_d1d40e43",
+      "revId": "c482d97ec1f8a4ed19307269bbd0d82ff934bc70",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
