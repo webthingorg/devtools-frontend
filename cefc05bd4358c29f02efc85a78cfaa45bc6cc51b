@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eebec27b_3fd4f001",
+        "filename": "front_end/panels/timeline/components/MetricCard.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-08-22T22:28:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "15fa20a7_45eb6c9f",
+      "range": {
+        "startLine": 119,
+        "startChar": 0,
+        "endLine": 119,
+        "endChar": 6
+      },
+      "revId": "cefc05bd4358c29f02efc85a78cfaa45bc6cc51b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "212db808_2c04ef8d",
@@ -72,6 +96,24 @@
           ]
         }
       ],
+      "revId": "cefc05bd4358c29f02efc85a78cfaa45bc6cc51b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ee3aaf2_6697ecb5",
+        "filename": "front_end/panels/timeline/components/MetricCard.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-08-22T22:28:51Z",
+      "side": 1,
+      "message": "I\u0027m hesitant to gate this on something like common aspect ratios, because that gives some indication of a \"correct\" viewport and we don\u0027t think we can know that for certain. I could imagine some users playing around with different viewport sizes to see which ones generate this advice and which don\u0027t. Are we ready to commit to some advice around what \"good\" and \"bad\" test viewports are?\n\nIf the problem we are trying to address is advice fatigue, perhaps we could consider being less aggressive with the viewport rec. WDYT about saying just `\"Screen size can influence what the LCP element is.\"` or `\"Screen size can influence what the LCP element is. Ensure your viewport size is representative of real users.\"`?",
+      "parentUuid": "212db808_2c04ef8d",
       "revId": "cefc05bd4358c29f02efc85a78cfaa45bc6cc51b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
