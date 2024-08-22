@@ -68,6 +68,7 @@ export class DOMNode {
   #frameOwnerFrameIdInternal!: Protocol.Page.FrameId|null;
   #xmlVersion!: string|undefined;
   #isSVGNodeInternal!: boolean;
+  #isScrollableInternal!: boolean;
   #creationStackTraceInternal: Promise<Protocol.Runtime.StackTrace|null>|null;
   #pseudoElements: Map<string, DOMNode[]>;
   #distributedNodesInternal: DOMNodeShortcut[];
@@ -138,6 +139,7 @@ export class DOMNode {
     this.#frameOwnerFrameIdInternal = payload.frameId || null;
     this.#xmlVersion = payload.xmlVersion;
     this.#isSVGNodeInternal = Boolean(payload.isSVG);
+    this.#isScrollableInternal = Boolean(payload.isScrollable);
 
     if (payload.attributes) {
       this.setAttributesPayload(payload.attributes);
@@ -231,6 +233,10 @@ export class DOMNode {
     return this.#isSVGNodeInternal;
   }
 
+  isScrollable(): boolean {
+    return this.#isScrollableInternal;
+  }
+
   isMediaNode(): boolean {
     return this.#nodeNameInternal === 'AUDIO' || this.#nodeNameInternal === 'VIDEO';
   }
@@ -277,6 +283,10 @@ export class DOMNode {
 
   setChildren(children: DOMNode[]): void {
     this.childrenInternal = children;
+  }
+
+  setIsScrollable(isScrollable: boolean): void {
+    this.#isScrollableInternal = isScrollable;
   }
 
   hasAttributes(): boolean {
@@ -1464,6 +1474,15 @@ export class DOMModel extends SDKModel<EventTypes> {
     this.scheduleMutationEvent(node);
   }
 
+  scrollbarFlagUpdated(nodeId: Protocol.DOM.NodeId, isScrollable: boolean): void {
+    const node = this.nodeForId(nodeId);
+    if (!node) {
+      return;
+    }
+    node.setIsScrollable(isScrollable);
+    this.dispatchEventToListeners(Events.ScrollbarFlagUpdated, {nodeId: nodeId, isScrollable: isScrollable});
+  }
+
   topLayerElementsUpdated(): void {
     this.dispatchEventToListeners(Events.TopLayerElementsChanged);
   }
@@ -1643,6 +1662,7 @@ export enum Events {
   DistributedNodesChanged = 'DistributedNodesChanged',
   MarkersChanged = 'MarkersChanged',
   TopLayerElementsChanged = 'TopLayerElementsChanged',
+  ScrollbarFlagUpdated = 'ScrollbarFlagUpdated',
 }
 
 export type EventTypes = {
@@ -1657,6 +1677,7 @@ export type EventTypes = {
   [Events.DistributedNodesChanged]: DOMNode,
   [Events.MarkersChanged]: DOMNode,
   [Events.TopLayerElementsChanged]: void,
+  [Events.ScrollbarFlagUpdated]: {nodeId: Protocol.DOM.NodeId, isScrollable: boolean},
 };
 
 class DOMDispatcher implements ProtocolProxyApi.DOMDispatcher {
@@ -1723,6 +1744,10 @@ class DOMDispatcher implements ProtocolProxyApi.DOMDispatcher {
 
   topLayerElementsUpdated(): void {
     this.#domModel.topLayerElementsUpdated();
+  }
+
+  scrollbarFlagUpdated({nodeId, isScrollable}: Protocol.DOM.ScrollbarFlagUpdatedEvent): void {
+    this.#domModel.scrollbarFlagUpdated(nodeId, isScrollable);
   }
 }
 

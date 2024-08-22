@@ -22,6 +22,7 @@ import {
   waitFor,
   waitForAria,
   waitForFunction,
+  waitForNone,
 } from '../../shared/helper.js';
 
 import {openSoftContextMenuAndClickOnItem} from './context-menu-helpers.js';
@@ -171,7 +172,11 @@ export const waitForAdornerOnSelectedNode = async (expectedAdornerText: string) 
   });
   await expectVeEvents([veImpressionsUnder(
       'Panel: elements > Tree: elements > TreeItem', [veImpression('Adorner', expectedAdornerText)])]);
+};
 
+export const waitForNoAdornerOnSelectedNode = async () => {
+  const selectedNode = await waitFor(SELECTED_TREE_ELEMENT_SELECTOR);
+  await waitForNone(ADORNER_SELECTOR, selectedNode);
 };
 
 export const toggleElementCheckboxInLayoutPane = async () => {
@@ -488,7 +493,6 @@ export const toggleShowAllComputedProperties = async () => {
   await waitForComputedPaneChange(initialContent);
   await expectVeEvents(
       [veChange('Panel: elements > Pane: computed > Toggle: show-inherited-computed-style-properties')]);
-
 };
 
 export const waitForDomNodeToBeVisible = async (elementSelector: string) => {
@@ -853,7 +857,6 @@ export const clickOnFirstLinkInStylesPanel = async () => {
   const stylesPane = await waitFor('div.styles-pane');
   await click('div.styles-section-subtitle button.devtools-link', {root: stylesPane});
   await expectVeEvents([veClick('Panel: elements > Pane: styles > Section: style-properties > Link: css-location')]);
-
 };
 
 export const toggleClassesPane = async () => {
@@ -969,7 +972,6 @@ function veImpressionForAccessibilityPane() {
 export const toggleAccessibilityTree = async () => {
   await click('aria/Switch to Accessibility Tree view');
   await expectVeEvents([veClick('Panel: elements > Action: toggle-accessibility-tree')]);
-
 };
 
 export const getPropertiesWithHints = async () => {
