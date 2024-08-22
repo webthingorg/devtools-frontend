@@ -107,10 +107,12 @@ export namespace Chrome {
       languageServices: LanguageExtensions;
       recorder: RecorderExtensions;
       performance: Performance;
+      functionNameGuesser: FunctionNameGuesserExtensions;  // TODO: remove - use experimental instead
     }
 
     export interface ExperimentalDevToolsAPI {
       inspectedWindow: InspectedWindow;
+      functionNameGuesser: FunctionNameGuesserExtensions;
     }
 
     export interface RawModule {
@@ -280,6 +282,34 @@ export namespace Chrome {
 
     export type WasmValue = {type: 'i32'|'f32'|'f64', value: number}|{type: 'i64', value: bigint}|
         {type: 'v128', value: string}|ForeignObject;
+
+    export type FunctionDescriptor = {
+        readonly nameAsFunction: string,
+        readonly startLine: number,
+        readonly startColumn: number,
+        readonly endLine: number,
+        readonly endColumn: number,
+        readonly nameAsObject?: string,
+    }
+
+    export interface SourceMapEntry {
+      lineNumber: number;
+      columnNumber: number;
+      sourceURL: string|undefined;
+      sourceLineNumber: number;
+      sourceColumnNumber: number;
+      name: string|undefined;
+    }
+
+    export interface FunctionNameGuesserExtensionPlugin {
+      getFunctionRanges(fileName: string, sourceContent: string): Promise<FunctionDescriptor[]>;
+    }
+
+    export interface FunctionNameGuesserExtensions {
+      registerFunctionNameGuesserExtensionPlugin(
+          plugin: FunctionNameGuesserExtensionPlugin, pluginName: string, capabilities: string[]): Promise<void>;
+      unregisterFunctionNameGuesserExtensionPlugin(plugin: FunctionNameGuesserExtensionPlugin): Promise<void>;
+    }
 
     export interface LanguageExtensions {
       registerLanguageExtensionPlugin(

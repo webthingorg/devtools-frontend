@@ -1,7 +1,6 @@
 // Copyright 2022 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
-
 import * as Common from '../../core/common/common.js';
 import * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
@@ -11,6 +10,7 @@ import * as Formatter from '../formatter/formatter.js';
 import * as TextUtils from '../text_utils/text_utils.js';
 import type * as Workspace from '../workspace/workspace.js';
 
+import * as ExtensionContext from './ExtensionContext.js';
 import {scopeTreeForScript} from './ScopeTreeCache.js';
 
 interface CachedScopeMap {
@@ -784,6 +784,18 @@ async function getFunctionNameFromScopeStart(
     return null;
   }
 
+  const sourceContentProvider = createContentProvider(sourceMap, mappingEntry.sourceURL, script);
+  if (sourceContentProvider) {
+    const content = await getTextFor(sourceContentProvider);
+    if (content) {
+      const resolvedName =
+          await ExtensionContext.getFunctionNameViaExtensionOrCache(sourceMap, mappingEntry, content.value());
+      if (resolvedName) {
+        return resolvedName;
+      }
+    }
+  }
+
   const scopeName =
       sourceMap.findScopeEntry(mappingEntry.sourceURL, mappingEntry.sourceLineNumber, mappingEntry.sourceColumnNumber)
           ?.scopeName();
@@ -808,6 +820,22 @@ async function getFunctionNameFromScopeStart(
   }
 
   return name;
+}
+
+function createContentProvider(
+    sourceMap: SDK.SourceMap.SourceMap, sourceUrl: Platform.DevToolsPath.UrlString,
+    affectedScript: SDK.Script.Script): TextUtils.ContentProvider.ContentProvider|null {
+  const resourceType = Common.ResourceType.ResourceType.fromURL(sourceUrl) || Common.ResourceType.resourceTypes.Script;
+  const content = sourceMap.embeddedContentByURL(sourceUrl);
+  let sourceContentProvider: TextUtils.ContentProvider.ContentProvider;
+  if (!content) {
+    sourceContentProvider = new SDK.CompilerSourceMappingContentProvider.CompilerSourceMappingContentProvider(
+        sourceUrl, resourceType, affectedScript.createPageResourceLoadInitiator());
+  } else {
+    sourceContentProvider =
+        TextUtils.StaticContentProvider.StaticContentProvider.fromString(sourceUrl, resourceType, content);
+  }
+  return sourceContentProvider;
 }
 
 export async function resolveDebuggerFrameFunctionName(frame: SDK.DebuggerModel.CallFrame): Promise<string|null> {
