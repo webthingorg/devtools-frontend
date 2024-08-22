@@ -71,6 +71,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "abf4fea6_6cb923d0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1214214
+      },
+      "writtenOn": "2024-08-22T11:57:17Z",
+      "side": 1,
+      "message": "Personally I’m a fan of not hard-wrapping and only having semantic line breaks, since with hard wrapping, sometimes adding/removing a single-word + reformatting results in multiple changed lines, making it harder to spot the actual change. That said, I’m happy to adopt whatever preference as long as we apply it consistently — especially if it can be automated.\n\nI’d love it if we’d run Prettier on our Markdown files with whatever config we define.",
+      "parentUuid": "534548e6_b259a106",
+      "revId": "7001ebe4ce099b71246f810aa4861ed23b6643e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "80037a73_19a1da32",
