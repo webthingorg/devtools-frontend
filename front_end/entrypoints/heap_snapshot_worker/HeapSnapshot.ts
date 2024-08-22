@@ -873,6 +873,29 @@ export abstract class HeapSnapshot {
     // Actually it is array that maps node ordinal number to dominator node ordinal number.
     this.#progress.updateStatus('Building dominator tree…');
     this.dominatorsTree = this.buildDominatorTree(result.postOrderIndex2NodeOrdinal, result.nodeOrdinal2PostOrderIndex);
+    const doesNodeDominateBasedOnTree = (dominatorOrdinal: number, dominatedOrdinal: number): boolean => {
+      while (dominatedOrdinal !== dominatorOrdinal && dominatedOrdinal !== 0) {
+        dominatedOrdinal = this.dominatorsTree[dominatedOrdinal];
+      }
+      return dominatedOrdinal === dominatorOrdinal;
+    };
+    for (let dominatorOrdinal = 0; dominatorOrdinal < this.nodeCount; ++dominatorOrdinal) {
+      for (let dominatedOrdinal = 0; dominatedOrdinal < this.nodeCount; ++dominatedOrdinal) {
+        const treeResult = doesNodeDominateBasedOnTree(dominatorOrdinal, dominatedOrdinal);
+        const dominatorIndex = dominatorOrdinal * this.nodeFieldCount;
+        const dominatedIndex = dominatedOrdinal * this.nodeFieldCount;
+        const shadowingResult = this.doesNodeDominate(dominatorIndex, dominatedIndex);
+        if (treeResult && !shadowingResult) {
+          const dominatorNode = this.createNode(dominatorIndex);
+          const dominatedNode = this.createNode(dominatedIndex);
+          console.log(`Incorrect dominators: @${dominatorNode.id()} does not dominate @${dominatedNode.id()}`);
+        } else if (!treeResult && shadowingResult) {
+          const dominatorNode = this.createNode(dominatorIndex);
+          const dominatedNode = this.createNode(dominatedIndex);
+          console.log(`Incorrect dominators 2: @${dominatorNode.id()} dominates @${dominatedNode.id()} but was not found`);
+        }
+      }
+    }
     this.#progress.updateStatus('Calculating shallow sizes…');
     this.calculateShallowSizes();
     this.#progress.updateStatus('Calculating retained sizes…');
@@ -1614,6 +1637,7 @@ export abstract class HeapSnapshot {
         visited[i] = 1;
 
         dumpNode.nodeIndex = i * nodeFieldCount;
+        this.orphanNodes.push(dumpNode.nodeIndex);
         const retainers = [];
         for (let it = dumpNode.retainers(); it.hasNext(); it.next()) {
           retainers.push(`${it.item().node().name()}@${it.item().node().id()}.${it.item().name()}`);
@@ -1651,6 +1675,8 @@ export abstract class HeapSnapshot {
       nodeOrdinal2PostOrderIndex: nodeOrdinal2PostOrderIndex,
     };
   }
+
+  orphanNodes: number[] = [];
 
   private hasOnlyWeakRetainers(nodeOrdinal: number): boolean {
     const edgeTypeOffset = this.edgeTypeOffset;
@@ -1792,6 +1818,75 @@ export abstract class HeapSnapshot {
       dominatorsTree[nodeOrdinal] = postOrderIndex2NodeOrdinal[dominators[postOrderIndex]];
     }
     return dominatorsTree;
+  }
+
+  cachedSimpleDomination: Platform.TypedArrayUtilities.BitVector[] = [];
+
+  // Compute domination relationships in the simplest (and slowest) way, which is more likely to be correct.
+  doesNodeDominate(dominatorIndex: number, targetNodeIndex: number): boolean {
+    if (dominatorIndex === this.rootNodeIndex) return true;
+    const dominatorOrdinal = dominatorIndex / this.nodeFieldCount;
+    let bitmap = this.cachedSimpleDomination[dominatorOrdinal] ?? undefined;
+
+    if (!bitmap) {
+      // Allocate an array with a single bit per node, which will represent whether
+      // the node can be reached without using `dominatorIndex`.
+      bitmap = Platform.TypedArrayUtilities.createBitVector(this.nodeCount);
+
+      // Traverses the graph in breadth-first order with the given filter, and
+      // sets the bit in `bitmap` for every visited node. This implementation is
+      // mostly copied from createNamedFilter, but also adds the orphan nodes as
+      // extra roots. (TODO: createNamedFilter should also add those.)
+      const traverse = (filter: (node: HeapSnapshotNode, edge: HeapSnapshotEdge) => boolean): void => {
+        const distances = new Int32Array(this.nodeCount);
+        for (let i = 0; i < this.nodeCount; ++i) {
+          distances[i] = this.#noDistance;
+        }
+        const nodesToVisit = new Uint32Array(this.nodeCount);
+        distances[this.rootNode().ordinal()] = 0;
+        nodesToVisit[0] = this.rootNode().nodeIndex;
+        let nodesToVisitLength = 1;
+        for (const extraRoot of this.orphanNodes) {
+          if (extraRoot !== dominatorIndex) {
+            nodesToVisit[nodesToVisitLength++] = extraRoot;
+            distances[extraRoot / this.nodeFieldCount] = 1;
+          }
+        }
+        this.bfs(nodesToVisit, nodesToVisitLength, distances, filter);
+        for (let i = 0; i < this.nodeCount; ++i) {
+          if (distances[i] !== this.#noDistance) {
+            bitmap.setBit(i);
+          }
+        }
+      };
+
+      const mapAndFlag = this.userObjectsMapAndFlag();
+      const flags = mapAndFlag ? mapAndFlag.map : null;
+      const flag = mapAndFlag ? mapAndFlag.flag : 0;
+
+      traverse((node, edge) => {
+        const childNodeIndex = edge.nodeIndex();
+        if (childNodeIndex === dominatorIndex) {
+          return false;
+        }
+        if (!this.isEssentialEdge(node.nodeIndex, edge.edgeIndex)) {
+          return false;
+        }
+        const nodeOrdinal = node.nodeIndex / this.nodeFieldCount;
+        const childNodeOrdinal = childNodeIndex / this.nodeFieldCount;
+        const nodeFlag = !flags || (flags[nodeOrdinal] & flag);
+        const childNodeFlag = !flags || (flags[childNodeOrdinal] & flag);
+        // Just like during buildDominatorTree and buildPostOrderIndex, we must skip any edge
+        // representing a pointer from a non-user object to a user object.
+        if (node.nodeIndex !== this.rootNodeIndex && childNodeFlag && !nodeFlag) {
+          return false;
+        }
+        return true;
+      });
+      this.cachedSimpleDomination[dominatorOrdinal] = bitmap;
+    }
+
+    return !bitmap.getBit(targetNodeIndex / this.nodeFieldCount);
   }
 
   private calculateRetainedSizes(postOrderIndex2NodeOrdinal: Uint32Array): void {
