@@ -11,12 +11,13 @@ const fontsByPlatform = {
   'linux': '"Liberation Sans"',
 };
 
-export const loadComponentDocExample = async (urlComponent: string) => {
+export const loadComponentDocExample = async (urlComponent: string, timeout = 5_000) => {
   const {frontend} = getBrowserAndPages();
   const url = new URL(`http://localhost:${getTestServerPort()}/front_end/ui/components/docs/${urlComponent}`);
   url.searchParams.set('fontFamily', fontsByPlatform[platform]);
   await frontend.goto(url.toString(), {
     waitUntil: 'networkidle0',
+    timeout,
   });
   // Hide the outer UI to prevent interaction tests from accidentally clicking on it.
   await frontend.evaluate(() => window.dispatchEvent(new Event('hidecomponentdocsui')));
@@ -28,14 +29,12 @@ export const preloadForCodeCoverage = (name: string) => {
   }
 
   before(async function() {
-    this.timeout(0);
+    this.timeout(80_000);
     const {frontend} = getBrowserAndPages();
-    // Double Puppeteer's Default
-    frontend.setDefaultNavigationTimeout(60_000);
     await frontend.setExtraHTTPHeaders({
       'devtools-compute-coverage': '1',
     });
-    await loadComponentDocExample(name);
+    await loadComponentDocExample(name, 60_000);
     await frontend.setExtraHTTPHeaders({});
   });
 };
