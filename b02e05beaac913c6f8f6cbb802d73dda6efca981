@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fde3ecb0_a343a35b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1568253
+      },
+      "writtenOn": "2024-08-22T11:37:32Z",
+      "side": 1,
+      "message": "Hi Danil, it would be great if you could take a look at this! DataGridWithPreview is largely based on DOMStorageItemsView, so I would suggest looking at the diff between DOMStorageItemsView on main and DataGridWithPreview in this CL, which is a lot smaller than the diff shown in Gerrit.",
+      "revId": "b02e05beaac913c6f8f6cbb802d73dda6efca981",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
