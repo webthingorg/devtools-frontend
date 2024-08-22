@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8560aec2_88ea48a0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-08-22T09:16:20Z",
+      "side": 1,
+      "message": "Preview: https://chromium.googlesource.com/devtools/devtools-frontend/+/d9841ba37932bfa7f0ecaed6fcbc567160bd638f/docs/contributing/README.md\n\nCan you take a look please? Thanks! 🙏",
+      "revId": "d9841ba37932bfa7f0ecaed6fcbc567160bd638f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
