@@ -20,6 +20,40 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c9e0277f_636a453e",
+        "filename": "front_end/models/trace/insights/DocumentLatency.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-08-23T19:50:21Z",
+      "side": 1,
+      "message": "fwiw in LH we also have a 10% savings check ...\n\nbut ... I\u0027m honestly not sure that is a good idea. Less bytes on the network \u003d\u003d always a good idea, gzip overhead is dwarfed by network bandwidth and packet loss.\n\nso +1 decision to not include. I\u0027m gonna kill it in LH too.",
+      "revId": "8668ede422146f3d467091ab28d420314ddee163",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e98f9b1e_c730f28a",
+        "filename": "front_end/models/trace/insights/DocumentLatency.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-08-23T19:50:21Z",
+      "side": 1,
+      "message": "responseHeaders is not an optional property, so I\u0027d expect this to always be true. Is that not the case?",
+      "revId": "8668ede422146f3d467091ab28d420314ddee163",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b09243ac_b2024ed6",
         "filename": "front_end/models/trace/insights/DocumentLatency.ts",
         "patchSetId": 1
@@ -37,6 +71,41 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c1175d51_b8466bc5",
+        "filename": "front_end/models/trace/insights/DocumentLatency.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-08-23T19:50:21Z",
+      "side": 1,
+      "message": "decodedBodyLength is the size of the resource, after decompression (if any). I think this can just be request.args.data.decodedBodyLength\n\nencodedDataLength is the size over the network, which can be higher than decodedBodyLength even if there is no compression due to it counting the size of headers/anything else in the HTTP response packet. For the purpose of estimating the would-be compressed size of the underlying resource it\u0027s irrelevant.\n\nI\u0027m realizing this information would be more useful if added as doc comments to the fields in SyntheticNetworkRequest :)",
+      "parentUuid": "b09243ac_b2024ed6",
+      "revId": "8668ede422146f3d467091ab28d420314ddee163",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b03d4985_9cfca447",
+        "filename": "front_end/models/trace/insights/DocumentLatency.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-08-23T19:50:21Z",
+      "side": 1,
+      "message": "can you add the source of these numbers (it\u0027s in the comment from LH estimateCompressedContentSize)",
+      "revId": "8668ede422146f3d467091ab28d420314ddee163",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4c61b108_80cceae9",
         "filename": "front_end/models/trace/insights/DocumentLatency.ts",
         "patchSetId": 1
@@ -48,6 +117,24 @@
       "writtenOn": "2024-08-23T15:09:26Z",
       "side": 1,
       "message": "Open to hearing if/how we need to use Lantern here to estimate savings, or if this is sufficient.",
+      "revId": "8668ede422146f3d467091ab28d420314ddee163",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62623514_8e80ca0e",
+        "filename": "front_end/models/trace/insights/DocumentLatency.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-08-23T19:50:21Z",
+      "side": 1,
+      "message": "1- I\u0027d reframe this as \"uncompressedResponseBytes\", which is more explanatory than \"compressionBytes\" (even if still slightly off, because we are excluding resources that are under a threshold ...)\n\n2- We should have a metricSavings here (from Lantern), as I believe it\u0027s the planned way for us to apply a sorting to the insights we show to the user. This can be done in another CL tho.",
+      "parentUuid": "4c61b108_80cceae9",
       "revId": "8668ede422146f3d467091ab28d420314ddee163",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
