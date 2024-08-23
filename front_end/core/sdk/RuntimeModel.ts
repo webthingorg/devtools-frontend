@@ -121,7 +121,7 @@ export class RuntimeModel extends SDKModel<EventTypes> {
         this, context.id, context.uniqueId, context.name, context.origin as Platform.DevToolsPath.UrlString,
         data['isDefault'], data['frameId']);
     this.#executionContextById.set(executionContext.id, executionContext);
-    this.dispatchEventToListeners(Events.ExecutionContextCreated, executionContext);
+    this.dispatchEventToListeners(Events.EXECUTION_CONTEXT_CREATED, executionContext);
   }
 
   executionContextDestroyed(executionContextId: number): void {
@@ -131,11 +131,11 @@ export class RuntimeModel extends SDKModel<EventTypes> {
     }
     this.debuggerModel().executionContextDestroyed(executionContext);
     this.#executionContextById.delete(executionContextId);
-    this.dispatchEventToListeners(Events.ExecutionContextDestroyed, executionContext);
+    this.dispatchEventToListeners(Events.EXECUTION_CONTEXT_DESTROYED, executionContext);
   }
 
   fireExecutionContextOrderChanged(): void {
-    this.dispatchEventToListeners(Events.ExecutionContextOrderChanged, this);
+    this.dispatchEventToListeners(Events.EXECUTION_CONTEXT_ORDER_CHANGED, this);
   }
 
   executionContextsCleared(): void {
@@ -143,7 +143,7 @@ export class RuntimeModel extends SDKModel<EventTypes> {
     const contexts = this.executionContexts();
     this.#executionContextById.clear();
     for (let i = 0; i < contexts.length; ++i) {
-      this.dispatchEventToListeners(Events.ExecutionContextDestroyed, contexts[i]);
+      this.dispatchEventToListeners(Events.EXECUTION_CONTEXT_DESTROYED, contexts[i]);
     }
   }
 
@@ -318,7 +318,7 @@ export class RuntimeModel extends SDKModel<EventTypes> {
   }
 
   bindingCalled(event: Protocol.Runtime.BindingCalledEvent): void {
-    this.dispatchEventToListeners(Events.BindingCalled, event);
+    this.dispatchEventToListeners(Events.BINDING_CALLED, event);
   }
 
   private copyRequested(object: RemoteObject): void {
@@ -367,7 +367,7 @@ export class RuntimeModel extends SDKModel<EventTypes> {
       Common.Console.Console.instance().error(result.error);
       return;
     }
-    this.dispatchEventToListeners(Events.QueryObjectRequested, {objects: result.objects, executionContextId});
+    this.dispatchEventToListeners(Events.QUERY_OBJECT_REQUESTED, {objects: result.objects, executionContextId});
   }
 
   static simpleTextFromException(exceptionDetails: Protocol.Runtime.ExceptionDetails): string {
@@ -384,11 +384,11 @@ export class RuntimeModel extends SDKModel<EventTypes> {
 
   exceptionThrown(timestamp: number, exceptionDetails: Protocol.Runtime.ExceptionDetails): void {
     const exceptionWithTimestamp = {timestamp: timestamp, details: exceptionDetails};
-    this.dispatchEventToListeners(Events.ExceptionThrown, exceptionWithTimestamp);
+    this.dispatchEventToListeners(Events.EXCEPTION_THROWN, exceptionWithTimestamp);
   }
 
   exceptionRevoked(exceptionId: number): void {
-    this.dispatchEventToListeners(Events.ExceptionRevoked, exceptionId);
+    this.dispatchEventToListeners(Events.EXCEPTION_REVOKED, exceptionId);
   }
 
   consoleAPICalled(
@@ -402,7 +402,7 @@ export class RuntimeModel extends SDKModel<EventTypes> {
       stackTrace: stackTrace,
       context: context,
     };
-    this.dispatchEventToListeners(Events.ConsoleAPICalled, consoleAPICall);
+    this.dispatchEventToListeners(Events.CONSOLE_API_CALLED, consoleAPICall);
   }
 
   executionContextIdForScriptId(scriptId: string): number {
@@ -437,15 +437,15 @@ export class RuntimeModel extends SDKModel<EventTypes> {
 }
 
 export enum Events {
-  BindingCalled = 'BindingCalled',
-  ExecutionContextCreated = 'ExecutionContextCreated',
-  ExecutionContextDestroyed = 'ExecutionContextDestroyed',
-  ExecutionContextChanged = 'ExecutionContextChanged',
-  ExecutionContextOrderChanged = 'ExecutionContextOrderChanged',
-  ExceptionThrown = 'ExceptionThrown',
-  ExceptionRevoked = 'ExceptionRevoked',
-  ConsoleAPICalled = 'ConsoleAPICalled',
-  QueryObjectRequested = 'QueryObjectRequested',
+  BINDING_CALLED = 'BindingCalled',
+  EXECUTION_CONTEXT_CREATED = 'ExecutionContextCreated',
+  EXECUTION_CONTEXT_DESTROYED = 'ExecutionContextDestroyed',
+  EXECUTION_CONTEXT_CHANGED = 'ExecutionContextChanged',
+  EXECUTION_CONTEXT_ORDER_CHANGED = 'ExecutionContextOrderChanged',
+  EXCEPTION_THROWN = 'ExceptionThrown',
+  EXCEPTION_REVOKED = 'ExceptionRevoked',
+  CONSOLE_API_CALLED = 'ConsoleAPICalled',
+  QUERY_OBJECT_REQUESTED = 'QueryObjectRequested',
 }
 
 export interface ConsoleAPICall {
@@ -468,15 +468,15 @@ export interface QueryObjectRequestedEvent {
 }
 
 export type EventTypes = {
-  [Events.BindingCalled]: Protocol.Runtime.BindingCalledEvent,
-  [Events.ExecutionContextCreated]: ExecutionContext,
-  [Events.ExecutionContextDestroyed]: ExecutionContext,
-  [Events.ExecutionContextChanged]: ExecutionContext,
-  [Events.ExecutionContextOrderChanged]: RuntimeModel,
-  [Events.ExceptionThrown]: ExceptionWithTimestamp,
-  [Events.ExceptionRevoked]: number,
-  [Events.ConsoleAPICalled]: ConsoleAPICall,
-  [Events.QueryObjectRequested]: QueryObjectRequestedEvent,
+  [Events.BINDING_CALLED]: Protocol.Runtime.BindingCalledEvent,
+  [Events.EXECUTION_CONTEXT_CREATED]: ExecutionContext,
+  [Events.EXECUTION_CONTEXT_DESTROYED]: ExecutionContext,
+  [Events.EXECUTION_CONTEXT_CHANGED]: ExecutionContext,
+  [Events.EXECUTION_CONTEXT_ORDER_CHANGED]: RuntimeModel,
+  [Events.EXCEPTION_THROWN]: ExceptionWithTimestamp,
+  [Events.EXCEPTION_REVOKED]: number,
+  [Events.CONSOLE_API_CALLED]: ConsoleAPICall,
+  [Events.QUERY_OBJECT_REQUESTED]: QueryObjectRequestedEvent,
 };
 
 class RuntimeDispatcher implements ProtocolProxyApi.RuntimeDispatcher {
@@ -550,16 +550,16 @@ export class ExecutionContext {
 
   static comparator(a: ExecutionContext, b: ExecutionContext): number {
     function targetWeight(target: Target): number {
-      if (target.parentTarget()?.type() !== Type.Frame) {
+      if (target.parentTarget()?.type() !== Type.FRAME) {
         return 5;
       }
-      if (target.type() === Type.Frame) {
+      if (target.type() === Type.FRAME) {
         return 4;
       }
       if (target.type() === Type.ServiceWorker) {
         return 3;
       }
-      if (target.type() === Type.Worker || target.type() === Type.SharedWorker) {
+      if (target.type() === Type.Worker || target.type() === Type.SHARED_WORKER) {
         return 2;
       }
       return 1;
@@ -677,7 +677,7 @@ export class ExecutionContext {
 
   setLabel(label: string): void {
     this.setLabelInternal(label);
-    this.runtimeModel.dispatchEventToListeners(Events.ExecutionContextChanged, this);
+    this.runtimeModel.dispatchEventToListeners(Events.EXECUTION_CONTEXT_CHANGED, this);
   }
 
   private setLabelInternal(label: string): void {

@@ -51,7 +51,7 @@ describeWithMockConnection('CSSStyleDeclaration', () => {
     } as Protocol.CSS.CSSStyle;
 
     const style = new SDK.CSSStyleDeclaration.CSSStyleDeclaration(
-        cssModel, null, stubCSSStyle, SDK.CSSStyleDeclaration.Type.Regular);
+        cssModel, null, stubCSSStyle, SDK.CSSStyleDeclaration.Type.REGULAR);
     assertPropertValues(style.allProperties()[0], [
       ['name', 'margin'],
       ['value', '1px'],
@@ -169,7 +169,7 @@ describeWithMockConnection('CSSStyleDeclaration', () => {
     } as Protocol.CSS.CSSStyle;
 
     const style = new SDK.CSSStyleDeclaration.CSSStyleDeclaration(
-        cssModel, null, stubCSSStyle, SDK.CSSStyleDeclaration.Type.Regular);
+        cssModel, null, stubCSSStyle, SDK.CSSStyleDeclaration.Type.REGULAR);
     assert.strictEqual(style.getPropertyValue('margin'), '1px');
     assert.strictEqual(style.getPropertyValue('margin-top'), '35px');
     assert.strictEqual(style.getPropertyValue('margin-right'), '1px');
@@ -208,7 +208,7 @@ describeWithMockConnection('CSSStyleDeclaration', () => {
     } as Protocol.CSS.CSSStyle;
 
     const style = new SDK.CSSStyleDeclaration.CSSStyleDeclaration(
-        cssModel, null, stubCSSStyle, SDK.CSSStyleDeclaration.Type.Regular);
+        cssModel, null, stubCSSStyle, SDK.CSSStyleDeclaration.Type.REGULAR);
     assert.isFalse(style.hasActiveProperty('--a'));
   });
 
@@ -238,7 +238,7 @@ describeWithMockConnection('CSSStyleDeclaration', () => {
     } as Protocol.CSS.CSSStyle;
 
     const style = new SDK.CSSStyleDeclaration.CSSStyleDeclaration(
-        cssModel, null, stubCSSStyle, SDK.CSSStyleDeclaration.Type.Regular);
+        cssModel, null, stubCSSStyle, SDK.CSSStyleDeclaration.Type.REGULAR);
     assert.strictEqual(style.allProperties().length, 1);
     assertPropertValues(style.allProperties()[0], [
       ['name', '-webkit-background-clip'],

@@ -35,7 +35,7 @@ export class CSSRule {
       this.sourceURL = styleSheetHeader.sourceURL;
     }
     this.origin = payload.origin;
-    this.style = new CSSStyleDeclaration(this.cssModelInternal, this, payload.style, Type.Regular);
+    this.style = new CSSStyleDeclaration(this.cssModelInternal, this, payload.style, Type.REGULAR);
   }
 
   rebase(edit: Edit): void {

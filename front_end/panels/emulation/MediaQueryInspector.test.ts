@@ -17,7 +17,7 @@ describeWithMockConnection('MediaQueryInspector', () => {
   let inspector: Emulation.MediaQueryInspector.MediaQueryInspector;
 
   beforeEach(() => {
-    const tabTarget = createTarget({type: SDK.Target.Type.Tab});
+    const tabTarget = createTarget({type: SDK.Target.Type.TAB});
     createTarget({parentTarget: tabTarget, subtype: 'prerender'});
     target = createTarget({parentTarget: tabTarget});
     throttler = new Common.Throttler.Throttler(0);
@@ -47,7 +47,7 @@ describeWithMockConnection('MediaQueryInspector', () => {
     sinon.stub(cssModel, 'getMediaQueries').resolves([new SDK.CSSMedia.CSSMedia(cssModel, CSS_MEDIA)]);
     const workScheduled = expectCall(sinon.stub(throttler, 'schedule'));
     cssModel.dispatchEventToListeners(
-        SDK.CSSModel.Events.StyleSheetAdded, {} as SDK.CSSStyleSheetHeader.CSSStyleSheetHeader);
+        SDK.CSSModel.Events.STYLE_SHEET_ADDED, {} as SDK.CSSStyleSheetHeader.CSSStyleSheetHeader);
     const [work] = await workScheduled;
     await work();
     assert.strictEqual(inspector.contentElement.querySelectorAll('.media-inspector-marker').length, 1);

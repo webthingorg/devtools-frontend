@@ -165,7 +165,7 @@ export const waitForStyleSheetRemoved = function(urlSuffix) {
   const promise = new Promise(x => {
     fulfill = x;
   });
-  TestRunner.cssModel.addEventListener(SDK.CSSModel.Events.StyleSheetRemoved, onStyleSheetRemoved);
+  TestRunner.cssModel.addEventListener(SDK.CSSModel.Events.STYLE_SHEET_REMOVED, onStyleSheetRemoved);
   return promise;
 
   function onStyleSheetRemoved(event) {
@@ -175,7 +175,7 @@ export const waitForStyleSheetRemoved = function(urlSuffix) {
       return;
     }
 
-    TestRunner.cssModel.removeEventListener(SDK.CSSModel.Events.StyleSheetRemoved, onStyleSheetRemoved);
+    TestRunner.cssModel.removeEventListener(SDK.CSSModel.Events.STYLE_SHEET_REMOVED, onStyleSheetRemoved);
     fulfill();
   }
 };

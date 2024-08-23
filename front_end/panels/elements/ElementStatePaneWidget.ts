@@ -222,11 +222,11 @@ export class ElementStatePaneWidget extends UI.Widget.Widget {
       return;
     }
     if (this.cssModel) {
-      this.cssModel.removeEventListener(SDK.CSSModel.Events.PseudoStateForced, this.update, this);
+      this.cssModel.removeEventListener(SDK.CSSModel.Events.PSEUDO_STATE_FORCED, this.update, this);
     }
     this.cssModel = cssModel;
     if (this.cssModel) {
-      this.cssModel.addEventListener(SDK.CSSModel.Events.PseudoStateForced, this.update, this);
+      this.cssModel.addEventListener(SDK.CSSModel.Events.PSEUDO_STATE_FORCED, this.update, this);
     }
   }
   override wasShown(): void {

@@ -98,7 +98,7 @@ export class CoverageModel extends SDK.SDKModel.SDKModel<EventTypes> {
       // coverage twice, even after it's restarted.
       this.clearCSS();
 
-      this.cssModel.addEventListener(SDK.CSSModel.Events.StyleSheetAdded, this.handleStyleSheetAdded, this);
+      this.cssModel.addEventListener(SDK.CSSModel.Events.STYLE_SHEET_ADDED, this.handleStyleSheetAdded, this);
       promises.push(this.cssModel.startCoverage());
     }
     if (this.cpuProfilerModel) {
@@ -170,7 +170,7 @@ export class CoverageModel extends SDK.SDKModel.SDKModel<EventTypes> {
     }
     if (this.cssModel) {
       promises.push(this.cssModel.stopCoverage());
-      this.cssModel.removeEventListener(SDK.CSSModel.Events.StyleSheetAdded, this.handleStyleSheetAdded, this);
+      this.cssModel.removeEventListener(SDK.CSSModel.Events.STYLE_SHEET_ADDED, this.handleStyleSheetAdded, this);
     }
     await Promise.all(promises);
   }
@@ -662,7 +662,7 @@ export class CoverageModel extends SDK.SDKModel.SDKModel<EventTypes> {
   }
 }
 
-SDK.SDKModel.SDKModel.register(CoverageModel, {capabilities: SDK.Target.Capability.None, autostart: false});
+SDK.SDKModel.SDKModel.register(CoverageModel, {capabilities: SDK.Target.Capability.NONE, autostart: false});
 
 export interface EntryForExport {
   url: Platform.DevToolsPath.UrlString;
