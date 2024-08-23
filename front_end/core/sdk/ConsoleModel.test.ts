@@ -149,15 +149,15 @@ describeWithMockConnection('ConsoleMessage', () => {
       timestamp: 123456.789,
     };
 
-    runtimeModel.dispatchEventToListeners(SDK.RuntimeModel.Events.CONSOLE_API_CALLED, consoleAPICall);
+    runtimeModel.dispatchEventToListeners(SDK.RuntimeModel.Events.ConsoleAPICalled, consoleAPICall);
     assert.isTrue(addMessage.calledOnce);
     assert.isTrue(addMessage.calledOnceWith(sinon.match({messageText: 'log me'})));
 
-    runtimeModel.dispatchEventToListeners(SDK.RuntimeModel.Events.CONSOLE_API_CALLED, consoleAPICall);
+    runtimeModel.dispatchEventToListeners(SDK.RuntimeModel.Events.ConsoleAPICalled, consoleAPICall);
     assert.isTrue(addMessage.calledOnce);
 
     runtimeModel.dispatchEventToListeners(
-        SDK.RuntimeModel.Events.CONSOLE_API_CALLED, {...consoleAPICall, timestamp: 123457.000});
+        SDK.RuntimeModel.Events.ConsoleAPICalled, {...consoleAPICall, timestamp: 123457.000});
     assert.isTrue(addMessage.calledTwice);
     assert.isTrue(addMessage.secondCall.calledWith(sinon.match({messageText: 'log me'})));
   });

@@ -612,7 +612,7 @@ class ServiceWorkerContextNamer {
     serviceWorkerManager.addEventListener(Events.REGISTRATION_UPDATED, this.registrationsUpdated, this);
     serviceWorkerManager.addEventListener(Events.REGISTRATION_DELETED, this.registrationsUpdated, this);
     TargetManager.instance().addModelListener(
-        RuntimeModel, RuntimeModelEvents.EXECUTION_CONTEXT_CREATED, this.executionContextCreated, this);
+        RuntimeModel, RuntimeModelEvents.ExecutionContextCreated, this.executionContextCreated, this);
   }
 
   private registrationsUpdated(): void {

@@ -150,17 +150,17 @@ export class ConsoleModel extends SDKModel<EventTypes> {
     const runtimeModel = target.model(RuntimeModel);
     if (runtimeModel) {
       eventListeners.push(runtimeModel.addEventListener(
-          RuntimeModelEvents.EXCEPTION_THROWN, this.exceptionThrown.bind(this, runtimeModel)));
+          RuntimeModelEvents.ExceptionThrown, this.exceptionThrown.bind(this, runtimeModel)));
       eventListeners.push(runtimeModel.addEventListener(
-          RuntimeModelEvents.EXCEPTION_REVOKED, this.exceptionRevoked.bind(this, runtimeModel)));
+          RuntimeModelEvents.ExceptionRevoked, this.exceptionRevoked.bind(this, runtimeModel)));
       eventListeners.push(runtimeModel.addEventListener(
-          RuntimeModelEvents.CONSOLE_API_CALLED, this.consoleAPICalled.bind(this, runtimeModel)));
+          RuntimeModelEvents.ConsoleAPICalled, this.consoleAPICalled.bind(this, runtimeModel)));
       if (target.parentTarget()?.type() !== Type.FRAME) {
         eventListeners.push(runtimeModel.debuggerModel().addEventListener(
             DebuggerModelEvents.GlobalObjectCleared, this.clearIfNecessary, this));
       }
       eventListeners.push(runtimeModel.addEventListener(
-          RuntimeModelEvents.QUERY_OBJECT_REQUESTED, this.queryObjectRequested.bind(this, runtimeModel)));
+          RuntimeModelEvents.QueryObjectsRequested, this.queryObjectRequested.bind(this, runtimeModel)));
     }
 
     this.#targetListeners.set(target, eventListeners);

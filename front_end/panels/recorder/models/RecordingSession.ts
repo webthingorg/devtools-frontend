@@ -559,7 +559,7 @@ export class RecordingSession extends Common.ObjectWrapper.ObjectWrapper<EventTy
 
     this.#runtimeEventDescriptors.set(
         target, [runtimeModel.addEventListener(
-                    SDK.RuntimeModel.Events.BINDING_CALLED, this.#receiveBindingCalled.bind(this, target))]);
+                    SDK.RuntimeModel.Events.BindingCalled, this.#receiveBindingCalled.bind(this, target))]);
 
     await Promise.all(
         Object.values(RecorderBinding)

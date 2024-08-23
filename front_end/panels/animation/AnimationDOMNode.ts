@@ -85,7 +85,7 @@ export class AnimationDOMNode {
       name: REPORT_SCROLL_POSITION_BINDING_NAME,
       executionContextName: DEVTOOLS_ANIMATIONS_WORLD_NAME,
     });
-    runtimeModel.addEventListener(SDK.RuntimeModel.Events.BINDING_CALLED, this.#scrollBindingListener);
+    runtimeModel.addEventListener(SDK.RuntimeModel.Events.BindingCalled, this.#scrollBindingListener);
   }
 
   async #removeReportScrollPositionBinding(): Promise<void> {
@@ -99,7 +99,7 @@ export class AnimationDOMNode {
     await runtimeModel.removeBinding({
       name: REPORT_SCROLL_POSITION_BINDING_NAME,
     });
-    runtimeModel.removeEventListener(SDK.RuntimeModel.Events.BINDING_CALLED, this.#scrollBindingListener);
+    runtimeModel.removeEventListener(SDK.RuntimeModel.Events.BindingCalled, this.#scrollBindingListener);
     this.#scrollBindingListener = undefined;
   }
 

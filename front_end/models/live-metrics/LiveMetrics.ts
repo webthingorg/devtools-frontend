@@ -122,7 +122,7 @@ export class LiveMetrics extends Common.ObjectWrapper.ObjectWrapper<EventTypes> 
       }
     }
 
-    this.dispatchEventToListeners(Events.Status, {
+    this.dispatchEventToListeners(Events.STATUS, {
       lcp: this.#lcpValue,
       cls: this.#clsValue,
       inp: this.#inpValue,
@@ -181,7 +181,7 @@ export class LiveMetrics extends Common.ObjectWrapper.ObjectWrapper<EventTypes> 
         break;
       }
     }
-    this.dispatchEventToListeners(Events.Status, {
+    this.dispatchEventToListeners(Events.STATUS, {
       lcp: this.#lcpValue,
       cls: this.#clsValue,
       inp: this.#inpValue,
@@ -286,7 +286,7 @@ export class LiveMetrics extends Common.ObjectWrapper.ObjectWrapper<EventTypes> 
       return;
     }
 
-    runtimeModel.addEventListener(SDK.RuntimeModel.Events.BINDING_CALLED, this.#onBindingCalled, this);
+    runtimeModel.addEventListener(SDK.RuntimeModel.Events.BindingCalled, this.#onBindingCalled, this);
 
     await runtimeModel.addBinding({
       name: Spec.EVENT_BINDING_NAME,
@@ -316,7 +316,7 @@ export class LiveMetrics extends Common.ObjectWrapper.ObjectWrapper<EventTypes> 
         name: Spec.EVENT_BINDING_NAME,
       });
 
-      runtimeModel.removeEventListener(SDK.RuntimeModel.Events.BINDING_CALLED, this.#onBindingCalled, this);
+      runtimeModel.removeEventListener(SDK.RuntimeModel.Events.BindingCalled, this.#onBindingCalled, this);
     }
 
     const domModel = this.#target.model(SDK.DOMModel.DOMModel);
@@ -335,7 +335,7 @@ export class LiveMetrics extends Common.ObjectWrapper.ObjectWrapper<EventTypes> 
 }
 
 export const enum Events {
-  Status = 'status',
+  STATUS = 'status',
 }
 
 export type MetricValue = Pick<Spec.MetricChangeEvent, 'value'>;
@@ -359,5 +359,5 @@ export interface StatusEvent {
 }
 
 type EventTypes = {
-  [Events.Status]: StatusEvent,
+  [Events.STATUS]: StatusEvent,
 };

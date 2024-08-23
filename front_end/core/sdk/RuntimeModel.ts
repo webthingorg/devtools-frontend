@@ -121,7 +121,7 @@ export class RuntimeModel extends SDKModel<EventTypes> {
         this, context.id, context.uniqueId, context.name, context.origin as Platform.DevToolsPath.UrlString,
         data['isDefault'], data['frameId']);
     this.#executionContextById.set(executionContext.id, executionContext);
-    this.dispatchEventToListeners(Events.EXECUTION_CONTEXT_CREATED, executionContext);
+    this.dispatchEventToListeners(Events.ExecutionContextCreated, executionContext);
   }
 
   executionContextDestroyed(executionContextId: number): void {
@@ -131,11 +131,11 @@ export class RuntimeModel extends SDKModel<EventTypes> {
     }
     this.debuggerModel().executionContextDestroyed(executionContext);
     this.#executionContextById.delete(executionContextId);
-    this.dispatchEventToListeners(Events.EXECUTION_CONTEXT_DESTROYED, executionContext);
+    this.dispatchEventToListeners(Events.ExecutionContextDestroyed, executionContext);
   }
 
   fireExecutionContextOrderChanged(): void {
-    this.dispatchEventToListeners(Events.EXECUTION_CONTEXT_ORDER_CHANGED, this);
+    this.dispatchEventToListeners(Events.ExecutionContextOrderChanged, this);
   }
 
   executionContextsCleared(): void {
@@ -143,7 +143,7 @@ export class RuntimeModel extends SDKModel<EventTypes> {
     const contexts = this.executionContexts();
     this.#executionContextById.clear();
     for (let i = 0; i < contexts.length; ++i) {
-      this.dispatchEventToListeners(Events.EXECUTION_CONTEXT_DESTROYED, contexts[i]);
+      this.dispatchEventToListeners(Events.ExecutionContextDestroyed, contexts[i]);
     }
   }
 
@@ -318,7 +318,7 @@ export class RuntimeModel extends SDKModel<EventTypes> {
   }
 
   bindingCalled(event: Protocol.Runtime.BindingCalledEvent): void {
-    this.dispatchEventToListeners(Events.BINDING_CALLED, event);
+    this.dispatchEventToListeners(Events.BindingCalled, event);
   }
 
   private copyRequested(object: RemoteObject): void {
@@ -367,7 +367,7 @@ export class RuntimeModel extends SDKModel<EventTypes> {
       Common.Console.Console.instance().error(result.error);
       return;
     }
-    this.dispatchEventToListeners(Events.QUERY_OBJECT_REQUESTED, {objects: result.objects, executionContextId});
+    this.dispatchEventToListeners(Events.QueryObjectsRequested, {objects: result.objects, executionContextId});
   }
 
   static simpleTextFromException(exceptionDetails: Protocol.Runtime.ExceptionDetails): string {
@@ -384,11 +384,11 @@ export class RuntimeModel extends SDKModel<EventTypes> {
 
   exceptionThrown(timestamp: number, exceptionDetails: Protocol.Runtime.ExceptionDetails): void {
     const exceptionWithTimestamp = {timestamp: timestamp, details: exceptionDetails};
-    this.dispatchEventToListeners(Events.EXCEPTION_THROWN, exceptionWithTimestamp);
+    this.dispatchEventToListeners(Events.ExceptionThrown, exceptionWithTimestamp);
   }
 
   exceptionRevoked(exceptionId: number): void {
-    this.dispatchEventToListeners(Events.EXCEPTION_REVOKED, exceptionId);
+    this.dispatchEventToListeners(Events.ExceptionRevoked, exceptionId);
   }
 
   consoleAPICalled(
@@ -402,7 +402,7 @@ export class RuntimeModel extends SDKModel<EventTypes> {
       stackTrace: stackTrace,
       context: context,
     };
-    this.dispatchEventToListeners(Events.CONSOLE_API_CALLED, consoleAPICall);
+    this.dispatchEventToListeners(Events.ConsoleAPICalled, consoleAPICall);
   }
 
   executionContextIdForScriptId(scriptId: string): number {
@@ -437,15 +437,17 @@ export class RuntimeModel extends SDKModel<EventTypes> {
 }
 
 export enum Events {
-  BINDING_CALLED = 'BindingCalled',
-  EXECUTION_CONTEXT_CREATED = 'ExecutionContextCreated',
-  EXECUTION_CONTEXT_DESTROYED = 'ExecutionContextDestroyed',
-  EXECUTION_CONTEXT_CHANGED = 'ExecutionContextChanged',
-  EXECUTION_CONTEXT_ORDER_CHANGED = 'ExecutionContextOrderChanged',
-  EXCEPTION_THROWN = 'ExceptionThrown',
-  EXCEPTION_REVOKED = 'ExceptionRevoked',
-  CONSOLE_API_CALLED = 'ConsoleAPICalled',
-  QUERY_OBJECT_REQUESTED = 'QueryObjectRequested',
+  /* eslint-disable @typescript-eslint/naming-convention -- Used by web_tests. */
+  BindingCalled = 'BindingCalled',
+  ExecutionContextCreated = 'ExecutionContextCreated',
+  ExecutionContextDestroyed = 'ExecutionContextDestroyed',
+  ExecutionContextChanged = 'ExecutionContextChanged',
+  ExecutionContextOrderChanged = 'ExecutionContextOrderChanged',
+  ExceptionThrown = 'ExceptionThrown',
+  ExceptionRevoked = 'ExceptionRevoked',
+  ConsoleAPICalled = 'ConsoleAPICalled',
+  QueryObjectsRequested = 'QueryObjectRequested',
+  /* eslint-enable @typescript-eslint/naming-convention */
 }
 
 export interface ConsoleAPICall {
@@ -468,15 +470,15 @@ export interface QueryObjectRequestedEvent {
 }
 
 export type EventTypes = {
-  [Events.BINDING_CALLED]: Protocol.Runtime.BindingCalledEvent,
-  [Events.EXECUTION_CONTEXT_CREATED]: ExecutionContext,
-  [Events.EXECUTION_CONTEXT_DESTROYED]: ExecutionContext,
-  [Events.EXECUTION_CONTEXT_CHANGED]: ExecutionContext,
-  [Events.EXECUTION_CONTEXT_ORDER_CHANGED]: RuntimeModel,
-  [Events.EXCEPTION_THROWN]: ExceptionWithTimestamp,
-  [Events.EXCEPTION_REVOKED]: number,
-  [Events.CONSOLE_API_CALLED]: ConsoleAPICall,
-  [Events.QUERY_OBJECT_REQUESTED]: QueryObjectRequestedEvent,
+  [Events.BindingCalled]: Protocol.Runtime.BindingCalledEvent,
+  [Events.ExecutionContextCreated]: ExecutionContext,
+  [Events.ExecutionContextDestroyed]: ExecutionContext,
+  [Events.ExecutionContextChanged]: ExecutionContext,
+  [Events.ExecutionContextOrderChanged]: RuntimeModel,
+  [Events.ExceptionThrown]: ExceptionWithTimestamp,
+  [Events.ExceptionRevoked]: number,
+  [Events.ConsoleAPICalled]: ConsoleAPICall,
+  [Events.QueryObjectsRequested]: QueryObjectRequestedEvent,
 };
 
 class RuntimeDispatcher implements ProtocolProxyApi.RuntimeDispatcher {
@@ -677,7 +679,7 @@ export class ExecutionContext {
 
   setLabel(label: string): void {
     this.setLabelInternal(label);
-    this.runtimeModel.dispatchEventToListeners(Events.EXECUTION_CONTEXT_CHANGED, this);
+    this.runtimeModel.dispatchEventToListeners(Events.ExecutionContextChanged, this);
   }
 
   private setLabelInternal(label: string): void {

@@ -33,7 +33,7 @@ describeWithMockConnection('ExecutionContextSelector', () => {
 
       const runtimeModel = target.model(SDK.RuntimeModel.RuntimeModel);
       runtimeModel!.dispatchEventToListeners(
-          SDK.RuntimeModel.Events.EXECUTION_CONTEXT_CREATED,
+          SDK.RuntimeModel.Events.ExecutionContextCreated,
           {isDefault: true, frameId: frame.id, target: () => target} as SDK.RuntimeModel.ExecutionContext);
     };
 

@@ -17,13 +17,13 @@ export class ExecutionContextSelector implements SDK.TargetManager.SDKModelObser
     context.addFlavorChangeListener(SDK.Target.Target, this.#targetChanged, this);
 
     targetManager.addModelListener(
-        SDK.RuntimeModel.RuntimeModel, SDK.RuntimeModel.Events.EXECUTION_CONTEXT_CREATED,
-        this.#onExecutionContextCreated, this);
+        SDK.RuntimeModel.RuntimeModel, SDK.RuntimeModel.Events.ExecutionContextCreated, this.#onExecutionContextCreated,
+        this);
     targetManager.addModelListener(
-        SDK.RuntimeModel.RuntimeModel, SDK.RuntimeModel.Events.EXECUTION_CONTEXT_DESTROYED,
+        SDK.RuntimeModel.RuntimeModel, SDK.RuntimeModel.Events.ExecutionContextDestroyed,
         this.#onExecutionContextDestroyed, this);
     targetManager.addModelListener(
-        SDK.RuntimeModel.RuntimeModel, SDK.RuntimeModel.Events.EXECUTION_CONTEXT_ORDER_CHANGED,
+        SDK.RuntimeModel.RuntimeModel, SDK.RuntimeModel.Events.ExecutionContextOrderChanged,
         this.#onExecutionContextOrderChanged, this);
     this.#targetManager = targetManager;
     this.#context = context;

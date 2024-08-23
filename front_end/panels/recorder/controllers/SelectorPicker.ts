@@ -201,7 +201,7 @@ export class SelectorPicker implements SDK.TargetManager.Observer {
   async #addBindings(target: SDK.Target.Target): Promise<void> {
     const model = target.model(SDK.RuntimeModel.RuntimeModel);
     Platform.assertNotNullOrUndefined(model);
-    model.addEventListener(SDK.RuntimeModel.Events.BINDING_CALLED, this.#handleBindingCalledEvent);
+    model.addEventListener(SDK.RuntimeModel.Events.BindingCalled, this.#handleBindingCalledEvent);
     await model.addBinding({
       name: BINDING_NAME,
       executionContextName: Util.DEVTOOLS_RECORDER_WORLD_NAME,
@@ -211,6 +211,6 @@ export class SelectorPicker implements SDK.TargetManager.Observer {
     await target.runtimeAgent().invoke_removeBinding({name: BINDING_NAME});
     const model = target.model(SDK.RuntimeModel.RuntimeModel);
     Platform.assertNotNullOrUndefined(model);
-    model.removeEventListener(SDK.RuntimeModel.Events.BINDING_CALLED, this.#handleBindingCalledEvent);
+    model.removeEventListener(SDK.RuntimeModel.Events.BindingCalled, this.#handleBindingCalledEvent);
   }
 }
