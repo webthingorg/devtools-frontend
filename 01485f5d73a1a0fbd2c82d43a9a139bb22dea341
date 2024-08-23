@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5057b750_f7d3d3de",
+        "filename": "front_end/panels/timeline/timelineFlameChartView.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-08-23T20:37:28Z",
+      "side": 0,
+      "message": "the updated mocks are no longer round, so removing this.",
+      "range": {
+        "startLine": 45,
+        "startChar": 4,
+        "endLine": 45,
+        "endChar": 49
+      },
+      "revId": "01485f5d73a1a0fbd2c82d43a9a139bb22dea341",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
