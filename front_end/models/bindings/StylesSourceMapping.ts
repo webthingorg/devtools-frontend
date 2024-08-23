@@ -56,9 +56,9 @@ export class StylesSourceMapping implements SourceMapping {
 
     this.#styleFiles = new Map();
     this.#eventListeners = [
-      this.#cssModel.addEventListener(SDK.CSSModel.Events.StyleSheetAdded, this.styleSheetAdded, this),
-      this.#cssModel.addEventListener(SDK.CSSModel.Events.StyleSheetRemoved, this.styleSheetRemoved, this),
-      this.#cssModel.addEventListener(SDK.CSSModel.Events.StyleSheetChanged, this.styleSheetChanged, this),
+      this.#cssModel.addEventListener(SDK.CSSModel.Events.STYLE_SHEET_ADDED, this.styleSheetAdded, this),
+      this.#cssModel.addEventListener(SDK.CSSModel.Events.STYLE_SHEET_REMOVED, this.styleSheetRemoved, this),
+      this.#cssModel.addEventListener(SDK.CSSModel.Events.STYLE_SHEET_CHANGED, this.styleSheetChanged, this),
     ];
   }
 
@@ -231,7 +231,7 @@ export class StyleFile implements TextUtils.ContentProvider.ContentProvider {
       return;
     }
     const mirrorContentBound = this.mirrorContent.bind(this, header, true /* majorChange */);
-    void this.#throttler.schedule(mirrorContentBound, Common.Throttler.Scheduling.Default);
+    void this.#throttler.schedule(mirrorContentBound, Common.Throttler.Scheduling.DEFAULT);
   }
 
   private workingCopyCommitted(): void {
@@ -239,7 +239,7 @@ export class StyleFile implements TextUtils.ContentProvider.ContentProvider {
       return;
     }
     const mirrorContentBound = this.mirrorContent.bind(this, this.uiSourceCode, true /* majorChange */);
-    void this.#throttler.schedule(mirrorContentBound, Common.Throttler.Scheduling.AsSoonAsPossible);
+    void this.#throttler.schedule(mirrorContentBound, Common.Throttler.Scheduling.AS_SOON_AS_POSSIBLE);
   }
 
   private workingCopyChanged(): void {
@@ -247,7 +247,7 @@ export class StyleFile implements TextUtils.ContentProvider.ContentProvider {
       return;
     }
     const mirrorContentBound = this.mirrorContent.bind(this, this.uiSourceCode, false /* majorChange */);
-    void this.#throttler.schedule(mirrorContentBound, Common.Throttler.Scheduling.Default);
+    void this.#throttler.schedule(mirrorContentBound, Common.Throttler.Scheduling.DEFAULT);
   }
 
   private async mirrorContent(fromProvider: TextUtils.ContentProvider.ContentProvider, majorChange: boolean):

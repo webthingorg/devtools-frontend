@@ -231,7 +231,7 @@ export class CSSRegisteredProperty {
       this.#style = this.#registration instanceof CSSPropertyRule ?
           this.#registration.style :
           new CSSStyleDeclaration(
-              this.#cssModel, null, {cssProperties: this.#asCSSProperties(), shorthandEntries: []}, Type.Pseudo);
+              this.#cssModel, null, {cssProperties: this.#asCSSProperties(), shorthandEntries: []}, Type.PSEUDO);
     }
     return this.#style;
   }
@@ -337,14 +337,14 @@ export class CSSMatchedStyles {
       if (!attributesPayload) {
         return;
       }
-      const style = new CSSStyleDeclaration(this.#cssModelInternal, null, attributesPayload, Type.Attributes);
+      const style = new CSSStyleDeclaration(this.#cssModelInternal, null, attributesPayload, Type.ATTRIBUTES);
       this.#nodeForStyleInternal.set(style, this.#nodeInternal);
       nodeStyles.push(style);
     }
 
     // Inline style has the greatest specificity.
     if (inlinePayload && this.#nodeInternal.nodeType() === Node.ELEMENT_NODE) {
-      const style = new CSSStyleDeclaration(this.#cssModelInternal, null, inlinePayload, Type.Inline);
+      const style = new CSSStyleDeclaration(this.#cssModelInternal, null, inlinePayload, Type.INLINE);
       this.#nodeForStyleInternal.set(style, this.#nodeInternal);
       nodeStyles.push(style);
     }
@@ -382,7 +382,7 @@ export class CSSMatchedStyles {
       const inheritedStyles = [];
       const entryPayload = inheritedPayload[i];
       const inheritedInlineStyle = entryPayload.inlineStyle ?
-          new CSSStyleDeclaration(this.#cssModelInternal, null, entryPayload.inlineStyle, Type.Inline) :
+          new CSSStyleDeclaration(this.#cssModelInternal, null, entryPayload.inlineStyle, Type.INLINE) :
           null;
       if (inheritedInlineStyle && containsInherited(inheritedInlineStyle)) {
         this.#nodeForStyleInternal.set(inheritedInlineStyle, parentNode);
@@ -787,7 +787,7 @@ class NodeCascade {
         }
 
         if (!property.activeInStyle()) {
-          this.propertiesState.set(property, PropertyState.Overloaded);
+          this.propertiesState.set(property, PropertyState.OVERLOADED);
           continue;
         }
 
@@ -795,7 +795,7 @@ class NodeCascade {
         if (this.#isInherited) {
           const registration = this.#matchedStyles.getRegisteredProperty(property.name);
           if (registration && !registration.inherits()) {
-            this.propertiesState.set(property, PropertyState.Overloaded);
+            this.propertiesState.set(property, PropertyState.OVERLOADED);
             continue;
           }
         }
@@ -814,14 +814,14 @@ class NodeCascade {
   private updatePropertyState(propertyWithHigherSpecificity: CSSProperty, canonicalName: string): void {
     const activeProperty = this.activeProperties.get(canonicalName);
     if (activeProperty?.important && !propertyWithHigherSpecificity.important) {
-      this.propertiesState.set(propertyWithHigherSpecificity, PropertyState.Overloaded);
+      this.propertiesState.set(propertyWithHigherSpecificity, PropertyState.OVERLOADED);
       return;
     }
 
     if (activeProperty) {
-      this.propertiesState.set(activeProperty, PropertyState.Overloaded);
+      this.propertiesState.set(activeProperty, PropertyState.OVERLOADED);
     }
-    this.propertiesState.set(propertyWithHigherSpecificity, PropertyState.Active);
+    this.propertiesState.set(propertyWithHigherSpecificity, PropertyState.ACTIVE);
     this.activeProperties.set(canonicalName, propertyWithHigherSpecificity);
   }
 }
@@ -1043,17 +1043,17 @@ class DOMInheritanceCascade {
     for (const nodeCascade of this.#nodeCascades) {
       nodeCascade.computeActiveProperties();
       for (const [property, state] of nodeCascade.propertiesState) {
-        if (state === PropertyState.Overloaded) {
-          this.#propertiesState.set(property, PropertyState.Overloaded);
+        if (state === PropertyState.OVERLOADED) {
+          this.#propertiesState.set(property, PropertyState.OVERLOADED);
           continue;
         }
         const canonicalName = cssMetadata().canonicalPropertyName(property.name);
         if (activeProperties.has(canonicalName)) {
-          this.#propertiesState.set(property, PropertyState.Overloaded);
+          this.#propertiesState.set(property, PropertyState.OVERLOADED);
           continue;
         }
         activeProperties.set(canonicalName, property);
-        this.#propertiesState.set(property, PropertyState.Active);
+        this.#propertiesState.set(property, PropertyState.ACTIVE);
       }
     }
     // If every longhand of the shorthand is not active, then the shorthand is not active too.
@@ -1079,7 +1079,7 @@ class DOMInheritanceCascade {
         continue;
       }
       activeProperties.delete(canonicalName);
-      this.#propertiesState.set(shorthandProperty, PropertyState.Overloaded);
+      this.#propertiesState.set(shorthandProperty, PropertyState.OVERLOADED);
     }
 
     // Work inheritance chain backwards to compute visible CSS Variables.
@@ -1117,6 +1117,6 @@ class DOMInheritanceCascade {
 }
 
 export const enum PropertyState {
-  Active = 'Active',
-  Overloaded = 'Overloaded',
+  ACTIVE = 'Active',
+  OVERLOADED = 'Overloaded',
 }

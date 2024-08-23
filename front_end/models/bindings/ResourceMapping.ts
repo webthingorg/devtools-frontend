@@ -274,7 +274,7 @@ class ModelInfo {
       resourceTreeModel.addEventListener(SDK.ResourceTreeModel.Events.FrameWillNavigate, this.frameWillNavigate, this),
       resourceTreeModel.addEventListener(SDK.ResourceTreeModel.Events.FrameDetached, this.frameDetached, this),
       this.#cssModel.addEventListener(
-          SDK.CSSModel.Events.StyleSheetChanged,
+          SDK.CSSModel.Events.STYLE_SHEET_CHANGED,
           event => {
             void this.styleSheetChanged(event);
           },

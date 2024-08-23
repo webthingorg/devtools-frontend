@@ -44,13 +44,13 @@ export class ComputedStyleModel extends Common.ObjectWrapper.ObjectWrapper<Event
     const resourceTreeModel = cssModel ? cssModel.target().model(SDK.ResourceTreeModel.ResourceTreeModel) : null;
     if (cssModel && domModel && resourceTreeModel) {
       this.eventListeners = [
-        cssModel.addEventListener(SDK.CSSModel.Events.StyleSheetAdded, this.onComputedStyleChanged, this),
-        cssModel.addEventListener(SDK.CSSModel.Events.StyleSheetRemoved, this.onComputedStyleChanged, this),
-        cssModel.addEventListener(SDK.CSSModel.Events.StyleSheetChanged, this.onComputedStyleChanged, this),
-        cssModel.addEventListener(SDK.CSSModel.Events.FontsUpdated, this.onComputedStyleChanged, this),
-        cssModel.addEventListener(SDK.CSSModel.Events.MediaQueryResultChanged, this.onComputedStyleChanged, this),
-        cssModel.addEventListener(SDK.CSSModel.Events.PseudoStateForced, this.onComputedStyleChanged, this),
-        cssModel.addEventListener(SDK.CSSModel.Events.ModelWasEnabled, this.onComputedStyleChanged, this),
+        cssModel.addEventListener(SDK.CSSModel.Events.STYLE_SHEET_ADDED, this.onComputedStyleChanged, this),
+        cssModel.addEventListener(SDK.CSSModel.Events.STYLE_SHEET_REMOVED, this.onComputedStyleChanged, this),
+        cssModel.addEventListener(SDK.CSSModel.Events.STYLE_SHEET_CHANGED, this.onComputedStyleChanged, this),
+        cssModel.addEventListener(SDK.CSSModel.Events.FONTS_UPDATED, this.onComputedStyleChanged, this),
+        cssModel.addEventListener(SDK.CSSModel.Events.MEDIA_QUERY_RESULT_CHANGED, this.onComputedStyleChanged, this),
+        cssModel.addEventListener(SDK.CSSModel.Events.PSEUDO_STATE_FORCED, this.onComputedStyleChanged, this),
+        cssModel.addEventListener(SDK.CSSModel.Events.MODEL_WAS_ENABLED, this.onComputedStyleChanged, this),
         domModel.addEventListener(SDK.DOMModel.Events.DOMMutated, this.onDOMModelChanged, this),
         resourceTreeModel.addEventListener(SDK.ResourceTreeModel.Events.FrameResized, this.onFrameResized, this),
       ];
