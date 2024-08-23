@@ -101,11 +101,11 @@ export async function getExecutionContext(runtimeModel: SDK.RuntimeModel.Runtime
   if (!executionContexts.length) {
     await new Promise<void>(resolve => {
       const listener = () => {
-        runtimeModel.removeEventListener(SDK.RuntimeModel.Events.ExecutionContextCreated, listener);
+        runtimeModel.removeEventListener(SDK.RuntimeModel.Events.EXECUTION_CONTEXT_CREATED, listener);
         executionContexts = runtimeModel.executionContexts();
         resolve();
       };
-      runtimeModel.addEventListener(SDK.RuntimeModel.Events.ExecutionContextCreated, listener);
+      runtimeModel.addEventListener(SDK.RuntimeModel.Events.EXECUTION_CONTEXT_CREATED, listener);
     });
   }
   if (!executionContexts.length) {

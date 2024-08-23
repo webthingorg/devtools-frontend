@@ -186,7 +186,7 @@ export class BackgroundServiceView extends UI.Widget.VBox {
       throw new Error('SecurityOriginManager instance is missing');
     }
     this.securityOriginManager.addEventListener(
-        SDK.SecurityOriginManager.Events.MainSecurityOriginChanged, () => this.onOriginChanged());
+        SDK.SecurityOriginManager.Events.MAIN_SECURITY_ORIGIN_CHANGED, () => this.onOriginChanged());
 
     this.storageKeyManager =
         this.model.target().model(SDK.StorageKeyManager.StorageKeyManager) as SDK.StorageKeyManager.StorageKeyManager;
@@ -194,7 +194,7 @@ export class BackgroundServiceView extends UI.Widget.VBox {
       throw new Error('StorageKeyManager instance is missing');
     }
     this.storageKeyManager.addEventListener(
-        SDK.StorageKeyManager.Events.MainStorageKeyChanged, () => this.onStorageKeyChanged());
+        SDK.StorageKeyManager.Events.MAIN_STORAGE_KEY_CHANGED, () => this.onStorageKeyChanged());
 
     this.recordAction = UI.ActionRegistry.ActionRegistry.instance().getAction('background-service.toggle-recording');
 

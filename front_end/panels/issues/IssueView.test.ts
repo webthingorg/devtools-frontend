@@ -25,7 +25,7 @@ describeWithEnvironment('IssueView', () => {
 
     assert.isTrue(recordedMetricsContain(
         Host.InspectorFrontendHostAPI.EnumeratedHistogram.IssuesPanelIssueExpanded,
-        Host.UserMetrics.IssueExpanded.Other));
+        Host.UserMetrics.IssueExpanded.OTHER));
     view.clear();
   });
 
@@ -44,10 +44,10 @@ describeWithEnvironment('IssueView', () => {
 
     assert.isTrue(recordedMetricsContain(
         Host.InspectorFrontendHostAPI.EnumeratedHistogram.IssuesPanelIssueExpanded,
-        Host.UserMetrics.IssueExpanded.SameSiteCookie));
+        Host.UserMetrics.IssueExpanded.SAME_SITE_COOKIE));
     assert.isFalse(recordedMetricsContain(
         Host.InspectorFrontendHostAPI.EnumeratedHistogram.IssuesPanelIssueExpanded,
-        Host.UserMetrics.IssueExpanded.GenericCookie));
+        Host.UserMetrics.IssueExpanded.GENERIC_COOKIE));
     view.clear();
   });
 
@@ -66,10 +66,10 @@ describeWithEnvironment('IssueView', () => {
 
     assert.isTrue(recordedMetricsContain(
         Host.InspectorFrontendHostAPI.EnumeratedHistogram.IssuesPanelIssueExpanded,
-        Host.UserMetrics.IssueExpanded.ThirdPartyPhaseoutCookie));
+        Host.UserMetrics.IssueExpanded.THIRD_PARTY_PHASEOUT_COOKIE));
     assert.isFalse(recordedMetricsContain(
         Host.InspectorFrontendHostAPI.EnumeratedHistogram.IssuesPanelIssueExpanded,
-        Host.UserMetrics.IssueExpanded.GenericCookie));
+        Host.UserMetrics.IssueExpanded.GENERIC_COOKIE));
     view.clear();
   });
 });
