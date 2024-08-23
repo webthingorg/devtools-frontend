@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec0f2d15_35e410eb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-08-23T13:26:35Z",
+      "side": 1,
+      "message": "Let\u0027s be more clear, like \u0027start timestamp\u0027",
+      "range": {
+        "startLine": 7,
+        "startChar": 24,
+        "endLine": 7,
+        "endChar": 33
+      },
+      "revId": "48eb975227a741bb23eb6a196324e0d49dc68770",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb27acb7_3d2f81d0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-08-23T13:26:35Z",
+      "side": 1,
+      "message": "One more question,not block this CL, there will be a case that the \"from\" event ends after \"to\" start. What is the UI there? Are we happy with the small overlap there?",
+      "revId": "48eb975227a741bb23eb6a196324e0d49dc68770",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
