@@ -21,10 +21,10 @@ describeWithMockConnection('ExecutionContextSelector', () => {
     new Main.ExecutionContextSelector.ExecutionContextSelector(
         SDK.TargetManager.TargetManager.instance(), UI.Context.Context.instance());
 
-    const tabTarget = createTarget({type: SDK.Target.Type.Tab});
-    const mainFrameTarget = createTarget({type: SDK.Target.Type.Frame, parentTarget: tabTarget});
-    const subframeTarget = createTarget({type: SDK.Target.Type.Frame, parentTarget: mainFrameTarget});
-    const prerenderTarget = createTarget({type: SDK.Target.Type.Frame, parentTarget: tabTarget, subtype: 'prerender'});
+    const tabTarget = createTarget({type: SDK.Target.Type.TAB});
+    const mainFrameTarget = createTarget({type: SDK.Target.Type.FRAME, parentTarget: tabTarget});
+    const subframeTarget = createTarget({type: SDK.Target.Type.FRAME, parentTarget: mainFrameTarget});
+    const prerenderTarget = createTarget({type: SDK.Target.Type.FRAME, parentTarget: tabTarget, subtype: 'prerender'});
 
     const contextSetFlavor = sinon.spy(UI.Context.Context.instance(), 'setFlavor');
 
@@ -33,7 +33,7 @@ describeWithMockConnection('ExecutionContextSelector', () => {
 
       const runtimeModel = target.model(SDK.RuntimeModel.RuntimeModel);
       runtimeModel!.dispatchEventToListeners(
-          SDK.RuntimeModel.Events.ExecutionContextCreated,
+          SDK.RuntimeModel.Events.EXECUTION_CONTEXT_CREATED,
           {isDefault: true, frameId: frame.id, target: () => target} as SDK.RuntimeModel.ExecutionContext);
     };
 

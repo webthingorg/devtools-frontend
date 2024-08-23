@@ -150,7 +150,7 @@ export class PresentationSourceFrameMessageHelper {
     }
     this.#cssModel = cssModel;
     cssModel.addEventListener(
-        SDK.CSSModel.Events.StyleSheetAdded, event => queueMicrotask(() => this.#styleSheetAdded(event)));
+        SDK.CSSModel.Events.STYLE_SHEET_ADDED, event => queueMicrotask(() => this.#styleSheetAdded(event)));
   }
 
   async addMessage(message: Workspace.UISourceCode.Message, source: MessageSource): Promise<void> {

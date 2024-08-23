@@ -53,7 +53,7 @@ export class ExtensionScope {
     }
 
     const handler = this.#bindingCalled.bind(this, isolatedWorldContext);
-    runtimeModel?.addEventListener(SDK.RuntimeModel.Events.BindingCalled, handler);
+    runtimeModel?.addEventListener(SDK.RuntimeModel.Events.BINDING_CALLED, handler);
     this.#listeners.push(handler);
     await target.runtimeAgent().invoke_addBinding({
       name: FREESTYLER_BINDING_NAME,
@@ -67,7 +67,7 @@ export class ExtensionScope {
     const runtimeModel = this.#target.model(SDK.RuntimeModel.RuntimeModel);
 
     for (const handler of this.#listeners) {
-      runtimeModel?.removeEventListener(SDK.RuntimeModel.Events.BindingCalled, handler);
+      runtimeModel?.removeEventListener(SDK.RuntimeModel.Events.BINDING_CALLED, handler);
     }
     this.#listeners = [];
 

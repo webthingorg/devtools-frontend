@@ -28,13 +28,13 @@ export class SecurityOriginManager extends SDKModel<EventTypes> {
 
     for (const origin of oldOrigins) {
       if (!this.#securityOriginsInternal.has(origin)) {
-        this.dispatchEventToListeners(Events.SecurityOriginRemoved, origin);
+        this.dispatchEventToListeners(Events.SECURITY_ORIGIN_REMOVED, origin);
       }
     }
 
     for (const origin of this.#securityOriginsInternal) {
       if (!oldOrigins.has(origin)) {
-        this.dispatchEventToListeners(Events.SecurityOriginAdded, origin);
+        this.dispatchEventToListeners(Events.SECURITY_ORIGIN_ADDED, origin);
       }
     }
   }
@@ -54,7 +54,7 @@ export class SecurityOriginManager extends SDKModel<EventTypes> {
   setMainSecurityOrigin(securityOrigin: string, unreachableSecurityOrigin: string): void {
     this.#mainSecurityOriginInternal = securityOrigin;
     this.#unreachableMainSecurityOriginInternal = unreachableSecurityOrigin || null;
-    this.dispatchEventToListeners(Events.MainSecurityOriginChanged, {
+    this.dispatchEventToListeners(Events.MAIN_SECURITY_ORIGIN_CHANGED, {
       mainSecurityOrigin: this.#mainSecurityOriginInternal,
       unreachableMainSecurityOrigin: this.#unreachableMainSecurityOriginInternal,
     });
@@ -62,9 +62,9 @@ export class SecurityOriginManager extends SDKModel<EventTypes> {
 }
 
 export enum Events {
-  SecurityOriginAdded = 'SecurityOriginAdded',
-  SecurityOriginRemoved = 'SecurityOriginRemoved',
-  MainSecurityOriginChanged = 'MainSecurityOriginChanged',
+  SECURITY_ORIGIN_ADDED = 'SecurityOriginAdded',
+  SECURITY_ORIGIN_REMOVED = 'SecurityOriginRemoved',
+  MAIN_SECURITY_ORIGIN_CHANGED = 'MainSecurityOriginChanged',
 }
 
 export interface MainSecurityOriginChangedEvent {
@@ -73,10 +73,10 @@ export interface MainSecurityOriginChangedEvent {
 }
 
 export type EventTypes = {
-  [Events.SecurityOriginAdded]: string,
-  [Events.SecurityOriginRemoved]: string,
-  [Events.MainSecurityOriginChanged]: MainSecurityOriginChangedEvent,
+  [Events.SECURITY_ORIGIN_ADDED]: string,
+  [Events.SECURITY_ORIGIN_REMOVED]: string,
+  [Events.MAIN_SECURITY_ORIGIN_CHANGED]: MainSecurityOriginChangedEvent,
 };
 
 // TODO(jarhar): this is the one of the two usages of Capability.None. Do something about it!
-SDKModel.register(SecurityOriginManager, {capabilities: Capability.None, autostart: false});
+SDKModel.register(SecurityOriginManager, {capabilities: Capability.NONE, autostart: false});
