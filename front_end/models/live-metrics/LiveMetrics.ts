@@ -286,7 +286,7 @@ export class LiveMetrics extends Common.ObjectWrapper.ObjectWrapper<EventTypes> 
       return;
     }
 
-    runtimeModel.addEventListener(SDK.RuntimeModel.Events.BindingCalled, this.#onBindingCalled, this);
+    runtimeModel.addEventListener(SDK.RuntimeModel.Events.BINDING_CALLED, this.#onBindingCalled, this);
 
     await runtimeModel.addBinding({
       name: Spec.EVENT_BINDING_NAME,
@@ -316,7 +316,7 @@ export class LiveMetrics extends Common.ObjectWrapper.ObjectWrapper<EventTypes> 
         name: Spec.EVENT_BINDING_NAME,
       });
 
-      runtimeModel.removeEventListener(SDK.RuntimeModel.Events.BindingCalled, this.#onBindingCalled, this);
+      runtimeModel.removeEventListener(SDK.RuntimeModel.Events.BINDING_CALLED, this.#onBindingCalled, this);
     }
 
     const domModel = this.#target.model(SDK.DOMModel.DOMModel);
