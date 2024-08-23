@@ -46,13 +46,13 @@ export class ConsoleContextSelector implements SDK.TargetManager.SDKModelObserve
     this.toolbarItemInternal.element.classList.add('toolbar-has-dropdown');
 
     SDK.TargetManager.TargetManager.instance().addModelListener(
-        SDK.RuntimeModel.RuntimeModel, SDK.RuntimeModel.Events.ExecutionContextCreated, this.onExecutionContextCreated,
-        this, {scoped: true});
+        SDK.RuntimeModel.RuntimeModel, SDK.RuntimeModel.Events.EXECUTION_CONTEXT_CREATED,
+        this.onExecutionContextCreated, this, {scoped: true});
     SDK.TargetManager.TargetManager.instance().addModelListener(
-        SDK.RuntimeModel.RuntimeModel, SDK.RuntimeModel.Events.ExecutionContextChanged, this.onExecutionContextChanged,
-        this, {scoped: true});
+        SDK.RuntimeModel.RuntimeModel, SDK.RuntimeModel.Events.EXECUTION_CONTEXT_CHANGED,
+        this.onExecutionContextChanged, this, {scoped: true});
     SDK.TargetManager.TargetManager.instance().addModelListener(
-        SDK.RuntimeModel.RuntimeModel, SDK.RuntimeModel.Events.ExecutionContextDestroyed,
+        SDK.RuntimeModel.RuntimeModel, SDK.RuntimeModel.Events.EXECUTION_CONTEXT_DESTROYED,
         this.onExecutionContextDestroyed, this, {scoped: true});
     SDK.TargetManager.TargetManager.instance().addModelListener(
         SDK.ResourceTreeModel.ResourceTreeModel, SDK.ResourceTreeModel.Events.FrameNavigated, this.frameNavigated, this,
