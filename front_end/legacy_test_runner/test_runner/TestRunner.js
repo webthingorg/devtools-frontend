@@ -958,7 +958,7 @@ export function waitForExecutionContext(runtimeModel) {
   if (runtimeModel.executionContexts().length) {
     return Promise.resolve(runtimeModel.executionContexts()[0]);
   }
-  return runtimeModel.once(SDK.RuntimeModel.Events.ExecutionContextCreated);
+  return runtimeModel.once(SDK.RuntimeModel.Events.EXECUTION_CONTEXT_CREATED);
 }
 
 /**
@@ -971,7 +971,7 @@ export function waitForExecutionContextDestroyed(context) {
     return Promise.resolve();
   }
   return waitForEvent(
-      SDK.RuntimeModel.Events.ExecutionContextDestroyed, runtimeModel,
+      SDK.RuntimeModel.Events.EXECUTION_CONTEXT_DESTROYED, runtimeModel,
       destroyedContext => destroyedContext === context);
 }
 
