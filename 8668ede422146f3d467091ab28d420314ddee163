@@ -123,6 +123,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c52a49df_13e0eb2b",
+        "filename": "front_end/models/trace/insights/DocumentLatency.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-08-23T20:21:40Z",
+      "side": 1,
+      "message": "(please ignore the last sentence above, I mean to delete that line and so it doesn\u0027t make sense).\n\nHere\u0027s a list of mimetypes that _should_ be compressed: https://letstalkaboutwebperf.com/en/gzip-brotli-server-config/",
+      "parentUuid": "00fff1c7_57e1260a",
+      "revId": "8668ede422146f3d467091ab28d420314ddee163",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4c61b108_80cceae9",
         "filename": "front_end/models/trace/insights/DocumentLatency.ts",
         "patchSetId": 1
