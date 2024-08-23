@@ -142,6 +142,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "132ebad9_11d14c17",
+        "filename": "front_end/panels/freestyler/FreestylerPanel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-08-23T11:35:39Z",
+      "side": 1,
+      "message": "Done as https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/5803049/1",
+      "parentUuid": "2724ebf0_7fe1d87e",
+      "revId": "59d6c96c84e678161664f569ff2700287bcbe96e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c1791ce3_9073aa7d",
