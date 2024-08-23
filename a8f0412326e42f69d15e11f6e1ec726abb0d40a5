@@ -33,6 +33,24 @@
       "message": "LGTM,\nDo we run web test in our CQ so if something fails we can catch it?",
       "revId": "a8f0412326e42f69d15e11f6e1ec726abb0d40a5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "742cd446_595effcb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-08-23T11:17:38Z",
+      "side": 1,
+      "message": "Yes 👍",
+      "parentUuid": "ba73f50d_53899221",
+      "revId": "a8f0412326e42f69d15e11f6e1ec726abb0d40a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
