@@ -621,11 +621,9 @@ c`;
       assert.deepStrictEqual(steps, [
         {
           step: Freestyler.Step.QUERYING,
-          id: '1-0',
         },
         {
           step: Freestyler.Step.ANSWER,
-          id: '1-0',
           text: 'this is the answer',
           rpcId: undefined,
         },
@@ -664,11 +662,9 @@ c`;
       assert.deepStrictEqual(steps, [
         {
           step: Freestyler.Step.QUERYING,
-          id: '1-0',
         },
         {
           step: Freestyler.Step.ANSWER,
-          id: '1-0',
           text: 'this is the answer',
           rpcId: 123,
         },
@@ -700,11 +696,9 @@ c`;
       assert.deepStrictEqual(steps, [
         {
           step: Freestyler.Step.QUERYING,
-          id: '1-0',
         },
         {
           rpcId: undefined,
-          id: '1-0',
           step: Freestyler.Step.ERROR,
           error: 'Sorry, I could not help you with this query.',
         },
@@ -736,11 +730,9 @@ c`;
       assert.deepStrictEqual(steps, [
         {
           step: Freestyler.Step.QUERYING,
-          id: '1-0',
         },
         {
           step: Freestyler.Step.ANSWER,
-          id: '1-0',
           text: 'this is the answer',
           rpcId: 123,
         },
@@ -766,11 +758,9 @@ c`;
       assert.deepStrictEqual(steps, [
         {
           step: Freestyler.Step.QUERYING,
-          id: '1-0',
         },
         {
           step: Freestyler.Step.ERROR,
-          id: '1-0',
           error: 'Sorry, I could not help you with this query.',
           rpcId: undefined,
         },
@@ -824,25 +814,24 @@ ANSWER: this is the answer`,
       assert.deepStrictEqual(steps, [
         {
           step: Freestyler.Step.QUERYING,
-          id: '1-0',
         },
         {
           step: Freestyler.Step.THOUGHT,
-          id: '1-0',
           thought: 'I am thinking.',
           title: undefined,
           rpcId: undefined,
         },
         {
           step: Freestyler.Step.ACTION,
-          id: '1-0',
           code: 'console.log(\'hello\');',
           output: 'hello',
           rpcId: undefined,
         },
         {
+          step: Freestyler.Step.QUERYING,
+        },
+        {
           step: Freestyler.Step.ANSWER,
-          id: '1-1',
           text: 'this is the actual answer',
           rpcId: undefined,
         },

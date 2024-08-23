@@ -157,7 +157,6 @@ function getInputPlaceholderString(aidaAvailability: Host.AidaClient.AidaAccessP
 }
 
 export interface CollapsableStep {
-  id: string;
   type: Step.QUERYING|Step.THOUGHT;
   thought?: string;
   title?: string;
@@ -184,7 +183,7 @@ export interface UserChatMessage {
 export interface ModelChatMessage {
   entity: ChatMessageEntity.MODEL;
   suggestingFix: boolean;
-  steps: Map<string, CollapsableStep>;
+  steps: CollapsableStep[];
   answer?: string;
   error?: string;
   rpcId?: number;
@@ -491,7 +490,7 @@ export class FreestylerChatUi extends HTMLElement {
         <div>
           ${LitHtml.Directives.repeat(
             message.steps.values(),
-            step => step.id,
+            (_, index) => index,
             step => {
               return this.#renderStep(step, {
                 isLast: [...message.steps.values()].at(-1) === step && isLast,

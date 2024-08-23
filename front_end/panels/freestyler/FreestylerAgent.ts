@@ -72,21 +72,18 @@ export enum Step {
 
 export interface AnswerResponse {
   step: Step.ANSWER;
-  id: string;
   text: string;
   rpcId?: number;
 }
 
 export interface ErrorResponse {
   step: Step.ERROR;
-  id: string;
   error: string;
   rpcId?: number;
 }
 
 export interface ThoughtResponse {
   step: Step.THOUGHT;
-  id: string;
   thought: string;
   title?: string;
   rpcId?: number;
@@ -94,15 +91,14 @@ export interface ThoughtResponse {
 
 export interface ActionResponse {
   step: Step.ACTION;
-  id: string;
   code: string;
   output: string;
+  title?: string;
   rpcId?: number;
 }
 
 export interface QueryResponse {
   step: Step.QUERYING;
-  id: string;
 }
 
 export type ResponseData = AnswerResponse|ErrorResponse|ActionResponse|ThoughtResponse|QueryResponse;
@@ -354,16 +350,10 @@ export class FreestylerAgent {
       this.#chatHistory.delete(currentRunId);
     });
 
-    // We need the first id for queueing to match
-    // the one of the first response
-    let id: string = `${currentRunId}-${0}`;
-    yield {
-      step: Step.QUERYING,
-      id,
-    };
-
     for (let i = 0; i < MAX_STEPS; i++) {
-      id = `${currentRunId}-${i}`;
+      yield {
+        step: Step.QUERYING,
+      };
 
       const request = FreestylerAgent.buildRequest({
         input: query,
@@ -385,7 +375,7 @@ export class FreestylerAgent {
           break;
         }
 
-        yield {step: Step.ERROR, id, error: genericErrorMessage, rpcId};
+        yield {step: Step.ERROR, error: genericErrorMessage, rpcId};
         break;
       }
 
@@ -420,7 +410,6 @@ export class FreestylerAgent {
         if (thought) {
           yield {
             step: Step.THOUGHT,
-            id,
             thought,
             title,
             rpcId,
@@ -434,8 +423,8 @@ export class FreestylerAgent {
           debugLog(`Action result: ${observation}`);
           yield {
             step: Step.ACTION,
+            title,
             code: action,
-            id,
             output: observation,
             rpcId,
           };
@@ -445,15 +434,15 @@ export class FreestylerAgent {
           await scope.uninstall();
         }
       } else if (answer) {
-        yield {step: Step.ANSWER, id, text: answer, rpcId};
+        yield {step: Step.ANSWER, text: answer, rpcId};
         break;
       } else {
-        yield {step: Step.ERROR, id, error: genericErrorMessage, rpcId};
+        yield {step: Step.ERROR, error: genericErrorMessage, rpcId};
         break;
       }
 
       if (i === MAX_STEPS - 1) {
-        yield {step: Step.ERROR, id, error: 'Max steps reached, please try again.'};
+        yield {step: Step.ERROR, error: 'Max steps reached, please try again.'};
         break;
       }
     }
