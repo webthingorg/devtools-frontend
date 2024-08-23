@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d3c77a4_ed9bdb1f",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 841,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-08-23T11:47:13Z",
+      "side": 1,
+      "message": "do we need to duplicate the stream data? I believe the thought if any would always but the previous step.",
+      "revId": "d49cd51b37220706d133382a9742ad8a89612c06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
