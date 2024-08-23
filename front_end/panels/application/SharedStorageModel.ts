@@ -89,9 +89,9 @@ export class SharedStorageModel extends SDK.SDKModel.SDKModel<EventTypes> implem
     }
 
     this.#securityOriginManager.addEventListener(
-        SDK.SecurityOriginManager.Events.SecurityOriginAdded, this.#securityOriginAdded, this);
+        SDK.SecurityOriginManager.Events.SECURITY_ORIGIN_ADDED, this.#securityOriginAdded, this);
     this.#securityOriginManager.addEventListener(
-        SDK.SecurityOriginManager.Events.SecurityOriginRemoved, this.#securityOriginRemoved, this);
+        SDK.SecurityOriginManager.Events.SECURITY_ORIGIN_REMOVED, this.#securityOriginRemoved, this);
 
     await this.storageAgent.invoke_setSharedStorageTracking({enable: true});
     this.#addAllOrigins();
@@ -104,9 +104,9 @@ export class SharedStorageModel extends SDK.SDKModel.SDKModel<EventTypes> implem
     }
 
     this.#securityOriginManager.removeEventListener(
-        SDK.SecurityOriginManager.Events.SecurityOriginAdded, this.#securityOriginAdded, this);
+        SDK.SecurityOriginManager.Events.SECURITY_ORIGIN_ADDED, this.#securityOriginAdded, this);
     this.#securityOriginManager.removeEventListener(
-        SDK.SecurityOriginManager.Events.SecurityOriginRemoved, this.#securityOriginRemoved, this);
+        SDK.SecurityOriginManager.Events.SECURITY_ORIGIN_REMOVED, this.#securityOriginRemoved, this);
 
     void this.storageAgent.invoke_setSharedStorageTracking({enable: false});
     this.#removeAllOrigins();
@@ -242,7 +242,7 @@ export class SharedStorageModel extends SDK.SDKModel.SDKModel<EventTypes> implem
   }
 }
 
-SDK.SDKModel.SDKModel.register(SharedStorageModel, {capabilities: SDK.Target.Capability.Storage, autostart: false});
+SDK.SDKModel.SDKModel.register(SharedStorageModel, {capabilities: SDK.Target.Capability.STORAGE, autostart: false});
 
 export const enum Events {
   SharedStorageAccess = 'SharedStorageAccess',

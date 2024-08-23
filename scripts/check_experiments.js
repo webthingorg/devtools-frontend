@@ -15,7 +15,7 @@ const parseOptions = {
   range: true,
 };
 
-const USER_METRICS_ENUM_ENDPOINT = 'MaxValue';
+const USER_METRICS_ENUM_ENDPOINT = 'MAX_VALUE';
 
 /**
  * Determines if a node is a class declaration.

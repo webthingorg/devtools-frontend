@@ -608,10 +608,10 @@ export const waitForExecutionContextInTarget = function(target, callback) {
     return;
   }
 
-  runtimeModel.addEventListener(SDK.RuntimeModel.Events.ExecutionContextCreated, contextCreated);
+  runtimeModel.addEventListener(SDK.RuntimeModel.Events.EXECUTION_CONTEXT_CREATED, contextCreated);
 
   function contextCreated() {
-    runtimeModel.removeEventListener(SDK.RuntimeModel.Events.ExecutionContextCreated, contextCreated);
+    runtimeModel.removeEventListener(SDK.RuntimeModel.Events.EXECUTION_CONTEXT_CREATED, contextCreated);
     callback(runtimeModel.executionContexts()[0]);
   }
 };

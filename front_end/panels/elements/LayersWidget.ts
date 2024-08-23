@@ -50,11 +50,11 @@ export class LayersWidget extends UI.Widget.Widget {
       return;
     }
     if (this.cssModel) {
-      this.cssModel.removeEventListener(SDK.CSSModel.Events.StyleSheetChanged, this.update, this);
+      this.cssModel.removeEventListener(SDK.CSSModel.Events.STYLE_SHEET_CHANGED, this.update, this);
     }
     this.cssModel = cssModel;
     if (this.cssModel) {
-      this.cssModel.addEventListener(SDK.CSSModel.Events.StyleSheetChanged, this.update, this);
+      this.cssModel.addEventListener(SDK.CSSModel.Events.STYLE_SHEET_CHANGED, this.update, this);
     }
   }
 
