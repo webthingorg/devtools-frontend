@@ -3,6 +3,41 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4a0224fe_7ef41e12",
+        "filename": "front_end/panels/timeline/components/insights/RenderBlocking.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-08-23T22:25:36Z",
+      "side": 1,
+      "message": "nit: we shouldn\u0027t need to check the length. If it\u0027s 0 we will still return an empty array below",
+      "fixSuggestions": [
+        {
+          "fixId": "89b57aa7_68bbeb94",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/components/insights/RenderBlocking.ts",
+              "range": {
+                "startLine": 40,
+                "startChar": 0,
+                "endLine": 41,
+                "endChar": 0
+              },
+              "replacement": "    if (!renderBlockingResults) {\n"
+            }
+          ]
+        }
+      ],
+      "revId": "7c77ee2ff7ae22819f5f22ca472985fb2a7b5cca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cd392fd0_36b87b90",
         "filename": "front_end/panels/timeline/components/insights/RenderBlocking.ts",
         "patchSetId": 2
