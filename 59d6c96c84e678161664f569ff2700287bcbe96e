@@ -90,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0d5ef21c_53b0600c",
+        "filename": "front_end/panels/freestyler/FreestylerPanel.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 268,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-08-23T09:59:37Z",
+      "side": 1,
+      "message": "I do not think we need a map, I think we always dealing with the last step so it can be a list probably?",
+      "parentUuid": "57e83a25_a641aaf0",
+      "revId": "59d6c96c84e678161664f569ff2700287bcbe96e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c1791ce3_9073aa7d",
         "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
         "patchSetId": 3
