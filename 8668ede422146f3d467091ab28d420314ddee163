@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a61c718_136f0028",
+        "filename": "front_end/models/trace/insights/DocumentLatency.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-08-23T20:58:50Z",
+      "side": 1,
+      "message": "kinda decided to keep this % threshold in LH, ref https://github.com/GoogleChrome/lighthouse/pull/16165\n\nfor purposes of this CL, since we lack actual gzip savings, I think an explicit allowlist of mimetypes to consider handles this issue.",
+      "parentUuid": "c9e0277f_636a453e",
+      "revId": "8668ede422146f3d467091ab28d420314ddee163",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e98f9b1e_c730f28a",
