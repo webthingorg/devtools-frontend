@@ -40,6 +40,7 @@ function wrapSuiteFunction(fn: (this: Mocha.Suite) => void) {
       }
       hook.fn = function(this, args) {
         hookTestTimeout(hook);
+        // @ts-ignore
         return originalFn.call(this, args);
       };
     };
