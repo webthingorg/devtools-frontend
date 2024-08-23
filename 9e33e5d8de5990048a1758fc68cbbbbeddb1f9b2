@@ -16,6 +16,23 @@
       "message": "szuend@ could you please take a look?",
       "revId": "9e33e5d8de5990048a1758fc68cbbbbeddb1f9b2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36d80f0a_f7c3692c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-23T06:04:52Z",
+      "side": 1,
+      "message": "I\u0027ll +1 since it makes some sense in this case.\n\nIt might be odd for users though if differently named checkboxes affect the same setting so we probably need to use this feature with some caution.",
+      "revId": "9e33e5d8de5990048a1758fc68cbbbbeddb1f9b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
