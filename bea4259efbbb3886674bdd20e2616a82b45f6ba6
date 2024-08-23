@@ -16,6 +16,24 @@
       "message": "Is this ready to be flipped?",
       "revId": "bea4259efbbb3886674bdd20e2616a82b45f6ba6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6821c5af_fa719489",
+        "filename": ".eslintrc.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-08-23T13:43:13Z",
+      "side": 0,
+      "message": "`front_end` has its own `.eslintrc.js`, this should work.",
+      "parentUuid": "ce5f39d1_e0d074b0",
+      "revId": "bea4259efbbb3886674bdd20e2616a82b45f6ba6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
