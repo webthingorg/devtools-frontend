@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce5f39d1_e0d074b0",
+        "filename": ".eslintrc.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-08-23T13:23:39Z",
+      "side": 0,
+      "message": "Is this ready to be flipped?",
+      "revId": "bea4259efbbb3886674bdd20e2616a82b45f6ba6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
