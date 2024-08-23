@@ -1,0 +1,39 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cd392fd0_36b87b90",
+        "filename": "front_end/panels/timeline/components/insights/RenderBlocking.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-08-23T22:24:29Z",
+      "side": 1,
+      "message": "nit: Could we just do `return entryOutlineOverlays` or does it need to be a copy?",
+      "fixSuggestions": [
+        {
+          "fixId": "70a72948_fdfa08e0",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/components/insights/RenderBlocking.ts",
+              "range": {
+                "startLine": 52,
+                "startChar": 0,
+                "endLine": 53,
+                "endChar": 0
+              },
+              "replacement": "    return entryOutlineOverlays;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "7c77ee2ff7ae22819f5f22ca472985fb2a7b5cca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
