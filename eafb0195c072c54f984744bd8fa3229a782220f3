@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4706ae3b_72a8f59b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-08-23T21:29:34Z",
+      "side": 1,
+      "message": "Can you add a screenshot?",
+      "revId": "eafb0195c072c54f984744bd8fa3229a782220f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
