@@ -235,8 +235,23 @@ export class FreestylerChatUi extends HTMLElement {
     this.#render();
   }
 
-  connectedCallback(): void {
+  #syncInformation: Host.InspectorFrontendHostAPI.SyncInformation|undefined;
+  #extraDisclaimer = false;
+  #renderExtraDisclaimer(): LitHtml.LitTemplate {
+    if (!this.#extraDisclaimer) {
+      return LitHtml.nothing;
+    }
+    return LitHtml.html` Extra disclaimer for googlers, add a link and a final text TODO`;
+  }
+  async connectedCallback(): Promise<void> {
     this.#shadow.adoptedStyleSheets = [freestylerChatUiStyles];
+    this.#render();
+    if (!this.#syncInformation) {
+      this.#syncInformation = await new Promise<Host.InspectorFrontendHostAPI.SyncInformation>(
+          resolve => Host.InspectorFrontendHost.InspectorFrontendHostInstance.getSyncInformation(
+              syncInfo => resolve(syncInfo)));
+    }
+    this.#extraDisclaimer = this.#syncInformation.accountEmail?.endsWith('@google.com') || false;
     this.#render();
   }
 
@@ -582,7 +597,7 @@ export class FreestylerChatUi extends HTMLElement {
               jslog=${VisualLogging.link('freestyler.dogfood-info').track({
                 click: true,
               })}
-            >dogfood terms</x-link>.</span>
+            >dogfood terms</x-link>.${this.#renderExtraDisclaimer()}</span>
         </form>
       </div>
     `;
