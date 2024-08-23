@@ -137,6 +137,23 @@
       "parentUuid": "4c61b108_80cceae9",
       "revId": "8668ede422146f3d467091ab28d420314ddee163",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6da0a403_4a0a09ca",
+        "filename": "front_end/models/trace/insights/DocumentLatency.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-08-23T19:55:06Z",
+      "side": 1,
+      "message": "For the insight UI in the perf panel, we\u0027ll need to display a list of resources that should have been compressed (incl. the estimated byte savings). That can be a done w/ just a Map of SynthNetworkRecord -\u003e estimated savings.",
+      "revId": "8668ede422146f3d467091ab28d420314ddee163",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
