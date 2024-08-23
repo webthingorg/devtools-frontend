@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d618517c_fa697358",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3517468
+      },
+      "writtenOn": "2024-08-23T15:09:26Z",
+      "side": 1,
+      "message": "Putting this up early for feedback to see if I\u0027m on the right track, down to meet if not.",
+      "revId": "8668ede422146f3d467091ab28d420314ddee163",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b09243ac_b2024ed6",
+        "filename": "front_end/models/trace/insights/DocumentLatency.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 3517468
+      },
+      "writtenOn": "2024-08-23T15:09:26Z",
+      "side": 1,
+      "message": "Not sure if this is the correct value to use.",
+      "revId": "8668ede422146f3d467091ab28d420314ddee163",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c61b108_80cceae9",
+        "filename": "front_end/models/trace/insights/DocumentLatency.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 3517468
+      },
+      "writtenOn": "2024-08-23T15:09:26Z",
+      "side": 1,
+      "message": "Open to hearing if/how we need to use Lantern here to estimate savings, or if this is sufficient.",
+      "revId": "8668ede422146f3d467091ab28d420314ddee163",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
