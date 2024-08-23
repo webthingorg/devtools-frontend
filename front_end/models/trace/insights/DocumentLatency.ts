@@ -11,9 +11,13 @@ import {type InsightResult, type NavigationInsightContext, type RequiredData} fr
 const TOO_SLOW_THRESHOLD_MS = 600;
 const TARGET_MS = 100;
 
+// Threshold for compression savings.
+const IGNORE_THRESHOLD_IN_BYTES = 1400;
+
 export type DocumentLatencyInsightResult = InsightResult<{
   serverResponseTime: Types.Timing.MilliSeconds,
   redirectDuration: Types.Timing.MilliSeconds,
+  compressionBytes: number,
 }>;
 
 export function deps(): ['Meta', 'NetworkRequests'] {
@@ -27,6 +31,49 @@ function getServerTiming(request: Types.TraceEvents.SyntheticNetworkRequest): Ty
   }
 
   return Types.Timing.MilliSeconds(Math.round(timing.receiveHeadersStart - timing.sendEnd));
+}
+
+function getCompressionSavings(request: Types.TraceEvents.SyntheticNetworkRequest): number|null {
+  const headers = request.args.data.responseHeaders;
+  if (!headers) {
+    return null;
+  }
+
+  // Check from headers if compression was already applied.
+  // Older devtools logs are lower case, while modern logs are Cased-Like-This.
+  const patterns = [
+    /^content-encoding$/i,
+    /^x-content-encoding-over-network$/i,
+  ];
+  const compressionTypes = ['gzip', 'br', 'deflate', 'zstd'];
+  const isCompressed =
+      headers.some(header => patterns.some(p => header.name.match(p)) && compressionTypes.includes(header.value));
+  if (isCompressed) {
+    return 0;
+  }
+
+  // If not already compressed, estimate possible savings.
+  const originalSize = request.args.data.decodedBodyLength === 0 ? request.args.data.encodedDataLength :
+                                                                   request.args.data.decodedBodyLength;
+  let estimatedSavings = 0;
+  switch (request.args.data.mimeType) {
+    case 'text/css':
+      // Stylesheets tend to compress extremely well.
+      estimatedSavings = Math.round(originalSize * 0.8);
+      break;
+    case 'text/javascript':
+    case 'text/html':
+      // Scripts and HTML compress fairly well too.
+      estimatedSavings = Math.round(originalSize * 0.67);
+      break;
+    default:
+      // Otherwise we'll just fallback to the average savings in HTTPArchive.
+      estimatedSavings = Math.round(originalSize * 0.5);
+  }
+  // Check if the estimated savings are greater than the byte ignore threshold.
+  // Note that the estimated gzip savings are always more than 10%, so there is
+  // no percent threshold.
+  return estimatedSavings < IGNORE_THRESHOLD_IN_BYTES ? 0 : estimatedSavings;
 }
 
 export function generateInsight(
@@ -50,6 +97,11 @@ export function generateInsight(
   const redirectDuration = Math.round(documentRequest.args.data.syntheticData.redirectionDuration / 1000);
   overallSavingsMs += redirectDuration;
 
+  const compressionBytes = getCompressionSavings(documentRequest);
+  if (compressionBytes === null) {
+    throw new Error('missing response headers');
+  }
+
   const metricSavings = {
     FCP: overallSavingsMs,
     LCP: overallSavingsMs,
@@ -58,6 +110,7 @@ export function generateInsight(
   return {
     serverResponseTime,
     redirectDuration: Types.Timing.MilliSeconds(redirectDuration),
+    compressionBytes,
     metricSavings,
   };
 }
