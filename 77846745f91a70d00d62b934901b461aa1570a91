@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "77846745f91a70d00d62b934901b461aa1570a91",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "818525f3_bedda963",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1383114
+      },
+      "writtenOn": "2024-08-23T09:02:53Z",
+      "side": 1,
+      "message": "LGTM (seems I can\u0027t actually vote here :D)",
+      "revId": "77846745f91a70d00d62b934901b461aa1570a91",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
