@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "64ff9492_41e7e883",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-08-23T13:38:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ec0f2d15_35e410eb",
+      "range": {
+        "startLine": 7,
+        "startChar": 24,
+        "endLine": 7,
+        "endChar": 33
+      },
+      "revId": "48eb975227a741bb23eb6a196324e0d49dc68770",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "eb27acb7_3d2f81d0",
@@ -37,6 +61,24 @@
       "writtenOn": "2024-08-23T13:26:35Z",
       "side": 1,
       "message": "One more question,not block this CL, there will be a case that the \"from\" event ends after \"to\" start. What is the UI there? Are we happy with the small overlap there?",
+      "revId": "48eb975227a741bb23eb6a196324e0d49dc68770",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a56eb9e_d58e5f28",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-08-23T13:38:14Z",
+      "side": 1,
+      "message": "I had this concern too, but it looks like going from the start timestamp only generally results in less overlap.\n\nWe can reconsider the direction in the future.",
+      "parentUuid": "eb27acb7_3d2f81d0",
       "revId": "48eb975227a741bb23eb6a196324e0d49dc68770",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
