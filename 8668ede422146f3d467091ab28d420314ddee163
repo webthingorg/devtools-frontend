@@ -106,6 +106,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "00fff1c7_57e1260a",
+        "filename": "front_end/models/trace/insights/DocumentLatency.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-08-23T20:19:13Z",
+      "side": 1,
+      "message": "I think without doing the actual gzip, as we do in LH, we have to ignore the default case. We don\u0027t want to suggest gzip on an image resource, for example - they are typically already compressed. That 10% threshold is how LH was excluding such cases.\n\nBut we can add a few more mime types here. like html/json/xml. and they can use the 0.5 fallback (unless you want to try and derive better estimates).\n\nShould also consider common alternatives to these mimetypes - like application/json",
+      "revId": "8668ede422146f3d467091ab28d420314ddee163",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4c61b108_80cceae9",
         "filename": "front_end/models/trace/insights/DocumentLatency.ts",
         "patchSetId": 1
