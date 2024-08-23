@@ -253,12 +253,12 @@ describeWithMockConnection('SharedStorageModel', () => {
 
     const addedPromise = listener.waitForStoragesAdded(1);
 
-    manager.dispatchEventToListeners(SDK.SecurityOriginManager.Events.SecurityOriginAdded, TEST_ORIGIN_A);
+    manager.dispatchEventToListeners(SDK.SecurityOriginManager.Events.SECURITY_ORIGIN_ADDED, TEST_ORIGIN_A);
     await addedPromise;
 
     assert.exists(sharedStorageModel.storageForOrigin(TEST_ORIGIN_A));
 
-    manager.dispatchEventToListeners(SDK.SecurityOriginManager.Events.SecurityOriginRemoved, TEST_ORIGIN_A);
+    manager.dispatchEventToListeners(SDK.SecurityOriginManager.Events.SECURITY_ORIGIN_REMOVED, TEST_ORIGIN_A);
     assert.isEmpty(sharedStorageModel.storages());
   });
 
@@ -275,7 +275,7 @@ describeWithMockConnection('SharedStorageModel', () => {
     const manager = target.model(SDK.SecurityOriginManager.SecurityOriginManager);
     assert.exists(manager);
 
-    manager.dispatchEventToListeners(SDK.SecurityOriginManager.Events.SecurityOriginAdded, 'invalid');
+    manager.dispatchEventToListeners(SDK.SecurityOriginManager.Events.SECURITY_ORIGIN_ADDED, 'invalid');
     assert.isEmpty(sharedStorageModel.storages());
   });
 

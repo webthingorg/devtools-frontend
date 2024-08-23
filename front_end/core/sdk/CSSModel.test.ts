@@ -43,7 +43,7 @@ describeWithMockConnection('CSSModel', () => {
       endLine: 0,
       endColumn: 0,
     };
-    const addedPromise = cssModel.once(SDK.CSSModel.Events.StyleSheetAdded);
+    const addedPromise = cssModel.once(SDK.CSSModel.Events.STYLE_SHEET_ADDED);
     cssModel.styleSheetAdded(header);
 
     const cssModelHeader = await addedPromise;

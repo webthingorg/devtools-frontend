@@ -17,13 +17,13 @@ export class ExecutionContextSelector implements SDK.TargetManager.SDKModelObser
     context.addFlavorChangeListener(SDK.Target.Target, this.#targetChanged, this);
 
     targetManager.addModelListener(
-        SDK.RuntimeModel.RuntimeModel, SDK.RuntimeModel.Events.ExecutionContextCreated, this.#onExecutionContextCreated,
-        this);
+        SDK.RuntimeModel.RuntimeModel, SDK.RuntimeModel.Events.EXECUTION_CONTEXT_CREATED,
+        this.#onExecutionContextCreated, this);
     targetManager.addModelListener(
-        SDK.RuntimeModel.RuntimeModel, SDK.RuntimeModel.Events.ExecutionContextDestroyed,
+        SDK.RuntimeModel.RuntimeModel, SDK.RuntimeModel.Events.EXECUTION_CONTEXT_DESTROYED,
         this.#onExecutionContextDestroyed, this);
     targetManager.addModelListener(
-        SDK.RuntimeModel.RuntimeModel, SDK.RuntimeModel.Events.ExecutionContextOrderChanged,
+        SDK.RuntimeModel.RuntimeModel, SDK.RuntimeModel.Events.EXECUTION_CONTEXT_ORDER_CHANGED,
         this.#onExecutionContextOrderChanged, this);
     this.#targetManager = targetManager;
     this.#context = context;
@@ -113,7 +113,7 @@ export class ExecutionContextSelector implements SDK.TargetManager.SDKModelObser
     if (!executionContext.isDefault || !executionContext.frameId) {
       return false;
     }
-    if (executionContext.target().parentTarget()?.type() === SDK.Target.Type.Frame) {
+    if (executionContext.target().parentTarget()?.type() === SDK.Target.Type.FRAME) {
       return false;
     }
     const resourceTreeModel = executionContext.target().model(SDK.ResourceTreeModel.ResourceTreeModel);

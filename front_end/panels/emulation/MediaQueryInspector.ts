@@ -62,21 +62,22 @@ export class MediaQueryInspector extends UI.Widget.Widget implements
       return;
     }
     this.cssModel = cssModel;
-    this.cssModel.addEventListener(SDK.CSSModel.Events.StyleSheetAdded, this.scheduleMediaQueriesUpdate, this);
-    this.cssModel.addEventListener(SDK.CSSModel.Events.StyleSheetRemoved, this.scheduleMediaQueriesUpdate, this);
-    this.cssModel.addEventListener(SDK.CSSModel.Events.StyleSheetChanged, this.scheduleMediaQueriesUpdate, this);
-    this.cssModel.addEventListener(SDK.CSSModel.Events.MediaQueryResultChanged, this.scheduleMediaQueriesUpdate, this);
+    this.cssModel.addEventListener(SDK.CSSModel.Events.STYLE_SHEET_ADDED, this.scheduleMediaQueriesUpdate, this);
+    this.cssModel.addEventListener(SDK.CSSModel.Events.STYLE_SHEET_REMOVED, this.scheduleMediaQueriesUpdate, this);
+    this.cssModel.addEventListener(SDK.CSSModel.Events.STYLE_SHEET_CHANGED, this.scheduleMediaQueriesUpdate, this);
+    this.cssModel.addEventListener(
+        SDK.CSSModel.Events.MEDIA_QUERY_RESULT_CHANGED, this.scheduleMediaQueriesUpdate, this);
   }
 
   modelRemoved(cssModel: SDK.CSSModel.CSSModel): void {
     if (cssModel !== this.cssModel) {
       return;
     }
-    this.cssModel.removeEventListener(SDK.CSSModel.Events.StyleSheetAdded, this.scheduleMediaQueriesUpdate, this);
-    this.cssModel.removeEventListener(SDK.CSSModel.Events.StyleSheetRemoved, this.scheduleMediaQueriesUpdate, this);
-    this.cssModel.removeEventListener(SDK.CSSModel.Events.StyleSheetChanged, this.scheduleMediaQueriesUpdate, this);
+    this.cssModel.removeEventListener(SDK.CSSModel.Events.STYLE_SHEET_ADDED, this.scheduleMediaQueriesUpdate, this);
+    this.cssModel.removeEventListener(SDK.CSSModel.Events.STYLE_SHEET_REMOVED, this.scheduleMediaQueriesUpdate, this);
+    this.cssModel.removeEventListener(SDK.CSSModel.Events.STYLE_SHEET_CHANGED, this.scheduleMediaQueriesUpdate, this);
     this.cssModel.removeEventListener(
-        SDK.CSSModel.Events.MediaQueryResultChanged, this.scheduleMediaQueriesUpdate, this);
+        SDK.CSSModel.Events.MEDIA_QUERY_RESULT_CHANGED, this.scheduleMediaQueriesUpdate, this);
     delete this.cssModel;
   }
 
