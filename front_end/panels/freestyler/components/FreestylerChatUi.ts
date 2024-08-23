@@ -15,7 +15,8 @@ import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 import * as VisualLogging from '../../../ui/visual_logging/visual_logging.js';
 import {
   type ActionStepData,
-  type CommonStepData,
+  type AnswerStepData,
+  type ErrorStepData,
   Step,
   type StepData,
   type ThoughtStepData,
@@ -165,7 +166,7 @@ export interface UserChatMessage {
 export interface ModelChatMessage {
   entity: ChatMessageEntity.MODEL;
   suggestingFix: boolean;
-  steps: Array<ActionStepData|CommonStepData|ThoughtStepData>;
+  steps: Array<ActionStepData|ErrorStepData|ThoughtStepData|AnswerStepData>;
   rpcId?: number;
 }
 

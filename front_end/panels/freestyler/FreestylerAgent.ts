@@ -19,6 +19,7 @@ query about the selected DOM element. You are going to answer to the query in th
 * TITLE
 * ACTION
 * ANSWER
+* FIXABLE
 Use THOUGHT to explain why you take the ACTION. Use TITLE to provide a short summary of the thought.
 Use ACTION to evaluate JavaScript code on the page to gather all the data needed to answer the query and put it inside the data variable - then return STOP.
 You have access to a special $0 variable referencing the current element in the scope of the JavaScript code.
@@ -28,6 +29,7 @@ Please run ACTION again if the information you received is not enough to answer 
 Please answer only if you are sure about the answer. Otherwise, explain why you're not able to answer.
 When answering, remember to consider CSS concepts such as the CSS cascade, explicit and implicit stacking contexts and various CSS layout types.
 When answering, always consider MULTIPLE possible solutions.
+After the ANSWER, output FIXABLE: true if the user request needs fixing using JavaScript and Web APIs.
 
 If you need to set styles on an HTML element, always call the \`async setElementStyles(el: Element, styles: object)\` function.
 
@@ -57,6 +59,7 @@ OBSERVATION
 
 You then output:
 ANSWER: The element is centered on the page because the parent is a flex container with justify-content set to center.
+FIXABLE: false
 
 The example session ends here.`;
 
@@ -70,10 +73,17 @@ export enum Step {
   QUERYING = 'querying',
 }
 
-export interface CommonStepData {
-  step: Step.ANSWER|Step.ERROR;
+export interface ErrorStepData {
+  step: Step.ERROR;
   text: string;
   rpcId?: number;
+}
+
+export interface AnswerStepData {
+  step: Step.ANSWER;
+  text: string;
+  rpcId?: number;
+  fixable: boolean;
 }
 
 export interface ThoughtStepData {
@@ -94,7 +104,7 @@ export interface QueryStepData {
   step: Step.QUERYING;
 }
 
-export type StepData = CommonStepData|ActionStepData|ThoughtStepData;
+export type StepData = ErrorStepData|AnswerStepData|ActionStepData|ThoughtStepData;
 
 // TODO: this should use the current execution context pased on the
 // node.
@@ -193,12 +203,14 @@ export class FreestylerAgent {
     return request;
   }
 
-  static parseResponse(response: string): {thought?: string, title?: string, action?: string, answer?: string} {
+  static parseResponse(response: string):
+      {thought?: string, title?: string, action?: string, answer?: string, fixable?: boolean} {
     const lines = response.split('\n');
     let thought: string|undefined;
     let title: string|undefined;
     let action: string|undefined;
     let answer: string|undefined;
+    let fixable = false;
     let i = 0;
     while (i < lines.length) {
       const trimmed = lines[i].trim();
@@ -230,7 +242,8 @@ export class FreestylerAgent {
         let j = i + 1;
         while (j < lines.length) {
           const line = lines[j].trim();
-          if (line.startsWith('ACTION') || line.startsWith('OBSERVATION:') || line.startsWith('THOUGHT:')) {
+          if (line.startsWith('ACTION') || line.startsWith('OBSERVATION:') || line.startsWith('THOUGHT:') ||
+              line.startsWith('FIXABLE:')) {
             break;
           }
           answerLines.push(lines[j]);
@@ -238,6 +251,9 @@ export class FreestylerAgent {
         }
         answer = answerLines.join('\n').trim();
         i = j;
+      } else if (trimmed.startsWith('FIXABLE: true')) {
+        fixable = true;
+        i++;
       } else {
         i++;
       }
@@ -247,7 +263,7 @@ export class FreestylerAgent {
     if (!answer && !thought && !action) {
       answer = response;
     }
-    return {thought, title, action, answer};
+    return {thought, title, action, answer, fixable};
   }
 
   #aidaClient: Host.AidaClient.AidaClient;
@@ -391,7 +407,7 @@ export class FreestylerAgent {
         },
       ]);
 
-      const {thought, title, action, answer} = FreestylerAgent.parseResponse(response);
+      const {thought, title, action, answer, fixable} = FreestylerAgent.parseResponse(response);
       // Sometimes the answer will follow an action and a thought. In
       // that case, we only use the action and the thought (if present)
       // since the answer is not based on the observation resulted from
@@ -412,7 +428,7 @@ export class FreestylerAgent {
           await scope.uninstall();
         }
       } else if (answer) {
-        yield {step: Step.ANSWER, text: answer, rpcId};
+        yield {step: Step.ANSWER, text: answer, fixable, rpcId};
         break;
       } else {
         yield {step: Step.ERROR, text: genericErrorMessage, rpcId};
