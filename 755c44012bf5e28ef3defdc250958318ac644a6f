@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9abc1a15_dc404884",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-23T09:31:53Z",
+      "side": 1,
+      "message": "imo this might be `false` as there is nothing to fix here :)",
+      "revId": "755c44012bf5e28ef3defdc250958318ac644a6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
