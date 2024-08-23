@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8fbe476b_6f48d6c8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524899
+      },
+      "writtenOn": "2024-08-23T16:35:00Z",
+      "side": 1,
+      "message": "Andrew/Joey, could you take a look and (assuming your +1) submit this change as I don\u0027t have permissions on this branch?\n\nCurrently, all members of cria/project-devtools-frontend-ci-task-accounts have submit permissions inherited from their devtools committership. Within the scope of b/356276313, we are removing service accounts from the committer list, and require them to keep the submit permission.",
+      "revId": "f2ed9b753ac085f000f07ccf2e1e17e4b0b7e665",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
