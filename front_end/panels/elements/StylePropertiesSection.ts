@@ -266,7 +266,7 @@ export class StylePropertiesSection {
       }, false);
       this.fontEditorToolbar.appendToolbarItem(this.fontEditorButton);
 
-      if (this.styleInternal.type === SDK.CSSStyleDeclaration.Type.Inline) {
+      if (this.styleInternal.type === SDK.CSSStyleDeclaration.Type.INLINE) {
         if (this.newStyleRuleToolbar) {
           this.newStyleRuleToolbar.element.classList.add('shifted-toolbar');
         }
@@ -363,7 +363,7 @@ export class StylePropertiesSection {
 
   resetToolbars(): void {
     if (this.parentPane.swatchPopoverHelper().isShowing() ||
-        this.styleInternal.type === SDK.CSSStyleDeclaration.Type.Inline) {
+        this.styleInternal.type === SDK.CSSStyleDeclaration.Type.INLINE) {
       return;
     }
     if (this.fontEditorToolbar) {
@@ -617,11 +617,11 @@ export class StylePropertiesSection {
       return this.#customHeaderText;
     }
     const node = this.matchedStyles.nodeForStyle(this.styleInternal);
-    if (this.styleInternal.type === SDK.CSSStyleDeclaration.Type.Inline) {
+    if (this.styleInternal.type === SDK.CSSStyleDeclaration.Type.INLINE) {
       return this.matchedStyles.isInherited(this.styleInternal) ? i18nString(UIStrings.styleAttribute) :
                                                                   'element.style';
     }
-    if (node && this.styleInternal.type === SDK.CSSStyleDeclaration.Type.Attributes) {
+    if (node && this.styleInternal.type === SDK.CSSStyleDeclaration.Type.ATTRIBUTES) {
       return i18nString(UIStrings.sattributesStyle, {PH1: node.nodeNameInCorrectCase()});
     }
     if (this.styleInternal.parentRule instanceof SDK.CSSRule.CSSStyleRule) {
@@ -1098,7 +1098,7 @@ export class StylePropertiesSection {
   }
 
   isPropertyOverloaded(property: SDK.CSSProperty.CSSProperty): boolean {
-    return this.matchedStyles.propertyState(property) === SDK.CSSMatchedStyles.PropertyState.Overloaded;
+    return this.matchedStyles.propertyState(property) === SDK.CSSMatchedStyles.PropertyState.OVERLOADED;
   }
 
   updateFilter(): boolean {
@@ -1371,26 +1371,26 @@ export class StylePropertiesSection {
     contextMenu.clipboardSection().appendItem(i18nString(UIStrings.copySelector), () => {
       const selectorText = this.headerText();
       Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(selectorText);
-      Host.userMetrics.styleTextCopied(Host.UserMetrics.StyleTextCopied.SelectorViaContextMenu);
+      Host.userMetrics.styleTextCopied(Host.UserMetrics.StyleTextCopied.SELECTOR_VIA_CONTEXT_MENU);
     }, {jslogContext: 'copy-selector'});
 
     contextMenu.clipboardSection().appendItem(i18nString(UIStrings.copyRule), () => {
       const ruleText = StylesSidebarPane.formatLeadingProperties(this).ruleText;
       Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(ruleText);
-      Host.userMetrics.styleTextCopied(Host.UserMetrics.StyleTextCopied.RuleViaContextMenu);
+      Host.userMetrics.styleTextCopied(Host.UserMetrics.StyleTextCopied.RULE_VIA_CONTEXT_MENU);
     }, {jslogContext: 'copy-rule'});
 
     contextMenu.clipboardSection().appendItem(i18nString(UIStrings.copyAllDeclarations), () => {
       const allDeclarationText = StylesSidebarPane.formatLeadingProperties(this).allDeclarationText;
       Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(allDeclarationText);
-      Host.userMetrics.styleTextCopied(Host.UserMetrics.StyleTextCopied.AllDeclarationsViaContextMenu);
+      Host.userMetrics.styleTextCopied(Host.UserMetrics.StyleTextCopied.ALL_DECLARATIONS_VIA_CONTEXT_MENU);
     }, {jslogContext: 'copy-all-declarations'});
 
     // TODO(changhaohan): conditionally add this item only when there are changes to copy
     contextMenu.clipboardSection().appendItem(i18nString(UIStrings.copyAllCSSChanges), async () => {
       const allChanges = await this.parentPane.getFormattedChanges();
       Host.InspectorFrontendHost.InspectorFrontendHostInstance.copyText(allChanges);
-      Host.userMetrics.styleTextCopied(Host.UserMetrics.StyleTextCopied.AllChangesViaStylesPane);
+      Host.userMetrics.styleTextCopied(Host.UserMetrics.StyleTextCopied.ALL_CHANGES_VIA_STYLES_TAB);
     }, {jslogContext: 'copy-all-css-changes'});
     void contextMenu.show();
   }

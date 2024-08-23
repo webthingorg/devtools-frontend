@@ -102,7 +102,7 @@ export class CSSWorkspaceBinding implements SDK.TargetManager.SDKModelObserver<S
 
   propertyRawLocation(cssProperty: SDK.CSSProperty.CSSProperty, forName: boolean): SDK.CSSModel.CSSLocation|null {
     const style = cssProperty.ownerStyle;
-    if (!style || style.type !== SDK.CSSStyleDeclaration.Type.Regular || !style.styleSheetId) {
+    if (!style || style.type !== SDK.CSSStyleDeclaration.Type.REGULAR || !style.styleSheetId) {
       return null;
     }
     const header = style.cssModel().styleSheetHeaderForId(style.styleSheetId);
