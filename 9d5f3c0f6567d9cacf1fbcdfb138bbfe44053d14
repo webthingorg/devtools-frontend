@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9d87540e_e6934478",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-08-26T14:53:13Z",
+      "side": 1,
+      "message": "Will do in a follow-up.",
+      "parentUuid": "285919df_8a660586",
+      "revId": "9d5f3c0f6567d9cacf1fbcdfb138bbfe44053d14",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5ca102e2_d6311262",
         "filename": "front_end/panels/freestyler/FreestylerPanel.ts",
         "patchSetId": 9
@@ -48,6 +66,24 @@
       "writtenOn": "2024-08-26T14:49:59Z",
       "side": 1,
       "message": "(nit): We can remove `suggestingFix` variable as it is only used in one place now :)",
+      "revId": "9d5f3c0f6567d9cacf1fbcdfb138bbfe44053d14",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ddec2c13_dc32f2c0",
+        "filename": "front_end/panels/freestyler/FreestylerPanel.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-08-26T14:53:13Z",
+      "side": 1,
+      "message": "Will do in a follow-up.",
+      "parentUuid": "5ca102e2_d6311262",
       "revId": "9d5f3c0f6567d9cacf1fbcdfb138bbfe44053d14",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
