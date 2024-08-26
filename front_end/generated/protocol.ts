@@ -1018,6 +1018,7 @@ export namespace Audits {
     NoRegisterTriggerHeader = 'NoRegisterTriggerHeader',
     NoRegisterOsSourceHeader = 'NoRegisterOsSourceHeader',
     NoRegisterOsTriggerHeader = 'NoRegisterOsTriggerHeader',
+    NavigationRegistrationUniqueScopeAlreadySet = 'NavigationRegistrationUniqueScopeAlreadySet',
   }
 
   export const enum SharedDictionaryError {
