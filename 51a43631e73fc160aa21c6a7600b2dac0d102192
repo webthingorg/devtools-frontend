@@ -50,6 +50,24 @@
       "message": "(nit): typo Though -\u003e Thought",
       "revId": "51a43631e73fc160aa21c6a7600b2dac0d102192",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a71632d_b0b40874",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-08-26T12:43:50Z",
+      "side": 1,
+      "message": "Removed in follow up CL, so will not action.",
+      "parentUuid": "1cd9cba6_b01dcab0",
+      "revId": "51a43631e73fc160aa21c6a7600b2dac0d102192",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
