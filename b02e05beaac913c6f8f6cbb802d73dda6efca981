@@ -16,6 +16,110 @@
       "message": "Hi Danil, it would be great if you could take a look at this! DataGridWithPreview is largely based on DOMStorageItemsView, so I would suggest looking at the diff between DOMStorageItemsView on main and DataGridWithPreview in this CL, which is a lot smaller than the diff shown in Gerrit.",
       "revId": "b02e05beaac913c6f8f6cbb802d73dda6efca981",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d40f53a0_b620732e",
+        "filename": "front_end/ui/legacy/DataGridWithPreview.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-08-26T10:27:32Z",
+      "side": 1,
+      "message": "As per goo.gle/devtools-tsstyle \"use JavaScript private fields over the TypeScript private visibility annotation\"",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 60
+      },
+      "revId": "b02e05beaac913c6f8f6cbb802d73dda6efca981",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ffa822ce_6e6f43e4",
+        "filename": "front_end/ui/legacy/DataGridWithPreview.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-08-26T10:27:32Z",
+      "side": 1,
+      "message": "This will never trigger, wiil it?",
+      "range": {
+        "startLine": 126,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 25
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "371520e3_a0d3ddd4",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/ui/legacy/DataGridWithPreview.ts",
+              "range": {
+                "startLine": 126,
+                "startChar": 0,
+                "endLine": 130,
+                "endChar": 0
+              },
+              "replacement": ""
+            },
+            {
+              "path": "front_end/ui/legacy/DataGridWithPreview.ts",
+              "range": {
+                "startLine": 137,
+                "startChar": 0,
+                "endLine": 141,
+                "endChar": 0
+              },
+              "replacement": ""
+            },
+            {
+              "path": "front_end/ui/legacy/DataGridWithPreview.ts",
+              "range": {
+                "startLine": 155,
+                "startChar": 0,
+                "endLine": 159,
+                "endChar": 0
+              },
+              "replacement": ""
+            },
+            {
+              "path": "front_end/ui/legacy/DataGridWithPreview.ts",
+              "range": {
+                "startLine": 176,
+                "startChar": 0,
+                "endLine": 180,
+                "endChar": 0
+              },
+              "replacement": ""
+            },
+            {
+              "path": "front_end/ui/legacy/DataGridWithPreview.ts",
+              "range": {
+                "startLine": 233,
+                "startChar": 0,
+                "endLine": 234,
+                "endChar": 0
+              },
+              "replacement": "    if (!this.dataGrid.selectedNode) {\n"
+            }
+          ]
+        }
+      ],
+      "revId": "b02e05beaac913c6f8f6cbb802d73dda6efca981",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
