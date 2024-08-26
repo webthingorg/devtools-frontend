@@ -723,7 +723,8 @@ export const generatedProperties = [
    "text-transform",
    "text-underline-offset",
    "text-underline-position",
-   "text-wrap",
+   "text-wrap-mode",
+   "text-wrap-style",
    "timeline-scope",
    "top",
    "touch-action",
@@ -4010,13 +4011,29 @@ export const generatedProperties = [
  },
  {
   "inherited": true,
-  "keywords": [
-   "wrap",
-   "nowrap",
-   "balance",
-   "pretty"
+  "longhands": [
+   "text-wrap-mode",
+   "text-wrap-style"
   ],
   "name": "text-wrap"
+ },
+ {
+  "inherited": true,
+  "keywords": [
+   "wrap",
+   "nowrap"
+  ],
+  "name": "text-wrap-mode"
+ },
+ {
+  "inherited": true,
+  "keywords": [
+   "auto",
+   "balance",
+   "pretty",
+   "stable"
+  ],
+  "name": "text-wrap-style"
  },
  {
   "name": "timeline-scope"
@@ -4212,7 +4229,7 @@ export const generatedProperties = [
   "inherited": true,
   "longhands": [
    "white-space-collapse",
-   "text-wrap"
+   "text-wrap-mode"
   ],
   "name": "white-space"
  },
@@ -6205,12 +6222,18 @@ export const generatedPropertyValues = {
    "right"
   ]
  },
- "text-wrap": {
+ "text-wrap-mode": {
   "values": [
    "wrap",
-   "nowrap",
+   "nowrap"
+  ]
+ },
+ "text-wrap-style": {
+  "values": [
+   "auto",
    "balance",
-   "pretty"
+   "pretty",
+   "stable"
   ]
  },
  "top": {
