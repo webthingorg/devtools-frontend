@@ -16,6 +16,40 @@
       "message": "s/though/thought",
       "revId": "51a43631e73fc160aa21c6a7600b2dac0d102192",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57f1481f_eb46abae",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-26T11:58:00Z",
+      "side": 1,
+      "message": "I think, even though `parseResponse` can return an `action` without a `thought`, in reality it\u0027s not the case since we always expect the LLM to produce a thought first and then the action.\n\nOne other approach would be to throw an error when the `action` is not coming with a `thought` and report it as a parse error. Then, we can type the `ActionStep` with always containing a thought.\n\nThough continuing with how the code is currently structured and being defensive also sgtm so let\u0027s go with that and if we feel the need, we can update it later.",
+      "revId": "51a43631e73fc160aa21c6a7600b2dac0d102192",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1cd9cba6_b01dcab0",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-26T11:58:00Z",
+      "side": 1,
+      "message": "(nit): typo Though -\u003e Thought",
+      "revId": "51a43631e73fc160aa21c6a7600b2dac0d102192",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
