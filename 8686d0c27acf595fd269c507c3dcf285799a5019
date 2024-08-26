@@ -50,6 +50,23 @@
       "message": "(nit): Collapsable -\u003e Collapsible",
       "revId": "8686d0c27acf595fd269c507c3dcf285799a5019",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "296c4c68_d284a01f",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-26T12:49:40Z",
+      "side": 1,
+      "message": "I don\u0027t see where `sideEffect` field is used too.",
+      "revId": "8686d0c27acf595fd269c507c3dcf285799a5019",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
