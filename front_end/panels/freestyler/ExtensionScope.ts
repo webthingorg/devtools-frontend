@@ -122,19 +122,14 @@ export class ExtensionScope {
 
     const lines = Object.entries(styles).map(([key, value]) => `${key}: ${value};`);
 
-    this.#changeManager.addChange({
-      selector,
-      styles: lines.join('\n'),
-    });
     const cssModel = target.model(SDK.CSSModel.CSSModel);
     if (!cssModel) {
       throw new Error('CSSModel is not found');
     }
-    const styleSheetHeader = await cssModel.requestViaInspectorStylesheet(this.#frameId);
-    if (!styleSheetHeader) {
-      throw new Error('inspector-stylesheet is not found');
-    }
-    await cssModel.setStyleSheetText(styleSheetHeader.id, this.#changeManager.buildStyleSheet(), true);
+    await this.#changeManager.addChange(cssModel, this.#frameId, {
+      selector,
+      styles: lines.join('\n'),
+    });
 
     await this.#simpleEval(executionContext, `freestyler.respond(${id})`);
   }
@@ -178,7 +173,9 @@ const functions = `async function setElementStyles(el, styles) {
       }
       parts.push('.' + cls);
     }
-    selector = parts.join('');
+    if (parts.length) {
+      selector = parts.join('');
+    }
   }
 
   el.classList.add('${AI_ASSISTANT_CSS_CLASS_NAME}');
