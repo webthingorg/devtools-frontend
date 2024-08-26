@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "composite": true,
+    "module": "esnext"
+  },
+  "files": [
+    "package/nostats-subset.js"
+  ]
+}
