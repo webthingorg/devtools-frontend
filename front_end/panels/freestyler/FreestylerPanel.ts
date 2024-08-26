@@ -12,6 +12,7 @@ import * as LitHtml from '../../ui/lit-html/lit-html.js';
 import {ChangeManager} from './ChangeManager.js';
 import {
   ChatMessageEntity,
+  type CollapsableStep,
   DOGFOOD_INFO,
   FreestylerChatUi,
   type ModelChatMessage,
@@ -271,7 +272,7 @@ export class FreestylerPanel extends UI.Panel.Panel {
     const systemMessage: ModelChatMessage = {
       entity: ChatMessageEntity.MODEL,
       suggestingFix: false,
-      steps: new Map(),
+      steps: [],
     };
     this.#viewProps.messages.push(systemMessage);
     this.doUpdate();
@@ -283,36 +284,37 @@ export class FreestylerPanel extends UI.Panel.Panel {
       systemMessage.rpcId = undefined;
       systemMessage.suggestingFix = false;
       systemMessage.error = i18nString(UIStringsTemp.stoppedResponse);
+      this.#viewProps.isLoading = false;
     });
+    let step: CollapsableStep = {type: Step.QUERYING};
+
     for await (const data of this.#agent.run(text, {signal, isFixQuery})) {
       switch (data.step) {
         case Step.QUERYING: {
-          systemMessage.steps.set(data.id, {
-            id: data.id,
-            type: Step.QUERYING,
-          });
+          step = {type: Step.QUERYING};
+          if (!systemMessage.steps.length) {
+            systemMessage.steps.push(step);
+          }
+
           break;
         }
         case Step.THOUGHT: {
-          systemMessage.steps.set(data.id, {
-            id: data.id,
-            type: Step.THOUGHT,
-            thought: data.thought,
-            title: data.title,
-          });
+          step.type = Step.THOUGHT;
+          step.thought = data.thought;
+          step.title = data.title;
+          if (systemMessage.steps.at(-1) !== step) {
+            systemMessage.steps.push(step);
+          }
           break;
         }
         case Step.ACTION: {
-          const thoughtStep = systemMessage.steps.get(data.id);
-          systemMessage.steps.set(data.id, {
-            id: data.id,
-            type: Step.THOUGHT,
-            thought: thoughtStep?.thought,
-            title: thoughtStep?.title,
-            code: data.code,
-            output: data.output,
-          });
-
+          step.type = Step.THOUGHT;
+          step.title = data.title;
+          step.code = data.code;
+          step.output = data.output;
+          if (systemMessage.steps.at(-1) !== step) {
+            systemMessage.steps.push(step);
+          }
           break;
         }
         case Step.ANSWER: {
