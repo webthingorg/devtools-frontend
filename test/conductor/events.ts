@@ -36,6 +36,9 @@ const ALLOWED_ASSERTION_FAILURES = [
   'Request Storage.getStorageKeyForFrame failed. {"code":-32602,"message":"Frame tree node for given frame not found"}',
   'Unable to create texture',
   'Not allowed to load local resource: devtools://theme/colors.css',
+  // The frontend dispatched a CDP call while we are already navigating the
+  // target page during reset.
+  'Inspected target navigated or closed',
 ];
 
 const logLevels = {
