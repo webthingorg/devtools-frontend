@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5611d398_39656bd3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-08-26T14:11:34Z",
+      "side": 1,
+      "message": "The second one is a rebase issue fixing.",
+      "parentUuid": "ec122000_cff3cc8c",
+      "revId": "8686d0c27acf595fd269c507c3dcf285799a5019",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "88d75950_b0869460",
