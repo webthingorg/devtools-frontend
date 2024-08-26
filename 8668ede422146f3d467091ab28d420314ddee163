@@ -315,6 +315,24 @@
       "parentUuid": "6da0a403_4a0a09ca",
       "revId": "8668ede422146f3d467091ab28d420314ddee163",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "250ee7f2_51a178b1",
+        "filename": "front_end/models/trace/insights/DocumentLatency.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-08-26T17:22:22Z",
+      "side": 1,
+      "message": "The map of network record (synthetic network trace) to savings needs to be in the insight - the component card shouldn\u0027t do much of any logic itself. The idea is that Lighthouse should be able to reuse this information if it wanted to (though in this case...without a real gzip estimate that would not happen).",
+      "parentUuid": "669a3e25_d41278f6",
+      "revId": "8668ede422146f3d467091ab28d420314ddee163",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
