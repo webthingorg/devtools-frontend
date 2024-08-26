@@ -33,6 +33,24 @@
       "message": "I see that in the design, the border-radius is 4px; should we also update it?",
       "revId": "358ed6a719203d34b38e365c5a6cdaa1e41bcb4e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d46547c1_3d0d6207",
+        "filename": "front_end/panels/console/consoleView.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 506,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-08-26T10:23:06Z",
+      "side": 1,
+      "message": "Checked with Peter. Implemented his suggestion of animating the border-radius.",
+      "parentUuid": "a0934b01_7194068c",
+      "revId": "358ed6a719203d34b38e365c5a6cdaa1e41bcb4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
