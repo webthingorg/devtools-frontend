@@ -706,7 +706,7 @@ c`;
           rpcId: undefined,
           id: '1-0',
           step: Freestyler.Step.ERROR,
-          text: 'Sorry, I could not help you with this query.',
+          error: 'Sorry, I could not help you with this query.',
         },
       ]);
     });
@@ -771,7 +771,7 @@ c`;
         {
           step: Freestyler.Step.ERROR,
           id: '1-0',
-          text: 'Sorry, I could not help you with this query.',
+          error: 'Sorry, I could not help you with this query.',
           rpcId: undefined,
         },
       ]);
@@ -838,8 +838,6 @@ ANSWER: this is the answer`,
           id: '1-0',
           code: 'console.log(\'hello\');',
           output: 'hello',
-          thought: 'I am thinking.',
-          title: undefined,
           rpcId: undefined,
         },
         {
