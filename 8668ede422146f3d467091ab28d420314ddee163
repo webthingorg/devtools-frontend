@@ -333,6 +333,24 @@
       "parentUuid": "669a3e25_d41278f6",
       "revId": "8668ede422146f3d467091ab28d420314ddee163",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfab6738_9c5c4842",
+        "filename": "front_end/models/trace/insights/DocumentLatency.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-08-26T17:37:41Z",
+      "side": 1,
+      "message": "I was mistaken here in thinking this insight was about any uncompressed resource. but its scoped to just the main document. nvm about this.",
+      "parentUuid": "250ee7f2_51a178b1",
+      "revId": "8668ede422146f3d467091ab28d420314ddee163",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
