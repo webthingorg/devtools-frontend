@@ -70,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5397bd6_85c79aeb",
+        "filename": "front_end/models/trace/insights/DocumentLatency.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 3517468
+      },
+      "writtenOn": "2024-08-26T16:53:37Z",
+      "side": 1,
+      "message": "Whoops, you\u0027re right. Fixed.",
+      "parentUuid": "e98f9b1e_c730f28a",
+      "revId": "8668ede422146f3d467091ab28d420314ddee163",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b09243ac_b2024ed6",
@@ -105,6 +123,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea4b92bb_3dcfbbe8",
+        "filename": "front_end/models/trace/insights/DocumentLatency.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 3517468
+      },
+      "writtenOn": "2024-08-26T16:53:37Z",
+      "side": 1,
+      "message": "Changed to just `decodedBodyLength`, and added comments to the fields in `SyntheticNetworkRequest` (feel free to tweak wording there).",
+      "parentUuid": "c1175d51_b8466bc5",
+      "revId": "8668ede422146f3d467091ab28d420314ddee163",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b03d4985_9cfca447",
@@ -118,6 +154,24 @@
       "writtenOn": "2024-08-23T19:50:21Z",
       "side": 1,
       "message": "can you add the source of these numbers (it\u0027s in the comment from LH estimateCompressedContentSize)",
+      "revId": "8668ede422146f3d467091ab28d420314ddee163",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c32df8a_1197efc0",
+        "filename": "front_end/models/trace/insights/DocumentLatency.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 3517468
+      },
+      "writtenOn": "2024-08-26T16:53:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b03d4985_9cfca447",
       "revId": "8668ede422146f3d467091ab28d420314ddee163",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -157,6 +211,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "37ac6050_0df7258b",
+        "filename": "front_end/models/trace/insights/DocumentLatency.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 3517468
+      },
+      "writtenOn": "2024-08-26T16:53:37Z",
+      "side": 1,
+      "message": "Got it, I added all the MIME types from the link with the 0.5 fallback, and a comment to that link. Also updated the default (anything not allowlisted) to be 0.",
+      "parentUuid": "c52a49df_13e0eb2b",
+      "revId": "8668ede422146f3d467091ab28d420314ddee163",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4c61b108_80cceae9",
@@ -192,6 +264,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7af7a1e9_ea3d19fc",
+        "filename": "front_end/models/trace/insights/DocumentLatency.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 3517468
+      },
+      "writtenOn": "2024-08-26T16:53:37Z",
+      "side": 1,
+      "message": "Updated to `uncompressedResponseBytes`, leaving Lantern `metricSavings` for another CL.",
+      "parentUuid": "62623514_8e80ca0e",
+      "revId": "8668ede422146f3d467091ab28d420314ddee163",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6da0a403_4a0a09ca",
@@ -205,6 +295,24 @@
       "writtenOn": "2024-08-23T19:55:06Z",
       "side": 1,
       "message": "For the insight UI in the perf panel, we\u0027ll need to display a list of resources that should have been compressed (incl. the estimated byte savings). That can be a done w/ just a Map of SynthNetworkRecord -\u003e estimated savings.",
+      "revId": "8668ede422146f3d467091ab28d420314ddee163",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "669a3e25_d41278f6",
+        "filename": "front_end/models/trace/insights/DocumentLatency.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 3517468
+      },
+      "writtenOn": "2024-08-26T16:53:37Z",
+      "side": 1,
+      "message": "IIUC no changes needed here, but this is something to do for the insight card?",
+      "parentUuid": "6da0a403_4a0a09ca",
       "revId": "8668ede422146f3d467091ab28d420314ddee163",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
