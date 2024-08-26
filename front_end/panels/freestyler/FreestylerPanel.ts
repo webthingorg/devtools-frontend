@@ -4,7 +4,6 @@
 import * as Common from '../../core/common/common.js';
 import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
-import * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as LitHtml from '../../ui/lit-html/lit-html.js';
@@ -159,7 +158,6 @@ export class FreestylerPanel extends UI.Panel.Panel {
       aidaClient: this.#aidaClient,
       changeManager: this.#changeManager,
       serverSideLoggingEnabled: this.#serverSideLoggingEnabled,
-      confirmSideEffect: this.showConfirmSideEffectUi.bind(this),
     });
   }
 
@@ -186,21 +184,6 @@ export class FreestylerPanel extends UI.Panel.Panel {
 
   doUpdate(): void {
     this.view(this.#viewProps, this.#viewOutput, this.#contentContainer);
-  }
-
-  async showConfirmSideEffectUi(action: string): Promise<boolean> {
-    const sideEffectConfirmationPromiseWithResolvers = Platform.PromiseUtilities.promiseWithResolvers<boolean>();
-    this.#viewProps.confirmSideEffectDialog = {
-      code: action,
-      onAnswer: (answer: boolean) => sideEffectConfirmationPromiseWithResolvers.resolve(answer),
-    };
-    this.doUpdate();
-
-    const result = await sideEffectConfirmationPromiseWithResolvers.promise;
-    this.#viewProps.confirmSideEffectDialog = undefined;
-    this.doUpdate();
-
-    return result;
   }
 
   #handleSelectElementClick(): void {
@@ -246,7 +229,6 @@ export class FreestylerPanel extends UI.Panel.Panel {
   #clearMessages(): void {
     this.#viewProps.messages = [];
     this.#viewProps.isLoading = false;
-    this.#viewProps.confirmSideEffectDialog = undefined;
     this.#agent = this.#createAgent();
     this.#cancel();
     this.doUpdate();
@@ -265,7 +247,6 @@ export class FreestylerPanel extends UI.Panel.Panel {
       entity: ChatMessageEntity.USER,
       text,
     });
-    this.#viewProps.isLoading = true;
     // TODO: We should only show "Fix this issue" button when the answer suggests fix or fixes.
     // We shouldn't show this when the answer is complete like a confirmation without any suggestion.
     const suggestingFix = !isFixQuery;
@@ -274,6 +255,7 @@ export class FreestylerPanel extends UI.Panel.Panel {
       suggestingFix: false,
       steps: [],
     };
+    this.#viewProps.isLoading = true;
     this.#viewProps.messages.push(systemMessage);
     this.doUpdate();
 
@@ -307,11 +289,23 @@ export class FreestylerPanel extends UI.Panel.Panel {
           }
           break;
         }
+        case Step.SIDE_EFFECT: {
+          step.type = Step.THOUGHT;
+          step.sideEffect = {
+            code: data.code,
+            onAnswer: data.confirm,
+          };
+          if (systemMessage.steps.at(-1) !== step) {
+            systemMessage.steps.push(step);
+          }
+          break;
+        }
         case Step.ACTION: {
           step.type = Step.THOUGHT;
           step.title = data.title;
           step.code = data.code;
           step.output = data.output;
+          step.sideEffect = undefined;
           if (systemMessage.steps.at(-1) !== step) {
             systemMessage.steps.push(step);
           }

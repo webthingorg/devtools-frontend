@@ -209,9 +209,6 @@ export interface Props {
   selectedNode: SDK.DOMModel.DOMNode|null;
   isLoading: boolean;
   canShowFeedbackForm: boolean;
-  // If there is a `confirmSideEffectDialog`, we show the
-  // confirmation dialog for executing that specific code.
-  confirmSideEffectDialog?: ConfirmSideEffectDialog;
   userInfo: Pick<Host.InspectorFrontendHostAPI.SyncInformation, 'accountImage'>;
 }
 
@@ -346,14 +343,12 @@ export class FreestylerChatUi extends HTMLElement {
     }
   }
 
-  #renderStepDetails(step: CollapsableStep, options: {isLast: boolean}): LitHtml.LitTemplate {
+  #renderStepDetails(step: CollapsableStep): LitHtml.LitTemplate {
     switch (step.type) {
       case Step.QUERYING:
         return LitHtml.nothing;
       case Step.THOUGHT: {
-        const sideEffects = options.isLast && this.#props.confirmSideEffectDialog ?
-            this.#renderSideEffectConfirmationUi(this.#props.confirmSideEffectDialog) :
-            LitHtml.nothing;
+        const sideEffects = step.sideEffect ? this.#renderSideEffectConfirmationUi(step.sideEffect) : LitHtml.nothing;
         const thought =
             step.thought ? LitHtml.html`<p>${this.#renderTextAsMarkdown(step.thought)}</p>` : LitHtml.nothing;
         const code = step.code ? LitHtml.html`
@@ -380,14 +375,13 @@ export class FreestylerChatUi extends HTMLElement {
   }
 
   #renderStep(step: CollapsableStep, options: {isLast: boolean}): LitHtml.LitTemplate {
-    const isLoading = this.#props.isLoading && options.isLast && !this.#props.confirmSideEffectDialog;
+    const isLoading = this.#props.isLoading && options.isLast && !step.sideEffect;
     let iconName: string = 'checkmark';
-    if (isLoading) {
+    if (step.sideEffect) {
+      iconName = 'pause';
+    } else if (isLoading) {
       // TODO: Use correct loading image
       iconName = 'dots-horizontal';
-    }
-    if (this.#props.confirmSideEffectDialog) {
-      iconName = 'pause';
     }
 
     const iconClasses = LitHtml.Directives.classMap({
@@ -407,7 +401,7 @@ export class FreestylerChatUi extends HTMLElement {
               ></${IconButton.Icon.Icon.litTagName}>
               ${this.#renderTitle(step)}
             </summary>
-            ${this.#renderStepDetails(step, {isLast: options.isLast})}
+            ${this.#renderStepDetails(step)}
           </details>
         `;
         // clang-format on
@@ -607,8 +601,12 @@ export class FreestylerChatUi extends HTMLElement {
   #renderChatUi = (): LitHtml.TemplateResult => {
     // TODO(ergunsh): Show a better UI for the states where Aida client is not available.
     const isAidaAvailable = this.#props.aidaAvailability === Host.AidaClient.AidaAccessPreconditions.AVAILABLE;
-    const isInputDisabled =
-        !Boolean(this.#props.selectedNode) || !isAidaAvailable || Boolean(this.#props.confirmSideEffectDialog);
+    const showsSideEffects = this.#props.messages.some(message => {
+      return message.entity === ChatMessageEntity.MODEL && message.steps.some(step => {
+        return Boolean(step.sideEffect);
+      });
+    });
+    const isInputDisabled = !Boolean(this.#props.selectedNode) || !isAidaAvailable || showsSideEffects;
     // clang-format off
     return LitHtml.html`
       <div class="chat-ui">
