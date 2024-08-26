@@ -15,7 +15,8 @@ import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 import * as VisualLogging from '../../../ui/visual_logging/visual_logging.js';
 import {
   type ActionStepData,
-  type CommonStepData,
+  type AnswerStepData,
+  type ErrorStepData,
   type QueryStepData,
   Step,
   type StepData,
@@ -174,7 +175,7 @@ export interface UserChatMessage {
 export interface ModelChatMessage {
   entity: ChatMessageEntity.MODEL;
   suggestingFix: boolean;
-  steps: Map<string, ActionStepData|CommonStepData|ThoughtStepData|QueryStepData>;
+  steps: Map<string, ActionStepData|AnswerStepData|ThoughtStepData|QueryStepData|ErrorStepData>;
   rpcId?: number;
 }
 
@@ -325,7 +326,7 @@ export class FreestylerChatUi extends HTMLElement {
     // clang-format on
   }
 
-  #renderStepDetails(step: ActionStepData|CommonStepData|ThoughtStepData|QueryStepData): LitHtml.LitTemplate {
+  #renderStepDetails(step: ActionStepData|ErrorStepData|ThoughtStepData|QueryStepData): LitHtml.LitTemplate {
     switch (step.step) {
       case Step.THOUGHT: {
         const maybeTextWithTitle = step.title ? `**${step.title}**\n\n${step.text}` : step.text;
