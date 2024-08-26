@@ -123,7 +123,7 @@ const UIStrings = {
   /**
    *@description Label for a link to the privacy notice
    */
-  privacyNotice: 'Privacy Notice',
+  privacyNotice: 'Google Privacy Policy',
   /**
    *@description Message to display if a setting change requires a reload of DevTools
    */
