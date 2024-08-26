@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ec122000_cff3cc8c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-08-26T13:59:26Z",
+      "side": 1,
+      "message": "Ops i think rebase had something to do with it. Fixed.\nAs for the second part what do you mean Answer is not show, how can there be an answer to when we are waiting for confirmation?",
+      "parentUuid": "2414ba63_f2505d55",
+      "revId": "8686d0c27acf595fd269c507c3dcf285799a5019",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "88d75950_b0869460",
         "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
         "patchSetId": 6
@@ -31,6 +49,24 @@
       "writtenOn": "2024-08-26T12:47:24Z",
       "side": 1,
       "message": "If we\u0027re separating \"response\"s we get from the agent and the \"steps\" we use in the views, does it make sense to change this `step` field to be `type` regarding the response\u0027s type and keep the `Step` enum inside `View` where we define different steps?",
+      "revId": "8686d0c27acf595fd269c507c3dcf285799a5019",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f06cf778_7fd0bbc5",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-08-26T13:59:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "88d75950_b0869460",
       "revId": "8686d0c27acf595fd269c507c3dcf285799a5019",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -52,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "51250ccb_c0658def",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-08-26T13:59:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "41e03a74_82ed37ab",
+      "revId": "8686d0c27acf595fd269c507c3dcf285799a5019",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "296c4c68_d284a01f",
@@ -65,6 +119,24 @@
       "writtenOn": "2024-08-26T12:49:40Z",
       "side": 1,
       "message": "I don\u0027t see where `sideEffect` field is used too.",
+      "revId": "8686d0c27acf595fd269c507c3dcf285799a5019",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79c74bda_af6e05dc",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-08-26T13:59:26Z",
+      "side": 1,
+      "message": "Stash went wrong reverting.",
+      "parentUuid": "296c4c68_d284a01f",
       "revId": "8686d0c27acf595fd269c507c3dcf285799a5019",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
