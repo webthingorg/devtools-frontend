@@ -81,34 +81,38 @@ describeWithEnvironment('FreestylerPanel', () => {
     });
 
     it('should render the view with confirmSideEffectDialog prop', async () => {
-      const panel = new Freestyler.FreestylerPanel(mockView, {
-        aidaClient: getTestAidaClient(),
-        aidaAvailability: Host.AidaClient.AidaAccessPreconditions.AVAILABLE,
-        syncInfo: getTestSyncInfo(),
-      });
+      // const panel = new Freestyler.FreestylerPanel(mockView, {
+      //   aidaClient: getTestAidaClient(),
+      //   aidaAvailability: Host.AidaClient.AidaAccessPreconditions.AVAILABLE,
+      //   syncInfo: getTestSyncInfo(),
+      // });
 
-      void panel.showConfirmSideEffectUi('code');
+      // void panel.showConfirmSideEffectUi('code');
 
-      const lastArg = mockView.lastCall.args[0];
-      assert.exists(lastArg.confirmSideEffectDialog);
-      assert.strictEqual(lastArg.confirmSideEffectDialog.code, 'code');
+      // const lastArg = mockView.lastCall.args[0];
+      // assert.exists(lastArg.confirmSideEffectDialog);
+      // assert.strictEqual(lastArg.confirmSideEffectDialog.code, 'code');
+
+      throw new Error('Fix me');
     });
 
     it('should resolve with the result of the onAnswer call', done => {
-      const panel = new Freestyler.FreestylerPanel(mockView, {
-        aidaClient: getTestAidaClient(),
-        aidaAvailability: Host.AidaClient.AidaAccessPreconditions.AVAILABLE,
-        syncInfo: getTestSyncInfo(),
-      });
+      // const panel = new Freestyler.FreestylerPanel(mockView, {
+      //   aidaClient: getTestAidaClient(),
+      //   aidaAvailability: Host.AidaClient.AidaAccessPreconditions.AVAILABLE,
+      //   syncInfo: getTestSyncInfo(),
+      // });
 
-      void panel.showConfirmSideEffectUi('code').then(result => {
-        assert.isTrue(result);
-        done();
-      });
+      // void panel.showConfirmSideEffectUi('code').then(result => {
+      //   assert.isTrue(result);
+      //   done();
+      // });
 
-      const lastArg = mockView.lastCall.args[0];
-      assert.exists(lastArg.confirmSideEffectDialog);
-      lastArg.confirmSideEffectDialog.onAnswer(true);
+      done(new Error('Fix Me'));
+
+      // const lastArg = mockView.lastCall.args[0];
+      // assert.exists(lastArg.confirmSideEffectDialog);
+      // lastArg.confirmSideEffectDialog.onAnswer(true);
     });
   });
 

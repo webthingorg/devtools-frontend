@@ -65,6 +65,7 @@ export const FIX_THIS_ISSUE_PROMPT = 'Fix this issue using JavaScript code execu
 export enum ResponseType {
   THOUGHT = 'thought',
   ACTION = 'action',
+  SIDE_EFFECT = 'side-effect',
   ANSWER = 'answer',
   ERROR = 'error',
   QUERYING = 'querying',
@@ -89,6 +90,13 @@ export interface ThoughtResponse {
   rpcId?: number;
 }
 
+export interface SideEffectResponse {
+  type: ResponseType.SIDE_EFFECT;
+  code: string;
+  confirm: (confirm: boolean) => void;
+  rpcId?: number;
+}
+
 export interface ActionResponse {
   type: ResponseType.ACTION;
   code: string;
@@ -100,7 +108,7 @@ export interface QueryResponse {
   type: ResponseType.QUERYING;
 }
 
-export type ResponseData = AnswerResponse|ErrorResponse|ActionResponse|ThoughtResponse|QueryResponse;
+export type ResponseData = AnswerResponse|ErrorResponse|ActionResponse|SideEffectResponse|ThoughtResponse|QueryResponse;
 
 // TODO: this should use the current execution context pased on the
 // node.
@@ -150,7 +158,6 @@ type CreateExtensionScopeFunction = (changes: ChangeManager) => {
 
 type AgentOptions = {
   aidaClient: Host.AidaClient.AidaClient,
-  confirmSideEffect: (action: string) => Promise<boolean>,
   changeManager?: ChangeManager,
   serverSideLoggingEnabled?: boolean,
   createExtensionScope?: CreateExtensionScopeFunction,
@@ -260,7 +267,6 @@ export class FreestylerAgent {
   #chatHistory: Map<number, HistoryChunk[]> = new Map();
   #serverSideLoggingEnabled: boolean;
 
-  #confirmSideEffect: (action: string) => Promise<boolean>;
   #execJs: typeof executeJsCode;
 
   readonly #sessionId = crypto.randomUUID();
@@ -274,7 +280,6 @@ export class FreestylerAgent {
     this.#createExtensionScope = opts.createExtensionScope ?? ((changes: ChangeManager) => {
                                    return new ExtensionScope(changes);
                                  });
-    this.#confirmSideEffect = opts.confirmSideEffect;
     this.#serverSideLoggingEnabled = opts.serverSideLoggingEnabled ?? false;
   }
 
@@ -302,15 +307,18 @@ export class FreestylerAgent {
   }
 
   async #generateObservation(
-      action: string, {throwOnSideEffect, confirmExecJs: confirm, execJsDeniedMesssage: denyErrorMessage}: {
+      action: string, {throwOnSideEffect, confirmExecJs: confirm, execJsDeniedMessage: denyErrorMessage}: {
         throwOnSideEffect: boolean,
-        confirmExecJs?: (this: FreestylerAgent, action: string) => Promise<boolean>,
-        execJsDeniedMesssage?: string,
-      }): Promise<string> {
+        confirmExecJs?: Promise<boolean>,
+        execJsDeniedMessage?: string,
+      }): Promise<{
+    observation: string,
+    sideEffect?: true,
+  }> {
     const actionExpression = `{${action};((typeof data !== "undefined") ? data : undefined)}`;
 
     try {
-      const runConfirmed = await (confirm?.call(this, action) ?? Promise.resolve(true));
+      const runConfirmed = await confirm ?? Promise.resolve(true);
       if (!runConfirmed) {
         throw new Error(denyErrorMessage ?? 'Code execution is not allowed');
       }
@@ -322,17 +330,20 @@ export class FreestylerAgent {
       if (byteCount > MAX_OBSERVATION_BYTE_LENGTH) {
         throw new Error('Output exceeded the maximum allowed length.');
       }
-      return result;
+      return {
+        observation: result,
+      };
     } catch (error) {
       if (error instanceof SideEffectError) {
-        return await this.#generateObservation(action, {
-          throwOnSideEffect: false,
-          confirmExecJs: this.#confirmSideEffect,
-          execJsDeniedMesssage: error.message,
-        });
+        return {
+          observation: error.message,
+          sideEffect: true,
+        };
       }
 
-      return `Error: ${error.message}`;
+      return {
+        observation: `Error: ${error.message}`,
+      };
     }
   }
 
@@ -422,16 +433,33 @@ export class FreestylerAgent {
         const scope = this.#createExtensionScope(this.#changes);
         await scope.install();
         try {
-          const observation = await this.#generateObservation(action, {throwOnSideEffect: !options.isFixQuery});
-          debugLog(`Action result: ${observation}`);
+          let result = await this.#generateObservation(action, {throwOnSideEffect: !options.isFixQuery});
+          debugLog(`Action result: ${result}`);
+          if (result.sideEffect) {
+            const sideEffectConfirmationPromiseWithResolvers =
+                Platform.PromiseUtilities.promiseWithResolvers<boolean>();
+
+            yield {
+              type: ResponseType.SIDE_EFFECT,
+              code: action,
+              confirm: sideEffectConfirmationPromiseWithResolvers.resolve,
+              rpcId,
+            };
+
+            result = await this.#generateObservation(action, {
+              throwOnSideEffect: false,
+              confirmExecJs: sideEffectConfirmationPromiseWithResolvers.promise,
+              execJsDeniedMessage: result.observation,
+            });
+          }
           yield {
             type: ResponseType.ACTION,
             code: action,
-            output: observation,
+            output: result.observation,
             rpcId,
           };
 
-          query = `OBSERVATION: ${observation}`;
+          query = `OBSERVATION: ${result.observation}`;
         } finally {
           await scope.uninstall();
         }
