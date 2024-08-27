@@ -33,6 +33,24 @@
       "message": "As discuss offline, let\u0027s start with a design docs to facilitate the discussion before we take it further. This is the doc template:  https://docs.google.com/document/d/1bGIm7X1KS7l6QsRU1NoTuCjxXFWYbxD_ViwW8Rk86C0/edit?usp\u003dsharing",
       "revId": "08236cc26c2897e4e616ca99bcdf161fff2964d2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1800837b_5945d92b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1115647
+      },
+      "writtenOn": "2024-08-27T11:23:16Z",
+      "side": 1,
+      "message": "OK, WIP doc is here: https://docs.google.com/document/u/0/d/15Yb9OnuYQCgDjvoQ9F0HNVrbqEmpTFBjeOyqsuBMbTg/edit?pli\u003d1",
+      "parentUuid": "9a8318ac_cfe9be8c",
+      "revId": "08236cc26c2897e4e616ca99bcdf161fff2964d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
