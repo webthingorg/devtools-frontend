@@ -9,9 +9,10 @@ export class ExecutionError extends Error {}
 export class SideEffectError extends Error {}
 
 /* istanbul ignore next */
-function stringifyObjectOnThePage(this: unknown): string {
+async function stringifyObjectOnThePage(this: unknown): Promise<string> {
   const seenBefore = new WeakMap();
-  return JSON.stringify(this, function replacer(this: unknown, key: string, value: unknown) {
+  const obj = await this;
+  return JSON.stringify(obj, function replacer(this: unknown, key: string, value: unknown) {
     if (typeof value === 'object' && value !== null) {
       if (seenBefore.has(value)) {
         return '(cycle)';
@@ -54,12 +55,7 @@ async function stringifyRemoteObject(object: SDK.RemoteObject.RemoteObject): Pro
     case Protocol.Runtime.RemoteObjectType.Function:
       return `${object.description}`;
     case Protocol.Runtime.RemoteObjectType.Object: {
-      const res = await object.callFunction(stringifyObjectOnThePage);
-      if (!res.object || res.object.type !== Protocol.Runtime.RemoteObjectType.String) {
-        throw new Error('Could not stringify the object' + object);
-      }
-
-      return res.object.value;
+      return await object.callFunctionJSON(stringifyObjectOnThePage, undefined, /* awaitPromise = */ true);
     }
     default:
       throw new Error('Unknown type to stringify ' + object.type);
