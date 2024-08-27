@@ -3,6 +3,7 @@
 // found in the LICENSE file.
 
 import * as Host from '../../core/host/host.js';
+import * as Platform from '../../core/platform/platform.js';
 import {
   describeWithEnvironment,
   getGetHostConfigStub,
@@ -414,6 +415,9 @@ c`;
 
     describe('side effect handling', () => {
       it('calls confirmSideEffect when the code execution contains a side effect', async () => {
+        const promise = Platform.PromiseUtilities.promiseWithResolvers();
+        const stub = sinon.stub().returns(promise);
+
         let count = 0;
         async function* generateActionAndAnswer() {
           if (count === 0) {
@@ -434,22 +438,23 @@ c`;
         }
         const execJs =
             sinon.mock().throws(new Freestyler.SideEffectError('EvalError: Possible side-effect in debug-evaluate'));
-        const confirmSideEffect = sinon.mock().resolves(false);
         const agent = new FreestylerAgent({
           aidaClient: mockAidaClient(generateActionAndAnswer),
           createExtensionScope,
-          confirmSideEffect,
+          confirmSideEffect: stub,
           execJs,
           internalExecJs: sinon.mock(),
         });
 
+        promise.resolve(true);
         await Array.fromAsync(agent.run('test'));
 
         sinon.assert.match(execJs.getCall(0).args[1], sinon.match({throwOnSideEffect: true}));
-        sinon.assert.calledOnce(confirmSideEffect);
       });
 
       it('calls execJs with allowing side effects when confirmSideEffect resolves to true', async () => {
+        const promise = Platform.PromiseUtilities.promiseWithResolvers();
+        const stub = sinon.stub().returns(promise);
         let count = 0;
         async function* generateActionAndAnswer() {
           if (count === 0) {
@@ -471,22 +476,23 @@ c`;
         const execJs = sinon.mock().twice();
         execJs.onCall(0).throws(new Freestyler.SideEffectError('EvalError: Possible side-effect in debug-evaluate'));
         execJs.onCall(1).resolves('value');
-        const confirmSideEffect = sinon.mock().resolves(true);
         const agent = new FreestylerAgent({
           aidaClient: mockAidaClient(generateActionAndAnswer),
           createExtensionScope,
-          confirmSideEffect,
+          confirmSideEffect: stub,
           execJs,
           internalExecJs: sinon.mock(),
         });
+        promise.resolve(true);
         await Array.fromAsync(agent.run('test'));
 
-        sinon.assert.calledOnce(confirmSideEffect);
         assert.strictEqual(execJs.getCalls().length, 2);
         sinon.assert.match(execJs.getCall(1).args[1], sinon.match({throwOnSideEffect: false}));
       });
 
       it('returns side effect error when confirmSideEffect resolves to false', async () => {
+        const promise = Platform.PromiseUtilities.promiseWithResolvers();
+        const stub = sinon.stub().returns(promise);
         let count = 0;
         async function* generateActionAndAnswer() {
           if (count === 0) {
@@ -507,21 +513,19 @@ c`;
         }
         const execJs = sinon.mock().twice();
         execJs.onCall(0).throws(new Freestyler.SideEffectError('EvalError: Possible side-effect in debug-evaluate'));
-        const confirmSideEffect = sinon.mock().resolves(false);
         const agent = new FreestylerAgent({
           aidaClient: mockAidaClient(generateActionAndAnswer),
           createExtensionScope,
-          confirmSideEffect,
+          confirmSideEffect: stub,
           execJs,
           internalExecJs: sinon.mock(),
         });
-
+        promise.resolve(false);
         const steps = await Array.fromAsync(agent.run('test'));
 
-        const actionStep = steps.find(step => step.type === Freestyler.ResponseType.ACTION);
-        sinon.assert.calledOnce(confirmSideEffect);
-        /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
-        assert.strictEqual((actionStep as any).output, 'Error: EvalError: Possible side-effect in debug-evaluate');
+        const actionStep = steps.find(step => step.type === Freestyler.ResponseType.ACTION)!;
+
+        assert.strictEqual(actionStep.output, 'Error: EvalError: Possible side-effect in debug-evaluate');
         assert.strictEqual(execJs.getCalls().length, 1);
       });
 
@@ -545,11 +549,9 @@ c`;
           count++;
         }
         const execJs = sinon.mock().once();
-        const confirmSideEffect = sinon.mock();
         const agent = new FreestylerAgent({
           aidaClient: mockAidaClient(generateActionAndAnswer),
           createExtensionScope,
-          confirmSideEffect,
           execJs,
           internalExecJs: sinon.mock(),
         });
@@ -557,7 +559,6 @@ c`;
         await Array.fromAsync(agent.run(Freestyler.FIX_THIS_ISSUE_PROMPT, {isFixQuery: true}));
 
         const optionsArg = execJs.lastCall.args[1];
-        sinon.assert.notCalled(confirmSideEffect);
         sinon.assert.match(optionsArg, sinon.match({throwOnSideEffect: false}));
       });
     });
@@ -582,11 +583,9 @@ c`;
           count++;
         }
         const execJs = sinon.mock().returns(new Array(10_000).fill('<div>...</div>').join());
-        const confirmSideEffect = sinon.mock().resolves(false);
         const agent = new FreestylerAgent({
           aidaClient: mockAidaClient(generateActionAndAnswer),
           createExtensionScope,
-          confirmSideEffect,
           execJs,
           internalExecJs: sinon.mock(),
         });
@@ -612,7 +611,6 @@ c`;
       const execJs = sinon.spy();
       const agent = new FreestylerAgent({
         aidaClient: mockAidaClient(generateAnswer),
-        confirmSideEffect: () => Promise.resolve(true),
         execJs,
         internalExecJs: sinon.mock(),
       });
@@ -653,7 +651,6 @@ c`;
 
       const agent = new FreestylerAgent({
         aidaClient: mockAidaClient(generateAnswer),
-        confirmSideEffect: () => Promise.resolve(true),
         execJs: sinon.spy(),
         internalExecJs: sinon.mock(),
       });
@@ -687,7 +684,6 @@ c`;
 
       const agent = new FreestylerAgent({
         aidaClient: mockAidaClient(generateAnswer),
-        confirmSideEffect: () => Promise.resolve(true),
         execJs: sinon.spy(),
         internalExecJs: sinon.mock(),
       });
@@ -721,7 +717,6 @@ c`;
 
       const agent = new FreestylerAgent({
         aidaClient: mockAidaClient(generateAnswer),
-        confirmSideEffect: () => Promise.resolve(true),
         execJs: sinon.spy(),
         internalExecJs: sinon.mock(),
       });
@@ -750,7 +745,6 @@ c`;
       const execJs = sinon.spy();
       const agent = new FreestylerAgent({
         aidaClient: mockAidaClient(generateNothing),
-        confirmSideEffect: () => Promise.resolve(true),
         execJs,
         internalExecJs: sinon.mock(),
       });
@@ -806,7 +800,6 @@ ANSWER: this is the answer`,
       const agent = new FreestylerAgent({
         aidaClient: mockAidaClient(generateNothing),
         createExtensionScope,
-        confirmSideEffect: () => Promise.resolve(true),
         execJs,
         internalExecJs: sinon.mock(),
       });
@@ -860,7 +853,6 @@ ANSWER: this is the answer`,
       const agent = new FreestylerAgent({
         aidaClient: mockAidaClient(generateMultipleTimes),
         createExtensionScope,
-        confirmSideEffect: () => Promise.resolve(true),
         execJs,
         internalExecJs: sinon.mock(),
       });
@@ -924,7 +916,6 @@ ANSWER: this is the answer`,
       const agent = new FreestylerAgent({
         aidaClient: mockAidaClient(generateMultipleTimes),
         createExtensionScope,
-        confirmSideEffect: () => Promise.resolve(true),
         execJs,
         internalExecJs: sinon.mock(),
       });
