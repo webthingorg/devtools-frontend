@@ -3,15 +3,18 @@
 // found in the LICENSE file.
 
 import * as SDK from '../../core/sdk/sdk.js';
-import * as Protocol from '../../generated/protocol.js';
 
 export class ExecutionError extends Error {}
 export class SideEffectError extends Error {}
 
 /* istanbul ignore next */
-function stringifyObjectOnThePage(this: unknown): string {
+async function stringifyObjectOnThePage(this: unknown): Promise<string> {
   const seenBefore = new WeakMap();
-  return JSON.stringify(this, function replacer(this: unknown, key: string, value: unknown) {
+  const obj = await this;
+  if (obj === undefined) {
+    return 'undefined';
+  }
+  return JSON.stringify(obj, function replacer(this: unknown, key: string, value: unknown) {
     if (typeof value === 'object' && value !== null) {
       if (seenBefore.has(value)) {
         return '(cycle)';
@@ -37,33 +40,6 @@ function stringifyObjectOnThePage(this: unknown): string {
 
     return value;
   });
-}
-
-async function stringifyRemoteObject(object: SDK.RemoteObject.RemoteObject): Promise<string> {
-  switch (object.type) {
-    case Protocol.Runtime.RemoteObjectType.String:
-      return `'${object.value}'`;
-    case Protocol.Runtime.RemoteObjectType.Bigint:
-      return `${object.value}n`;
-    case Protocol.Runtime.RemoteObjectType.Boolean:
-    case Protocol.Runtime.RemoteObjectType.Number:
-      return `${object.value}`;
-    case Protocol.Runtime.RemoteObjectType.Undefined:
-      return 'undefined';
-    case Protocol.Runtime.RemoteObjectType.Symbol:
-    case Protocol.Runtime.RemoteObjectType.Function:
-      return `${object.description}`;
-    case Protocol.Runtime.RemoteObjectType.Object: {
-      const res = await object.callFunction(stringifyObjectOnThePage);
-      if (!res.object || res.object.type !== Protocol.Runtime.RemoteObjectType.String) {
-        throw new Error('Could not stringify the object' + object);
-      }
-
-      return res.object.value;
-    }
-    default:
-      throw new Error('Unknown type to stringify ' + object.type);
-  }
 }
 
 export interface Options {
@@ -102,7 +78,7 @@ export class FreestylerEvaluateAction {
         throw new ExecutionError(exceptionDescription || 'JS exception');
       }
 
-      return stringifyRemoteObject(response.object);
+      return await response.object.callFunctionJSON(stringifyObjectOnThePage, undefined, /* awaitPromise = */ true);
     } finally {
       executionContext.runtimeModel.releaseEvaluationResult(response);
     }
