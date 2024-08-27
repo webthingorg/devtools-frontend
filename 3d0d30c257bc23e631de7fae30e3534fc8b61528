@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2e2119d_4f3f4805",
+        "filename": "third_party/typescript/README.chromium",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-08-27T07:08:53Z",
+      "side": 1,
+      "message": "I think we should point to Chromium here and use Chromium license",
+      "revId": "3d0d30c257bc23e631de7fae30e3534fc8b61528",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
