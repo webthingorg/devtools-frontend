@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "191c1c3e_5710dfd1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-08-27T12:31:36Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "18eb4c34105e36ab6a030eb4969dfcdea383968f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2b889bf2_c9ecbb0f",
@@ -14,6 +31,30 @@
       "writtenOn": "2024-08-27T11:42:27Z",
       "side": 1,
       "message": "nits: Let\u0027s reorder to be same as other variables.\n```suggestion\n  #entryFromVisible: boolean \u003d true;\n  #entryToVisible: boolean \u003d true;\n```",
+      "range": {
+        "startLine": 22,
+        "startChar": 2,
+        "endLine": 23,
+        "endChar": 36
+      },
+      "revId": "18eb4c34105e36ab6a030eb4969dfcdea383968f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a60c426_926637ae",
+        "filename": "front_end/panels/timeline/overlays/components/EntriesLinkOverlay.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-08-27T12:31:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b889bf2_c9ecbb0f",
       "range": {
         "startLine": 22,
         "startChar": 2,
