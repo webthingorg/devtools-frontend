@@ -16,6 +16,24 @@
       "message": "I think we should point to Chromium here and use Chromium license",
       "revId": "3d0d30c257bc23e631de7fae30e3534fc8b61528",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "726af492_ef3a6cff",
+        "filename": "third_party/typescript/README.chromium",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-27T07:40:24Z",
+      "side": 1,
+      "message": "Reverted the TS changes, only i18n now.",
+      "parentUuid": "d2e2119d_4f3f4805",
+      "revId": "3d0d30c257bc23e631de7fae30e3534fc8b61528",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
