@@ -16,6 +16,23 @@
       "message": "Nice one, can you include a screenshot link of the new UI? Example: https://chromium.googlesource.com/devtools/devtools-frontend/+/875cd1a958ed369cd9ede1262ff3795e8ee00979",
       "revId": "08236cc26c2897e4e616ca99bcdf161fff2964d2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a8318ac_cfe9be8c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2024-08-27T10:25:49Z",
+      "side": 1,
+      "message": "As discuss offline, let\u0027s start with a design docs to facilitate the discussion before we take it further. This is the doc template:  https://docs.google.com/document/d/1bGIm7X1KS7l6QsRU1NoTuCjxXFWYbxD_ViwW8Rk86C0/edit?usp\u003dsharing",
+      "revId": "08236cc26c2897e4e616ca99bcdf161fff2964d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
