@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec30a743_2a871c6a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1429955
+      },
+      "writtenOn": "2024-08-27T09:30:55Z",
+      "side": 1,
+      "message": "Nice one, can you include a screenshot link of the new UI? Example: https://chromium.googlesource.com/devtools/devtools-frontend/+/875cd1a958ed369cd9ede1262ff3795e8ee00979",
+      "revId": "08236cc26c2897e4e616ca99bcdf161fff2964d2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
