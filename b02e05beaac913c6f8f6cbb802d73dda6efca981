@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "88b4a065_5389f52e",
+        "filename": "front_end/ui/legacy/DataGridWithPreview.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1568253
+      },
+      "writtenOn": "2024-08-27T09:55:48Z",
+      "side": 1,
+      "message": "Ah, thanks for sharing that. I haven\u0027t changed the existing files for consistency but I\u0027ve changed everything in DataGridWithPreview.",
+      "parentUuid": "d40f53a0_b620732e",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 60
+      },
+      "revId": "b02e05beaac913c6f8f6cbb802d73dda6efca981",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ffa822ce_6e6f43e4",
@@ -118,6 +142,30 @@
           ]
         }
       ],
+      "revId": "b02e05beaac913c6f8f6cbb802d73dda6efca981",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e77719b2_2a152069",
+        "filename": "front_end/ui/legacy/DataGridWithPreview.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1568253
+      },
+      "writtenOn": "2024-08-27T09:55:48Z",
+      "side": 1,
+      "message": "Agreed - this was in the code I based this on for some reason. Removed it.",
+      "parentUuid": "ffa822ce_6e6f43e4",
+      "range": {
+        "startLine": 126,
+        "startChar": 0,
+        "endLine": 126,
+        "endChar": 25
+      },
       "revId": "b02e05beaac913c6f8f6cbb802d73dda6efca981",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
