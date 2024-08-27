@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "224b82fa_b8a5ed8e",
+        "filename": "front_end/panels/freestyler/ChangeManager.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-08-27T09:10:32Z",
+      "side": 1,
+      "message": "Doesn\u0027t this need to be arrow function for the add/remove listeners to work correctly?",
+      "revId": "a4a4bafe8223b30786f3782d1513a8690150ef94",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
