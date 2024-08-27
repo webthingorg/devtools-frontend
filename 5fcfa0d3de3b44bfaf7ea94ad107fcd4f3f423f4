@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74eaf153_9824141d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-08-27T17:53:10Z",
+      "side": 1,
+      "message": "i defer to connor on the details but overall this looks great. the savings estimates lg.\n\ni could nit the header regex matching stuff but not in any way that\u0027d change the result. :)",
+      "revId": "5fcfa0d3de3b44bfaf7ea94ad107fcd4f3f423f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
