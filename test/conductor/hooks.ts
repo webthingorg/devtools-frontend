@@ -99,11 +99,13 @@ function launchChrome() {
     'FencedFrames',
     'PrivacySandboxAdsAPIsOverride',
     'AutofillEnableDevtoolsIssues',
+
+    'PMProcessPriorityPolicy',
   ];
 
   const disabledFeatures = [
-    'DeferRendererTasksAfterInput',           // crbug.com/361078921
-    'PMProcessPriorityPolicy',                // crbug.com/361252079
+    'DeferRendererTasksAfterInput',  // crbug.com/361078921
+    // 'PMProcessPriorityPolicy',                // crbug.com/361252079
     'RenderDocument',                         // crbug.com/361519377
     'QueueNavigationsWhileWaitingForCommit',  // crbug.com/361519377
   ];
@@ -120,7 +122,7 @@ function launchChrome() {
     '--enable-blink-features=CSSContainerQueries,HighlightInheritance',  // TODO(crbug.com/1218390) Remove globally enabled flags and conditionally enable them
     '--disable-blink-features=WebAssemblyJSPromiseIntegration',  // TODO(crbug.com/325123665) Remove once heap snapshots work again with JSPI
     `--disable-features=${disabledFeatures.join(',')}`,
-    '--disable-field-trial-config',
+    // '--disable-field-trial-config',
   ];
   const opts: puppeteer.LaunchOptions&puppeteer.BrowserLaunchArgumentOptions&puppeteer.BrowserConnectOptions = {
     headless,

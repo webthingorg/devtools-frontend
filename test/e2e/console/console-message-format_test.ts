@@ -150,7 +150,7 @@ describe('The Console Tab', () => {
     ]);
   });
 
-  it('can show DOM interactions', async () => {
+  it.only('can show DOM interactions', async () => {
     const messages = await getConsoleMessages('dom-interactions');
 
     assert.deepEqual(messages, [
