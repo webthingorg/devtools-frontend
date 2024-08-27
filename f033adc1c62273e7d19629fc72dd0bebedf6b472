@@ -16,6 +16,24 @@
       "message": "Thoughts about naming? I\u0027m not actually using it for variables exclusively below. Generally it\u0027s used for holding rules or declarations that can be referenced. Historically that was var()s, now it includes keyword targets.",
       "revId": "f033adc1c62273e7d19629fc72dd0bebedf6b472",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fcee615f_17658de2",
+        "filename": "front_end/core/sdk/CSSMatchedStyles.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 837,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-08-27T08:50:13Z",
+      "side": 1,
+      "message": "CSSValueSource?",
+      "parentUuid": "2c5f27fd_98bb705d",
+      "revId": "f033adc1c62273e7d19629fc72dd0bebedf6b472",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
