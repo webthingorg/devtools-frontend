@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f26deb0e_322860c8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1568253
+      },
+      "writtenOn": "2024-08-27T22:59:17Z",
+      "side": 1,
+      "message": "Hey Alex, could you provide the second approval here? Thanks!",
+      "revId": "06008b6b46550e9a8dd9992398a01f1834770c08",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
