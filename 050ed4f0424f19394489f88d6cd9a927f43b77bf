@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46e34d07_dc3db5af",
+        "filename": "front_end/panels/freestyler/ChangeManager.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-08-27T07:57:02Z",
+      "side": 1,
+      "message": "Should we handle removing this listener on clear?",
+      "revId": "050ed4f0424f19394489f88d6cd9a927f43b77bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
