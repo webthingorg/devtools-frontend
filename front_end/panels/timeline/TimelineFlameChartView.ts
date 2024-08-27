@@ -551,7 +551,8 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
 
   #updateDetailViews(): void {
     this.countersView.setModel(this.#traceEngineData, this.#selectedEvents);
-    void this.detailsView.setModel(this.#traceEngineData, this.#selectedEvents);
+    console.log("traceInsightsData: ", this.#traceInsightsData);
+    void this.detailsView.setModel(this.#traceEngineData, this.#selectedEvents, this.#traceInsightsData);
   }
 
   #updateFlameCharts(): void {

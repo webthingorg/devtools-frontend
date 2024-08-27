@@ -14,6 +14,7 @@ import * as NetworkRequestTooltip from './NetworkRequestTooltip.js';
 import * as NetworkThrottlingSelector from './NetworkThrottlingSelector.js';
 import * as Sidebar from './Sidebar.js';
 import * as SidebarAnnotationsTab from './SidebarAnnotationsTab.js';
+import * as LayoutShiftDetails from './LayoutShiftDetails.js';
 import * as Utils from './Utils.js';
 
 export {
@@ -21,6 +22,7 @@ export {
   BreadcrumbsUI,
   CPUThrottlingSelector,
   DetailsView,
+  LayoutShiftDetails,
   FieldSettingsDialog,
   InteractionBreakdown,
   LiveMetricsView,

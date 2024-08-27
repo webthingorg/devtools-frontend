@@ -82,6 +82,7 @@ copy_to_gen("traces") {
     "style-invalidation-change-attribute.json.gz",
     "style-invalidation-change-id.json.gz",
     "sync-like-timings.json.gz",
+    "shift-attribution.json.gz",
     "threejs-gpu.json.gz",
     "timer-initiators.json.gz",
     "timings-track.json.gz",

@@ -1,0 +1,130 @@
+/*
+ * Copyright 2024 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file.
+ */
+ 
+.timeline-details-chip-decorative-title {
+    font-size: 13px;
+    border: 1px solid var(--sys-color-primary);
+    border-radius: 3px;
+    display: flex;
+    margin-top: 10px;
+    margin-left: 7px;
+    padding: 3px;
+    width: max-content;
+    white-space: pre;
+  
+    .insight-keyword {
+      color: var(--sys-color-primary);
+    }
+  }
+
+  .layout-shift-details-title {
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+
+    .layout-shift-event-chip {
+      background-color: rgb(209, 144, 255);
+      width: 12px;
+      height: 12px;
+      border: 1px solid var(--sys-color-divider);
+      display: inline-block;
+      margin-right: 4px;
+      content: " ";
+    }
+  }
+
+  .layout-shift-details-table {
+    width: 90%;
+    border-collapse: separate; 
+    border-spacing: 0;
+    margin-top: 10px;
+    margin-left: 7px;
+
+    .table-title th { 
+      font-weight: var(--ref-typeface-weight-medium);
+      border-block: 1px solid var(--sys-color-divider);/* Add the border to the bottom of th elements */
+      padding: 0px;
+      /* Other styles for th if needed */
+    }
+
+    .culprit-types tr, .culprits tr {
+      border-bottom: 1px solid var(--sys-color-divider); 
+      border-spacing: 0;
+  }
+
+    td, th {
+      text-align: start;
+      /* border: 1px solid black; */
+      /* border-top: 1px solid black; */
+      /* border-collapse: collapse; */
+      /* padding: 15px; */
+    }
+  }
+
+  .network-request-details-row {
+    display: flex;
+    padding: 0 10px;
+    min-height: 20px;
+  }
+  
+
+
+.devtools-link {
+  color: var(--text-link);
+  text-decoration: underline;
+  outline-offset: 2px;
+  padding: 0;
+
+  .elements-disclosure & {
+    color: var(--text-link);
+  }
+
+  devtools-icon {
+    vertical-align: baseline;
+    color: var(--sys-color-primary);
+  }
+
+  :focus .selected & devtools-icon {
+    color: var(--sys-color-tonal-container);
+  }
+
+  &:focus-visible {
+    outline-width: unset;
+  }
+
+  &.invalid-link {
+    color: var(--text-disabled);
+    text-decoration: none;
+  }
+
+  &:not(.devtools-link-prevent-click, .invalid-link) {
+    cursor: pointer;
+  }
+
+  @media (forced-colors: active) {
+    &:not(.devtools-link-prevent-click) {
+      forced-color-adjust: none;
+      color: linktext;
+    }
+
+    &:focus-visible {
+      background: Highlight;
+      color: HighlightText;
+    }
+  }
+}
+
+.text-button.link-style,
+.text-button.link-style:hover,
+.text-button.link-style:active {
+  background: none;
+  border: none;
+  font: inherit;
+}
+  
+
+  

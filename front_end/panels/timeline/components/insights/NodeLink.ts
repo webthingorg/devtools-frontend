@@ -34,37 +34,45 @@ export class NodeLink extends HTMLElement {
     // requires traceParsedData.
 
     if (this.#backendNodeId === undefined) {
+      console.log("backend node id undefined");
       return;
     }
 
     const mainTarget = SDK.TargetManager.TargetManager.instance().primaryPageTarget();
     if (!mainTarget) {
+      console.log("no main target");
       return;
     }
 
     const domModel = mainTarget.model(SDK.DOMModel.DOMModel);
     if (!domModel) {
+      console.log("no dom model");
       return;
     }
 
     const backendNodeIds = new Set([this.#backendNodeId]);
     const domNodesMap = await domModel.pushNodesByBackendIdsToFrontend(backendNodeIds);
     if (!domNodesMap) {
+      console.log("no dom nodes map");
       return;
     }
 
     const node = domNodesMap.get(this.#backendNodeId);
+    console.log("no node");
     if (!node) {
       return;
     }
 
     // TODO: it'd be nice if we could specify what attributes to render,
     // ex for the Viewport insight: <meta content="..."> (instead of just <meta>)
+    // const link = this.#linkifier.maybeLinkifyConsoleCallFrame(
+    //       this.#maybeTarget, topFrame, {tabStop: true, inlineFrameIndex: 0, showColumnNumber: true});
     return Common.Linkifier.Linkifier.linkify(node, this.#options);
   }
 
   async #render(): Promise<void> {
     const relatedNodeEl = await this.#linkify();
+    console.log("🤡 ~ NodeLink ~ #render ~ relatedNodeEl:", relatedNodeEl);
     LitHtml.render(
         LitHtml.html`<div class='node-link'>
         ${relatedNodeEl}

@@ -324,6 +324,8 @@ async function buildLayoutShiftsClusters(): Promise<void> {
     if (!event.args.data) {
       continue;
     }
+    console.log("LAYOUT SHIFT EVENT: ", event);
+    console.log("currentCluster.navigationId: ", currentCluster.navigationId);
     const shift = Helpers.SyntheticEvents.SyntheticEventsManager
                       .registerSyntheticBasedEvent<Types.TraceEvents.SyntheticLayoutShift>({
                         rawSourceEvent: event,
@@ -333,6 +335,7 @@ async function buildLayoutShiftsClusters(): Promise<void> {
                           data: {
                             ...event.args.data,
                             rawEvent: event,
+                            navigationId: currentCluster.navigationId ?? "",
                           },
                         },
                         parsedData: {
@@ -345,6 +348,7 @@ async function buildLayoutShiftsClusters(): Promise<void> {
                           sessionWindowData: {cumulativeWindowScore: 0, id: clusters.length},
                         },
                       });
+    console.log("🤡 ~ buildLayoutShiftsClusters ~ shift:", shift);
     currentCluster.events.push(shift);
     updateTraceWindowMax(currentCluster.clusterWindow, event.ts);
 
@@ -425,9 +429,9 @@ async function buildLayoutShiftsClusters(): Promise<void> {
       }
 
       // Find the worst layout shift of the cluster.
-      const cumulativeScore = shift.args.data?.cumulative_score;
-      if (cumulativeScore !== undefined && cumulativeScore > largestScore) {
-        largestScore = cumulativeScore;
+      const score = shift.args.data?.score;
+      if (score !== undefined && score > largestScore) {
+        largestScore = score;
         worstShiftEvent = shift;
       }
     }
