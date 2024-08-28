@@ -72,6 +72,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dae1ec54_774dd279",
+        "filename": "front_end/core/sdk/CSSMatchedStyles.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 837,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-08-28T12:38:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7339e2f_739ca8d9",
+      "revId": "f033adc1c62273e7d19629fc72dd0bebedf6b472",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f3b5388c_92314332",
@@ -103,6 +121,24 @@
       "side": 1,
       "message": "I guess it\u0027s unused, will remove it!",
       "parentUuid": "f3b5388c_92314332",
+      "revId": "f033adc1c62273e7d19629fc72dd0bebedf6b472",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7cb0e7bf_a15dad2b",
+        "filename": "front_end/core/sdk/CSSMatchedStyles.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 843,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-08-28T12:38:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "436db2cc_c9fd7b6b",
       "revId": "f033adc1c62273e7d19629fc72dd0bebedf6b472",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
