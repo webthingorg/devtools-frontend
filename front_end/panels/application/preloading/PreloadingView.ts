@@ -67,6 +67,10 @@ const UIStrings = {
    *@description Text in grid and details: Preloading failed.
    */
   statusFailure: 'Failure',
+  /**
+   *@description Text to pretty print a file
+   */
+  prettyPrint: 'Pretty print',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/application/preloading/PreloadingView.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -174,6 +178,8 @@ export class PreloadingRuleSetView extends UI.Widget.VBox {
   private readonly ruleSetGrid = new PreloadingComponents.RuleSetGrid.RuleSetGrid();
   private readonly ruleSetDetails = new PreloadingComponents.RuleSetDetailsView.RuleSetDetailsView();
 
+  private readonly prettyToggle: UI.Toolbar.ToolbarToggle;
+
   constructor(model: SDK.PreloadingModel.PreloadingModel) {
     super(/* isWebComponent */ true, /* delegatesFocus */ false);
 
@@ -204,6 +210,18 @@ export class PreloadingRuleSetView extends UI.Widget.VBox {
     this.warningsView.show(this.warningsContainer);
 
     this.ruleSetGrid.addEventListener('cellfocused', this.onRuleSetsGridCellFocused.bind(this));
+
+    const bottomToolbarContainer = new UI.Widget.VBox();
+    const prettyprintToolbar = new UI.Toolbar.Toolbar('pretty-print-toolbar', bottomToolbarContainer.contentElement);
+    prettyprintToolbar.element.setAttribute('jslog', `${VisualLogging.toolbar()}`);
+    this.prettyToggle =
+        new UI.Toolbar.ToolbarToggle(i18nString(UIStrings.prettyPrint), 'brackets', undefined, 'pretty-print');
+    this.prettyToggle.toggled(true);
+    this.prettyToggle.addEventListener(UI.Toolbar.ToolbarButton.Events.Click, () => {
+      this.updateRuleSetDetails();
+    });
+    prettyprintToolbar.appendToolbarItem(this.prettyToggle);
+
     LitHtml.render(
         LitHtml.html`
         <${SplitView.SplitView.SplitView.litTagName} .horizontal=${true} style="--min-sidebar-size: 0px">
@@ -215,8 +233,11 @@ export class PreloadingRuleSetView extends UI.Widget.VBox {
             ${this.ruleSetDetails}
           </div>
         </${SplitView.SplitView.SplitView.litTagName}>`,
-        this.contentElement, {host: this});
+        bottomToolbarContainer.contentElement, {host: this});
+
     this.hsplit = this.contentElement.querySelector('devtools-split-view') as SplitView.SplitView.SplitView;
+
+    bottomToolbarContainer.show(this.contentElement);
   }
 
   override wasShown(): void {
@@ -245,6 +266,10 @@ export class PreloadingRuleSetView extends UI.Widget.VBox {
     const id = this.focusedRuleSetId;
     const ruleSet = id === null ? null : this.model.getRuleSetById(id);
     this.ruleSetDetails.data = ruleSet;
+    const jsonString = ruleSet === undefined || ruleSet === null ? '{}' : ruleSet.sourceText;
+    this.ruleSetDetails.formatedSourceText =
+        JSON.stringify(JSON.parse(jsonString), null, 2);  // TODO add pretty print function
+    this.ruleSetDetails.shouldPrettyPrint = this.prettyToggle.isToggled();
 
     if (ruleSet === null) {
       this.hsplit.style.setProperty('--current-main-area-size', '100%');
