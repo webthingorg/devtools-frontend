@@ -52,6 +52,24 @@
       "parentUuid": "3c418236_d861fac5",
       "revId": "948bad92f7f184fb83c1dbd3794c7ca51ac9d586",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8a76f0c_5c90bb54",
+        "filename": "extensions/cxx_debugging/e2e/standalone/MemoryInspector_test.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-08-28T13:08:24Z",
+      "side": 1,
+      "message": "which bot is testing these? I have updated the test runner there too.",
+      "parentUuid": "3210bc2f_e98107fd",
+      "revId": "948bad92f7f184fb83c1dbd3794c7ca51ac9d586",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
