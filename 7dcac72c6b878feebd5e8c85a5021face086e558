@@ -16,6 +16,46 @@
       "message": "ptal",
       "revId": "7dcac72c6b878feebd5e8c85a5021face086e558",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c8349b9_3662c476",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-08-28T16:16:57Z",
+      "side": 1,
+      "message": "The tests are failed because we automatically open the side bar now, so need to add the width to the mouse x position in the `test/interactions/panels/performance/timeline/timeline_selection_test.ts` Line 255\n\n```\nit(\u0027shows a tooltip describing an extension track when its header is hovered\u0027, async () \u003d\u003e {\n    await loadComponentDocExample(\u0027performance_panel/basic.html?trace\u003dextension-tracks-and-marks\u0027);\n    await waitFor(\u0027.timeline-flamechart\u0027);\n    const {frontend} \u003d getBrowserAndPages();\n    const margin \u003d 3;\n    const trackName \u003d \u0027A track group — Custom Track\u0027;\n    const groupOffset \u003d await getOffsetForGroupWithName(trackName);\n    await frontend.mouse.move(margin + /* DEFAULT_SIDEBAR_WIDTH_PX\u003d */ 240, groupOffset);\n    const popoverHandle \u003d await waitFor(\u0027.timeline-entry-tooltip-element\u0027);\n    const timingTitle \u003d await popoverHandle.evaluate(element \u003d\u003e (element as HTMLElement).innerText);\n    assert.strictEqual(timingTitle, \u0027This is a custom track added by a third party.\u0027);\n  });\n```",
+      "revId": "7dcac72c6b878feebd5e8c85a5021face086e558",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4c7bf5b_d1221338",
+        "filename": "front_end/panels/timeline/components/Sidebar.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-08-28T16:16:57Z",
+      "side": 1,
+      "message": "BTW just feel this function is so confusing, maybe we can propose DevTools team to change it some time 😂",
+      "range": {
+        "startLine": 62,
+        "startChar": 42,
+        "endLine": 62,
+        "endChar": 55
+      },
+      "revId": "7dcac72c6b878feebd5e8c85a5021face086e558",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
