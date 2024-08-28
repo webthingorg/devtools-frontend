@@ -201,9 +201,11 @@ export async function getDataGridData(selector: string, columns: string[]) {
 
 export async function getTrimmedTextContent(selector: string) {
   const elements = await $$(selector);
-  return Promise.all(elements.map(element => element.evaluate(e => {
+  let textContents = await Promise.all(elements.map(element => element.evaluate(e => {
+    if (!e.checkVisibility()) return null;
     return (e.textContent || '').trim().replace(/[ \n]{2,}/gm, '');  // remove multiple consecutive whitespaces
   })));
+  return textContents.filter(textContent => textContent !== null);
 }
 
 export async function getFrameTreeTitles() {

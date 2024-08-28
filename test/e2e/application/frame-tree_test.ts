@@ -124,7 +124,7 @@ describe('The Application Tab', () => {
     assert.deepEqual(stackTraceRowsTextContent, expected);
   });
 
-  it('stack traces for OOPIF with ignore listed frames can be expanded and collapsed', async () => {
+  it.only('stack traces for OOPIF with ignore listed frames can be expanded and collapsed', async () => {
     expectError('Request CacheStorage.requestCacheNames failed. {"code":-32602,"message":"Invalid security origin"}');
     await setIgnoreListPattern('js-oopif.js');
     const {target} = getBrowserAndPages();

@@ -395,6 +395,30 @@
   word-break: break-all;
 }
 
+.console-message-stack-trace-wrapper {
+  --override-display-stack-preview-toggle-link: none;
+}
+
+.console-message-text .formatted-stack-frame:has(.ignore-list-link) {
+  display: var(--display-ignored-formatted-stack-frame);
+  opacity: 60%;
+}
+
+.console-message-stack-trace-wrapper:has(div .ignore-list-link):has(div .devtools-link:not(.ignore-list-link)) {
+  --override-display-stack-preview-toggle-link: table-row;
+  --override-display-stack-preview-hidden-div: block;
+  --display-ignored-formatted-stack-frame: none;
+}
+
+.console-message-stack-trace-wrapper:has(div > .stack-preview-container.show-hidden-rows) {
+  --display-ignored-formatted-stack-frame: inherit !important;
+}
+
+.console-message-stack-trace-wrapper > .hidden-stack-trace {
+  display: var(--override-display-stack-preview-hidden-div, none);
+  --override-display-stack-preview-tbody: none;
+}
+
 .console-message-formatted-table {
   clear: both;
 }

@@ -597,7 +597,7 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
     for (const linkElement of stackTracePreview.links) {
       this.selectableChildren.push({element: linkElement, forceSelect: () => linkElement.focus()});
     }
-    stackTraceElement.classList.add('hidden');
+    stackTraceElement.classList.add('hidden-stack-trace');
     UI.ARIAUtils.setLabel(
         contentElement, `${messageElement.textContent} ${i18nString(UIStrings.stackMessageCollapsed)}`);
     UI.ARIAUtils.markAsGroup(stackTraceElement);
@@ -614,7 +614,7 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
         clearTimeout(debounce);
       }
       icon.name = expand ? 'triangle-down' : 'triangle-right';
-      stackTraceElement.classList.toggle('hidden', !expand);
+      stackTraceElement.classList.toggle('hidden-stack-trace', !expand);
       const stackTableState =
           expand ? i18nString(UIStrings.stackMessageExpanded) : i18nString(UIStrings.stackMessageCollapsed);
       UI.ARIAUtils.setLabel(contentElement, `${messageElement.textContent} ${stackTableState}`);
@@ -627,7 +627,7 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
       if (UI.UIUtils.isEditing() || contentElement.hasSelection()) {
         return;
       }
-      this.expandTrace && this.expandTrace(stackTraceElement.classList.contains('hidden'));
+      this.expandTrace && this.expandTrace(stackTraceElement.classList.contains('hidden-stack-trace'));
       event.consume();
     };
 
@@ -1620,6 +1620,7 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
       this.selectableChildren.push({element: scriptLocationLink, forceSelect: () => scriptLocationLink.focus()});
       formattedLine.appendChild(scriptLocationLink);
       formattedLine.appendChild(this.linkifyStringAsFragment(suffix));
+      formattedLine.classList.add('formatted-stack-frame');
       stackTrace.insertBefore(formattedLine, insertBefore);
     }
     return true;
@@ -1703,6 +1704,7 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
       this.selectableChildren.push({element: scriptLocationLink, forceSelect: () => scriptLocationLink.focus()});
       formattedLine.appendChild(scriptLocationLink);
       formattedLine.appendChild(this.linkifyStringAsFragment(suffix));
+      formattedLine.classList.add('formatted-stack-frame');
       formattedResult.appendChild(formattedLine);
 
       if (!link.enclosedInBraces) {
