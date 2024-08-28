@@ -16,6 +16,24 @@
       "message": "@pfaffe@chromium.org I didn\u0027t test the extension yet. Could you try it out? Does it use the same test runner?",
       "revId": "948bad92f7f184fb83c1dbd3794c7ca51ac9d586",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c418236_d861fac5",
+        "filename": "extensions/cxx_debugging/e2e/standalone/MemoryInspector_test.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-08-28T11:30:12Z",
+      "side": 1,
+      "message": "It has its own runner in //extensions/cxx_debugging/e2e/runner.py",
+      "parentUuid": "8f463223_d4677a4f",
+      "revId": "948bad92f7f184fb83c1dbd3794c7ca51ac9d586",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
