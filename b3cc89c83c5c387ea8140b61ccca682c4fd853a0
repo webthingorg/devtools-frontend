@@ -16,6 +16,161 @@
       "message": "Hi Simon, would you please review this change? Thanks!",
       "revId": "b3cc89c83c5c387ea8140b61ccca682c4fd853a0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69b6d672_91478d2e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-28T07:14:16Z",
+      "side": 1,
+      "message": "Thanks a lot, this is great! Some suggestions but nothing major.",
+      "revId": "b3cc89c83c5c387ea8140b61ccca682c4fd853a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a80fa7f4_9a9115d5",
+        "filename": "front_end/entrypoints/heap_snapshot_worker/HeapSnapshot.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 2059,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-28T07:14:16Z",
+      "side": 1,
+      "message": "I think we should pull these into constants. Either as static private fields of this class or on the module level. (Same for MAX_INTERFACE_COUNT below).\n\nJust in case they need tweaking it\u0027s easier to find them.",
+      "range": {
+        "startLine": 2059,
+        "startChar": 90,
+        "endLine": 2059,
+        "endChar": 93
+      },
+      "revId": "b3cc89c83c5c387ea8140b61ccca682c4fd853a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2418896d_71021324",
+        "filename": "front_end/entrypoints/heap_snapshot_worker/HeapSnapshot.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 2100,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-28T07:14:16Z",
+      "side": 1,
+      "message": "We could also just `result.push(candidate)`. TS would prevent us from accessing `count` outside this function since we return `InterfaceDefinition[]`.\n\nThen it might make sense to change the interface definition above to\n\n```\ninterface InterfaceDefinitionWithCount extends InterfaceDefinition {\n  count: number;\n}\n```",
+      "range": {
+        "startLine": 2097,
+        "startChar": 0,
+        "endLine": 2100,
+        "endChar": 9
+      },
+      "revId": "b3cc89c83c5c387ea8140b61ccca682c4fd853a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fbdc5fc_ae148e8e",
+        "filename": "front_end/entrypoints/heap_snapshot_worker/HeapSnapshot.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 2165,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-28T07:14:16Z",
+      "side": 1,
+      "message": "```suggestion\n        const nextMap \u003d currentNode.next || (currentNode.next \u003d new Map());\n        let nextNode \u003d nextMap.get(property);\n```\n\nIt seems the `if (!nextMap)` branch can never be taken?\n\nAlternatively we could just always set the `next` map. Some empty maps on the leafs are not too bad to make the code easier to read.",
+      "range": {
+        "startLine": 2159,
+        "startChar": 0,
+        "endLine": 2165,
+        "endChar": 9
+      },
+      "revId": "b3cc89c83c5c387ea8140b61ccca682c4fd853a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecfd9e6b_0e99347f",
+        "filename": "front_end/entrypoints/heap_snapshot_worker/HeapSnapshot.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 2201,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-28T07:14:16Z",
+      "side": 1,
+      "message": "Given that this is condition should/must be shared with `inferInterfaceDefinition` we could pull it into a private method.",
+      "range": {
+        "startLine": 2201,
+        "startChar": 10,
+        "endLine": 2201,
+        "endChar": 79
+      },
+      "revId": "b3cc89c83c5c387ea8140b61ccca682c4fd853a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c4dd1af_0b0f9d5d",
+        "filename": "front_end/entrypoints/heap_snapshot_worker/HeapSnapshot.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 2210,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-28T07:14:16Z",
+      "side": 1,
+      "message": "would this include `__proto__`?",
+      "range": {
+        "startLine": 2210,
+        "startChar": 10,
+        "endLine": 2210,
+        "endChar": 39
+      },
+      "revId": "b3cc89c83c5c387ea8140b61ccca682c4fd853a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99ca0454_2016d673",
+        "filename": "front_end/entrypoints/heap_snapshot_worker/HeapSnapshot.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 2241,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-28T07:14:16Z",
+      "side": 1,
+      "message": "would `match \u003d\u003d\u003d initialMatch` be equivalent here? That might better convene the intention.",
+      "range": {
+        "startLine": 2241,
+        "startChar": 23,
+        "endLine": 2241,
+        "endChar": 46
+      },
+      "revId": "b3cc89c83c5c387ea8140b61ccca682c4fd853a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
