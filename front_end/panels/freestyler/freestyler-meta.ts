@@ -92,6 +92,11 @@ function isFeatureAvailable(config?: Root.Runtime.HostConfig): boolean {
   return (config?.aidaAvailability?.enabled && config?.devToolsFreestylerDogfood?.enabled) === true;
 }
 
+function isFeatureAvailableAndNotBlocked(config?: Root.Runtime.HostConfig): boolean {
+  return isFeatureAvailable(config) && !isAgeRestricted(config) && !isGeoRestricted(config) && !isLocaleRestricted() &&
+      !isPolicyRestricted(config);
+}
+
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.DRAWER_VIEW,
   id: 'freestyler',
@@ -100,7 +105,8 @@ UI.ViewManager.registerViewExtension({
   order: 10,
   persistence: UI.ViewManager.ViewPersistence.CLOSEABLE,
   hasToolbar: false,
-  condition: config => isFeatureAvailable(config) && Common.Settings.Settings.instance().moduleSetting(setting).get(),
+  condition: config =>
+      isFeatureAvailableAndNotBlocked(config) && Common.Settings.Settings.instance().moduleSetting(setting).get(),
   async loadView() {
     const Freestyler = await loadFreestylerModule();
     return Freestyler.FreestylerPanel.instance();
@@ -145,7 +151,7 @@ UI.ActionRegistration.registerActionExtension({
     const Freestyler = await loadFreestylerModule();
     return new Freestyler.ActionDelegate();
   },
-  condition: isFeatureAvailable,
+  condition: isFeatureAvailableAndNotBlocked,
 });
 
 UI.ActionRegistration.registerActionExtension({
@@ -161,5 +167,5 @@ UI.ActionRegistration.registerActionExtension({
     const Freestyler = await loadFreestylerModule();
     return new Freestyler.ActionDelegate();
   },
-  condition: isFeatureAvailable,
+  condition: isFeatureAvailableAndNotBlocked,
 });
