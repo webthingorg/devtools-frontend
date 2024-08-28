@@ -131,9 +131,13 @@ export class CSSMetadata {
     }
   }
 
+  static isCSSWideKeyword(a: string): a is CSSWideKeyword {
+    return CSSWideKeywords.includes(a as CSSWideKeyword);
+  }
+
   private static sortPrefixesAndCSSWideKeywordsToEnd(a: string, b: string): 1|- 1|0 {
-    const aIsCSSWideKeyword = CSSWideKeywords.includes(a);
-    const bIsCSSWideKeyword = CSSWideKeywords.includes(b);
+    const aIsCSSWideKeyword = CSSMetadata.isCSSWideKeyword(a);
+    const bIsCSSWideKeyword = CSSMetadata.isCSSWideKeyword(b);
 
     if (aIsCSSWideKeyword && !bIsCSSWideKeyword) {
       return 1;
@@ -355,9 +359,22 @@ export class CSSMetadata {
 }
 
 // CSS-wide keywords.
+export const enum CSSWideKeyword {
+  Inherit = 'inherit',
+  Initial = 'initial',
+  Revert = 'revert',
+  RevertLayer = 'revert-layer',
+  Unset = 'unset',
+}
 // Spec: https://drafts.csswg.org/css-cascade/#defaulting-keywords
 // https://drafts.csswg.org/css-cascade-5/#revert-layer
-export const CSSWideKeywords = ['inherit', 'initial', 'revert', 'revert-layer', 'unset'];
+export const CSSWideKeywords: CSSWideKeyword[] = [
+  CSSWideKeyword.Inherit,
+  CSSWideKeyword.Initial,
+  CSSWideKeyword.Revert,
+  CSSWideKeyword.RevertLayer,
+  CSSWideKeyword.Unset,
+];
 
 export const VariableNameRegex = /(\s*--.*?)/gs;
 export const VariableRegex = /(var\(\s*--.*?\))/gs;
