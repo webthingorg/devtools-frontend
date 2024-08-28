@@ -34,6 +34,24 @@
       "parentUuid": "8f463223_d4677a4f",
       "revId": "948bad92f7f184fb83c1dbd3794c7ca51ac9d586",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3210bc2f_e98107fd",
+        "filename": "extensions/cxx_debugging/e2e/standalone/MemoryInspector_test.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-08-28T13:00:18Z",
+      "side": 1,
+      "message": "Bots are green, but I think that\u0027s just because they\u0027re using the default interface now, not the new one.",
+      "parentUuid": "3c418236_d861fac5",
+      "revId": "948bad92f7f184fb83c1dbd3794c7ca51ac9d586",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
