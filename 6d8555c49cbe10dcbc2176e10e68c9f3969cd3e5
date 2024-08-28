@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4dc25052_60e0b444",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-08-28T13:41:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4b22979a_99274cf9",
+      "revId": "6d8555c49cbe10dcbc2176e10e68c9f3969cd3e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0d711bd8_7e15c9cf",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-08-28T13:30:37Z",
       "side": 1,
       "message": "(nit): can we include the \"when\" part in the test title too? something like `should show side effect dialog when the step contains \"sideEffect\" object`",
+      "revId": "6d8555c49cbe10dcbc2176e10e68c9f3969cd3e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "abf8997a_3387411c",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-08-28T13:41:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d711bd8_7e15c9cf",
       "revId": "6d8555c49cbe10dcbc2176e10e68c9f3969cd3e5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

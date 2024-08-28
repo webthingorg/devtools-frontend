@@ -50,6 +50,42 @@
       "message": "(nit): WDYT of not relying on the `promiseWithResolvers` type here but create a type like `ConfirmSideEffectPromiseWithResolver \u003d { promise: Promise\u003cboolean\u003e, resolve: (value: boolean) \u003d\u003e void; }` and use this type whenever we need it.\n\nWe can mark `#confirmSideEffect: () \u003d\u003e ConfirmSideEffectPromiseWithResolver` etc. \n\nIt felt a bit cryptic to use a type returned from `promiseWithResolvers` and having it explicitly written might help us reason about the variable better. (i.e. what it is, why it is needed etc.)",
       "revId": "ea08bebc61d93412a711e80fe53c41a1ef76cbf3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "819fa507_f775de03",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-08-28T13:41:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f4713f4b_2ff49876",
+      "revId": "ea08bebc61d93412a711e80fe53c41a1ef76cbf3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "13de23f6_3be881ca",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-08-28T13:41:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aad87ddf_efcb97c9",
+      "revId": "ea08bebc61d93412a711e80fe53c41a1ef76cbf3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
