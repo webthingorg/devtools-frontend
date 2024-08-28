@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cac1b2b_67628f58",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-28T13:44:16Z",
+      "side": 1,
+      "message": "(final nit): WDYT of typing this as `\u003cboolean\u003e` here instead of in the call site as we don\u0027t expect `#confirmSideEffect` to be a generic type?",
+      "revId": "3b8d1a899dc84d3924ef6904e93d4f89c8c13243",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
