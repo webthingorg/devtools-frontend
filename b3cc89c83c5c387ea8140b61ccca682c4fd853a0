@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2170de17_55ec7c43",
+        "filename": "front_end/entrypoints/heap_snapshot_worker/HeapSnapshot.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 2059,
+      "author": {
+        "id": 1325508
+      },
+      "writtenOn": "2024-08-28T16:47:18Z",
+      "side": 1,
+      "message": "Good point, thanks.",
+      "parentUuid": "a80fa7f4_9a9115d5",
+      "range": {
+        "startLine": 2059,
+        "startChar": 90,
+        "endLine": 2059,
+        "endChar": 93
+      },
+      "revId": "b3cc89c83c5c387ea8140b61ccca682c4fd853a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2418896d_71021324",
@@ -71,6 +95,30 @@
       "writtenOn": "2024-08-28T07:14:16Z",
       "side": 1,
       "message": "We could also just `result.push(candidate)`. TS would prevent us from accessing `count` outside this function since we return `InterfaceDefinition[]`.\n\nThen it might make sense to change the interface definition above to\n\n```\ninterface InterfaceDefinitionWithCount extends InterfaceDefinition {\n  count: number;\n}\n```",
+      "range": {
+        "startLine": 2097,
+        "startChar": 0,
+        "endLine": 2100,
+        "endChar": 9
+      },
+      "revId": "b3cc89c83c5c387ea8140b61ccca682c4fd853a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2c9cca5_ae21be30",
+        "filename": "front_end/entrypoints/heap_snapshot_worker/HeapSnapshot.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 2100,
+      "author": {
+        "id": 1325508
+      },
+      "writtenOn": "2024-08-28T16:47:18Z",
+      "side": 1,
+      "message": "Great simplification, thanks!",
+      "parentUuid": "2418896d_71021324",
       "range": {
         "startLine": 2097,
         "startChar": 0,
@@ -104,6 +152,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a70274a4_1d84830e",
+        "filename": "front_end/entrypoints/heap_snapshot_worker/HeapSnapshot.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 2165,
+      "author": {
+        "id": 1325508
+      },
+      "writtenOn": "2024-08-28T16:47:18Z",
+      "side": 1,
+      "message": "Good catch, thanks! I\u0027ve updated to always allocate the Maps; I agree that the improved readability is worth it.",
+      "parentUuid": "2fbdc5fc_ae148e8e",
+      "range": {
+        "startLine": 2159,
+        "startChar": 0,
+        "endLine": 2165,
+        "endChar": 9
+      },
+      "revId": "b3cc89c83c5c387ea8140b61ccca682c4fd853a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ecfd9e6b_0e99347f",
@@ -117,6 +189,30 @@
       "writtenOn": "2024-08-28T07:14:16Z",
       "side": 1,
       "message": "Given that this is condition should/must be shared with `inferInterfaceDefinition` we could pull it into a private method.",
+      "range": {
+        "startLine": 2201,
+        "startChar": 10,
+        "endLine": 2201,
+        "endChar": 79
+      },
+      "revId": "b3cc89c83c5c387ea8140b61ccca682c4fd853a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9aee599_e99270f8",
+        "filename": "front_end/entrypoints/heap_snapshot_worker/HeapSnapshot.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 2201,
+      "author": {
+        "id": 1325508
+      },
+      "writtenOn": "2024-08-28T16:47:18Z",
+      "side": 1,
+      "message": "Good idea, thanks!",
+      "parentUuid": "ecfd9e6b_0e99347f",
       "range": {
         "startLine": 2201,
         "startChar": 10,
@@ -150,6 +246,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3cadc11c_50a303ca",
+        "filename": "front_end/entrypoints/heap_snapshot_worker/HeapSnapshot.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 2210,
+      "author": {
+        "id": 1325508
+      },
+      "writtenOn": "2024-08-28T16:47:18Z",
+      "side": 1,
+      "message": "Yes, which is not helpful, but it\u0027s harmless. I think that the code is a little simpler to read without a check for the name `__proto__` here.",
+      "parentUuid": "7c4dd1af_0b0f9d5d",
+      "range": {
+        "startLine": 2210,
+        "startChar": 10,
+        "endLine": 2210,
+        "endChar": 39
+      },
+      "revId": "b3cc89c83c5c387ea8140b61ccca682c4fd853a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "99ca0454_2016d673",
@@ -163,6 +283,30 @@
       "writtenOn": "2024-08-28T07:14:16Z",
       "side": 1,
       "message": "would `match \u003d\u003d\u003d initialMatch` be equivalent here? That might better convene the intention.",
+      "range": {
+        "startLine": 2241,
+        "startChar": 23,
+        "endLine": 2241,
+        "endChar": 46
+      },
+      "revId": "b3cc89c83c5c387ea8140b61ccca682c4fd853a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1eae88a6_4d8efba2",
+        "filename": "front_end/entrypoints/heap_snapshot_worker/HeapSnapshot.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 2241,
+      "author": {
+        "id": 1325508
+      },
+      "writtenOn": "2024-08-28T16:47:18Z",
+      "side": 1,
+      "message": "Good point, thanks!",
+      "parentUuid": "99ca0454_2016d673",
       "range": {
         "startLine": 2241,
         "startChar": 23,
