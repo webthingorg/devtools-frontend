@@ -7438,10 +7438,6 @@ export const NativeFunctions = [
     signatures: [["type","init"]]
   },
   {
-    name: "report",
-    signatures: [["options"]]
-  },
-  {
     name: "FederatedCredential",
     signatures: [["data"]]
   },
@@ -7467,6 +7463,18 @@ export const NativeFunctions = [
   },
   {
     name: "parseRequestOptionsFromJSON",
+    signatures: [["options"]]
+  },
+  {
+    name: "signalUnknownCredential",
+    signatures: [["options"]]
+  },
+  {
+    name: "signalAllAcceptedCredentials",
+    signatures: [["options"]]
+  },
+  {
+    name: "signalCurrentUserDetails",
     signatures: [["options"]]
   },
   {
@@ -7859,6 +7867,10 @@ export const NativeFunctions = [
   },
   {
     name: "gather",
+    signatures: [["input","indices","?options"]]
+  },
+  {
+    name: "gatherElements",
     signatures: [["input","indices","?options"]]
   },
   {
