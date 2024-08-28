@@ -68,7 +68,7 @@ describe('The Console Tab', () => {
       }],
     },
     {
-      description: 'produces console messages when a page logs using console.warn',
+      description: 'produces console messages when a page logs using console.warn',   /// ???
       evaluate: () => console.warn('warn'),
       expectedMessages: [{
         message: 'warn',
