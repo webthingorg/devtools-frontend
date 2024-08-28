@@ -16,6 +16,24 @@
       "message": "(final nit): WDYT of typing this as `\u003cboolean\u003e` here instead of in the call site as we don\u0027t expect `#confirmSideEffect` to be a generic type?",
       "revId": "3b8d1a899dc84d3924ef6904e93d4f89c8c13243",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5933f412_4f416792",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-08-28T13:45:40Z",
+      "side": 1,
+      "message": "Remember there were some issue with building, I will try in a follow up CL, where I address some of the previous CLs nits.",
+      "parentUuid": "6cac1b2b_67628f58",
+      "revId": "3b8d1a899dc84d3924ef6904e93d4f89c8c13243",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
