@@ -22,6 +22,30 @@
       },
       "revId": "b10f1457b4f6f90d4e7222ffefb679a11b0b40dd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "892e088e_72f0bfce",
+        "filename": "test/shared/mocha-interface.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-08-28T12:57:29Z",
+      "side": 1,
+      "message": "you are right, it should be the same as in the timeout handler",
+      "parentUuid": "08a9d7ab_bdf817c0",
+      "range": {
+        "startLine": 88,
+        "startChar": 14,
+        "endLine": 88,
+        "endChar": 47
+      },
+      "revId": "b10f1457b4f6f90d4e7222ffefb679a11b0b40dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
