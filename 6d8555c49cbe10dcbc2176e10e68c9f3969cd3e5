@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b22979a_99274cf9",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 326,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-28T13:30:37Z",
+      "side": 1,
+      "message": "(nit): I\u0027d prefer to keep this as a boolean field and return `sideEffect: false` when there isn\u0027t any side effect in the observation. That way, it might be a bit more descriptive on what this field is about.",
+      "revId": "6d8555c49cbe10dcbc2176e10e68c9f3969cd3e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d711bd8_7e15c9cf",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-28T13:30:37Z",
+      "side": 1,
+      "message": "(nit): can we include the \"when\" part in the test title too? something like `should show side effect dialog when the step contains \"sideEffect\" object`",
+      "revId": "6d8555c49cbe10dcbc2176e10e68c9f3969cd3e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5c1f2042_aecf86b1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-28T13:30:37Z",
+      "side": 1,
+      "message": "LGTM with some nits.\n\nIt took a bit of time for me to understand the difference between two approaches. Just for the sake of documentation:\n* Prior to this change, `#generateObservation` was able to handle all the logic related to generating the observation as text: running the code and if there is side effect, running the confirmation flow.\n\n* After this change, we separate this responsibility into multiple parts: running the code initially with `generateObservation` and returning a side effect error when there is a side effect and delegate running the side effect confirmation flow to the agent flow.\n\nI\u0027m not exactly sure about what the tradeoffs are between these two approaches but I don\u0027t have strong opinion on choosing one over another. So, lgtm! :)",
+      "revId": "ea08bebc61d93412a711e80fe53c41a1ef76cbf3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aad87ddf_efcb97c9",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-28T13:30:37Z",
+      "side": 1,
+      "message": "(nit): Can we mark this as `confirmSideEffectForTest` as it is only supposed to be used for tests. WDYT?",
+      "revId": "ea08bebc61d93412a711e80fe53c41a1ef76cbf3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4713f4b_2ff49876",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 12
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-28T13:30:37Z",
+      "side": 1,
+      "message": "(nit): WDYT of not relying on the `promiseWithResolvers` type here but create a type like `ConfirmSideEffectPromiseWithResolver \u003d { promise: Promise\u003cboolean\u003e, resolve: (value: boolean) \u003d\u003e void; }` and use this type whenever we need it.\n\nWe can mark `#confirmSideEffect: () \u003d\u003e ConfirmSideEffectPromiseWithResolver` etc. \n\nIt felt a bit cryptic to use a type returned from `promiseWithResolvers` and having it explicitly written might help us reason about the variable better. (i.e. what it is, why it is needed etc.)",
+      "revId": "ea08bebc61d93412a711e80fe53c41a1ef76cbf3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
