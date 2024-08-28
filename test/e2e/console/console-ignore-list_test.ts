@@ -31,7 +31,7 @@ describe('Ignore list', function() {
     const minimized = [
       '(anonymous) @ (index):1',
       '(anonymous) @ (index):1',
-      'Show 2 more frames',
+      'Show ignore-listed frames',
     ];
     const full = [
       '(anonymous) @ (index):1',

@@ -202,24 +202,24 @@ export async function getStructuredConsoleMessages() {
   }, {timeout: 0}, CONSOLE_ALL_MESSAGES_SELECTOR));
   await expectVeEvents([veImpressionForConsoleMessage()], await veRoot());
 
-  return frontend.evaluate((CONSOLE_MESSAGE_WRAPPER_SELECTOR, STACK_PREVIEW_CONTAINER) => {
+  return frontend.evaluate((CONSOLE_MESSAGE_WRAPPER_SELECTOR) => {
     return Array.from(document.querySelectorAll(CONSOLE_MESSAGE_WRAPPER_SELECTOR)).map(wrapper => {
       const message = wrapper.querySelector('.console-message-text')?.textContent;
       const source = wrapper.querySelector('.devtools-link')?.textContent;
       const consoleMessage = wrapper.querySelector('.console-message');
       const repeatCount = wrapper.querySelector('.console-message-repeat-count');
-      const stackPreviewRoot = wrapper.querySelector('.hidden > span');
-      const stackPreview = stackPreviewRoot?.shadowRoot?.querySelector(STACK_PREVIEW_CONTAINER) ?? null;
+      const stackPreviewRoot = wrapper.querySelector('.hidden-stack-trace > span');
+      const stackPreview = stackPreviewRoot?.shadowRoot?.querySelectorAll('tbody') ?? null;
       return {
         message,
         messageClasses: consoleMessage?.className,
-        repeatCount: repeatCount ? repeatCount?.textContent : null,
+        repeatCount: repeatCount?.textContent ?? null,
         source,
-        stackPreview: stackPreview ? stackPreview?.textContent : null,
+        stackPreview: stackPreview ? Array.from(stackPreview).map(x => x.textContent).join('') : null,
         wrapperClasses: wrapper?.className,
       };
     });
-  }, CONSOLE_MESSAGE_WRAPPER_SELECTOR, STACK_PREVIEW_CONTAINER);
+  }, CONSOLE_MESSAGE_WRAPPER_SELECTOR);
 }
 
 export async function focusConsolePrompt() {
