@@ -110,6 +110,79 @@ export class SidebarAnnotationsTab extends HTMLElement {
     }
   }
 
+  // When an annotations are clicked in the sidebar, zoom into it.
+  #zoomIntoAnnotation(annotation: TraceEngine.Types.File.Annotation): void {
+    let annotationWindow: TraceEngine.Types.Timing.TraceWindowMicroSeconds|null = null;
+    const minVisibleEntryDuration = TraceEngine.Types.Timing.MilliSeconds(0.001);
+
+    switch (annotation.type) {
+      case 'ENTRY_LABEL': {
+        const eventDuration = annotation.entry.dur ?? minVisibleEntryDuration;
+
+        annotationWindow = {
+          min: annotation.entry.ts,
+          max: TraceEngine.Types.Timing.MicroSeconds(annotation.entry.ts + eventDuration),
+          range: TraceEngine.Types.Timing.MicroSeconds(eventDuration),
+        };
+        break;
+      }
+      case 'TIME_RANGE': {
+        annotationWindow = annotation.bounds;
+        break;
+      }
+      case 'ENTRIES_LINK': {
+        // If entryTo does not exist, the annotation is in the process of being created.
+        // Do not allow to zoom in in this case.
+        if (!annotation.entryTo) {
+          break;
+        }
+
+        const fromEventDuration = annotation.entryFrom.dur ?? minVisibleEntryDuration;
+        const toEventDuration = annotation.entryFrom.dur ?? minVisibleEntryDuration;
+
+        // To choose window max, check which entry ends later
+        const fromEntryEndTS = (annotation.entryFrom.ts + fromEventDuration);
+        const toEntryEndTS = (annotation.entryTo.ts + toEventDuration);
+        const maxTimestamp = (fromEntryEndTS > toEntryEndTS) ? fromEntryEndTS : toEntryEndTS;
+
+        annotationWindow = {
+          min: annotation.entryFrom.ts,
+          max: TraceEngine.Types.Timing.MicroSeconds(maxTimestamp),
+          range: TraceEngine.Types.Timing.MicroSeconds(maxTimestamp - annotation.entryFrom.ts),
+        };
+      }
+    }
+
+    if (annotationWindow) {
+      // Make the new window 40% bigger than the annotation so it is not taking the whole visible window.
+      let newRange = annotationWindow.range + annotationWindow.range * 0.4;
+      let newMin = 0;
+      let newMax = 0;
+
+      // If the expanded range is bigger than 1 millisecond, also expand the min and max by 20%.
+      // If the expanded time range is smaller than 1 millisecond, expanded the window to 1 millisecond.
+      if (newRange > 1_000) {
+        newMin = annotationWindow.min - annotationWindow.range * 0.2;
+        newMax = annotationWindow.max + annotationWindow.range * 0.2;
+      } else {
+        const rangeMiddle = (annotationWindow.min + annotationWindow.max) / 2;
+        newMin = rangeMiddle - 500;
+        newMax = rangeMiddle + 500;
+        newRange = 1_000;
+      }
+
+      const newVisibleWindow: TraceEngine.Types.Timing.TraceWindowMicroSeconds = {
+        min: TraceEngine.Types.Timing.MicroSeconds(newMin),
+        max: TraceEngine.Types.Timing.MicroSeconds(newMax),
+        range: TraceEngine.Types.Timing.MicroSeconds(newRange),
+      };
+
+      TraceBounds.TraceBounds.BoundsManager.instance().setTimelineVisibleWindow(newVisibleWindow);
+    } else {
+      console.error('Could not calculate zoom in window for ', annotation);
+    }
+  }
+
   #render(): void {
     // clang-format off
       LitHtml.render(
@@ -117,7 +190,7 @@ export class SidebarAnnotationsTab extends HTMLElement {
           <span class="annotations">
             ${this.#annotations.map(annotation =>
               LitHtml.html`
-                <div class="annotation-container">
+                <div class="annotation-container" @click=${() => this.#zoomIntoAnnotation(annotation)}>
                   <div class="annotation">
                     ${this.#renderAnnotationIdentifier(annotation)}
                     <span class="label">
@@ -129,7 +202,9 @@ export class SidebarAnnotationsTab extends HTMLElement {
                           color: 'var(--icon-default)',
                           width: '20px',
                           height: '20px',
-                        } as IconButton.Icon.IconData} @click=${() => {
+                        } as IconButton.Icon.IconData} @click=${(event: Event) => {
+                         // Stop propagation to not zoom into the annotation when the delete button is clicked
+                         event.stopPropagation();
                           this.dispatchEvent(new RemoveAnnotation(annotation));
                   }}>
                 </div>`,
