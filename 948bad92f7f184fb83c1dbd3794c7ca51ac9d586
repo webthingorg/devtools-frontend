@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f463223_d4677a4f",
+        "filename": "extensions/cxx_debugging/e2e/standalone/MemoryInspector_test.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-08-28T11:26:46Z",
+      "side": 1,
+      "message": "@pfaffe@chromium.org I didn\u0027t test the extension yet. Could you try it out? Does it use the same test runner?",
+      "revId": "948bad92f7f184fb83c1dbd3794c7ca51ac9d586",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
