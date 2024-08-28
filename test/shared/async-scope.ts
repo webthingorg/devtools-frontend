@@ -4,15 +4,11 @@
 
 export class AsyncScope {
   static scopes: Set<AsyncScope> = new Set();
+  static abortSignal: AbortSignal;
   private asyncStack: Array<{description?: string, frames: string[]}> = [];
-  private canceled: boolean = false;
-
-  setCanceled(): void {
-    this.canceled = true;
-  }
 
   isCanceled(): boolean {
-    return this.canceled;
+    return AsyncScope.abortSignal.aborted;
   }
 
   get descriptions(): string[] {
