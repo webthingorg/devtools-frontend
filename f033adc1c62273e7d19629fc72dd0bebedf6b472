@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f7339e2f_739ca8d9",
+        "filename": "front_end/core/sdk/CSSMatchedStyles.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 837,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-08-28T11:22:14Z",
+      "side": 1,
+      "message": "Do you know where a corresponding thing might exist there?",
+      "parentUuid": "fb1c1c45_6b1ab83b",
+      "revId": "f033adc1c62273e7d19629fc72dd0bebedf6b472",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f3b5388c_92314332",
         "filename": "front_end/core/sdk/CSSMatchedStyles.ts",
         "patchSetId": 3
@@ -73,6 +91,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "436db2cc_c9fd7b6b",
+        "filename": "front_end/core/sdk/CSSMatchedStyles.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 843,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-08-28T11:22:14Z",
+      "side": 1,
+      "message": "I guess it\u0027s unused, will remove it!",
+      "parentUuid": "f3b5388c_92314332",
+      "revId": "f033adc1c62273e7d19629fc72dd0bebedf6b472",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ce004531_bad98634",
         "filename": "front_end/core/sdk/CSSMetadata.ts",
         "patchSetId": 3
@@ -84,6 +120,24 @@
       "writtenOn": "2024-08-28T11:18:53Z",
       "side": 1,
       "message": "Is this function created to help with TS typing etc.?",
+      "revId": "f033adc1c62273e7d19629fc72dd0bebedf6b472",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb277593_1f731d73",
+        "filename": "front_end/core/sdk/CSSMetadata.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-08-28T11:22:14Z",
+      "side": 1,
+      "message": "yes",
+      "parentUuid": "ce004531_bad98634",
       "revId": "f033adc1c62273e7d19629fc72dd0bebedf6b472",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
