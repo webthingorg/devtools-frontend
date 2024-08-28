@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08a9d7ab_bdf817c0",
+        "filename": "test/shared/mocha-interface.ts",
+        "patchSetId": 11
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-08-28T12:04:13Z",
+      "side": 1,
+      "message": "Wouldn\u0027t you want to reject `testPromise` here?\n\nAssuming a standard async test that throws because of `assert.fail`. In that case `promise` is rejected. Throwing here will cause the the `promse.then` promise to be rejected, but we actually return `testPromise` from the function, which will never be rejected.",
+      "range": {
+        "startLine": 88,
+        "startChar": 14,
+        "endLine": 88,
+        "endChar": 47
+      },
+      "revId": "b10f1457b4f6f90d4e7222ffefb679a11b0b40dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
