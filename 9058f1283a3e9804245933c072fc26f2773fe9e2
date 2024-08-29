@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "936cc07e_0dd22e9b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-29T09:01:28Z",
+      "side": 1,
+      "message": "this is looking great, left a few suggestions 😊",
+      "revId": "9058f1283a3e9804245933c072fc26f2773fe9e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "876144f3_f9314c26",
+        "filename": "front_end/panels/timeline/components/SidebarAnnotationsTab.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-29T09:01:28Z",
+      "side": 1,
+      "message": "I would probably just make this `1` to be honest 😊",
+      "range": {
+        "startLine": 116,
+        "startChar": 0,
+        "endLine": 116,
+        "endChar": 81
+      },
+      "revId": "9058f1283a3e9804245933c072fc26f2773fe9e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "267be087_c644ad87",
+        "filename": "front_end/panels/timeline/components/SidebarAnnotationsTab.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-29T09:01:28Z",
+      "side": 1,
+      "message": "entryTo ?",
+      "range": {
+        "startLine": 141,
+        "startChar": 43,
+        "endLine": 141,
+        "endChar": 52
+      },
+      "revId": "9058f1283a3e9804245933c072fc26f2773fe9e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "edcde776_2b3137b2",
+        "filename": "front_end/panels/timeline/components/SidebarAnnotationsTab.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-29T09:01:28Z",
+      "side": 1,
+      "message": "Math.max(fromEntryEnd, toEntryEnd) ?",
+      "range": {
+        "startLine": 146,
+        "startChar": 0,
+        "endLine": 146,
+        "endChar": 93
+      },
+      "revId": "9058f1283a3e9804245933c072fc26f2773fe9e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b28f641_2e993ff8",
+        "filename": "front_end/panels/timeline/components/SidebarAnnotationsTab.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-29T09:01:28Z",
+      "side": 1,
+      "message": "I like this but 40% feels very generous; how about 20?\n\n(feel free to disagree if you have played locally and found 40 to feel about right)",
+      "range": {
+        "startLine": 157,
+        "startChar": 0,
+        "endLine": 158,
+        "endChar": 75
+      },
+      "revId": "9058f1283a3e9804245933c072fc26f2773fe9e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b338b7f6_dcb18edf",
+        "filename": "front_end/panels/timeline/components/SidebarAnnotationsTab.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-29T09:01:28Z",
+      "side": 1,
+      "message": "I feel like we could do with a separate helper function to tidy this up a bit.\n\n`expandBoundsByPercentage(bounds, percentage): Bounds`\n\nor something...wdyt?\n\nAnd rather than adjust the `range` and then retrospectively fix the min/max, I would instead take the min/max and multiply them by the right modifier, and then generate the new bounds from that - making sure that the new bounds are within the entire trace window.\n\nwdyt?",
+      "range": {
+        "startLine": 162,
+        "startChar": 4,
+        "endLine": 173,
+        "endChar": 0
+      },
+      "revId": "9058f1283a3e9804245933c072fc26f2773fe9e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
