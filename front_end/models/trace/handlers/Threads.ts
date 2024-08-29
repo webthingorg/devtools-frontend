@@ -120,7 +120,7 @@ export function threadsInTrace(traceParseData: TraceParseData): readonly ThreadD
           processIsOnMainFrame: false,
           tree: thread.profileTree,
           type: ThreadType.CPU_PROFILE,
-          entryToNode: traceParseData.Samples.entryToNode,
+          entryToNode: traceParseData.Samples.eventToNode,
         });
       }
     }

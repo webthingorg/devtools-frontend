@@ -43,7 +43,7 @@ export function buildTrackDataFromExtensionEntries(
     for (const entries of Object.values(trackData.entriesByTrack)) {
       sortTraceEventsInPlace(entries);
       if (canBuildTreesFromEvents(entries)) {
-        for (const [entry, node] of treify(entries).entryToNode) {
+        for (const [entry, node] of treify(entries).eventToNode) {
           entryToNode.set(entry, node);
         }
       }

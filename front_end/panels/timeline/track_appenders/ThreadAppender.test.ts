@@ -247,7 +247,7 @@ describeWithEnvironment('ThreadAppender', function() {
 
   it('will use the function name from the CPUProfile if it has been set', async function() {
     const {threadAppenders, traceParsedData} = await renderThreadAppendersFromTrace(this, 'simple-js-program.json.gz');
-    const {Renderer, Samples} = traceParsedData;
+    const {Renderer} = traceParsedData;
     const [process] = Renderer.processes.values();
     const [thread] = process.threads.values();
     const profileCalls = thread.entries.filter(TraceModel.Types.TraceEvents.isProfileCall);
@@ -256,8 +256,7 @@ describeWithEnvironment('ThreadAppender', function() {
       throw new Error('Could not find renderer events');
     }
     const entry = profileCalls[0];
-    const cpuProfileNode =
-        Samples.profilesInProcess.get(entry.pid)?.get(entry.tid)?.parsedProfile.nodeById(entry.nodeId);
+    const cpuProfileNode = entry.node;
     if (!cpuProfileNode) {
       throw new Error('Could not find CPU Profile Node');
     }

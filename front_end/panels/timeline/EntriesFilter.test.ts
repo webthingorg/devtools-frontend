@@ -685,7 +685,7 @@ describeWithEnvironment('EntriesFilter', function() {
      * ======== postMessage ========
      **/
     const anonymousEntryWithInvisibleParent = findFirstEntry(mainThread.entries, entry => {
-      return TraceEngine.Types.TraceEvents.isProfileCall(entry) && entry.nodeId === 42;
+      return TraceEngine.Types.TraceEvents.isProfileCall(entry) && entry.node.id === 42;
     });
 
     const stack = new Timeline.EntriesFilter.EntriesFilter(traceData.Renderer.entryToNode);

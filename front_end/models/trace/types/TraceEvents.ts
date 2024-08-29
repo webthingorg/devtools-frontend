@@ -4,6 +4,7 @@
 
 /* eslint-disable no-unused-private-class-members */
 import type * as Protocol from '../../../generated/protocol.js';
+import type * as CPUProfile from '../../cpu_profile/cpu_profile.js';
 
 import {type MicroSeconds, type MilliSeconds, type Seconds} from './Timing.js';
 
@@ -1500,7 +1501,7 @@ export interface SyntheticInteractionPair extends SyntheticEventPair<TraceEventE
  */
 export interface SyntheticProfileCall extends TraceEventData {
   callFrame: Protocol.Runtime.CallFrame;
-  nodeId: Protocol.integer;
+  node: CPUProfile.ProfileTreeModel.ProfileNode;
   sampleIndex: number;
   profileId: ProfileID;
 }

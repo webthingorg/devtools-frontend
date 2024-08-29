@@ -157,35 +157,6 @@ export function getAllNodes(roots: Set<TraceEngine.Helpers.TreeHelpers.TraceEntr
 }
 
 /**
- * Gets the node with an id from a tree in a thread.
- * @see RendererHandler.ts
- */
-export function getNodeFor(
-    thread: TraceEngine.Handlers.ModelHandlers.Renderer.RendererThread,
-    nodeId: TraceEngine.Helpers.TreeHelpers.TraceEntryNodeId): TraceEngine.Helpers.TreeHelpers.TraceEntryNode {
-  const tree = getTree(thread);
-
-  function findNode(
-      nodes: Set<TraceEngine.Helpers.TreeHelpers.TraceEntryNode>|TraceEngine.Helpers.TreeHelpers.TraceEntryNode[],
-      nodeId: TraceEngine.Helpers.TreeHelpers.TraceEntryNodeId): TraceEngine.Helpers.TreeHelpers.TraceEntryNode|
-      undefined {
-    for (const node of nodes) {
-      const event = node.entry;
-      if (TraceEngine.Types.TraceEvents.isProfileCall(event) && event.nodeId === nodeId) {
-        return node;
-      }
-      return findNode(node.children, nodeId);
-    }
-    return undefined;
-  }
-  const node = findNode(tree.roots, nodeId);
-  if (!node) {
-    assert(false, `Couldn't get the node with id ${nodeId} in thread ${thread.name}`);
-  }
-  return node;
-}
-
-/**
  * Gets all the `events` for the `nodes`.
  */
 export function getEventsIn(nodes: IterableIterator<TraceEngine.Helpers.TreeHelpers.TraceEntryNode>):
@@ -345,10 +316,14 @@ export function makeProfileCall(
     pid: TraceEngine.Types.TraceEvents.ProcessID = TraceEngine.Types.TraceEvents.ProcessID(0),
     tid: TraceEngine.Types.TraceEvents.ThreadID = TraceEngine.Types.TraceEvents.ThreadID(0), nodeId: number = 0,
     url: string = ''): TraceEngine.Types.TraceEvents.SyntheticProfileCall {
+  // @ts-expect-error Omitting the other node keys for brevity.
+  const node: CPUProfile.CPUProfileDataModel.CPUProfileNode = {
+    id: nodeId,
+  };
   return {
     cat: '',
     name: 'ProfileCall',
-    nodeId,
+    node,
     sampleIndex: 0,
     profileId: TraceEngine.Types.TraceEvents.ProfileID('fake-profile-id'),
     ph: TraceEngine.Types.TraceEvents.Phase.COMPLETE,
@@ -374,7 +349,7 @@ export const DevToolsTimelineCategory = 'disabled-by-default-devtools.timeline';
  */
 export function makeMockRendererHandlerData(entries: TraceEngine.Types.TraceEvents.TraceEventData[]):
     TraceEngine.Handlers.ModelHandlers.Renderer.RendererHandlerData {
-  const {tree, entryToNode} = TraceEngine.Helpers.TreeHelpers.treify(entries, {filter: {has: () => true}});
+  const {tree, eventToNode: entryToNode} = TraceEngine.Helpers.TreeHelpers.treify(entries, {filter: {has: () => true}});
   const mockThread: TraceEngine.Handlers.ModelHandlers.Renderer.RendererThread = {
     tree,
     name: 'thread',
@@ -409,7 +384,7 @@ export function makeMockRendererHandlerData(entries: TraceEngine.Types.TraceEven
  */
 export function makeMockSamplesHandlerData(profileCalls: TraceEngine.Types.TraceEvents.SyntheticProfileCall[]):
     TraceEngine.Handlers.ModelHandlers.Samples.SamplesHandlerData {
-  const {tree, entryToNode} = TraceEngine.Helpers.TreeHelpers.treify(profileCalls, {filter: {has: () => true}});
+  const {tree, eventToNode} = TraceEngine.Helpers.TreeHelpers.treify(profileCalls, {filter: {has: () => true}});
   const profile: Protocol.Profiler.Profile = {
     nodes: [],
     startTime: profileCalls.at(0)?.ts || TraceEngine.Types.Timing.MicroSeconds(0),
@@ -421,14 +396,14 @@ export function makeMockSamplesHandlerData(profileCalls: TraceEngine.Types.Trace
   const nodesIds = new Map<number, Protocol.Profiler.ProfileNode>();
   const lastTimestamp = profile.startTime;
   for (const profileCall of profileCalls) {
-    let node = nodesIds.get(profileCall.nodeId);
+    let node = nodesIds.get(profileCall.node.id);
     if (!node) {
       node = {
-        id: profileCall.nodeId,
+        id: profileCall.node.id,
         callFrame: profileCall.callFrame,
       };
       profile.nodes.push(node);
-      nodesIds.set(profileCall.nodeId, node);
+      nodesIds.set(profileCall.node.id, node);
     }
     profile.samples?.push(node.id);
     const timeDelta = profileCall.ts - lastTimestamp;
@@ -444,7 +419,7 @@ export function makeMockSamplesHandlerData(profileCalls: TraceEngine.Types.Trace
   const profilesInThread = new Map([[1 as TraceEngine.Types.TraceEvents.ThreadID, profileData]]);
   return {
     profilesInProcess: new Map([[1 as TraceEngine.Types.TraceEvents.ProcessID, profilesInThread]]),
-    entryToNode,
+    eventToNode,
   };
 }
 
