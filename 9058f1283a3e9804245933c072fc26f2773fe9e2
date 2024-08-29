@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3aa7e6a2_2f4d4579",
+        "filename": "front_end/panels/timeline/components/SidebarAnnotationsTab.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-08-29T09:55:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "876144f3_f9314c26",
+      "range": {
+        "startLine": 116,
+        "startChar": 0,
+        "endLine": 116,
+        "endChar": 81
+      },
+      "revId": "9058f1283a3e9804245933c072fc26f2773fe9e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "267be087_c644ad87",
@@ -64,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "92c77e66_26c31ba1",
+        "filename": "front_end/panels/timeline/components/SidebarAnnotationsTab.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-08-29T09:55:26Z",
+      "side": 1,
+      "message": "right, good catch!",
+      "parentUuid": "267be087_c644ad87",
+      "range": {
+        "startLine": 141,
+        "startChar": 43,
+        "endLine": 141,
+        "endChar": 52
+      },
+      "revId": "9058f1283a3e9804245933c072fc26f2773fe9e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "edcde776_2b3137b2",
@@ -77,6 +125,30 @@
       "writtenOn": "2024-08-29T09:01:28Z",
       "side": 1,
       "message": "Math.max(fromEntryEnd, toEntryEnd) ?",
+      "range": {
+        "startLine": 146,
+        "startChar": 0,
+        "endLine": 146,
+        "endChar": 93
+      },
+      "revId": "9058f1283a3e9804245933c072fc26f2773fe9e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7075bfe8_e7de8fe1",
+        "filename": "front_end/panels/timeline/components/SidebarAnnotationsTab.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-08-29T09:55:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "edcde776_2b3137b2",
       "range": {
         "startLine": 146,
         "startChar": 0,
@@ -112,6 +184,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2cd7479c_6b5c74b7",
+        "filename": "front_end/panels/timeline/components/SidebarAnnotationsTab.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-08-29T09:55:26Z",
+      "side": 1,
+      "message": "I think 40% feels right. It is 40% total so it actually only leaves 20% of the annotation length on each side.\n\nthis is how 40% zoom into a label looks like: https://screenshot.googleplex.com/9B3mAZ3CTnNkuLq",
+      "parentUuid": "4b28f641_2e993ff8",
+      "range": {
+        "startLine": 157,
+        "startChar": 0,
+        "endLine": 158,
+        "endChar": 75
+      },
+      "revId": "9058f1283a3e9804245933c072fc26f2773fe9e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b338b7f6_dcb18edf",
         "filename": "front_end/panels/timeline/components/SidebarAnnotationsTab.ts",
         "patchSetId": 3
@@ -123,6 +219,30 @@
       "writtenOn": "2024-08-29T09:01:28Z",
       "side": 1,
       "message": "I feel like we could do with a separate helper function to tidy this up a bit.\n\n`expandBoundsByPercentage(bounds, percentage): Bounds`\n\nor something...wdyt?\n\nAnd rather than adjust the `range` and then retrospectively fix the min/max, I would instead take the min/max and multiply them by the right modifier, and then generate the new bounds from that - making sure that the new bounds are within the entire trace window.\n\nwdyt?",
+      "range": {
+        "startLine": 162,
+        "startChar": 4,
+        "endLine": 173,
+        "endChar": 0
+      },
+      "revId": "9058f1283a3e9804245933c072fc26f2773fe9e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eea70bc4_1478c639",
+        "filename": "front_end/panels/timeline/components/SidebarAnnotationsTab.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-08-29T09:55:26Z",
+      "side": 1,
+      "message": "I agree. I also realized we can remove `if (newRange \u003e 1_000) { ` condition if the min and max are assigned straight away",
+      "parentUuid": "b338b7f6_dcb18edf",
       "range": {
         "startLine": 162,
         "startChar": 4,
