@@ -1021,8 +1021,6 @@ export enum DevtoolsExperiments {
   'authored-deployed-grouping' = 63,
   'important-dom-properties' = 64,
   'just-my-code' = 65,
-  'preloading-status-panel' = 68,
-  'outermost-target-selector' = 71,
   'highlight-errors-elements-panel' = 73,
   'use-source-map-scopes' = 76,
   'network-panel-filter-bar-redesign' = 79,
