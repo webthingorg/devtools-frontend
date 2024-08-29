@@ -103,9 +103,9 @@ const UIStringsTemp = {
    */
   sideEffectConfirmationDescription: 'The code contains side effects. Do you wish to continue?',
   /**
-   * @description Side effect confirmation text for the button that says "Execute"
+   * @description Side effect confirmation text for the button that says "Continue"
    */
-  positiveSideEffectConfirmation: 'Execute',
+  positiveSideEffectConfirmation: 'Continue',
   /**
    * @description Side effect confirmation text for the button that says "Cancel"
    */
@@ -163,7 +163,6 @@ export interface CollapsibleStep {
 }
 
 interface ConfirmSideEffectDialog {
-  code: string;
   onAnswer: (result: boolean) => void;
 }
 
@@ -340,7 +339,7 @@ export class FreestylerChatUi extends HTMLElement {
 
   #renderStepDetails(step: CollapsibleStep, options: {isLast: boolean}): LitHtml.LitTemplate {
     const sideEffects =
-        options.isLast && step.sideEffect ? this.#renderSideEffectConfirmationUi(step.sideEffect) : LitHtml.nothing;
+        options.isLast && step.sideEffect ? this.#renderSideEffectConfirmationUi(step) : LitHtml.nothing;
     const thought = step.thought ? LitHtml.html`<p>${this.#renderTextAsMarkdown(step.thought)}</p>` : LitHtml.nothing;
     const code = step.code ? LitHtml.html`
           <div class="action-result">
@@ -350,16 +349,16 @@ export class FreestylerChatUi extends HTMLElement {
                 .displayToolbar=${false}
                 .displayNotice=${true}
               ></${MarkdownView.CodeBlock.CodeBlock.litTagName}>
-              <div class="js-code-output">${step.output}</div>
-
           </div>` :
                              LitHtml.nothing;
+    const output = step.output ? LitHtml.html`<div class="js-code-output">${step.output}</div>` : LitHtml.nothing;
 
     // clang-format off
     return LitHtml.html`<div class="step-details">
       ${thought}
-      ${sideEffects}
       ${code}
+      ${sideEffects}
+      ${output}
     </div>`;
     // clang-format on
   }
@@ -396,30 +395,19 @@ export class FreestylerChatUi extends HTMLElement {
     // clang-format on
   }
 
-  #renderSideEffectConfirmationUi(confirmSideEffectDialog: ConfirmSideEffectDialog): LitHtml.TemplateResult {
+  #renderSideEffectConfirmationUi(step: CollapsibleStep): LitHtml.LitTemplate {
+    if (!step.sideEffect) {
+      return LitHtml.nothing;
+    }
+    const sideEffectAction = step.sideEffect.onAnswer;
+
     // clang-format off
     return LitHtml.html`<div
       class="side-effect-confirmation"
       jslog=${VisualLogging.section('side-effect-confirmation')}
     >
       <p>${i18nString(UIStringsTemp.sideEffectConfirmationDescription)}</p>
-      <${MarkdownView.CodeBlock.CodeBlock.litTagName}
-        .code=${confirmSideEffectDialog.code}
-        .codeLang=${'js'}
-        .displayToolbar=${false}
-      ></${MarkdownView.CodeBlock.CodeBlock.litTagName}>
       <div class="side-effect-buttons-container">
-        <${Buttons.Button.Button.litTagName}
-          .data=${
-            {
-              variant: Buttons.Button.Variant.PRIMARY,
-              jslogContext: 'accept-execute-code',
-            } as Buttons.Button.ButtonData
-          }
-          @click=${() => confirmSideEffectDialog.onAnswer(true)}
-          >${
-            i18nString(UIStringsTemp.positiveSideEffectConfirmation)
-          }</${Buttons.Button.Button.litTagName}>
         <${Buttons.Button.Button.litTagName}
           .data=${
             {
@@ -427,10 +415,22 @@ export class FreestylerChatUi extends HTMLElement {
               jslogContext: 'decline-execute-code',
             } as Buttons.Button.ButtonData
           }
-          @click=${() => confirmSideEffectDialog.onAnswer(false)}
+          @click=${() => sideEffectAction(false)}
         >${i18nString(
           UIStringsTemp.negativeSideEffectConfirmation,
         )}</${Buttons.Button.Button.litTagName}>
+        <${Buttons.Button.Button.litTagName}
+          .data=${
+            {
+              variant: Buttons.Button.Variant.PRIMARY,
+              jslogContext: 'accept-execute-code',
+              iconName: 'play',
+            } as Buttons.Button.ButtonData
+          }
+          @click=${() => sideEffectAction(true)}
+        >${
+            i18nString(UIStringsTemp.positiveSideEffectConfirmation)
+        }</${Buttons.Button.Button.litTagName}>
       </div>
     </div>`;
     // clang-format on
