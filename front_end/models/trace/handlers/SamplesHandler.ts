@@ -218,7 +218,7 @@ export function data(): SamplesHandlerData {
 
   return {
     profilesInProcess,
-    entryToNode,
+    eventToNode: entryToNode,
   };
 }
 
@@ -241,7 +241,7 @@ function getOrCreatePreProcessedData(
 
 export interface SamplesHandlerData {
   profilesInProcess: typeof profilesInProcess;
-  entryToNode: typeof entryToNode;
+  eventToNode: typeof entryToNode;
 }
 
 export type ProfileData = {
@@ -285,7 +285,7 @@ type PreprocessedData = {
 export function getProfileCallFunctionName(
     data: SamplesHandlerData, entry: Types.TraceEvents.SyntheticProfileCall): string {
   const profile = data.profilesInProcess.get(entry.pid)?.get(entry.tid);
-  const node = profile?.parsedProfile.nodeById(entry.nodeId);
+  const node = profile?.parsedProfile.nodeById(entry.node.id);
   if (node?.functionName) {
     return node.functionName;
   }

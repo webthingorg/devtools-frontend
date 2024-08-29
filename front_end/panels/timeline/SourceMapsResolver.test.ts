@@ -20,7 +20,7 @@ import {
 import * as Timeline from './timeline.js';
 
 const MINIFIED_FUNCTION_NAME = 'minified';
-const AUTHORED_FUNCTION_NAME = 'someFunction';
+const AUTHORED_FUNCTION_NAME = 'someFunction';  // Defined within the loadBasicSourceMapExample sourcemap.
 
 describeWithMockConnection('SourceMapsResolver', () => {
   let target: SDK.Target.Target;
@@ -39,7 +39,7 @@ describeWithMockConnection('SourceMapsResolver', () => {
 
     profileCall.callFrame = {
       'columnNumber': columnNumber,
-      'functionName': 'minified',
+      'functionName': MINIFIED_FUNCTION_NAME,
       'lineNumber': 0,
       'scriptId': script.scriptId,
       'url': 'file://gen.js',
@@ -67,6 +67,13 @@ describeWithMockConnection('SourceMapsResolver', () => {
            MINIFIED_FUNCTION_NAME);
 
        await resolver.install();
+
+       // Let's ensure the sourcemap data matches our hardcoded expectation.
+       const map = script.sourceMap();
+       assert.ok(map);
+       const expectedFnName =
+           map.findEntry(profileCall.callFrame.lineNumber, profileCall.callFrame.columnNumber, 0)?.name;
+       assert.strictEqual(expectedFnName, AUTHORED_FUNCTION_NAME);
 
        // Now that the script and source map have loaded, test that the model has been automatically
        // reparsed to resolve function names.

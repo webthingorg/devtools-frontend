@@ -59,11 +59,11 @@ export type TraceEntryNodeId = number&TraceEntryNodeIdTag;
  */
 export function treify(entries: Types.TraceEvents.TraceEventData[], options?: {
   filter: {has: (name: Types.TraceEvents.KnownEventName) => boolean},
-}): {tree: TraceEntryTree, entryToNode: Map<Types.TraceEvents.TraceEventData, TraceEntryNode>} {
-  // As we construct the tree, store a map of each entry to its node. This
+}): {tree: TraceEntryTree, eventToNode: Map<Types.TraceEvents.TraceEventData, TraceEntryNode>} {
+  // As we construct the tree, store a map of each trace event to its node. This
   // means if you are iterating over a list of RendererEntry events you can
   // easily look up that node in the tree.
-  const entryToNode = new Map<Types.TraceEvents.TraceEventData, TraceEntryNode>();
+  const eventToNode = new Map<Types.TraceEvents.TraceEventData, TraceEntryNode>();
 
   const stack = [];
   // Reset the node id counter for every new renderer.
@@ -89,7 +89,7 @@ export function treify(entries: Types.TraceEvents.TraceEventData[], options?: {
       node.selfTime = Types.Timing.MicroSeconds(duration);
       stack.push(node);
       tree.maxDepth = Math.max(tree.maxDepth, stack.length);
-      entryToNode.set(event, node);
+      eventToNode.set(event, node);
       continue;
     }
 
@@ -152,9 +152,9 @@ export function treify(entries: Types.TraceEvents.TraceEventData[], options?: {
     }
     stack.push(node);
     tree.maxDepth = Math.max(tree.maxDepth, stack.length);
-    entryToNode.set(event, node);
+    eventToNode.set(event, node);
   }
-  return {tree, entryToNode};
+  return {tree, eventToNode};
 }
 
 /**

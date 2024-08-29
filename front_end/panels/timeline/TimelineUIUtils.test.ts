@@ -1182,7 +1182,7 @@ describeWithMockConnection('TimelineUIUtils', function() {
 
       // Fake that we resolved the entry's name from a sourcemap.
       Timeline.SourceMapsResolver.SourceMapsResolver.storeResolvedNodeNameForEntry(
-          profileEntry.pid, profileEntry.tid, profileEntry.nodeId, 'resolved-function-test');
+          profileEntry.pid, profileEntry.tid, profileEntry.node.id, 'resolved-function-test');
 
       const title = Timeline.TimelineUIUtils.TimelineUIUtils.eventTitle(profileEntry);
       assert.strictEqual(title, 'resolved-function-test');

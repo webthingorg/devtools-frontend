@@ -1715,8 +1715,19 @@ export class TimelineUIUtils {
 
   private static renderObjectJson(obj: Object): HTMLDivElement {
     const indentLength = Common.Settings.Settings.instance().moduleSetting('text-editor-indent').get().length;
+    // Avoid circular references, in particular with ProfileCall's node.{children | parent}
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const replacer = (key: any, value: any): any => {
+      if (key === 'children' && Array.isArray(value)) {
+        return value.map(c => ({id: c.id}));
+      }
+      if (key === 'parent' && value) {
+        return {id: value.id};
+      }
+      return value;
+    };
     // Elide if the data is huge. Then remove the initial new-line for a denser UI
-    const eventStr = JSON.stringify(obj, null, indentLength).slice(0, 10_000).replace(/{\n  /, '{ ');
+    const eventStr = JSON.stringify(obj, replacer, indentLength).slice(0, 10_000).replace(/{\n  /, '{ ');
 
     // Use CodeHighlighter for syntax highlighting.
     const highlightContainer = document.createElement('div');

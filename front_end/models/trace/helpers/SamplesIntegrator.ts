@@ -11,7 +11,12 @@ import {makeProfileCall, mergeEventsInOrder} from './Trace.js';
 
 /**
  * This is a helper that integrates CPU profiling data coming in the
- * shape of samples, with trace events. Samples indicate what the JS
+ * shape of samples, with trace events.
+ *
+ * The Life of a ProfileCall, writeup:
+ * @link https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/timeline/docs/profile_calls.md
+ *
+ * Samples indicate what the JS
  * stack trace looked at a given point in time, but they don't have
  * duration. The SamplesIntegrator task is to make an approximation
  * of what the duration of each JS call was, given the sample data and
@@ -172,15 +177,15 @@ export class SamplesIntegrator {
     if (event.name === Types.TraceEvents.KnownEventName.RUN_MICROTASKS ||
         event.name === Types.TraceEvents.KnownEventName.RUN_TASK) {
       this.#lockedJsStackDepth = [];
-      this.#truncateJSStack(0, event.ts);
+      this.#adjustJSStackDurations(0, event.ts);
       this.#fakeJSInvocation = false;
     }
 
     if (this.#fakeJSInvocation) {
-      this.#truncateJSStack(this.#lockedJsStackDepth.pop() || 0, event.ts);
+      this.#adjustJSStackDurations(this.#lockedJsStackDepth.pop() || 0, event.ts);
       this.#fakeJSInvocation = false;
     }
-    this.#extractStackTrace(event);
+    this.#updateCurrentJSStack(event);
     // Keep track of the call frames in the stack before the event
     // happened. For the duration of this event, these frames cannot
     // change (none can be terminated before this event finishes).
@@ -203,7 +208,7 @@ export class SamplesIntegrator {
 
   #onProfileCall(event: Types.TraceEvents.SyntheticProfileCall, parent?: Types.TraceEvents.TraceEventData): void {
     if ((parent && Types.TraceEvents.isJSInvocationEvent(parent)) || this.#fakeJSInvocation) {
-      this.#extractStackTrace(event);
+      this.#updateCurrentJSStack(event);
     } else if (Types.TraceEvents.isProfileCall(event) && this.#currentJSStack.length === 0) {
       // Force JS Samples to show up even if we are not inside a JS
       // invocation event, because we can be missing the start of JS
@@ -211,7 +216,7 @@ export class SamplesIntegrator {
       // we have a top-level JS invocation event.
       this.#fakeJSInvocation = true;
       const stackDepthBefore = this.#currentJSStack.length;
-      this.#extractStackTrace(event);
+      this.#updateCurrentJSStack(event);
       this.#lockedJsStackDepth.push(stackDepthBefore);
     }
   }
@@ -221,7 +226,7 @@ export class SamplesIntegrator {
     // this event are terminated. Frames that are ancestors to this
     // event are extended to cover its ending.
     const endTime = Types.Timing.MicroSeconds(event.ts + (event.dur || 0));
-    this.#truncateJSStack(this.#lockedJsStackDepth.pop() || 0, endTime);
+    this.#adjustJSStackDurations(this.#lockedJsStackDepth.pop() || 0, endTime);
   }
 
   /**
@@ -265,8 +270,8 @@ export class SamplesIntegrator {
 
   #makeProfileCallsForStack(profileCall: Types.TraceEvents.SyntheticProfileCall):
       Types.TraceEvents.SyntheticProfileCall[] {
-    let node = this.#profileModel.nodeById(profileCall.nodeId);
-    const isGarbageCollection = node?.id === this.#profileModel.gcNode?.id;
+    let node: CPUProfile.ProfileTreeModel.ProfileNode|null = profileCall.node;
+    const isGarbageCollection = node === this.#profileModel.gcNode;
     if (isGarbageCollection) {
       // Because GC don't have a stack, we use the stack of the previous
       // sample.
@@ -298,7 +303,8 @@ export class SamplesIntegrator {
   /**
    * Update tracked stack using this event's call stack.
    */
-  #extractStackTrace(event: Types.TraceEvents.TraceEventData): void {
+  #updateCurrentJSStack(event: Types.TraceEvents.TraceEventData): void {
+    // TODO(paulirish): Could we avoid making new ProfileCalls if its a repeat of last sample?
     const stackTrace =
         Types.TraceEvents.isProfileCall(event) ? this.#makeProfileCallsForStack(event) : this.#currentJSStack;
     SamplesIntegrator.filterStackFrames(stackTrace, this.#engineConfig);
@@ -342,20 +348,20 @@ export class SamplesIntegrator {
     // [-------B------]          [B]
     // [-------C------]          [C]
     // [-------D------]          [E]
-    //                ^ t = x1    ^ t = x2
+    //                ^t=x1       ^ t=x2
     // Becomes this:
     // New stack trace after merge
-    // [--------A-------]
-    // [--------B-------]
-    // [--------C-------]
-    //                [E]
-    //                  ^ t = x2
-    this.#truncateJSStack(i, event.ts);
+    // [--------A--------]
+    // [--------B--------]
+    // [--------C--------]
+    // [-------D------][E]
+    //                   ^ t=x2
+    this.#adjustJSStackDurations(i, event.ts);
 
     for (; i < stackTrace.length; ++i) {
       const call = stackTrace[i];
-      if (call.nodeId === this.#profileModel.programNode?.id || call.nodeId === this.#profileModel.root?.id ||
-          call.nodeId === this.#profileModel.idleNode?.id || call.nodeId === this.#profileModel.gcNode?.id) {
+      if (call.node === this.#profileModel.programNode || call.node === this.#profileModel.root ||
+          call.node === this.#profileModel.idleNode || call.node === this.#profileModel.gcNode) {
         // Skip (root), (program) and (idle) frames, since this are not
         // relevant for web profiling and we don't want to show them in
         // the timeline.
@@ -368,7 +374,7 @@ export class SamplesIntegrator {
 
   /**
    * When a call stack that differs from the one we are tracking has
-   * been detected in the samples, the latter is "truncated" by
+   * been detected in the samples, the latter is truncated or extended by
    * setting the ending time of its call frames and removing the top
    * call frames that aren't shared with the new call stack. This way,
    * we can update the tracked stack with the new call frames on top.
@@ -377,7 +383,7 @@ export class SamplesIntegrator {
    * call frames between two stacks.
    * @param time the new end of the call frames in the stack.
    */
-  #truncateJSStack(depth: number, time: Types.Timing.MicroSeconds): void {
+  #adjustJSStackDurations(depth: number, time: Types.Timing.MicroSeconds): void {
     if (this.#lockedJsStackDepth.length) {
       const lockedDepth = this.#lockedJsStackDepth.at(-1);
       if (lockedDepth && depth < lockedDepth) {

@@ -149,7 +149,7 @@ describeWithEnvironment('SamplesHandler', function() {
       await TraceModel.Handlers.ModelHandlers.Samples.finalize();
       const data = TraceModel.Handlers.ModelHandlers.Samples.data();
       const calls = data.profilesInProcess.get(pid)?.get(tid)?.profileCalls.map(call => {
-        const selfTime = data.entryToNode.get(call)?.selfTime;
+        const selfTime = data.eventToNode.get(call)?.selfTime;
         return {...call, selfTime};
       });
       const tree = data.profilesInProcess.get(pid)?.get(tid)?.profileTree;
@@ -168,10 +168,10 @@ describeWithEnvironment('SamplesHandler', function() {
       const allNodes = getAllNodes(tree?.roots);
       const callsTestData = calls?.map(
           c => {
-            const node = allNodes.find(node => node.id === c.nodeId);
+            const node = allNodes.find(node => node.id === c.node.id);
             const children = node?.children || [];
             return ({
-              id: c.nodeId,
+              id: c.node.id,
               dur: Math.round(c.dur || 0),
               ts: c.ts,
               selfTime: Math.round(c.selfTime || 0),
@@ -189,7 +189,7 @@ describeWithEnvironment('SamplesHandler', function() {
       const firstProcessId = TraceModel.Types.TraceEvents.ProcessID(2236123);
       const profilesFirstProcess = data.profilesInProcess.get(firstProcessId);
       const calls = profilesFirstProcess?.get(threadId)?.profileCalls.slice(0, 5).map(call => {
-        const selfTime = data.entryToNode.get(call)?.selfTime;
+        const selfTime = data.eventToNode.get(call)?.selfTime;
         return {...call, selfTime};
       });
       const tree = profilesFirstProcess?.get(threadId)?.profileTree;
@@ -207,10 +207,10 @@ describeWithEnvironment('SamplesHandler', function() {
       }
       const allNodes = getAllNodes(tree?.roots);
       const callsTestData = calls?.map(c => {
-        const node = allNodes.find(node => node.id === c.nodeId);
+        const node = allNodes.find(node => node.id === c.node.id);
         const children = node?.children || [];
         return {
-          id: c.nodeId,
+          id: c.node.id,
           dur: Math.round(c.dur || 0),
           ts: c.ts,
           selfTime: Math.round(c.selfTime || 0),
@@ -275,8 +275,7 @@ describeWithEnvironment('SamplesHandler', function() {
       for (const entry of mainThread.entries) {
         if (TraceModel.Types.TraceEvents.isProfileCall(entry) &&
             entry.callFrame.functionName === 'performConcurrentWorkOnRoot') {
-          const profile = traceData.Samples.profilesInProcess.get(entry.pid)?.get(entry.tid);
-          const node = profile?.parsedProfile.nodeById(entry.nodeId);
+          const node = entry.node;
           if (node) {
             foundNode = node;
           }

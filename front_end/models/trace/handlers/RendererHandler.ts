@@ -348,7 +348,7 @@ export function buildHierarchy(
       const treeData = Helpers.TreeHelpers.treify(thread.entries, options);
       thread.tree = treeData.tree;
       // Update the entryToNode map with the entries from this thread
-      for (const [entry, node] of treeData.entryToNode) {
+      for (const [entry, node] of treeData.eventToNode) {
         entryToNode.set(entry, node);
       }
     }

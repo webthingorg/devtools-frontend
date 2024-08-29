@@ -13,7 +13,7 @@ export class EventsSerializer {
       |null {
     if (TraceEngine.Types.TraceEvents.isProfileCall(event)) {
       return `${TraceEngine.Types.File.EventKeyType.PROFILE_CALL}-${event.pid}-${event.tid}-${
-          TraceEngine.Types.TraceEvents.SampleIndex(event.sampleIndex)}-${event.nodeId}`;
+          TraceEngine.Types.TraceEvents.SampleIndex(event.sampleIndex)}-${event.node.id}`;
     }
     const rawEvents = TraceEngine.Helpers.SyntheticEvents.SyntheticEventsManager.getActiveManager().getRawTraceEvents();
     const key: TraceEngine.Types.File.SyntheticEventKey|TraceEngine.Types.File.RawEventKey =
@@ -84,7 +84,7 @@ export class EventsSerializer {
     // the same sample index, in which case we need to break the tie with the node id (by which
     // calls in a sample stack are ordered, allowing us to do a single search).
     const matchRangeStartIndex = Platform.ArrayUtilities.nearestIndexFromBeginning(
-        profileCallsInThread, e => e.sampleIndex >= key.sampleIndex && e.nodeId >= key.protocol);
+        profileCallsInThread, e => e.sampleIndex >= key.sampleIndex && e.node.id >= key.protocol);
 
     const match = matchRangeStartIndex !== null && profileCallsInThread.at(matchRangeStartIndex);
     if (!match) {

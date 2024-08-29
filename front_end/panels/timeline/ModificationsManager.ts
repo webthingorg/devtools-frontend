@@ -92,7 +92,7 @@ export class ModificationsManager extends EventTarget {
 
   private constructor({traceParsedData, traceBounds, modifications}: ModificationsManagerData) {
     super();
-    const entryToNodeMap = new Map([...traceParsedData.Samples.entryToNode, ...traceParsedData.Renderer.entryToNode]);
+    const entryToNodeMap = new Map([...traceParsedData.Samples.eventToNode, ...traceParsedData.Renderer.entryToNode]);
     this.#entriesFilter = new EntriesFilter(entryToNodeMap);
     this.#timelineBreadcrumbs = new TimelineComponents.Breadcrumbs.Breadcrumbs(traceBounds);
     this.#modifications = modifications || null;

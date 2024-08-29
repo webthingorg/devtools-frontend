@@ -59,7 +59,7 @@ describeWithEnvironment('SamplesIntegrator', function() {
         // sample.
         assert.strictEqual(call.profileId, PROFILE_ID);
         assert.strictEqual(call.sampleIndex, i);
-        assert.isDefined(call.nodeId);
+        assert.isDefined(call.node);
       }
     });
     it('generates JSSamples from samples under debug mode', () => {
@@ -300,8 +300,7 @@ describeWithEnvironment('SamplesIntegrator', function() {
       const constructedCalls = samplesIntegrator.buildProfileCalls(traceEvents);
 
       const filteredNodes = constructedCalls.filter(
-          c => c.nodeId === rootNode.id || c.nodeId === idleNode.id || c.nodeId === programNode.id ||
-              c.nodeId === gcNode.id);
+          c => c.node === rootNode || c.node === idleNode || c.node === programNode || c.node === gcNode);
       assert.strictEqual(filteredNodes.length, 0);
     });
   });
