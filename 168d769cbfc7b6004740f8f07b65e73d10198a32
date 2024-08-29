@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f791ce2_43aba219",
+        "filename": "test/shared/mocha-interface.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-08-29T10:49:19Z",
+      "side": 1,
+      "message": "I think it does but it too new for me :D (can refactor later)",
+      "parentUuid": "65d1494d_35719461",
+      "revId": "168d769cbfc7b6004740f8f07b65e73d10198a32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3f112634_10751296",
@@ -37,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7a31cd2b_7a627672",
+        "filename": "test/shared/mocha-interface.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-08-29T10:49:19Z",
+      "side": 1,
+      "message": "I believe it does not but for this types it does not matter since this not user exposed. We could type it better here as AsyncFunc | Func.",
+      "parentUuid": "3f112634_10751296",
+      "revId": "168d769cbfc7b6004740f8f07b65e73d10198a32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d664a1c9_6352228d",
         "filename": "test/shared/mocha-interface.ts",
         "patchSetId": 16
@@ -48,6 +84,24 @@
       "writtenOn": "2024-08-29T10:41:11Z",
       "side": 1,
       "message": "Previously we\u0027d log the async stacks on any kind of error, didn\u0027t we? Did that contain any valuable information?",
+      "revId": "168d769cbfc7b6004740f8f07b65e73d10198a32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28131b67_c3514d98",
+        "filename": "test/shared/mocha-interface.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-08-29T10:49:19Z",
+      "side": 1,
+      "message": "I am actually not sure, did we? In general, I think if an error is thrown that should have a good enough stack trace?",
+      "parentUuid": "d664a1c9_6352228d",
       "revId": "168d769cbfc7b6004740f8f07b65e73d10198a32",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
