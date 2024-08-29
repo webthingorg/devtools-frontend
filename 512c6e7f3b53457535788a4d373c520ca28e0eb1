@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c374f85_70a36bcc",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-29T13:00:45Z",
+      "side": 1,
+      "message": "While we\u0027re here, WDYT of updating the title to also contain `Paused:` text from the design?",
+      "revId": "512c6e7f3b53457535788a4d373c520ca28e0eb1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
