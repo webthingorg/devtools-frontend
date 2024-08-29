@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38967fff_8ee18dab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-29T07:58:28Z",
+      "side": 1,
+      "message": "Hey Mathias, it seems like we\u0027re not owners in these folders. Can you PTAL?",
+      "revId": "aa988ccd5843ab118c06defaa8cbf4e962079ddb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
