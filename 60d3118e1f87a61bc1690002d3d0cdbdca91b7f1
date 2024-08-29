@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ad684c54_6e7f9bf9",
+        "filename": "front_end/models/live-metrics/web-vitals-injected/web-vitals-injected.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1552597
+      },
+      "writtenOn": "2024-08-29T17:52:08Z",
+      "side": 1,
+      "message": "My main concern is the method overrides and if that would also happen for the page but it\u0027s been explained to me that, as DevTools runs in it\u0027s own isolated execution context, that shouldn\u0027t happen so I\u0027m less concerned with this now. So if you\u0027re all happy then I am to.",
+      "parentUuid": "40d1eb74_e181ac1d",
+      "revId": "60d3118e1f87a61bc1690002d3d0cdbdca91b7f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e9f88687_b827949f",
         "filename": "front_end/panels/timeline/TimelineController.ts",
         "patchSetId": 1
