@@ -18,7 +18,7 @@ describe('The Console Tab', () => {
     await goToResource('../resources/console/console-uncaught-promise.html');
     await navigateToConsoleTab();
 
-    await checkCommandStacktrace(
+    await checkCommandStacktrace(   // / ???
         'await promiseTest1();',
         `
         promiseTest1 @ console-uncaught-promise.html:3
