@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78b96bae_079cc6b0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-08-29T14:51:49Z",
+      "side": 1,
+      "message": "ugh good point, we should update the code to go inside the shadow roots. Would you fix it?",
+      "revId": "b9b34ac7c54ae013c4481227937b3504ef9a120a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
