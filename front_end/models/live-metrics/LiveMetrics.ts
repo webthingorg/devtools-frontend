@@ -3,7 +3,6 @@
 // found in the LICENSE file.
 
 import * as Common from '../../core/common/common.js';
-import * as Host from '../../core/host/host.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import type * as Protocol from '../../generated/protocol.js';
 
@@ -15,11 +14,17 @@ let liveMetricsInstance: LiveMetrics;
 
 class InjectedScript {
   static #injectedScript?: string;
-  static async get(): Promise<string> {
+  static async get(): Promise<string|undefined> {
     if (!this.#injectedScript) {
       const url = new URL('./web-vitals-injected/web-vitals-injected.generated.js', import.meta.url);
       const result = await fetch(url);
-      this.#injectedScript = await result.text();
+
+      // The request can fail in some testing circumstances although this is not reproducible locally.
+      // If the request fails the request contents will not be valid JS and so we should not inject it.
+      // b/360064852
+      if (result.ok) {
+        this.#injectedScript = await result.text();
+      }
     }
     return this.#injectedScript;
   }
@@ -263,14 +268,14 @@ export class LiveMetrics extends Common.ObjectWrapper.ObjectWrapper<EventTypes> 
   }
 
   async #enable(target: SDK.Target.Target): Promise<void> {
-    if (Host.InspectorFrontendHost.isUnderTest()) {
-      // Enabling this impacts a lot of layout tests; we will work on fixing
-      // them but for now it is easier to not run this page in layout tests.
-      // b/360064852
+    if (this.#target) {
       return;
     }
 
-    if (this.#target) {
+    // TODO: Ensure we can always get the injected script request
+    // b/360064852
+    const source = await InjectedScript.get();
+    if (!source) {
       return;
     }
 
@@ -292,8 +297,6 @@ export class LiveMetrics extends Common.ObjectWrapper.ObjectWrapper<EventTypes> 
       name: Spec.EVENT_BINDING_NAME,
       executionContextName: LIVE_METRICS_WORLD_NAME,
     });
-
-    const source = await InjectedScript.get();
 
     this.#target = target;
 
