@@ -2,10 +2,12 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as Common from '../../../core/common/common.js';
 import * as TraceEngine from '../../../models/trace/trace.js';
 import * as TraceBounds from '../../../services/trace_bounds/trace_bounds.js';
 import * as ComponentHelpers from '../../../ui/components/helpers/helpers.js';
 import * as IconButton from '../../../ui/components/icon_button/icon_button.js';
+import * as Settings from '../../../ui/components/settings/settings.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 
 import {RemoveAnnotation} from './Sidebar.js';
@@ -134,6 +136,11 @@ export class SidebarAnnotationsTab extends HTMLElement {
                   }}>
                 </div>`,
            )}
+           <${Settings.SettingCheckbox.SettingCheckbox.litTagName} class="visibility-setting" .data=${{
+              setting: Common.Settings.Settings.instance().moduleSetting('annotations-visibility'),
+              textOverride: 'Hide annotations',
+            } as Settings.SettingCheckbox.SettingCheckboxData}>
+            </${Settings.SettingCheckbox.SettingCheckbox.litTagName}>
           </span>`,
       this.#shadow, {host: this});
     // clang-format on

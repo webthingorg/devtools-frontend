@@ -30,6 +30,11 @@ const UIStrings = {
    */
   liveMemoryAllocationAnnotations: 'Live memory allocation annotations',
   /**
+   * @description Title of a setting in the Performance Panel sidebar.
+   * This is a setting that switches the visibility of user-created annotation on/off.
+   */
+  hideAnnotations: 'Hide Annotations',
+  /**
    *@description Title of a setting under the Memory category that can be invoked through the Command Menu
    */
   showLiveMemoryAllocation: 'Show live memory allocation annotations',
@@ -102,6 +107,24 @@ Common.Settings.registerSettingExtension({
     {
       value: false,
       title: i18nLazyString(UIStrings.hideLiveMemoryAllocation),
+    },
+  ],
+});
+
+Common.Settings.registerSettingExtension({
+  category: Common.Settings.SettingCategory.PERFORMANCE,
+  title: i18nLazyString(UIStrings.liveMemoryAllocationAnnotations),
+  settingName: 'annotations-visibility',
+  settingType: Common.Settings.SettingType.BOOLEAN,
+  defaultValue: true,
+  options: [
+    {
+      value: true,
+      title: i18nLazyString(UIStrings.hideAnnotations),
+    },
+    {
+      value: false,
+      title: i18nLazyString(UIStrings.hideAnnotations),
     },
   ],
 });
