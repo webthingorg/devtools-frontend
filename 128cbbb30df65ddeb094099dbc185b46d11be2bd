@@ -16,6 +16,23 @@
       "message": "LGTM. dsv@, could you have a look?",
       "revId": "128cbbb30df65ddeb094099dbc185b46d11be2bd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd186d9c_2f1151f3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1552597
+      },
+      "writtenOn": "2024-08-29T18:54:09Z",
+      "side": 1,
+      "message": "Note this CL is not needed if we go with 5823361 instead. Which seems to be the preferred option over this one.",
+      "revId": "128cbbb30df65ddeb094099dbc185b46d11be2bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
