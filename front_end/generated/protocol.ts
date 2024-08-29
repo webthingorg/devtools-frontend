@@ -1018,6 +1018,7 @@ export namespace Audits {
     NoRegisterTriggerHeader = 'NoRegisterTriggerHeader',
     NoRegisterOsSourceHeader = 'NoRegisterOsSourceHeader',
     NoRegisterOsTriggerHeader = 'NoRegisterOsTriggerHeader',
+    NavigationRegistrationUniqueScopeAlreadySet = 'NavigationRegistrationUniqueScopeAlreadySet',
   }
 
   export const enum SharedDictionaryError {
@@ -7987,10 +7988,32 @@ export namespace Memory {
     size: number;
   }
 
+  /**
+   * DOM object counter data.
+   */
+  export interface DOMCounter {
+    /**
+     * Object name. Note: object names should be presumed volatile and clients should not expect
+     * the returned names to be consistent across runs.
+     */
+    name: string;
+    /**
+     * Object count.
+     */
+    count: integer;
+  }
+
   export interface GetDOMCountersResponse extends ProtocolResponseWithError {
     documents: integer;
     nodes: integer;
     jsEventListeners: integer;
+  }
+
+  export interface GetDOMCountersForLeakDetectionResponse extends ProtocolResponseWithError {
+    /**
+     * DOM object counters.
+     */
+    counters: DOMCounter[];
   }
 
   export interface SetPressureNotificationsSuppressedRequest {
@@ -8988,6 +9011,7 @@ export namespace Network {
     UserSetting = 'UserSetting',
     TPCDMetadata = 'TPCDMetadata',
     TPCDDeprecationTrial = 'TPCDDeprecationTrial',
+    TopLevelTPCDDeprecationTrial = 'TopLevelTPCDDeprecationTrial',
     TPCDHeuristics = 'TPCDHeuristics',
     EnterprisePolicy = 'EnterprisePolicy',
     StorageAccess = 'StorageAccess',
@@ -13318,6 +13342,17 @@ export namespace Page {
   }
 
   /**
+   * Fired before frame subtree is detached. Emitted before any frame of the
+   * subtree is actually detached.
+   */
+  export interface FrameSubtreeWillBeDetachedEvent {
+    /**
+     * Id of the frame that is the root of the subtree that will be detached.
+     */
+    frameId: FrameId;
+  }
+
+  /**
    * Fired once navigation of the frame has completed. Frame is now associated with the new loader.
    */
   export interface FrameNavigatedEvent {
@@ -14590,7 +14625,9 @@ export namespace Storage {
     DestinationBothLimitsReached = 'destinationBothLimitsReached',
     ReportingOriginsPerSiteLimitReached = 'reportingOriginsPerSiteLimitReached',
     ExceedsMaxChannelCapacity = 'exceedsMaxChannelCapacity',
+    ExceedsMaxScopesChannelCapacity = 'exceedsMaxScopesChannelCapacity',
     ExceedsMaxTriggerStateCardinality = 'exceedsMaxTriggerStateCardinality',
+    ExceedsMaxEventStatesLimit = 'exceedsMaxEventStatesLimit',
     DestinationPerDayReportingLimitReached = 'destinationPerDayReportingLimitReached',
   }
 
