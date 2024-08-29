@@ -1151,6 +1151,7 @@ export interface TraceEventRenderFrameImplCreateChildFrame extends TraceEventDat
   args: TraceEventArgs&{
     child_frame_token: string,
     frame_token: string,
+    domLoadingFrameId?: string,
   };
 }
 export function isTraceEventRenderFrameImplCreateChildFrame(event: TraceEventData):
@@ -1190,6 +1191,13 @@ export interface TraceEventUserTiming extends TraceEventData {
   // start time passed by the user at the call site of the timing (based
   // on the UserTiming spec).
   // https://source.chromium.org/chromium/chromium/src/+/main:third_party/blink/renderer/core/timing/performance_user_timing.cc;l=236;drc=494419358caf690316f160a1f27d9e771a14c033
+}
+
+export interface TraceEventDomLoading extends TraceEventUserTiming {
+  name: KnownEventName.DOM_LOADING;
+  args: TraceEventArgs&{
+    frame?: string,
+  };
 }
 
 export type TraceEventPairableUserTiming = TraceEventUserTiming&TraceEventPairableAsync;
@@ -2122,6 +2130,10 @@ export function isTraceEventUserTiming(traceEventData: TraceEventData): traceEve
   return traceEventData.cat === 'blink.user_timing';
 }
 
+export function isTraceEventDomLoading(traceEventData: TraceEventData): traceEventData is TraceEventDomLoading {
+  return traceEventData.name === 'domLoading';
+}
+
 export function isTraceEventPerformanceMeasure(traceEventData: TraceEventData):
     traceEventData is TraceEventPerformanceMeasure {
   return isTraceEventUserTiming(traceEventData) && isTraceEventAsyncPhase(traceEventData);
@@ -2792,6 +2804,8 @@ export const enum KnownEventName {
   HANDLE_POST_MESSAGE = 'HandlePostMessage',
 
   RENDER_FRAME_IMPL_CREATE_CHILD_FRAME = 'RenderFrameImpl::createChildFrame',
+
+  DOM_LOADING = 'domLoading',
 }
 
 // NOT AN EXHAUSTIVE LIST: just some categories we use and refer
