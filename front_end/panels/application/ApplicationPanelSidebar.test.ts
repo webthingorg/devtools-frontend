@@ -112,7 +112,7 @@ describeWithMockConnection('ApplicationPanelSidebar', () => {
     const tabTarget = createTarget({type: SDK.Target.Type.TAB});
     createTarget({parentTarget: tabTarget, subtype: 'prerender'});
     target = createTarget({parentTarget: tabTarget});
-    Root.Runtime.experiments.register(Root.Runtime.ExperimentName.PRELOADING_STATUS_PANEL, '', false);
+    Root.Runtime.experiments.register(Root.Runtime.ExperimentName.PRELOADING_STATUS_PANEL, '', true);
     sinon.stub(UI.ViewManager.ViewManager.instance(), 'showView').resolves();  // Silence console error
     setMockConnectionResponseHandler('Storage.getSharedStorageEntries', () => ({}));
     setMockConnectionResponseHandler('Storage.setSharedStorageTracking', () => ({}));
@@ -300,7 +300,7 @@ describeWithMockConnection('ApplicationPanelSidebar', () => {
 describeWithMockConnection('IDBDatabaseTreeElement', () => {
   beforeEach(() => {
     stubNoopSettings();
-    Root.Runtime.experiments.register(Root.Runtime.ExperimentName.PRELOADING_STATUS_PANEL, '', false);
+    Root.Runtime.experiments.register(Root.Runtime.ExperimentName.PRELOADING_STATUS_PANEL, '', true);
   });
 
   it('only becomes selectable after database is updated', () => {
@@ -322,7 +322,7 @@ describeWithMockConnection('ResourcesSection', () => {
     let target: SDK.Target.Target;
     beforeEach(() => {
       stubNoopSettings();
-      Root.Runtime.experiments.register(Root.Runtime.ExperimentName.PRELOADING_STATUS_PANEL, '', false);
+      Root.Runtime.experiments.register(Root.Runtime.ExperimentName.PRELOADING_STATUS_PANEL, '', true);
       SDK.FrameManager.FrameManager.instance({forceNew: true});
       target = createTarget();
     });
