@@ -33,6 +33,24 @@
       "message": "@pfaffe@chromium.org do you know what is the correct way to reference this file? Do you know if the bot would build the entire devtools to produce it or is only building the extension?",
       "revId": "750c16ed71524c7396b16eb2e11778818a4d75ef",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92fc4cfc_753c2920",
+        "filename": "extensions/cxx_debugging/e2e/runner.py",
+        "patchSetId": 14
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-08-29T08:18:09Z",
+      "side": 1,
+      "message": "the interface is part of the build output, right? in that case, see edit below!",
+      "parentUuid": "b9dff3e6_ff51f6f1",
+      "revId": "750c16ed71524c7396b16eb2e11778818a4d75ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

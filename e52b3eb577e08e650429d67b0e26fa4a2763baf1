@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "243ebd7a_55c61863",
+        "filename": "extensions/cxx_debugging/e2e/runner.py",
+        "patchSetId": 15
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-08-29T08:18:09Z",
+      "side": 1,
+      "message": "```suggestion\n            repo_path(options.build_root, get_artifact_dir(\u0027devtools-frontend\u0027), \u0027test/shared/mocha-interface.js\u0027)\n```",
+      "revId": "e52b3eb577e08e650429d67b0e26fa4a2763baf1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
