@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ef3abba_6288b6fa",
+        "filename": "front_end/panels/timeline/components/SidebarAnnotationsTab.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-29T11:31:19Z",
+      "side": 1,
+      "message": "I think we should create a general helper for this in the trace engine timing helpers \n\n`expandTraceWindowByPercent(bounds, percent, min): TraceWindow`\n\nand then we can test it with some unit tests\n\nalso, should this method take in the currently active trace\u0027s bounds, to make sure that it doesn\u0027t generate a new window that is outside the min/max of the entire trace?",
+      "range": {
+        "startLine": 164,
+        "startChar": 0,
+        "endLine": 182,
+        "endChar": 6
+      },
+      "revId": "eec51a8d7f771159610410cebabaa32e716e76fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

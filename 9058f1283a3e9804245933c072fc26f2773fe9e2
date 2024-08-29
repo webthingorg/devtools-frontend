@@ -206,6 +206,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff9aeac8_c7823b2b",
+        "filename": "front_end/panels/timeline/components/SidebarAnnotationsTab.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-29T11:31:19Z",
+      "side": 1,
+      "message": "Cool, works for me!",
+      "parentUuid": "2cd7479c_6b5c74b7",
+      "range": {
+        "startLine": 157,
+        "startChar": 0,
+        "endLine": 158,
+        "endChar": 75
+      },
+      "revId": "9058f1283a3e9804245933c072fc26f2773fe9e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b338b7f6_dcb18edf",
