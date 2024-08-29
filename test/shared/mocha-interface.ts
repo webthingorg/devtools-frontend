@@ -45,12 +45,7 @@ async function createScreenshotError(error: Error): Promise<Error> {
 function makeInstrumentedTestFunction(fn: Mocha.AsyncFunc) {
   return async function testFunction(this: Mocha.Context) {
     const abortController = new AbortController();
-    let resolver;
-    let rejecter: (reason?: unknown) => void;
-    const testPromise = new Promise((resolve, reject) => {
-      resolver = resolve;
-      rejecter = reject;
-    });
+    const {promise: testPromise, resolve, reject} = Promise.withResolvers();
     // AbortSignal for the current test function.
     AsyncScope.abortSignal = abortController.signal;
     // Promisify the function in case it is sync.
@@ -75,17 +70,17 @@ function makeInstrumentedTestFunction(fn: Mocha.AsyncFunc) {
         const msg = `Pending async operations during timeout:\n${stacks.join('\n\n')}`;
         err.cause = new Error(msg);
       }
-      rejecter(createScreenshotError(err));
+      reject(await createScreenshotError(err));
     }, actualTimeout) : 0;
     promise
         .then(
-            resolver,
+            resolve,
             async err => {
               // Suppress errors after the test was aborted.
               if (abortController.signal.aborted) {
                 return;
               }
-              rejecter(createScreenshotError(err));
+              reject(await createScreenshotError(err));
             })
         .finally(() => {
           clearTimeout(t);
