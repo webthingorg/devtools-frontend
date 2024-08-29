@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65d1494d_35719461",
+        "filename": "test/shared/mocha-interface.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-08-29T10:41:11Z",
+      "side": 1,
+      "message": "I\u0027m assuming Node doesn\u0027t have Promise.withResolver yet?",
+      "revId": "168d769cbfc7b6004740f8f07b65e73d10198a32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f112634_10751296",
+        "filename": "test/shared/mocha-interface.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-08-29T10:41:11Z",
+      "side": 1,
+      "message": "does Mocha.AsyncFunc accept a sync function?",
+      "revId": "168d769cbfc7b6004740f8f07b65e73d10198a32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d664a1c9_6352228d",
+        "filename": "test/shared/mocha-interface.ts",
+        "patchSetId": 16
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-08-29T10:41:11Z",
+      "side": 1,
+      "message": "Previously we\u0027d log the async stacks on any kind of error, didn\u0027t we? Did that contain any valuable information?",
+      "revId": "168d769cbfc7b6004740f8f07b65e73d10198a32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
