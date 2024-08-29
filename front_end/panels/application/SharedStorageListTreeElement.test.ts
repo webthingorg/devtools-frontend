@@ -75,7 +75,7 @@ describeWithMockConnection('SharedStorageListTreeElement', function() {
     const tabTarget = createTarget({type: SDK.Target.Type.TAB});
     createTarget({parentTarget: tabTarget, subtype: 'prerender'});
     target = createTarget({parentTarget: tabTarget});
-    Root.Runtime.experiments.register(Root.Runtime.ExperimentName.PRELOADING_STATUS_PANEL, '', false);
+    Root.Runtime.experiments.register(Root.Runtime.ExperimentName.PRELOADING_STATUS_PANEL, '', true);
 
     sharedStorageModel = target.model(Application.SharedStorageModel.SharedStorageModel);
   });

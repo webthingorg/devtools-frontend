@@ -376,7 +376,7 @@ export class MainImpl {
 
     Root.Runtime.experiments.register(
         Root.Runtime.ExperimentName.PRELOADING_STATUS_PANEL, 'Enable speculative loads panel in Application panel',
-        true);
+        false);
 
     Root.Runtime.experiments.register(
         Root.Runtime.ExperimentName.OUTERMOST_TARGET_SELECTOR, 'Enable background page selector (for prerendering)',
