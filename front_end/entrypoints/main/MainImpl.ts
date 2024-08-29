@@ -113,6 +113,10 @@ const UIStrings = {
    *@description Text describing how to navigate the dock side menu
    */
   dockSideNaviation: 'Use left and right arrow keys to navigate the options',
+  /**
+   *@description Title element text content in Main
+   */
+  Zoom: 'Zoom',
 };
 const str_ = i18n.i18n.registerUIStrings('entrypoints/main/MainImpl.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -917,6 +921,35 @@ export class MainMenuItem implements UI.Toolbar.Provider {
         contextMenu.defaultSection().appendAction('inspector-main.focus-debuggee', i18nString(UIStrings.focusDebuggee));
       }
     }
+
+    const zoomControlsElement = document.createElement('div');
+    zoomControlsElement.classList.add('zoom-controls');
+    zoomControlsElement.classList.add('flex-centered');
+    zoomControlsElement.classList.add('flex-auto');
+
+    const zoomControlsTitleElement = zoomControlsElement.createChild('span', 'zoom-controls-title');
+    zoomControlsTitleElement.textContent = i18nString(UIStrings.Zoom);
+
+    const zoomControlsToolbar = new UI.Toolbar.Toolbar('', zoomControlsElement);
+    const zoomLevel = new UI.Toolbar.ToolbarText(`${Math.round(window.devicePixelRatio * 100)}%`);
+    const zoomOut = new UI.Toolbar.ToolbarButton('-', undefined, '-');
+    const zoomIn = new UI.Toolbar.ToolbarButton('+', undefined, '+');
+
+    zoomOut.addEventListener(UI.Toolbar.ToolbarButton.Events.MouseDown, (event) => {
+      Host.InspectorFrontendHost.InspectorFrontendHostInstance.zoomOut();
+      event.data.consume();
+    });
+
+    zoomIn.addEventListener(UI.Toolbar.ToolbarButton.Events.MouseDown, (event) => {
+      Host.InspectorFrontendHost.InspectorFrontendHostInstance.zoomIn();
+      event.data.consume();
+    });
+
+    zoomControlsToolbar.appendToolbarItem(zoomOut);
+    zoomControlsToolbar.appendToolbarItem(zoomLevel);
+    zoomControlsToolbar.appendToolbarItem(zoomIn);
+
+    contextMenu.headerSection().appendCustomItem(zoomControlsElement, 'zoom-controls');
 
     contextMenu.defaultSection().appendAction(
         'main.toggle-drawer',
