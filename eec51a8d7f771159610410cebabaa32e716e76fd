@@ -22,6 +22,30 @@
       },
       "revId": "eec51a8d7f771159610410cebabaa32e716e76fd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab858757_21575363",
+        "filename": "front_end/panels/timeline/components/SidebarAnnotationsTab.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-08-29T19:47:11Z",
+      "side": 1,
+      "message": "I like the helper idea. \nAlso switched to change this helper in `setActiveInsight` since it had \u0027expand window\u0027 functionality too",
+      "parentUuid": "9ef3abba_6288b6fa",
+      "range": {
+        "startLine": 164,
+        "startChar": 0,
+        "endLine": 182,
+        "endChar": 6
+      },
+      "revId": "eec51a8d7f771159610410cebabaa32e716e76fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
