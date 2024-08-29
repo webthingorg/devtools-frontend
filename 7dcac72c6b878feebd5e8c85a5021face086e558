@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "95472940_4955c4dd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-29T07:33:52Z",
+      "side": 1,
+      "message": "What is weird is that this doesn\u0027t repro locally...we should only be showing the sidebar if the experiment is enabled, which it should not be for the interaction tests. Will try to figure out why.",
+      "parentUuid": "8c8349b9_3662c476",
+      "revId": "7dcac72c6b878feebd5e8c85a5021face086e558",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "f4c7bf5b_d1221338",
