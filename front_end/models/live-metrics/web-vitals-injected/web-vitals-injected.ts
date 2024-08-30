@@ -12,7 +12,63 @@ const {onEachInteraction} = OnEachInteraction;
 
 declare const window: Window&{
   getNodeForIndex: (index: number) => Node | undefined,
+  [Spec.INTERNAL_KILL_SWITCH]: () => void,
   [Spec.EVENT_BINDING_NAME]: (payload: string) => void,
+};
+
+type ListenerArgs = Parameters<typeof globalThis['addEventListener']>;
+
+const globalListeners: ListenerArgs[] = [];
+const documentListeners: ListenerArgs[] = [];
+const observers: PerformanceObserver[] = [];
+
+const originalAddListener = globalThis.addEventListener;
+globalThis.addEventListener = function(...args: ListenerArgs) {
+  globalListeners.push(args);
+  return originalAddListener(...args);
+};
+
+const originalDocumentAddListener = Document.prototype.addEventListener;
+Document.prototype.addEventListener = function(...args: ListenerArgs) {
+  documentListeners.push(args);
+  return originalDocumentAddListener.call(this, ...args);
+};
+document.addEventListener = Document.prototype.addEventListener.bind(document);
+
+class InternalPerformanceObserver extends PerformanceObserver {
+  constructor(...args: ConstructorParameters<typeof PerformanceObserver>) {
+    super(...args);
+    observers.push(this);
+  }
+}
+globalThis.PerformanceObserver = InternalPerformanceObserver;
+
+let killed = false;
+
+/**
+ * This is a hack solution to remove any listeners that were added by web-vitals.js
+ * or additional services in this bundle. Once this function is called, the execution
+ * context should be considered dead and a new one will need to be created for live metrics
+ * to be served again.
+ */
+window[Spec.INTERNAL_KILL_SWITCH] = () => {
+  if (killed) {
+    return;
+  }
+
+  for (const observer of observers) {
+    observer.disconnect();
+  }
+
+  for (const args of globalListeners) {
+    globalThis.removeEventListener(...args);
+  }
+
+  for (const args of documentListeners) {
+    document.removeEventListener(...args);
+  }
+
+  killed = true;
 };
 
 function sendEventToDevTools(event: Spec.WebVitalsEvent): void {
