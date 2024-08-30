@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6481ac66_2842a461",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-30T09:09:43Z",
+      "side": 1,
+      "message": "nice! I think we will need to think about making these clickable / actionable in some way, else it\u0027s not super useful. Do we / can we get any more info on these? e.g. for font requests can we tell the user what the URL was or link them to the request in the network track, etc? (you don\u0027t have to do that in this CL)",
+      "revId": "c04af4d65e44774a26d594daf64d792a08728d68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "487ba076_6ec2fd1f",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-30T09:09:43Z",
+      "side": 1,
+      "message": "the LayoutShifts handler could expose a `clustersByNavigation: Map\u003cnavigationId, Cluster[]\u003e` to make this easier so we don\u0027t iterate over the array a bunch.\n\nWdyt?",
+      "range": {
+        "startLine": 315,
+        "startChar": 0,
+        "endLine": 315,
+        "endChar": 92
+      },
+      "revId": "c04af4d65e44774a26d594daf64d792a08728d68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
