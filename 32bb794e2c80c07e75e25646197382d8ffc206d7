@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb4b23cc_19365106",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-30T11:21:23Z",
+      "side": 1,
+      "message": "(nit): Usually we\u0027re using imperative sentences like `Add spinner global component` and there is no need to add dot `.` at the end of such sentences :)",
+      "revId": "32bb794e2c80c07e75e25646197382d8ffc206d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "879e992b_b16ae100",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-30T11:21:23Z",
+      "side": 1,
+      "message": "Can we rename the folder to be `spinners/` too for consistency with `buttons/`?",
+      "revId": "32bb794e2c80c07e75e25646197382d8ffc206d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ed8c354_2b90a2f5",
+        "filename": "config/gni/devtools_grd_files.gni",
+        "patchSetId": 2
+      },
+      "lineNbr": 687,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-30T11:21:23Z",
+      "side": 1,
+      "message": "We need to remove these new entries until we start using the newly added components otherwise we get a build failure. Can you remove them for now and add them back when we use it ConsoleInsight component?",
+      "revId": "32bb794e2c80c07e75e25646197382d8ffc206d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a11f52ab_f3a84f61",
+        "filename": "front_end/ui/components/spinner/spinner.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-30T11:21:23Z",
+      "side": 1,
+      "message": "The animation we want to have is this: https://m2.material.io/components/progress-indicators#circular-progress-indicators `Indeterminate circular progress indicator`\n\nCan you update the component to reflect that animation with expansion and contraction?\n\nHere is the implementation in the MDC side that you can take inspiration from :) https://github.com/material-components/material-components-web/tree/master/packages/mdc-circular-progress",
+      "revId": "32bb794e2c80c07e75e25646197382d8ffc206d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
