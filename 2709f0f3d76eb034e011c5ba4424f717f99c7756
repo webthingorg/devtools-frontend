@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "a15ed1ee_76c35f52",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-30T14:02:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "573b4cb9_f8e845b9",
+      "range": {
+        "startLine": 7,
+        "startChar": 24,
+        "endLine": 7,
+        "endChar": 38
+      },
+      "revId": "2709f0f3d76eb034e011c5ba4424f717f99c7756",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "5e724dfc_61763e4d",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -78,6 +102,30 @@
           ]
         }
       ],
+      "revId": "2709f0f3d76eb034e011c5ba4424f717f99c7756",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "307d71c6_ce1953a8",
+        "filename": "front_end/panels/timeline/overlays/components/EntryLabelOverlay.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-30T14:02:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34abae3b_b0562b33",
+      "range": {
+        "startLine": 217,
+        "startChar": 4,
+        "endLine": 217,
+        "endChar": 43
+      },
       "revId": "2709f0f3d76eb034e011c5ba4424f717f99c7756",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
