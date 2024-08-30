@@ -16,6 +16,23 @@
       "message": "this lgtm but I would like to wait for Changhao to review as he is more familiar with this part of the codebase than I am. Thanks!",
       "revId": "9d68bf328f079eea7056fd25c78503d4c64696ff",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c9e2c2a_9897f126",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-08-30T15:24:03Z",
+      "side": 1,
+      "message": "This LGTM, thanks for the improvement!",
+      "revId": "9d68bf328f079eea7056fd25c78503d4c64696ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
