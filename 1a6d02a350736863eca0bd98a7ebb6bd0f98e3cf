@@ -16,6 +16,24 @@
       "message": "Perhaps the CSS properties in KnownContextValues.ts could be uniformly generated via scripts/build/generate_supported_css.py to avoid manual maintenance.\n\nWDYT?",
       "revId": "1a6d02a350736863eca0bd98a7ebb6bd0f98e3cf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d37ed76a_4eeb40b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-08-30T06:49:16Z",
+      "side": 1,
+      "message": "It\u0027s a bit subtle, but this is roughly what this CL is doing, except not directly from generate_supported_css.py but from a lint rule. After generating SupportedCSSValue, presubmit will grab all css properties from that file and make sure they\u0027re all listed in KnownContextValues. Is that more or less what you had in mind?",
+      "parentUuid": "7ea330e6_0dd4897a",
+      "revId": "1a6d02a350736863eca0bd98a7ebb6bd0f98e3cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
