@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18d542e7_9a43091f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-08-30T09:40:11Z",
+      "side": 1,
+      "message": "WDYT? do we need an eval for this change? in examples I tried, it seems to improve the issue of editing styles when not needed",
+      "revId": "a769be902ad7d64a01a76c09652cc2fd56fb7abc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
