@@ -16,6 +16,41 @@
       "message": "WDYT? do we need an eval for this change? in examples I tried, it seems to improve the issue of editing styles when not needed",
       "revId": "a769be902ad7d64a01a76c09652cc2fd56fb7abc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ffe77bfa_3db91769",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-30T10:19:48Z",
+      "side": 1,
+      "message": "I looked at the data and it seems like it still makes this mistake sometimes but it looks also better than the previous version; so ship it! :)",
+      "revId": "a769be902ad7d64a01a76c09652cc2fd56fb7abc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab391afd_298fe087",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-08-30T10:19:48Z",
+      "side": 1,
+      "message": "Let me try it too on the examples and take a look at how it changes :)",
+      "parentUuid": "18d542e7_9a43091f",
+      "revId": "a769be902ad7d64a01a76c09652cc2fd56fb7abc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
