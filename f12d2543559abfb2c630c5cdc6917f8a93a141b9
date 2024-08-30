@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59699af2_2ae35148",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-30T13:43:05Z",
+      "side": 1,
+      "message": "ptal\n\nplayed with the number locally and this felt about right, but we can tweak easily 😊",
+      "revId": "f12d2543559abfb2c630c5cdc6917f8a93a141b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
