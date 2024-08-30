@@ -1,0 +1,25 @@
+/*
+ * Copyright 2024 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file.
+ */
+
+:host {
+  display: block;
+  width: var(--sys-size-6);
+  height: var(--sys-size-6);
+  border-radius: 50%;
+  border: 2px solid var(--sys-color-primary);
+  animation: spinner-animation 1s linear infinite;
+  border-right-color: transparent;
+}
+
+@keyframes spinner-animation {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
