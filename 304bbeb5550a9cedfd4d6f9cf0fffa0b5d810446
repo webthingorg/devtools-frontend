@@ -16,6 +16,24 @@
       "message": "with this change, now we should have our DevTools in `en-US` locale right?",
       "revId": "304bbeb5550a9cedfd4d6f9cf0fffa0b5d810446",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1640b73_94b3866c",
+        "filename": "scripts/freestyler/auto_freestyler.js",
+        "patchSetId": 11
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-08-30T11:01:44Z",
+      "side": 1,
+      "message": "yes, and I already put it into the README but this change escaped previous CL.",
+      "parentUuid": "dcfb90b8_4bf51a75",
+      "revId": "304bbeb5550a9cedfd4d6f9cf0fffa0b5d810446",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
