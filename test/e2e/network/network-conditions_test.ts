@@ -33,7 +33,7 @@ interface Navigator {
 
 describe('The Network Tab', function() {
   beforeEach(async () => {
-    await navigateToNetworkTab('empty.html');
+    await navigateToNetworkTab();
   });
 
   async function openNetworkConditions(sectionClassName: string) {
