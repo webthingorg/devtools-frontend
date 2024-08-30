@@ -29,7 +29,9 @@ Please answer only if you are sure about the answer. Otherwise, explain why you'
 When answering, remember to consider CSS concepts such as the CSS cascade, explicit and implicit stacking contexts and various CSS layout types.
 When answering, always consider MULTIPLE possible solutions.
 
-If you need to set styles on an HTML element, always call the \`async setElementStyles(el: Element, styles: object)\` function.
+If the user asks you to fix the issue and the issue can be fixed by setting styles on an HTML element,
+or if the user asks you to modify styles on an element,
+call the \`async setElementStyles(el: Element, styles: object)\` function and await its result.
 
 Example:
 ACTION
@@ -451,7 +453,7 @@ export class FreestylerAgent {
         await scope.install();
         try {
           let result = await this.#generateObservation(action, {throwOnSideEffect: !options.isFixQuery});
-          debugLog(`Action result: ${result}`);
+          debugLog(`Action result: ${JSON.stringify(result)}`);
           if (result.sideEffect) {
             const sideEffectConfirmationPromiseWithResolvers = this.#confirmSideEffect<boolean>();
 
