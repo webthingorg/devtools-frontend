@@ -15,6 +15,7 @@ import {
 export type CLSInsightResult = InsightResult<{
   animationFailures?: readonly NoncompositedAnimationFailure[],
   shifts?: Map<Types.TraceEvents.TraceEventLayoutShift, LayoutShiftRootCausesData>,
+        clusters: Types.TraceEvents.SyntheticLayoutShiftCluster[],
 }>;
 
 export function deps(): ['Meta', 'Animations', 'LayoutShifts', 'NetworkRequests'] {
@@ -266,6 +267,25 @@ export function generateInsight(
     return nav?.args.data?.navigationId === context.navigationId;
   });
 
+  const clusterWithinSameNavigation = ((cluster: Types.TraceEvents.SyntheticLayoutShiftCluster): boolean => {
+    const navigations = traceParsedData.Meta.navigationsByFrameId.get(context.frameId);
+    if (!navigations || context.frameId === '') {
+      return false;
+    }
+    const clusterTs = cluster.ts;
+    if (!clusterTs) {
+      return false;
+    }
+    const eventNavigationIndex =
+        Platform.ArrayUtilities.nearestIndexFromEnd(navigations, navigation => navigation.ts <= clusterTs);
+
+    if (eventNavigationIndex === null) {
+      return false;
+    }
+    const nav = navigations[eventNavigationIndex];
+    return nav.args.data?.navigationId === context.navigationId;
+  });
+
   const compositeAnimationEvents = traceParsedData.Animations.animations.filter(isWithinSameNavigation);
   const animationFailures = getNonCompositedAnimations(compositeAnimationEvents);
 
@@ -291,8 +311,13 @@ export function generateInsight(
   getIframeRootCauses(iframeEvents, prePaintEvents, shiftsByPrePaint, rootCausesByShift);
   getFontRootCauses(networkRequests, prePaintEvents, shiftsByPrePaint, rootCausesByShift);
 
+  // Sort by cumulative score, since for insights we interpret these for their "bad" scores.
+  const clusters = traceParsedData.LayoutShifts.clusters.filter(clusterWithinSameNavigation)
+                       .sort((a, b) => b.clusterCumulativeScore - a.clusterCumulativeScore);
+
   return {
     animationFailures,
     shifts: rootCausesByShift,
+    clusters,
   };
 }
