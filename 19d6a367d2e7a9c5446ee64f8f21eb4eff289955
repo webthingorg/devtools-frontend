@@ -43,6 +43,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "fbe2de9d_cde936e2",
+        "filename": "front_end/panels/timeline/components/insights/DocumentLatency.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 3517468
+      },
+      "writtenOn": "2024-08-30T00:24:21Z",
+      "side": 1,
+      "message": "Hmm yes, weird because the screenshot has failing SRT, which means estimated savings should not be 0...rounding maybe? It does show for something more egregious: https://screenshot.googleplex.com/5coogeHfTsAwNYM",
+      "parentUuid": "3d5517f7_765298db",
+      "range": {
+        "startLine": 81,
+        "startChar": 12,
+        "endLine": 81,
+        "endChar": 56
+      },
+      "revId": "19d6a367d2e7a9c5446ee64f8f21eb4eff289955",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "e56e96f9_2104d92f",
         "filename": "front_end/panels/timeline/components/insights/sidebarInsight.css",
         "patchSetId": 4
