@@ -65,6 +65,10 @@ details > summary {
   margin-top: 8px;
 }
 
+.origin-mapping-description {
+  margin-bottom: 8px;
+}
+
 .origin-mapping-button-section {
   display: flex;
   flex-direction: column;
