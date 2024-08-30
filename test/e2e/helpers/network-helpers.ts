@@ -34,8 +34,8 @@ export async function openNetworkTab(): Promise<void> {
 /**
  * Select the Network tab in DevTools
  */
-export async function navigateToNetworkTab(testName: string) {
-  await goToResource(`network/${testName}`);
+export async function navigateToNetworkTab() {
+  await goToResource('empty.html');
   await openNetworkTab();
 }
 
