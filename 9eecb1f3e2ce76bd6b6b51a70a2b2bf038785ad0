@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "12930910_d09f25dc",
+        "filename": "front_end/ui/components/spinner/Spinner.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-08-30T13:32:01Z",
+      "side": 1,
+      "message": "I imagine this spinner is supposed to look more like this: https://codepen.io/tigt/pen/PLWyZL. Whereas the button one is, well, inside a button and it\u0027s not a separate component that can be reused outside of a button",
+      "parentUuid": "7e02f46f_ab916cde",
+      "revId": "9eecb1f3e2ce76bd6b6b51a70a2b2bf038785ad0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c340229f_98b68cc8",
         "filename": "front_end/ui/components/spinner/spinner.css",
         "patchSetId": 3
