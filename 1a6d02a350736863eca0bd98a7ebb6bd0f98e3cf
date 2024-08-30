@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ea330e6_0dd4897a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1196635
+      },
+      "writtenOn": "2024-08-30T03:52:38Z",
+      "side": 1,
+      "message": "Perhaps the CSS properties in KnownContextValues.ts could be uniformly generated via scripts/build/generate_supported_css.py to avoid manual maintenance.\n\nWDYT?",
+      "revId": "1a6d02a350736863eca0bd98a7ebb6bd0f98e3cf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
