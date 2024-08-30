@@ -39,6 +39,30 @@
       },
       "revId": "69efacc83169b9d1a63d11d97f64690f22918044",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0415111b_11ff3018",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1243,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-30T14:01:49Z",
+      "side": 1,
+      "message": "What will happen is you will use this to enter \"annotations mode\" and then either type into the label or click on an icon to draw the arrow - so yes it is, but the actual UX is not built yet 😄",
+      "parentUuid": "6a3c2713_8a51dcec",
+      "range": {
+        "startLine": 1243,
+        "startChar": 49,
+        "endLine": 1243,
+        "endChar": 66
+      },
+      "revId": "69efacc83169b9d1a63d11d97f64690f22918044",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
