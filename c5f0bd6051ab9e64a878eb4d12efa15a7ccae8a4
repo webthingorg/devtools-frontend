@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "56d7ea7c_557e1d0f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-30T08:36:23Z",
+      "side": 1,
+      "message": "PTAL. I will do entry connections in another CL.",
+      "revId": "c5f0bd6051ab9e64a878eb4d12efa15a7ccae8a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
