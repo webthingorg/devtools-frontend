@@ -1,0 +1,68 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "573b4cb9_f8e845b9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-08-30T13:54:41Z",
+      "side": 1,
+      "message": "why is it called selected state? isn\u0027t it just the \u0027annotations ui\u0027?",
+      "range": {
+        "startLine": 7,
+        "startChar": 24,
+        "endLine": 7,
+        "endChar": 38
+      },
+      "revId": "2709f0f3d76eb034e011c5ba4424f717f99c7756",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34abae3b_b0562b33",
+        "filename": "front_end/panels/timeline/overlays/components/EntryLabelOverlay.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-08-30T13:54:41Z",
+      "side": 1,
+      "message": "we can delete this comment",
+      "range": {
+        "startLine": 217,
+        "startChar": 4,
+        "endLine": 217,
+        "endChar": 43
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "acfe4e81_2a984412",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/overlays/components/EntryLabelOverlay.ts",
+              "range": {
+                "startLine": 217,
+                "startChar": 0,
+                "endLine": 218,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "2709f0f3d76eb034e011c5ba4424f717f99c7756",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
