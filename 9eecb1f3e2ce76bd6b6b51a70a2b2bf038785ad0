@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7e02f46f_ab916cde",
+        "filename": "front_end/ui/components/spinner/Spinner.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-08-30T13:15:29Z",
+      "side": 1,
+      "message": "I know there is a Spinner inside the Button. How is it different from the new spinner? cc @kprokopenko@chromium.org",
+      "revId": "9eecb1f3e2ce76bd6b6b51a70a2b2bf038785ad0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c340229f_98b68cc8",
         "filename": "front_end/ui/components/spinner/spinner.css",
         "patchSetId": 3
