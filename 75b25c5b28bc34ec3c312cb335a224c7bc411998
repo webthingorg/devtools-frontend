@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3eeaa01_70bbb0e9",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 2086,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-08-30T14:06:00Z",
+      "side": 1,
+      "message": "I understand why you did it this way, but I think it\u0027s a bit confusing to be able to pass in a custom start time; we always want the red triangles to be the same size across all events, as long as the event is at least 8px wide.\n\nIf the event is \u003c8px wide, I would rather that case be automatically detected and in that case we just set the triangle width accordingly.\n\nwdyt?",
+      "range": {
+        "startLine": 2083,
+        "startChar": 10,
+        "endLine": 2086,
+        "endChar": 13
+      },
+      "revId": "75b25c5b28bc34ec3c312cb335a224c7bc411998",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
