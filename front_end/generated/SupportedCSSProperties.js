@@ -2,6 +2,10 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+// This file is auto-generated, do not edit manually.
+// Re-generate with: npm run generate-protocol-resources
+// The logic for generate is in the generate_supported_css.py
+
 export const generatedProperties = [
  {
   'longhands': [
