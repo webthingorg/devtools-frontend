@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b04ec648_e36c8e43",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-08-31T00:52:22Z",
+      "side": 1,
+      "message": "making them not actionable is actually intended from the mocks! There was a conversation about ensuring there is not too much information on the sidebar, and opting for \"hinting\" at the information that users can get within the overlay/summary pane. basically try to direct users to the rest of the panel. \n\nBut, if we eventually do decide on being more actionable from the sidebar, links could be added. I believe we should be able to borrow the linkify work that were building for the Layout Shift details component.",
+      "parentUuid": "6481ac66_2842a461",
+      "revId": "c04af4d65e44774a26d594daf64d792a08728d68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "487ba076_6ec2fd1f",
@@ -31,6 +49,30 @@
       "writtenOn": "2024-08-30T09:09:43Z",
       "side": 1,
       "message": "the LayoutShifts handler could expose a `clustersByNavigation: Map\u003cnavigationId, Cluster[]\u003e` to make this easier so we don\u0027t iterate over the array a bunch.\n\nWdyt?",
+      "range": {
+        "startLine": 315,
+        "startChar": 0,
+        "endLine": 315,
+        "endChar": 92
+      },
+      "revId": "c04af4d65e44774a26d594daf64d792a08728d68",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77131462_7019b430",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 315,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-08-31T00:52:22Z",
+      "side": 1,
+      "message": "ah yeah i like this!",
+      "parentUuid": "487ba076_6ec2fd1f",
       "range": {
         "startLine": 315,
         "startChar": 0,
