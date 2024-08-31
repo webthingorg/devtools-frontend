@@ -4,6 +4,7 @@
 
 import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
+import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as TimelineModel from '../../models/timeline_model/timeline_model.js';
 import * as TraceEngine from '../../models/trace/trace.js';
@@ -75,8 +76,10 @@ export class TimelineDetailsView extends UI.Widget.VBox {
   private updateContentsScheduled: boolean;
   private lazySelectorStatsView: TimelineSelectorStatsView|null;
   #traceEngineData: TraceEngine.Handlers.Types.TraceParseData|null = null;
+  #traceInsightsData: TraceEngine.Insights.Types.TraceInsightData|null = null;
   #filmStrip: TraceEngine.Extras.FilmStrip.Data|null = null;
   #networkRequestDetails: TimelineComponents.NetworkRequestDetails.NetworkRequestDetails;
+  #layoutShiftDetails: TimelineComponents.LayoutShiftDetails.LayoutShiftDetails;
   #onTraceBoundsChangeBound = this.#onTraceBoundsChange.bind(this);
 
   constructor(delegate: TimelineModeViewDelegate) {
@@ -116,6 +119,8 @@ export class TimelineDetailsView extends UI.Widget.VBox {
 
     this.#networkRequestDetails =
         new TimelineComponents.NetworkRequestDetails.NetworkRequestDetails(this.detailsLinkifier);
+
+    this.#layoutShiftDetails = new TimelineComponents.LayoutShiftDetails.LayoutShiftDetails();
 
     this.tabbedPane.addEventListener(UI.TabbedPane.Events.TabSelected, this.tabSelected, this);
 
@@ -159,7 +164,8 @@ export class TimelineDetailsView extends UI.Widget.VBox {
 
   async setModel(
       traceEngineData: TraceEngine.Handlers.Types.TraceParseData|null,
-      selectedEvents: TraceEngine.Types.TraceEvents.TraceEventData[]|null): Promise<void> {
+      selectedEvents: TraceEngine.Types.TraceEvents.TraceEventData[]|null,
+      traceInsightsData: TraceEngine.Insights.Types.TraceInsightData|null): Promise<void> {
     if (this.#traceEngineData !== traceEngineData) {
       // Clear the selector stats view, so the next time the user views it we
       // reconstruct it with the new trace data.
@@ -171,6 +177,7 @@ export class TimelineDetailsView extends UI.Widget.VBox {
       this.#filmStrip = TraceEngine.Extras.FilmStrip.fromTraceData(traceEngineData);
     }
     this.#selectedEvents = selectedEvents;
+    this.#traceInsightsData = traceInsightsData;
     this.tabbedPane.closeTabs([Tab.PaintProfiler, Tab.LayerViewer], false);
     for (const view of this.rangeDetailViews.values()) {
       view.setModelWithEvents(selectedEvents, traceEngineData);
@@ -293,9 +300,15 @@ export class TimelineDetailsView extends UI.Widget.VBox {
       this.setContent(this.#networkRequestDetails);
     } else if (TimelineSelection.isTraceEventSelection(selectionObject)) {
       const event = selectionObject;
-      const traceEventDetails =
-          await TimelineUIUtils.buildTraceEventDetails(this.#traceEngineData, event, this.detailsLinkifier, true);
-      this.appendDetailsTabsForTraceEventAndShowDetails(event, traceEventDetails);
+      if (Root.Runtime.experiments.isEnabled('perf-panel-event-details') &&
+          TraceEngine.Types.TraceEvents.isSyntheticLayoutShift(event)) {
+        this.#layoutShiftDetails.setData(event, this.#traceInsightsData);
+        this.setContent(this.#layoutShiftDetails);
+      } else {
+        const traceEventDetails =
+            await TimelineUIUtils.buildTraceEventDetails(this.#traceEngineData, event, this.detailsLinkifier, true);
+        this.appendDetailsTabsForTraceEventAndShowDetails(event, traceEventDetails);
+      }
     } else if (TimelineSelection.isFrameObject(selectionObject)) {
       const frame = selectionObject;
       const matchedFilmStripFrame = this.#getFilmStripFrame(frame);

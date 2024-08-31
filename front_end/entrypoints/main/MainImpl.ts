@@ -429,6 +429,12 @@ export class MainImpl {
         'Performance panel: enable server timings in the timeline',
     );
 
+    Root.Runtime.experiments.register(
+        Root.Runtime.ExperimentName.TIMELINE_EVENT_DETAILS,
+        'Performance panel: enable new event details for shift events in Performance Panel',
+        true,
+    );
+
     Root.Runtime.experiments.enableExperimentsByDefault([
       'css-type-component-length-deprecate',
       Root.Runtime.ExperimentName.OUTERMOST_TARGET_SELECTOR,
