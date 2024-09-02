@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9038b194_92bf5344",
+        "filename": "docs/design_guidelines.md",
+        "patchSetId": 21
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-09-02T12:50:27Z",
+      "side": 1,
+      "message": "Ahh right, good that you\u0027re pointing this out. Ok, let me remove this for now.",
+      "parentUuid": "2848f0fb_0263ff74",
+      "range": {
+        "startLine": 113,
+        "startChar": 0,
+        "endLine": 113,
+        "endChar": 20
+      },
+      "revId": "92917ddcedf18668b80258dc9f3642a9d2500aa9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0728ded9_04530686",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-08-21T12:18:07Z",
       "side": 1,
       "message": "I wonder if we should also mention toggle icon buttons as well as checked states (this forces a dot to appear next to the icon, e.g. when hover element state is forced), wdyt?",
+      "range": {
+        "startLine": 44,
+        "startChar": 4,
+        "endLine": 44,
+        "endChar": 17
+      },
+      "revId": "92917ddcedf18668b80258dc9f3642a9d2500aa9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a00ee63_32ff5e28",
+        "filename": "docs/styleguide/ux/components.md",
+        "patchSetId": 21
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-09-02T12:50:27Z",
+      "side": 1,
+      "message": "Ohh, yes! But let me do that in a follow up instead, if that works for you? Regarding the checked states, could you elaborate on that, I\u0027m not sure what you mean? I know about the overrides which cause files to have a dot next to the icon, but what you\u0027re describing seems to be something different.",
+      "parentUuid": "0728ded9_04530686",
       "range": {
         "startLine": 44,
         "startChar": 4,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3dec74f8_3f2568ff",
+        "filename": "docs/styleguide/ux/components.md",
+        "patchSetId": 21
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-09-02T12:50:27Z",
+      "side": 1,
+      "message": "Let me remove the repeated part instead! Thanks for spotting this, this wasn\u0027t intentional.",
+      "parentUuid": "b0f60752_bb3234d4",
+      "range": {
+        "startLine": 125,
+        "startChar": 0,
+        "endLine": 127,
+        "endChar": 43
+      },
+      "revId": "92917ddcedf18668b80258dc9f3642a9d2500aa9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "76910d99_f5841010",
@@ -110,6 +182,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3ee4306_fc640a7d",
+        "filename": "docs/styleguide/ux/styles.md",
+        "patchSetId": 21
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-09-02T12:50:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "76910d99_f5841010",
+      "range": {
+        "startLine": 7,
+        "startChar": 16,
+        "endLine": 7,
+        "endChar": 19
+      },
+      "revId": "92917ddcedf18668b80258dc9f3642a9d2500aa9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "742e86f7_144f2431",
@@ -123,6 +219,30 @@
       "writtenOn": "2024-08-21T12:18:07Z",
       "side": 1,
       "message": "nit: find and / or view?",
+      "range": {
+        "startLine": 20,
+        "startChar": 8,
+        "endLine": 20,
+        "endChar": 17
+      },
+      "revId": "92917ddcedf18668b80258dc9f3642a9d2500aa9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a07cf7c_34c0790b",
+        "filename": "docs/styleguide/ux/styles.md",
+        "patchSetId": 21
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-09-02T12:50:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "742e86f7_144f2431",
       "range": {
         "startLine": 20,
         "startChar": 8,
@@ -158,6 +278,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9b2a6d23_bddbc493",
+        "filename": "docs/styleguide/ux/styles.md",
+        "patchSetId": 21
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-09-02T12:50:27Z",
+      "side": 1,
+      "message": "This is from the material guidelines (since I found them useful): https://m3.material.io/styles/color/roles.\n\n@petermueller@chromium.org",
+      "parentUuid": "0567a472_36f7ad51",
+      "range": {
+        "startLine": 37,
+        "startChar": 33,
+        "endLine": 37,
+        "endChar": 91
+      },
+      "revId": "92917ddcedf18668b80258dc9f3642a9d2500aa9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c5360267_16914ac8",
         "filename": "docs/styleguide/ux/styles.md",
         "patchSetId": 21
@@ -169,6 +313,30 @@
       "writtenOn": "2024-08-21T12:18:07Z",
       "side": 1,
       "message": "nit: `,`",
+      "range": {
+        "startLine": 52,
+        "startChar": 13,
+        "endLine": 52,
+        "endChar": 14
+      },
+      "revId": "92917ddcedf18668b80258dc9f3642a9d2500aa9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "888d04c8_3aa818e5",
+        "filename": "docs/styleguide/ux/styles.md",
+        "patchSetId": 21
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-09-02T12:50:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5360267_16914ac8",
       "range": {
         "startLine": 52,
         "startChar": 13,
@@ -202,6 +370,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "753cae91_e2ef1f13",
+        "filename": "docs/styleguide/ux/styles.md",
+        "patchSetId": 21
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-09-02T12:50:27Z",
+      "side": 1,
+      "message": "Yes, that\u0027s correct! There\u0027s a missing line break here, which changes the meaning xD. I\u0027ve added it now.\n\nIt should be:\n\n(when Devtools is focused):\n*..\n*..\n\n(when DevTools is unfocused):\n*..\n*..",
+      "parentUuid": "2e7a7526_3e19aa2c",
+      "range": {
+        "startLine": 81,
+        "startChar": 44,
+        "endLine": 81,
+        "endChar": 70
+      },
+      "revId": "92917ddcedf18668b80258dc9f3642a9d2500aa9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bab48947_99ffe499",
@@ -215,6 +407,24 @@
       "writtenOn": "2024-08-21T12:18:07Z",
       "side": 1,
       "message": "Should we also add the active state with the ripple color?",
+      "revId": "92917ddcedf18668b80258dc9f3642a9d2500aa9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5112acc9_dbf5bb52",
+        "filename": "docs/styleguide/ux/styles.md",
+        "patchSetId": 21
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-09-02T12:50:27Z",
+      "side": 1,
+      "message": "SG!\n\n@petermueller@chromium.org: We have three ripple colors,\n`--sys-color-state-ripple-neutral-on-prominent`,\n`--sys-color-state-ripple-neutral-on-subtle`\n`--sys-color-state-ripple-primary`, could you help us with some guidance on when to use which?",
+      "parentUuid": "bab48947_99ffe499",
       "revId": "92917ddcedf18668b80258dc9f3642a9d2500aa9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -242,6 +452,47 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3d75a0c_89b981ba",
+        "filename": "docs/styleguide/ux/styles.md",
+        "patchSetId": 21
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-09-02T12:50:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9396ea17_93973917",
+      "range": {
+        "startLine": 124,
+        "startChar": 49,
+        "endLine": 124,
+        "endChar": 57
+      },
+      "revId": "92917ddcedf18668b80258dc9f3642a9d2500aa9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "148f5046_e336784c",
+        "filename": "docs/styleguide/ux/styles.md",
+        "patchSetId": 21
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-09-02T12:50:27Z",
+      "side": 1,
+      "message": "I\u0027ve removed these (this was from the old text, and I believe this is actually outdated, but correct me if I\u0027m missing something here). There\u0027s the newer section on state layer above.",
+      "revId": "92917ddcedf18668b80258dc9f3642a9d2500aa9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fc06839b_763511c6",
@@ -259,6 +510,41 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3045434c_be31adaa",
+        "filename": "docs/styleguide/ux/styles.md",
+        "patchSetId": 21
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-09-02T12:50:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc06839b_763511c6",
+      "revId": "92917ddcedf18668b80258dc9f3642a9d2500aa9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b688e21_b8d63481",
+        "filename": "docs/styleguide/ux/styles.md",
+        "patchSetId": 21
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-09-02T12:50:27Z",
+      "side": 1,
+      "message": "This is also mentioned already above, so removing it.",
+      "revId": "92917ddcedf18668b80258dc9f3642a9d2500aa9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6f5af0cd_26d6bc92",
@@ -272,6 +558,30 @@
       "writtenOn": "2024-08-21T12:18:07Z",
       "side": 1,
       "message": "Same as above, also do we want to repeat this here?",
+      "range": {
+        "startLine": 177,
+        "startChar": 15,
+        "endLine": 177,
+        "endChar": 24
+      },
+      "revId": "92917ddcedf18668b80258dc9f3642a9d2500aa9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e96205ea_741e37a2",
+        "filename": "docs/styleguide/ux/styles.md",
+        "patchSetId": 21
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-09-02T12:50:27Z",
+      "side": 1,
+      "message": "I repeated this here, since many may just jump ahead to the token reference table. I think there\u0027s value in repeating it at this point, but if you strongly disagree, I can remove it 😊",
+      "parentUuid": "6f5af0cd_26d6bc92",
       "range": {
         "startLine": 177,
         "startChar": 15,
