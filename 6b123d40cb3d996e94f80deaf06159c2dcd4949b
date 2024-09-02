@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12ef9b32_aabcf362",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-09-02T14:53:45Z",
+      "side": 1,
+      "message": "Maybe update the commit message since this is now a functional change, too",
+      "revId": "6b123d40cb3d996e94f80deaf06159c2dcd4949b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
