@@ -114,6 +114,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3ed9593f_77c48dfd",
+        "filename": "docs/styleguide/ux/components.md",
+        "patchSetId": 21
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-09-02T13:33:30Z",
+      "side": 1,
+      "message": "Sure, follow up sounds good!:)\nThis is how a checked state looks like imgur.com/a/5ekQ0on also when you e.g. filter for some keyword in the Network panel the filter icon gets the same dot. It indicated that some setting/filter/mode is checked in a collapsable menu",
+      "parentUuid": "3a00ee63_32ff5e28",
+      "range": {
+        "startLine": 44,
+        "startChar": 4,
+        "endLine": 44,
+        "endChar": 17
+      },
+      "revId": "92917ddcedf18668b80258dc9f3642a9d2500aa9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b0f60752_bb3234d4",
         "filename": "docs/styleguide/ux/components.md",
         "patchSetId": 21
@@ -582,6 +606,30 @@
       "side": 1,
       "message": "I repeated this here, since many may just jump ahead to the token reference table. I think there\u0027s value in repeating it at this point, but if you strongly disagree, I can remove it 😊",
       "parentUuid": "6f5af0cd_26d6bc92",
+      "range": {
+        "startLine": 177,
+        "startChar": 15,
+        "endLine": 177,
+        "endChar": 24
+      },
+      "revId": "92917ddcedf18668b80258dc9f3642a9d2500aa9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69eb9caf_9200db7c",
+        "filename": "docs/styleguide/ux/styles.md",
+        "patchSetId": 21
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-09-02T13:33:30Z",
+      "side": 1,
+      "message": "No-no, sounds good:)",
+      "parentUuid": "e96205ea_741e37a2",
       "range": {
         "startLine": 177,
         "startChar": 15,
