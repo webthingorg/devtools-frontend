@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c17687bf_3292a582",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-09-02T11:48:55Z",
+      "side": 1,
+      "message": "If you insert `${prettyprintToolbar.element}` before this line, you\u0027ll get the button rendered roughly in the right place.\nBut this mixes our old imperative way of building UI, with the new LitHTML-based way. I\u0027d prefer it if you found a way to build the button directly within LitHTML. I don\u0027t think we have Lit components for toolbars yet, but you could try just inserting a button along the lines of\n```\n\u003c${Buttons.Button.Button.litTagName}\n    .iconName\u003d${iconName}\n    title\u003d${title}\n    .variant\u003d${Buttons.Button.Variant.ICON}\n    .size\u003d${Buttons.Button.Size.SMALL}\n    @click\u003d${clickHandler}\n    jslog\u003d${VisualLogging.action().track({click: true}).context(jsLogContext)}\u003e\u003c/${Buttons.Button.Button.litTagName}\u003e\n```",
+      "range": {
+        "startLine": 235,
+        "startChar": 12,
+        "endLine": 235,
+        "endChar": 34
+      },
+      "revId": "b318b091759b77b0bf3f13584ddade8bf4aaaca9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6537b2b_4c33d0c0",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-09-02T11:48:55Z",
+      "side": 1,
+      "message": "This renders the LitHtml into the `bottomToolbarContainer`. That\u0027s why the Lit content shows up after the toolbar. I don\u0027t think that\u0027s what you want.",
+      "range": {
+        "startLine": 238,
+        "startChar": 8,
+        "endLine": 238,
+        "endChar": 45
+      },
+      "revId": "b318b091759b77b0bf3f13584ddade8bf4aaaca9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
