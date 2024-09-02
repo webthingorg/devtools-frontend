@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b90b6f71_c742ae58",
+        "filename": "front_end/ui/components/spinner/Spinner.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-09-02T06:12:15Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "12930910_d09f25dc",
+      "revId": "9eecb1f3e2ce76bd6b6b51a70a2b2bf038785ad0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c340229f_98b68cc8",
