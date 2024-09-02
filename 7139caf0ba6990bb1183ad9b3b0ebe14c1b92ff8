@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5aeabfa5_a37854d9",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-09-02T09:40:56Z",
+      "side": 1,
+      "message": "The bug is worrisome, let\u0027s look into it ASAP. LGTM not to block.",
+      "parentUuid": "4ec689fc_afcf5a44",
+      "revId": "7139caf0ba6990bb1183ad9b3b0ebe14c1b92ff8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c79ac513_f5556e28",
