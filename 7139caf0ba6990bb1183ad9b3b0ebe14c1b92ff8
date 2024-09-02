@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c79ac513_f5556e28",
+        "filename": "scripts/freestyler/auto_freestyler.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-09-02T09:32:59Z",
+      "side": 1,
+      "message": "```suggestion\n    // Strip comments to prevent LLM from seeing it.\n```",
+      "revId": "7139caf0ba6990bb1183ad9b3b0ebe14c1b92ff8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41e6a3e6_42dd8d84",
+        "filename": "scripts/freestyler/auto_freestyler.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-09-02T09:32:59Z",
+      "side": 1,
+      "message": "```suggestion\n    await devtoolsPage.locator(\u0027aria/Customize and control DevTools\u0027).click();\n```",
+      "revId": "7139caf0ba6990bb1183ad9b3b0ebe14c1b92ff8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
