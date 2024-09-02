@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4ec689fc_afcf5a44",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-02T09:35:29Z",
+      "side": 1,
+      "message": "I didn\u0027t want to block on it, let\u0027s continue like this and after fixing it, we can return to the old logic of using UI. WDYT?",
+      "parentUuid": "6bee2ee3_06b20b1d",
+      "revId": "7139caf0ba6990bb1183ad9b3b0ebe14c1b92ff8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c79ac513_f5556e28",
         "filename": "scripts/freestyler/auto_freestyler.js",
         "patchSetId": 1
@@ -31,6 +49,24 @@
       "writtenOn": "2024-09-02T09:32:59Z",
       "side": 1,
       "message": "```suggestion\n    // Strip comments to prevent LLM from seeing it.\n```",
+      "revId": "7139caf0ba6990bb1183ad9b3b0ebe14c1b92ff8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee2a844b_6c76e449",
+        "filename": "scripts/freestyler/auto_freestyler.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-02T09:35:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c79ac513_f5556e28",
       "revId": "7139caf0ba6990bb1183ad9b3b0ebe14c1b92ff8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -48,6 +84,24 @@
       "writtenOn": "2024-09-02T09:32:59Z",
       "side": 1,
       "message": "```suggestion\n    await devtoolsPage.locator(\u0027aria/Customize and control DevTools\u0027).click();\n```",
+      "revId": "7139caf0ba6990bb1183ad9b3b0ebe14c1b92ff8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "107310ef_f438ed48",
+        "filename": "scripts/freestyler/auto_freestyler.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-02T09:35:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "41e6a3e6_42dd8d84",
       "revId": "7139caf0ba6990bb1183ad9b3b0ebe14c1b92ff8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
