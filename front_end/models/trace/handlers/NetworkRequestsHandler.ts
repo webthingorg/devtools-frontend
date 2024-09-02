@@ -500,6 +500,9 @@ export async function finalize(): Promise<void> {
       }
     }
   }
+  // We noticed some website with service workers might have wrong initiator info, and might have a loop initiating
+  // chain. To avoid crash, just remove all loops in this map.
+  findAndRemoveLoop(eventToInitiatorMap);
   finalizeWebSocketData();
 
   handlerState = HandlerState.FINALIZED;
@@ -544,6 +547,31 @@ function finalizeWebSocketData(): void {
     }
     data.syntheticConnectionEvent = createSyntheticWebSocketConnectionEvent(startEvent, endEvent, data.events[0]);
   });
+}
+
+function findAndRemoveLoop(
+    eventToInitiatorMap: Map<Types.TraceEvents.SyntheticNetworkRequest, Types.TraceEvents.SyntheticNetworkRequest>):
+    void {
+  const visited = new Set<Types.TraceEvents.SyntheticNetworkRequest>();
+
+  function dfs(event: Types.TraceEvents.SyntheticNetworkRequest): void {
+    if (visited.has(event)) {
+      eventToInitiatorMap.delete(event);
+      return;
+    }
+
+    visited.add(event);
+    const initiator = eventToInitiatorMap.get(event);
+    if (initiator) {
+      dfs(initiator);
+    }
+  }
+
+  for (const event of eventToInitiatorMap.keys()) {
+    if (!visited.has(event)) {
+      dfs(event);
+    }
+  }
 }
 
 function createSyntheticWebSocketConnectionEvent(
