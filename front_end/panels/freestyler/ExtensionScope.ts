@@ -122,6 +122,7 @@ export class ExtensionScope {
       const {object} = await this.#simpleEval(executionContext, `freestyler.getArgs(${id})`);
       const arg = JSON.parse(object.value);
       const selector = arg.selector;
+      const className = arg.className;
       const styles = Platform.StringUtilities.toKebabCaseKeys(arg.styles);
 
       const lines = Object.entries(styles).map(([key, value]) => `${key}: ${value};`);
@@ -132,6 +133,7 @@ export class ExtensionScope {
       }
       await this.#changeManager.addChange(cssModel, this.#frameId, {
         selector,
+        className,
         styles: lines.join('\n'),
       });
 
@@ -174,7 +176,7 @@ const functions = `async function setElementStyles(el, styles) {
   } else if (el.classList.length) {
     const parts = [];
     for (const cls of el.classList) {
-      if (cls === '${AI_ASSISTANT_CSS_CLASS_NAME}') {
+      if (cls.startsWith('${AI_ASSISTANT_CSS_CLASS_NAME}')) {
         continue;
       }
       parts.push('.' + cls);
@@ -184,11 +186,17 @@ const functions = `async function setElementStyles(el, styles) {
     }
   }
 
-  el.classList.add('${AI_ASSISTANT_CSS_CLASS_NAME}');
+  const className = '${AI_ASSISTANT_CSS_CLASS_NAME}-' + freestyler.id;
+  el.classList.add(className);
+
+  for (const [key, value] of Object.entries(styles)) {
+    el.style.removeProperty(key);
+  }
 
   await freestyler({
     method: 'setElementStyles',
     selector: selector,
+    className,
     styles: styles
   });
 }`;

@@ -8,6 +8,7 @@ import type * as Protocol from '../../generated/protocol.js';
 
 export type Change = {
   selector: string,
+  className: string,
   styles: string,
 };
 
@@ -84,15 +85,14 @@ export class ChangeManager {
   }
 
   buildChanges(changes: Array<Change>): string {
-    return `.${AI_ASSISTANT_CSS_CLASS_NAME} {
-${
-        changes
-            .map(change => {
-              return `  ${change.selector}& {
+    return changes
+        .map(change => {
+          return ` .${change.className} {
+  ${change.selector}& {
     ${change.styles}
-  }`;
-            })
-            .join('\n')}
+  }
 }`;
+        })
+        .join('\n');
   }
 }
