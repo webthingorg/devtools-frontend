@@ -23,9 +23,9 @@ below.**
 
 ### General Development
 
-*   [Get the Code](./get_the_code.md)
+*   [Get the Code](get_the_code.md)
 *   [Contribution Guide](./contributing/README.md)
-*   [UX Style Guide](./styleguide/ux/README.md)
+*   [Chromium DevTools Design System](./styleguide/ux/README.md)
 *   [Testing Guide](../test/README.md)
 *   [Release Management](release_management.md)
 *   [Dependencies](dependencies.md)
