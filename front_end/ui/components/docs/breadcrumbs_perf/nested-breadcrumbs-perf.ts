@@ -32,4 +32,5 @@ const breadcrumb: TraceEngine.Types.File.Breadcrumb = {
 
 breadcrumbsUI.data = {
   breadcrumb: breadcrumb,
+  activeBreadcrumb: breadcrumb,
 };
