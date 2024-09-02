@@ -16,6 +16,24 @@
       "message": "Should kind be an enum?",
       "revId": "9ccc9654fafc5e984ec750457245adbdeabe960d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21700ad3_e35e11d3",
+        "filename": "front_end/core/sdk/SourceMapScopeChainEntry.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-09-02T12:53:02Z",
+      "side": 1,
+      "message": "The spec changed it to be an arbitrary string. This is because not all authored languages have the same scope kinds as JS. Nonetheless we\u0027ll recommend a list of pre-defined names in the spec but I think it\u0027s not 100% fixed yet.\n\nI\u0027ll follow up and turn this into a `ScopeKind|string` type thing once the spec is more clear here.",
+      "parentUuid": "05143c77_200fc9c2",
+      "revId": "9ccc9654fafc5e984ec750457245adbdeabe960d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
