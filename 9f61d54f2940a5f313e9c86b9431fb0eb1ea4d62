@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51708076_772307c4",
+        "filename": "front_end/core/sdk/SourceMapScopeChainEntry.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-09-02T12:47:02Z",
+      "side": 1,
+      "message": "have you considered making the error user-visible? it could be shown in a popover for example so that devs can debug broken sourcemaps if they need to",
+      "revId": "9f61d54f2940a5f313e9c86b9431fb0eb1ea4d62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
