@@ -16,6 +16,23 @@
       "message": "Thanks a lot Ergün for all the comments :). I have now opted to change the `margin-left` value instead 😊. If there\u0027s nothing more, than I\u0027d submit!",
       "revId": "9bd34dd5eefe77a895ccfaf6634d317c16cec3f3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f91d507_936c90b8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-02T09:57:34Z",
+      "side": 1,
+      "message": "lgtm, ship it! 🚀 :)",
+      "revId": "9bd34dd5eefe77a895ccfaf6634d317c16cec3f3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
