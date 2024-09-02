@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6bee2ee3_06b20b1d",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-09-02T09:33:42Z",
+      "side": 1,
+      "message": "hm, why do we need it? let\u0027s fix the UI instead",
+      "revId": "7139caf0ba6990bb1183ad9b3b0ebe14c1b92ff8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c79ac513_f5556e28",
         "filename": "scripts/freestyler/auto_freestyler.js",
         "patchSetId": 1
