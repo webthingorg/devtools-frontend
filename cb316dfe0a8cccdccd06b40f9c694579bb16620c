@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e9905bd_a6ac1e1d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-09-02T10:43:23Z",
+      "side": 1,
+      "message": "Alex can you stamp? I fixed up the tests for the UI string changes and can\u0027t self approve now.",
+      "revId": "cb316dfe0a8cccdccd06b40f9c694579bb16620c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
