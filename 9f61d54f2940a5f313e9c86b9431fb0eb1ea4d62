@@ -16,6 +16,24 @@
       "message": "have you considered making the error user-visible? it could be shown in a popover for example so that devs can debug broken sourcemaps if they need to",
       "revId": "9f61d54f2940a5f313e9c86b9431fb0eb1ea4d62",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94091297_af95c7c1",
+        "filename": "front_end/core/sdk/SourceMapScopeChainEntry.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-09-02T12:58:04Z",
+      "side": 1,
+      "message": "Great idea. I added a TODO here. I think the developer resources panel could also be a good place since its not really actionable for users and more intended for tooling developers.\n\nE.g. we could collect all the things we think are wrong with a source map and surface them in the developer resources panel.",
+      "parentUuid": "51708076_772307c4",
+      "revId": "9f61d54f2940a5f313e9c86b9431fb0eb1ea4d62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
