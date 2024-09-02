@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28b48390_f21fc6eb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-09-02T08:42:39Z",
+      "side": 1,
+      "message": "Hi Simon,\n\nI\u0027m removing a soon to expire UMA that is redundant given VE, ptal!",
+      "revId": "384348a4f98c8401e5e3ffcf7b4f244dff37dfbb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
