@@ -126,6 +126,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ecc072c1_1f2238ab",
+        "filename": "front_end/ui/legacy/treeoutline.css",
+        "patchSetId": 7
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-09-02T09:56:22Z",
+      "side": 1,
+      "message": "You\u0027re right. Ok, before I mess with many other unrelated trees for now I\u0027ll use `margin-left: -3px` as you recommended. Thanks 😊!",
+      "parentUuid": "dc644e74_1c20e6f6",
+      "revId": "ce0633d68190dfba8de7bc16494c15d632aa478d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "e357384a_03f0f6c2",
         "filename": "front_end/ui/legacy/treeoutline.css",
         "patchSetId": 7
