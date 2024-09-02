@@ -61,12 +61,6 @@ export class UserMetrics {
     );
   }
 
-  sourcesSidebarTabShown(sidebarPaneName: string): void {
-    const code = SourcesSidebarTabCodes[sidebarPaneName as keyof typeof SourcesSidebarTabCodes] || 0;
-    InspectorFrontendHostInstance.recordEnumeratedHistogram(
-        EnumeratedHistogram.SourcesSidebarTabShown, code, SourcesSidebarTabCodes.MAX_VALUE);
-  }
-
   settingsPanelShown(settingsViewId: string): void {
     this.panelShown('settings-' + settingsViewId);
   }
