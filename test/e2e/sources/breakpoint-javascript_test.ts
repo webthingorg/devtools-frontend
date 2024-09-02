@@ -129,7 +129,8 @@ describe('The Sources Tab', function() {
     assert.isFalse(await isBreakpointSet(2), 'Breakpoint found on line 2 which shouldn\'t be there');
   });
 
-  it('stops at each breakpoint on resume (using F8) on target', async () => {
+  // Flaky with field trials.
+  it.skip('[crbug.com/1229541]: stops at each breakpoint on resume (using F8) on target', async () => {
     const {target, frontend} = getBrowserAndPages();
     await step('navigate to page', async () => {
       await openSourceCodeEditorForFile(CLICK_BREAKPOINT_SCRIPT, CLICK_BREAKPOINT_HTML);
