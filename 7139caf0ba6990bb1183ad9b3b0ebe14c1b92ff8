@@ -72,6 +72,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "85c50d91_2d2f83f0",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-09-02T09:44:34Z",
+      "side": 1,
+      "message": "I have not tried to repro manually",
+      "parentUuid": "98dd4d10_f2ac88a6",
+      "revId": "7139caf0ba6990bb1183ad9b3b0ebe14c1b92ff8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c79ac513_f5556e28",
