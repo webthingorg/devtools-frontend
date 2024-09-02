@@ -368,7 +368,7 @@ function setFreestylerServerSideLoggingEnabled(enabled: boolean): void {
 }
 
 function isFreestylerServerSideLoggingEnabled(): boolean {
-  return localStorage.getItem('freestyler_enableServerSideLogging') === 'true';
+  return localStorage.getItem('freestyler_enableServerSideLogging') !== 'false';
 }
 
 // @ts-ignore
