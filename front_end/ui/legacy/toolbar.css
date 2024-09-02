@@ -414,8 +414,8 @@ select.toolbar-item:not(.toolbar-has-dropdown):disabled {
 /* Separator */
 
 .toolbar-divider {
-  background-color: var(--sys-color-on-base-divider);
-  width: 1px;
+  background-color: var(--sys-color-divider);
+  width: 2px;
   margin: 5px 4px;
   height: 16px;
 }

@@ -1152,6 +1152,7 @@ export const knownContextValues = new Set([
   'fold',
   'folded',
   'folder',
+  'follow-browser-theme-changes',
   'font',
   'font-editor',
   'font-editor-documentation',
