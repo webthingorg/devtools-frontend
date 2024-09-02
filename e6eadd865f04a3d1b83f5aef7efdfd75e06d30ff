@@ -46,6 +46,30 @@
       },
       "revId": "e6eadd865f04a3d1b83f5aef7efdfd75e06d30ff",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24f977cc_aea21e5d",
+        "filename": "front_end/core/sdk/SourceMapManager.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1247388
+      },
+      "writtenOn": "2024-09-02T13:48:38Z",
+      "side": 0,
+      "message": "Sorry just got back from travels now. So I think the `frameNavigated` call does have the updated frame ID, but we just don\u0027t pass that in the `onInspectedURLChange` call. Are you suggesting that we should send that value with the `onInspectedURLChange` call as well, and update the frame ID saved here)?\n\n(BTW I\u0027m not familiar with typescript and devtools-frontend in general, so I\u0027m very happy to be given pointers, or maybe if someone else is willing to take this over it\u0027s even better)",
+      "parentUuid": "26224e80_2bda0735",
+      "range": {
+        "startLine": 78,
+        "startChar": 6,
+        "endLine": 78,
+        "endChar": 76
+      },
+      "revId": "e6eadd865f04a3d1b83f5aef7efdfd75e06d30ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
