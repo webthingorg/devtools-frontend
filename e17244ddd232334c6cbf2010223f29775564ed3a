@@ -16,6 +16,57 @@
       "message": "Hey Kim, could you please kindly take a look? Or should I ask Ergün / someone else?",
       "revId": "e17244ddd232334c6cbf2010223f29775564ed3a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b31fddd_d833bc2f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-09-02T09:54:54Z",
+      "side": 1,
+      "message": "Awesome, thanks Kateryna! Small comments, otherwise LGTM!",
+      "revId": "e17244ddd232334c6cbf2010223f29775564ed3a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be5151bd_52a65902",
+        "filename": "front_end/entrypoints/main/main-meta.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-09-02T09:54:54Z",
+      "side": 1,
+      "message": "nit: Maybe `Label of a checkbox under the .. . Allows developers to opt-in/opt-out of syncing DevTools\u0027 color theme with Chrome\u0027s color theme.` (or similar) might be more specific?",
+      "revId": "e17244ddd232334c6cbf2010223f29775564ed3a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93887a53_1d88eb25",
+        "filename": "front_end/entrypoints/main/main-meta.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-09-02T09:54:54Z",
+      "side": 1,
+      "message": "In Peter\u0027s draft the title was: `Use Chrome theme colors` (go/chrome-devtools:dynamic-theming-post-launch), did we want to change that? I wasn\u0027t around so I might have missed discussions, so ignore if that was the case ^^. (Maybe this is tricky because we need to make this work for other Chromium based browsers too?)",
+      "revId": "e17244ddd232334c6cbf2010223f29775564ed3a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
