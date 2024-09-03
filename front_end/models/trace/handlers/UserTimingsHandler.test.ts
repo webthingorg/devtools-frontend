@@ -191,4 +191,28 @@ describe('UserTimingsHandler', function() {
       });
     });
   });
+  describe('user_timing domLoading timings', function() {
+    describe('user_timing domLoading events parsing', function() {
+      it('parses domLoading events correctly', async function() {
+        const events = await TraceLoader.rawEvents(this, 'shift-attribution.json.gz');
+        TraceModel.Handlers.ModelHandlers.UserTimings.reset();
+        for (const event of events) {
+          TraceModel.Handlers.ModelHandlers.UserTimings.handleEvent(event);
+        }
+        await TraceModel.Handlers.ModelHandlers.UserTimings.finalize();
+        timingsData = TraceModel.Handlers.ModelHandlers.UserTimings.data();
+
+        assert.lengthOf(timingsData.domLoadingEvents, 4);
+
+        const frameIds = timingsData.domLoadingEvents.map(e => {
+          return e.args.frame;
+        });
+        assert.lengthOf(frameIds, 4);
+        // domLoading events should have frame ids.
+        frameIds.map(f => {
+          assert.isNotEmpty(f);
+        });
+      });
+    });
+  });
 });
