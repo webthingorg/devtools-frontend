@@ -8,8 +8,6 @@
 // https://github.com/evanw/esbuild/issues/587#issuecomment-901397213
 import puppeteer = require('puppeteer-core');
 
-import {type CoverageMapData} from 'istanbul-lib-coverage';
-
 import {
   clearPuppeteerState,
   getBrowserAndPages,
@@ -102,9 +100,9 @@ function launchChrome() {
   ];
 
   const disabledFeatures = [
-    'DeferRendererTasksAfterInput',           // crbug.com/361078921
-    'PMProcessPriorityPolicy',                // crbug.com/361252079
-    'RenderDocument',                         // crbug.com/361519377
+    'DeferRendererTasksAfterInput',  // crbug.com/361078921
+    'PMProcessPriorityPolicy',       // crbug.com/361252079
+    'RenderDocument',                // crbug.com/361519377
   ];
   const launchArgs = [
     '--remote-allow-origins=*',
@@ -265,12 +263,6 @@ export async function postFileTeardown() {
 
   clearPuppeteerState();
   dumpCollectedErrors();
-}
-
-export function collectCoverageFromPage(): Promise<CoverageMapData|undefined> {
-  const {frontend} = getBrowserAndPages();
-
-  return frontend.evaluate('window.__coverage__') as Promise<CoverageMapData|undefined>;
 }
 
 export function getDevToolsFrontendHostname(): string {
