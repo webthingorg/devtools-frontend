@@ -276,8 +276,23 @@ export class MainImpl {
     const globalStorage = new Common.Settings.SettingsStorage(prefs, hostUnsyncedStorage, storagePrefix);
     Common.Settings.Settings.instance({forceNew: true, syncedStorage, globalStorage, localStorage, config});
 
+    // TODO(crbug.com/350668580) Move this to AISettingsTab once the setting is only available
+    // there and not in the general settings screen anymore.
+    Common.Settings.Settings.instance()
+        .moduleSetting('console-insights-enabled')
+        .addChangeListener(this.#onConsoleInsightsSettingChanged, this);
+
     if (!Host.InspectorFrontendHost.isUnderTest()) {
       new Common.Settings.VersionController().updateVersion();
+    }
+  }
+
+  // TODO(crbug.com/350668580) Move this to AISettingsTab once the setting is only available
+  // there and not in the general settings screen anymore.
+  #onConsoleInsightsSettingChanged(): void {
+    const setting = Common.Settings.Settings.instance().moduleSetting('console-insights-enabled').get();
+    if (!setting) {
+      Common.Settings.Settings.instance().createLocalSetting('console-insights-onboarding-finished', false).set(false);
     }
   }
 

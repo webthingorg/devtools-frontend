@@ -205,6 +205,14 @@ const str_ = i18n.i18n.registerUIStrings('panels/console/ConsoleViewMessage.ts',
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 const elementToMessage = new WeakMap<Element, ConsoleViewMessage>();
 
+export class CloseEvent extends Event {
+  static readonly eventName = 'close';
+
+  constructor(public immediate = false) {
+    super(CloseEvent.eventName, {composed: true, bubbles: true});
+  }
+}
+
 export const getMessageForElement = (element: Element): ConsoleViewMessage|undefined => {
   return elementToMessage.get(element);
 };
@@ -322,14 +330,19 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
     this.elementInternal?.querySelector('devtools-console-insight')?.remove();
     this.elementInternal?.append(insight);
     this.elementInternal?.classList.toggle('has-insight', true);
-    insight.addEventListener('close', () => {
-      Host.userMetrics.actionTaken(Host.UserMetrics.Action.InsightClosed);
+    insight.addEventListener('close', (event: Event) => {
+      const {immediate} = event as CloseEvent;
       this.elementInternal?.classList.toggle('has-insight', false);
-      insight.addEventListener('animationend', () => {
+      if (immediate) {
         this.elementInternal?.removeChild(insight);
-      }, {
-        once: true,
-      });
+      } else {
+        Host.userMetrics.actionTaken(Host.UserMetrics.Action.InsightClosed);
+        insight.addEventListener('animationend', () => {
+          this.elementInternal?.removeChild(insight);
+        }, {
+          once: true,
+        });
+      }
     }, {once: true});
   }
 
