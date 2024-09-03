@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "75b9edcc_33ef6904",
+        "filename": "front_end/models/live-metrics/LiveMetrics.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-09-03T19:40:05Z",
+      "side": 1,
+      "message": "I think that\u0027s a good idea, but I think keeping this line is still good in case of a crash or something.",
+      "parentUuid": "e3bf7eca_77c0034a",
+      "range": {
+        "startLine": 328,
+        "startChar": 7,
+        "endLine": 328,
+        "endChar": 28
+      },
+      "revId": "4ff293620707e3079bf6771853f24bcfe21f1a0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e87629e1_edbf6126",
         "filename": "front_end/models/live-metrics/web-vitals-injected/web-vitals-injected.ts",
         "patchSetId": 5
@@ -54,6 +78,30 @@
       "writtenOn": "2024-09-03T19:18:32Z",
       "side": 1,
       "message": "Just to clarify, we are running this script in the execution context we create with the name of the var `LIVE_METRICS_WORLD_NAME`, and that would prevent us from accidentally removing / disconnecting user event listeners here. Is that correct?",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 43
+      },
+      "revId": "4ff293620707e3079bf6771853f24bcfe21f1a0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a89bf32d_4057cb5f",
+        "filename": "front_end/models/live-metrics/web-vitals-injected/web-vitals-injected.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-09-03T19:40:05Z",
+      "side": 1,
+      "message": "Correct.",
+      "parentUuid": "e87629e1_edbf6126",
       "range": {
         "startLine": 54,
         "startChar": 0,
