@@ -76,6 +76,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "da074bde_f77e1576",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 2861,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-03T10:29:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9791d4e1_1f962edd",
+      "range": {
+        "startLine": 2861,
+        "startChar": 10,
+        "endLine": 2861,
+        "endChar": 19
+      },
+      "revId": "c5f0bd6051ab9e64a878eb4d12efa15a7ccae8a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "92d1512d_f66aafb8",
@@ -89,6 +113,30 @@
       "writtenOn": "2024-09-02T09:52:20Z",
       "side": 1,
       "message": "This map is populated in `TimelinePanel` and is currently only adding colors for TraceEventData entries. We need to add colors for `LegacyTimelineFrame` entries in there too so they are displayed with correct colors in the Annotations SidePanel.\n\nWe can merge this cl and fix this later.",
+      "range": {
+        "startLine": 22,
+        "startChar": 54,
+        "endLine": 22,
+        "endChar": 113
+      },
+      "revId": "c5f0bd6051ab9e64a878eb4d12efa15a7ccae8a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df0b9575_a465f5e6",
+        "filename": "front_end/panels/timeline/components/SidebarAnnotationsTab.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-03T10:29:51Z",
+      "side": 1,
+      "message": "This does actually work:`getEntryColorByEntry` does support frames and returns the colour \"white\"...so the problem is that it looks like there is no colour there. We can improve this in a follow-up 😊",
+      "parentUuid": "92d1512d_f66aafb8",
       "range": {
         "startLine": 22,
         "startChar": 54,
