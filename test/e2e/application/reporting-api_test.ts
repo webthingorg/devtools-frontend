@@ -54,7 +54,7 @@ describe('The Reporting API Page', () => {
   it('shows endpoints', async () => {
     await goToResource('application/reporting-api.rawresponse');
     await click('#tab-resources');
-    await waitFor('.storage-group-list-item');  // Make sure the application navigation list is shown
+    await waitFor('.group-header');  // Make sure the application navigation list is shown
     await click(REPORTING_API_SELECTOR);
     const endpointsGrid = await $('devtools-resources-endpoints-grid');
     if (!endpointsGrid) {

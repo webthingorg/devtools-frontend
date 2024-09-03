@@ -47,11 +47,6 @@
   border-top-color: var(--sys-color-tonal-container);
 }
 
-.tree-outline li:hover:not(:has(span[is="dt-checkbox"])) .selection {
-  display: block;
-  background-color: var(--sys-color-state-hover-on-subtle);
-}
-
 .tree-outline:not(.hide-selection-when-blurred) li.hovered:not(.selected) .selection {
   display: block;
   left: 3px;
@@ -66,6 +61,11 @@
 
 ol.tree-outline:not(.hide-selection-when-blurred) li.selected:focus .selection {
   background-color: var(--sys-color-tonal-container);
+}
+
+.tree-outline:not(.tree-variant-navigation) li:hover:not(:has(span[is="dt-checkbox"])) .selection {
+  display: block;
+  background-color: var(--sys-color-state-hover-on-subtle);
 }
 
 ol.tree-outline,
@@ -168,6 +168,10 @@ ol.tree-outline:not(.hide-selection-when-blurred) li.selected:focus {
 }
 
 /* Navigation tree variant */
+.tree-outline.tree-variant-navigation {
+  padding: var(--sys-size-3) 0 var(--sys-size-3) var(--sys-size-3);
+}
+
 /* It does not look like the linter works with CSS nesting correctly. */
 /* stylelint-disable no-descending-specificity */
 .tree-outline.tree-variant-navigation li,
@@ -203,6 +207,10 @@ ol.tree-outline:not(.hide-selection-when-blurred) li.selected:focus {
     }
   }
 
+  &.group-header:not(:first-child) {
+    margin-top: var(--sys-size-6);
+  }
+
   &:active .selection::before {
     background-color: var(--sys-color-state-ripple-neutral-on-subtle);
     content: "";
@@ -212,6 +220,23 @@ ol.tree-outline:not(.hide-selection-when-blurred) li.selected:focus {
     position: absolute;
     top: 0;
     left: 0;
+  }
+
+  &.group-header {
+    padding: 0 var(--sys-size-8) 0 var(--sys-size-3);
+
+    &::before {
+      display: none;
+    }
+
+    &:hover .selection,
+    &:active .selection {
+      background-color: transparent;
+    }
+
+    & + ol {
+      padding-left: 0;
+    }
   }
 
   & .leading-icons {

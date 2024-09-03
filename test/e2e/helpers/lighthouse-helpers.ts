@@ -150,7 +150,7 @@ export async function getHelpText() {
 
 export async function openStorageView() {
   await click('#tab-resources');
-  await waitFor('.storage-group-list-item');
+  await waitFor('.group-header');
   await click('[aria-label="Storage"]');
 }
 
