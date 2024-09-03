@@ -750,7 +750,8 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     const selection = dataProvider.createSelection(event.data);
     if (selection &&
         (TimelineSelection.isTraceEventSelection(selection.object) ||
-         TimelineSelection.isSyntheticNetworkRequestDetailsEventSelection(selection.object))) {
+         TimelineSelection.isSyntheticNetworkRequestDetailsEventSelection(selection.object) ||
+         TimelineSelection.isFrameObject(selection.object))) {
       this.setSelectionAndReveal(selection);
       ModificationsManager.activeManager()?.createAnnotation({
         type: 'ENTRY_LABEL',
@@ -766,11 +767,11 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     const fromSelectionObject = (entryFromIndex) ? this.#selectionIfTraceEvent(entryFromIndex, dataProvider) : null;
 
     if (fromSelectionObject) {
-        this.#linkSelectionAnnotation = {
-          type: 'ENTRIES_LINK',
-          entryFrom: fromSelectionObject,
-        };
-        ModificationsManager.activeManager()?.createAnnotation(this.#linkSelectionAnnotation);
+      this.#linkSelectionAnnotation = {
+        type: 'ENTRIES_LINK',
+        entryFrom: fromSelectionObject,
+      };
+      ModificationsManager.activeManager()?.createAnnotation(this.#linkSelectionAnnotation);
     }
   }
 
