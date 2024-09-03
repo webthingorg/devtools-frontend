@@ -105,6 +105,24 @@
       "message": "This is where live metrics get disabled before the trace starts. I kinda just picked a place that made sense but open to other suggestions.",
       "revId": "60d3118e1f87a61bc1690002d3d0cdbdca91b7f1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b856df74_916b2379",
+        "filename": "front_end/panels/timeline/TimelineController.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-09-03T19:18:32Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "e9f88687_b827949f",
+      "revId": "60d3118e1f87a61bc1690002d3d0cdbdca91b7f1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
