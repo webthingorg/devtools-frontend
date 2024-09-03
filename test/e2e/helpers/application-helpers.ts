@@ -25,7 +25,7 @@ export async function navigateToApplicationTab(_target: puppeteer.Page, testName
   await frontend.bringToFront();
   await click('#tab-resources');
   // Make sure the application navigation list is shown
-  await waitFor('.storage-group-list-item');
+  await waitFor('.group-header');
   await expectVeEvents([veClick('Toolbar: main > PanelTabHeader: resources'), veImpressionForApplicationPanel()]);
 }
 
