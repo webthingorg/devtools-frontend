@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de241992_63af1ec6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-09-03T21:48:50Z",
+      "side": 1,
+      "message": "Is it possible to add some tests in CSSPropertyIconResolver.test.ts for new cases of `findIcon`?",
+      "revId": "1186a47e9c0e8ae5cba58ba36e3e6f4370d749d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
