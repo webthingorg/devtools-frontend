@@ -153,7 +153,7 @@ function getInputPlaceholderString(aidaAvailability: Host.AidaClient.AidaAccessP
   }
 }
 
-export interface CollapsibleStep {
+export interface Step {
   isLoading: boolean;
   thought?: string;
   title?: string;
@@ -179,7 +179,7 @@ export interface UserChatMessage {
 export interface ModelChatMessage {
   entity: ChatMessageEntity.MODEL;
   suggestingFix: boolean;
-  steps: CollapsibleStep[];
+  steps: Step[];
   answer?: string;
   error?: string;
   rpcId?: number;
@@ -329,7 +329,7 @@ export class FreestylerChatUi extends HTMLElement {
     // clang-format on
   }
 
-  #renderTitle(step: CollapsibleStep): LitHtml.LitTemplate {
+  #renderTitle(step: Step): LitHtml.LitTemplate {
     if (step.isLoading) {
       return LitHtml.html`<span>Loading...</span>`;
     }
@@ -338,7 +338,7 @@ export class FreestylerChatUi extends HTMLElement {
     return LitHtml.html`<span>${actionTitle}</span>`;
   }
 
-  #renderStepDetails(step: CollapsibleStep, options: {isLast: boolean}): LitHtml.LitTemplate {
+  #renderStepDetails(step: Step, options: {isLast: boolean}): LitHtml.LitTemplate {
     const sideEffects =
         options.isLast && step.sideEffect ? this.#renderSideEffectConfirmationUi(step.sideEffect) : LitHtml.nothing;
     const thought = step.thought ? LitHtml.html`<p>${this.#renderTextAsMarkdown(step.thought)}</p>` : LitHtml.nothing;
@@ -364,7 +364,7 @@ export class FreestylerChatUi extends HTMLElement {
     // clang-format on
   }
 
-  #renderStep(step: CollapsibleStep, options: {isLast: boolean}): LitHtml.LitTemplate {
+  #renderStep(step: Step, options: {isLast: boolean}): LitHtml.LitTemplate {
     const isLoading = this.#props.isLoading && options.isLast && !step.sideEffect;
     let iconName: string = 'checkmark';
     if (options.isLast && step.sideEffect) {

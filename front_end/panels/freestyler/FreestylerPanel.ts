@@ -11,12 +11,12 @@ import * as LitHtml from '../../ui/lit-html/lit-html.js';
 import {ChangeManager} from './ChangeManager.js';
 import {
   ChatMessageEntity,
-  type CollapsibleStep,
   DOGFOOD_INFO,
   FreestylerChatUi,
   type ModelChatMessage,
   type Props as FreestylerChatUiProps,
   State as FreestylerChatUiState,
+  type Step,
 } from './components/FreestylerChatUi.js';
 import {FIX_THIS_ISSUE_PROMPT, FreestylerAgent, ResponseType} from './FreestylerAgent.js';
 import freestylerPanelStyles from './freestylerPanel.css.js';
@@ -248,9 +248,7 @@ export class FreestylerPanel extends UI.Panel.Panel {
       text,
     });
     this.#viewProps.isLoading = true;
-    // TODO: We should only show "Fix this issue" button when the answer suggests fix or fixes.
-    // We shouldn't show this when the answer is complete like a confirmation without any suggestion.
-    const suggestingFix = !isFixQuery;
+
     const systemMessage: ModelChatMessage = {
       entity: ChatMessageEntity.MODEL,
       suggestingFix: false,
@@ -269,7 +267,7 @@ export class FreestylerPanel extends UI.Panel.Panel {
       this.#viewProps.isLoading = false;
     });
 
-    let step: CollapsibleStep = {isLoading: true};
+    let step: Step = {isLoading: true};
 
     for await (const data of this.#agent.run(text, {signal, isFixQuery})) {
       step.sideEffect = undefined;
@@ -313,7 +311,9 @@ export class FreestylerPanel extends UI.Panel.Panel {
         }
         case ResponseType.ANSWER: {
           step.isLoading = false;
-          systemMessage.suggestingFix = suggestingFix;
+          // TODO: We should only show "Fix this issue" button when the answer suggests fix or fixes.
+          // We shouldn't show this when the answer is complete like a confirmation without any suggestion.
+          systemMessage.suggestingFix = !isFixQuery;
           systemMessage.answer = data.text;
           systemMessage.rpcId = data.rpcId;
           this.#viewProps.isLoading = false;
