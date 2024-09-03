@@ -2,7 +2,11 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as Protocol from '../../generated/protocol.js';
+
+import {type CallFrame, type ScopeChainEntry} from './DebuggerModel.js';
 import {type SourceMap, type SourceMapV3Object} from './SourceMap.js';
+import {SourceMapScopeChainEntry} from './SourceMapScopeChainEntry.js';
 import {
   decodeGeneratedRanges,
   decodeOriginalScopes,
@@ -85,6 +89,89 @@ export class SourceMapScopesInfo {
       }
     })(this.#generatedRanges);
 
+    return result;
+  }
+
+  /**
+   * Constructs a scope chain based on the CallFrame's paused position.
+   *
+   * There are 2 ways how we can construct a original scope chain based on a
+   * V8 paused position:
+   *
+   *   1) We find the inner-most generated range that contains the V8 paused position.
+   *      We'll walk the generated range chain outwards until we find a range that also
+   *      represents an original scope. That original scope is than the inner-most
+   *      original scope and we walk that original scope's parent chain outwards to
+   *      construct the original scope chain.
+   *
+   *   2) We use the source map's mappings to map the V8 paused position back to an
+   *      original position. With the original paused position we can then search for the
+   *      inner-most original scope. The byproduct of that search is the result, the original
+   *      scope chain.
+   *
+   * 1) and 2) can produce different results when the mapped paused position lies in
+   * a different original scope than the inner-most generated range's original scope
+   * (e.g. minifiers that constant fold or otherwise aggressively inline expressions).
+   *
+   * We use approach 2). This is because we have to stay consistent with the rest of the
+   * DevTools UI. Otherwise the obtained scope chain would not fit with the paused
+   * position in the editor view.
+   */
+  resolveMappedScopeChain(callFrame: CallFrame): ScopeChainEntry[]|null {
+    const mappedPausedPosition = this.#sourceMap.findEntry(
+        callFrame.location().lineNumber, callFrame.location().columnNumber, callFrame.location().inlineFrameIndex);
+    if (mappedPausedPosition?.sourceIndex === undefined) {
+      return null;
+    }
+
+    const originalScopeChain = this.#findOriginalScopeChain(
+        mappedPausedPosition.sourceIndex, mappedPausedPosition.sourceLineNumber,
+        mappedPausedPosition.sourceColumnNumber);
+
+    // For the generated range chain we have to use the generated paused position as
+    // reported by V8: These are the only ranges for which we can resolve variable values.
+    // For original scopes that don't have any generated range in the generated range chain,
+    // we have to show that scope's variables as unavailable. This can happen when approach
+    // 1) and 2) produce different results.
+    const rangeChain =
+        this.#findGeneratedRangeChain(callFrame.location().lineNumber, callFrame.location().columnNumber);
+
+    let seenFunctionScope = false;
+    const result: SourceMapScopeChainEntry[] = [];
+    for (let i = originalScopeChain.length - 1; i >= 0; --i) {
+      // Walk the original scope chain outwards and try to find the corresponding generated range along the way.
+      const originalScope = originalScopeChain[i];
+      const range = rangeChain.findLast(r => r.originalScope === originalScope);
+      const isFunctionScope = originalScope.kind === 'function';
+      const isInnerMostFunction = isFunctionScope && !seenFunctionScope;
+      const returnValue = isInnerMostFunction ? callFrame.returnValue() : null;
+      result.push(
+          new SourceMapScopeChainEntry(callFrame, originalScope, range, isInnerMostFunction, returnValue ?? undefined));
+      seenFunctionScope ||= isFunctionScope;
+    }
+
+    // If we are paused on a return statement, we need to drop inner block scopes. This is because V8 only emits a
+    // single return bytecode and "gotos" at the functions' end, where we are now paused.
+    if (callFrame.returnValue() !== null) {
+      while (result.length && result[0].type() !== Protocol.Debugger.ScopeType.Local) {
+        result.shift();
+      }
+    }
+
+    return result;
+  }
+
+  #findOriginalScopeChain(sourceIdx: number, line: number, column: number): OriginalScope[] {
+    const result: OriginalScope[] = [];
+    (function walkScope(scope: OriginalScope) {
+      if (!contains(scope, line, column)) {
+        return;
+      }
+      result.push(scope);
+      for (const child of scope.children) {
+        walkScope(child);
+      }
+    })(this.#originalScopes[sourceIdx]);
     return result;
   }
 }

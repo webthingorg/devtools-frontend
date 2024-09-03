@@ -2,7 +2,11 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+import * as Protocol from '../../generated/protocol.js';
+import {createTarget} from '../../testing/EnvironmentHelpers.js';
+import {describeWithMockConnection} from '../../testing/MockConnection.js';
 import {GeneratedRangeBuilder, OriginalScopeBuilder} from '../../testing/SourceMapEncoder.js';
+import type * as Platform from '../platform/platform.js';
 
 import * as SDK from './sdk.js';
 
@@ -67,6 +71,377 @@ describe('SourceMapScopesInfo', () => {
         {name: 'bar', callsite: {sourceIndex: 0, line: 15, column: 0}},
         {name: 'foo', callsite: undefined},
       ]);
+    });
+  });
+
+  describeWithMockConnection('resolveMappedScopeChain', () => {
+    function setupCallFrameAndSourceMap(options: {
+      generatedPausedPosition: {line: number, column: number},
+      mappedPausedPosition?: {sourceIndex: number, line: number, column: number},
+      returnValue?: SDK.RemoteObject.RemoteObject,
+    }) {
+      const callFrame = sinon.createStubInstance(SDK.DebuggerModel.CallFrame);
+      const target = createTarget();
+      callFrame.debuggerModel = target.model(SDK.DebuggerModel.DebuggerModel)!;
+
+      const {generatedPausedPosition, mappedPausedPosition, returnValue} = options;
+
+      callFrame.location.returns(new SDK.DebuggerModel.Location(
+          callFrame.debuggerModel, '0' as Protocol.Runtime.ScriptId, generatedPausedPosition.line,
+          generatedPausedPosition.column));
+      callFrame.returnValue.returns(returnValue ?? null);
+
+      const sourceMap = sinon.createStubInstance(SDK.SourceMap.SourceMap);
+      if (mappedPausedPosition) {
+        sourceMap.findEntry.returns({
+          lineNumber: generatedPausedPosition.line,
+          columnNumber: generatedPausedPosition.column,
+          sourceIndex: mappedPausedPosition.sourceIndex,
+          sourceLineNumber: mappedPausedPosition.line,
+          sourceColumnNumber: mappedPausedPosition.column,
+          sourceURL: '' as Platform.DevToolsPath.UrlString,
+          name: undefined,
+        });
+      } else {
+        sourceMap.findEntry.returns(null);
+      }
+
+      return {sourceMap, callFrame};
+    }
+
+    it('returns null when the source map doesn\'t have mappings', () => {
+      const names: string[] = [];
+      const originalScopes = [new OriginalScopeBuilder(names).start(0, 0, 'global').end(20, 0).build()];
+
+      const generatedRanges =
+          new GeneratedRangeBuilder(names).start(0, 0, {definition: {sourceIdx: 0, scopeIdx: 0}}).end(0, 100).build();
+
+      const {sourceMap, callFrame} = setupCallFrameAndSourceMap({generatedPausedPosition: {line: 0, column: 50}});
+      const info = SourceMapScopesInfo.parseFromMap(sourceMap, {names, originalScopes, generatedRanges});
+
+      const scopeChain = info.resolveMappedScopeChain(callFrame);
+
+      assert.isNull(scopeChain);
+    });
+
+    it('returns the original global scope when paused in the global scope', () => {
+      const names: string[] = [];
+      const originalScopes = [new OriginalScopeBuilder(names).start(0, 0, 'global').end(20, 0).build()];
+
+      const generatedRanges =
+          new GeneratedRangeBuilder(names).start(0, 0, {definition: {sourceIdx: 0, scopeIdx: 0}}).end(0, 100).build();
+
+      const {sourceMap, callFrame} = setupCallFrameAndSourceMap({
+        generatedPausedPosition: {line: 0, column: 50},
+        mappedPausedPosition: {sourceIndex: 0, line: 10, column: 0},
+      });
+      const info = SourceMapScopesInfo.parseFromMap(sourceMap, {names, originalScopes, generatedRanges});
+
+      const scopeChain = info.resolveMappedScopeChain(callFrame);
+
+      assert.isNotNull(scopeChain);
+      assert.lengthOf(scopeChain, 1);
+      assert.strictEqual(scopeChain[0].type(), Protocol.Debugger.ScopeType.Global);
+    });
+
+    it('returns the inner-most function scope as type "Local" and surrounding function scopes as type "Closure"',
+       () => {
+         const names: string[] = [];
+         const originalScopes = [new OriginalScopeBuilder(names)
+                                     .start(0, 0, 'function', 'outer')
+                                     .start(5, 0, 'function', 'inner')
+                                     .end(15, 0)
+                                     .end(20, 0)
+                                     .build()];
+
+         const generatedRanges = new GeneratedRangeBuilder(names)
+                                     .start(0, 0, {definition: {sourceIdx: 0, scopeIdx: 0}})
+                                     .start(0, 25, {definition: {sourceIdx: 0, scopeIdx: 1}})
+                                     .end(0, 75)
+                                     .end(0, 100)
+                                     .build();
+
+         const {sourceMap, callFrame} = setupCallFrameAndSourceMap({
+           generatedPausedPosition: {line: 0, column: 50},
+           mappedPausedPosition: {sourceIndex: 0, line: 10, column: 0},
+         });
+         const info = SourceMapScopesInfo.parseFromMap(sourceMap, {names, originalScopes, generatedRanges});
+
+         const scopeChain = info.resolveMappedScopeChain(callFrame);
+
+         assert.isNotNull(scopeChain);
+         assert.lengthOf(scopeChain, 2);
+         assert.strictEqual(scopeChain[0].type(), Protocol.Debugger.ScopeType.Local);
+         assert.strictEqual(scopeChain[0].name(), 'inner');
+         assert.strictEqual(scopeChain[1].type(), Protocol.Debugger.ScopeType.Closure);
+         assert.strictEqual(scopeChain[1].name(), 'outer');
+       });
+
+    it('drops inner block scopes if a return value is present to account for V8 oddity', () => {
+      const names: string[] = [];
+      const originalScopes = [new OriginalScopeBuilder(names)
+                                  .start(0, 0, 'function', 'someFn')
+                                  .start(5, 0, 'block')
+                                  .end(15, 0)
+                                  .end(20, 0)
+                                  .build()];
+
+      const generatedRanges = new GeneratedRangeBuilder(names)
+                                  .start(0, 0, {definition: {sourceIdx: 0, scopeIdx: 0}})
+                                  .start(0, 25, {definition: {sourceIdx: 0, scopeIdx: 1}})
+                                  .end(0, 75)
+                                  .end(0, 100)
+                                  .build();
+
+      const {sourceMap, callFrame} = setupCallFrameAndSourceMap({
+        generatedPausedPosition: {line: 0, column: 50},
+        mappedPausedPosition: {sourceIndex: 0, line: 10, column: 0},
+        returnValue: new SDK.RemoteObject.LocalJSONObject(42),
+      });
+      const info = SourceMapScopesInfo.parseFromMap(sourceMap, {names, originalScopes, generatedRanges});
+
+      const scopeChain = info.resolveMappedScopeChain(callFrame);
+
+      assert.isNotNull(scopeChain);
+      assert.lengthOf(scopeChain, 1);
+      assert.strictEqual(scopeChain[0].type(), Protocol.Debugger.ScopeType.Local);
+    });
+
+    it('works when the mapped paused position is an ancestor scope of the inner-most generated range\'s original scope',
+       () => {
+         //
+         // orig. scope                        gen. ranges
+         //
+         // | global                            | global
+         // |                                   |
+         // x (mapped paused position)          |  | someFn
+         // |                                   |  |
+         // |  | someFn                         |  x (V8 paused position)
+         // |  |                                |  |
+         // |  |                                |
+         // |
+         //
+         // Expectation: Report only the original global scope.
+
+         const names: string[] = [];
+         const originalScopes = [new OriginalScopeBuilder(names)
+                                     .start(0, 0, 'global')
+                                     .start(5, 0, 'function', 'someFn')
+                                     .end(15, 0)
+                                     .end(20, 0)
+                                     .build()];
+
+         const generatedRanges = new GeneratedRangeBuilder(names)
+                                     .start(0, 0, {definition: {sourceIdx: 0, scopeIdx: 0}})
+                                     .start(0, 25, {definition: {sourceIdx: 0, scopeIdx: 1}})
+                                     .end(0, 75)
+                                     .end(0, 100)
+                                     .build();
+
+         const {sourceMap, callFrame} = setupCallFrameAndSourceMap({
+           generatedPausedPosition: {line: 0, column: 50},
+           mappedPausedPosition: {sourceIndex: 0, line: 2, column: 0},
+         });
+         const info = SourceMapScopesInfo.parseFromMap(sourceMap, {names, originalScopes, generatedRanges});
+
+         const scopeChain = info.resolveMappedScopeChain(callFrame);
+
+         assert.isNotNull(scopeChain);
+         assert.lengthOf(scopeChain, 1);
+         assert.strictEqual(scopeChain[0].type(), Protocol.Debugger.ScopeType.Global);
+       });
+
+    it('works when the mapped paused position is a child scope of the inner-most generated range\'s original scope',
+       async () => {
+         //
+         // orig. scope                        gen. ranges
+         //
+         // | global                            | global
+         // |                                   |
+         // |  | someFn                         x (V8 paused position)
+         // |  |                                |
+         // |  x (mapped paused position)       |  | someFn
+         // |  |                                |  |
+         // |                                   |
+         //
+         // Expectation: Report global scope and function scope for 'someFn'. But 'someFn' variables are unavailable.
+
+         const names: string[] = [];
+         const originalScopes = [new OriginalScopeBuilder(names)
+                                     .start(0, 0, 'global')
+                                     .start(5, 0, 'function', 'someFn', ['someVariable'])
+                                     .end(15, 0)
+                                     .end(20, 0)
+                                     .build()];
+
+         const generatedRanges = new GeneratedRangeBuilder(names)
+                                     .start(0, 0, {definition: {sourceIdx: 0, scopeIdx: 0}})
+                                     .start(0, 25, {definition: {sourceIdx: 0, scopeIdx: 1}, bindings: ['n']})
+                                     .end(0, 75)
+                                     .end(0, 100)
+                                     .build();
+
+         const {sourceMap, callFrame} = setupCallFrameAndSourceMap({
+           generatedPausedPosition: {line: 0, column: 10},
+           mappedPausedPosition: {sourceIndex: 0, line: 10, column: 0},
+         });
+         const info = SourceMapScopesInfo.parseFromMap(sourceMap, {names, originalScopes, generatedRanges});
+
+         const scopeChain = info.resolveMappedScopeChain(callFrame);
+
+         assert.isNotNull(scopeChain);
+         assert.lengthOf(scopeChain, 2);
+         assert.strictEqual(scopeChain[0].type(), Protocol.Debugger.ScopeType.Local);
+         assert.strictEqual(scopeChain[0].name(), 'someFn');
+         assert.strictEqual(scopeChain[1].type(), Protocol.Debugger.ScopeType.Global);
+
+         // Attempt to get `someFn`s  variables and check that we never call callFrame.evaluate.
+         const {properties} = await scopeChain[0].object().getAllProperties(
+             /* accessorPropertiesOnly */ false, /* generatePreview */ true, /* nonIndexedPropertiesOnly */ false);
+         assert.isNotNull(properties);
+         assert.lengthOf(properties, 1);
+         assert.strictEqual(properties[0].name, 'someVariable');
+         assert.isUndefined(properties[0].value);
+         assert.isUndefined(properties[0].getter);
+
+         assert.isFalse(callFrame.evaluate.called);
+       });
+
+    it('works when the mapped paused position is in a sibling scope of the inner-most generated range\'s original scope',
+       async () => {
+         //
+         // orig. scope                        gen. ranges
+         //
+         // | global                            | global
+         // |                                   |
+         // |  | fooFn                          |  | fooFn
+         // |  |                                |  |
+         // |  x (mapped paused position)       |  |
+         // |  |                                |  |
+         // |                                   |
+         // |  | barFn                          |  | barFn
+         // |  |                                |  |
+         // |  |                                |  x (V8 paused position)
+         // |  |                                |  |
+         // |                                   |
+         //
+         // Expectation: Report global scope and function scope for 'fooFn'. But 'fooFn' variables are unavailable.
+
+         const names: string[] = [];
+         const originalScopes = [new OriginalScopeBuilder(names)
+                                     .start(0, 0, 'global')
+                                     .start(10, 0, 'function', 'fooFn', ['fooVariable'])
+                                     .end(20, 0)
+                                     .start(30, 0, 'function', 'barFn', ['barVariable'])
+                                     .end(40, 0)
+                                     .end(50, 0)
+                                     .build()];
+
+         const generatedRanges = new GeneratedRangeBuilder(names)
+                                     .start(0, 0, {definition: {sourceIdx: 0, scopeIdx: 0}})
+                                     .start(0, 20, {definition: {sourceIdx: 0, scopeIdx: 1}, bindings: ['n']})
+                                     .end(0, 40)
+                                     .start(0, 60, {definition: {sourceIdx: 0, scopeIdx: 3}, bindings: ['m']})
+                                     .end(0, 80)
+                                     .end(0, 100)
+                                     .build();
+
+         const {sourceMap, callFrame} = setupCallFrameAndSourceMap({
+           generatedPausedPosition: {line: 0, column: 70},
+           mappedPausedPosition: {sourceIndex: 0, line: 15, column: 0},
+         });
+         const info = SourceMapScopesInfo.parseFromMap(sourceMap, {names, originalScopes, generatedRanges});
+
+         const scopeChain = info.resolveMappedScopeChain(callFrame);
+
+         assert.isNotNull(scopeChain);
+         assert.lengthOf(scopeChain, 2);
+         assert.strictEqual(scopeChain[0].type(), Protocol.Debugger.ScopeType.Local);
+         assert.strictEqual(scopeChain[0].name(), 'fooFn');
+         assert.strictEqual(scopeChain[1].type(), Protocol.Debugger.ScopeType.Global);
+
+         // Attempt to get `fooFn`s  variables and check that we never call callFrame.evaluate.
+         const {properties} = await scopeChain[0].object().getAllProperties(
+             /* accessorPropertiesOnly */ false, /* generatePreview */ true, /* nonIndexedPropertiesOnly */ false);
+         assert.isNotNull(properties);
+         assert.lengthOf(properties, 1);
+         assert.strictEqual(properties[0].name, 'fooVariable');
+         assert.isUndefined(properties[0].value);
+         assert.isUndefined(properties[0].getter);
+
+         assert.isFalse(callFrame.evaluate.called);
+       });
+
+    it('prefers inner ranges when the range chain has multiple ranges for the same original scope', async () => {
+      // This frequently happens when transpiling async/await or generators.
+      //
+      // orig. scope                        gen. ranges
+      //
+      // | global                            | global
+      // |                                   |
+      // |  | someFn                         |  | someFn
+      // |  |                                |  |
+      // |  x (mapped paused position)       |  |  | someFn
+      // |  |                                |  |  |
+      // |                                   |  |  x (V8 paused position)
+      // |                                   |  |  |
+      // |                                   |  |
+      // |                                   |
+      //
+      // Expectation: Report global scope and function scope for 'someFn'. Use bindings from inner 'someFn' range.
+      //
+      // TODO(crbug.com/40277685): Combine the ranges as some variables might be available in one range, but
+      //         not the other. This requires us to be able to evaluate binding expressions in arbitrary
+      //         CDP scopes to work well.
+
+      const names: string[] = [];
+      const originalScopes = [new OriginalScopeBuilder(names)
+                                  .start(0, 0, 'global')
+                                  .start(10, 0, 'function', 'someFn', ['fooVariable', 'barVariable'])
+                                  .end(20, 0)
+                                  .end(30, 0)
+                                  .build()];
+
+      const generatedRanges = new GeneratedRangeBuilder(names)
+                                  .start(0, 0, {definition: {sourceIdx: 0, scopeIdx: 0}})
+                                  .start(0, 20, {definition: {sourceIdx: 0, scopeIdx: 1}, bindings: [undefined, 'b']})
+                                  .start(0, 40, {definition: {sourceIdx: 0, scopeIdx: 1}, bindings: ['f', undefined]})
+                                  .end(0, 60)
+                                  .end(0, 80)
+                                  .end(0, 100)
+                                  .build();
+
+      const {sourceMap, callFrame} = setupCallFrameAndSourceMap({
+        generatedPausedPosition: {line: 0, column: 50},
+        mappedPausedPosition: {sourceIndex: 0, line: 15, column: 0},
+      });
+      const info = SourceMapScopesInfo.parseFromMap(sourceMap, {names, originalScopes, generatedRanges});
+
+      const scopeChain = info.resolveMappedScopeChain(callFrame);
+
+      assert.isNotNull(scopeChain);
+      assert.lengthOf(scopeChain, 2);
+      assert.strictEqual(scopeChain[0].type(), Protocol.Debugger.ScopeType.Local);
+      assert.strictEqual(scopeChain[0].name(), 'someFn');
+      assert.strictEqual(scopeChain[1].type(), Protocol.Debugger.ScopeType.Global);
+
+      // Attempt to get `someFn`s  variables and check that we only call callFrame.evaluate once.
+      callFrame.evaluate.callsFake(({expression}) => {
+        assert.strictEqual(expression, 'f');
+        return Promise.resolve({object: new SDK.RemoteObject.LocalJSONObject(42)});
+      });
+      const {properties} = await scopeChain[0].object().getAllProperties(
+          /* accessorPropertiesOnly */ false, /* generatePreview */ true, /* nonIndexedPropertiesOnly */ false);
+      assert.isNotNull(properties);
+      assert.lengthOf(properties, 2);
+      assert.strictEqual(properties[0].name, 'fooVariable');
+      assert.strictEqual(properties[0].value?.value, 42);
+
+      assert.strictEqual(properties[1].name, 'barVariable');
+      assert.isUndefined(properties[1].value);
+      assert.isUndefined(properties[1].getter);
+
+      assert.isTrue(callFrame.evaluate.calledOnce);
     });
   });
 });
