@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2143835_0e16b966",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1378025
+      },
+      "writtenOn": "2024-09-03T07:49:36Z",
+      "side": 1,
+      "message": "+leese, i need a second vote because i\u0027m not a committer in devtools-*",
+      "revId": "ec475cfd5e848b9465e2aaa877b08362172ef63a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
