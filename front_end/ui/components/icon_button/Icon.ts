@@ -105,6 +105,7 @@ export class Icon extends HTMLElement {
       width: this.style.width,
       height: this.style.height,
       iconName: this.name ?? '',
+      content: this.style.content,
     };
   }
 
@@ -153,6 +154,9 @@ export class Icon extends HTMLElement {
     }
     switch (name) {
       case 'name': {
+        if (this.name === 'icon-with-content') {
+          this.#icon.className = 'icon-with-content';
+        }
         if (newValue === null) {
           this.#icon.style.removeProperty('--icon-url');
         } else {
