@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cabf42ed_fcf2191c",
+        "filename": "front_end/models/trace/insights/ThirdPartyWeb.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-03T17:46:31Z",
+      "side": 1,
+      "message": "this I prefix style isn\u0027t devtools convention. (i\u0027m happy for that but anyway)\n\nlets drop the I or rename or w/e",
+      "revId": "0ef5bb1ec74bc4ac44f264a0e343b06028efcade",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8cba9cae_56a06f6b",
+        "filename": "front_end/models/trace/insights/ThirdPartyWeb.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-03T17:46:31Z",
+      "side": 1,
+      "message": "wouldnt it not make it here cuz of L68?",
+      "revId": "0ef5bb1ec74bc4ac44f264a0e343b06028efcade",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "049253cb_6cf34755",
+        "filename": "front_end/models/trace/insights/ThirdPartyWeb.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-03T17:46:31Z",
+      "side": 1,
+      "message": "also do we need to parse to URL ? could also do a startsWith.",
+      "revId": "0ef5bb1ec74bc4ac44f264a0e343b06028efcade",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f718f4f_8c9c05a5",
+        "filename": "front_end/models/trace/insights/ThirdPartyWeb.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-03T17:46:31Z",
+      "side": 1,
+      "message": "can you use the shorter name prettyplz\n\n```suggestion\n    traceData: RequiredData\u003ctypeof deps\u003e, context: NavigationInsightContext): Map\u003cstring, number\u003e {\n```",
+      "revId": "0ef5bb1ec74bc4ac44f264a0e343b06028efcade",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a531b026_60eaab38",
+        "filename": "front_end/models/trace/insights/ThirdPartyWeb.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-03T17:46:31Z",
+      "side": 1,
+      "message": "now that this is all here... i wonder using this treewalker would give us any different results vs iterating over `thread.events` and summing up their associated selfTimes",
+      "revId": "0ef5bb1ec74bc4ac44f264a0e343b06028efcade",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
