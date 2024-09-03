@@ -119,7 +119,9 @@ function launchChrome() {
     '--enable-blink-features=CSSContainerQueries,HighlightInheritance',  // TODO(crbug.com/1218390) Remove globally enabled flags and conditionally enable them
     '--disable-blink-features=WebAssemblyJSPromiseIntegration',  // TODO(crbug.com/325123665) Remove once heap snapshots work again with JSPI
     `--disable-features=${disabledFeatures.join(',')}`,
-    '--disable-field-trial-config',
+    '--force-fieldtrials=*BrowserThreadPoolAdjustmentForDesktop/thread_pool_default_20230920',
+    '--force-fieldtrials-params=BrowserThreadPoolAdjustmentForDesktop.thread_pool_default_20230920:BrowserThreadPoolCoresMultiplier/0%2E6/BrowserThreadPoolMax/32/BrowserThreadPoolMin/16/BrowserThreadPoolOffset/0',
+    '--enable-features=BrowserThreadPoolAdjustment<BrowserThreadPoolAdjustmentForDesktop',
   ];
   const opts: puppeteer.LaunchOptions&puppeteer.BrowserLaunchArgumentOptions&puppeteer.BrowserConnectOptions = {
     headless,
