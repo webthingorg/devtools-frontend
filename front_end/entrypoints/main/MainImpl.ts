@@ -635,6 +635,15 @@ export class MainImpl {
     MainImpl.timeEnd('Main._initializeTarget');
   }
 
+  // TODO(crbug.com/350668580) Move this to AISettingsTab once the setting is only available
+  // there and not in the general settings screen anymore.
+  #onConsoleInsightsSettingChanged(): void {
+    const setting = Common.Settings.Settings.instance().moduleSetting('console-insights-enabled').get();
+    if (!setting) {
+      Common.Settings.Settings.instance().createLocalSetting('console-insights-onboarding-finished', false).set(false);
+    }
+  }
+
   async #lateInitialization(): Promise<void> {
     MainImpl.time('Main._lateInitialization');
     Extensions.ExtensionServer.ExtensionServer.instance().initializeExtensions();
@@ -659,6 +668,13 @@ export class MainImpl {
         Common.Settings.Settings.instance().moduleSetting(setting).addChangeListener(changeListener);
       }
     }
+
+    // TODO(crbug.com/350668580) Move this to AISettingsTab once the setting is only available
+    // there and not in the general settings screen anymore.
+    Common.Settings.Settings.instance()
+        .moduleSetting('console-insights-enabled')
+        .addChangeListener(this.#onConsoleInsightsSettingChanged, this);
+
     this.#lateInitDonePromise = Promise.all(promises).then(() => undefined);
     MainImpl.timeEnd('Main._lateInitialization');
   }
