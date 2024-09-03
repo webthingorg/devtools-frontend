@@ -1,0 +1,136 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f564441a_71b7bc4d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-03T16:34:26Z",
+      "side": 1,
+      "message": "lgtm with some small tweaks. I\u0027m still not sold on needing the context menu...but I don\u0027t feel that strongly. I\u0027m just struggling to picture anyone discovering it tbh 😄",
+      "revId": "36736daa36b393a98031b35e47d9b1997cd1dc50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0eafe93d_f317171c",
+        "filename": "front_end/panels/timeline/TimelineMiniMap.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-03T16:34:26Z",
+      "side": 1,
+      "message": "let\u0027s only do the cast once\n\n```\nconst event \u003d e as ...\n```",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 105
+      },
+      "revId": "36736daa36b393a98031b35e47d9b1997cd1dc50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85189427_b6f7de39",
+        "filename": "front_end/panels/timeline/components/Breadcrumbs.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-03T16:34:26Z",
+      "side": 1,
+      "message": "nit: for readability let\u0027s swap this\n\n```\nif(!isTraceWindowWithinWindow(a, b)) {\n  throw new Error()\n}\n```\n\nand then the main body of the function isn\u0027t nested in a level.",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 102
+      },
+      "revId": "36736daa36b393a98031b35e47d9b1997cd1dc50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8005faf9_c392dd4e",
+        "filename": "front_end/panels/timeline/components/BreadcrumbsUI.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-03T16:34:26Z",
+      "side": 1,
+      "message": "should we rename this to `initialBreadcrumb` too? else it\u0027s not clear what this is and how it is different to `activeBreadcrumb`\n\n(maybe a comment here would be helpful to remind us in 6 months too!)",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 48
+      },
+      "revId": "36736daa36b393a98031b35e47d9b1997cd1dc50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2170ad3c_7b322307",
+        "filename": "front_end/panels/timeline/components/BreadcrumbsUI.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-03T16:34:26Z",
+      "side": 1,
+      "message": "do you think we need this? I\u0027m struggling to see when people would use it, or even think to right click.",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 3
+      },
+      "revId": "36736daa36b393a98031b35e47d9b1997cd1dc50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a8fff61_2fde3215",
+        "filename": "front_end/panels/timeline/components/BreadcrumbsUI.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-03T16:34:26Z",
+      "side": 1,
+      "message": "this could be `nothing`",
+      "range": {
+        "startLine": 137,
+        "startChar": 43,
+        "endLine": 137,
+        "endChar": 49
+      },
+      "revId": "36736daa36b393a98031b35e47d9b1997cd1dc50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
