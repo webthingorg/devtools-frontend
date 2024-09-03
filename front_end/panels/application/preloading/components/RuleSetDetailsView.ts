@@ -26,6 +26,8 @@ export type RuleSetDetailsViewData = RuleSet|null;
 export class RuleSetDetailsView extends LegacyWrapper.LegacyWrapper.WrappableComponent<UI.Widget.VBox> {
   readonly #shadow = this.attachShadow({mode: 'open'});
   #data: RuleSetDetailsViewData = null;
+  #formatedSourceText?: string;
+  #shouldPrettyPrint: boolean = true;
   #editorState?: CodeMirror.EditorState;
 
   connectedCallback(): void {
@@ -35,6 +37,14 @@ export class RuleSetDetailsView extends LegacyWrapper.LegacyWrapper.WrappableCom
   set data(data: RuleSetDetailsViewData) {
     this.#data = data;
     void this.#render();
+  }
+
+  set formatedSourceText(formatedSourceText: string) {
+    this.#formatedSourceText = formatedSourceText;
+  }
+
+  set shouldPrettyPrint(shouldPrettyPrint: boolean) {
+    this.#shouldPrettyPrint = shouldPrettyPrint;
   }
 
   async #render(): Promise<void> {
@@ -87,9 +97,10 @@ export class RuleSetDetailsView extends LegacyWrapper.LegacyWrapper.WrappableCom
 
   #renderSource(): LitHtml.LitTemplate {
     this.#editorState = CodeMirror.EditorState.create({
-      doc: this.#data?.sourceText,
+      doc: this.#shouldPrettyPrint ? this.#formatedSourceText : this.#data?.sourceText,
       extensions: [
-        TextEditor.Config.baseConfiguration(this.#data?.sourceText || ''),
+        TextEditor.Config.baseConfiguration(
+            (this.#shouldPrettyPrint ? this.#formatedSourceText : this.#data?.sourceText) || ''),
         CodeMirror.lineNumbers(),
         CodeMirror.EditorState.readOnly.of(true),
         codeMirrorJsonType as CodeMirror.Extension,
