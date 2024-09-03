@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfd66409_9479c648",
+        "filename": "front_end/core/sdk/NetworkRequest.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 3584853
+      },
+      "writtenOn": "2024-09-03T14:55:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aa115db3_6772031c",
+      "range": {
+        "startLine": 206,
+        "startChar": 86,
+        "endLine": 206,
+        "endChar": 94
+      },
+      "revId": "bde13b89149f6728652b5de091b87d11ecc669b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "773da18a_0f203339",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-09-03T14:46:24Z",
       "side": 1,
       "message": "Remove for the same reason.",
+      "range": {
+        "startLine": 210,
+        "startChar": 103,
+        "endLine": 210,
+        "endChar": 111
+      },
+      "revId": "bde13b89149f6728652b5de091b87d11ecc669b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d764dc76_8205d99e",
+        "filename": "front_end/core/sdk/NetworkRequest.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 3584853
+      },
+      "writtenOn": "2024-09-03T14:55:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "773da18a_0f203339",
       "range": {
         "startLine": 210,
         "startChar": 103,
