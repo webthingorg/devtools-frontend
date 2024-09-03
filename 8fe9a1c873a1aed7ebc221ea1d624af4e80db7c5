@@ -33,6 +33,24 @@
       "message": "LGTM but out of curiosity, why do we need this?",
       "revId": "8fe9a1c873a1aed7ebc221ea1d624af4e80db7c5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a83c2f6_bf66133d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-09-03T14:47:30Z",
+      "side": 1,
+      "message": "We don\u0027t need it for functionality, but the existing helper concatenates multiple words directly onto each other. The expected test output is easier to read if there is a space separating words.",
+      "parentUuid": "94ee2ccc_1a2f4eec",
+      "revId": "8fe9a1c873a1aed7ebc221ea1d624af4e80db7c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
