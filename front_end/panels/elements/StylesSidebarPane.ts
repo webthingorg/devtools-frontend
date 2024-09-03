@@ -2080,6 +2080,8 @@ export class CSSPropertyPrompt extends UI.TextPrompt.TextPrompt {
       // TODO(crbug/1139945): Find a better way to get the flex container styles.
       const iconInfo = ElementsComponents.CSSPropertyIconResolver.findIcon(
           this.isEditingName ? result.text : `${this.treeElement.property.name}: ${result.text}`,
+          result.text,                     // propertyValue
+          this.treeElement.property.name,  // propertyName
           this.selectedNodeComputedStyles, this.parentNodeComputedStyles);
       if (!iconInfo) {
         continue;
@@ -2093,9 +2095,17 @@ export class CSSPropertyPrompt extends UI.TextPrompt.TextPrompt {
         height,
         color: 'var(--icon-default)',
       };
-      icon.style.transform = `rotate(${iconInfo.rotate}deg) scale(${iconInfo.scaleX * 1.1}, ${iconInfo.scaleY * 1.1})`;
       icon.style.maxHeight = height;
       icon.style.maxWidth = width;
+
+      if (iconInfo.content) {
+        icon.style.setProperty('--content', `"${iconInfo.content}"`);
+      }
+      if (iconInfo.rotate && iconInfo.scaleX && iconInfo.scaleY) {
+        icon.style.transform =
+            `rotate(${iconInfo.rotate}deg) scale(${iconInfo.scaleX * 1.1}, ${iconInfo.scaleY * 1.1})`;
+      }
+
       result.iconElement = icon;
     }
 
