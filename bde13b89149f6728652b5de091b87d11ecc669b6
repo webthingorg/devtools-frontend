@@ -16,6 +16,52 @@
       "message": "LGTM",
       "revId": "bde13b89149f6728652b5de091b87d11ecc669b6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa115db3_6772031c",
+        "filename": "front_end/core/sdk/NetworkRequest.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2024-09-03T14:46:24Z",
+      "side": 1,
+      "message": "Remove. We no longer use the \"phaseout\" term.",
+      "range": {
+        "startLine": 206,
+        "startChar": 86,
+        "endLine": 206,
+        "endChar": 94
+      },
+      "revId": "bde13b89149f6728652b5de091b87d11ecc669b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "773da18a_0f203339",
+        "filename": "front_end/core/sdk/NetworkRequest.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 210,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2024-09-03T14:46:24Z",
+      "side": 1,
+      "message": "Remove for the same reason.",
+      "range": {
+        "startLine": 210,
+        "startChar": 103,
+        "endLine": 210,
+        "endChar": 111
+      },
+      "revId": "bde13b89149f6728652b5de091b87d11ecc669b6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
