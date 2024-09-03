@@ -16,6 +16,24 @@
       "message": "(nit): WDYT of just calling it `Step` as now there isn\u0027t a difference between a `Step` and a `CollapsibleStep`?",
       "revId": "83c1beead9ac6513682c78d63e4be31c37608de4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "763a55cf_6d496592",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-09-03T09:36:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c74b9793_626e772f",
+      "revId": "83c1beead9ac6513682c78d63e4be31c37608de4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
