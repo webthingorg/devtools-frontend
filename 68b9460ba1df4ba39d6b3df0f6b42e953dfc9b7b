@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b8cd854_13bc0c1a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-09-03T10:52:25Z",
+      "side": 1,
+      "message": "PTAL, apologies for the lengthy CL. The actual functionality is only 50 lines and the rest are comments and tests. I wanted to note down all the thoughts that went into this and I think next to the code and tests is good enough for now.",
+      "revId": "68b9460ba1df4ba39d6b3df0f6b42e953dfc9b7b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "364e0960_ba488a8c",
+        "filename": "front_end/core/sdk/SourceMapScopesInfo.test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-09-03T10:52:25Z",
+      "side": 1,
+      "message": "This is what V8 does under the hood, but I\u0027m wondering if we should actually mirror this or just leave it up to source map generators to name their original scopes appropriately.",
+      "range": {
+        "startLine": 147,
+        "startChar": 6,
+        "endLine": 147,
+        "endChar": 113
+      },
+      "revId": "68b9460ba1df4ba39d6b3df0f6b42e953dfc9b7b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
