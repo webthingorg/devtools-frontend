@@ -22,9 +22,10 @@ type DirectionsDict = {
 
 export type IconInfo = {
   iconName: string,
-  rotate: number,
-  scaleX: number,
-  scaleY: number,
+  rotate?: number,
+  scaleX?: number,
+  scaleY?: number,
+  content?: string,
 };
 
 type ComputedStyles = Map<string, string>;
@@ -362,6 +363,41 @@ const gridItemIcons = new Map([
   ['align-self: stretch', gridAlignSelfIcon('align-self-stretch')],
 ]);
 
+function textEmphasisStyleIcon(text: string): IconInfo {
+  return {
+    iconName: 'icon-with-content',
+    content: text,
+  };
+}
+
+const textEmphasisStyleIcons = new Map([
+  ['dot', textEmphasisStyleIcon('•')],
+  ['filled', textEmphasisStyleIcon('•')],
+  ['dot open', textEmphasisStyleIcon('◦')],
+  ['open', textEmphasisStyleIcon('◦')],
+  ['circle', textEmphasisStyleIcon('●')],
+  ['circle open', textEmphasisStyleIcon('○')],
+  ['double-circle', textEmphasisStyleIcon('◉')],
+  ['double-circle open', textEmphasisStyleIcon('◎')],
+  ['triangle', textEmphasisStyleIcon('▲')],
+  ['triangle open', textEmphasisStyleIcon('△')],
+  ['sesame', textEmphasisStyleIcon('﹅')],
+  ['sesame open', textEmphasisStyleIcon('﹆')],
+]);
+
+// TODO: Consider future CL support for looking up arbitrary CSS property names
+// to support more properties such as list-style.
+const isTextEmphasisStyle = (propertyName: string): boolean => {
+  const textEmphasisStyle =
+      ['text-emphasis', 'text-emphasis-style', '-webkit-text-emphasis', '-webkit-text-emphasis-style'];
+
+  if (!textEmphasisStyle.includes(propertyName || '')) {
+    return false;
+  }
+
+  return true;
+};
+
 const isFlexContainer = (computedStyles?: ComputedStyles|null): boolean => {
   const display = computedStyles?.get('display');
   return display === 'flex' || display === 'inline-flex';
@@ -373,7 +409,19 @@ const isGridContainer = (computedStyles?: ComputedStyles|null): boolean => {
 };
 
 export function findIcon(
-    text: string, computedStyles: ComputedStyles|null, parentComputedStyles?: ComputedStyles|null): IconInfo|null {
+    text: string,
+    propertyValue: string,
+    propertyName: string,
+    computedStyles: ComputedStyles|null,
+    parentComputedStyles?: ComputedStyles|null,
+    ): IconInfo|null {
+  if (isTextEmphasisStyle(propertyName)) {
+    const icon = findTextEmphasisStyleIcon(propertyValue);
+    if (icon) {
+      return icon;
+    }
+  }
+
   if (isFlexContainer(computedStyles)) {
     const icon = findFlexContainerIcon(text, computedStyles);
     if (icon) {
@@ -397,6 +445,14 @@ export function findIcon(
     if (icon) {
       return icon;
     }
+  }
+  return null;
+}
+
+export function findTextEmphasisStyleIcon(propertyValue: string): IconInfo|null {
+  const resolver = textEmphasisStyleIcons.get(propertyValue);
+  if (resolver) {
+    return resolver;
   }
   return null;
 }
