@@ -275,8 +275,9 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
 
     this.panel = panel;
 
-    this.sidebarTree = new UI.TreeOutline.TreeOutlineInShadow();
+    this.sidebarTree = new UI.TreeOutline.TreeOutlineInShadow(UI.TreeOutline.TreeVariant.NAVIGATION_TREE);
     this.sidebarTree.element.classList.add('resources-sidebar');
+    this.sidebarTree.hideOverflow();
 
     this.sidebarTree.element.classList.add('filter-all');
     // Listener needs to have been set up before the elements are added
@@ -449,7 +450,7 @@ export class ApplicationPanelSidebar extends UI.Widget.VBox implements SDK.Targe
 
   private addSidebarSection(title: string, jslogContext: string): UI.TreeOutline.TreeElement {
     const treeElement = new UI.TreeOutline.TreeElement(title, true, jslogContext);
-    treeElement.listItemElement.classList.add('storage-group-list-item');
+    treeElement.listItemElement.classList.add('group-header');
     treeElement.setCollapsible(false);
     treeElement.selectable = false;
     this.sidebarTree.appendChild(treeElement);
