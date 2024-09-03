@@ -65,6 +65,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "86a47c30_4e463501",
+        "filename": "front_end/models/live-metrics/LiveMetrics.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-09-03T20:02:15Z",
+      "side": 1,
+      "message": "Disabling live metrics when the main target is removed is probably how we should do this. Turns out the condition in `targetRemoved` wasn\u0027t working because the primary page target is set to `undefined` before `targetRemoved` is called. I updated the condition to fix this.",
+      "parentUuid": "75b9edcc_33ef6904",
+      "range": {
+        "startLine": 328,
+        "startChar": 7,
+        "endLine": 328,
+        "endChar": 28
+      },
+      "revId": "4ff293620707e3079bf6771853f24bcfe21f1a0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e87629e1_edbf6126",
