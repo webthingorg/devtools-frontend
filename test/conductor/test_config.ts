@@ -22,7 +22,6 @@ interface Config {
   chromeBinary: string;
   serverType: ServerType;
   debug: boolean;
-  coverage: boolean;
   repetitions: number;
   onDiff: {update: boolean|string[], throw: boolean};
   shuffle: boolean;
@@ -80,7 +79,6 @@ export const TestConfig: Config = {
   chromeBinary: options['chrome-binary'] ?? defaultChromePath(),
   serverType: ServerType.HOSTED_MODE,
   debug: options['debug'],
-  coverage: options['coverage'],
   repetitions: options['repeat'],
   onDiff: {
     update: onDiffUpdateAll || onDiffUpdateSelected,
