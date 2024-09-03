@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce02c691_f64e2c01",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-09-03T17:26:39Z",
+      "side": 1,
+      "message": "I replied in another comment 😊 Maybe we can consider making it more discoverable at some point, but let\u0027s add it to have some way of deleting them.",
+      "parentUuid": "f564441a_71b7bc4d",
+      "revId": "36736daa36b393a98031b35e47d9b1997cd1dc50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0eafe93d_f317171c",
@@ -31,6 +49,30 @@
       "writtenOn": "2024-09-03T16:34:26Z",
       "side": 1,
       "message": "let\u0027s only do the cast once\n\n```\nconst event \u003d e as ...\n```",
+      "range": {
+        "startLine": 122,
+        "startChar": 0,
+        "endLine": 122,
+        "endChar": 105
+      },
+      "revId": "36736daa36b393a98031b35e47d9b1997cd1dc50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ffa8eb0_77a4cd22",
+        "filename": "front_end/panels/timeline/TimelineMiniMap.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-09-03T17:26:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0eafe93d_f317171c",
       "range": {
         "startLine": 122,
         "startChar": 0,
@@ -64,6 +106,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1558cc7a_41709351",
+        "filename": "front_end/panels/timeline/components/Breadcrumbs.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-09-03T17:26:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85189427_b6f7de39",
+      "range": {
+        "startLine": 41,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 102
+      },
+      "revId": "36736daa36b393a98031b35e47d9b1997cd1dc50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8005faf9_c392dd4e",
@@ -77,6 +143,30 @@
       "writtenOn": "2024-09-03T16:34:26Z",
       "side": 1,
       "message": "should we rename this to `initialBreadcrumb` too? else it\u0027s not clear what this is and how it is different to `activeBreadcrumb`\n\n(maybe a comment here would be helpful to remind us in 6 months too!)",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 48
+      },
+      "revId": "36736daa36b393a98031b35e47d9b1997cd1dc50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9fe85849_2792dcd6",
+        "filename": "front_end/panels/timeline/components/BreadcrumbsUI.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-09-03T17:26:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8005faf9_c392dd4e",
       "range": {
         "startLine": 37,
         "startChar": 0,
@@ -110,6 +200,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0a4a1d3_1ec15c96",
+        "filename": "front_end/panels/timeline/components/BreadcrumbsUI.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-09-03T17:26:39Z",
+      "side": 1,
+      "message": "I think it would be nice to have some way to remove breadcrumbs since they are saved in the trace file and when a trace file with breadcrumbs is loaded, the last(smallest) breadcrumb is activated.\nI can imagine somebody wanting to send a trace without limiting it to a breadcrumb automatically even if they were creating them for themselves while exploring a trace.\nAlso if you are reloading the same trace with not longer needed breadcrumb and it activates all the time, it could also be annoying not to have a way to remove them.\n\nIt might not be a common scenario, but I think having some way to remove them is a benefit.",
+      "parentUuid": "2170ad3c_7b322307",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 107,
+        "endChar": 3
+      },
+      "revId": "36736daa36b393a98031b35e47d9b1997cd1dc50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7a8fff61_2fde3215",
@@ -123,6 +237,30 @@
       "writtenOn": "2024-09-03T16:34:26Z",
       "side": 1,
       "message": "this could be `nothing`",
+      "range": {
+        "startLine": 137,
+        "startChar": 43,
+        "endLine": 137,
+        "endChar": 49
+      },
+      "revId": "36736daa36b393a98031b35e47d9b1997cd1dc50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "07f5c215_b44889cf",
+        "filename": "front_end/panels/timeline/components/BreadcrumbsUI.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 137,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-09-03T17:26:39Z",
+      "side": 1,
+      "message": "oh, nice!",
+      "parentUuid": "7a8fff61_2fde3215",
       "range": {
         "startLine": 137,
         "startChar": 43,
