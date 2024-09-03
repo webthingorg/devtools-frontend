@@ -302,6 +302,7 @@ export const enum ExperimentName {
   TIMELINE_ENHANCED_TRACES = 'timeline-enhanced-traces',
   GEN_AI_SETTINGS_PANEL = 'gen-ai-settings-panel',
   TIMELINE_SERVER_TIMINGS = 'timeline-server-timings',
+  TIMELINE_EVENT_DETAILS = 'perf-panel-event-details',
 }
 
 export interface AidaAvailability {
