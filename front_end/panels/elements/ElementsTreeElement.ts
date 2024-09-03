@@ -207,6 +207,10 @@ const UIStrings = {
    *@description Text of a tooltip to redirect to another element in the Elements panel
    */
   showPopoverTarget: 'Show popover target',
+  /**
+   *@description Text of the tooltip for scroll adorner.
+   */
+  elementHasScrollableOverflow: 'This element has a scrollable overflow',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/elements/ElementsTreeElement.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -310,6 +314,13 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
         const adorner = this.adorn(config);
         UI.Tooltip.Tooltip.install(adorner, i18nString(UIStrings.thisFrameWasIdentifiedAsAnAd));
       }
+
+      // Check if the node is scrollable, or if it's the <html> element and the document is scrollable because the top-level document (#document) doesn't have a corresponding tree element.
+      if ((node.nodeName() === 'HTML' && node.ownerDocument?.isScrollable()) ||
+          (node.nodeName() !== '#document' && node.isScrollable())) {
+        this.pushScrollAdorner();
+      }
+      node.domModel().addEventListener(SDK.DOMModel.Events.ScrollableFlagUpdated, this.updateScrollAdorner, this);
     }
     this.expandAllButtonElement = null;
   }
@@ -2442,6 +2453,38 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     });
 
     context.styleAdorners.push(adorner);
+  }
+  private updateScrollAdorner(event: Common.EventTarget.EventTargetEvent<{nodeId: Protocol.DOM.NodeId}>): void {
+    if (!isOpeningTag(this.tagTypeContext)) {
+      return;
+    }
+    const {nodeId} = event.data;
+    let needsScrollAdorner: null|Boolean = null;
+
+    if (this.nodeInternal.nodeName() === '#document') {
+      // We show the scroll badge of the document on the <html> element.
+    } else if (this.nodeInternal.ownerDocument?.id === nodeId && this.nodeInternal.nodeName() === 'HTML') {
+      needsScrollAdorner = this.nodeInternal.ownerDocument?.isScrollable();
+    } else if (this.nodeInternal.id === nodeId) {
+      needsScrollAdorner = this.nodeInternal.isScrollable();
+    }
+
+    if (needsScrollAdorner === true) {
+      this.pushScrollAdorner();
+    } else if (needsScrollAdorner === false) {
+      const scrollAdorner = this.tagTypeContext.adorners.find(x => x.name === 'scroll');
+      if (scrollAdorner) {
+        this.removeAdorner(scrollAdorner, this.tagTypeContext);
+      }
+    }
+  }
+
+  pushScrollAdorner(): void {
+    const config = ElementsComponents.AdornerManager.getRegisteredAdorner(
+        ElementsComponents.AdornerManager.RegisteredAdorners.SCROLL);
+    const adorner = this.adorn(config);
+    UI.Tooltip.Tooltip.install(adorner, i18nString(UIStrings.elementHasScrollableOverflow));
+    adorner.classList.add('scroll');
   }
 }
 
