@@ -1,5 +1,29 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92e69a07_e90b2784",
+        "filename": "scripts/build/generate_supported_css.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-09-03T04:29:03Z",
+      "side": 1,
+      "message": "Left-over?",
+      "range": {
+        "startLine": 136,
+        "startChar": 0,
+        "endLine": 136,
+        "endChar": 35
+      },
+      "revId": "ae615f9873fe6dfef79a61c2771e0fd68a8c0ee7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
