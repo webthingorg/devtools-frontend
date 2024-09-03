@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "8fe9a1c873a1aed7ebc221ea1d624af4e80db7c5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94ee2ccc_1a2f4eec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-03T14:43:37Z",
+      "side": 1,
+      "message": "LGTM but out of curiosity, why do we need this?",
+      "revId": "8fe9a1c873a1aed7ebc221ea1d624af4e80db7c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
