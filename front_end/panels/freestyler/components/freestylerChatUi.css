@@ -125,8 +125,15 @@
 }
 
 .step {
+  width: fit-content;
+  background-color: var(--sys-color-surface3);
+  border-radius: var(--sys-size-6);
+
   devtools-icon {
     vertical-align: bottom;
+  }
+
+  .indicator {
     color: var(--sys-color-green-bright);
 
     &.loading {
@@ -138,12 +145,34 @@
     }
   }
 
-  summary {
+  .summary {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    padding: var(--sys-size-3);
     line-height: var(--sys-size-9);
+
+    .title {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+  }
+
+  &[open] {
+    width: auto;
+
+    .summary .title {
+      white-space: normal;
+      overflow: unset;
+    }
+  }
+
+  summary::marker {
+    content: "";
   }
 
   .step-details {
-    padding-left: var(--sys-size-6);
+    padding: 0 var(--sys-size-10) var(--sys-size-3);
   }
 }
 
