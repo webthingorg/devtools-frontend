@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "21904d36_51eefa9a",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2024-09-04T07:24:56Z",
+      "side": 1,
+      "message": "Thanks for the comments! Updated.",
+      "parentUuid": "c17687bf_3292a582",
+      "range": {
+        "startLine": 235,
+        "startChar": 12,
+        "endLine": 235,
+        "endChar": 34
+      },
+      "revId": "b318b091759b77b0bf3f13584ddade8bf4aaaca9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b6537b2b_4c33d0c0",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-09-02T11:48:55Z",
       "side": 1,
       "message": "This renders the LitHtml into the `bottomToolbarContainer`. That\u0027s why the Lit content shows up after the toolbar. I don\u0027t think that\u0027s what you want.",
+      "range": {
+        "startLine": 238,
+        "startChar": 8,
+        "endLine": 238,
+        "endChar": 45
+      },
+      "revId": "b318b091759b77b0bf3f13584ddade8bf4aaaca9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41502a4e_f1c7918b",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2024-09-04T07:24:56Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6537b2b_4c33d0c0",
       "range": {
         "startLine": 238,
         "startChar": 8,
