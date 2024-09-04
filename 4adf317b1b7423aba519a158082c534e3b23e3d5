@@ -18,6 +18,286 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "55c84da4_7e2e9fed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-04T14:44:18Z",
+      "side": 1,
+      "message": "this is looking good and definitely on the right track!",
+      "revId": "4adf317b1b7423aba519a158082c534e3b23e3d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "29ea879b_0fcdb96b",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 1023,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-04T14:44:18Z",
+      "side": 1,
+      "message": "`timeline-layout-shift-details` ? (\"event details\" is very generic)",
+      "range": {
+        "startLine": 1023,
+        "startChar": 0,
+        "endLine": 1023,
+        "endChar": 34
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "81127549_a4ab779b",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/core/host/UserMetrics.ts",
+              "range": {
+                "startLine": 1023,
+                "startChar": 0,
+                "endLine": 1024,
+                "endChar": 0
+              },
+              "replacement": "  \u0027timeline-layout-shift-details\u0027 \u003d 99,\n"
+            }
+          ]
+        }
+      ],
+      "revId": "4adf317b1b7423aba519a158082c534e3b23e3d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21ee3acb_bca64eec",
+        "filename": "front_end/core/root/Runtime.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-04T14:44:18Z",
+      "side": 1,
+      "message": "let\u0027s rename this too based on what we rename the string to",
+      "range": {
+        "startLine": 305,
+        "startChar": 2,
+        "endLine": 305,
+        "endChar": 24
+      },
+      "revId": "4adf317b1b7423aba519a158082c534e3b23e3d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02b3459c_4c1bd782",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-04T14:44:18Z",
+      "side": 1,
+      "message": "`Performance panel: enable new summary details view for layout shift events` or similar (\"shift events\" is unclear, and we don\u0027t need to end with \"Performance Panel\" given the prefix)",
+      "range": {
+        "startLine": 430,
+        "startChar": 0,
+        "endLine": 430,
+        "endChar": 92
+      },
+      "revId": "4adf317b1b7423aba519a158082c534e3b23e3d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ccd2c3a1_67ef1f48",
+        "filename": "front_end/models/trace/handlers/UserTimingsHandler.test.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-04T14:44:18Z",
+      "side": 1,
+      "message": "I think we can have just one of these 😄",
+      "range": {
+        "startLine": 194,
+        "startChar": 1,
+        "endLine": 195,
+        "endChar": 66
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "f7f42dbe_2650cbd0",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/models/trace/handlers/UserTimingsHandler.test.ts",
+              "range": {
+                "startLine": 194,
+                "startChar": 0,
+                "endLine": 204,
+                "endChar": 0
+              },
+              "replacement": "  describe(\u0027user_timing domLoading events parsing\u0027, function() {\n    it(\u0027parses domLoading events correctly\u0027, async function() {\n      const events \u003d await TraceLoader.rawEvents(this, \u0027shift-attribution.json.gz\u0027);\n      TraceModel.Handlers.ModelHandlers.UserTimings.reset();\n      for (const event of events) {\n        TraceModel.Handlers.ModelHandlers.UserTimings.handleEvent(event);\n      }\n      await TraceModel.Handlers.ModelHandlers.UserTimings.finalize();\n      timingsData \u003d TraceModel.Handlers.ModelHandlers.UserTimings.data();\n"
+            },
+            {
+              "path": "front_end/models/trace/handlers/UserTimingsHandler.test.ts",
+              "range": {
+                "startLine": 205,
+                "startChar": 0,
+                "endLine": 206,
+                "endChar": 0
+              },
+              "replacement": "      assert.lengthOf(timingsData.domLoadingEvents, 4);\n"
+            },
+            {
+              "path": "front_end/models/trace/handlers/UserTimingsHandler.test.ts",
+              "range": {
+                "startLine": 207,
+                "startChar": 0,
+                "endLine": 215,
+                "endChar": 0
+              },
+              "replacement": "      const frameIds \u003d timingsData.domLoadingEvents.map(e \u003d\u003e {\n        return e.args.frame;\n      });\n      assert.lengthOf(frameIds, 4);\n      // domLoading events should have frame ids.\n      frameIds.map(f \u003d\u003e {\n        assert.isNotEmpty(f);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "4adf317b1b7423aba519a158082c534e3b23e3d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20cf1d09_e2b9e9ec",
+        "filename": "front_end/models/trace/handlers/UserTimingsHandler.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-04T14:44:18Z",
+      "side": 1,
+      "message": "Does this mean that the timings track will now show these events? do we want that?",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 21
+      },
+      "revId": "4adf317b1b7423aba519a158082c534e3b23e3d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12832b35_50130e75",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-04T14:44:18Z",
+      "side": 1,
+      "message": "we shouldn\u0027t be mutating the raw trace events (because if the user saves the trace, it will now have details in it that it didn\u0027t have initially). Do we need to do this?",
+      "range": {
+        "startLine": 218,
+        "startChar": 0,
+        "endLine": 218,
+        "endChar": 77
+      },
+      "revId": "4adf317b1b7423aba519a158082c534e3b23e3d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0a96826_7b475c5a",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 2161,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-04T14:44:18Z",
+      "side": 1,
+      "message": "nit: use `KnownEventName.DOM_LOADING`",
+      "range": {
+        "startLine": 2161,
+        "startChar": 33,
+        "endLine": 2161,
+        "endChar": 46
+      },
+      "revId": "4adf317b1b7423aba519a158082c534e3b23e3d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e22d76c_a1747dcb",
+        "filename": "front_end/panels/timeline/TimelineDetailsView.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-04T14:44:18Z",
+      "side": 1,
+      "message": "use the enum constant here, not the string, to refer to the experiment",
+      "range": {
+        "startLine": 304,
+        "startChar": 0,
+        "endLine": 304,
+        "endChar": 75
+      },
+      "revId": "4adf317b1b7423aba519a158082c534e3b23e3d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6a6adb9_23fcf123",
+        "filename": "front_end/panels/timeline/components/LayoutShiftDetails.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-04T14:44:18Z",
+      "side": 1,
+      "message": "let\u0027s pull `renderFontRequests` and `renderIFrames` out into private functions\n\nAlso they should be named as singular `renderIframe` `renderFontRequest` as they render a single one",
+      "range": {
+        "startLine": 165,
+        "startChar": 4,
+        "endLine": 166,
+        "endChar": 47
+      },
+      "revId": "4adf317b1b7423aba519a158082c534e3b23e3d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "117789c8_caddd44d",
