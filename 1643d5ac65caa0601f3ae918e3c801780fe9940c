@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3dadb6b0_7ddfafa6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-04T13:16:23Z",
+      "side": 1,
+      "message": "LGTM % Nik\u0027s comment on the comment position :)",
+      "revId": "1643d5ac65caa0601f3ae918e3c801780fe9940c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a65bf0ab_d70116ef",
