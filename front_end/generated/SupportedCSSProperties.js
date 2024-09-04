@@ -5,7 +5,7 @@
 /* eslint-disable quotes */
 export const generatedProperties = [
  {
-  "longhands": [
+  longhands: [
    "animation-duration",
    "animation-timing-function",
    "animation-delay",
@@ -18,100 +18,100 @@ export const generatedProperties = [
    "animation-range-start",
    "animation-range-end"
   ],
-  "name": "-alternative-animation-with-timeline"
+  name: "-alternative-animation-with-timeline"
  },
  {
-  "longhands": [
+  longhands: [
    "position-try-order",
    "position-try-fallbacks"
   ],
-  "name": "-alternative-position-try"
+  name: "-alternative-position-try"
  },
  {
-  "inherited": true,
-  "name": "-webkit-border-horizontal-spacing"
+  inherited: true,
+  name: "-webkit-border-horizontal-spacing"
  },
  {
-  "name": "-webkit-border-image"
+  name: "-webkit-border-image"
  },
  {
-  "inherited": true,
-  "name": "-webkit-border-vertical-spacing"
+  inherited: true,
+  name: "-webkit-border-vertical-spacing"
  },
  {
-  "keywords": [
+  keywords: [
    "stretch",
    "start",
    "center",
    "end",
    "baseline"
   ],
-  "name": "-webkit-box-align"
+  name: "-webkit-box-align"
  },
  {
-  "keywords": [
+  keywords: [
    "slice",
    "clone"
   ],
-  "name": "-webkit-box-decoration-break"
+  name: "-webkit-box-decoration-break"
  },
  {
-  "keywords": [
+  keywords: [
    "normal",
    "reverse"
   ],
-  "name": "-webkit-box-direction"
+  name: "-webkit-box-direction"
  },
  {
-  "name": "-webkit-box-flex"
+  name: "-webkit-box-flex"
  },
  {
-  "name": "-webkit-box-ordinal-group"
+  name: "-webkit-box-ordinal-group"
  },
  {
-  "keywords": [
+  keywords: [
    "horizontal",
    "vertical"
   ],
-  "name": "-webkit-box-orient"
+  name: "-webkit-box-orient"
  },
  {
-  "keywords": [
+  keywords: [
    "start",
    "center",
    "end",
    "justify"
   ],
-  "name": "-webkit-box-pack"
+  name: "-webkit-box-pack"
  },
  {
-  "name": "-webkit-box-reflect"
+  name: "-webkit-box-reflect"
  },
  {
-  "longhands": [
+  longhands: [
    "break-after"
   ],
-  "name": "-webkit-column-break-after"
+  name: "-webkit-column-break-after"
  },
  {
-  "longhands": [
+  longhands: [
    "break-before"
   ],
-  "name": "-webkit-column-break-before"
+  name: "-webkit-column-break-before"
  },
  {
-  "longhands": [
+  longhands: [
    "break-inside"
   ],
-  "name": "-webkit-column-break-inside"
+  name: "-webkit-column-break-inside"
  },
  {
-  "inherited": true,
-  "name": "-webkit-font-smoothing"
+  inherited: true,
+  name: "-webkit-font-smoothing"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "auto",
    "loose",
    "normal",
@@ -119,170 +119,170 @@ export const generatedProperties = [
    "after-white-space",
    "anywhere"
   ],
-  "name": "-webkit-line-break"
+  name: "-webkit-line-break"
  },
  {
-  "name": "-webkit-line-clamp"
+  name: "-webkit-line-clamp"
  },
  {
-  "inherited": true,
-  "name": "-webkit-locale"
+  inherited: true,
+  name: "-webkit-locale"
  },
  {
-  "longhands": [
+  longhands: [
    "-webkit-mask-box-image-source",
    "-webkit-mask-box-image-slice",
    "-webkit-mask-box-image-width",
    "-webkit-mask-box-image-outset",
    "-webkit-mask-box-image-repeat"
   ],
-  "name": "-webkit-mask-box-image"
+  name: "-webkit-mask-box-image"
  },
  {
-  "name": "-webkit-mask-box-image-outset"
+  name: "-webkit-mask-box-image-outset"
  },
  {
-  "name": "-webkit-mask-box-image-repeat"
+  name: "-webkit-mask-box-image-repeat"
  },
  {
-  "name": "-webkit-mask-box-image-slice"
+  name: "-webkit-mask-box-image-slice"
  },
  {
-  "name": "-webkit-mask-box-image-source"
+  name: "-webkit-mask-box-image-source"
  },
  {
-  "name": "-webkit-mask-box-image-width"
+  name: "-webkit-mask-box-image-width"
  },
  {
-  "name": "-webkit-mask-position-x"
+  name: "-webkit-mask-position-x"
  },
  {
-  "name": "-webkit-mask-position-y"
+  name: "-webkit-mask-position-y"
  },
  {
-  "name": "-webkit-perspective-origin-x"
+  name: "-webkit-perspective-origin-x"
  },
  {
-  "name": "-webkit-perspective-origin-y"
+  name: "-webkit-perspective-origin-y"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "economy",
    "exact"
   ],
-  "name": "-webkit-print-color-adjust"
+  name: "-webkit-print-color-adjust"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "logical",
    "visual"
   ],
-  "name": "-webkit-rtl-ordering"
+  name: "-webkit-rtl-ordering"
  },
  {
-  "inherited": true,
-  "name": "-webkit-ruby-position"
+  inherited: true,
+  name: "-webkit-ruby-position"
  },
  {
-  "inherited": true,
-  "name": "-webkit-tap-highlight-color"
+  inherited: true,
+  name: "-webkit-tap-highlight-color"
  },
  {
-  "inherited": true,
-  "name": "-webkit-text-combine"
+  inherited: true,
+  name: "-webkit-text-combine"
  },
  {
-  "inherited": true,
-  "name": "-webkit-text-decorations-in-effect"
+  inherited: true,
+  name: "-webkit-text-decorations-in-effect"
  },
  {
-  "inherited": true,
-  "name": "-webkit-text-fill-color"
+  inherited: true,
+  name: "-webkit-text-fill-color"
  },
  {
-  "inherited": true,
-  "name": "-webkit-text-orientation"
+  inherited: true,
+  name: "-webkit-text-orientation"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "none",
    "disc",
    "circle",
    "square"
   ],
-  "name": "-webkit-text-security"
+  name: "-webkit-text-security"
  },
  {
-  "inherited": true,
-  "longhands": [
+  inherited: true,
+  longhands: [
    "-webkit-text-stroke-width",
    "-webkit-text-stroke-color"
   ],
-  "name": "-webkit-text-stroke"
+  name: "-webkit-text-stroke"
  },
  {
-  "inherited": true,
-  "name": "-webkit-text-stroke-color"
+  inherited: true,
+  name: "-webkit-text-stroke-color"
  },
  {
-  "inherited": true,
-  "name": "-webkit-text-stroke-width"
+  inherited: true,
+  name: "-webkit-text-stroke-width"
  },
  {
-  "name": "-webkit-transform-origin-x"
+  name: "-webkit-transform-origin-x"
  },
  {
-  "name": "-webkit-transform-origin-y"
+  name: "-webkit-transform-origin-y"
  },
  {
-  "name": "-webkit-transform-origin-z"
+  name: "-webkit-transform-origin-z"
  },
  {
-  "keywords": [
+  keywords: [
    "auto",
    "none",
    "element"
   ],
-  "name": "-webkit-user-drag"
+  name: "-webkit-user-drag"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "read-only",
    "read-write",
    "read-write-plaintext-only"
   ],
-  "name": "-webkit-user-modify"
+  name: "-webkit-user-modify"
  },
  {
-  "inherited": true,
-  "name": "-webkit-writing-mode"
+  inherited: true,
+  name: "-webkit-writing-mode"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "auto",
    "currentcolor"
   ],
-  "name": "accent-color"
+  name: "accent-color"
  },
  {
-  "name": "additive-symbols"
+  name: "additive-symbols"
  },
  {
-  "name": "align-content"
+  name: "align-content"
  },
  {
-  "name": "align-items"
+  name: "align-items"
  },
  {
-  "name": "align-self"
+  name: "align-self"
  },
  {
-  "keywords": [
+  keywords: [
    "auto",
    "baseline",
    "alphabetic",
@@ -296,10 +296,10 @@ export const generatedProperties = [
    "text-after-edge",
    "hanging"
   ],
-  "name": "alignment-baseline"
+  name: "alignment-baseline"
  },
  {
-  "longhands": [
+  longhands: [
    "-webkit-border-horizontal-spacing",
    "-webkit-border-vertical-spacing",
    "-webkit-box-align",
@@ -763,23 +763,23 @@ export const generatedProperties = [
    "z-index",
    "zoom"
   ],
-  "name": "all"
+  name: "all"
  },
  {
-  "keywords": [
+  keywords: [
    "none"
   ],
-  "name": "anchor-name"
+  name: "anchor-name"
  },
  {
-  "keywords": [
+  keywords: [
    "none",
    "all"
   ],
-  "name": "anchor-scope"
+  name: "anchor-scope"
  },
  {
-  "longhands": [
+  longhands: [
    "animation-duration",
    "animation-timing-function",
    "animation-delay",
@@ -789,81 +789,81 @@ export const generatedProperties = [
    "animation-play-state",
    "animation-name"
   ],
-  "name": "animation"
+  name: "animation"
  },
  {
-  "keywords": [
+  keywords: [
    "replace",
    "add",
    "accumulate"
   ],
-  "name": "animation-composition"
+  name: "animation-composition"
  },
  {
-  "name": "animation-delay"
+  name: "animation-delay"
  },
  {
-  "keywords": [
+  keywords: [
    "normal",
    "reverse",
    "alternate",
    "alternate-reverse"
   ],
-  "name": "animation-direction"
+  name: "animation-direction"
  },
  {
-  "name": "animation-duration"
+  name: "animation-duration"
  },
  {
-  "keywords": [
+  keywords: [
    "none",
    "forwards",
    "backwards",
    "both"
   ],
-  "name": "animation-fill-mode"
+  name: "animation-fill-mode"
  },
  {
-  "keywords": [
+  keywords: [
    "infinite"
   ],
-  "name": "animation-iteration-count"
+  name: "animation-iteration-count"
  },
  {
-  "keywords": [
+  keywords: [
    "none"
   ],
-  "name": "animation-name"
+  name: "animation-name"
  },
  {
-  "keywords": [
+  keywords: [
    "running",
    "paused"
   ],
-  "name": "animation-play-state"
+  name: "animation-play-state"
  },
  {
-  "longhands": [
+  longhands: [
    "animation-range-start",
    "animation-range-end"
   ],
-  "name": "animation-range"
+  name: "animation-range"
  },
  {
-  "name": "animation-range-end"
+  name: "animation-range-end"
  },
  {
-  "name": "animation-range-start"
+  name: "animation-range-start"
  },
  {
-  "keywords": [
+  keywords: [
    "none",
    "auto"
   ],
-  "name": "animation-timeline"
+  name: "animation-timeline"
  },
  {
-  "keywords": [
+  keywords: [
    "linear",
    "ease",
    "ease-in",
@@ -876,43 +876,43 @@ export const generatedProperties = [
    "step-start",
    "step-end"
   ],
-  "name": "animation-timing-function"
+  name: "animation-timing-function"
  },
  {
-  "keywords": [
+  keywords: [
    "none",
    "drag",
    "no-drag"
   ],
-  "name": "app-region"
+  name: "app-region"
  },
  {
-  "name": "appearance"
+  name: "appearance"
  },
  {
-  "name": "ascent-override"
+  name: "ascent-override"
  },
  {
-  "keywords": [
+  keywords: [
    "auto"
   ],
-  "name": "aspect-ratio"
+  name: "aspect-ratio"
  },
  {
-  "keywords": [
+  keywords: [
    "none"
   ],
-  "name": "backdrop-filter"
+  name: "backdrop-filter"
  },
  {
-  "keywords": [
+  keywords: [
    "visible",
    "hidden"
   ],
-  "name": "backface-visibility"
+  name: "backface-visibility"
  },
  {
-  "longhands": [
+  longhands: [
    "background-image",
    "background-position-x",
    "background-position-y",
@@ -923,18 +923,18 @@ export const generatedProperties = [
    "background-clip",
    "background-color"
   ],
-  "name": "background"
+  name: "background"
  },
  {
-  "keywords": [
+  keywords: [
    "scroll",
    "fixed",
    "local"
   ],
-  "name": "background-attachment"
+  name: "background-attachment"
  },
  {
-  "keywords": [
+  keywords: [
    "normal",
    "multiply",
    "screen",
@@ -952,89 +952,89 @@ export const generatedProperties = [
    "color",
    "luminosity"
   ],
-  "name": "background-blend-mode"
+  name: "background-blend-mode"
  },
  {
-  "keywords": [
+  keywords: [
    "border-box",
    "padding-box",
    "content-box",
    "text"
   ],
-  "name": "background-clip"
+  name: "background-clip"
  },
  {
-  "keywords": [
+  keywords: [
    "currentcolor"
   ],
-  "name": "background-color"
+  name: "background-color"
  },
  {
-  "keywords": [
+  keywords: [
    "auto",
    "none"
   ],
-  "name": "background-image"
+  name: "background-image"
  },
  {
-  "keywords": [
+  keywords: [
    "border-box",
    "padding-box",
    "content-box"
   ],
-  "name": "background-origin"
+  name: "background-origin"
  },
  {
-  "longhands": [
+  longhands: [
    "background-position-x",
    "background-position-y"
   ],
-  "name": "background-position"
+  name: "background-position"
  },
  {
-  "name": "background-position-x"
+  name: "background-position-x"
  },
  {
-  "name": "background-position-y"
+  name: "background-position-y"
  },
  {
-  "name": "background-repeat"
+  name: "background-repeat"
  },
  {
-  "keywords": [
+  keywords: [
    "auto",
    "cover",
    "contain"
   ],
-  "name": "background-size"
+  name: "background-size"
  },
  {
-  "name": "base-palette"
+  name: "base-palette"
  },
  {
-  "keywords": [
+  keywords: [
    "baseline",
    "sub",
    "super"
   ],
-  "name": "baseline-shift"
+  name: "baseline-shift"
  },
  {
-  "keywords": [
+  keywords: [
    "auto",
    "first",
    "last"
   ],
-  "name": "baseline-source"
+  name: "baseline-source"
  },
  {
-  "keywords": [
+  keywords: [
    "auto"
   ],
-  "name": "block-size"
+  name: "block-size"
  },
  {
-  "longhands": [
+  longhands: [
    "border-top-color",
    "border-top-style",
    "border-top-width",
@@ -1053,10 +1053,10 @@ export const generatedProperties = [
    "border-image-outset",
    "border-image-repeat"
   ],
-  "name": "border"
+  name: "border"
  },
  {
-  "longhands": [
+  longhands: [
    "border-block-start-color",
    "border-block-start-style",
    "border-block-start-width",
@@ -1064,85 +1064,85 @@ export const generatedProperties = [
    "border-block-end-style",
    "border-block-end-width"
   ],
-  "name": "border-block"
+  name: "border-block"
  },
  {
-  "longhands": [
+  longhands: [
    "border-block-start-color",
    "border-block-end-color"
   ],
-  "name": "border-block-color"
+  name: "border-block-color"
  },
  {
-  "longhands": [
+  longhands: [
    "border-block-end-width",
    "border-block-end-style",
    "border-block-end-color"
   ],
-  "name": "border-block-end"
+  name: "border-block-end"
  },
  {
-  "name": "border-block-end-color"
+  name: "border-block-end-color"
  },
  {
-  "name": "border-block-end-style"
+  name: "border-block-end-style"
  },
  {
-  "name": "border-block-end-width"
+  name: "border-block-end-width"
  },
  {
-  "longhands": [
+  longhands: [
    "border-block-start-width",
    "border-block-start-style",
    "border-block-start-color"
   ],
-  "name": "border-block-start"
+  name: "border-block-start"
  },
  {
-  "name": "border-block-start-color"
+  name: "border-block-start-color"
  },
  {
-  "name": "border-block-start-style"
+  name: "border-block-start-style"
  },
  {
-  "name": "border-block-start-width"
+  name: "border-block-start-width"
  },
  {
-  "longhands": [
+  longhands: [
    "border-block-start-style",
    "border-block-end-style"
   ],
-  "name": "border-block-style"
+  name: "border-block-style"
  },
  {
-  "longhands": [
+  longhands: [
    "border-block-start-width",
    "border-block-end-width"
   ],
-  "name": "border-block-width"
+  name: "border-block-width"
  },
  {
-  "longhands": [
+  longhands: [
    "border-bottom-width",
    "border-bottom-style",
    "border-bottom-color"
   ],
-  "name": "border-bottom"
+  name: "border-bottom"
  },
  {
-  "keywords": [
+  keywords: [
    "currentcolor"
   ],
-  "name": "border-bottom-color"
+  name: "border-bottom-color"
  },
  {
-  "name": "border-bottom-left-radius"
+  name: "border-bottom-left-radius"
  },
  {
-  "name": "border-bottom-right-radius"
+  name: "border-bottom-right-radius"
  },
  {
-  "keywords": [
+  keywords: [
    "none",
    "hidden",
    "inset",
@@ -1154,78 +1154,78 @@ export const generatedProperties = [
    "solid",
    "double"
   ],
-  "name": "border-bottom-style"
+  name: "border-bottom-style"
  },
  {
-  "keywords": [
+  keywords: [
    "thin",
    "medium",
    "thick"
   ],
-  "name": "border-bottom-width"
+  name: "border-bottom-width"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "separate",
    "collapse"
   ],
-  "name": "border-collapse"
+  name: "border-collapse"
  },
  {
-  "longhands": [
+  longhands: [
    "border-top-color",
    "border-right-color",
    "border-bottom-color",
    "border-left-color"
   ],
-  "name": "border-color"
+  name: "border-color"
  },
  {
-  "name": "border-end-end-radius"
+  name: "border-end-end-radius"
  },
  {
-  "name": "border-end-start-radius"
+  name: "border-end-start-radius"
  },
  {
-  "longhands": [
+  longhands: [
    "border-image-source",
    "border-image-slice",
    "border-image-width",
    "border-image-outset",
    "border-image-repeat"
   ],
-  "name": "border-image"
+  name: "border-image"
  },
  {
-  "name": "border-image-outset"
+  name: "border-image-outset"
  },
  {
-  "keywords": [
+  keywords: [
    "stretch",
    "repeat",
    "round",
    "space"
   ],
-  "name": "border-image-repeat"
+  name: "border-image-repeat"
  },
  {
-  "name": "border-image-slice"
+  name: "border-image-slice"
  },
  {
-  "keywords": [
+  keywords: [
    "none"
   ],
-  "name": "border-image-source"
+  name: "border-image-source"
  },
  {
-  "keywords": [
+  keywords: [
    "auto"
   ],
-  "name": "border-image-width"
+  name: "border-image-width"
  },
  {
-  "longhands": [
+  longhands: [
    "border-inline-start-color",
    "border-inline-start-style",
    "border-inline-start-width",
@@ -1233,79 +1233,79 @@ export const generatedProperties = [
    "border-inline-end-style",
    "border-inline-end-width"
   ],
-  "name": "border-inline"
+  name: "border-inline"
  },
  {
-  "longhands": [
+  longhands: [
    "border-inline-start-color",
    "border-inline-end-color"
   ],
-  "name": "border-inline-color"
+  name: "border-inline-color"
  },
  {
-  "longhands": [
+  longhands: [
    "border-inline-end-width",
    "border-inline-end-style",
    "border-inline-end-color"
   ],
-  "name": "border-inline-end"
+  name: "border-inline-end"
  },
  {
-  "name": "border-inline-end-color"
+  name: "border-inline-end-color"
  },
  {
-  "name": "border-inline-end-style"
+  name: "border-inline-end-style"
  },
  {
-  "name": "border-inline-end-width"
+  name: "border-inline-end-width"
  },
  {
-  "longhands": [
+  longhands: [
    "border-inline-start-width",
    "border-inline-start-style",
    "border-inline-start-color"
   ],
-  "name": "border-inline-start"
+  name: "border-inline-start"
  },
  {
-  "name": "border-inline-start-color"
+  name: "border-inline-start-color"
  },
  {
-  "name": "border-inline-start-style"
+  name: "border-inline-start-style"
  },
  {
-  "name": "border-inline-start-width"
+  name: "border-inline-start-width"
  },
  {
-  "longhands": [
+  longhands: [
    "border-inline-start-style",
    "border-inline-end-style"
   ],
-  "name": "border-inline-style"
+  name: "border-inline-style"
  },
  {
-  "longhands": [
+  longhands: [
    "border-inline-start-width",
    "border-inline-end-width"
   ],
-  "name": "border-inline-width"
+  name: "border-inline-width"
  },
  {
-  "longhands": [
+  longhands: [
    "border-left-width",
    "border-left-style",
    "border-left-color"
   ],
-  "name": "border-left"
+  name: "border-left"
  },
  {
-  "keywords": [
+  keywords: [
    "currentcolor"
   ],
-  "name": "border-left-color"
+  name: "border-left-color"
  },
  {
-  "keywords": [
+  keywords: [
    "none",
    "hidden",
    "inset",
@@ -1317,41 +1317,41 @@ export const generatedProperties = [
    "solid",
    "double"
   ],
-  "name": "border-left-style"
+  name: "border-left-style"
  },
  {
-  "keywords": [
+  keywords: [
    "thin",
    "medium",
    "thick"
   ],
-  "name": "border-left-width"
+  name: "border-left-width"
  },
  {
-  "longhands": [
+  longhands: [
    "border-top-left-radius",
    "border-top-right-radius",
    "border-bottom-right-radius",
    "border-bottom-left-radius"
   ],
-  "name": "border-radius"
+  name: "border-radius"
  },
  {
-  "longhands": [
+  longhands: [
    "border-right-width",
    "border-right-style",
    "border-right-color"
   ],
-  "name": "border-right"
+  name: "border-right"
  },
  {
-  "keywords": [
+  keywords: [
    "currentcolor"
   ],
-  "name": "border-right-color"
+  name: "border-right-color"
  },
  {
-  "keywords": [
+  keywords: [
    "none",
    "hidden",
    "inset",
@@ -1363,64 +1363,64 @@ export const generatedProperties = [
    "solid",
    "double"
   ],
-  "name": "border-right-style"
+  name: "border-right-style"
  },
  {
-  "keywords": [
+  keywords: [
    "thin",
    "medium",
    "thick"
   ],
-  "name": "border-right-width"
+  name: "border-right-width"
  },
  {
-  "inherited": true,
-  "longhands": [
+  inherited: true,
+  longhands: [
    "-webkit-border-horizontal-spacing",
    "-webkit-border-vertical-spacing"
   ],
-  "name": "border-spacing"
+  name: "border-spacing"
  },
  {
-  "name": "border-start-end-radius"
+  name: "border-start-end-radius"
  },
  {
-  "name": "border-start-start-radius"
+  name: "border-start-start-radius"
  },
  {
-  "keywords": [
+  keywords: [
    "none"
   ],
-  "longhands": [
+  longhands: [
    "border-top-style",
    "border-right-style",
    "border-bottom-style",
    "border-left-style"
   ],
-  "name": "border-style"
+  name: "border-style"
  },
  {
-  "longhands": [
+  longhands: [
    "border-top-width",
    "border-top-style",
    "border-top-color"
   ],
-  "name": "border-top"
+  name: "border-top"
  },
  {
-  "keywords": [
+  keywords: [
    "currentcolor"
   ],
-  "name": "border-top-color"
+  name: "border-top-color"
  },
  {
-  "name": "border-top-left-radius"
+  name: "border-top-left-radius"
  },
  {
-  "name": "border-top-right-radius"
+  name: "border-top-right-radius"
  },
  {
-  "keywords": [
+  keywords: [
    "none",
    "hidden",
    "inset",
@@ -1432,53 +1432,53 @@ export const generatedProperties = [
    "solid",
    "double"
   ],
-  "name": "border-top-style"
+  name: "border-top-style"
  },
  {
-  "keywords": [
+  keywords: [
    "thin",
    "medium",
    "thick"
   ],
-  "name": "border-top-width"
+  name: "border-top-width"
  },
  {
-  "longhands": [
+  longhands: [
    "border-top-width",
    "border-right-width",
    "border-bottom-width",
    "border-left-width"
   ],
-  "name": "border-width"
+  name: "border-width"
  },
  {
-  "keywords": [
+  keywords: [
    "auto"
   ],
-  "name": "bottom"
+  name: "bottom"
  },
  {
-  "keywords": [
+  keywords: [
    "slice",
    "clone"
   ],
-  "name": "box-decoration-break"
+  name: "box-decoration-break"
  },
  {
-  "keywords": [
+  keywords: [
    "none"
   ],
-  "name": "box-shadow"
+  name: "box-shadow"
  },
  {
-  "keywords": [
+  keywords: [
    "content-box",
    "border-box"
   ],
-  "name": "box-sizing"
+  name: "box-sizing"
  },
  {
-  "keywords": [
+  keywords: [
    "auto",
    "avoid",
    "avoid-column",
@@ -1490,10 +1490,10 @@ export const generatedProperties = [
    "right",
    "verso"
   ],
-  "name": "break-after"
+  name: "break-after"
  },
  {
-  "keywords": [
+  keywords: [
    "auto",
    "avoid",
    "avoid-column",
@@ -1505,43 +1505,43 @@ export const generatedProperties = [
    "right",
    "verso"
   ],
-  "name": "break-before"
+  name: "break-before"
  },
  {
-  "keywords": [
+  keywords: [
    "auto",
    "avoid",
    "avoid-column",
    "avoid-page"
   ],
-  "name": "break-inside"
+  name: "break-inside"
  },
  {
-  "keywords": [
+  keywords: [
    "auto",
    "dynamic",
    "static"
   ],
-  "name": "buffered-rendering"
+  name: "buffered-rendering"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "top",
    "bottom"
   ],
-  "name": "caption-side"
+  name: "caption-side"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "auto",
    "currentcolor"
   ],
-  "name": "caret-color"
+  name: "caret-color"
  },
  {
-  "keywords": [
+  keywords: [
    "none",
    "left",
    "right",
@@ -1549,16 +1549,16 @@ export const generatedProperties = [
    "inline-start",
    "inline-end"
   ],
-  "name": "clear"
+  name: "clear"
  },
  {
-  "keywords": [
+  keywords: [
    "auto"
   ],
-  "name": "clip"
+  name: "clip"
  },
  {
-  "keywords": [
+  keywords: [
    "border-box",
    "padding-box",
    "content-box",
@@ -1568,89 +1568,89 @@ export const generatedProperties = [
    "view-box",
    "none"
   ],
-  "name": "clip-path"
+  name: "clip-path"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "nonzero",
    "evenodd"
   ],
-  "name": "clip-rule"
+  name: "clip-rule"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "currentcolor"
   ],
-  "name": "color"
+  name: "color"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "auto",
    "srgb",
    "linearrgb"
   ],
-  "name": "color-interpolation"
+  name: "color-interpolation"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "auto",
    "srgb",
    "linearrgb"
   ],
-  "name": "color-interpolation-filters"
+  name: "color-interpolation-filters"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "auto",
    "optimizespeed",
    "optimizequality"
   ],
-  "name": "color-rendering"
+  name: "color-rendering"
  },
  {
-  "inherited": true,
-  "name": "color-scheme"
+  inherited: true,
+  name: "color-scheme"
  },
  {
-  "keywords": [
+  keywords: [
    "auto"
   ],
-  "name": "column-count"
+  name: "column-count"
  },
  {
-  "keywords": [
+  keywords: [
    "balance",
    "auto"
   ],
-  "name": "column-fill"
+  name: "column-fill"
  },
  {
-  "keywords": [
+  keywords: [
    "normal"
   ],
-  "name": "column-gap"
+  name: "column-gap"
  },
  {
-  "longhands": [
+  longhands: [
    "column-rule-width",
    "column-rule-style",
    "column-rule-color"
   ],
-  "name": "column-rule"
+  name: "column-rule"
  },
  {
-  "keywords": [
+  keywords: [
    "currentcolor"
   ],
-  "name": "column-rule-color"
+  name: "column-rule-color"
  },
  {
-  "keywords": [
+  keywords: [
    "none",
    "hidden",
    "inset",
@@ -1662,38 +1662,38 @@ export const generatedProperties = [
    "solid",
    "double"
   ],
-  "name": "column-rule-style"
+  name: "column-rule-style"
  },
  {
-  "keywords": [
+  keywords: [
    "thin",
    "medium",
    "thick"
   ],
-  "name": "column-rule-width"
+  name: "column-rule-width"
  },
  {
-  "keywords": [
+  keywords: [
    "none",
    "all"
   ],
-  "name": "column-span"
+  name: "column-span"
  },
  {
-  "keywords": [
+  keywords: [
    "auto"
   ],
-  "name": "column-width"
+  name: "column-width"
  },
  {
-  "longhands": [
+  longhands: [
    "column-width",
    "column-count"
   ],
-  "name": "columns"
+  name: "columns"
  },
  {
-  "keywords": [
+  keywords: [
    "none",
    "strict",
    "content",
@@ -1704,87 +1704,87 @@ export const generatedProperties = [
    "inline-size",
    "block-size"
   ],
-  "name": "contain"
+  name: "contain"
  },
  {
-  "name": "contain-intrinsic-block-size"
+  name: "contain-intrinsic-block-size"
  },
  {
-  "keywords": [
+  keywords: [
    "none"
   ],
-  "name": "contain-intrinsic-height"
+  name: "contain-intrinsic-height"
  },
  {
-  "name": "contain-intrinsic-inline-size"
+  name: "contain-intrinsic-inline-size"
  },
  {
-  "longhands": [
+  longhands: [
    "contain-intrinsic-width",
    "contain-intrinsic-height"
   ],
-  "name": "contain-intrinsic-size"
+  name: "contain-intrinsic-size"
  },
  {
-  "keywords": [
+  keywords: [
    "none"
   ],
-  "name": "contain-intrinsic-width"
+  name: "contain-intrinsic-width"
  },
  {
-  "longhands": [
+  longhands: [
    "container-name",
    "container-type"
   ],
-  "name": "container"
+  name: "container"
  },
  {
-  "keywords": [
+  keywords: [
    "none"
   ],
-  "name": "container-name"
+  name: "container-name"
  },
  {
-  "keywords": [
+  keywords: [
    "normal",
    "inline-size",
    "size",
    "scroll-state"
   ],
-  "name": "container-type"
+  name: "container-type"
  },
  {
-  "name": "content"
+  name: "content"
  },
  {
-  "keywords": [
+  keywords: [
    "visible",
    "auto",
    "hidden"
   ],
-  "name": "content-visibility"
+  name: "content-visibility"
  },
  {
-  "keywords": [
+  keywords: [
    "none"
   ],
-  "name": "counter-increment"
+  name: "counter-increment"
  },
  {
-  "keywords": [
+  keywords: [
    "none"
   ],
-  "name": "counter-reset"
+  name: "counter-reset"
  },
  {
-  "keywords": [
+  keywords: [
    "none"
   ],
-  "name": "counter-set"
+  name: "counter-set"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "auto",
    "default",
    "none",
@@ -1822,33 +1822,33 @@ export const generatedProperties = [
    "grab",
    "grabbing"
   ],
-  "name": "cursor"
+  name: "cursor"
  },
  {
-  "name": "cx"
+  name: "cx"
  },
  {
-  "name": "cy"
+  name: "cy"
  },
  {
-  "keywords": [
+  keywords: [
    "none"
   ],
-  "name": "d"
+  name: "d"
  },
  {
-  "name": "descent-override"
+  name: "descent-override"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "ltr",
    "rtl"
   ],
-  "name": "direction"
+  name: "direction"
  },
  {
-  "keywords": [
+  keywords: [
    "inline",
    "block",
    "list-item",
@@ -1879,11 +1879,11 @@ export const generatedProperties = [
    "masonry",
    "inline-masonry"
   ],
-  "name": "display"
+  name: "display"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "auto",
    "alphabetic",
    "ideographic",
@@ -1897,127 +1897,127 @@ export const generatedProperties = [
    "text-after-edge",
    "text-before-edge"
   ],
-  "name": "dominant-baseline"
+  name: "dominant-baseline"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "standard",
    "high",
    "constrained-high"
   ],
-  "name": "dynamic-range-limit"
+  name: "dynamic-range-limit"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "show",
    "hide"
   ],
-  "name": "empty-cells"
+  name: "empty-cells"
  },
  {
-  "name": "fallback"
+  name: "fallback"
  },
  {
-  "keywords": [
+  keywords: [
    "fixed",
    "content"
   ],
-  "name": "field-sizing"
+  name: "field-sizing"
  },
  {
-  "inherited": true,
-  "name": "fill"
+  inherited: true,
+  name: "fill"
  },
  {
-  "inherited": true,
-  "name": "fill-opacity"
+  inherited: true,
+  name: "fill-opacity"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "nonzero",
    "evenodd"
   ],
-  "name": "fill-rule"
+  name: "fill-rule"
  },
  {
-  "keywords": [
+  keywords: [
    "none"
   ],
-  "name": "filter"
+  name: "filter"
  },
  {
-  "longhands": [
+  longhands: [
    "flex-grow",
    "flex-shrink",
    "flex-basis"
   ],
-  "name": "flex"
+  name: "flex"
  },
  {
-  "keywords": [
+  keywords: [
    "auto",
    "fit-content",
    "min-content",
    "max-content",
    "content"
   ],
-  "name": "flex-basis"
+  name: "flex-basis"
  },
  {
-  "keywords": [
+  keywords: [
    "row",
    "row-reverse",
    "column",
    "column-reverse"
   ],
-  "name": "flex-direction"
+  name: "flex-direction"
  },
  {
-  "longhands": [
+  longhands: [
    "flex-direction",
    "flex-wrap"
   ],
-  "name": "flex-flow"
+  name: "flex-flow"
  },
  {
-  "name": "flex-grow"
+  name: "flex-grow"
  },
  {
-  "name": "flex-shrink"
+  name: "flex-shrink"
  },
  {
-  "keywords": [
+  keywords: [
    "nowrap",
    "wrap",
    "wrap-reverse"
   ],
-  "name": "flex-wrap"
+  name: "flex-wrap"
  },
  {
-  "keywords": [
+  keywords: [
    "none",
    "left",
    "right",
    "inline-start",
    "inline-end"
   ],
-  "name": "float"
+  name: "float"
  },
  {
-  "keywords": [
+  keywords: [
    "currentcolor"
   ],
-  "name": "flood-color"
+  name: "flood-color"
  },
  {
-  "name": "flood-opacity"
+  name: "flood-opacity"
  },
  {
-  "inherited": true,
-  "longhands": [
+  inherited: true,
+  longhands: [
    "font-style",
    "font-variant-ligatures",
    "font-variant-caps",
@@ -2037,51 +2037,51 @@ export const generatedProperties = [
    "font-feature-settings",
    "font-variation-settings"
   ],
-  "name": "font"
+  name: "font"
  },
  {
-  "name": "font-display"
+  name: "font-display"
  },
  {
-  "inherited": true,
-  "name": "font-family"
+  inherited: true,
+  name: "font-family"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "normal"
   ],
-  "name": "font-feature-settings"
+  name: "font-feature-settings"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "auto",
    "normal",
    "none"
   ],
-  "name": "font-kerning"
+  name: "font-kerning"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "auto",
    "none"
   ],
-  "name": "font-optical-sizing"
+  name: "font-optical-sizing"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "normal",
    "light",
    "dark"
   ],
-  "name": "font-palette"
+  name: "font-palette"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "xx-small",
    "x-small",
    "small",
@@ -2094,11 +2094,11 @@ export const generatedProperties = [
    "smaller",
    "-webkit-xxx-large"
   ],
-  "name": "font-size"
+  name: "font-size"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "none",
    "ex-height",
    "cap-height",
@@ -2107,11 +2107,11 @@ export const generatedProperties = [
    "ic-height",
    "from-font"
   ],
-  "name": "font-size-adjust"
+  name: "font-size-adjust"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "normal",
    "ultra-condensed",
    "extra-condensed",
@@ -2122,53 +2122,53 @@ export const generatedProperties = [
    "extra-expanded",
    "ultra-expanded"
   ],
-  "name": "font-stretch"
+  name: "font-stretch"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "normal",
    "italic",
    "oblique"
   ],
-  "name": "font-style"
+  name: "font-style"
  },
  {
-  "inherited": true,
-  "longhands": [
+  inherited: true,
+  longhands: [
    "font-synthesis-weight",
    "font-synthesis-style",
    "font-synthesis-small-caps"
   ],
-  "name": "font-synthesis"
+  name: "font-synthesis"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "auto",
    "none"
   ],
-  "name": "font-synthesis-small-caps"
+  name: "font-synthesis-small-caps"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "auto",
    "none"
   ],
-  "name": "font-synthesis-style"
+  name: "font-synthesis-style"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "auto",
    "none"
   ],
-  "name": "font-synthesis-weight"
+  name: "font-synthesis-weight"
  },
  {
-  "inherited": true,
-  "longhands": [
+  inherited: true,
+  longhands: [
    "font-variant-ligatures",
    "font-variant-caps",
    "font-variant-alternates",
@@ -2177,18 +2177,18 @@ export const generatedProperties = [
    "font-variant-position",
    "font-variant-emoji"
   ],
-  "name": "font-variant"
+  name: "font-variant"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "normal"
   ],
-  "name": "font-variant-alternates"
+  name: "font-variant-alternates"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "normal",
    "small-caps",
    "all-small-caps",
@@ -2197,11 +2197,11 @@ export const generatedProperties = [
    "unicase",
    "titling-caps"
   ],
-  "name": "font-variant-caps"
+  name: "font-variant-caps"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "normal",
    "jis78",
    "jis83",
@@ -2213,21 +2213,21 @@ export const generatedProperties = [
    "proportional-width",
    "ruby"
   ],
-  "name": "font-variant-east-asian"
+  name: "font-variant-east-asian"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "normal",
    "text",
    "emoji",
    "unicode"
   ],
-  "name": "font-variant-emoji"
+  name: "font-variant-emoji"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "normal",
    "none",
    "common-ligatures",
@@ -2239,11 +2239,11 @@ export const generatedProperties = [
    "contextual",
    "no-contextual"
   ],
-  "name": "font-variant-ligatures"
+  name: "font-variant-ligatures"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "normal",
    "lining-nums",
    "oldstyle-nums",
@@ -2254,52 +2254,52 @@ export const generatedProperties = [
    "ordinal",
    "slashed-zero"
   ],
-  "name": "font-variant-numeric"
+  name: "font-variant-numeric"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "normal",
    "sub",
    "super"
   ],
-  "name": "font-variant-position"
+  name: "font-variant-position"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "normal"
   ],
-  "name": "font-variation-settings"
+  name: "font-variation-settings"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "normal",
    "bold",
    "bolder",
    "lighter"
   ],
-  "name": "font-weight"
+  name: "font-weight"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "auto",
    "none",
    "preserve-parent-color"
   ],
-  "name": "forced-color-adjust"
+  name: "forced-color-adjust"
  },
  {
-  "longhands": [
+  longhands: [
    "row-gap",
    "column-gap"
   ],
-  "name": "gap"
+  name: "gap"
  },
  {
-  "longhands": [
+  longhands: [
    "grid-template-rows",
    "grid-template-columns",
    "grid-template-areas",
@@ -2307,180 +2307,180 @@ export const generatedProperties = [
    "grid-auto-rows",
    "grid-auto-columns"
   ],
-  "name": "grid"
+  name: "grid"
  },
  {
-  "longhands": [
+  longhands: [
    "grid-row-start",
    "grid-column-start",
    "grid-row-end",
    "grid-column-end"
   ],
-  "name": "grid-area"
+  name: "grid-area"
  },
  {
-  "keywords": [
+  keywords: [
    "auto",
    "min-content",
    "max-content"
   ],
-  "name": "grid-auto-columns"
+  name: "grid-auto-columns"
  },
  {
-  "keywords": [
+  keywords: [
    "row",
    "column"
   ],
-  "name": "grid-auto-flow"
+  name: "grid-auto-flow"
  },
  {
-  "keywords": [
+  keywords: [
    "auto",
    "min-content",
    "max-content"
   ],
-  "name": "grid-auto-rows"
+  name: "grid-auto-rows"
  },
  {
-  "longhands": [
+  longhands: [
    "grid-column-start",
    "grid-column-end"
   ],
-  "name": "grid-column"
+  name: "grid-column"
  },
  {
-  "keywords": [
+  keywords: [
    "auto"
   ],
-  "name": "grid-column-end"
+  name: "grid-column-end"
  },
  {
-  "keywords": [
+  keywords: [
    "auto"
   ],
-  "name": "grid-column-start"
+  name: "grid-column-start"
  },
  {
-  "longhands": [
+  longhands: [
    "grid-row-start",
    "grid-row-end"
   ],
-  "name": "grid-row"
+  name: "grid-row"
  },
  {
-  "keywords": [
+  keywords: [
    "auto"
   ],
-  "name": "grid-row-end"
+  name: "grid-row-end"
  },
  {
-  "keywords": [
+  keywords: [
    "auto"
   ],
-  "name": "grid-row-start"
+  name: "grid-row-start"
  },
  {
-  "longhands": [
+  longhands: [
    "grid-template-rows",
    "grid-template-columns",
    "grid-template-areas"
   ],
-  "name": "grid-template"
+  name: "grid-template"
  },
  {
-  "keywords": [
+  keywords: [
    "none"
   ],
-  "name": "grid-template-areas"
+  name: "grid-template-areas"
  },
  {
-  "keywords": [
+  keywords: [
    "none"
   ],
-  "name": "grid-template-columns"
+  name: "grid-template-columns"
  },
  {
-  "keywords": [
+  keywords: [
    "none"
   ],
-  "name": "grid-template-rows"
+  name: "grid-template-rows"
  },
  {
-  "keywords": [
+  keywords: [
    "auto",
    "fit-content",
    "min-content",
    "max-content"
   ],
-  "name": "height"
+  name: "height"
  },
  {
-  "inherited": true,
-  "name": "hyphenate-character"
+  inherited: true,
+  name: "hyphenate-character"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "auto"
   ],
-  "name": "hyphenate-limit-chars"
+  name: "hyphenate-limit-chars"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "none",
    "manual",
    "auto"
   ],
-  "name": "hyphens"
+  name: "hyphens"
  },
  {
-  "inherited": true,
-  "name": "image-orientation"
+  inherited: true,
+  name: "image-orientation"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "auto",
    "optimizespeed",
    "optimizequality",
    "-webkit-optimize-contrast",
    "pixelated"
   ],
-  "name": "image-rendering"
+  name: "image-rendering"
  },
  {
-  "name": "inherits"
+  name: "inherits"
  },
  {
-  "inherited": false,
-  "keywords": [
+  inherited: false,
+  keywords: [
    "drop",
    "normal",
    "raise"
   ],
-  "name": "initial-letter"
+  name: "initial-letter"
  },
  {
-  "name": "initial-value"
+  name: "initial-value"
  },
  {
-  "keywords": [
+  keywords: [
    "auto"
   ],
-  "name": "inline-size"
+  name: "inline-size"
  },
  {
-  "longhands": [
+  longhands: [
    "top",
    "right",
    "bottom",
    "left"
   ],
-  "name": "inset"
+  name: "inset"
  },
  {
-  "keywords": [
+  keywords: [
    "none",
    "top",
    "bottom",
@@ -2497,132 +2497,132 @@ export const generatedProperties = [
    "self-end",
    "all"
   ],
-  "name": "inset-area"
+  name: "inset-area"
  },
  {
-  "longhands": [
+  longhands: [
    "inset-block-start",
    "inset-block-end"
   ],
-  "name": "inset-block"
+  name: "inset-block"
  },
  {
-  "name": "inset-block-end"
+  name: "inset-block-end"
  },
  {
-  "name": "inset-block-start"
+  name: "inset-block-start"
  },
  {
-  "longhands": [
+  longhands: [
    "inset-inline-start",
    "inset-inline-end"
   ],
-  "name": "inset-inline"
+  name: "inset-inline"
  },
  {
-  "name": "inset-inline-end"
+  name: "inset-inline-end"
  },
  {
-  "name": "inset-inline-start"
+  name: "inset-inline-start"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "numeric-only",
    "allow-keywords"
   ],
-  "name": "interpolate-size"
+  name: "interpolate-size"
  },
  {
-  "keywords": [
+  keywords: [
    "auto",
    "isolate"
   ],
-  "name": "isolation"
+  name: "isolation"
  },
  {
-  "name": "justify-content"
+  name: "justify-content"
  },
  {
-  "name": "justify-items"
+  name: "justify-items"
  },
  {
-  "name": "justify-self"
+  name: "justify-self"
  },
  {
-  "keywords": [
+  keywords: [
    "auto"
   ],
-  "name": "left"
+  name: "left"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "normal"
   ],
-  "name": "letter-spacing"
+  name: "letter-spacing"
  },
  {
-  "keywords": [
+  keywords: [
    "currentcolor"
   ],
-  "name": "lighting-color"
+  name: "lighting-color"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "auto",
    "loose",
    "normal",
    "strict",
    "anywhere"
   ],
-  "name": "line-break"
+  name: "line-break"
  },
  {
-  "keywords": [
+  keywords: [
    "none",
    "auto"
   ],
-  "name": "line-clamp"
+  name: "line-clamp"
  },
  {
-  "name": "line-gap-override"
+  name: "line-gap-override"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "normal"
   ],
-  "name": "line-height"
+  name: "line-height"
  },
  {
-  "inherited": true,
-  "longhands": [
+  inherited: true,
+  longhands: [
    "list-style-position",
    "list-style-image",
    "list-style-type"
   ],
-  "name": "list-style"
+  name: "list-style"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "none"
   ],
-  "name": "list-style-image"
+  name: "list-style-image"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "outside",
    "inside"
   ],
-  "name": "list-style-position"
+  name: "list-style-position"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "disc",
    "circle",
    "square",
@@ -2631,111 +2631,111 @@ export const generatedProperties = [
    "decimal",
    "none"
   ],
-  "name": "list-style-type"
+  name: "list-style-type"
  },
  {
-  "longhands": [
+  longhands: [
    "margin-top",
    "margin-right",
    "margin-bottom",
    "margin-left"
   ],
-  "name": "margin"
+  name: "margin"
  },
  {
-  "longhands": [
+  longhands: [
    "margin-block-start",
    "margin-block-end"
   ],
-  "name": "margin-block"
+  name: "margin-block"
  },
  {
-  "keywords": [
+  keywords: [
    "auto"
   ],
-  "name": "margin-block-end"
+  name: "margin-block-end"
  },
  {
-  "keywords": [
+  keywords: [
    "auto"
   ],
-  "name": "margin-block-start"
+  name: "margin-block-start"
  },
  {
-  "keywords": [
+  keywords: [
    "auto"
   ],
-  "name": "margin-bottom"
+  name: "margin-bottom"
  },
  {
-  "longhands": [
+  longhands: [
    "margin-inline-start",
    "margin-inline-end"
   ],
-  "name": "margin-inline"
+  name: "margin-inline"
  },
  {
-  "keywords": [
+  keywords: [
    "auto"
   ],
-  "name": "margin-inline-end"
+  name: "margin-inline-end"
  },
  {
-  "keywords": [
+  keywords: [
    "auto"
   ],
-  "name": "margin-inline-start"
+  name: "margin-inline-start"
  },
  {
-  "keywords": [
+  keywords: [
    "auto"
   ],
-  "name": "margin-left"
+  name: "margin-left"
  },
  {
-  "keywords": [
+  keywords: [
    "auto"
   ],
-  "name": "margin-right"
+  name: "margin-right"
  },
  {
-  "keywords": [
+  keywords: [
    "auto"
   ],
-  "name": "margin-top"
+  name: "margin-top"
  },
  {
-  "inherited": true,
-  "longhands": [
+  inherited: true,
+  longhands: [
    "marker-start",
    "marker-mid",
    "marker-end"
   ],
-  "name": "marker"
+  name: "marker"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "none"
   ],
-  "name": "marker-end"
+  name: "marker-end"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "none"
   ],
-  "name": "marker-mid"
+  name: "marker-mid"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "none"
   ],
-  "name": "marker-start"
+  name: "marker-start"
  },
  {
-  "longhands": [
+  longhands: [
    "mask-image",
    "-webkit-mask-position-x",
    "-webkit-mask-position-y",
@@ -2746,123 +2746,123 @@ export const generatedProperties = [
    "mask-composite",
    "mask-mode"
   ],
-  "name": "mask"
+  name: "mask"
  },
  {
-  "name": "mask-clip"
+  name: "mask-clip"
  },
  {
-  "name": "mask-composite"
+  name: "mask-composite"
  },
  {
-  "name": "mask-image"
+  name: "mask-image"
  },
  {
-  "name": "mask-mode"
+  name: "mask-mode"
  },
  {
-  "name": "mask-origin"
+  name: "mask-origin"
  },
  {
-  "longhands": [
+  longhands: [
    "-webkit-mask-position-x",
    "-webkit-mask-position-y"
   ],
-  "name": "mask-position"
+  name: "mask-position"
  },
  {
-  "name": "mask-repeat"
+  name: "mask-repeat"
  },
  {
-  "name": "mask-size"
+  name: "mask-size"
  },
  {
-  "keywords": [
+  keywords: [
    "luminance",
    "alpha"
   ],
-  "name": "mask-type"
+  name: "mask-type"
  },
  {
-  "name": "masonry-template-tracks"
+  name: "masonry-template-tracks"
  },
  {
-  "longhands": [
+  longhands: [
    "masonry-track-start",
    "masonry-track-end"
   ],
-  "name": "masonry-track"
+  name: "masonry-track"
  },
  {
-  "keywords": [
+  keywords: [
    "auto"
   ],
-  "name": "masonry-track-end"
+  name: "masonry-track-end"
  },
  {
-  "keywords": [
+  keywords: [
    "auto"
   ],
-  "name": "masonry-track-start"
+  name: "masonry-track-start"
  },
  {
-  "inherited": true,
-  "name": "math-depth"
+  inherited: true,
+  name: "math-depth"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "normal",
    "compact"
   ],
-  "name": "math-shift"
+  name: "math-shift"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "normal",
    "compact"
   ],
-  "name": "math-style"
+  name: "math-style"
  },
  {
-  "keywords": [
+  keywords: [
    "none"
   ],
-  "name": "max-block-size"
+  name: "max-block-size"
  },
  {
-  "keywords": [
+  keywords: [
    "none"
   ],
-  "name": "max-height"
+  name: "max-height"
  },
  {
-  "keywords": [
+  keywords: [
    "none"
   ],
-  "name": "max-inline-size"
+  name: "max-inline-size"
  },
  {
-  "keywords": [
+  keywords: [
    "none"
   ],
-  "name": "max-width"
+  name: "max-width"
  },
  {
-  "name": "min-block-size"
+  name: "min-block-size"
  },
  {
-  "name": "min-height"
+  name: "min-height"
  },
  {
-  "name": "min-inline-size"
+  name: "min-inline-size"
  },
  {
-  "name": "min-width"
+  name: "min-width"
  },
  {
-  "keywords": [
+  keywords: [
    "normal",
    "multiply",
    "screen",
@@ -2881,108 +2881,108 @@ export const generatedProperties = [
    "luminosity",
    "plus-lighter"
   ],
-  "name": "mix-blend-mode"
+  name: "mix-blend-mode"
  },
  {
-  "name": "navigation"
+  name: "navigation"
  },
  {
-  "name": "negative"
+  name: "negative"
  },
  {
-  "keywords": [
+  keywords: [
    "fill",
    "contain",
    "cover",
    "none",
    "scale-down"
   ],
-  "name": "object-fit"
+  name: "object-fit"
  },
  {
-  "name": "object-position"
+  name: "object-position"
  },
  {
-  "keywords": [
+  keywords: [
    "none"
   ],
-  "name": "object-view-box"
+  name: "object-view-box"
  },
  {
-  "longhands": [
+  longhands: [
    "offset-position",
    "offset-path",
    "offset-distance",
    "offset-rotate",
    "offset-anchor"
   ],
-  "name": "offset"
+  name: "offset"
  },
  {
-  "keywords": [
+  keywords: [
    "auto"
   ],
-  "name": "offset-anchor"
+  name: "offset-anchor"
  },
  {
-  "name": "offset-distance"
+  name: "offset-distance"
  },
  {
-  "keywords": [
+  keywords: [
    "none"
   ],
-  "name": "offset-path"
+  name: "offset-path"
  },
  {
-  "keywords": [
+  keywords: [
    "auto",
    "normal"
   ],
-  "name": "offset-position"
+  name: "offset-position"
  },
  {
-  "keywords": [
+  keywords: [
    "auto",
    "reverse"
   ],
-  "name": "offset-rotate"
+  name: "offset-rotate"
  },
  {
-  "name": "opacity"
+  name: "opacity"
  },
  {
-  "name": "order"
+  name: "order"
  },
  {
-  "keywords": [
+  keywords: [
    "normal",
    "none"
   ],
-  "name": "origin-trial-test-property"
+  name: "origin-trial-test-property"
  },
  {
-  "inherited": true,
-  "name": "orphans"
+  inherited: true,
+  name: "orphans"
  },
  {
-  "longhands": [
+  longhands: [
    "outline-color",
    "outline-style",
    "outline-width"
   ],
-  "name": "outline"
+  name: "outline"
  },
  {
-  "keywords": [
+  keywords: [
    "currentcolor"
   ],
-  "name": "outline-color"
+  name: "outline-color"
  },
  {
-  "name": "outline-offset"
+  name: "outline-offset"
  },
  {
-  "keywords": [
+  keywords: [
    "none",
    "hidden",
    "inset",
@@ -2994,57 +2994,57 @@ export const generatedProperties = [
    "solid",
    "double"
   ],
-  "name": "outline-style"
+  name: "outline-style"
  },
  {
-  "keywords": [
+  keywords: [
    "thin",
    "medium",
    "thick"
   ],
-  "name": "outline-width"
+  name: "outline-width"
  },
  {
-  "longhands": [
+  longhands: [
    "overflow-x",
    "overflow-y"
   ],
-  "name": "overflow"
+  name: "overflow"
  },
  {
-  "inherited": false,
-  "keywords": [
+  inherited: false,
+  keywords: [
    "visible",
    "none",
    "auto"
   ],
-  "name": "overflow-anchor"
+  name: "overflow-anchor"
  },
  {
-  "name": "overflow-block"
+  name: "overflow-block"
  },
  {
-  "keywords": [
+  keywords: [
    "border-box",
    "content-box",
    "padding-box"
   ],
-  "name": "overflow-clip-margin"
+  name: "overflow-clip-margin"
  },
  {
-  "name": "overflow-inline"
+  name: "overflow-inline"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "normal",
    "break-word",
    "anywhere"
   ],
-  "name": "overflow-wrap"
+  name: "overflow-wrap"
  },
  {
-  "keywords": [
+  keywords: [
    "visible",
    "hidden",
    "scroll",
@@ -3052,10 +3052,10 @@ export const generatedProperties = [
    "overlay",
    "clip"
   ],
-  "name": "overflow-x"
+  name: "overflow-x"
  },
  {
-  "keywords": [
+  keywords: [
    "visible",
    "hidden",
    "scroll",
@@ -3063,167 +3063,167 @@ export const generatedProperties = [
    "overlay",
    "clip"
   ],
-  "name": "overflow-y"
+  name: "overflow-y"
  },
  {
-  "keywords": [
+  keywords: [
    "none",
    "auto"
   ],
-  "name": "overlay"
+  name: "overlay"
  },
  {
-  "name": "override-colors"
+  name: "override-colors"
  },
  {
-  "longhands": [
+  longhands: [
    "overscroll-behavior-x",
    "overscroll-behavior-y"
   ],
-  "name": "overscroll-behavior"
+  name: "overscroll-behavior"
  },
  {
-  "name": "overscroll-behavior-block"
+  name: "overscroll-behavior-block"
  },
  {
-  "name": "overscroll-behavior-inline"
+  name: "overscroll-behavior-inline"
  },
  {
-  "keywords": [
+  keywords: [
    "auto",
    "contain",
    "none"
   ],
-  "name": "overscroll-behavior-x"
+  name: "overscroll-behavior-x"
  },
  {
-  "keywords": [
+  keywords: [
    "auto",
    "contain",
    "none"
   ],
-  "name": "overscroll-behavior-y"
+  name: "overscroll-behavior-y"
  },
  {
-  "name": "pad"
+  name: "pad"
  },
  {
-  "longhands": [
+  longhands: [
    "padding-top",
    "padding-right",
    "padding-bottom",
    "padding-left"
   ],
-  "name": "padding"
+  name: "padding"
  },
  {
-  "longhands": [
+  longhands: [
    "padding-block-start",
    "padding-block-end"
   ],
-  "name": "padding-block"
+  name: "padding-block"
  },
  {
-  "name": "padding-block-end"
+  name: "padding-block-end"
  },
  {
-  "name": "padding-block-start"
+  name: "padding-block-start"
  },
  {
-  "name": "padding-bottom"
+  name: "padding-bottom"
  },
  {
-  "longhands": [
+  longhands: [
    "padding-inline-start",
    "padding-inline-end"
   ],
-  "name": "padding-inline"
+  name: "padding-inline"
  },
  {
-  "name": "padding-inline-end"
+  name: "padding-inline-end"
  },
  {
-  "name": "padding-inline-start"
+  name: "padding-inline-start"
  },
  {
-  "name": "padding-left"
+  name: "padding-left"
  },
  {
-  "name": "padding-right"
+  name: "padding-right"
  },
  {
-  "name": "padding-top"
+  name: "padding-top"
  },
  {
-  "keywords": [
+  keywords: [
    "auto"
   ],
-  "name": "page"
+  name: "page"
  },
  {
-  "longhands": [
+  longhands: [
    "break-after"
   ],
-  "name": "page-break-after"
+  name: "page-break-after"
  },
  {
-  "longhands": [
+  longhands: [
    "break-before"
   ],
-  "name": "page-break-before"
+  name: "page-break-before"
  },
  {
-  "longhands": [
+  longhands: [
    "break-inside"
   ],
-  "name": "page-break-inside"
+  name: "page-break-inside"
  },
  {
-  "name": "page-orientation"
+  name: "page-orientation"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "normal",
    "fill",
    "stroke",
    "markers"
   ],
-  "name": "paint-order"
+  name: "paint-order"
  },
  {
-  "keywords": [
+  keywords: [
    "none"
   ],
-  "name": "perspective"
+  name: "perspective"
  },
  {
-  "name": "perspective-origin"
+  name: "perspective-origin"
  },
  {
-  "longhands": [
+  longhands: [
    "align-content",
    "justify-content"
   ],
-  "name": "place-content"
+  name: "place-content"
  },
  {
-  "longhands": [
+  longhands: [
    "align-items",
    "justify-items"
   ],
-  "name": "place-items"
+  name: "place-items"
  },
  {
-  "longhands": [
+  longhands: [
    "align-self",
    "justify-self"
   ],
-  "name": "place-self"
+  name: "place-self"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "none",
    "auto",
    "stroke",
@@ -3236,32 +3236,32 @@ export const generatedProperties = [
    "bounding-box",
    "all"
   ],
-  "name": "pointer-events"
+  name: "pointer-events"
  },
  {
-  "name": "popover-hide-delay"
+  name: "popover-hide-delay"
  },
  {
-  "name": "popover-show-delay"
+  name: "popover-show-delay"
  },
  {
-  "keywords": [
+  keywords: [
    "static",
    "relative",
    "absolute",
    "fixed",
    "sticky"
   ],
-  "name": "position"
+  name: "position"
  },
  {
-  "keywords": [
+  keywords: [
    "auto"
   ],
-  "name": "position-anchor"
+  name: "position-anchor"
  },
  {
-  "keywords": [
+  keywords: [
    "none",
    "top",
    "bottom",
@@ -3278,64 +3278,64 @@ export const generatedProperties = [
    "self-end",
    "all"
   ],
-  "name": "position-area"
+  name: "position-area"
  },
  {
-  "longhands": [
+  longhands: [
    "position-try-order",
    "position-try-options"
   ],
-  "name": "position-try"
+  name: "position-try"
  },
  {
-  "keywords": [
+  keywords: [
    "none",
    "flip-block",
    "flip-inline",
    "flip-start"
   ],
-  "name": "position-try-fallbacks"
+  name: "position-try-fallbacks"
  },
  {
-  "name": "position-try-options"
+  name: "position-try-options"
  },
  {
-  "keywords": [
+  keywords: [
    "normal",
    "most-width",
    "most-height",
    "most-block-size",
    "most-inline-size"
   ],
-  "name": "position-try-order"
+  name: "position-try-order"
  },
  {
-  "keywords": [
+  keywords: [
    "always",
    "anchors-visible",
    "no-overflow"
   ],
-  "name": "position-visibility"
+  name: "position-visibility"
  },
  {
-  "name": "prefix"
+  name: "prefix"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "auto",
    "none"
   ],
-  "name": "quotes"
+  name: "quotes"
  },
  {
-  "name": "r"
+  name: "r"
  },
  {
-  "name": "range"
+  name: "range"
  },
  {
-  "keywords": [
+  keywords: [
    "normal",
    "flex-visual",
    "flex-flow",
@@ -3343,10 +3343,10 @@ export const generatedProperties = [
    "grid-columns",
    "grid-order"
   ],
-  "name": "reading-flow"
+  name: "reading-flow"
  },
  {
-  "keywords": [
+  keywords: [
    "none",
    "both",
    "horizontal",
@@ -3354,207 +3354,207 @@ export const generatedProperties = [
    "block",
    "inline"
   ],
-  "name": "resize"
+  name: "resize"
  },
  {
-  "keywords": [
+  keywords: [
    "auto"
   ],
-  "name": "right"
+  name: "right"
  },
  {
-  "name": "rotate"
+  name: "rotate"
  },
  {
-  "keywords": [
+  keywords: [
    "normal"
   ],
-  "name": "row-gap"
+  name: "row-gap"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "space-around",
    "start",
    "center",
    "space-between"
   ],
-  "name": "ruby-align"
+  name: "ruby-align"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "over",
    "under"
   ],
-  "name": "ruby-position"
+  name: "ruby-position"
  },
  {
-  "keywords": [
+  keywords: [
    "auto"
   ],
-  "name": "rx"
+  name: "rx"
  },
  {
-  "keywords": [
+  keywords: [
    "auto"
   ],
-  "name": "ry"
+  name: "ry"
  },
  {
-  "name": "scale"
+  name: "scale"
  },
  {
-  "keywords": [
+  keywords: [
    "auto",
    "smooth"
   ],
-  "name": "scroll-behavior"
+  name: "scroll-behavior"
  },
  {
-  "longhands": [
+  longhands: [
    "scroll-margin-top",
    "scroll-margin-right",
    "scroll-margin-bottom",
    "scroll-margin-left"
   ],
-  "name": "scroll-margin"
+  name: "scroll-margin"
  },
  {
-  "longhands": [
+  longhands: [
    "scroll-margin-block-start",
    "scroll-margin-block-end"
   ],
-  "name": "scroll-margin-block"
+  name: "scroll-margin-block"
  },
  {
-  "name": "scroll-margin-block-end"
+  name: "scroll-margin-block-end"
  },
  {
-  "name": "scroll-margin-block-start"
+  name: "scroll-margin-block-start"
  },
  {
-  "name": "scroll-margin-bottom"
+  name: "scroll-margin-bottom"
  },
  {
-  "longhands": [
+  longhands: [
    "scroll-margin-inline-start",
    "scroll-margin-inline-end"
   ],
-  "name": "scroll-margin-inline"
+  name: "scroll-margin-inline"
  },
  {
-  "name": "scroll-margin-inline-end"
+  name: "scroll-margin-inline-end"
  },
  {
-  "name": "scroll-margin-inline-start"
+  name: "scroll-margin-inline-start"
  },
  {
-  "name": "scroll-margin-left"
+  name: "scroll-margin-left"
  },
  {
-  "name": "scroll-margin-right"
+  name: "scroll-margin-right"
  },
  {
-  "name": "scroll-margin-top"
+  name: "scroll-margin-top"
  },
  {
-  "keywords": [
+  keywords: [
    "none",
    "after",
    "before"
   ],
-  "name": "scroll-marker-group"
+  name: "scroll-marker-group"
  },
  {
-  "longhands": [
+  longhands: [
    "scroll-padding-top",
    "scroll-padding-right",
    "scroll-padding-bottom",
    "scroll-padding-left"
   ],
-  "name": "scroll-padding"
+  name: "scroll-padding"
  },
  {
-  "longhands": [
+  longhands: [
    "scroll-padding-block-start",
    "scroll-padding-block-end"
   ],
-  "name": "scroll-padding-block"
+  name: "scroll-padding-block"
  },
  {
-  "keywords": [
+  keywords: [
    "auto"
   ],
-  "name": "scroll-padding-block-end"
+  name: "scroll-padding-block-end"
  },
  {
-  "keywords": [
+  keywords: [
    "auto"
   ],
-  "name": "scroll-padding-block-start"
+  name: "scroll-padding-block-start"
  },
  {
-  "keywords": [
+  keywords: [
    "auto"
   ],
-  "name": "scroll-padding-bottom"
+  name: "scroll-padding-bottom"
  },
  {
-  "longhands": [
+  longhands: [
    "scroll-padding-inline-start",
    "scroll-padding-inline-end"
   ],
-  "name": "scroll-padding-inline"
+  name: "scroll-padding-inline"
  },
  {
-  "keywords": [
+  keywords: [
    "auto"
   ],
-  "name": "scroll-padding-inline-end"
+  name: "scroll-padding-inline-end"
  },
  {
-  "keywords": [
+  keywords: [
    "auto"
   ],
-  "name": "scroll-padding-inline-start"
+  name: "scroll-padding-inline-start"
  },
  {
-  "keywords": [
+  keywords: [
    "auto"
   ],
-  "name": "scroll-padding-left"
+  name: "scroll-padding-left"
  },
  {
-  "keywords": [
+  keywords: [
    "auto"
   ],
-  "name": "scroll-padding-right"
+  name: "scroll-padding-right"
  },
  {
-  "keywords": [
+  keywords: [
    "auto"
   ],
-  "name": "scroll-padding-top"
+  name: "scroll-padding-top"
  },
  {
-  "keywords": [
+  keywords: [
    "none",
    "start",
    "end",
    "center"
   ],
-  "name": "scroll-snap-align"
+  name: "scroll-snap-align"
  },
  {
-  "keywords": [
+  keywords: [
    "normal",
    "always"
   ],
-  "name": "scroll-snap-stop"
+  name: "scroll-snap-stop"
  },
  {
-  "keywords": [
+  keywords: [
    "none",
    "x",
    "y",
@@ -3564,126 +3564,126 @@ export const generatedProperties = [
    "mandatory",
    "proximity"
   ],
-  "name": "scroll-snap-type"
+  name: "scroll-snap-type"
  },
  {
-  "longhands": [
+  longhands: [
    "scroll-start-block",
    "scroll-start-inline"
   ],
-  "name": "scroll-start"
+  name: "scroll-start"
  },
  {
-  "name": "scroll-start-block"
+  name: "scroll-start-block"
  },
  {
-  "name": "scroll-start-inline"
+  name: "scroll-start-inline"
  },
  {
-  "longhands": [
+  longhands: [
    "scroll-start-target-block",
    "scroll-start-target-inline"
   ],
-  "name": "scroll-start-target"
+  name: "scroll-start-target"
  },
  {
-  "name": "scroll-start-target-block"
+  name: "scroll-start-target-block"
  },
  {
-  "name": "scroll-start-target-inline"
+  name: "scroll-start-target-inline"
  },
  {
-  "keywords": [
+  keywords: [
    "none",
    "auto"
   ],
-  "name": "scroll-start-target-x"
+  name: "scroll-start-target-x"
  },
  {
-  "keywords": [
+  keywords: [
    "none",
    "auto"
   ],
-  "name": "scroll-start-target-y"
+  name: "scroll-start-target-y"
  },
  {
-  "name": "scroll-start-x"
+  name: "scroll-start-x"
  },
  {
-  "name": "scroll-start-y"
+  name: "scroll-start-y"
  },
  {
-  "longhands": [
+  longhands: [
    "scroll-timeline-name",
    "scroll-timeline-axis"
   ],
-  "name": "scroll-timeline"
+  name: "scroll-timeline"
  },
  {
-  "name": "scroll-timeline-axis"
+  name: "scroll-timeline-axis"
  },
  {
-  "name": "scroll-timeline-name"
+  name: "scroll-timeline-name"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "auto"
   ],
-  "name": "scrollbar-color"
+  name: "scrollbar-color"
  },
  {
-  "inherited": false,
-  "keywords": [
+  inherited: false,
+  keywords: [
    "auto",
    "stable",
    "both-edges"
   ],
-  "name": "scrollbar-gutter"
+  name: "scrollbar-gutter"
  },
  {
-  "inherited": false,
-  "keywords": [
+  inherited: false,
+  keywords: [
    "auto",
    "thin",
    "none"
   ],
-  "name": "scrollbar-width"
+  name: "scrollbar-width"
  },
  {
-  "name": "shape-image-threshold"
+  name: "shape-image-threshold"
  },
  {
-  "keywords": [
+  keywords: [
    "none"
   ],
-  "name": "shape-margin"
+  name: "shape-margin"
  },
  {
-  "keywords": [
+  keywords: [
    "none"
   ],
-  "name": "shape-outside"
+  name: "shape-outside"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "auto",
    "optimizespeed",
    "crispedges",
    "geometricprecision"
   ],
-  "name": "shape-rendering"
+  name: "shape-rendering"
  },
  {
-  "name": "size"
+  name: "size"
  },
  {
-  "name": "size-adjust"
+  name: "size-adjust"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "none",
    "normal",
    "spell-out",
@@ -3691,94 +3691,94 @@ export const generatedProperties = [
    "literal-punctuation",
    "no-punctuation"
   ],
-  "name": "speak"
+  name: "speak"
  },
  {
-  "name": "speak-as"
+  name: "speak-as"
  },
  {
-  "name": "src"
+  name: "src"
  },
  {
-  "keywords": [
+  keywords: [
    "currentcolor"
   ],
-  "name": "stop-color"
+  name: "stop-color"
  },
  {
-  "name": "stop-opacity"
+  name: "stop-opacity"
  },
  {
-  "inherited": true,
-  "name": "stroke"
+  inherited: true,
+  name: "stroke"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "none"
   ],
-  "name": "stroke-dasharray"
+  name: "stroke-dasharray"
  },
  {
-  "inherited": true,
-  "name": "stroke-dashoffset"
+  inherited: true,
+  name: "stroke-dashoffset"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "butt",
    "round",
    "square"
   ],
-  "name": "stroke-linecap"
+  name: "stroke-linecap"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "miter",
    "bevel",
    "round"
   ],
-  "name": "stroke-linejoin"
+  name: "stroke-linejoin"
  },
  {
-  "inherited": true,
-  "name": "stroke-miterlimit"
+  inherited: true,
+  name: "stroke-miterlimit"
  },
  {
-  "inherited": true,
-  "name": "stroke-opacity"
+  inherited: true,
+  name: "stroke-opacity"
  },
  {
-  "inherited": true,
-  "name": "stroke-width"
+  inherited: true,
+  name: "stroke-width"
  },
  {
-  "name": "suffix"
+  name: "suffix"
  },
  {
-  "name": "symbols"
+  name: "symbols"
  },
  {
-  "name": "syntax"
+  name: "syntax"
  },
  {
-  "name": "system"
+  name: "system"
  },
  {
-  "inherited": true,
-  "name": "tab-size"
+  inherited: true,
+  name: "tab-size"
  },
  {
-  "keywords": [
+  keywords: [
    "auto",
    "fixed"
   ],
-  "name": "table-layout"
+  name: "table-layout"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "left",
    "right",
    "center",
@@ -3789,11 +3789,11 @@ export const generatedProperties = [
    "start",
    "end"
   ],
-  "name": "text-align"
+  name: "text-align"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "auto",
    "start",
    "end",
@@ -3802,70 +3802,70 @@ export const generatedProperties = [
    "center",
    "justify"
   ],
-  "name": "text-align-last"
+  name: "text-align-last"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "start",
    "middle",
    "end"
   ],
-  "name": "text-anchor"
+  name: "text-anchor"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "normal",
    "no-autospace"
   ],
-  "name": "text-autospace"
+  name: "text-autospace"
  },
  {
-  "longhands": [
+  longhands: [
    "text-box-trim",
    "text-box-edge"
   ],
-  "name": "text-box"
+  name: "text-box"
  },
  {
-  "inherited": true,
-  "name": "text-box-edge"
+  inherited: true,
+  name: "text-box-edge"
  },
  {
-  "keywords": [
+  keywords: [
    "none",
    "trim-start",
    "trim-end",
    "trim-both"
   ],
-  "name": "text-box-trim"
+  name: "text-box-trim"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "none",
    "all"
   ],
-  "name": "text-combine-upright"
+  name: "text-combine-upright"
  },
  {
-  "longhands": [
+  longhands: [
    "text-decoration-line",
    "text-decoration-thickness",
    "text-decoration-style",
    "text-decoration-color"
   ],
-  "name": "text-decoration"
+  name: "text-decoration"
  },
  {
-  "keywords": [
+  keywords: [
    "currentcolor"
   ],
-  "name": "text-decoration-color"
+  name: "text-decoration-color"
  },
  {
-  "keywords": [
+  keywords: [
    "none",
    "underline",
    "overline",
@@ -3874,186 +3874,186 @@ export const generatedProperties = [
    "spelling-error",
    "grammar-error"
   ],
-  "name": "text-decoration-line"
+  name: "text-decoration-line"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "none",
    "auto"
   ],
-  "name": "text-decoration-skip-ink"
+  name: "text-decoration-skip-ink"
  },
  {
-  "keywords": [
+  keywords: [
    "solid",
    "double",
    "dotted",
    "dashed",
    "wavy"
   ],
-  "name": "text-decoration-style"
+  name: "text-decoration-style"
  },
  {
-  "inherited": false,
-  "keywords": [
+  inherited: false,
+  keywords: [
    "auto",
    "from-font"
   ],
-  "name": "text-decoration-thickness"
+  name: "text-decoration-thickness"
  },
  {
-  "inherited": true,
-  "longhands": [
+  inherited: true,
+  longhands: [
    "text-emphasis-style",
    "text-emphasis-color"
   ],
-  "name": "text-emphasis"
+  name: "text-emphasis"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "currentcolor"
   ],
-  "name": "text-emphasis-color"
+  name: "text-emphasis-color"
  },
  {
-  "inherited": true,
-  "name": "text-emphasis-position"
+  inherited: true,
+  name: "text-emphasis-position"
  },
  {
-  "inherited": true,
-  "name": "text-emphasis-style"
+  inherited: true,
+  name: "text-emphasis-style"
  },
  {
-  "inherited": true,
-  "name": "text-indent"
+  inherited: true,
+  name: "text-indent"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "sideways",
    "mixed",
    "upright"
   ],
-  "name": "text-orientation"
+  name: "text-orientation"
  },
  {
-  "keywords": [
+  keywords: [
    "clip",
    "ellipsis"
   ],
-  "name": "text-overflow"
+  name: "text-overflow"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "auto",
    "optimizespeed",
    "optimizelegibility",
    "geometricprecision"
   ],
-  "name": "text-rendering"
+  name: "text-rendering"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "none"
   ],
-  "name": "text-shadow"
+  name: "text-shadow"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "none",
    "auto"
   ],
-  "name": "text-size-adjust"
+  name: "text-size-adjust"
  },
  {
-  "inherited": true,
-  "longhands": [
+  inherited: true,
+  longhands: [
    "text-autospace",
    "text-spacing-trim"
   ],
-  "name": "text-spacing"
+  name: "text-spacing"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "normal",
    "space-all",
    "space-first",
    "trim-start"
   ],
-  "name": "text-spacing-trim"
+  name: "text-spacing-trim"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "capitalize",
    "uppercase",
    "lowercase",
    "none",
    "math-auto"
   ],
-  "name": "text-transform"
+  name: "text-transform"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "auto"
   ],
-  "name": "text-underline-offset"
+  name: "text-underline-offset"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "auto",
    "from-font",
    "under",
    "left",
    "right"
   ],
-  "name": "text-underline-position"
+  name: "text-underline-position"
  },
  {
-  "inherited": true,
-  "longhands": [
+  inherited: true,
+  longhands: [
    "text-wrap-mode",
    "text-wrap-style"
   ],
-  "name": "text-wrap"
+  name: "text-wrap"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "wrap",
    "nowrap"
   ],
-  "name": "text-wrap-mode"
+  name: "text-wrap-mode"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "auto",
    "balance",
    "pretty",
    "stable"
   ],
-  "name": "text-wrap-style"
+  name: "text-wrap-style"
  },
  {
-  "name": "timeline-scope"
+  name: "timeline-scope"
  },
  {
-  "keywords": [
+  keywords: [
    "auto"
   ],
-  "name": "top"
+  name: "top"
  },
  {
-  "keywords": [
+  keywords: [
    "auto",
    "none",
    "pan-x",
@@ -4065,65 +4065,65 @@ export const generatedProperties = [
    "pinch-zoom",
    "manipulation"
   ],
-  "name": "touch-action"
+  name: "touch-action"
  },
  {
-  "keywords": [
+  keywords: [
    "none"
   ],
-  "name": "transform"
+  name: "transform"
  },
  {
-  "keywords": [
+  keywords: [
    "content-box",
    "border-box",
    "fill-box",
    "stroke-box",
    "view-box"
   ],
-  "name": "transform-box"
+  name: "transform-box"
  },
  {
-  "name": "transform-origin"
+  name: "transform-origin"
  },
  {
-  "keywords": [
+  keywords: [
    "flat",
    "preserve-3d"
   ],
-  "name": "transform-style"
+  name: "transform-style"
  },
  {
-  "longhands": [
+  longhands: [
    "transition-property",
    "transition-duration",
    "transition-timing-function",
    "transition-delay",
    "transition-behavior"
   ],
-  "name": "transition"
+  name: "transition"
  },
  {
-  "keywords": [
+  keywords: [
    "normal",
    "allow-discrete"
   ],
-  "name": "transition-behavior"
+  name: "transition-behavior"
  },
  {
-  "name": "transition-delay"
+  name: "transition-delay"
  },
  {
-  "name": "transition-duration"
+  name: "transition-duration"
  },
  {
-  "keywords": [
+  keywords: [
    "none"
   ],
-  "name": "transition-property"
+  name: "transition-property"
  },
  {
-  "keywords": [
+  keywords: [
    "linear",
    "ease",
    "ease-in",
@@ -4136,16 +4136,16 @@ export const generatedProperties = [
    "step-start",
    "step-end"
   ],
-  "name": "transition-timing-function"
+  name: "transition-timing-function"
  },
  {
-  "name": "translate"
+  name: "translate"
  },
  {
-  "name": "types"
+  name: "types"
  },
  {
-  "keywords": [
+  keywords: [
    "normal",
    "embed",
    "bidi-override",
@@ -4153,31 +4153,31 @@ export const generatedProperties = [
    "plaintext",
    "isolate-override"
   ],
-  "name": "unicode-bidi"
+  name: "unicode-bidi"
  },
  {
-  "name": "unicode-range"
+  name: "unicode-range"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "auto",
    "none",
    "text",
    "all",
    "contain"
   ],
-  "name": "user-select"
+  name: "user-select"
  },
  {
-  "keywords": [
+  keywords: [
    "none",
    "non-scaling-stroke"
   ],
-  "name": "vector-effect"
+  name: "vector-effect"
  },
  {
-  "keywords": [
+  keywords: [
    "baseline",
    "sub",
    "super",
@@ -4185,139 +4185,139 @@ export const generatedProperties = [
    "text-bottom",
    "middle"
   ],
-  "name": "vertical-align"
+  name: "vertical-align"
  },
  {
-  "longhands": [
+  longhands: [
    "view-timeline-name",
    "view-timeline-axis",
    "view-timeline-inset"
   ],
-  "name": "view-timeline"
+  name: "view-timeline"
  },
  {
-  "name": "view-timeline-axis"
+  name: "view-timeline-axis"
  },
  {
-  "name": "view-timeline-inset"
+  name: "view-timeline-inset"
  },
  {
-  "name": "view-timeline-name"
+  name: "view-timeline-name"
  },
  {
-  "keywords": [
+  keywords: [
    "none"
   ],
-  "name": "view-transition-class"
+  name: "view-transition-class"
  },
  {
-  "keywords": [
+  keywords: [
    "normal",
    "contain",
    "nearest"
   ],
-  "name": "view-transition-group"
+  name: "view-transition-group"
  },
  {
-  "keywords": [
+  keywords: [
    "none"
   ],
-  "name": "view-transition-name"
+  name: "view-transition-name"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "visible",
    "hidden",
    "collapse"
   ],
-  "name": "visibility"
+  name: "visibility"
  },
  {
-  "inherited": true,
-  "longhands": [
+  inherited: true,
+  longhands: [
    "white-space-collapse",
    "text-wrap-mode"
   ],
-  "name": "white-space"
+  name: "white-space"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "collapse",
    "preserve",
    "preserve-breaks",
    "break-spaces"
   ],
-  "name": "white-space-collapse"
+  name: "white-space-collapse"
  },
  {
-  "inherited": true,
-  "name": "widows"
+  inherited: true,
+  name: "widows"
  },
  {
-  "keywords": [
+  keywords: [
    "auto",
    "fit-content",
    "min-content",
    "max-content"
   ],
-  "name": "width"
+  name: "width"
  },
  {
-  "keywords": [
+  keywords: [
    "auto"
   ],
-  "name": "will-change"
+  name: "will-change"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "normal",
    "break-all",
    "keep-all",
    "break-word",
    "auto-phrase"
   ],
-  "name": "word-break"
+  name: "word-break"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "normal"
   ],
-  "name": "word-spacing"
+  name: "word-spacing"
  },
  {
-  "inherited": true,
-  "keywords": [
+  inherited: true,
+  keywords: [
    "horizontal-tb",
    "vertical-rl",
    "vertical-lr",
    "sideways-rl",
    "sideways-lr"
   ],
-  "name": "writing-mode"
+  name: "writing-mode"
  },
  {
-  "name": "x"
+  name: "x"
  },
  {
-  "name": "y"
+  name: "y"
  },
  {
-  "keywords": [
+  keywords: [
    "auto"
   ],
-  "name": "z-index"
+  name: "z-index"
  },
  {
-  "name": "zoom"
+  name: "zoom"
  }
 ];
 export const generatedPropertyValues = {
  "-webkit-box-align": {
-  "values": [
+  values: [
    "stretch",
    "start",
    "center",
@@ -4326,25 +4326,25 @@ export const generatedPropertyValues = {
   ]
  },
  "-webkit-box-decoration-break": {
-  "values": [
+  values: [
    "slice",
    "clone"
   ]
  },
  "-webkit-box-direction": {
-  "values": [
+  values: [
    "normal",
    "reverse"
   ]
  },
  "-webkit-box-orient": {
-  "values": [
+  values: [
    "horizontal",
    "vertical"
   ]
  },
  "-webkit-box-pack": {
-  "values": [
+  values: [
    "start",
    "center",
    "end",
@@ -4352,7 +4352,7 @@ export const generatedPropertyValues = {
   ]
  },
  "-webkit-line-break": {
-  "values": [
+  values: [
    "auto",
    "loose",
    "normal",
@@ -4362,19 +4362,19 @@ export const generatedPropertyValues = {
   ]
  },
  "-webkit-print-color-adjust": {
-  "values": [
+  values: [
    "economy",
    "exact"
   ]
  },
  "-webkit-rtl-ordering": {
-  "values": [
+  values: [
    "logical",
    "visual"
   ]
  },
  "-webkit-text-security": {
-  "values": [
+  values: [
    "none",
    "disc",
    "circle",
@@ -4382,27 +4382,27 @@ export const generatedPropertyValues = {
   ]
  },
  "-webkit-user-drag": {
-  "values": [
+  values: [
    "auto",
    "none",
    "element"
   ]
  },
  "-webkit-user-modify": {
-  "values": [
+  values: [
    "read-only",
    "read-write",
    "read-write-plaintext-only"
   ]
  },
  "accent-color": {
-  "values": [
+  values: [
    "auto",
    "currentcolor"
   ]
  },
  "alignment-baseline": {
-  "values": [
+  values: [
    "auto",
    "baseline",
    "alphabetic",
@@ -4418,25 +4418,25 @@ export const generatedPropertyValues = {
   ]
  },
  "anchor-name": {
-  "values": [
+  values: [
    "none"
   ]
  },
  "anchor-scope": {
-  "values": [
+  values: [
    "none",
    "all"
   ]
  },
  "animation-composition": {
-  "values": [
+  values: [
    "replace",
    "add",
    "accumulate"
   ]
  },
  "animation-direction": {
-  "values": [
+  values: [
    "normal",
    "reverse",
    "alternate",
@@ -4444,7 +4444,7 @@ export const generatedPropertyValues = {
   ]
  },
  "animation-fill-mode": {
-  "values": [
+  values: [
    "none",
    "forwards",
    "backwards",
@@ -4452,29 +4452,29 @@ export const generatedPropertyValues = {
   ]
  },
  "animation-iteration-count": {
-  "values": [
+  values: [
    "infinite"
   ]
  },
  "animation-name": {
-  "values": [
+  values: [
    "none"
   ]
  },
  "animation-play-state": {
-  "values": [
+  values: [
    "running",
    "paused"
   ]
  },
  "animation-timeline": {
-  "values": [
+  values: [
    "none",
    "auto"
   ]
  },
  "animation-timing-function": {
-  "values": [
+  values: [
    "linear",
    "ease",
    "ease-in",
@@ -4489,37 +4489,37 @@ export const generatedPropertyValues = {
   ]
  },
  "app-region": {
-  "values": [
+  values: [
    "none",
    "drag",
    "no-drag"
   ]
  },
  "aspect-ratio": {
-  "values": [
+  values: [
    "auto"
   ]
  },
  "backdrop-filter": {
-  "values": [
+  values: [
    "none"
   ]
  },
  "backface-visibility": {
-  "values": [
+  values: [
    "visible",
    "hidden"
   ]
  },
  "background-attachment": {
-  "values": [
+  values: [
    "scroll",
    "fixed",
    "local"
   ]
  },
  "background-blend-mode": {
-  "values": [
+  values: [
    "normal",
    "multiply",
    "screen",
@@ -4539,7 +4539,7 @@ export const generatedPropertyValues = {
   ]
  },
  "background-clip": {
-  "values": [
+  values: [
    "border-box",
    "padding-box",
    "content-box",
@@ -4547,56 +4547,56 @@ export const generatedPropertyValues = {
   ]
  },
  "background-color": {
-  "values": [
+  values: [
    "currentcolor"
   ]
  },
  "background-image": {
-  "values": [
+  values: [
    "auto",
    "none"
   ]
  },
  "background-origin": {
-  "values": [
+  values: [
    "border-box",
    "padding-box",
    "content-box"
   ]
  },
  "background-size": {
-  "values": [
+  values: [
    "auto",
    "cover",
    "contain"
   ]
  },
  "baseline-shift": {
-  "values": [
+  values: [
    "baseline",
    "sub",
    "super"
   ]
  },
  "baseline-source": {
-  "values": [
+  values: [
    "auto",
    "first",
    "last"
   ]
  },
  "block-size": {
-  "values": [
+  values: [
    "auto"
   ]
  },
  "border-bottom-color": {
-  "values": [
+  values: [
    "currentcolor"
   ]
  },
  "border-bottom-style": {
-  "values": [
+  values: [
    "none",
    "hidden",
    "inset",
@@ -4610,20 +4610,20 @@ export const generatedPropertyValues = {
   ]
  },
  "border-bottom-width": {
-  "values": [
+  values: [
    "thin",
    "medium",
    "thick"
   ]
  },
  "border-collapse": {
-  "values": [
+  values: [
    "separate",
    "collapse"
   ]
  },
  "border-image-repeat": {
-  "values": [
+  values: [
    "stretch",
    "repeat",
    "round",
@@ -4631,22 +4631,22 @@ export const generatedPropertyValues = {
   ]
  },
  "border-image-source": {
-  "values": [
+  values: [
    "none"
   ]
  },
  "border-image-width": {
-  "values": [
+  values: [
    "auto"
   ]
  },
  "border-left-color": {
-  "values": [
+  values: [
    "currentcolor"
   ]
  },
  "border-left-style": {
-  "values": [
+  values: [
    "none",
    "hidden",
    "inset",
@@ -4660,19 +4660,19 @@ export const generatedPropertyValues = {
   ]
  },
  "border-left-width": {
-  "values": [
+  values: [
    "thin",
    "medium",
    "thick"
   ]
  },
  "border-right-color": {
-  "values": [
+  values: [
    "currentcolor"
   ]
  },
  "border-right-style": {
-  "values": [
+  values: [
    "none",
    "hidden",
    "inset",
@@ -4686,24 +4686,24 @@ export const generatedPropertyValues = {
   ]
  },
  "border-right-width": {
-  "values": [
+  values: [
    "thin",
    "medium",
    "thick"
   ]
  },
  "border-style": {
-  "values": [
+  values: [
    "none"
   ]
  },
  "border-top-color": {
-  "values": [
+  values: [
    "currentcolor"
   ]
  },
  "border-top-style": {
-  "values": [
+  values: [
    "none",
    "hidden",
    "inset",
@@ -4717,36 +4717,36 @@ export const generatedPropertyValues = {
   ]
  },
  "border-top-width": {
-  "values": [
+  values: [
    "thin",
    "medium",
    "thick"
   ]
  },
- "bottom": {
-  "values": [
+ bottom: {
+  values: [
    "auto"
   ]
  },
  "box-decoration-break": {
-  "values": [
+  values: [
    "slice",
    "clone"
   ]
  },
  "box-shadow": {
-  "values": [
+  values: [
    "none"
   ]
  },
  "box-sizing": {
-  "values": [
+  values: [
    "content-box",
    "border-box"
   ]
  },
  "break-after": {
-  "values": [
+  values: [
    "auto",
    "avoid",
    "avoid-column",
@@ -4760,7 +4760,7 @@ export const generatedPropertyValues = {
   ]
  },
  "break-before": {
-  "values": [
+  values: [
    "auto",
    "avoid",
    "avoid-column",
@@ -4774,7 +4774,7 @@ export const generatedPropertyValues = {
   ]
  },
  "break-inside": {
-  "values": [
+  values: [
    "auto",
    "avoid",
    "avoid-column",
@@ -4782,26 +4782,26 @@ export const generatedPropertyValues = {
   ]
  },
  "buffered-rendering": {
-  "values": [
+  values: [
    "auto",
    "dynamic",
    "static"
   ]
  },
  "caption-side": {
-  "values": [
+  values: [
    "top",
    "bottom"
   ]
  },
  "caret-color": {
-  "values": [
+  values: [
    "auto",
    "currentcolor"
   ]
  },
- "clear": {
-  "values": [
+ clear: {
+  values: [
    "none",
    "left",
    "right",
@@ -4810,13 +4810,13 @@ export const generatedPropertyValues = {
    "inline-end"
   ]
  },
- "clip": {
-  "values": [
+ clip: {
+  values: [
    "auto"
   ]
  },
  "clip-path": {
-  "values": [
+  values: [
    "border-box",
    "padding-box",
    "content-box",
@@ -4828,60 +4828,60 @@ export const generatedPropertyValues = {
   ]
  },
  "clip-rule": {
-  "values": [
+  values: [
    "nonzero",
    "evenodd"
   ]
  },
- "color": {
-  "values": [
+ color: {
+  values: [
    "currentcolor"
   ]
  },
  "color-interpolation": {
-  "values": [
+  values: [
    "auto",
    "srgb",
    "linearrgb"
   ]
  },
  "color-interpolation-filters": {
-  "values": [
+  values: [
    "auto",
    "srgb",
    "linearrgb"
   ]
  },
  "color-rendering": {
-  "values": [
+  values: [
    "auto",
    "optimizespeed",
    "optimizequality"
   ]
  },
  "column-count": {
-  "values": [
+  values: [
    "auto"
   ]
  },
  "column-fill": {
-  "values": [
+  values: [
    "balance",
    "auto"
   ]
  },
  "column-gap": {
-  "values": [
+  values: [
    "normal"
   ]
  },
  "column-rule-color": {
-  "values": [
+  values: [
    "currentcolor"
   ]
  },
  "column-rule-style": {
-  "values": [
+  values: [
    "none",
    "hidden",
    "inset",
@@ -4895,25 +4895,25 @@ export const generatedPropertyValues = {
   ]
  },
  "column-rule-width": {
-  "values": [
+  values: [
    "thin",
    "medium",
    "thick"
   ]
  },
  "column-span": {
-  "values": [
+  values: [
    "none",
    "all"
   ]
  },
  "column-width": {
-  "values": [
+  values: [
    "auto"
   ]
  },
- "contain": {
-  "values": [
+ contain: {
+  values: [
    "none",
    "strict",
    "content",
@@ -4926,22 +4926,22 @@ export const generatedPropertyValues = {
   ]
  },
  "contain-intrinsic-height": {
-  "values": [
+  values: [
    "none"
   ]
  },
  "contain-intrinsic-width": {
-  "values": [
+  values: [
    "none"
   ]
  },
  "container-name": {
-  "values": [
+  values: [
    "none"
   ]
  },
  "container-type": {
-  "values": [
+  values: [
    "normal",
    "inline-size",
    "size",
@@ -4949,29 +4949,29 @@ export const generatedPropertyValues = {
   ]
  },
  "content-visibility": {
-  "values": [
+  values: [
    "visible",
    "auto",
    "hidden"
   ]
  },
  "counter-increment": {
-  "values": [
+  values: [
    "none"
   ]
  },
  "counter-reset": {
-  "values": [
+  values: [
    "none"
   ]
  },
  "counter-set": {
-  "values": [
+  values: [
    "none"
   ]
  },
- "cursor": {
-  "values": [
+ cursor: {
+  values: [
    "auto",
    "default",
    "none",
@@ -5010,19 +5010,19 @@ export const generatedPropertyValues = {
    "grabbing"
   ]
  },
- "d": {
-  "values": [
+ d: {
+  values: [
    "none"
   ]
  },
- "direction": {
-  "values": [
+ direction: {
+  values: [
    "ltr",
    "rtl"
   ]
  },
- "display": {
-  "values": [
+ display: {
+  values: [
    "inline",
    "block",
    "list-item",
@@ -5055,7 +5055,7 @@ export const generatedPropertyValues = {
   ]
  },
  "dominant-baseline": {
-  "values": [
+  values: [
    "auto",
    "alphabetic",
    "ideographic",
@@ -5071,37 +5071,37 @@ export const generatedPropertyValues = {
   ]
  },
  "dynamic-range-limit": {
-  "values": [
+  values: [
    "standard",
    "high",
    "constrained-high"
   ]
  },
  "empty-cells": {
-  "values": [
+  values: [
    "show",
    "hide"
   ]
  },
  "field-sizing": {
-  "values": [
+  values: [
    "fixed",
    "content"
   ]
  },
  "fill-rule": {
-  "values": [
+  values: [
    "nonzero",
    "evenodd"
   ]
  },
- "filter": {
-  "values": [
+ filter: {
+  values: [
    "none"
   ]
  },
  "flex-basis": {
-  "values": [
+  values: [
    "auto",
    "fit-content",
    "min-content",
@@ -5110,7 +5110,7 @@ export const generatedPropertyValues = {
   ]
  },
  "flex-direction": {
-  "values": [
+  values: [
    "row",
    "row-reverse",
    "column",
@@ -5118,14 +5118,14 @@ export const generatedPropertyValues = {
   ]
  },
  "flex-wrap": {
-  "values": [
+  values: [
    "nowrap",
    "wrap",
    "wrap-reverse"
   ]
  },
- "float": {
-  "values": [
+ float: {
+  values: [
    "none",
    "left",
    "right",
@@ -5134,37 +5134,37 @@ export const generatedPropertyValues = {
   ]
  },
  "flood-color": {
-  "values": [
+  values: [
    "currentcolor"
   ]
  },
  "font-feature-settings": {
-  "values": [
+  values: [
    "normal"
   ]
  },
  "font-kerning": {
-  "values": [
+  values: [
    "auto",
    "normal",
    "none"
   ]
  },
  "font-optical-sizing": {
-  "values": [
+  values: [
    "auto",
    "none"
   ]
  },
  "font-palette": {
-  "values": [
+  values: [
    "normal",
    "light",
    "dark"
   ]
  },
  "font-size": {
-  "values": [
+  values: [
    "xx-small",
    "x-small",
    "small",
@@ -5179,7 +5179,7 @@ export const generatedPropertyValues = {
   ]
  },
  "font-size-adjust": {
-  "values": [
+  values: [
    "none",
    "ex-height",
    "cap-height",
@@ -5190,7 +5190,7 @@ export const generatedPropertyValues = {
   ]
  },
  "font-stretch": {
-  "values": [
+  values: [
    "normal",
    "ultra-condensed",
    "extra-condensed",
@@ -5203,37 +5203,37 @@ export const generatedPropertyValues = {
   ]
  },
  "font-style": {
-  "values": [
+  values: [
    "normal",
    "italic",
    "oblique"
   ]
  },
  "font-synthesis-small-caps": {
-  "values": [
+  values: [
    "auto",
    "none"
   ]
  },
  "font-synthesis-style": {
-  "values": [
+  values: [
    "auto",
    "none"
   ]
  },
  "font-synthesis-weight": {
-  "values": [
+  values: [
    "auto",
    "none"
   ]
  },
  "font-variant-alternates": {
-  "values": [
+  values: [
    "normal"
   ]
  },
  "font-variant-caps": {
-  "values": [
+  values: [
    "normal",
    "small-caps",
    "all-small-caps",
@@ -5244,7 +5244,7 @@ export const generatedPropertyValues = {
   ]
  },
  "font-variant-east-asian": {
-  "values": [
+  values: [
    "normal",
    "jis78",
    "jis83",
@@ -5258,7 +5258,7 @@ export const generatedPropertyValues = {
   ]
  },
  "font-variant-emoji": {
-  "values": [
+  values: [
    "normal",
    "text",
    "emoji",
@@ -5266,7 +5266,7 @@ export const generatedPropertyValues = {
   ]
  },
  "font-variant-ligatures": {
-  "values": [
+  values: [
    "normal",
    "none",
    "common-ligatures",
@@ -5280,7 +5280,7 @@ export const generatedPropertyValues = {
   ]
  },
  "font-variant-numeric": {
-  "values": [
+  values: [
    "normal",
    "lining-nums",
    "oldstyle-nums",
@@ -5293,19 +5293,19 @@ export const generatedPropertyValues = {
   ]
  },
  "font-variant-position": {
-  "values": [
+  values: [
    "normal",
    "sub",
    "super"
   ]
  },
  "font-variation-settings": {
-  "values": [
+  values: [
    "normal"
   ]
  },
  "font-weight": {
-  "values": [
+  values: [
    "normal",
    "bold",
    "bolder",
@@ -5313,69 +5313,69 @@ export const generatedPropertyValues = {
   ]
  },
  "forced-color-adjust": {
-  "values": [
+  values: [
    "auto",
    "none",
    "preserve-parent-color"
   ]
  },
  "grid-auto-columns": {
-  "values": [
+  values: [
    "auto",
    "min-content",
    "max-content"
   ]
  },
  "grid-auto-flow": {
-  "values": [
+  values: [
    "row",
    "column"
   ]
  },
  "grid-auto-rows": {
-  "values": [
+  values: [
    "auto",
    "min-content",
    "max-content"
   ]
  },
  "grid-column-end": {
-  "values": [
+  values: [
    "auto"
   ]
  },
  "grid-column-start": {
-  "values": [
+  values: [
    "auto"
   ]
  },
  "grid-row-end": {
-  "values": [
+  values: [
    "auto"
   ]
  },
  "grid-row-start": {
-  "values": [
+  values: [
    "auto"
   ]
  },
  "grid-template-areas": {
-  "values": [
+  values: [
    "none"
   ]
  },
  "grid-template-columns": {
-  "values": [
+  values: [
    "none"
   ]
  },
  "grid-template-rows": {
-  "values": [
+  values: [
    "none"
   ]
  },
- "height": {
-  "values": [
+ height: {
+  values: [
    "auto",
    "fit-content",
    "min-content",
@@ -5383,19 +5383,19 @@ export const generatedPropertyValues = {
   ]
  },
  "hyphenate-limit-chars": {
-  "values": [
+  values: [
    "auto"
   ]
  },
- "hyphens": {
-  "values": [
+ hyphens: {
+  values: [
    "none",
    "manual",
    "auto"
   ]
  },
  "image-rendering": {
-  "values": [
+  values: [
    "auto",
    "optimizespeed",
    "optimizequality",
@@ -5404,19 +5404,19 @@ export const generatedPropertyValues = {
   ]
  },
  "initial-letter": {
-  "values": [
+  values: [
    "drop",
    "normal",
    "raise"
   ]
  },
  "inline-size": {
-  "values": [
+  values: [
    "auto"
   ]
  },
  "inset-area": {
-  "values": [
+  values: [
    "none",
    "top",
    "bottom",
@@ -5435,34 +5435,34 @@ export const generatedPropertyValues = {
   ]
  },
  "interpolate-size": {
-  "values": [
+  values: [
    "numeric-only",
    "allow-keywords"
   ]
  },
- "isolation": {
-  "values": [
+ isolation: {
+  values: [
    "auto",
    "isolate"
   ]
  },
- "left": {
-  "values": [
+ left: {
+  values: [
    "auto"
   ]
  },
  "letter-spacing": {
-  "values": [
+  values: [
    "normal"
   ]
  },
  "lighting-color": {
-  "values": [
+  values: [
    "currentcolor"
   ]
  },
  "line-break": {
-  "values": [
+  values: [
    "auto",
    "loose",
    "normal",
@@ -5471,29 +5471,29 @@ export const generatedPropertyValues = {
   ]
  },
  "line-clamp": {
-  "values": [
+  values: [
    "none",
    "auto"
   ]
  },
  "line-height": {
-  "values": [
+  values: [
    "normal"
   ]
  },
  "list-style-image": {
-  "values": [
+  values: [
    "none"
   ]
  },
  "list-style-position": {
-  "values": [
+  values: [
    "outside",
    "inside"
   ]
  },
  "list-style-type": {
-  "values": [
+  values: [
    "disc",
    "circle",
    "square",
@@ -5504,110 +5504,110 @@ export const generatedPropertyValues = {
   ]
  },
  "margin-block-end": {
-  "values": [
+  values: [
    "auto"
   ]
  },
  "margin-block-start": {
-  "values": [
+  values: [
    "auto"
   ]
  },
  "margin-bottom": {
-  "values": [
+  values: [
    "auto"
   ]
  },
  "margin-inline-end": {
-  "values": [
+  values: [
    "auto"
   ]
  },
  "margin-inline-start": {
-  "values": [
+  values: [
    "auto"
   ]
  },
  "margin-left": {
-  "values": [
+  values: [
    "auto"
   ]
  },
  "margin-right": {
-  "values": [
+  values: [
    "auto"
   ]
  },
  "margin-top": {
-  "values": [
+  values: [
    "auto"
   ]
  },
  "marker-end": {
-  "values": [
+  values: [
    "none"
   ]
  },
  "marker-mid": {
-  "values": [
+  values: [
    "none"
   ]
  },
  "marker-start": {
-  "values": [
+  values: [
    "none"
   ]
  },
  "mask-type": {
-  "values": [
+  values: [
    "luminance",
    "alpha"
   ]
  },
  "masonry-track-end": {
-  "values": [
+  values: [
    "auto"
   ]
  },
  "masonry-track-start": {
-  "values": [
+  values: [
    "auto"
   ]
  },
  "math-shift": {
-  "values": [
+  values: [
    "normal",
    "compact"
   ]
  },
  "math-style": {
-  "values": [
+  values: [
    "normal",
    "compact"
   ]
  },
  "max-block-size": {
-  "values": [
+  values: [
    "none"
   ]
  },
  "max-height": {
-  "values": [
+  values: [
    "none"
   ]
  },
  "max-inline-size": {
-  "values": [
+  values: [
    "none"
   ]
  },
  "max-width": {
-  "values": [
+  values: [
    "none"
   ]
  },
  "mix-blend-mode": {
-  "values": [
+  values: [
    "normal",
    "multiply",
    "screen",
@@ -5628,7 +5628,7 @@ export const generatedPropertyValues = {
   ]
  },
  "object-fit": {
-  "values": [
+  values: [
    "fill",
    "contain",
    "cover",
@@ -5637,45 +5637,45 @@ export const generatedPropertyValues = {
   ]
  },
  "object-view-box": {
-  "values": [
+  values: [
    "none"
   ]
  },
  "offset-anchor": {
-  "values": [
+  values: [
    "auto"
   ]
  },
  "offset-path": {
-  "values": [
+  values: [
    "none"
   ]
  },
  "offset-position": {
-  "values": [
+  values: [
    "auto",
    "normal"
   ]
  },
  "offset-rotate": {
-  "values": [
+  values: [
    "auto",
    "reverse"
   ]
  },
  "origin-trial-test-property": {
-  "values": [
+  values: [
    "normal",
    "none"
   ]
  },
  "outline-color": {
-  "values": [
+  values: [
    "currentcolor"
   ]
  },
  "outline-style": {
-  "values": [
+  values: [
    "none",
    "hidden",
    "inset",
@@ -5689,35 +5689,35 @@ export const generatedPropertyValues = {
   ]
  },
  "outline-width": {
-  "values": [
+  values: [
    "thin",
    "medium",
    "thick"
   ]
  },
  "overflow-anchor": {
-  "values": [
+  values: [
    "visible",
    "none",
    "auto"
   ]
  },
  "overflow-clip-margin": {
-  "values": [
+  values: [
    "border-box",
    "content-box",
    "padding-box"
   ]
  },
  "overflow-wrap": {
-  "values": [
+  values: [
    "normal",
    "break-word",
    "anywhere"
   ]
  },
  "overflow-x": {
-  "values": [
+  values: [
    "visible",
    "hidden",
    "scroll",
@@ -5727,7 +5727,7 @@ export const generatedPropertyValues = {
   ]
  },
  "overflow-y": {
-  "values": [
+  values: [
    "visible",
    "hidden",
    "scroll",
@@ -5736,46 +5736,46 @@ export const generatedPropertyValues = {
    "clip"
   ]
  },
- "overlay": {
-  "values": [
+ overlay: {
+  values: [
    "none",
    "auto"
   ]
  },
  "overscroll-behavior-x": {
-  "values": [
+  values: [
    "auto",
    "contain",
    "none"
   ]
  },
  "overscroll-behavior-y": {
-  "values": [
+  values: [
    "auto",
    "contain",
    "none"
   ]
  },
- "page": {
-  "values": [
+ page: {
+  values: [
    "auto"
   ]
  },
  "paint-order": {
-  "values": [
+  values: [
    "normal",
    "fill",
    "stroke",
    "markers"
   ]
  },
- "perspective": {
-  "values": [
+ perspective: {
+  values: [
    "none"
   ]
  },
  "pointer-events": {
-  "values": [
+  values: [
    "none",
    "auto",
    "stroke",
@@ -5789,8 +5789,8 @@ export const generatedPropertyValues = {
    "all"
   ]
  },
- "position": {
-  "values": [
+ position: {
+  values: [
    "static",
    "relative",
    "absolute",
@@ -5799,12 +5799,12 @@ export const generatedPropertyValues = {
   ]
  },
  "position-anchor": {
-  "values": [
+  values: [
    "auto"
   ]
  },
  "position-area": {
-  "values": [
+  values: [
    "none",
    "top",
    "bottom",
@@ -5823,7 +5823,7 @@ export const generatedPropertyValues = {
   ]
  },
  "position-try-fallbacks": {
-  "values": [
+  values: [
    "none",
    "flip-block",
    "flip-inline",
@@ -5831,7 +5831,7 @@ export const generatedPropertyValues = {
   ]
  },
  "position-try-order": {
-  "values": [
+  values: [
    "normal",
    "most-width",
    "most-height",
@@ -5840,20 +5840,20 @@ export const generatedPropertyValues = {
   ]
  },
  "position-visibility": {
-  "values": [
+  values: [
    "always",
    "anchors-visible",
    "no-overflow"
   ]
  },
- "quotes": {
-  "values": [
+ quotes: {
+  values: [
    "auto",
    "none"
   ]
  },
  "reading-flow": {
-  "values": [
+  values: [
    "normal",
    "flex-visual",
    "flex-flow",
@@ -5862,8 +5862,8 @@ export const generatedPropertyValues = {
    "grid-order"
   ]
  },
- "resize": {
-  "values": [
+ resize: {
+  values: [
    "none",
    "both",
    "horizontal",
@@ -5872,18 +5872,18 @@ export const generatedPropertyValues = {
    "inline"
   ]
  },
- "right": {
-  "values": [
+ right: {
+  values: [
    "auto"
   ]
  },
  "row-gap": {
-  "values": [
+  values: [
    "normal"
   ]
  },
  "ruby-align": {
-  "values": [
+  values: [
    "space-around",
    "start",
    "center",
@@ -5891,76 +5891,76 @@ export const generatedPropertyValues = {
   ]
  },
  "ruby-position": {
-  "values": [
+  values: [
    "over",
    "under"
   ]
  },
- "rx": {
-  "values": [
+ rx: {
+  values: [
    "auto"
   ]
  },
- "ry": {
-  "values": [
+ ry: {
+  values: [
    "auto"
   ]
  },
  "scroll-behavior": {
-  "values": [
+  values: [
    "auto",
    "smooth"
   ]
  },
  "scroll-marker-group": {
-  "values": [
+  values: [
    "none",
    "after",
    "before"
   ]
  },
  "scroll-padding-block-end": {
-  "values": [
+  values: [
    "auto"
   ]
  },
  "scroll-padding-block-start": {
-  "values": [
+  values: [
    "auto"
   ]
  },
  "scroll-padding-bottom": {
-  "values": [
+  values: [
    "auto"
   ]
  },
  "scroll-padding-inline-end": {
-  "values": [
+  values: [
    "auto"
   ]
  },
  "scroll-padding-inline-start": {
-  "values": [
+  values: [
    "auto"
   ]
  },
  "scroll-padding-left": {
-  "values": [
+  values: [
    "auto"
   ]
  },
  "scroll-padding-right": {
-  "values": [
+  values: [
    "auto"
   ]
  },
  "scroll-padding-top": {
-  "values": [
+  values: [
    "auto"
   ]
  },
  "scroll-snap-align": {
-  "values": [
+  values: [
    "none",
    "start",
    "end",
@@ -5968,13 +5968,13 @@ export const generatedPropertyValues = {
   ]
  },
  "scroll-snap-stop": {
-  "values": [
+  values: [
    "normal",
    "always"
   ]
  },
  "scroll-snap-type": {
-  "values": [
+  values: [
    "none",
    "x",
    "y",
@@ -5986,56 +5986,56 @@ export const generatedPropertyValues = {
   ]
  },
  "scroll-start-target-x": {
-  "values": [
+  values: [
    "none",
    "auto"
   ]
  },
  "scroll-start-target-y": {
-  "values": [
+  values: [
    "none",
    "auto"
   ]
  },
  "scrollbar-color": {
-  "values": [
+  values: [
    "auto"
   ]
  },
  "scrollbar-gutter": {
-  "values": [
+  values: [
    "auto",
    "stable",
    "both-edges"
   ]
  },
  "scrollbar-width": {
-  "values": [
+  values: [
    "auto",
    "thin",
    "none"
   ]
  },
  "shape-margin": {
-  "values": [
+  values: [
    "none"
   ]
  },
  "shape-outside": {
-  "values": [
+  values: [
    "none"
   ]
  },
  "shape-rendering": {
-  "values": [
+  values: [
    "auto",
    "optimizespeed",
    "crispedges",
    "geometricprecision"
   ]
  },
- "speak": {
-  "values": [
+ speak: {
+  values: [
    "none",
    "normal",
    "spell-out",
@@ -6045,37 +6045,37 @@ export const generatedPropertyValues = {
   ]
  },
  "stop-color": {
-  "values": [
+  values: [
    "currentcolor"
   ]
  },
  "stroke-dasharray": {
-  "values": [
+  values: [
    "none"
   ]
  },
  "stroke-linecap": {
-  "values": [
+  values: [
    "butt",
    "round",
    "square"
   ]
  },
  "stroke-linejoin": {
-  "values": [
+  values: [
    "miter",
    "bevel",
    "round"
   ]
  },
  "table-layout": {
-  "values": [
+  values: [
    "auto",
    "fixed"
   ]
  },
  "text-align": {
-  "values": [
+  values: [
    "left",
    "right",
    "center",
@@ -6088,7 +6088,7 @@ export const generatedPropertyValues = {
   ]
  },
  "text-align-last": {
-  "values": [
+  values: [
    "auto",
    "start",
    "end",
@@ -6099,20 +6099,20 @@ export const generatedPropertyValues = {
   ]
  },
  "text-anchor": {
-  "values": [
+  values: [
    "start",
    "middle",
    "end"
   ]
  },
  "text-autospace": {
-  "values": [
+  values: [
    "normal",
    "no-autospace"
   ]
  },
  "text-box-trim": {
-  "values": [
+  values: [
    "none",
    "trim-start",
    "trim-end",
@@ -6120,18 +6120,18 @@ export const generatedPropertyValues = {
   ]
  },
  "text-combine-upright": {
-  "values": [
+  values: [
    "none",
    "all"
   ]
  },
  "text-decoration-color": {
-  "values": [
+  values: [
    "currentcolor"
   ]
  },
  "text-decoration-line": {
-  "values": [
+  values: [
    "none",
    "underline",
    "overline",
@@ -6142,13 +6142,13 @@ export const generatedPropertyValues = {
   ]
  },
  "text-decoration-skip-ink": {
-  "values": [
+  values: [
    "none",
    "auto"
   ]
  },
  "text-decoration-style": {
-  "values": [
+  values: [
    "solid",
    "double",
    "dotted",
@@ -6157,31 +6157,31 @@ export const generatedPropertyValues = {
   ]
  },
  "text-decoration-thickness": {
-  "values": [
+  values: [
    "auto",
    "from-font"
   ]
  },
  "text-emphasis-color": {
-  "values": [
+  values: [
    "currentcolor"
   ]
  },
  "text-orientation": {
-  "values": [
+  values: [
    "sideways",
    "mixed",
    "upright"
   ]
  },
  "text-overflow": {
-  "values": [
+  values: [
    "clip",
    "ellipsis"
   ]
  },
  "text-rendering": {
-  "values": [
+  values: [
    "auto",
    "optimizespeed",
    "optimizelegibility",
@@ -6189,18 +6189,18 @@ export const generatedPropertyValues = {
   ]
  },
  "text-shadow": {
-  "values": [
+  values: [
    "none"
   ]
  },
  "text-size-adjust": {
-  "values": [
+  values: [
    "none",
    "auto"
   ]
  },
  "text-spacing-trim": {
-  "values": [
+  values: [
    "normal",
    "space-all",
    "space-first",
@@ -6208,7 +6208,7 @@ export const generatedPropertyValues = {
   ]
  },
  "text-transform": {
-  "values": [
+  values: [
    "capitalize",
    "uppercase",
    "lowercase",
@@ -6217,12 +6217,12 @@ export const generatedPropertyValues = {
   ]
  },
  "text-underline-offset": {
-  "values": [
+  values: [
    "auto"
   ]
  },
  "text-underline-position": {
-  "values": [
+  values: [
    "auto",
    "from-font",
    "under",
@@ -6231,26 +6231,26 @@ export const generatedPropertyValues = {
   ]
  },
  "text-wrap-mode": {
-  "values": [
+  values: [
    "wrap",
    "nowrap"
   ]
  },
  "text-wrap-style": {
-  "values": [
+  values: [
    "auto",
    "balance",
    "pretty",
    "stable"
   ]
  },
- "top": {
-  "values": [
+ top: {
+  values: [
    "auto"
   ]
  },
  "touch-action": {
-  "values": [
+  values: [
    "auto",
    "none",
    "pan-x",
@@ -6263,13 +6263,13 @@ export const generatedPropertyValues = {
    "manipulation"
   ]
  },
- "transform": {
-  "values": [
+ transform: {
+  values: [
    "none"
   ]
  },
  "transform-box": {
-  "values": [
+  values: [
    "content-box",
    "border-box",
    "fill-box",
@@ -6278,24 +6278,24 @@ export const generatedPropertyValues = {
   ]
  },
  "transform-style": {
-  "values": [
+  values: [
    "flat",
    "preserve-3d"
   ]
  },
  "transition-behavior": {
-  "values": [
+  values: [
    "normal",
    "allow-discrete"
   ]
  },
  "transition-property": {
-  "values": [
+  values: [
    "none"
   ]
  },
  "transition-timing-function": {
-  "values": [
+  values: [
    "linear",
    "ease",
    "ease-in",
@@ -6310,7 +6310,7 @@ export const generatedPropertyValues = {
   ]
  },
  "unicode-bidi": {
-  "values": [
+  values: [
    "normal",
    "embed",
    "bidi-override",
@@ -6320,7 +6320,7 @@ export const generatedPropertyValues = {
   ]
  },
  "user-select": {
-  "values": [
+  values: [
    "auto",
    "none",
    "text",
@@ -6329,13 +6329,13 @@ export const generatedPropertyValues = {
   ]
  },
  "vector-effect": {
-  "values": [
+  values: [
    "none",
    "non-scaling-stroke"
   ]
  },
  "vertical-align": {
-  "values": [
+  values: [
    "baseline",
    "sub",
    "super",
@@ -6345,39 +6345,39 @@ export const generatedPropertyValues = {
   ]
  },
  "view-transition-class": {
-  "values": [
+  values: [
    "none"
   ]
  },
  "view-transition-group": {
-  "values": [
+  values: [
    "normal",
    "contain",
    "nearest"
   ]
  },
  "view-transition-name": {
-  "values": [
+  values: [
    "none"
   ]
  },
- "visibility": {
-  "values": [
+ visibility: {
+  values: [
    "visible",
    "hidden",
    "collapse"
   ]
  },
  "white-space-collapse": {
-  "values": [
+  values: [
    "collapse",
    "preserve",
    "preserve-breaks",
    "break-spaces"
   ]
  },
- "width": {
-  "values": [
+ width: {
+  values: [
    "auto",
    "fit-content",
    "min-content",
@@ -6385,12 +6385,12 @@ export const generatedPropertyValues = {
   ]
  },
  "will-change": {
-  "values": [
+  values: [
    "auto"
   ]
  },
  "word-break": {
-  "values": [
+  values: [
    "normal",
    "break-all",
    "keep-all",
@@ -6399,12 +6399,12 @@ export const generatedPropertyValues = {
   ]
  },
  "word-spacing": {
-  "values": [
+  values: [
    "normal"
   ]
  },
  "writing-mode": {
-  "values": [
+  values: [
    "horizontal-tb",
    "vertical-rl",
    "vertical-lr",
@@ -6413,7 +6413,7 @@ export const generatedPropertyValues = {
   ]
  },
  "z-index": {
-  "values": [
+  values: [
    "auto"
   ]
  }
