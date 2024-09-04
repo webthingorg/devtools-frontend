@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2754ab2e_121c51d9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-04T14:42:34Z",
+      "side": 1,
+      "message": "LGTM % 1 comment",
+      "revId": "226a476b7cb8d174409e7df57e9fa41c4603dbfe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d330b73_aa39ec40",
+        "filename": "front_end/panels/freestyler/components/freestylerChatUi.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-04T14:42:34Z",
+      "side": 1,
+      "message": "AFAIU from the spec, we also need `font: var(--sys-typescale-body5-regular);` and if you\u0027re feeling fancy, we can use `text-wrap: pretty` too for a prettier wrapping behavior :)",
+      "revId": "226a476b7cb8d174409e7df57e9fa41c4603dbfe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
