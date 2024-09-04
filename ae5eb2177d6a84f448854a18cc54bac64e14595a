@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "86458e3f_afcc8890",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-09-04T14:59:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e9e47d3_9daa1a10",
+      "revId": "ae5eb2177d6a84f448854a18cc54bac64e14595a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2c8823b0_268669a5",
@@ -48,6 +66,42 @@
       "writtenOn": "2024-09-04T14:32:18Z",
       "side": 1,
       "message": "(nit): WDYT of using ellipsis character instead of 3 dots? `…`",
+      "revId": "ae5eb2177d6a84f448854a18cc54bac64e14595a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9e972de_95cd0b02",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-09-04T14:59:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12315258_632375e4",
+      "revId": "ae5eb2177d6a84f448854a18cc54bac64e14595a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6290cdec_ccfb6b89",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-09-04T14:59:26Z",
+      "side": 1,
+      "message": "I am not sure if its possible, as it requires doing event listeners and it\u0027s complicated, but I think we can make it looks a it\u0027s not open and not show the arrow. But as I am not sure if it will work will do it in a separate PR.",
+      "parentUuid": "2c8823b0_268669a5",
       "revId": "ae5eb2177d6a84f448854a18cc54bac64e14595a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
