@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "72048831_18e38521",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-09-04T22:25:18Z",
+      "side": 1,
+      "message": "Ah this is super helpful, thanks so much Kim in advance!",
+      "parentUuid": "4d29eafa_bc21d81e",
+      "revId": "4adf317b1b7423aba519a158082c534e3b23e3d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "29ea879b_0fcdb96b",
@@ -76,6 +94,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ccfae8a_7ba28a22",
+        "filename": "front_end/core/host/UserMetrics.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 1023,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-09-04T22:25:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "29ea879b_0fcdb96b",
+      "range": {
+        "startLine": 1023,
+        "startChar": 0,
+        "endLine": 1023,
+        "endChar": 34
+      },
+      "revId": "4adf317b1b7423aba519a158082c534e3b23e3d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "21ee3acb_bca64eec",
@@ -99,6 +141,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "858527ac_a78fbb38",
+        "filename": "front_end/core/root/Runtime.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-09-04T22:25:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "21ee3acb_bca64eec",
+      "range": {
+        "startLine": 305,
+        "startChar": 2,
+        "endLine": 305,
+        "endChar": 24
+      },
+      "revId": "4adf317b1b7423aba519a158082c534e3b23e3d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "02b3459c_4c1bd782",
@@ -112,6 +178,30 @@
       "writtenOn": "2024-09-04T14:44:18Z",
       "side": 1,
       "message": "`Performance panel: enable new summary details view for layout shift events` or similar (\"shift events\" is unclear, and we don\u0027t need to end with \"Performance Panel\" given the prefix)",
+      "range": {
+        "startLine": 430,
+        "startChar": 0,
+        "endLine": 430,
+        "endChar": 92
+      },
+      "revId": "4adf317b1b7423aba519a158082c534e3b23e3d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7588f110_373cbec2",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-09-04T22:25:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02b3459c_4c1bd782",
       "range": {
         "startLine": 430,
         "startChar": 0,
@@ -179,6 +269,30 @@
           ]
         }
       ],
+      "revId": "4adf317b1b7423aba519a158082c534e3b23e3d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec254987_b4eeb738",
+        "filename": "front_end/models/trace/handlers/UserTimingsHandler.test.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-09-04T22:25:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ccd2c3a1_67ef1f48",
+      "range": {
+        "startLine": 194,
+        "startChar": 1,
+        "endLine": 195,
+        "endChar": 66
+      },
       "revId": "4adf317b1b7423aba519a158082c534e3b23e3d5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -252,6 +366,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "20ad4148_a6c36da1",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 2161,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-09-04T22:25:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0a96826_7b475c5a",
+      "range": {
+        "startLine": 2161,
+        "startChar": 33,
+        "endLine": 2161,
+        "endChar": 46
+      },
+      "revId": "4adf317b1b7423aba519a158082c534e3b23e3d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5e22d76c_a1747dcb",
@@ -265,6 +403,30 @@
       "writtenOn": "2024-09-04T14:44:18Z",
       "side": 1,
       "message": "use the enum constant here, not the string, to refer to the experiment",
+      "range": {
+        "startLine": 304,
+        "startChar": 0,
+        "endLine": 304,
+        "endChar": 75
+      },
+      "revId": "4adf317b1b7423aba519a158082c534e3b23e3d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4f59f46_860e51c0",
+        "filename": "front_end/panels/timeline/TimelineDetailsView.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-09-04T22:25:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e22d76c_a1747dcb",
       "range": {
         "startLine": 304,
         "startChar": 0,
@@ -298,6 +460,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3778af13_fabadf19",
+        "filename": "front_end/panels/timeline/components/LayoutShiftDetails.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-09-04T22:25:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e6a6adb9_23fcf123",
+      "range": {
+        "startLine": 165,
+        "startChar": 4,
+        "endLine": 166,
+        "endChar": 47
+      },
+      "revId": "4adf317b1b7423aba519a158082c534e3b23e3d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "117789c8_caddd44d",
@@ -311,6 +497,24 @@
       "writtenOn": "2024-09-04T06:01:38Z",
       "side": 1,
       "message": "Is there a reason for increasing the font size here? Looking at the Figma spec (maybe I\u0027m looking at the wrong one?) the font size is `12px`. I\u0027m looking at examples in the `Insights` tab of the Figma design.",
+      "revId": "4adf317b1b7423aba519a158082c534e3b23e3d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "806ccaf4_f6742ee6",
+        "filename": "front_end/panels/timeline/components/layoutShiftDetails.css",
+        "patchSetId": 13
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-09-04T22:25:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "117789c8_caddd44d",
       "revId": "4adf317b1b7423aba519a158082c534e3b23e3d5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -332,6 +536,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0d13c70_9bdbf707",
+        "filename": "front_end/panels/timeline/components/layoutShiftDetails.css",
+        "patchSetId": 13
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-09-04T22:25:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9d04526_7e7d4927",
+      "revId": "4adf317b1b7423aba519a158082c534e3b23e3d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "883241d8_bc3471d0",
@@ -345,6 +567,24 @@
       "writtenOn": "2024-09-04T06:01:38Z",
       "side": 1,
       "message": "Could you make use of predefined `--sys-size-x` definitions, where possible (https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/ui/legacy/designTokens.css;l\u003d16;drc\u003dd88bda679603f7fcc6ca7850f684634a5ae43a11)?",
+      "revId": "4adf317b1b7423aba519a158082c534e3b23e3d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b97b8eb_1e004391",
+        "filename": "front_end/panels/timeline/components/layoutShiftDetails.css",
+        "patchSetId": 13
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-09-04T22:25:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "883241d8_bc3471d0",
       "revId": "4adf317b1b7423aba519a158082c534e3b23e3d5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -368,6 +608,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ce7f0d93_9dd1bff6",
+        "filename": "front_end/panels/timeline/components/layoutShiftDetails.css",
+        "patchSetId": 13
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-09-04T22:25:18Z",
+      "side": 1,
+      "message": "yeah an example is better as it works for fresh traces! \"linkifying\" links by default creates a button, making it looks like this: https://screenshot.googleplex.com/BCNn56BXXKe6HS9. But, ideally we\u0027d like it to look more like a normal link: https://screenshot.googleplex.com/4rjAk5nSLzNJ5GK.\n\nnot very familiar, but I imagine there is probably a way around this? do you have any suggestions for something like this?",
+      "parentUuid": "079ba9b2_4a3894d3",
+      "revId": "4adf317b1b7423aba519a158082c534e3b23e3d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e1e8f784_99d90ce5",
         "filename": "front_end/panels/timeline/components/layoutShiftDetails.css",
         "patchSetId": 13
@@ -379,6 +637,24 @@
       "writtenOn": "2024-09-04T06:01:38Z",
       "side": 1,
       "message": "Same here, could you help me understand where this text button class is used? (I\u0027m looking at the example on the components server but I can\u0027t find it there, maybe I need a real example for this).",
+      "revId": "4adf317b1b7423aba519a158082c534e3b23e3d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a20307fc_bfcfe621",
+        "filename": "front_end/panels/timeline/components/layoutShiftDetails.css",
+        "patchSetId": 13
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-09-04T22:25:18Z",
+      "side": 1,
+      "message": "similar to the comment above, without this the links would look like this: https://screenshot.googleplex.com/6cg8LrPRBSRydRE",
+      "parentUuid": "e1e8f784_99d90ce5",
       "revId": "4adf317b1b7423aba519a158082c534e3b23e3d5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
