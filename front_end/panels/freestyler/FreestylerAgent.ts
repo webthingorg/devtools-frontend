@@ -397,7 +397,7 @@ export class FreestylerAgent {
       debugLog(`Iteration: ${i}`, 'Request', request, 'Response', response);
       structuredLog.push({
         request: structuredClone(request),
-        response: response,
+        response,
       });
       const currentRunEntries = this.#chatHistory.get(currentRunId) ?? [];
       this.#chatHistory.set(currentRunId, [

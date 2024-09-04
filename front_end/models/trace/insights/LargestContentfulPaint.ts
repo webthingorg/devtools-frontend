@@ -118,8 +118,8 @@ export function generateInsight(
 
   if (!lcpResource) {
     return {
-      lcpMs: lcpMs,
-      lcpTs: lcpTs,
+      lcpMs,
+      lcpTs,
       phases: breakdownPhases(nav, mainReq, lcpMs, lcpResource),
     };
   }
@@ -135,8 +135,8 @@ export function generateInsight(
       undefined;
 
   return {
-    lcpMs: lcpMs,
-    lcpTs: lcpTs,
+    lcpMs,
+    lcpTs,
     phases: breakdownPhases(nav, mainReq, lcpMs, lcpResource),
     shouldRemoveLazyLoading: imageLoadingAttr === 'lazy',
     shouldIncreasePriorityHint: imageFetchPriorityHint !== 'high',

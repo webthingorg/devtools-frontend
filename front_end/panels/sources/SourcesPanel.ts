@@ -1030,7 +1030,7 @@ export class SourcesPanel extends UI.Panel.Panel implements
         const result = await remoteObject.callFunctionJSON(toStringForClipboard, [{
                                                              value: {
                                                                subtype: remoteObject.subtype,
-                                                               indent: indent,
+                                                               indent,
                                                              },
                                                            }]);
         inspectorFrontendHost.copyText(result);

@@ -111,9 +111,7 @@ export class ResizerWidget extends Common.ObjectWrapper.ObjectWrapper<EventTypes
   }
 
   sendDragMove(startX: number, currentX: number, startY: number, currentY: number, shiftKey: boolean): void {
-    this.dispatchEventToListeners(
-        Events.ResizeUpdateXY,
-        {startX: startX, currentX: currentX, startY: startY, currentY: currentY, shiftKey: shiftKey});
+    this.dispatchEventToListeners(Events.ResizeUpdateXY, {startX, currentX, startY, currentY, shiftKey});
   }
 
   private dragEnd(_event: MouseEvent): void {
@@ -194,10 +192,10 @@ export class SimpleResizerWidget extends ResizerWidget {
   override sendDragMove(startX: number, currentX: number, startY: number, currentY: number, shiftKey: boolean): void {
     if (this.isVerticalInternal) {
       this.dispatchEventToListeners(
-          Events.ResizeUpdatePosition, {startPosition: startY, currentPosition: currentY, shiftKey: shiftKey});
+          Events.ResizeUpdatePosition, {startPosition: startY, currentPosition: currentY, shiftKey});
     } else {
       this.dispatchEventToListeners(
-          Events.ResizeUpdatePosition, {startPosition: startX, currentPosition: currentX, shiftKey: shiftKey});
+          Events.ResizeUpdatePosition, {startPosition: startX, currentPosition: currentX, shiftKey});
     }
   }
 }

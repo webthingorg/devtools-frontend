@@ -888,7 +888,7 @@ describeWithMockConnection('BreakpointManager', () => {
       assert.exists(debuggerModel);
 
       const {uiSourceCode: fileSystemUiSourceCode, project} = createFileSystemFileForPersistenceTests(
-          {fileSystemFileUrl, fileSystemPath, type: type}, scriptDescription.url, content, target);
+          {fileSystemFileUrl, fileSystemPath, type}, scriptDescription.url, content, target);
 
       const breakpointLine = 0;
       const resolvedBreakpointLine = 1;

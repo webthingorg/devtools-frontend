@@ -253,7 +253,7 @@ export class DOMStorageItemsView extends StorageItemsView {
     for (const item of filteredList) {
       const key = item[0];
       const value = item[1];
-      const node = new DataGrid.DataGrid.DataGridNode({key: key, value: value}, false);
+      const node = new DataGrid.DataGrid.DataGridNode({key, value}, false);
       node.selectable = true;
       rootNode.appendChild(node);
       if (!selectedNode || key === selectedKey) {

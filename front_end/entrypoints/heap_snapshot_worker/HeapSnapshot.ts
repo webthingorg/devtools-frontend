@@ -1271,7 +1271,7 @@ export abstract class HeapSnapshot {
         selfSizes[i] = node.selfSize();
       }
 
-      this.#aggregatesForDiffInternal[className] = {indexes: indexes, ids: ids, selfSizes: selfSizes};
+      this.#aggregatesForDiffInternal[className] = {indexes, ids, selfSizes};
     }
     return this.#aggregatesForDiffInternal;
   }
@@ -1404,7 +1404,7 @@ export abstract class HeapSnapshot {
         const nameMatters = nodeType === 'object' || nodeType === 'native';
         const value = {
           count: 1,
-          distance: distance,
+          distance,
           self: selfSize,
           maxRet: 0,
           type: nodeType,
@@ -1436,7 +1436,7 @@ export abstract class HeapSnapshot {
       classIndexValues.idxs = classIndexValues.idxs.slice();
     }
 
-    return {aggregatesByClassName: aggregatesByClassName, aggregatesByClassIndex: aggregates};
+    return {aggregatesByClassName, aggregatesByClassIndex: aggregates};
   }
 
   private calculateClassesRetainedSize(
@@ -1694,8 +1694,8 @@ export abstract class HeapSnapshot {
     }
 
     return {
-      postOrderIndex2NodeOrdinal: postOrderIndex2NodeOrdinal,
-      nodeOrdinal2PostOrderIndex: nodeOrdinal2PostOrderIndex,
+      postOrderIndex2NodeOrdinal,
+      nodeOrdinal2PostOrderIndex,
     };
   }
 

@@ -47,8 +47,8 @@ export class ScreenCaptureModel extends SDKModel<void> implements ProtocolProxyA
       format: Protocol.Page.CaptureScreenshotRequestFormat, quality: number, mode: ScreenshotMode,
       clip?: Protocol.Page.Viewport): Promise<string|null> {
     const properties: Protocol.Page.CaptureScreenshotRequest = {
-      format: format,
-      quality: quality,
+      format,
+      quality,
       fromSurface: true,
     };
     switch (mode) {

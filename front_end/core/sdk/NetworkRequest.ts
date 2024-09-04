@@ -1521,7 +1521,7 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
   addProtocolFrame(response: Protocol.Network.WebSocketFrame, time: number, sent: boolean): void {
     const type = sent ? WebSocketFrameType.Send : WebSocketFrameType.Receive;
     this.addFrame({
-      type: type,
+      type,
       text: response.payloadData,
       time: this.pseudoWallTime(time),
       opCode: response.opcode,
@@ -1655,8 +1655,7 @@ export class NetworkRequest extends Common.ObjectWrapper.ObjectWrapper<EventType
       if (blockedCookie.blockedReasons.includes(Protocol.Network.SetCookieBlockedReason.NameValuePairExceedsMaxSize)) {
         const message = i18nString(UIStrings.setcookieHeaderIsIgnoredIn, {PH1: this.url()});
         networkManager.dispatchEventToListeners(
-            NetworkManagerEvents.MessageGenerated,
-            {message: message, requestId: this.#requestIdInternal, warning: true});
+            NetworkManagerEvents.MessageGenerated, {message, requestId: this.#requestIdInternal, warning: true});
       }
     }
 
