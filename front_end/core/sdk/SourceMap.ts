@@ -210,8 +210,7 @@ export class SourceMap {
     this.#sourceInfos = new Map();
     if ('sections' in this.#json) {
       if (this.#json.sections.find(section => 'url' in section)) {
-        Common.Console.Console.instance().warn(
-            `SourceMap "${sourceMappingURL}" contains unsupported "URL" field in one of its sections.`);
+        this.recordSourceMapProblem('warn', 'Contains unsupported "URL" field in one of its sections.');
       }
     }
     this.eachSection(this.parseSources.bind(this));
@@ -414,6 +413,7 @@ export class SourceMap {
       try {
         this.eachSection(this.parseMap.bind(this));
       } catch (e) {
+        this.recordSourceMapProblem('error', `Failed to parse source map: ${e.message}`);
         console.error('Failed to parse source map', e);
         this.#mappingsInternal = [];
       }
@@ -839,6 +839,22 @@ export class SourceMap {
       result.push(frame.createVirtualCallFrame(index, fn.name));
     }
     return result;
+  }
+
+  /**
+   * SourceMap and SourceMapScopes use this method to record issues with the source map.
+   * For now we log them to the console but in the future we'll probably emit an event from
+   * here that gets handled in the Developer resources view.
+   *
+   * This method prefixes the message with the source map's URL.
+   */
+  recordSourceMapProblem(level: 'error'|'warn', message: string): void {
+    if (level === 'error') {
+      Common.Console.Console.instance().error(
+          `Error in source map ${this.#sourceMappingURL}: ${message}`, /* show console panel */ false);
+    } else {
+      Common.Console.Console.instance().warn(`Warning from source map ${this.#sourceMappingURL}: ${message}`);
+    }
   }
 }
 
