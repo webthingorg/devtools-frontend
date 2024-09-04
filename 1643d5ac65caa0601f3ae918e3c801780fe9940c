@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48b93393_430ff2ef",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-09-04T12:49:26Z",
+      "side": 1,
+      "message": "LGTM, let\u0027s also add a doc in the `front_end/componenets/docs/spinners`",
+      "revId": "1643d5ac65caa0601f3ae918e3c801780fe9940c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a65bf0ab_d70116ef",
+        "filename": "front_end/ui/components/spinners/Spinner.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-09-04T12:49:26Z",
+      "side": 1,
+      "message": "Let\u0027s move this comment above as it will not be stripped from the Prod builds. \nAnd it also applies to the other circles as well\nso we can say something like `The radius of the circles are set to ...`",
+      "revId": "1643d5ac65caa0601f3ae918e3c801780fe9940c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
