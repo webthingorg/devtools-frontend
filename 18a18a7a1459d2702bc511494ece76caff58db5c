@@ -1,0 +1,131 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76616468_38f4a91b",
+        "filename": "front_end/panels/timeline/components/SidebarAnnotationsTab.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-09-04T13:14:44Z",
+      "side": 1,
+      "message": "Let\u0027s add descriptions to `UIStrings`?",
+      "range": {
+        "startLine": 181,
+        "startChar": 44,
+        "endLine": 181,
+        "endChar": 94
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "3403f9cb_14ff8761",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/components/SidebarAnnotationsTab.ts",
+              "range": {
+                "startLine": 11,
+                "startChar": 0,
+                "endLine": 11,
+                "endChar": 0
+              },
+              "replacement": "import * as UIStrings from \u0027../../../ui/legacy/legacy.js\u0027;\n"
+            },
+            {
+              "path": "front_end/panels/timeline/components/SidebarAnnotationsTab.ts",
+              "range": {
+                "startLine": 19,
+                "startChar": 0,
+                "endLine": 19,
+                "endChar": 0
+              },
+              "replacement": "const UIStrings \u003d {\n  /**\n   * @description Text in the annotation tutorial card.\n   */\n  doubleClickOnAnEntryToCreateAnEntryLabel: \u0027Double click on an entry to create  an entry label\u0027,\n  /**\n   * @description Text in the annotation tutorial card.\n   */\n  doubleClickOnAnEntryToCreateADiagram: \u0027Double click on an entry to create a diagram\u0027,\n  /**\n   * @description Text in the annotation tutorial card.\n   */\n  shiftAndDragOnTheCanvasToCreateATimeRange: \u0027Shift and drag on the canvas to create a time range\u0027,\n};\n\n"
+            },
+            {
+              "path": "front_end/panels/timeline/components/SidebarAnnotationsTab.ts",
+              "range": {
+                "startLine": 181,
+                "startChar": 0,
+                "endLine": 182,
+                "endChar": 0
+              },
+              "replacement": "          \u003cdiv class\u003d\"tutorial-description\"\u003e${UIStrings.doubleClickOnAnEntryToCreateAnEntryLabel}\u003c/div\u003e\n"
+            },
+            {
+              "path": "front_end/panels/timeline/components/SidebarAnnotationsTab.ts",
+              "range": {
+                "startLine": 187,
+                "startChar": 0,
+                "endLine": 188,
+                "endChar": 0
+              },
+              "replacement": "          \u003cdiv class\u003d\"tutorial-description\"\u003e${UIStrings.doubleClickOnAnEntryToCreateADiagram}\u003c/div\u003e\n"
+            },
+            {
+              "path": "front_end/panels/timeline/components/SidebarAnnotationsTab.ts",
+              "range": {
+                "startLine": 197,
+                "startChar": 0,
+                "endLine": 198,
+                "endChar": 0
+              },
+              "replacement": "          \u003cdiv class\u003d\"tutorial-description\"\u003e${UIStrings.shiftAndDragOnTheCanvasToCreateATimeRange}\u003c/div\u003e\n"
+            }
+          ]
+        }
+      ],
+      "revId": "18a18a7a1459d2702bc511494ece76caff58db5c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "283971b5_22f70767",
+        "filename": "front_end/panels/timeline/components/sidebarAnnotationsTab.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-09-04T13:14:44Z",
+      "side": 1,
+      "message": "Width and height for `display: block;` should be `auto` so we don\u0027t need it",
+      "range": {
+        "startLine": 73,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 15
+      },
+      "revId": "18a18a7a1459d2702bc511494ece76caff58db5c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e6c5277_b5f1ef56",
+        "filename": "front_end/panels/timeline/components/sidebarAnnotationsTab.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-09-04T13:14:44Z",
+      "side": 1,
+      "message": "If the goal is to centre the image and there can only be one in `tutorial-image`, maybe for clarity we can do:\n\n```\n.tutorial-image {\n  display: flex;\n  justify-content: center;\n }\n  \n````",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 3
+      },
+      "revId": "18a18a7a1459d2702bc511494ece76caff58db5c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
