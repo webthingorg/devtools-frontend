@@ -33,6 +33,23 @@
       "message": "Hi Kateryna!\n\nI\u0027m updating the console sidebar to use the new navigation tree variant, ptal!",
       "revId": "a0db8b02d8cb9fa661fae6b7c571540f77dde347",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2278b246_aec2cbdf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-09-04T09:39:48Z",
+      "side": 1,
+      "message": "Hi Changhao,\n\nI\u0027m updating the console sidebar to use the new GM3 compatible tree navigation variant, ptal!",
+      "revId": "a0db8b02d8cb9fa661fae6b7c571540f77dde347",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
