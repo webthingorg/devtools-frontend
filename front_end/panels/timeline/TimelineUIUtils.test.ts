@@ -1129,6 +1129,7 @@ describeWithMockConnection('TimelineUIUtils', function() {
         },
       ]);
     });
+
   });
 
   it('can generate details for a frame', async function() {
