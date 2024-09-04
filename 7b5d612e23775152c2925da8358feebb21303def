@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ff8b555_8c4f7495",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-04T10:57:17Z",
+      "side": 1,
+      "message": "Removed flags",
+      "parentUuid": "9ceec810_c29591a2",
+      "revId": "7b5d612e23775152c2925da8358feebb21303def",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e98c2856_513aaf30",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-09-04T07:32:27Z",
       "side": 1,
       "message": "true?",
+      "revId": "7b5d612e23775152c2925da8358feebb21303def",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45423b73_049e398f",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-04T10:57:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e98c2856_513aaf30",
       "revId": "7b5d612e23775152c2925da8358feebb21303def",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
