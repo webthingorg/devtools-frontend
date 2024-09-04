@@ -33,6 +33,24 @@
       "message": "Let\u0027s make this `gap: 8px` and make `align-items: vertical`\n\n```\n  align-items:center;\n  gap: 8px;\n```",
       "revId": "89138a0452228ea5c24e3900870ad4f1c5da2fab",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22924900_f93b6692",
+        "filename": "front_end/panels/explain/components/consoleInsight.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 3596264
+      },
+      "writtenOn": "2024-09-04T15:49:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cceda1c0_6f9cf2bc",
+      "revId": "89138a0452228ea5c24e3900870ad4f1c5da2fab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
