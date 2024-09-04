@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "482c780e_8ac066ef",
+        "filename": "front_end/panels/timeline/components/insights/ThirdParties.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-04T20:58:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e7d870aa_c33ee15c",
+      "revId": "5475e20e6ea86022021717496f65079697a7a36c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d8d0b3c9_5ff653c5",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-09-04T19:54:33Z",
       "side": 1,
       "message": "Are there any plans to add overlays for main thread tasks attributed to 3Ps?",
+      "revId": "5475e20e6ea86022021717496f65079697a7a36c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da856754_9b033894",
+        "filename": "front_end/panels/timeline/components/insights/ThirdParties.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-04T20:58:32Z",
+      "side": 1,
+      "message": "no plans for that. could do.",
+      "parentUuid": "d8d0b3c9_5ff653c5",
       "revId": "5475e20e6ea86022021717496f65079697a7a36c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -80,6 +116,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "46ddbc43_e0230a1c",
+        "filename": "front_end/panels/timeline/components/insights/ThirdParties.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-04T20:58:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7320f740_5336ddd8",
+      "revId": "5475e20e6ea86022021717496f65079697a7a36c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a7939d25_19f95ed1",
@@ -93,6 +147,24 @@
       "writtenOn": "2024-09-04T19:54:33Z",
       "side": 1,
       "message": "IMO a `\u003ctable\u003e` makes more sense than a `\u003cdl\u003e`. Any reason you think this needs to be `\u003cdl\u003e`?",
+      "revId": "5475e20e6ea86022021717496f65079697a7a36c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea851685_e93766bb",
+        "filename": "front_end/panels/timeline/components/insights/ThirdParties.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-04T20:58:32Z",
+      "side": 1,
+      "message": "Probably. I copied from LCPPhases. I\u0027ll be following up with a table component to replace both of these and could use a table then.",
+      "parentUuid": "a7939d25_19f95ed1",
       "revId": "5475e20e6ea86022021717496f65079697a7a36c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
