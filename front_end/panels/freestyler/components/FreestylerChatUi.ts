@@ -202,6 +202,7 @@ export interface Props {
   onAcceptConsentClick: () => void;
   onCancelClick: () => void;
   onFixThisIssueClick: () => void;
+  onSuggestionClick: (suggestion: string) => void;
   inspectElementToggled: boolean;
   state: State;
   aidaAvailability: Host.AidaClient.AidaAccessPreconditions;
@@ -608,6 +609,8 @@ export class FreestylerChatUi extends HTMLElement {
     });
     const isInputDisabled = !Boolean(this.#props.selectedElement) || !isAidaAvailable || showsSideEffects;
 
+    const suggestions: string[] = [];
+
     // clang-format off
     return LitHtml.html`
       <div class="chat-ui">
@@ -618,10 +621,18 @@ export class FreestylerChatUi extends HTMLElement {
         }
         <form class="input-form" @submit=${this.#handleSubmit}>
           <div class="input-header">
-            <div class="header-link-container">
+            <div class="resources-container">
+              <div class="suggestions-container">
+                ${suggestions.map(suggestion => LitHtml.html`
+                  <p
+                    class="suggestion"
+                    @click=${()=> this.#props.onSuggestionClick(suggestion)}
+                  >${suggestion}</p>
+                `)}
+              </div>
               ${this.#renderSelectAnElement()}
             </div>
-            <div class="header-link-container">
+            <div class="feedback-container">
               ${this.#renderFeedbackLink()}
             </div>
           </div>
