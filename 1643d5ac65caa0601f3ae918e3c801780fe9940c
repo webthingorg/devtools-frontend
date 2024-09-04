@@ -50,6 +50,23 @@
       "message": "Let\u0027s move this comment above as it will not be stripped from the Prod builds. \nAnd it also applies to the other circles as well\nso we can say something like `The radius of the circles are set to ...`",
       "revId": "1643d5ac65caa0601f3ae918e3c801780fe9940c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "576cb78b_31fc06b2",
+        "filename": "front_end/ui/components/spinners/spinner.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-04T13:28:35Z",
+      "side": 1,
+      "message": "I just realized while reviewing other CL, sorry for first +1 and then adding a comment 😄\n\nI think we can use `:host` selector here and remove `.spinner-container` altogether so that the `devtools-spinner` will be directly containing the contents. That way, we can style `devtools-spinner` (for example, to have a different height and it\u0027d work directly)\n\nalso, we don\u0027t need `position: absolute` here, we can keep it like this:\n```\n:host {\n  width: var(--sys-size-7);\n  height: var(--sys-size-7);\n  display: inline-block;\n  font-size: 0;\n  letter-spacing: 0;\n  white-space: nowrap;\n  animation: spinner-container-animation 1.5s linear infinite;\n}\n```\n\nI also didn\u0027t understand why we needed font-size here but somehow it doesn\u0027t work without it 😅",
+      "revId": "1643d5ac65caa0601f3ae918e3c801780fe9940c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
