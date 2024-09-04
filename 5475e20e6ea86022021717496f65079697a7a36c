@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "800c9693_57ed2a3d",
+        "filename": "front_end/panels/timeline/components/insights/ThirdParties.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-09-04T23:27:47Z",
+      "side": 1,
+      "message": "```suggestion\n  /** Title of a diagnostic audit that provides details about the code on a web page that the user doesn\u0027t control (referred to as \"third-party code\"). */\n```",
+      "revId": "5475e20e6ea86022021717496f65079697a7a36c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e7d870aa_c33ee15c",
         "filename": "front_end/panels/timeline/components/insights/ThirdParties.ts",
         "patchSetId": 4
