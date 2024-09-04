@@ -174,6 +174,24 @@
       "parentUuid": "a531b026_60eaab38",
       "revId": "0ef5bb1ec74bc4ac44f264a0e343b06028efcade",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8acfeba_0214cd85",
+        "filename": "front_end/models/trace/insights/ThirdPartyWeb.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-04T16:57:59Z",
+      "side": 1,
+      "message": "sg. yeah recreate the logic.\n\ntbh i imagine that kinda function is also elsewhere.  `boundsIncludeTimeRange` looks the same.",
+      "parentUuid": "df870c1c_a69a4a75",
+      "revId": "0ef5bb1ec74bc4ac44f264a0e343b06028efcade",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
