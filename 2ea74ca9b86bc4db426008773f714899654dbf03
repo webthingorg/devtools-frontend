@@ -33,6 +33,23 @@
       "message": "Thanks for addressing the comments, Kim!:) LGTM % your Qs to Peter",
       "revId": "2ea74ca9b86bc4db426008773f714899654dbf03",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ebdf6f3_48eaaa71",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 23
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-09-04T09:42:19Z",
+      "side": 1,
+      "message": "Thanks for the thorough review, Kateryna 😊! I\u0027ll be waiting for Peter\u0027s feedback and will update this CL as soon as I have it.",
+      "revId": "2ea74ca9b86bc4db426008773f714899654dbf03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
