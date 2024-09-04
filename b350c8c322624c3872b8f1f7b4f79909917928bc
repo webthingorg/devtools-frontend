@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "159ff4f8_274dc0a0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-04T15:19:10Z",
+      "side": 1,
+      "message": "PTAL; I would like to create a generic \"user facing title for entry\" function at some point, but for now we can deal with these as and when we think we could improve the text that is shown in the annotations sidebar.",
+      "revId": "b350c8c322624c3872b8f1f7b4f79909917928bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
