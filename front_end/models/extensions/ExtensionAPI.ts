@@ -93,6 +93,7 @@ export namespace PrivateAPI {
     ShowRecorderView = 'showRecorderView',
     ShowNetworkPanel = 'showNetworkPanel',
     ReportResourceLoad = 'reportResourceLoad',
+    RegisterSourceMapServerExtensionPlugin = 'registerSourceMapServerExtensionPlugin',
   }
 
   export const enum LanguageExtensionPluginCommands {
@@ -116,6 +117,14 @@ export namespace PrivateAPI {
 
   export const enum LanguageExtensionPluginEvents {
     UnregisteredLanguageExtensionPlugin = 'unregisteredLanguageExtensionPlugin',
+  }
+
+  export const enum SourceMapServerExtensionPluginEvents {
+    UnregisteredSourceMapServerExtensionPlugin = 'unregisteredSourceMapServerExtensionPlugin',
+  }
+
+  export const enum SourceMapServerExtensionPluginCommands {
+    LoadSourceMap = 'loadSourceMap',
   }
 
   export const enum RecorderExtensionPluginCommands {
@@ -147,6 +156,11 @@ export namespace PrivateAPI {
     capabilities: RecordingExtensionPluginCapability[],
     port: MessagePort,
     mediaType?: string,
+  };
+  type RegisterSourceMapServerExtensionPluginRequest = {
+    command: Commands.RegisterSourceMapServerExtensionPlugin,
+    pluginName: string,
+    port: MessagePort,
   };
   type CreateRecorderViewRequest = {
     command: Commands.CreateRecorderView,
@@ -248,7 +262,8 @@ export namespace PrivateAPI {
       OpenResourceRequest|SetOpenResourceHandlerRequest|SetThemeChangeHandlerRequest|ReloadRequest|
       EvaluateOnInspectedPageRequest|GetRequestContentRequest|GetResourceContentRequest|SetResourceContentRequest|
       ForwardKeyboardEventRequest|GetHARRequest|GetPageResourcesRequest|GetWasmLinearMemoryRequest|GetWasmLocalRequest|
-      GetWasmGlobalRequest|GetWasmOpRequest|ShowNetworkPanelRequest|ReportResourceLoadRequest;
+      GetWasmGlobalRequest|RegisterSourceMapServerExtensionPluginRequest|GetWasmOpRequest|ShowNetworkPanelRequest|
+      ReportResourceLoadRequest;
   export type ExtensionServerRequestMessage = PrivateAPI.ServerRequests&{requestId?: number};
 
   type AddRawModuleRequest = {
@@ -321,7 +336,14 @@ export namespace PrivateAPI {
     parameters: {recording: Record<string, unknown>},
   };
 
+  type loadSourceMapServerRequest = {
+    method: SourceMapServerExtensionPluginCommands.LoadSourceMap,
+    parameters: {sourceMapServerRequest: PublicAPI.Chrome.DevTools.SourceMapServerExtensionRequest},
+  };
+
   export type RecorderExtensionRequests = StringifyRequest|StringifyStepRequest|ReplayRequest;
+
+  export type SourceMapServerExtensionsRequest = loadSourceMapServerRequest;
 }
 
 declare global {
@@ -355,6 +377,7 @@ namespace APIImpl {
     network: PublicAPI.Chrome.DevTools.Network;
     panels: PublicAPI.Chrome.DevTools.Panels;
     inspectedWindow: PublicAPI.Chrome.DevTools.InspectedWindow;
+    debugger: PublicAPI.Chrome.DevTools.DebuggerExtensions;
   }
 
   export interface ExtensionServerClient {
@@ -418,6 +441,10 @@ namespace APIImpl {
 
   export interface LanguageExtensions extends PublicAPI.Chrome.DevTools.LanguageExtensions {
     _plugins: Map<PublicAPI.Chrome.DevTools.LanguageExtensionPlugin, MessagePort>;
+  }
+
+  export interface SourceMapServerExtensions extends PublicAPI.Chrome.DevTools.SourceMapServerExtensions {
+    _plugins: Map<PublicAPI.Chrome.DevTools.SourceMapServerExtensionPlugin, MessagePort>;
   }
 
   export interface RecorderExtensions extends PublicAPI.Chrome.DevTools.RecorderExtensions {
@@ -529,6 +556,7 @@ self.injectedExtensionAPI = function(
     this.languageServices = new (Constructor(LanguageServicesAPI))();
     this.recorder = new (Constructor(RecorderServicesAPI))();
     this.performance = new (Constructor(Performance))();
+    this.debugger = {sourceMapServerExtensions: new (Constructor(SourceMapServicesAPI))()};
     defineDeprecatedProperty(this, 'webInspector', 'resources', 'network');
   }
 
@@ -986,6 +1014,63 @@ self.injectedExtensionAPI = function(
         new (Constructor(EventSink))(PrivateAPI.Events.ProfilingStopped, dispatchProfilingStoppedEvent);
   }
 
+  function SourceMapServerServicesAPIImpl(this: APIImpl.SourceMapServerExtensions): void {
+    this._plugins = new Map();
+  }
+
+  (SourceMapServerServicesAPIImpl.prototype as
+   Pick<APIImpl.SourceMapServerExtensions, 'registerSourceMapServerPlugin'|'unregisterSourceMapServerPlugin'>) = {
+    registerSourceMapServerPlugin: async function(
+        this: APIImpl.SourceMapServerExtensions, plugin: PublicAPI.Chrome.DevTools.SourceMapServerExtensionPlugin,
+        pluginName: string): Promise<void> {
+      if (this._plugins.has(plugin)) {
+        throw new Error(`Tried to register plugin '${pluginName}' twice`);
+      }
+      const channel = new MessageChannel();
+      const port = channel.port1;
+      this._plugins.set(plugin, port);
+      port.onmessage =
+          ({data}: MessageEvent<{requestId: number}&PrivateAPI.SourceMapServerExtensionsRequest>): void => {
+            const {requestId} = data;
+            dispatchMethodCall(data)
+                .then(result => port.postMessage({requestId, result}))
+                .catch(error => port.postMessage({requestId, error: {message: error.message}}));
+          };
+
+      function dispatchMethodCall(request: PrivateAPI.SourceMapServerExtensionsRequest): Promise<unknown> {
+        switch (request.method) {
+          case PrivateAPI.SourceMapServerExtensionPluginCommands.LoadSourceMap:
+            return plugin.loadSourceMap(request.parameters.sourceMapServerRequest);
+          default:
+            throw new Error(`'${request.method}' is not recognized`);
+        }
+      }
+
+      await new Promise<void>(resolve => {
+        extensionServer.sendRequest(
+            {
+              command: PrivateAPI.Commands.RegisterSourceMapServerExtensionPlugin,
+              pluginName,
+              port: channel.port2,
+            },
+            () => resolve(), [channel.port2]);
+      });
+    },
+
+    unregisterSourceMapServerPlugin: async function(
+        this: APIImpl.SourceMapServerExtensions, plugin: PublicAPI.Chrome.DevTools.SourceMapServerExtensionPlugin):
+        Promise<void> {
+          const port = this._plugins.get(plugin);
+          if (!port) {
+            throw new Error('Tried to unregister a plugin that was not previously registered');
+          }
+          this._plugins.delete(plugin);
+          port.postMessage(
+              {event: PrivateAPI.SourceMapServerExtensionPluginEvents.UnregisteredSourceMapServerExtensionPlugin});
+          port.close();
+        },
+  };
+
   function declareInterfaceClass<ImplT extends APIImpl.Callable>(implConstructor: ImplT): (
       this: ThisParameterType<ImplT>, ...args: Parameters<ImplT>) => void {
     return function(this: ThisParameterType<ImplT>, ...args: Parameters<ImplT>): void {
@@ -1015,6 +1100,8 @@ self.injectedExtensionAPI = function(
 
   const LanguageServicesAPI = declareInterfaceClass(LanguageServicesAPIImpl);
   const RecorderServicesAPI = declareInterfaceClass(RecorderServicesAPIImpl);
+  const SourceMapServicesAPI = declareInterfaceClass(SourceMapServerServicesAPIImpl);
+
   const Performance = declareInterfaceClass(PerformanceImpl);
   const Button = declareInterfaceClass(ButtonImpl);
   const EventSink = declareInterfaceClass(EventSinkImpl);
@@ -1462,6 +1549,7 @@ self.injectedExtensionAPI = function(
   chrome.devtools!.languageServices = coreAPI.languageServices;
   chrome.devtools!.recorder = coreAPI.recorder;
   chrome.devtools!.performance = coreAPI.performance;
+  chrome.devtools!.debugger = coreAPI.debugger;
 
   // default to expose experimental APIs for now.
   if (extensionInfo.exposeExperimentalAPIs !== false) {

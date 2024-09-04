@@ -9,6 +9,8 @@ import * as ExtensionView from './ExtensionView.js';
 import * as HostUrlPattern from './HostUrlPattern.js';
 import * as RecorderExtensionEndpoint from './RecorderExtensionEndpoint.js';
 import * as RecorderPluginManager from './RecorderPluginManager.js';
+import * as SourceMapServerExtensionEndpoint from './SourceMapServerExtensionEndpoint.js';
+import * as SourceMapServerPluginManager from './SourceMapServerPluginManager.js';
 
 export {
   ExtensionAPI,
@@ -18,4 +20,6 @@ export {
   HostUrlPattern,
   RecorderExtensionEndpoint,
   RecorderPluginManager,
+  SourceMapServerExtensionEndpoint,
+  SourceMapServerPluginManager,
 };
