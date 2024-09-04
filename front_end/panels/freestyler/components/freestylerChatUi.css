@@ -27,6 +27,19 @@
   flex-direction: column;
 }
 
+.select-element {
+  display: flex;
+  gap: var(--sys-size-3);
+  align-items: center;
+
+  .resource-link {
+    padding: var(--sys-size-2) var(--sys-size-4);
+    font: var(--sys-typescale-body4-size);
+    border: var(--sys-size-1) solid var(--sys-color-divider);
+    border-radius: var(--sys-shape-corner-extra-small);
+  }
+}
+
 .input-form {
   display: flex;
   flex-direction: column;
@@ -39,7 +52,7 @@
 .chat-input-container {
   margin: var(--sys-size-3) 0;
   padding: 0 2px;
-  border-radius: 4px;
+  border-radius: var(--sys-shape-corner-extra-small);
   border: 1px solid var(--sys-color-neutral-outline);
   width: 100%;
   display: flex;
