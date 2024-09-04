@@ -1,0 +1,171 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79a9c779_dc65828e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-04T08:12:50Z",
+      "side": 1,
+      "message": "as I was reviewing this CL I had a sudden thought: what if the modifications manager didn\u0027t care about the setting and created the overlays anyway? And then we don\u0027t have to have it care about the setting and it also doesn\u0027t have to care about the fact that TIME_RANGE is a special case depending on the label.\n\nSo if the user has ticked the setting and wants annotations hidden, the modifications manager would still create them, but the overlays code would hide them (and skip some of the positioning work as a result). I know that means we would have some DOM elements hidden, but I don\u0027t think that will be a perf issue unless users create 1000s of annotations. \n\nwdyt? the idea of this setting not leaking into the ModificationsManager and being purely in the Overlays code is quite appealing to me.",
+      "revId": "e42afa31d6cec8254cbdbcc4f31197dbe6454d6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "25192c9b_1b915f19",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-04T08:12:50Z",
+      "side": 1,
+      "message": "as I was reviewing this CL I had a sudden thought: what if the modifications manager didn\u0027t care about the setting and created the overlays anyway? And then we don\u0027t have to have it care about the setting and it also doesn\u0027t have to care about the fact that TIME_RANGE is a special case depending on the label.\n\nSo if the user has ticked the setting and wants annotations hidden, the modifications manager would still create them, but the overlays code would hide them (and skip some of the positioning work as a result). I know that means we would have some DOM elements hidden, but I don\u0027t think that will be a perf issue unless users create 1000s of annotations. \n\nwdyt? the idea of this setting not leaking into the ModificationsManager and being purely in the Overlays code is quite appealing to me.",
+      "revId": "e42afa31d6cec8254cbdbcc4f31197dbe6454d6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bae4ef27_c50485b3",
+        "filename": "front_end/panels/timeline/ModificationsManager.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-04T08:12:50Z",
+      "side": 1,
+      "message": "typo: `loade`",
+      "range": {
+        "startLine": 118,
+        "startChar": 69,
+        "endLine": 118,
+        "endChar": 82
+      },
+      "revId": "e42afa31d6cec8254cbdbcc4f31197dbe6454d6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa78dc3a_b12d16b5",
+        "filename": "front_end/panels/timeline/ModificationsManager.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-04T08:12:50Z",
+      "side": 1,
+      "message": "from",
+      "range": {
+        "startLine": 119,
+        "startChar": 52,
+        "endLine": 119,
+        "endChar": 56
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "eeef98b1_d78013ee",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/ModificationsManager.ts",
+              "range": {
+                "startLine": 119,
+                "startChar": 0,
+                "endLine": 120,
+                "endChar": 0
+              },
+              "replacement": "    // If the new annotation created was not loaded from the file, set the annotations visibility setting to true. That way we make sure\n"
+            }
+          ]
+        }
+      ],
+      "revId": "e42afa31d6cec8254cbdbcc4f31197dbe6454d6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57deef07_d4cc6ee8",
+        "filename": "front_end/panels/timeline/ModificationsManager.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-04T08:12:50Z",
+      "side": 1,
+      "message": "It\u0027s not clear to me where this is. Do you mean this is done in the overlays?",
+      "range": {
+        "startLine": 123,
+        "startChar": 71,
+        "endLine": 123,
+        "endChar": 87
+      },
+      "revId": "e42afa31d6cec8254cbdbcc4f31197dbe6454d6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32cb2bf9_fa067d05",
+        "filename": "front_end/panels/timeline/ModificationsManager.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-04T08:12:50Z",
+      "side": 1,
+      "message": "if(newAnnotation.type !\u003d\u003d \u0027TIME_RANGE\u0027)",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 124,
+        "endChar": 51
+      },
+      "revId": "e42afa31d6cec8254cbdbcc4f31197dbe6454d6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbb4f509_febff238",
+        "filename": "front_end/panels/timeline/overlays/OverlaysImpl.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 597,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-04T08:12:50Z",
+      "side": 1,
+      "message": "I found this hard to follow because the comment says \"if the range does not have a label\" but the code is \"if the overlay has a label\".\n\nIt might be worth rephrasing the comment to something more like \"therefore we only care about the annotation hidden setting if the time range has a label\". wdyt?",
+      "range": {
+        "startLine": 594,
+        "startChar": 8,
+        "endLine": 597,
+        "endChar": 9
+      },
+      "revId": "e42afa31d6cec8254cbdbcc4f31197dbe6454d6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
