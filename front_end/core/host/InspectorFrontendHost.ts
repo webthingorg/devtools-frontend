@@ -550,6 +550,26 @@ export class InspectorFrontendHostStub implements InspectorFrontendHostAPI {
   }
   recordKeyDown(event: KeyDownEvent): void {
   }
+
+  launchRehydratedDevtools(file: File): void {
+    const url = new Common.ParsedURL.ParsedURL(window.location.toString());
+    if (url.scheme === 'devtools') {
+      throw new ReferenceError(
+          'Invariant violated: Should not be able to launch rehydrated session in devtools protocol');
+    }
+
+    const pathToLaunch =
+        `${url.scheme}://${url.host}:${url.port}${url.folderPathComponents}/rehydrated_devtools_app.html`;
+    let openedWindow: Window|null = null;
+    function onMessageHandler(ev: MessageEvent): void {
+      if (ev.data && ev.data.type === 'INIT_READY') {
+        openedWindow?.postMessage({type: 'INIT_LOG_CONNECTION', log: file}, url.securityOrigin());
+      }
+      window.removeEventListener('message', onMessageHandler);
+    }
+    window.addEventListener('message', onMessageHandler);
+    openedWindow = window.open(pathToLaunch, /* target: */ undefined, 'popup=true');
+  }
 }
 
 // @ts-ignore Global injected by devtools-compatibility.js

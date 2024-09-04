@@ -7,6 +7,7 @@ import * as Host from '../host/host.js';
 import type * as Platform from '../platform/platform.js';
 import * as ProtocolClient from '../protocol_client/protocol_client.js';
 import * as Root from '../root/root.js';
+import { RehydratingConnection } from './RehydratingConnection.js';
 
 export class MainConnection implements ProtocolClient.InspectorBackend.Connection {
   onMessage: ((arg0: (Object|string)) => void)|null;
@@ -271,6 +272,62 @@ export async function initMainConnection(
 }
 
 function createMainConnection(websocketConnectionLost: () => void): ProtocolClient.InspectorBackend.Connection {
+  if (Root.Runtime.getPathName().includes('rehydrated_devtools_app')) {
+    const logDrivenConnection = RehydratingConnection.getRehydratingConnection();
+
+    // In hosted mode, we need communication between the opener window and rehydrated session window to retrieve file object
+    if (Host.InspectorFrontendHost.InspectorFrontendHostInstance.isHostedMode()) {
+      function onMessage(event: MessageEvent): void {
+        if (event.data && event.data.type === 'INIT_LOG_CONNECTION') {
+          const file = event.data.log as File;
+          const reader = new FileReader();
+          reader.onload = async(): Promise<void> => {
+            await logDrivenConnection.initialize(reader.result as string);
+          };
+          reader.onerror = (): void => {
+            console.error('error loading log');
+          };
+          reader.readAsText(file);
+        }
+        window.removeEventListener('message', onMessage);
+      }
+      window.addEventListener('message', onMessage);
+      if (!window.opener) {
+        console.error('Loading failure');
+      }
+      // DEBUG USE! REMOVE AFTERWARDS
+      setTimeout(() => {
+        window.opener.postMessage({type: 'INIT_READY'});
+      }, 5000);
+    } else {
+      // Native mode, can retrieve the file from native component
+      // console.error('Rehydrated Devtools not yet supported in natvie mode');
+      function onMessage(event: MessageEvent): void {
+        if (event.data && event.data.type === 'INIT_LOG_CONNECTION') {
+          const file = event.data.log as File;
+          const reader = new FileReader();
+          reader.onload = async(): Promise<void> => {
+            await logDrivenConnection.initialize(reader.result as string);
+          };
+          reader.onerror = (): void => {
+            console.error('error loading log');
+          };
+          console.log("HI");
+          reader.readAsText(file);
+        }
+        window.removeEventListener('message', onMessage);
+      }
+      window.addEventListener('message', onMessage);
+      if (!window.opener) {
+        console.error('Loading failure');
+      }
+      // DEBUG USE! REMOVE AFTERWARDS
+      setTimeout(() => {
+        window.opener.postMessage({type: 'INIT_READY'});
+      }, 5000);
+    }
+    return logDrivenConnection;
+  }
   const wsParam = Root.Runtime.Runtime.queryParam('ws');
   const wssParam = Root.Runtime.Runtime.queryParam('wss');
   if (wsParam || wssParam) {

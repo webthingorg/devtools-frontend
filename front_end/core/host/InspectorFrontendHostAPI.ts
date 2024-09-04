@@ -377,6 +377,8 @@ export interface InspectorFrontendHostAPI {
   recordDrag(event: DragEvent): void;
   recordChange(event: ChangeEvent): void;
   recordKeyDown(event: KeyDownEvent): void;
+
+  launchRehydratedDevtools(file: File): void;
 }
 
 export interface ContextMenuDescriptor {
