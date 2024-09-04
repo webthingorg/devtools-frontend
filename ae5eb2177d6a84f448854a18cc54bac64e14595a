@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e9e47d3_9daa1a10",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-04T14:32:18Z",
+      "side": 1,
+      "message": "LGTM % comments:\n* Let\u0027s add the hover state as Peter described.\n* We can also add the transitions now too or implement them in a separate CL, your call :)",
+      "revId": "ae5eb2177d6a84f448854a18cc54bac64e14595a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c8823b0_268669a5",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-04T14:32:18Z",
+      "side": 1,
+      "message": "Can we disable expanding when there is no content for the step (and maybe not show the arrow too?), WDYT?",
+      "revId": "ae5eb2177d6a84f448854a18cc54bac64e14595a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12315258_632375e4",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 337,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-04T14:32:18Z",
+      "side": 1,
+      "message": "(nit): WDYT of using ellipsis character instead of 3 dots? `…`",
+      "revId": "ae5eb2177d6a84f448854a18cc54bac64e14595a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
