@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02b1c43b_150bd566",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 2472,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-09-04T12:56:38Z",
+      "side": 1,
+      "message": "`if (needsScrollAdorner) { /* ... */ } else { /* ... */ }`",
+      "revId": "98ffe0f6e8fa0c371d13455547d16ab6369be91c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a6f31d8_0fc0c59f",
+        "filename": "test/e2e/elements/adornment_test.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-09-04T12:56:38Z",
+      "side": 1,
+      "message": "do you see a way to implement this with a different helper? https://crbug.com/362505638 It\u0027s not clear whether the helper is broken or the tests using it, but I\u0027m wary of using it here.",
+      "revId": "98ffe0f6e8fa0c371d13455547d16ab6369be91c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
