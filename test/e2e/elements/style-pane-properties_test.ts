@@ -52,6 +52,12 @@ const RULE2_SELECTOR = '.rule2';
 const LAYER_SEPARATOR_SELECTOR = '.layer-separator';
 const SIDEBAR_SEPARATOR_SELECTOR = '.sidebar-separator';
 
+const prepareElementsTab = async () => {
+  await waitForElementsStyleSection();
+  await waitForContentOfSelectedElementsNode('<body>\u200B');
+  await expandSelectedNodeRecursively();
+};
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const deletePropertyByBackspace = async (selector: string, root?: puppeteer.ElementHandle<Element>) => {
   const {frontend} = getBrowserAndPages();
@@ -546,12 +552,12 @@ describe('The Styles pane', () => {
     ]);
   });
 
-  // Failing test.
-  it.skip('[crbug.com/362505638]: can show styles properly (ported layout test)', async () => {
+  it('can show styles properly (ported layout test)', async () => {
     await goToResourceAndWaitForStyleSection('elements/elements-panel-styles.html');
-    await waitForAndClickTreeElementWithPartialText('#container');
+    await prepareElementsTab();
+    await waitForAndClickTreeElementWithPartialText('id=\u200B"container"');
     await waitForStyleRule('#container');
-    await waitForAndClickTreeElementWithPartialText('class="foo"');
+    await waitForAndClickTreeElementWithPartialText('id=\u200B"foo"');
     await waitForStyleRule('.foo');
     const fooRules = await getDisplayedStyleRules();
     const expected = [
@@ -674,12 +680,12 @@ describe('The Styles pane', () => {
     assert.deepEqual(fooRules, expected);
   });
 
-  // Failing test.
-  it.skip('[crbug.com/362505638]: can show overridden shorthands as inactive (ported layout test)', async () => {
+  it('can show overridden shorthands as inactive (ported layout test)', async () => {
     await goToResourceAndWaitForStyleSection('elements/css-shorthand-override.html');
+    await prepareElementsTab();
     await waitForStyleRule('body');
 
-    await waitForAndClickTreeElementWithPartialText('#inspected1');
+    await waitForAndClickTreeElementWithPartialText('id=\u200B"inspected1"');
     await waitForStyleRule('#inspected1');
     const inspected1Rules = await getDisplayedStyleRules();
     const expectedInspected1Rules = [
@@ -702,7 +708,7 @@ describe('The Styles pane', () => {
     ];
     assert.deepEqual(inspected1Rules, expectedInspected1Rules);
 
-    await waitForAndClickTreeElementWithPartialText('#inspected2');
+    await waitForAndClickTreeElementWithPartialText('id=\u200B"inspected2"');
     await waitForStyleRule('#inspected2');
     const inspected2Rules = await getDisplayedStyleRules();
 
@@ -730,7 +736,7 @@ describe('The Styles pane', () => {
     ];
     assert.deepEqual(inspected2Rules, expectedInspected2Rules);
 
-    await waitForAndClickTreeElementWithPartialText('#inspected3');
+    await waitForAndClickTreeElementWithPartialText('id="inspected3"');
     await waitForStyleRule('#inspected3');
     const inspected3Rules = await getDisplayedStyleRules();
     const expectedInspected3Rules = [
@@ -771,14 +777,13 @@ describe('The Styles pane', () => {
     assert.deepEqual(inspected3Rules, expectedInspected3Rules);
   });
 
-  // Failing test.
-  it.skip(
-      '[crbug.com/362505638]: shows longhands overridden by shorthands with var() as inactive (ported layout test)',
-      async () => {
+  it(
+      'shows longhands overridden by shorthands with var() as inactive (ported layout test)', async () => {
         await goToResourceAndWaitForStyleSection('elements/css-longhand-override.html');
+        await prepareElementsTab();
         await waitForStyleRule('body');
 
-        await waitForAndClickTreeElementWithPartialText('#inspected');
+        await waitForAndClickTreeElementWithPartialText('id=\u200B"inspected"');
         await waitForStyleRule('#inspected');
         const inspectedRules = await getDisplayedStyleRules();
         const expectedInspected1Rules = [
@@ -825,14 +830,14 @@ describe('The Styles pane', () => {
     ]);
   });
 
-  // Failing test.
-  it.skip('[crbug.com/362505638]: shows overridden properties as inactive (ported layout test)', async () => {
+  it('shows overridden properties as inactive (ported layout test)', async () => {
     await goToResourceAndWaitForStyleSection('elements/css-override.html');
+    await prepareElementsTab();
     await waitForStyleRule('body');
 
     await waitForAndClickTreeElementWithPartialText('<div');
     await waitForStyleRule('div');
-    await waitForAndClickTreeElementWithPartialText('#inspected');
+    await waitForAndClickTreeElementWithPartialText('id=\u200B"inspected"');
     await waitForStyleRule('#inspected');
     const inspectedRules = await getDisplayedStyleRules();
     const expectedInspected1Rules = [
@@ -880,15 +885,15 @@ describe('The Styles pane', () => {
     assert.deepEqual(inspectedRules, expectedInspected1Rules);
   });
 
-  // Failing test.
-  it.skip(
-      '[crbug.com/362505638]: shows non-standard mixed-cased properties correctly (ported layout test)', async () => {
+  it(
+      'shows non-standard mixed-cased properties correctly (ported layout test)', async () => {
         await goToResourceAndWaitForStyleSection('elements/css-mixed-case.html');
+        await prepareElementsTab();
         await waitForStyleRule('body');
 
-        await waitForAndClickTreeElementWithPartialText('#container');
+        await waitForAndClickTreeElementWithPartialText('id=\u200B"container"');
         await waitForStyleRule('#container');
-        await waitForAndClickTreeElementWithPartialText('#nested');
+        await waitForAndClickTreeElementWithPartialText('id=\u200B"nested"');
         await waitForStyleRule('#nested');
         const inspectedRules = await getDisplayedStyleRules();
         const expectedInspected1Rules = [
@@ -932,10 +937,11 @@ describe('The Styles pane', () => {
         assert.deepEqual(inspectedRules, expectedInspected1Rules);
       });
 
-  // Failing test.
-  it.skip('[crbug.com/362505638]: shows styles from injected user stylesheets (ported layout test)', async () => {
+  it('shows styles from injected user stylesheets (ported layout test)', async () => {
     const {target} = getBrowserAndPages();
     await goToResourceAndWaitForStyleSection('elements/css-inject-stylesheet.html');
+    await prepareElementsTab();
+
     await waitForStyleRule('body');
     await target.addScriptTag({
       content: `
@@ -954,7 +960,7 @@ describe('The Styles pane', () => {
       }`,
     });
 
-    await waitForAndClickTreeElementWithPartialText('#main');
+    await waitForAndClickTreeElementWithPartialText('id=\u200B"main"');
     await waitForStyleRule('#main');
     const inspectedRulesBefore = await getDisplayedStyleRulesCompact();
     const expectedInspectedRulesBefore = [
@@ -1047,13 +1053,13 @@ describe('The Styles pane', () => {
     assert.deepEqual(inspectedRulesAfter, expectedInspectedRulesAfter);
   });
 
-  // Failing test.
-  it.skip('[crbug.com/362505638]: can parse webkit css region styling (ported layout test)', async () => {
+  it('can parse webkit css region styling (ported layout test)', async () => {
     await goToResourceAndWaitForStyleSection('elements/css-webkit-region.html');
+    await prepareElementsTab();
     await waitForStyleRule('body');
-    await waitForAndClickTreeElementWithPartialText('#article1');
+    await waitForAndClickTreeElementWithPartialText('id=\u200B"article1"');
     await waitForStyleRule('#article1');
-    await waitForAndClickTreeElementWithPartialText('#p1');
+    await waitForAndClickTreeElementWithPartialText('id=\u200B"p1"');
     await waitForStyleRule('#p1');
     const inspectedRules = await getDisplayedStyleRulesCompact();
     const expectedInspectedRules = [
@@ -1074,9 +1080,8 @@ describe('The Styles pane', () => {
     assert.deepEqual(inspectedRules, expectedInspectedRules);
   });
 
-  // Failing test.
-  it.skip('[crbug.com/362505638]: can display @scope at-rules', async () => {
-    await goToResourceAndWaitForStyleSection('elements/css-scope.html');
+  it('can display @scope at-rules', async () => {
+    await goToResourceAndWaitForStyleSection('elements/css-scopes.html');
 
     // Select the child that has @scope rules.
     await waitForAndClickTreeElementWithPartialText('<div class=\u200B"rule1">\u200B</div>\u200B');
@@ -1085,7 +1090,7 @@ describe('The Styles pane', () => {
     const rule1PropertiesSection = await getStyleRule(RULE1_SELECTOR);
     const scopeQuery = await waitFor('.query.editable', rule1PropertiesSection);
     const scopeQueryText = await scopeQuery.evaluate(node => (node as HTMLElement).innerText as string);
-    assert.deepEqual(scopeQueryText, '@scope (body)', 'incorrectly displayed @supports rule');
+    assert.deepEqual(scopeQueryText, '@scope (body) {', 'incorrectly displayed @supports rule');
   });
 
   it('shows an infobox with specificity information when hovering a selector', async () => {
