@@ -90,6 +90,7 @@ export const knownContextValues = new Set([
   '-webkit-flex-grow',
   '-webkit-flex-shrink',
   '-webkit-flex-wrap',
+  '-webkit-flow-into',
   '-webkit-font-feature-settings',
   '-webkit-font-smoothing',
   '-webkit-hyphenate-character',
