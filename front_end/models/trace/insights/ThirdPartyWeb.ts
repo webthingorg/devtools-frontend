@@ -27,6 +27,7 @@ export type ThirdPartyWebInsightResult = InsightResult<{
   requestsByEntity: Map<Entity, Types.TraceEvents.SyntheticNetworkRequest[]>,
   summaryByRequest: Map<Types.TraceEvents.SyntheticNetworkRequest, Summary>,
   summaryByEntity: Map<Entity, Summary>,
+  firstPartyEntity?: Entity,
 }>;
 
 /**
@@ -214,10 +215,15 @@ export function generateInsight(
   const selfTimeByUrl = getSelfTimeByUrl(traceData, context);
   const summaries = getSummaries(networkRequests, entityByRequest, selfTimeByUrl);
 
+  const firstPartyUrl = context.navigation.args.data?.url ?? traceData.Meta.mainFrameURL;
+  const firstPartyEntity =
+      ThirdPartyWeb.ThirdPartyWeb.getEntity(firstPartyUrl) || makeUpEntity(madeUpEntityCache, firstPartyUrl);
+
   return {
     entityByRequest,
     requestsByEntity: summaries.requestsByEntity,
     summaryByRequest: summaries.byRequest,
     summaryByEntity: summaries.byEntity,
+    firstPartyEntity,
   };
 }
