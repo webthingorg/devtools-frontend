@@ -422,11 +422,13 @@ c`;
               $0.style.backgroundColor = 'red'
               STOP`,
               metadata: {},
+              streamingFinished: true,
             };
           } else {
             yield {
               explanation: 'ANSWER: This is the answer',
               metadata: {},
+              streamingFinished: true,
             };
           }
 
@@ -458,11 +460,13 @@ c`;
               $0.style.backgroundColor = 'red'
               STOP`,
               metadata: {},
+              streamingFinished: true,
             };
           } else {
             yield {
               explanation: 'ANSWER: This is the answer',
               metadata: {},
+              streamingFinished: true,
             };
           }
 
@@ -495,11 +499,13 @@ c`;
               $0.style.backgroundColor = 'red'
               STOP`,
               metadata: {},
+              streamingFinished: true,
             };
           } else {
             yield {
               explanation: 'ANSWER: This is the answer',
               metadata: {},
+              streamingFinished: true,
             };
           }
 
@@ -534,11 +540,13 @@ c`;
               $0.style.backgroundColor = 'red'
               STOP`,
               metadata: {},
+              streamingFinished: true,
             };
           } else {
             yield {
               explanation: 'ANSWER: This is the answer',
               metadata: {},
+              streamingFinished: true,
             };
           }
 
@@ -572,11 +580,13 @@ c`;
               $0.style.backgroundColor = 'red'
               STOP`,
               metadata: {},
+              streamingFinished: true,
             };
           } else {
             yield {
               explanation: 'ANSWER: This is the answer',
               metadata: {},
+              streamingFinished: true,
             };
           }
           count++;
@@ -606,6 +616,7 @@ c`;
         yield {
           explanation: 'ANSWER: this is the answer',
           metadata: {},
+          streamingFinished: true,
         };
       }
 
@@ -648,6 +659,7 @@ c`;
           metadata: {
             rpcGlobalId: 123,
           },
+          streamingFinished: true,
         };
       }
 
@@ -682,6 +694,7 @@ c`;
               citations: [],
             }],
           },
+          streamingFinished: true,
         };
       }
 
@@ -716,6 +729,7 @@ c`;
               citations: [],
             }],
           },
+          streamingFinished: true,
         };
       }
 
@@ -744,6 +758,7 @@ c`;
         yield {
           explanation: '',
           metadata: {},
+          streamingFinished: true,
         };
       }
 
@@ -785,6 +800,7 @@ c`;
           yield {
             explanation: 'ANSWER: this is the actual answer',
             metadata: {},
+            streamingFinished: true,
           };
           return;
         }
@@ -797,6 +813,7 @@ STOP
 
 ANSWER: this is the answer`,
           metadata: {},
+          streamingFinished: false,
         };
         i++;
       }
@@ -846,6 +863,7 @@ ANSWER: this is the answer`,
           yield {
             explanation: 'ANSWER: this is the answer',
             metadata: {},
+            streamingFinished: true,
           };
           return;
         }
@@ -853,6 +871,7 @@ ANSWER: this is the answer`,
         yield {
           explanation: `THOUGHT: thought ${count}\nACTION\nconsole.log('test')\nSTOP\n`,
           metadata: {},
+          streamingFinished: false,
         };
       }
 
@@ -910,6 +929,7 @@ ANSWER: this is the answer`,
           yield {
             explanation: 'ANSWER: this is the answer',
             metadata: {},
+            streamingFinished: true,
           };
           return;
         }
@@ -917,6 +937,7 @@ ANSWER: this is the answer`,
         yield {
           explanation: `THOUGHT: thought ${count}\nACTION\nconsole.log('test')\nSTOP\n`,
           metadata: {},
+          streamingFinished: false,
         };
       }
 
