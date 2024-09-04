@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb25d59f_a4083072",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-09-04T08:12:25Z",
+      "side": 1,
+      "message": "Updated the CL according to our offline discussion yesterday: We don\u0027t use mappings at all to resolve the scope chain now.\n\nI plan to spend today looking into an easy way to surface source map errors in the Developer resources panel. Sending everything to the console has a high risk of being very noisy and it\u0027s not actionable by developers. I started that work here: https://crrev.com/c/5831009.\n\nOnce thats in place I\u0027ll add the tests back in that compare the mapped paused position with what falls out of scopes and turn them into tests that check that we emit a warning in those cases.\n\nI also added a test for the case we discussed yesterday: Where a range from an outer scope is overlayed over a range of an inner scope.\n\nPT(another)L",
+      "revId": "84b04a785aa945bd5a6ca7dae9c88aa7a2d3ed28",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
