@@ -50,6 +50,24 @@
       "message": "Aren\u0027t  we already walking the tree while parsing the sourcemap? Could we just collect this info then?",
       "revId": "902ede9ad6e56ab219941a7c627cc7a2426d0760",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e120c9f_ea007f49",
+        "filename": "front_end/core/sdk/SourceMapScopesInfo.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-09-04T04:45:02Z",
+      "side": 1,
+      "message": "As discussed offline, the decoding code already does a lot so keeping it separate for now is fine. We might revisit this and have a general \"post-process scopes\" steps if needed.",
+      "parentUuid": "e23837ea_96ebc728",
+      "revId": "902ede9ad6e56ab219941a7c627cc7a2426d0760",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
