@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7c46cdb_ace41d71",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 3596264
+      },
+      "writtenOn": "2024-09-04T11:03:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb4b23cc_19365106",
+      "revId": "32bb794e2c80c07e75e25646197382d8ffc206d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "879e992b_b16ae100",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-08-30T11:21:23Z",
       "side": 1,
       "message": "Can we rename the folder to be `spinners/` too for consistency with `buttons/`?",
+      "revId": "32bb794e2c80c07e75e25646197382d8ffc206d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6bf27b03_e441b016",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3596264
+      },
+      "writtenOn": "2024-09-04T11:03:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "879e992b_b16ae100",
       "revId": "32bb794e2c80c07e75e25646197382d8ffc206d7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -52,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "26892c60_9553e9e7",
+        "filename": "config/gni/devtools_grd_files.gni",
+        "patchSetId": 2
+      },
+      "lineNbr": 687,
+      "author": {
+        "id": 3596264
+      },
+      "writtenOn": "2024-09-04T11:03:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ed8c354_2b90a2f5",
+      "revId": "32bb794e2c80c07e75e25646197382d8ffc206d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a11f52ab_f3a84f61",
@@ -65,6 +119,24 @@
       "writtenOn": "2024-08-30T11:21:23Z",
       "side": 1,
       "message": "The animation we want to have is this: https://m2.material.io/components/progress-indicators#circular-progress-indicators `Indeterminate circular progress indicator`\n\nCan you update the component to reflect that animation with expansion and contraction?\n\nHere is the implementation in the MDC side that you can take inspiration from :) https://github.com/material-components/material-components-web/tree/master/packages/mdc-circular-progress",
+      "revId": "32bb794e2c80c07e75e25646197382d8ffc206d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "664f259a_ea540175",
+        "filename": "front_end/ui/components/spinner/spinner.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 3596264
+      },
+      "writtenOn": "2024-09-04T11:03:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a11f52ab_f3a84f61",
       "revId": "32bb794e2c80c07e75e25646197382d8ffc206d7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

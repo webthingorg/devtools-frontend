@@ -77,6 +77,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1bec5e07_b5fea5a4",
+        "filename": "front_end/ui/components/spinner/spinner.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 3596264
+      },
+      "writtenOn": "2024-09-04T11:03:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c340229f_98b68cc8",
+      "range": {
+        "startLine": 11,
+        "startChar": 17,
+        "endLine": 11,
+        "endChar": 20
+      },
+      "revId": "9eecb1f3e2ce76bd6b6b51a70a2b2bf038785ad0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "edd0b47a_a7fe87ef",
@@ -90,6 +114,30 @@
       "writtenOn": "2024-08-30T12:35:02Z",
       "side": 1,
       "message": "And here a size token:)",
+      "range": {
+        "startLine": 12,
+        "startChar": 10,
+        "endLine": 12,
+        "endChar": 13
+      },
+      "revId": "9eecb1f3e2ce76bd6b6b51a70a2b2bf038785ad0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a323fee9_6c88af3e",
+        "filename": "front_end/ui/components/spinner/spinner.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 3596264
+      },
+      "writtenOn": "2024-09-04T11:03:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "edd0b47a_a7fe87ef",
       "range": {
         "startLine": 12,
         "startChar": 10,
