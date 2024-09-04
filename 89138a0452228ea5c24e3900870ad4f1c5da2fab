@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "686863ed_f860552c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-04T13:39:42Z",
+      "side": 1,
+      "message": "Looks great to me with 1 comment! :)",
+      "revId": "89138a0452228ea5c24e3900870ad4f1c5da2fab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cceda1c0_6f9cf2bc",
+        "filename": "front_end/panels/explain/components/consoleInsight.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-04T13:39:42Z",
+      "side": 1,
+      "message": "Let\u0027s make this `gap: 8px` and make `align-items: vertical`\n\n```\n  align-items:center;\n  gap: 8px;\n```",
+      "revId": "89138a0452228ea5c24e3900870ad4f1c5da2fab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
