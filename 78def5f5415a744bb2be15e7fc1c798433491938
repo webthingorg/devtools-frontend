@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "108c14ee_0c9e69f1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-09-04T16:00:59Z",
+      "side": 1,
+      "message": "LGTM + 2 nits and one small question.",
+      "revId": "78def5f5415a744bb2be15e7fc1c798433491938",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7b6de50_fdd80b3b",
+        "filename": "front_end/core/host/AidaClient.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-09-04T16:00:59Z",
+      "side": 1,
+      "message": "No action needed here\nDo you think it would be better name something like `isLoading`(and inverse the logic) , or `completed`, or if we want to be super JS generator like just `done`?",
+      "revId": "78def5f5415a744bb2be15e7fc1c798433491938",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e79ad19_f2d6899a",
+        "filename": "front_end/panels/explain/components/ConsoleInsight.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 923,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-09-04T16:00:59Z",
+      "side": 1,
+      "message": "Nit: When rendering something we usually prefix the function with `renderX` that way it\u0027s easier to understand that it returns a Template. As `getSpinner` may imply get the reference to the object for example.",
+      "revId": "78def5f5415a744bb2be15e7fc1c798433491938",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27f65349_9bd191cf",
+        "filename": "front_end/panels/explain/components/ConsoleInsight.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 928,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-09-04T16:00:59Z",
+      "side": 1,
+      "message": "Nit: Prefer to use LitHtml.nothing. It makes it more explicit though it will have the same effect - https://lit.dev/docs/api/templates/#nothing",
+      "revId": "78def5f5415a744bb2be15e7fc1c798433491938",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
