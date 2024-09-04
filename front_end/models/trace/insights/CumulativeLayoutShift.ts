@@ -18,8 +18,8 @@ export type CLSInsightResult = InsightResult<{
         clusters: Types.TraceEvents.SyntheticLayoutShiftCluster[],
 }>;
 
-export function deps(): ['Meta', 'Animations', 'LayoutShifts', 'NetworkRequests'] {
-  return ['Meta', 'Animations', 'LayoutShifts', 'NetworkRequests'];
+export function deps(): ['Meta', 'Animations', 'LayoutShifts', 'NetworkRequests', 'UserTimings'] {
+  return ['Meta', 'Animations', 'LayoutShifts', 'NetworkRequests', 'UserTimings'];
 }
 
 export const enum AnimationFailureReasons {
@@ -187,7 +187,8 @@ function getIframeRootCauses(
     iframeCreatedEvents: readonly Types.TraceEvents.TraceEventRenderFrameImplCreateChildFrame[],
     prePaintEvents: Types.TraceEvents.TraceEventPrePaint[],
     shiftsByPrePaint: Map<Types.TraceEvents.TraceEventPrePaint, Types.TraceEvents.TraceEventLayoutShift[]>,
-    rootCausesByShift: Map<Types.TraceEvents.TraceEventLayoutShift, LayoutShiftRootCausesData>):
+    rootCausesByShift: Map<Types.TraceEvents.TraceEventLayoutShift, LayoutShiftRootCausesData>,
+    domLoadingEvents: readonly Types.TraceEvents.TraceEventDomLoading[]):
     Map<Types.TraceEvents.TraceEventLayoutShift, LayoutShiftRootCausesData> {
   for (const iframeEvent of iframeCreatedEvents) {
     const nextPrePaint = getNextPrePaintEvent(prePaintEvents, iframeEvent);
@@ -207,6 +208,14 @@ function getIframeRootCauses(
           fontRequests: [],
         };
       });
+
+      // Look for the first dom event that occurs within the bounds of the iframe event.
+      // This contains the frame id.
+      const domEvent = domLoadingEvents.find(e => {
+        const maxIframe = Types.Timing.MicroSeconds(iframeEvent.ts + (iframeEvent.dur ?? 0));
+        return e.ts >= iframeEvent.ts && e.ts <= maxIframe;
+      });
+      iframeEvent.args.domLoadingFrameId = domEvent?.args.frame ?? undefined;
       rootCausesForShift.iframes.push(iframeEvent);
     }
   }
@@ -274,6 +283,8 @@ export function generateInsight(
       traceParsedData.LayoutShifts.renderFrameImplCreateChildFrameEvents.filter(isWithinSameNavigation);
   const networkRequests = traceParsedData.NetworkRequests.byTime.filter(isWithinSameNavigation);
 
+  const domLoadingEvents = traceParsedData.UserTimings.domLoadingEvents.filter(isWithinSameNavigation);
+
   // Sort by cumulative score, since for insights we interpret these for their "bad" scores.
   const clusters = traceParsedData.LayoutShifts.clustersByNavigationId.get(context.navigationId)
                        ?.sort((a, b) => b.clusterCumulativeScore - a.clusterCumulativeScore) ??
@@ -289,7 +300,7 @@ export function generateInsight(
     rootCausesByShift.set(shift, {iframes: [], fontRequests: []});
   }
 
-  getIframeRootCauses(iframeEvents, prePaintEvents, shiftsByPrePaint, rootCausesByShift);
+  getIframeRootCauses(iframeEvents, prePaintEvents, shiftsByPrePaint, rootCausesByShift, domLoadingEvents);
   getFontRootCauses(networkRequests, prePaintEvents, shiftsByPrePaint, rootCausesByShift);
 
   return {

@@ -14,6 +14,7 @@ import {HandlerState} from './types.js';
  **/
 let syntheticEvents: Types.TraceEvents.SyntheticEventPair<Types.TraceEvents.TraceEventPairableAsync>[] = [];
 const performanceMeasureEvents: Types.TraceEvents.TraceEventPerformanceMeasure[] = [];
+const domLoadingEvents: Types.TraceEvents.TraceEventDomLoading[] = [];
 const performanceMarkEvents: Types.TraceEvents.TraceEventPerformanceMark[] = [];
 
 const consoleTimings: (Types.TraceEvents.TraceEventConsoleTimeBegin|Types.TraceEvents.TraceEventConsoleTimeEnd)[] = [];
@@ -42,6 +43,11 @@ export interface UserTimingsData {
    * https://developer.mozilla.org/en-US/docs/Web/API/console/timeStamp
    */
   timestampEvents: readonly Types.TraceEvents.TraceEventTimeStamp[];
+
+  /**
+   * Dom loading events.
+   */
+  domLoadingEvents: Types.TraceEvents.TraceEventDomLoading[];
 }
 let handlerState = HandlerState.UNINITIALIZED;
 
@@ -51,6 +57,7 @@ export function reset(): void {
   performanceMarkEvents.length = 0;
   consoleTimings.length = 0;
   timestampEvents.length = 0;
+  domLoadingEvents.length = 0;
   handlerState = HandlerState.INITIALIZED;
 }
 
@@ -84,7 +91,9 @@ const navTimingNames = [
   'requestStart',
   'responseStart',
   'responseEnd',
-  'domLoading',
+  // Keep domLoading. We use these blink.user_timing events
+  // for capturing frame ids occuring within CreateChildFrame events.
+  /* 'domLoading', */
   'domInteractive',
   'domContentLoadedEventStart',
   'domContentLoadedEventEnd',
@@ -104,6 +113,11 @@ export function handleEvent(event: Types.TraceEvents.TraceEventData): void {
   }
 
   if (ignoredNames.includes(event.name)) {
+    return;
+  }
+
+  if (Types.TraceEvents.isTraceEventDomLoading(event)) {
+    domLoadingEvents.push(event);
     return;
   }
 
@@ -145,5 +159,6 @@ export function data(): UserTimingsData {
     // TODO(crbug/41484172): UserTimingsHandler.test.ts fails if this is not copied.
     performanceMarks: [...performanceMarkEvents],
     timestampEvents: [...timestampEvents],
+    domLoadingEvents: [...domLoadingEvents],
   };
 }
