@@ -39,6 +39,30 @@
       },
       "revId": "68b9460ba1df4ba39d6b3df0f6b42e953dfc9b7b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7542959e_9db5b1c6",
+        "filename": "front_end/core/sdk/SourceMapScopesInfo.test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-09-04T13:09:41Z",
+      "side": 1,
+      "message": "Are we using the names if the generators produce them? V8\u0027s default sounds fine as a fallback.",
+      "parentUuid": "364e0960_ba488a8c",
+      "range": {
+        "startLine": 147,
+        "startChar": 6,
+        "endLine": 147,
+        "endChar": 113
+      },
+      "revId": "68b9460ba1df4ba39d6b3df0f6b42e953dfc9b7b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0b4ed3b_830666c0",
+        "filename": "front_end/core/sdk/SourceMapScopesInfo.test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-09-04T13:09:41Z",
+      "side": 1,
+      "message": "Nit: setUp",
+      "revId": "8739ac6325a1328412901f148e4fda4e05581d80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
