@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff81ac37_adc19f37",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-04T14:16:41Z",
+      "side": 1,
+      "message": "PTAL. My hunch is that the positioning of these labels could be done differently to make this more robust in the future, but we know that \"better placement algorithm\" is on our future list so I am happy to defer that work.",
+      "revId": "b80a181bd0841488c989c9b8da88aa1d87b62e21",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
