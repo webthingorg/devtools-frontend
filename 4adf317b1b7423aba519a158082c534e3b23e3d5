@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d29eafa_bc21d81e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 13
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-09-04T06:01:38Z",
+      "side": 1,
+      "message": "Hi Adriana!\n\nI\u0027m this week\u0027s Google Material 3 reviewer for DevTools changes 😊. I have a few questions regarding the styles and added a question on an example where I can inspect some of the components. Generally, we try to unify most of the component styles (in this case: links), and I\u0027m trying to understand the overrides that you\u0027ve made in terms of `active`, `hover` and `focus` styles. If you could help me with an example, that would be awesome!",
+      "revId": "4adf317b1b7423aba519a158082c534e3b23e3d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "117789c8_caddd44d",
+        "filename": "front_end/panels/timeline/components/layoutShiftDetails.css",
+        "patchSetId": 13
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-09-04T06:01:38Z",
+      "side": 1,
+      "message": "Is there a reason for increasing the font size here? Looking at the Figma spec (maybe I\u0027m looking at the wrong one?) the font size is `12px`. I\u0027m looking at examples in the `Insights` tab of the Figma design.",
+      "revId": "4adf317b1b7423aba519a158082c534e3b23e3d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9d04526_7e7d4927",
+        "filename": "front_end/panels/timeline/components/layoutShiftDetails.css",
+        "patchSetId": 13
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-09-04T06:01:38Z",
+      "side": 1,
+      "message": "We have pre-defined radii here: https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/ui/legacy/designTokens.css;l\u003d57;drc\u003dd88bda679603f7fcc6ca7850f684634a5ae43a11\n\nCould you check whether one of these predefined radii works for you? Ideally we\u0027d stick to pre-defined radii.",
+      "revId": "4adf317b1b7423aba519a158082c534e3b23e3d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "883241d8_bc3471d0",
+        "filename": "front_end/panels/timeline/components/layoutShiftDetails.css",
+        "patchSetId": 13
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-09-04T06:01:38Z",
+      "side": 1,
+      "message": "Could you make use of predefined `--sys-size-x` definitions, where possible (https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/ui/legacy/designTokens.css;l\u003d16;drc\u003dd88bda679603f7fcc6ca7850f684634a5ae43a11)?",
+      "revId": "4adf317b1b7423aba519a158082c534e3b23e3d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "079ba9b2_4a3894d3",
+        "filename": "front_end/panels/timeline/components/layoutShiftDetails.css",
+        "patchSetId": 13
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-09-04T06:01:38Z",
+      "side": 1,
+      "message": "To better understand the overrides here (generally we want to keep as close as possible to existing components), could you help me to understand which link this is / reproduce an example where I could see an instance of this link?",
+      "revId": "4adf317b1b7423aba519a158082c534e3b23e3d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1e8f784_99d90ce5",
+        "filename": "front_end/panels/timeline/components/layoutShiftDetails.css",
+        "patchSetId": 13
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-09-04T06:01:38Z",
+      "side": 1,
+      "message": "Same here, could you help me understand where this text button class is used? (I\u0027m looking at the example on the components server but I can\u0027t find it there, maybe I need a real example for this).",
+      "revId": "4adf317b1b7423aba519a158082c534e3b23e3d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
