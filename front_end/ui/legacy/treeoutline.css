@@ -227,6 +227,10 @@ ol.tree-outline:not(.hide-selection-when-blurred) li.selected:focus {
 }
 /* stylelint-enable no-descending-specificity */
 
+:host-context(.theme-with-dark-background) .tree-outline.tree-variant-navigation li.selected::before {
+  background-color: var(--sys-color-inverse-on-surface);
+}
+
 ol.tree-outline.tree-variant-navigation:not(.hide-selection-when-blurred) li.selected:focus .selection {
   background-color: var(--app-color-navigation-drawer-background-selected);
 }
