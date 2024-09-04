@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eed9a59b_a9be8807",
+        "filename": "front_end/panels/timeline/overlays/components/EntryLabelOverlay.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 239,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-04T14:17:01Z",
+      "side": 0,
+      "message": "the parent container gets hidden by the overlay manager so we don\u0027t need this",
+      "range": {
+        "startLine": 237,
+        "startChar": 35,
+        "endLine": 239,
+        "endChar": 99
+      },
+      "revId": "53ce5160a8264f178efda2eec82b14dd2a2dd82c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
