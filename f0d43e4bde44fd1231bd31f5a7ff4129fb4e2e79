@@ -1,0 +1,131 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1124801e_a8db9ccc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-09-04T09:59:33Z",
+      "side": 1,
+      "message": "What do you think about moving everything (the button and logic) directly into `RuleSetDetailsView`?",
+      "revId": "f0d43e4bde44fd1231bd31f5a7ff4129fb4e2e79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52125082_aeb0eb13",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-09-04T09:59:33Z",
+      "side": 1,
+      "message": "remove",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 54
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "b523b946_2ade9996",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/application/preloading/PreloadingView.ts",
+              "range": {
+                "startLine": 10,
+                "startChar": 0,
+                "endLine": 11,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "f0d43e4bde44fd1231bd31f5a7ff4129fb4e2e79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e340b885_1db41a84",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-09-04T09:59:33Z",
+      "side": 1,
+      "message": "Would this work? `ruleSet?.sourceText || \u0027{}\u0027`",
+      "range": {
+        "startLine": 280,
+        "startChar": 24,
+        "endLine": 280,
+        "endChar": 65
+      },
+      "revId": "f0d43e4bde44fd1231bd31f5a7ff4129fb4e2e79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e128d2b5_f873667c",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-09-04T09:59:33Z",
+      "side": 1,
+      "message": "Isn\u0027t the setting concerned with auto-pretty-printing? Your default is not to pretty-print, isn\u0027t it?",
+      "range": {
+        "startLine": 283,
+        "startChar": 8,
+        "endLine": 283,
+        "endChar": 93
+      },
+      "revId": "f0d43e4bde44fd1231bd31f5a7ff4129fb4e2e79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08ef0dbb_539304eb",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-09-04T09:59:33Z",
+      "side": 1,
+      "message": "Does `formatScriptContent` throw?",
+      "range": {
+        "startLine": 288,
+        "startChar": 10,
+        "endLine": 288,
+        "endChar": 22
+      },
+      "revId": "f0d43e4bde44fd1231bd31f5a7ff4129fb4e2e79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
