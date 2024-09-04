@@ -172,8 +172,11 @@ export class AISettingsTab extends LegacyWrapper.LegacyWrapper.WrappableComponen
     if (!oldSettingValue && !this.#isConsoleInsightsSettingExpanded) {
       this.#isConsoleInsightsSettingExpanded = true;
     }
-    UI.InspectorView.InspectorView.instance().displayReloadRequiredWarning(
-        i18nString(UIStrings.oneOrMoreSettingsHaveChanged));
+    if (oldSettingValue === false) {
+      Common.Settings.Settings.instance()
+          .createSetting('console-insights-skip-reminder', true, Common.Settings.SettingStorageType.SESSION)
+          .set(true);
+    }
     void this.render();
   }
 
