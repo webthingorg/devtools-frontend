@@ -326,6 +326,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "050f3b22_61ab52a7",
+        "filename": "docs/styleguide/ux/styles.md",
+        "patchSetId": 21
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2024-09-04T13:55:33Z",
+      "side": 1,
+      "message": "Sounds good! Usually primary is used for emphazised elements like links or buttons. We don\u0027t really use secondary and tertiary, but that doesn\u0027t matter.",
+      "parentUuid": "9b2a6d23_bddbc493",
+      "range": {
+        "startLine": 37,
+        "startChar": 33,
+        "endLine": 37,
+        "endChar": 91
+      },
+      "revId": "92917ddcedf18668b80258dc9f3642a9d2500aa9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c5360267_16914ac8",
         "filename": "docs/styleguide/ux/styles.md",
         "patchSetId": 21
@@ -449,6 +473,24 @@
       "side": 1,
       "message": "SG!\n\n@petermueller@chromium.org: We have three ripple colors,\n`--sys-color-state-ripple-neutral-on-prominent`,\n`--sys-color-state-ripple-neutral-on-subtle`\n`--sys-color-state-ripple-primary`, could you help us with some guidance on when to use which?",
       "parentUuid": "bab48947_99ffe499",
+      "revId": "92917ddcedf18668b80258dc9f3642a9d2500aa9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c70965b_14f56055",
+        "filename": "docs/styleguide/ux/styles.md",
+        "patchSetId": 21
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2024-09-04T13:55:33Z",
+      "side": 1,
+      "message": "Of course -- it\u0027s a bit tricky indeed and not really documented anywhere.\n\nAll the colors are for the transparent state layer of the pressed state. They have different intensity and are used for different base colors:\n\n--sys-color-state-ripple-primary is used when elements with the primary color are pressed. Primary buttons use this ripple color for example. -on-prominent is a bit stronger than it\u0027s counter parts, making it more visible on primary.\n\n--sys-color-state-ripple-neutral-on-subtle is used on light surfaces, grays or transparent backgrounds. This should be the default \"pressed\" color for everything else.\n\n--sys-color-state-ripple-on-prominent is used for inverted components (using surface-inverted and on-surface-inverted colors). I don\u0027t know of a single instance where this is used, also not in Chrome.\n\nHere you can find some explanations: https://docs.google.com/spreadsheets/d/1yMwh6J2T8uZ1EZVqb_Dy5G4_4z9o8xXJQL-6DslSV2Q/edit?resourcekey\u003d0-3sQP32kHVdCTV0RnDWulSA\u0026gid\u003d1352980518#gid\u003d1352980518",
+      "parentUuid": "5112acc9_dbf5bb52",
       "revId": "92917ddcedf18668b80258dc9f3642a9d2500aa9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },

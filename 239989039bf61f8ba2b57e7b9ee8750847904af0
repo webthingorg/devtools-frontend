@@ -16,6 +16,24 @@
       "message": "@petermueller@chromium.org: There\u0027s no such color that I can find (CDT/CDDS); which one did you want to have in this case?",
       "revId": "239989039bf61f8ba2b57e7b9ee8750847904af0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fb0d45a_52ddfdd6",
+        "filename": "docs/styleguide/ux/styles.md",
+        "patchSetId": 22
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2024-09-04T13:55:33Z",
+      "side": 1,
+      "message": "you can use --sys-color-on-surface",
+      "parentUuid": "0d66e4e6_de20e3e0",
+      "revId": "239989039bf61f8ba2b57e7b9ee8750847904af0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
