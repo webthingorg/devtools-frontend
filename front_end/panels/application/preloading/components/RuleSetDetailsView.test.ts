@@ -18,6 +18,7 @@ async function renderRuleSetDetailsView(data: PreloadingComponents.RuleSetDetail
     Promise<HTMLElement> {
   const component = new PreloadingComponents.RuleSetDetailsView.RuleSetDetailsView();
   component.data = data;
+  component.shouldPrettyPrint = false;
   renderElementIntoDOM(component);
   assert.isNotNull(component.shadowRoot);
   await coordinator.done();
