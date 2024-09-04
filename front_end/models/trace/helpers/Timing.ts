@@ -81,7 +81,7 @@ export function eventTimingsMicroSeconds(event: Types.TraceEvents.TraceEventData
     EventTimingsData<Types.Timing.MicroSeconds> {
   return {
     startTime: event.ts,
-    endTime: Types.Timing.MicroSeconds(event.ts + (event.dur || Types.Timing.MicroSeconds(0))),
+    endTime: Types.Timing.MicroSeconds(event.ts + (event.dur ?? Types.Timing.MicroSeconds(0))),
     duration: Types.Timing.MicroSeconds(event.dur || 0),
   };
 }
@@ -163,6 +163,14 @@ export function boundsIncludeTimeRange(data: BoundsIncludeTimeRange): boolean {
   const {min: rangeMin, max: rangeMax} = data.timeRange;
 
   return visibleMin <= rangeMax && visibleMax >= rangeMin;
+}
+
+export function eventIsInBounds(
+    event: Types.TraceEvents.TraceEventData, bounds: Types.Timing.TraceWindowMicroSeconds): boolean {
+  const startTime = event.ts;
+  const endTime = event.ts + (event.dur ?? 0);
+
+  return bounds.min <= endTime && bounds.max >= startTime;
 }
 
 export function timestampIsInBounds(

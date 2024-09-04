@@ -4,6 +4,8 @@
 
 import * as Types from '../types/types.js';
 
+import {eventIsInBounds} from './Timing.js';
+
 let nodeIdCount = 0;
 export const makeTraceEntryNodeId = (): TraceEntryNodeId => (++nodeIdCount) as TraceEntryNodeId;
 
@@ -265,25 +267,7 @@ function walkTreeByNode(
  * have to partially intersect it.
  */
 function treeNodeIsInWindow(node: TraceEntryNode, traceWindow: Types.Timing.TraceWindowMicroSeconds): boolean {
-  const startTime = node.entry.ts;
-  const endTime = node.entry.ts + (node.entry.dur || 0);
-
-  // Min ======= startTime ========= Max => node is within window
-  if (startTime >= traceWindow.min && startTime < traceWindow.max) {
-    return true;
-  }
-
-  // Min ======= endTime ========= Max => node is within window
-  if (endTime > traceWindow.min && endTime <= traceWindow.max) {
-    return true;
-  }
-
-  // startTime ==== Min ======== Max === endTime => node spans greater than the window so is in it.
-  if (startTime <= traceWindow.min && endTime >= traceWindow.max) {
-    return true;
-  }
-
-  return false;
+  return eventIsInBounds(node.entry, traceWindow);
 }
 
 /**
