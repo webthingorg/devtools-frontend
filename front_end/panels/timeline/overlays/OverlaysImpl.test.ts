@@ -488,7 +488,7 @@ describeWithEnvironment('Overlays', () => {
       const component = overlayDOM?.querySelector('devtools-time-range-overlay');
       assert.isOk(component?.shadowRoot);
       component.connectedCallback();
-      const label = component.shadowRoot.querySelector<HTMLElement>('.label');
+      const label = component.shadowRoot.querySelector<HTMLElement>('.range-container');
       assert.isOk(label);
 
       const labelBox = label.querySelector<HTMLElement>('.label-text');
@@ -529,7 +529,7 @@ describeWithEnvironment('Overlays', () => {
          const component = overlayDOM?.querySelector('devtools-time-range-overlay');
          assert.isOk(component?.shadowRoot);
          component.connectedCallback();
-         const label = component.shadowRoot.querySelector<HTMLElement>('.label');
+         const label = component.shadowRoot.querySelector<HTMLElement>('.range-container');
          assert.isOk(label);
 
          const labelBox = label.querySelector<HTMLElement>('.label-text');
@@ -731,7 +731,7 @@ describeWithEnvironment('Overlays', () => {
       const overlayDOM = container.querySelector<HTMLElement>('.overlay-type-TIME_RANGE');
       const component = overlayDOM?.querySelector('devtools-time-range-overlay');
       assert.isOk(component?.shadowRoot);
-      const label = component.shadowRoot.querySelector<HTMLElement>('.label');
+      const label = component.shadowRoot.querySelector<HTMLElement>('.range-container');
       assert.isOk(label);
       const duration = label.querySelector<HTMLElement>('.duration');
       assert.isOk(duration);
