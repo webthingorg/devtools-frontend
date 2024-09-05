@@ -205,7 +205,7 @@ export interface Props {
   onFeedbackSubmit: (rpcId: number, rate: Host.AidaClient.Rating, feedback?: string) => void;
   onAcceptConsentClick: () => void;
   onCancelClick: () => void;
-  onFixThisIssueClick: () => void;
+  onSuggestionClick: (suggestion: string, fixThisIssue: boolean) => void;
   inspectElementToggled: boolean;
   state: State;
   aidaAvailability: Host.AidaClient.AidaAccessPreconditions;
@@ -507,19 +507,6 @@ export class FreestylerChatUi extends HTMLElement {
               ? this.#renderRateButtons(message.rpcId)
               : LitHtml.nothing
           }
-          ${
-            message.suggestingFix
-              ? LitHtml.html`<${Buttons.Button.Button.litTagName}
-                  .data=${{
-                      variant: Buttons.Button.Variant.OUTLINED,
-                      jslogContext: 'fix-this-issue',
-                  } as Buttons.Button.ButtonData}
-                  @click=${this.#props.onFixThisIssueClick}
-                >${i18nString(
-                  UIStringsTemp.fixThisIssue,
-                )}</${Buttons.Button.Button.litTagName}>`
-              : LitHtml.nothing
-          }
         </div>
       </div>
     `;
@@ -613,7 +600,14 @@ export class FreestylerChatUi extends HTMLElement {
         return Boolean(step.sideEffect);
       });
     });
+    const fixThisIssueSuggestions: [string, boolean] = [i18nString(UIStringsTemp.fixThisIssue) as string, true];
+
+    const lastMessage = this.#props.messages.at(-1) ?? {};
+    const showFixThisIssue = 'suggestingFix' in lastMessage && lastMessage?.suggestingFix;
     const isInputDisabled = !Boolean(this.#props.selectedElement) || !isAidaAvailable || showsSideEffects;
+
+    // TODO(b/364564225): Add other suggestions
+    const suggestions: Array<[string, boolean]> = [...(showFixThisIssue ? ([fixThisIssueSuggestions]) : [])];
 
     // clang-format off
     return LitHtml.html`
@@ -625,10 +619,18 @@ export class FreestylerChatUi extends HTMLElement {
         }
         <form class="input-form" @submit=${this.#handleSubmit}>
           <div class="input-header">
-            <div class="header-link-container">
+            <div class="resources-container">
+              <div class="suggestions-container">
+                ${suggestions.map(([suggestion, isFix]) => LitHtml.html`
+                  <p
+                    class="suggestion"
+                    @click=${()=> this.#props.onSuggestionClick(suggestion, isFix)}
+                  >${suggestion}</p>
+                `)}
+              </div>
               ${this.#renderSelectAnElement()}
             </div>
-            <div class="header-link-container">
+            <div class="feedback-container">
               ${this.#renderFeedbackLink()}
             </div>
           </div>
