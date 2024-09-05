@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2069ff58_8c7c15b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-05T08:51:54Z",
+      "side": 1,
+      "message": "LGTM, nice!\n\nRE the layout test failures (`error: Unknown VE context: third-parties    at ToolbarSettingComboBox.createOption (http://debug-frontend.test:8000/inspector-sources/ui/legacy/legacy.js:10054:53`), I think you need to add `third-parties` to the `KnownContextValues.ts` file.",
+      "revId": "a885898947f367d41a7a9b66dfe4b6a822dbd554",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "47a871a2_d6fa0c31",
