@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f3de5bf_5daf3d34",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2024-09-05T22:31:15Z",
+      "side": 1,
+      "message": "That\u0027s fair. I\u0027ll update the patch to keep the context menu open when modifying zoom with these controls",
+      "parentUuid": "a3e4d61a_12cb37d1",
+      "revId": "7c67afac806fc1870fc21940d51c7818cbe49f4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "6eb06213_512ee57e",
@@ -104,6 +122,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "32c95d4b_9e949431",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2024-09-05T22:31:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "18333577_811a5e33",
+      "revId": "7c67afac806fc1870fc21940d51c7818cbe49f4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "be80fb7c_11359f3c",
@@ -168,6 +204,24 @@
       "writtenOn": "2024-09-05T08:15:56Z",
       "side": 1,
       "message": "nit: Same as above",
+      "revId": "7c67afac806fc1870fc21940d51c7818cbe49f4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a3256f9_83a8c1f1",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2024-09-05T22:31:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "48d1242f_e23d8ed4",
       "revId": "7c67afac806fc1870fc21940d51c7818cbe49f4f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
