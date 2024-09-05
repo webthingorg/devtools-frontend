@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3b01213_ece55921",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-09-05T14:02:01Z",
+      "side": 1,
+      "message": "1) Added comments to explain the various settings.\n2) Used a getter to ensure no throwing in MainImpl",
+      "parentUuid": "55f1a6cd_849a926b",
+      "revId": "a9d31992640027748e333956ea7554da7306a081",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0472fbc6_227f52ff",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-09-05T11:47:34Z",
       "side": 1,
       "message": "Can we add a comment here explaning what\u0027s the role of `console-insights-enabled` setting and `console-insights-onboarding-finished` setting and their relationship between each other?\n\nafaiu the behavior we want is:\n* when the `console-insights-enabled` setting is changed and if the value is changed to `false`. We want to create a new setting called `console-insights-onboarding-finished` and set it to `false` too.",
+      "revId": "a9d31992640027748e333956ea7554da7306a081",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8473d10b_07b37af4",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 640,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-09-05T14:02:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0472fbc6_227f52ff",
       "revId": "a9d31992640027748e333956ea7554da7306a081",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -52,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2463fc57_9a42335f",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 641,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-09-05T14:02:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb779b72_43239f42",
+      "revId": "a9d31992640027748e333956ea7554da7306a081",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "295f801a_14dc1bad",
@@ -69,6 +123,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "84f43f9f_a4318266",
+        "filename": "front_end/panels/explain/components/ConsoleInsight.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-09-05T14:02:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "295f801a_14dc1bad",
+      "revId": "a9d31992640027748e333956ea7554da7306a081",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2f8207ab_d4a78cd2",
@@ -82,6 +154,24 @@
       "writtenOn": "2024-09-05T11:47:34Z",
       "side": 1,
       "message": "I don\u0027t think we need `?` operator as the `moduleSetting` does not return `undefined` and instead throws error when the setting is not defined. WDYT?",
+      "revId": "a9d31992640027748e333956ea7554da7306a081",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a22a96d_f7ffb320",
+        "filename": "front_end/panels/explain/components/ConsoleInsight.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-09-05T14:02:01Z",
+      "side": 1,
+      "message": "After refactoring, the `?` is needed.",
+      "parentUuid": "2f8207ab_d4a78cd2",
       "revId": "a9d31992640027748e333956ea7554da7306a081",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
