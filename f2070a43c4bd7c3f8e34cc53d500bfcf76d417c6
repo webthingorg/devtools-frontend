@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f0044f2_3814fbb6",
+        "filename": "front_end/models/trace/insights/ThirdPartyWeb.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-05T18:11:27Z",
+      "side": 1,
+      "message": "added comment\n\n\u003e The entity for this navigation\u0027s URL. Any other entity is from a third party.",
+      "parentUuid": "10bff66b_e2e34fa2",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 28
+      },
+      "revId": "f2070a43c4bd7c3f8e34cc53d500bfcf76d417c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "de8b6871_329ab9ed",
@@ -77,6 +101,30 @@
       "writtenOn": "2024-09-05T09:00:23Z",
       "side": 1,
       "message": "generally we use `formatMicroSecondsTime` from the same module across the Performance panel, but that does force a higher resolution result than this, so that might not be what you want",
+      "range": {
+        "startLine": 99,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 116
+      },
+      "revId": "f2070a43c4bd7c3f8e34cc53d500bfcf76d417c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30f285a5_7e8fd8fa",
+        "filename": "front_end/panels/timeline/components/insights/ThirdParties.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-05T18:11:27Z",
+      "side": 1,
+      "message": "yeah I wanna keep these as ms without that extra precision",
+      "parentUuid": "4bd52467_8cd5a1dd",
       "range": {
         "startLine": 99,
         "startChar": 0,
