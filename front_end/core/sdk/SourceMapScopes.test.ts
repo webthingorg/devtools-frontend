@@ -425,9 +425,9 @@ describe('decodeGeneratedRanges', () => {
   it('decodes the "isScope" flag', () => {
     const range = new GeneratedRangeBuilder([])
                       .start(0, 0)
-                      .start(5, 0, {isScope: true})
+                      .start(5, 0, {isFunctionScope: true})
                       .end(10, 0)
-                      .start(20, 4, {isScope: false})
+                      .start(20, 4, {isFunctionScope: false})
                       .end(30, 0)
                       .end(40, 0)
                       .build();
