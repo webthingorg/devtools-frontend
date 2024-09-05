@@ -16,6 +16,24 @@
       "message": "nit: can we either disable the formatter for these lines or reorganize this so that this doesn\u0027t happen.",
       "revId": "b2c091dfec0951bc9e008010e66a7dd038930636",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc2e3064_6766c7a8",
+        "filename": "front_end/panels/timeline/components/insights/ThirdParties.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-05T22:04:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5ff22fb_3c9b6409",
+      "revId": "b2c091dfec0951bc9e008010e66a7dd038930636",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
