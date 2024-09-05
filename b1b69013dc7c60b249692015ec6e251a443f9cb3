@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "451f85d9_955b50db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-09-05T08:11:55Z",
+      "side": 1,
+      "message": "Let me know if you wanna go over the CL together. The inlining bits can always get a bit gnarly when trying to reason about them xD (at least I have to always draw it on a piece of paper to make sense of it)\n\nPhilip: FYI",
+      "revId": "b1b69013dc7c60b249692015ec6e251a443f9cb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
