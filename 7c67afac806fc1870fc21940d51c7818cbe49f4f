@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5ffcf33_81083952",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-09-05T08:15:56Z",
+      "side": 1,
+      "message": "The context menu is closing on adjusting the zoom level, i.e. clicking \u0027+\u0027 will close the three-dot menu. It feels to me as if it would be more user friendly to keep it open, WDYT?",
+      "revId": "7c67afac806fc1870fc21940d51c7818cbe49f4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "6eb06213_512ee57e",
@@ -14,6 +31,91 @@
       "writtenOn": "2024-09-05T07:06:35Z",
       "side": 1,
       "message": "Over to Kim and Peter for review.",
+      "revId": "7c67afac806fc1870fc21940d51c7818cbe49f4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "72a10b27_c81569d6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-09-05T08:15:56Z",
+      "side": 1,
+      "message": "Hi Kalon,\n\nThanks for the zoom controls patch! Generally LGTM % one question on closing the menu on adjusting the zoom level",
+      "revId": "7c67afac806fc1870fc21940d51c7818cbe49f4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18333577_811a5e33",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-09-05T08:15:56Z",
+      "side": 1,
+      "message": "nit: maybe we can add a bit more info here, something like `Title text showing when hovering over a button to zoom DevTools in`.",
+      "revId": "7c67afac806fc1870fc21940d51c7818cbe49f4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48d1242f_e23d8ed4",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-09-05T08:15:56Z",
+      "side": 1,
+      "message": "nit: Same as above",
+      "revId": "7c67afac806fc1870fc21940d51c7818cbe49f4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7321364_46cbd873",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 941,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-09-05T08:15:56Z",
+      "side": 1,
+      "message": "Can we add a `jslogContext` here? The log context helps us to better understand usages of these buttons.\n\nAlso, let\u0027s use the plus/minus icons, they won\u0027t be cropped on hover, i.e. altogether:\n\n` const zoomOut \u003d new UI.Toolbar.ToolbarButton(i18nString(UIStrings.zoomOut), \u0027minus\u0027, undefined, \u0027zoom-out\u0027);`",
+      "revId": "7c67afac806fc1870fc21940d51c7818cbe49f4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89250e41_70d78797",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 942,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-09-05T08:15:56Z",
+      "side": 1,
+      "message": "Same as above, just with with `zoom-in`, and `plus`",
       "revId": "7c67afac806fc1870fc21940d51c7818cbe49f4f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
