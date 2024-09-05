@@ -22,12 +22,12 @@ function getFieldMetricValue(view: Element, metric: string): HTMLElement|null {
   return card!.shadowRoot!.querySelector('#field-value .metric-value');
 }
 
-function getThrottlingRecommendation(view: Element): HTMLElement|null {
-  return view.shadowRoot!.querySelector('#network-recommendation');
+function getThrottlingRecommendation(view: Element): string|null {
+  return view.shadowRoot!.querySelector<HTMLElement>('#network-recommendation')?.title ?? null;
 }
 
-function getDeviceRecommendation(view: Element): HTMLElement|null {
-  return view.shadowRoot!.querySelector('#device-recommendation');
+function getDeviceRecommendation(view: Element): string|null {
+  return view.shadowRoot!.querySelector<HTMLElement>('#device-recommendation')?.title ?? null;
 }
 
 function getInteractions(view: Element): HTMLElement[] {
@@ -311,11 +311,11 @@ describeWithMockConnection('LiveMetricsView', () => {
 
       await coordinator.done();
 
-      const throttlingRec = getThrottlingRecommendation(view);
-      assert.match(throttlingRec!.innerText, /Slow 4G/);
+      const throttlingRec = getThrottlingRecommendation(view)!;
+      assert.match(throttlingRec, /Slow 4G/);
 
-      const deviceRec = getDeviceRecommendation(view);
-      assert.match(deviceRec!.innerText, /desktop/);
+      const deviceRec = getDeviceRecommendation(view)!;
+      assert.match(deviceRec, /60%.*desktop/);
 
       const fieldMessage = getFieldMessage(view);
       // We can't match the exact string because we format the dates based on
@@ -512,8 +512,8 @@ describeWithMockConnection('LiveMetricsView', () => {
 
         await coordinator.done();
 
-        const throttlingRec = getThrottlingRecommendation(view);
-        assert.match(throttlingRec!.innerText, /Slow 4G/);
+        const throttlingRec = getThrottlingRecommendation(view)!;
+        assert.match(throttlingRec, /Slow 4G/);
       });
 
       it('should hide if no RTT data', async () => {
@@ -541,8 +541,8 @@ describeWithMockConnection('LiveMetricsView', () => {
 
         await coordinator.done();
 
-        const throttlingRec = getThrottlingRecommendation(view);
-        assert.match(throttlingRec!.innerText, /Try disabling/);
+        const throttlingRec = getThrottlingRecommendation(view)!;
+        assert.match(throttlingRec, /no throttling/);
       });
 
       it('should ignore presets that are generally too far off', async () => {
@@ -571,8 +571,8 @@ describeWithMockConnection('LiveMetricsView', () => {
 
         await coordinator.done();
 
-        const deviceRec = getDeviceRecommendation(view);
-        assert.match(deviceRec!.innerText, /desktop/);
+        const deviceRec = getDeviceRecommendation(view)!;
+        assert.match(deviceRec, /60%.*desktop/);
       });
 
       it('should recommend mobile if it is the majority', async () => {
@@ -589,8 +589,8 @@ describeWithMockConnection('LiveMetricsView', () => {
 
         await coordinator.done();
 
-        const deviceRec = getDeviceRecommendation(view);
-        assert.match(deviceRec!.innerText, /mobile/);
+        const deviceRec = getDeviceRecommendation(view)!;
+        assert.match(deviceRec, /80%.*mobile/);
       });
 
       it('should recommend nothing if there is no majority', async () => {

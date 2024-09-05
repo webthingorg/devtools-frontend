@@ -97,8 +97,12 @@
   margin-bottom: 4px;
 }
 
-.setting-recommendation {
+.device-toolbar-description {
   margin-bottom: 12px;
+}
+
+.network-cache-description {
+  margin-top: 12px;
 }
 
 .throttling-recommendation-value {
@@ -190,10 +194,8 @@
   flex-shrink: 0;
 }
 
-.live-metrics-option {
-  display: block;
-  margin-top: 8px;
-  min-width: 0;
+.field-data-option {
+  margin: 8px 0;
   max-width: 100%;
 }
 
@@ -218,4 +220,18 @@ x-link { /* stylelint-disable-line selector-type-no-unknown */
   margin-top: 10px;
   padding-left: 12px;
   border-left: 1px solid var(--sys-color-divider);
+}
+
+.environment-option {
+  display: flex;
+  align-items: center;
+  margin: 8px 0;
+}
+
+.field-data-hint {
+  margin-left: 4px;
+  vertical-align: bottom;
+  cursor: help;
+  height: 16px;
+  width: 16px;
 }
