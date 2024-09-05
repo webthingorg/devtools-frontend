@@ -70,6 +70,30 @@
       },
       "revId": "e6eadd865f04a3d1b83f5aef7efdfd75e06d30ff",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8764993_65b83f28",
+        "filename": "front_end/core/sdk/SourceMapManager.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-09-05T12:19:05Z",
+      "side": 0,
+      "message": "Upon further investigation you were on the right track. The issue wasn\u0027t caused by a script (as I initially assumed), but a stylesheet. The correct fix is to not listen to `InspectedURLChanged` at all in the `SourceMapManager`. I have a CL here: https://crrev.com/c/5839523 That should do the trick for you.",
+      "parentUuid": "24f977cc_aea21e5d",
+      "range": {
+        "startLine": 78,
+        "startChar": 6,
+        "endLine": 78,
+        "endChar": 76
+      },
+      "revId": "e6eadd865f04a3d1b83f5aef7efdfd75e06d30ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
