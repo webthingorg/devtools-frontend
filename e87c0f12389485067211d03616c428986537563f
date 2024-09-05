@@ -16,6 +16,23 @@
       "message": "Can you take a look please? Thanks! 🙏",
       "revId": "e87c0f12389485067211d03616c428986537563f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83109c1c_7c179d5a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-09-05T12:28:51Z",
+      "side": 1,
+      "message": "I didn\u0027t trace through the code now, but I assume that the `onPrimaryPageChanged` handlers will detach/reattach the source maps somewhere down the line?",
+      "revId": "e87c0f12389485067211d03616c428986537563f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
