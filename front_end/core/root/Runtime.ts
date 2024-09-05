@@ -322,6 +322,7 @@ export interface HostConfigFreestylerDogfood {
   modelId: string;
   temperature: number;
   enabled: boolean;
+  userTier: string;
 }
 
 export interface HostConfigExplainThisResourceDogfood {
