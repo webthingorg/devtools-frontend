@@ -122,6 +122,24 @@
       "parentUuid": "4dfaec60_1d1dc1d5",
       "revId": "cade7df82225cf26df24093ddcb9d2e5ce531b2f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d7ae23b_c16d9311",
+        "filename": "front_end/ui/components/markdown_view/MarkdownLinksMap.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-09-05T04:58:43Z",
+      "side": 1,
+      "message": "I\u0027m fine with allowing full origins.",
+      "parentUuid": "97d63ea5_8cda20be",
+      "revId": "cade7df82225cf26df24093ddcb9d2e5ce531b2f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
