@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a8f92b7_283da2b6",
+        "filename": "front_end/panels/timeline/components/insights/ThirdParties.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-05T20:59:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "800c9693_57ed2a3d",
+      "revId": "5475e20e6ea86022021717496f65079697a7a36c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e7d870aa_c33ee15c",
@@ -84,6 +102,24 @@
       "side": 1,
       "message": "no plans for that. could do.",
       "parentUuid": "d8d0b3c9_5ff653c5",
+      "revId": "5475e20e6ea86022021717496f65079697a7a36c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e5913f3_787fbbc5",
+        "filename": "front_end/panels/timeline/components/insights/ThirdParties.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-05T20:59:36Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "da856754_9b033894",
       "revId": "5475e20e6ea86022021717496f65079697a7a36c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -182,6 +218,24 @@
       "side": 1,
       "message": "Probably. I copied from LCPPhases. I\u0027ll be following up with a table component to replace both of these and could use a table then.",
       "parentUuid": "a7939d25_19f95ed1",
+      "revId": "5475e20e6ea86022021717496f65079697a7a36c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80af353b_84fa2510",
+        "filename": "front_end/panels/timeline/components/insights/ThirdParties.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-05T20:59:36Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "ea851685_e93766bb",
       "revId": "5475e20e6ea86022021717496f65079697a7a36c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
