@@ -12,6 +12,7 @@ import * as Buttons from '../../../ui/components/buttons/buttons.js';
 import * as IconButton from '../../../ui/components/icon_button/icon_button.js';
 import * as Input from '../../../ui/components/input/input.js';
 import * as MarkdownView from '../../../ui/components/markdown_view/markdown_view.js';
+import * as Spinners from '../../../ui/components/spinners/spinners.js';
 import * as UI from '../../../ui/legacy/legacy.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 import * as VisualLogging from '../../../ui/visual_logging/visual_logging.js';
@@ -213,6 +214,7 @@ type StateData = {
   validMarkdown: boolean,
   sources: Source[],
   isPageReloadRecommended: boolean,
+  completed: boolean,
 }&Host.AidaClient.AidaResponse|{
   type: State.ERROR,
   error: string,
@@ -413,7 +415,7 @@ export class ConsoleInsight extends HTMLElement {
     });
     Host.userMetrics.actionTaken(Host.UserMetrics.Action.InsightConsentReminderConfirmed);
     try {
-      for await (const {sources, isPageReloadRecommended, explanation, metadata} of this.#getInsight()) {
+      for await (const {sources, isPageReloadRecommended, explanation, metadata, completed} of this.#getInsight()) {
         const tokens = this.#validateMarkdown(explanation);
         const valid = tokens !== false;
         this.#transitionTo({
@@ -424,6 +426,7 @@ export class ConsoleInsight extends HTMLElement {
           sources,
           metadata,
           isPageReloadRecommended,
+          completed: completed,
         });
       }
       Host.userMetrics.actionTaken(Host.UserMetrics.Action.InsightGenerated);
@@ -916,6 +919,15 @@ export class ConsoleInsight extends HTMLElement {
     }
   }
 
+  #renderSpinner(): LitHtml.TemplateResult {
+    // clang-format off
+    if (this.#state.type === State.INSIGHT && !this.#state.completed) {
+      return html`<${Spinners.Spinner.Spinner.litTagName}></${Spinners.Spinner.Spinner.litTagName}>`;
+    }
+    return html`${LitHtml.nothing}`;
+    // clang-format on
+  }
+
   #render(): void {
     // clang-format off
     render(html`
@@ -925,6 +937,7 @@ export class ConsoleInsight extends HTMLElement {
             <h2 tabindex="-1">
               ${this.#getHeader()}
             </h2>
+            ${this.#renderSpinner()}
           </div>
           <div>
             <${Buttons.Button.Button.litTagName}
