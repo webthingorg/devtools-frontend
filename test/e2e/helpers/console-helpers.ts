@@ -201,24 +201,34 @@ export async function getStructuredConsoleMessages() {
   }, {timeout: 0}, CONSOLE_ALL_MESSAGES_SELECTOR));
   await expectVeEvents([veImpressionForConsoleMessage()], await veRoot());
 
+<<<<<<< PATCH SET (0cdf6d Hide ignore-listed lines in console stack traces)
+  return frontend.evaluate(CONSOLE_MESSAGE_WRAPPER_SELECTOR => {
+    return Array.from(document.querySelectorAll(CONSOLE_MESSAGE_WRAPPER_SELECTOR)).map(wrapper => {
+=======
   return frontend.evaluate((selector, container) => {
     return Array.from(document.querySelectorAll(selector)).map(wrapper => {
+>>>>>>> BASE      (abfd83 [RPP] Refactor Breadcrumbs in the Minimap)
       const message = wrapper.querySelector('.console-message-text')?.textContent;
       const source = wrapper.querySelector('.devtools-link')?.textContent;
       const consoleMessage = wrapper.querySelector('.console-message');
       const repeatCount = wrapper.querySelector('.console-message-repeat-count');
+<<<<<<< PATCH SET (0cdf6d Hide ignore-listed lines in console stack traces)
+      const stackPreviewRoot = wrapper.querySelector('.hidden-stack-trace > span');
+      const stackPreview = stackPreviewRoot?.shadowRoot?.querySelectorAll('tbody') ?? null;
+=======
       const stackPreviewRoot = wrapper.querySelector('.hidden > span');
       const stackPreview = stackPreviewRoot?.shadowRoot?.querySelector(container) ?? null;
+>>>>>>> BASE      (abfd83 [RPP] Refactor Breadcrumbs in the Minimap)
       return {
         message,
         messageClasses: consoleMessage?.className,
-        repeatCount: repeatCount ? repeatCount?.textContent : null,
+        repeatCount: repeatCount?.textContent ?? null,
         source,
-        stackPreview: stackPreview ? stackPreview?.textContent : null,
+        stackPreview: stackPreview ? Array.from(stackPreview).map(x => x.textContent).join('') : null,
         wrapperClasses: wrapper?.className,
       };
     });
-  }, CONSOLE_MESSAGE_WRAPPER_SELECTOR, STACK_PREVIEW_CONTAINER);
+  }, CONSOLE_MESSAGE_WRAPPER_SELECTOR);
 }
 
 export async function focusConsolePrompt() {
