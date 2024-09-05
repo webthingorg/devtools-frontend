@@ -90,6 +90,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6b83359b_e3b6ab37",
+        "filename": "front_end/panels/timeline/components/insights/ThirdParties.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-05T21:45:36Z",
+      "side": 1,
+      "message": "lets shorted to \u0027Blocking Time\u0027 but also we should fix that text-align:left is applied to this header cell. that\u0027s wrong.",
+      "parentUuid": "de8b6871_329ab9ed",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 50
+      },
+      "revId": "f2070a43c4bd7c3f8e34cc53d500bfcf76d417c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4bd52467_8cd5a1dd",
         "filename": "front_end/panels/timeline/components/insights/ThirdParties.ts",
         "patchSetId": 5
