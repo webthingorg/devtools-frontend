@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "88b158e4_c65080a6",
+        "filename": "front_end/core/host/AidaClient.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-05T11:42:33Z",
+      "side": 1,
+      "message": "Renaming to `completed` sgtm!",
+      "parentUuid": "cac48a4b_f25deb48",
+      "revId": "78def5f5415a744bb2be15e7fc1c798433491938",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6e79ad19_f2d6899a",
