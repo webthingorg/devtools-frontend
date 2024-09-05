@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f239078b_f71268b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-09-05T13:45:43Z",
+      "side": 1,
+      "message": "I agree, I like that idea too.\nHowever, `ModificationsManager` already is creating all the the Overlays. The reason `ModificationsManager` needs to know about the setting is because it is creating the new Overlays when a file with Annotations is loaded and `Overlays.ts` is agnostic to whether the Overlay is for an Annotation created from a file or not.\n\nWe want to always turn the annotations visibility on when a new annotation is being created, except if the annotations were loaded from the file. If they are from the file, let\u0027s just keep the setting that was set before.\n\nIf the ModificationsManager is responsible for turning the setting on/off, we can check where the annotation came from and keep the setting off if it was from a file.",
+      "parentUuid": "79a9c779_dc65828e",
+      "revId": "e42afa31d6cec8254cbdbcc4f31197dbe6454d6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bae4ef27_c50485b3",
         "filename": "front_end/panels/timeline/ModificationsManager.ts",
         "patchSetId": 7
@@ -48,6 +66,30 @@
       "writtenOn": "2024-09-04T08:12:50Z",
       "side": 1,
       "message": "typo: `loade`",
+      "range": {
+        "startLine": 118,
+        "startChar": 69,
+        "endLine": 118,
+        "endChar": 82
+      },
+      "revId": "e42afa31d6cec8254cbdbcc4f31197dbe6454d6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d1c05e1_6188ccc8",
+        "filename": "front_end/panels/timeline/ModificationsManager.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 118,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-09-05T13:45:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bae4ef27_c50485b3",
       "range": {
         "startLine": 118,
         "startChar": 69,
@@ -99,6 +141,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "56c1a6c2_f4f56188",
+        "filename": "front_end/panels/timeline/ModificationsManager.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-09-05T13:45:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa78dc3a_b12d16b5",
+      "range": {
+        "startLine": 119,
+        "startChar": 52,
+        "endLine": 119,
+        "endChar": 56
+      },
+      "revId": "e42afa31d6cec8254cbdbcc4f31197dbe6454d6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "57deef07_d4cc6ee8",
@@ -112,6 +178,30 @@
       "writtenOn": "2024-09-04T08:12:50Z",
       "side": 1,
       "message": "It\u0027s not clear to me where this is. Do you mean this is done in the overlays?",
+      "range": {
+        "startLine": 123,
+        "startChar": 71,
+        "endLine": 123,
+        "endChar": 87
+      },
+      "revId": "e42afa31d6cec8254cbdbcc4f31197dbe6454d6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea0c7265_6b45958b",
+        "filename": "front_end/panels/timeline/ModificationsManager.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-09-05T13:45:43Z",
+      "side": 1,
+      "message": "Yes, good catch. That comment was outdated. I added it to `updateAnnotation()` at first",
+      "parentUuid": "57deef07_d4cc6ee8",
       "range": {
         "startLine": 123,
         "startChar": 71,
@@ -145,6 +235,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "57f7f95b_2b29685d",
+        "filename": "front_end/panels/timeline/ModificationsManager.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-09-05T13:45:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "32cb2bf9_fa067d05",
+      "range": {
+        "startLine": 124,
+        "startChar": 0,
+        "endLine": 124,
+        "endChar": 51
+      },
+      "revId": "e42afa31d6cec8254cbdbcc4f31197dbe6454d6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cbb4f509_febff238",
@@ -158,6 +272,30 @@
       "writtenOn": "2024-09-04T08:12:50Z",
       "side": 1,
       "message": "I found this hard to follow because the comment says \"if the range does not have a label\" but the code is \"if the overlay has a label\".\n\nIt might be worth rephrasing the comment to something more like \"therefore we only care about the annotation hidden setting if the time range has a label\". wdyt?",
+      "range": {
+        "startLine": 594,
+        "startChar": 8,
+        "endLine": 597,
+        "endChar": 9
+      },
+      "revId": "e42afa31d6cec8254cbdbcc4f31197dbe6454d6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "72c07fe8_24f3ef55",
+        "filename": "front_end/panels/timeline/overlays/OverlaysImpl.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 597,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-09-05T13:45:43Z",
+      "side": 1,
+      "message": "I agree, that is better.",
+      "parentUuid": "cbb4f509_febff238",
       "range": {
         "startLine": 594,
         "startChar": 8,
