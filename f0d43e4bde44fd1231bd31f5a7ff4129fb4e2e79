@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "405dec47_0f89aab7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2024-09-05T06:35:17Z",
+      "side": 1,
+      "message": "I think comment 11 and 12 in https://issues.chromium.org/issues/40279147 prefer the way that a single toggle button controls pretty print of all rules, so I put the button in the PreloadingView instead.",
+      "parentUuid": "1124801e_a8db9ccc",
+      "revId": "f0d43e4bde44fd1231bd31f5a7ff4129fb4e2e79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "52125082_aeb0eb13",
@@ -130,6 +148,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "535f32a0_de7b58d8",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2024-09-05T06:35:17Z",
+      "side": 1,
+      "message": "Updated, thanks!",
+      "parentUuid": "e340b885_1db41a84",
+      "range": {
+        "startLine": 280,
+        "startChar": 24,
+        "endLine": 280,
+        "endChar": 65
+      },
+      "revId": "f0d43e4bde44fd1231bd31f5a7ff4129fb4e2e79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e128d2b5_f873667c",
@@ -153,6 +195,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e94d0740_144ea31b",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2024-09-05T06:35:17Z",
+      "side": 1,
+      "message": "Sorry for the confusion, I forgot to change `shouldPrettyPrint` back to be true by default after testing.\nUpdated.",
+      "parentUuid": "e128d2b5_f873667c",
+      "range": {
+        "startLine": 283,
+        "startChar": 8,
+        "endLine": 283,
+        "endChar": 93
+      },
+      "revId": "f0d43e4bde44fd1231bd31f5a7ff4129fb4e2e79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "08ef0dbb_539304eb",
@@ -166,6 +232,30 @@
       "writtenOn": "2024-09-04T09:59:33Z",
       "side": 1,
       "message": "Does `formatScriptContent` throw?",
+      "range": {
+        "startLine": 288,
+        "startChar": 10,
+        "endLine": 288,
+        "endChar": 22
+      },
+      "revId": "f0d43e4bde44fd1231bd31f5a7ff4129fb4e2e79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "968e8e34_53d6c0e1",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 288,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2024-09-05T06:35:17Z",
+      "side": 1,
+      "message": "Actually, no. Just replace with `@typescript-eslint/no-floating-promises` to suppress the lint error. Please have a look.",
+      "parentUuid": "08ef0dbb_539304eb",
       "range": {
         "startLine": 288,
         "startChar": 10,
