@@ -16,6 +16,57 @@
       "message": "PTAL again",
       "revId": "be68cbd67c488545d705a2705e86dd71888ec836",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a6da4807_42b9b580",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-05T16:30:12Z",
+      "side": 1,
+      "message": "LGMT % 2 questions",
+      "revId": "be68cbd67c488545d705a2705e86dd71888ec836",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43d2ea55_d895747a",
+        "filename": "front_end/panels/explain/components/ConsoleInsight.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-05T16:30:12Z",
+      "side": 1,
+      "message": "Why do we always set this setting to `true` whenever an insight is generated. Can we find a better place to do this?",
+      "revId": "be68cbd67c488545d705a2705e86dd71888ec836",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "213383c6_0d697897",
+        "filename": "front_end/panels/explain/explain-meta.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-05T16:30:12Z",
+      "side": 1,
+      "message": "AFAIU previously we didn\u0027t check for `consoleInsightsSettings` on this `condition`. Why did we start checking now?",
+      "revId": "be68cbd67c488545d705a2705e86dd71888ec836",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
