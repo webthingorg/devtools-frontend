@@ -674,6 +674,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4fbb823c_7ad3bd6a",
+        "filename": "front_end/panels/timeline/components/layoutShiftDetails.css",
+        "patchSetId": 13
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-09-05T21:22:48Z",
+      "side": 1,
+      "message": "Thanks for the explanation! Nancy helped me to reproduce and get the layout shift details working so that I could have a look. It seems as if the styles from the \n`Linkifier` do not apply here, they are coming from `textButton.css`, but one could include them:\n\n\nAfter importing `textButton.css.legacy.js` as `textButtonStyles`, you could use them in `connectedCallback`:\n```\n    const styleElement \u003d document.createElement(\u0027style\u0027);\n    styleElement.textContent \u003d textButtonStyles.cssContent;\n    this.#shadow.appendChild(styleElement);\n```\n\nand then I think you can replace the lines ll.58 - 110 with this:\n\n```\n.devtools-link {\n  cursor: pointer;\n  text-decoration: underline;\n  color: var(--sys-color-primary);\n}\n\n.devtools-link.invalid-link {\n  color: var(--sys-color-state-disabled);\n}\n```\n\nThis way you don\u0027t need to redefine the styles 😊.",
+      "parentUuid": "ce7f0d93_9dd1bff6",
+      "revId": "4adf317b1b7423aba519a158082c534e3b23e3d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e1e8f784_99d90ce5",
         "filename": "front_end/panels/timeline/components/layoutShiftDetails.css",
         "patchSetId": 13
@@ -703,6 +721,24 @@
       "side": 1,
       "message": "similar to the comment above, without this the links would look like this: https://screenshot.googleplex.com/6cg8LrPRBSRydRE",
       "parentUuid": "e1e8f784_99d90ce5",
+      "revId": "4adf317b1b7423aba519a158082c534e3b23e3d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5156d40a_20e55bce",
+        "filename": "front_end/panels/timeline/components/layoutShiftDetails.css",
+        "patchSetId": 13
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-09-05T21:22:48Z",
+      "side": 1,
+      "message": "Ok, I see! Thanks for the screenshot here 😊! I\u0027ve posted a comment above.",
+      "parentUuid": "a20307fc_bfcfe621",
       "revId": "4adf317b1b7423aba519a158082c534e3b23e3d5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
