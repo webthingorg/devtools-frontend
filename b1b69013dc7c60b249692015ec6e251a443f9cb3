@@ -16,6 +16,23 @@
       "message": "Let me know if you wanna go over the CL together. The inlining bits can always get a bit gnarly when trying to reason about them xD (at least I have to always draw it on a piece of paper to make sense of it)\n\nPhilip: FYI",
       "revId": "b1b69013dc7c60b249692015ec6e251a443f9cb3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e62d85ae_64590117",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-09-05T13:27:30Z",
+      "side": 1,
+      "message": "LGTM % offline discussion on the comment block (making sure that there\u0027s a correct/clear mapping to the code example), thanks 😊",
+      "revId": "b1b69013dc7c60b249692015ec6e251a443f9cb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
