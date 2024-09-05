@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cac48a4b_f25deb48",
+        "filename": "front_end/core/host/AidaClient.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 3596264
+      },
+      "writtenOn": "2024-09-05T11:41:37Z",
+      "side": 1,
+      "message": "I think I prefer a name that signifies completion. I think `completed` could be an alternative. Tagging @ergunsh@chromium.org for opinions on this",
+      "parentUuid": "b7b6de50_fdd80b3b",
+      "revId": "78def5f5415a744bb2be15e7fc1c798433491938",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6e79ad19_f2d6899a",
         "filename": "front_end/panels/explain/components/ConsoleInsight.ts",
         "patchSetId": 3
@@ -48,6 +66,24 @@
       "writtenOn": "2024-09-04T16:00:59Z",
       "side": 1,
       "message": "Nit: When rendering something we usually prefix the function with `renderX` that way it\u0027s easier to understand that it returns a Template. As `getSpinner` may imply get the reference to the object for example.",
+      "revId": "78def5f5415a744bb2be15e7fc1c798433491938",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b04615b0_51a3a660",
+        "filename": "front_end/panels/explain/components/ConsoleInsight.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 923,
+      "author": {
+        "id": 3596264
+      },
+      "writtenOn": "2024-09-05T11:41:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6e79ad19_f2d6899a",
       "revId": "78def5f5415a744bb2be15e7fc1c798433491938",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -65,6 +101,24 @@
       "writtenOn": "2024-09-04T16:00:59Z",
       "side": 1,
       "message": "Nit: Prefer to use LitHtml.nothing. It makes it more explicit though it will have the same effect - https://lit.dev/docs/api/templates/#nothing",
+      "revId": "78def5f5415a744bb2be15e7fc1c798433491938",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f377b51_5dda0622",
+        "filename": "front_end/panels/explain/components/ConsoleInsight.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 928,
+      "author": {
+        "id": 3596264
+      },
+      "writtenOn": "2024-09-05T11:41:37Z",
+      "side": 1,
+      "message": "Done. Thank you for the pointers :)",
+      "parentUuid": "27f65349_9bd191cf",
       "revId": "78def5f5415a744bb2be15e7fc1c798433491938",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
