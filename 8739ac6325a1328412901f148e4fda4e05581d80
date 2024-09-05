@@ -33,6 +33,24 @@
       "message": "Nit: setUp",
       "revId": "8739ac6325a1328412901f148e4fda4e05581d80",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45f9457d_ddacd3d1",
+        "filename": "front_end/core/sdk/SourceMapScopesInfo.test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-09-05T04:40:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d0b4ed3b_830666c0",
+      "revId": "8739ac6325a1328412901f148e4fda4e05581d80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

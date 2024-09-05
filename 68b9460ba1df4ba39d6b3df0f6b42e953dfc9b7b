@@ -63,6 +63,30 @@
       },
       "revId": "68b9460ba1df4ba39d6b3df0f6b42e953dfc9b7b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c86b5b4_669385b6",
+        "filename": "front_end/core/sdk/SourceMapScopesInfo.test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 147,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-09-05T04:40:27Z",
+      "side": 1,
+      "message": "Generators can use an arbitrary name (in `names`) for original scope kind. But if they provide one off a pre-defined list, DevTools will localize it (e.g. `global`, `function` and `block`).\n\nI\u0027m wondering if we should the `Local`/`Closure` \"renaming\" when generators use `function` as the scope kind.",
+      "parentUuid": "7542959e_9db5b1c6",
+      "range": {
+        "startLine": 147,
+        "startChar": 6,
+        "endLine": 147,
+        "endChar": 113
+      },
+      "revId": "68b9460ba1df4ba39d6b3df0f6b42e953dfc9b7b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
