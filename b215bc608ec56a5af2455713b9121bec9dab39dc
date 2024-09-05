@@ -16,6 +16,23 @@
       "message": "Hi Changhao!\n\nI\u0027m updating the application panel to use the GM3-compatible navigation tree variant, ptal!",
       "revId": "b215bc608ec56a5af2455713b9121bec9dab39dc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "065248f4_88c708f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-09-05T04:58:30Z",
+      "side": 1,
+      "message": "Thanks a lot for the review, Changhao! Submitting.",
+      "revId": "b215bc608ec56a5af2455713b9121bec9dab39dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
