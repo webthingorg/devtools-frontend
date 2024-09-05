@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df071f34_ec968e80",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-09-05T05:04:47Z",
+      "side": 1,
+      "message": "Thanks for the CC! LGTM on the GM3 side 😊",
+      "revId": "96d5bff1db20a20566060eebe4e13df9111178c7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
