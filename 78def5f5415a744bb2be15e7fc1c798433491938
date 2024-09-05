@@ -71,6 +71,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "619bf2a7_e56a1439",
+        "filename": "front_end/core/host/AidaClient.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 3596264
+      },
+      "writtenOn": "2024-09-05T11:56:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "88b158e4_c65080a6",
+      "revId": "78def5f5415a744bb2be15e7fc1c798433491938",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6e79ad19_f2d6899a",
