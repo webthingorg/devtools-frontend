@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b8d588dd_8c0537c5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-05T13:49:07Z",
+      "side": 1,
+      "message": "Could we not pass in a `isFromFile` flag from TimelinePanel when the model is imported? We know if a trace is a fresh recording or not.\n\nThat said, I don\u0027t care strongly enough about it as this point in time so I will let you make the call.",
+      "parentUuid": "f239078b_f71268b5",
+      "revId": "e42afa31d6cec8254cbdbcc4f31197dbe6454d6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bae4ef27_c50485b3",
         "filename": "front_end/panels/timeline/ModificationsManager.ts",
         "patchSetId": 7
