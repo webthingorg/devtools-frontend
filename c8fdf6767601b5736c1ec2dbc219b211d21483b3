@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83ae16e6_b6c9310e",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 548,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-05T09:58:33Z",
+      "side": 1,
+      "message": "WDYT of removing the feature for selecting the element when clicked on the button like area? It doesn\u0027t have any hover states and it doesn\u0027t look like a button. So, it feels like the users would already use the inspect button there.",
+      "revId": "c8fdf6767601b5736c1ec2dbc219b211d21483b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
