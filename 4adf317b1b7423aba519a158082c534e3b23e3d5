@@ -320,6 +320,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c00e904d_7315168b",
+        "filename": "front_end/models/trace/handlers/UserTimingsHandler.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-09-05T16:16:17Z",
+      "side": 1,
+      "message": "good call on this.. rather not mess with this. Moved to handling these events in the layout shifts handler. let me know what you think!",
+      "parentUuid": "20cf1d09_e2b9e9ec",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 96,
+        "endChar": 21
+      },
+      "revId": "4adf317b1b7423aba519a158082c534e3b23e3d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "12832b35_50130e75",
@@ -333,6 +357,30 @@
       "writtenOn": "2024-09-04T14:44:18Z",
       "side": 1,
       "message": "we shouldn\u0027t be mutating the raw trace events (because if the user saves the trace, it will now have details in it that it didn\u0027t have initially). Do we need to do this?",
+      "range": {
+        "startLine": 218,
+        "startChar": 0,
+        "endLine": 218,
+        "endChar": 77
+      },
+      "revId": "4adf317b1b7423aba519a158082c534e3b23e3d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbd0b7d3_e09b5049",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.ts",
+        "patchSetId": 13
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-09-05T16:16:17Z",
+      "side": 1,
+      "message": "Ah taking this back! changed the insight to just return frame id strings",
+      "parentUuid": "12832b35_50130e75",
       "range": {
         "startLine": 218,
         "startChar": 0,
