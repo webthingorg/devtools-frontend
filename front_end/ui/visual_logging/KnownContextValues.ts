@@ -3205,6 +3205,7 @@ export const knownContextValues = new Set([
   'zh-tw',
   'zoo',
   'zoom',
+  'zoom-controls',
   'zstd',
   'zu',
 ]);
