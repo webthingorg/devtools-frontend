@@ -66,7 +66,7 @@ export class RenderBlockingRequests extends BaseInsight {
           @insighttoggleclick=${this.onSidebarClick}
         >
           <div slot="insight-description" class="insight-description">
-            Requests are blocking the page's initial render. <x-link class="link" href="https://web.dev/learn/performance/understanding-the-critical-path#render-blocking_resources">Deferring or inlining</x-link>
+            Requests are blocking the page's initial render, which may delay LCP. <x-link class="link" href="https://web.dev/learn/performance/understanding-the-critical-path#render-blocking_resources">Deferring or inlining</x-link>
              can move these network requests out of the critical path.
           </div>
         </${SidebarInsight.SidebarInsight}>
