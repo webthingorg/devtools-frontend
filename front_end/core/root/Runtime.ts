@@ -309,6 +309,7 @@ export interface AidaAvailability {
   blockedByEnterprisePolicy: boolean;
   blockedByGeo: boolean;
   disallowLogging: boolean;
+  loggingBlockedByEnterprisePolicy: boolean;
 }
 
 export interface HostConfigConsoleInsights {
