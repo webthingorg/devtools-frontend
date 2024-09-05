@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "607df119_af2e8664",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2024-09-05T00:46:16Z",
+      "side": 1,
+      "message": "Added unit ms and removed repeated texts as suggested. Please take a look. Thanks.",
+      "parentUuid": "4c7eafa0_fc894910",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 31
+      },
+      "revId": "0eac6a1f6307b39d372a7f3622abde940caabe2f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1b50bf17_430fb359",
