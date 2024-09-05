@@ -488,7 +488,8 @@ export class FreestylerChatUi extends HTMLElement {
           </div>
         </div>
         ${LitHtml.Directives.repeat(
-          message.steps,
+          // If we're not in loading state, we only render the steps that contain a thought or a title or some action code.
+          this.#props.isLoading ? message.steps : message.steps.filter(step => step.thought || step.title || step.code),
           (_, index) => index,
           step => {
             return this.#renderStep(step, {
