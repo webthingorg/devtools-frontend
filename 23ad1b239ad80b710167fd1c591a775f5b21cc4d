@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff36d64f_7945e165",
+        "filename": "front_end/panels/timeline/overlays/OverlaysImpl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1089,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-05T13:58:03Z",
+      "side": 1,
+      "message": "These are all `LegacyTimelineFrame`",
+      "parentUuid": "733cc22d_70673d41",
+      "range": {
+        "startLine": 1089,
+        "startChar": 8,
+        "endLine": 1089,
+        "endChar": 109
+      },
+      "revId": "23ad1b239ad80b710167fd1c591a775f5b21cc4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cb362ea7_9d73f4f2",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-09-05T13:12:47Z",
       "side": 1,
       "message": "The label below should also have the horizontal transform so the middle of the label connects to the connector\n\n\n\n```suggestion\n    if (this.#shouldDrawBelowEntry) {\n      // If the label is drawn above, the connector goes up and to the left, so we pull the label back slightly to align it nicely.\n      xTranslation \u003d EntryLabelOverlay.LABEL_AND_CONNECTOR_SHIFT_LENGTH;\n    } else {\n      xTranslation \u003d EntryLabelOverlay.LABEL_AND_CONNECTOR_SHIFT_LENGTH * -1;\n    }\n```",
+      "range": {
+        "startLine": 240,
+        "startChar": 0,
+        "endLine": 243,
+        "endChar": 5
+      },
+      "revId": "23ad1b239ad80b710167fd1c591a775f5b21cc4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "425806a0_05482240",
+        "filename": "front_end/panels/timeline/overlays/components/EntryLabelOverlay.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-05T13:58:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb362ea7_9d73f4f2",
       "range": {
         "startLine": 240,
         "startChar": 0,
@@ -94,6 +142,30 @@
           ]
         }
       ],
+      "revId": "23ad1b239ad80b710167fd1c591a775f5b21cc4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "447fa5de_8cd34f83",
+        "filename": "front_end/panels/timeline/overlays/components/EntryLabelOverlay.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-05T13:58:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af9ff76b_dbb987c9",
+      "range": {
+        "startLine": 252,
+        "startChar": 10,
+        "endLine": 252,
+        "endChar": 55
+      },
       "revId": "23ad1b239ad80b710167fd1c591a775f5b21cc4d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
