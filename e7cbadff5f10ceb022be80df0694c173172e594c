@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c2a75e8_dcef5451",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-09-05T00:05:34Z",
+      "side": 1,
+      "message": "Hi Paul, as discussed before, I moved the logic for parsing enhanced traces to SDK layer so connection layer in https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/5763794 can avoid dynamically import models/trace module. Let me know how you think about it :) thanks!",
+      "revId": "e7cbadff5f10ceb022be80df0694c173172e594c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
