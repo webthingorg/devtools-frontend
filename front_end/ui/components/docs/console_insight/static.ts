@@ -73,6 +73,7 @@ Links: [https://example.com](https://example.com)
 Images: ![https://example.com](https://example.com)
 `,
               metadata: {},
+              streamingFinished: true,
             };
           },
       registerClientEvent: () => Promise.resolve({}),

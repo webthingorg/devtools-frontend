@@ -13,7 +13,7 @@ describeWithEnvironment('ConsoleInsight', () => {
     return {
       async *
           fetch() {
-            yield {explanation: 'test', metadata: {rpcGlobalId: 0}};
+            yield {explanation: 'test', metadata: {rpcGlobalId: 0}, streamingFinished: true};
           },
       registerClientEvent: sinon.spy(),
     };

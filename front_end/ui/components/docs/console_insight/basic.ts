@@ -93,6 +93,7 @@ document.querySelector('test').style = 'black';
 \`\`\`
 `,
               metadata: {},
+              streamingFinished: true,
             };
           },
       registerClientEvent: () => Promise.resolve({}),

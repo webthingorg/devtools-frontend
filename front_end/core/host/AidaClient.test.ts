@@ -137,9 +137,10 @@ describeWithEnvironment('AidaClient', () => {
     const provider = new Host.AidaClient.AidaClient();
     const results = await getAllResults(provider);
     assert.deepStrictEqual(results, [
-      {explanation: 'hello ', metadata: {rpcGlobalId: 123}},
-      {explanation: 'hello brave ', metadata: {rpcGlobalId: 123}},
-      {explanation: 'hello brave new world!', metadata: {rpcGlobalId: 123}},
+      {explanation: 'hello ', metadata: {rpcGlobalId: 123}, streamingFinished: false},
+      {explanation: 'hello brave ', metadata: {rpcGlobalId: 123}, streamingFinished: false},
+      {explanation: 'hello brave new world!', metadata: {rpcGlobalId: 123}, streamingFinished: false},
+      {explanation: 'hello brave new world!', metadata: {rpcGlobalId: 123}, streamingFinished: true},
     ]);
   });
 
@@ -157,7 +158,8 @@ describeWithEnvironment('AidaClient', () => {
     const provider = new Host.AidaClient.AidaClient();
     const results = await getAllResults(provider);
     assert.deepStrictEqual(results, [
-      {explanation: 'hello world', metadata: {rpcGlobalId: 123}},
+      {explanation: 'hello world', metadata: {rpcGlobalId: 123}, streamingFinished: false},
+      {explanation: 'hello world', metadata: {rpcGlobalId: 123}, streamingFinished: true},
     ]);
   });
 
@@ -193,6 +195,7 @@ describeWithEnvironment('AidaClient', () => {
         explanation: 'Friends, Romans, countrymen, lend me your ears;\n' +
             'I come to bury Caesar, not to praise him.\n',
         metadata: {rpcGlobalId: 123},
+        streamingFinished: false,
       },
       {
         explanation: 'Friends, Romans, countrymen, lend me your ears;\n' +
@@ -201,6 +204,7 @@ describeWithEnvironment('AidaClient', () => {
             'The good is oft interred with their bones;\n' +
             'So let it be with Caesar. The noble Brutus\n',
         metadata: {rpcGlobalId: 123},
+        streamingFinished: false,
       },
       {
         explanation: 'Friends, Romans, countrymen, lend me your ears;\n' +
@@ -210,6 +214,7 @@ describeWithEnvironment('AidaClient', () => {
             'So let it be with Caesar. The noble Brutus\n' +
             'Hath told you Caesar was ambitious:\n',
         metadata: {rpcGlobalId: 123},
+        streamingFinished: false,
       },
       {
         explanation: 'Friends, Romans, countrymen, lend me your ears;\n' +
@@ -221,6 +226,19 @@ describeWithEnvironment('AidaClient', () => {
             'If it were so, it was a grievous fault,\n' +
             'And grievously hath Caesar answer’d it.\n',
         metadata: {rpcGlobalId: 123},
+        streamingFinished: false,
+      },
+      {
+        explanation: 'Friends, Romans, countrymen, lend me your ears;\n' +
+            'I come to bury Caesar, not to praise him.\n' +
+            'The evil that men do lives after them;\n' +
+            'The good is oft interred with their bones;\n' +
+            'So let it be with Caesar. The noble Brutus\n' +
+            'Hath told you Caesar was ambitious:\n' +
+            'If it were so, it was a grievous fault,\n' +
+            'And grievously hath Caesar answer’d it.\n',
+        metadata: {rpcGlobalId: 123},
+        streamingFinished: true,
       },
     ]);
   });
@@ -265,6 +283,7 @@ describeWithEnvironment('AidaClient', () => {
             },
           ],
         },
+        streamingFinished: false,
       },
     ]);
   });
