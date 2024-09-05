@@ -59,6 +59,54 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a81dc904_3c1e0573",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2024-09-05T05:36:45Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "52125082_aeb0eb13",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 54
+      },
+      "revId": "f0d43e4bde44fd1231bd31f5a7ff4129fb4e2e79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3bb728a_72d63902",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 18
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2024-09-05T05:36:45Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "52125082_aeb0eb13",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 54
+      },
+      "revId": "f0d43e4bde44fd1231bd31f5a7ff4129fb4e2e79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e340b885_1db41a84",
