@@ -33,6 +33,24 @@
       "message": "I didn\u0027t trace through the code now, but I assume that the `onPrimaryPageChanged` handlers will detach/reattach the source maps somewhere down the line?",
       "revId": "e87c0f12389485067211d03616c428986537563f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb9343f2_ee43cf94",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-09-05T12:38:18Z",
+      "side": 1,
+      "message": "In case of `CSSModel`, it\u0027s the `onPrimaryPageChanged` handlers, yes. In case of the `DebuggerModel` it\u0027s the `onExecutionContextDestroyed`.",
+      "parentUuid": "83109c1c_7c179d5a",
+      "revId": "e87c0f12389485067211d03616c428986537563f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
