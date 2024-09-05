@@ -2021,7 +2021,8 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     if (this.#viewMode.mode !== 'VIEWING_TRACE') {
       return null;
     }
-    if (TimelineSelection.isFrameObject(selection.object)) {
+    if (TimelineSelection.isLegacyTimelineFrame(selection.object) &&
+        selection.object instanceof TraceEngine.Handlers.ModelHandlers.Frames.TimelineFrame) {
       return selection.object;
     }
     if (TimelineSelection.isRangeSelection(selection.object) ||

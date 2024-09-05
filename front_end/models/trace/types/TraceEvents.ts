@@ -2848,6 +2848,7 @@ export interface LegacyTimelineFrame extends TraceEventData {
   startTimeOffset: MicroSeconds;
   endTime: MicroSeconds;
   duration: MicroSeconds;
+  idle: boolean;
   dropped: boolean;
   isPartial: boolean;
   layerTree: LegacyFrameLayerTreeData|null;
