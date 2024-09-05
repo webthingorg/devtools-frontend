@@ -34,6 +34,24 @@
       "parentUuid": "0d66e4e6_de20e3e0",
       "revId": "239989039bf61f8ba2b57e7b9ee8750847904af0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0aa51ba8_2f5ff469",
+        "filename": "docs/styleguide/ux/styles.md",
+        "patchSetId": 22
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-09-05T08:48:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4fb0d45a_52ddfdd6",
+      "revId": "239989039bf61f8ba2b57e7b9ee8750847904af0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
