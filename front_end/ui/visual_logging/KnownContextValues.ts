@@ -2923,6 +2923,7 @@ export const knownContextValues = new Set([
   'text-wrap-style',
   'th',
   'third',
+  'third-parties',
   'third-property',
   'this-origin',
   'throttling-conditions',
