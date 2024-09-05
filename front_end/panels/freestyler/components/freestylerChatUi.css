@@ -212,15 +212,31 @@
   margin-bottom: 2px;
   line-height: 20px;
 
-  & .feedback-icon {
+  .feedback-icon {
     width: var(--sys-size-8);
     height: var(--sys-size-8);
   }
 
-  & .header-link-container {
+  .resources-container {
     display: inline-flex;
-    align-items: center;
-    gap: var(--sys-size-2);
+    align-items: start;
+    gap: var(--sys-size-3);
+    flex-direction: column;
+
+    .suggestions-container {
+      display: flex;
+      flex-direction: column;
+      font: var(--sys-typescale-body4-size);
+      color: var(--sys-color-primary);
+
+      .suggestion:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .feedback-container {
+    align-self: flex-end;
   }
 }
 
