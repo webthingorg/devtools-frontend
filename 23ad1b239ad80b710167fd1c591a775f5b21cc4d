@@ -1,0 +1,101 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "733cc22d_70673d41",
+        "filename": "front_end/panels/timeline/overlays/OverlaysImpl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1089,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-09-05T13:12:47Z",
+      "side": 1,
+      "message": "we also have Partially Presented frames and Dropped frames appearing in the same track",
+      "range": {
+        "startLine": 1089,
+        "startChar": 8,
+        "endLine": 1089,
+        "endChar": 109
+      },
+      "revId": "23ad1b239ad80b710167fd1c591a775f5b21cc4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb362ea7_9d73f4f2",
+        "filename": "front_end/panels/timeline/overlays/components/EntryLabelOverlay.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-09-05T13:12:47Z",
+      "side": 1,
+      "message": "The label below should also have the horizontal transform so the middle of the label connects to the connector\n\n\n\n```suggestion\n    if (this.#shouldDrawBelowEntry) {\n      // If the label is drawn above, the connector goes up and to the left, so we pull the label back slightly to align it nicely.\n      xTranslation \u003d EntryLabelOverlay.LABEL_AND_CONNECTOR_SHIFT_LENGTH;\n    } else {\n      xTranslation \u003d EntryLabelOverlay.LABEL_AND_CONNECTOR_SHIFT_LENGTH * -1;\n    }\n```",
+      "range": {
+        "startLine": 240,
+        "startChar": 0,
+        "endLine": 243,
+        "endChar": 5
+      },
+      "revId": "23ad1b239ad80b710167fd1c591a775f5b21cc4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af9ff76b_dbb987c9",
+        "filename": "front_end/panels/timeline/overlays/components/EntryLabelOverlay.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-09-05T13:12:47Z",
+      "side": 1,
+      "message": "The label needs to be placed at the end of the connector. To do that, we need to multiply `EntryLabelOverlay.LABEL_CONNECTOR_HEIGH` by 2. Then +4 is not needed because it the label would be placed exactly on the bottom of the connector",
+      "range": {
+        "startLine": 252,
+        "startChar": 10,
+        "endLine": 252,
+        "endChar": 55
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "f3e626dd_14253af8",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/overlays/components/EntryLabelOverlay.ts",
+              "range": {
+                "startLine": 249,
+                "startChar": 0,
+                "endLine": 250,
+                "endChar": 0
+              },
+              "replacement": ""
+            },
+            {
+              "path": "front_end/panels/timeline/overlays/components/EntryLabelOverlay.ts",
+              "range": {
+                "startLine": 252,
+                "startChar": 0,
+                "endLine": 253,
+                "endChar": 0
+              },
+              "replacement": "          EntryLabelOverlay.LABEL_CONNECTOR_HEIGHT * 2;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "23ad1b239ad80b710167fd1c591a775f5b21cc4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
