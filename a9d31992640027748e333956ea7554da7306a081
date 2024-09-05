@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55f1a6cd_849a926b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-05T11:47:34Z",
+      "side": 1,
+      "message": "UI parts LGTM, though:\n* I\u0027m having a hard time understanding which setting does what, so it\u0027d be great to move the names to constants and add comments to them.\n* I\u0027m a bit afraid that `moduleSetting()` calls throwing in the places where the setting is not defined yet. Where do we define the settings exactly and how can we make sure that `moduleSetting()` won\u0027t throw or we safely handle such throwing cases too?\n\nWe can have this discussion in sync too after the meeting :)",
+      "revId": "a9d31992640027748e333956ea7554da7306a081",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0472fbc6_227f52ff",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 640,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-05T11:47:34Z",
+      "side": 1,
+      "message": "Can we add a comment here explaning what\u0027s the role of `console-insights-enabled` setting and `console-insights-onboarding-finished` setting and their relationship between each other?\n\nafaiu the behavior we want is:\n* when the `console-insights-enabled` setting is changed and if the value is changed to `false`. We want to create a new setting called `console-insights-onboarding-finished` and set it to `false` too.",
+      "revId": "a9d31992640027748e333956ea7554da7306a081",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb779b72_43239f42",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 641,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-05T11:47:34Z",
+      "side": 1,
+      "message": "To be on the safe side, can we always use` #getConsoleInsightsSetting` in here? Since this is in the MainImpl file, I\u0027m afraid of such errors breaking all the DevTools 😅",
+      "revId": "a9d31992640027748e333956ea7554da7306a081",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "295f801a_14dc1bad",
+        "filename": "front_end/panels/explain/components/ConsoleInsight.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 328,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-05T11:47:34Z",
+      "side": 1,
+      "message": "Can we use constants for these setting names on top of the file and explain what each setting does in their definition?",
+      "revId": "a9d31992640027748e333956ea7554da7306a081",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f8207ab_d4a78cd2",
+        "filename": "front_end/panels/explain/components/ConsoleInsight.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-05T11:47:34Z",
+      "side": 1,
+      "message": "I don\u0027t think we need `?` operator as the `moduleSetting` does not return `undefined` and instead throws error when the setting is not defined. WDYT?",
+      "revId": "a9d31992640027748e333956ea7554da7306a081",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
