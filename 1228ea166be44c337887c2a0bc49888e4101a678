@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ff9fad4_0231570c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-09-05T10:37:53Z",
+      "side": 1,
+      "message": "Updated the context menu items to \"Dbl Click\"",
+      "revId": "1228ea166be44c337887c2a0bc49888e4101a678",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "719ade68_c6102bf6",
@@ -41,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ddfa5bfe_91c0a071",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 834,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-09-05T10:37:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "719ade68_c6102bf6",
+      "range": {
+        "startLine": 834,
+        "startChar": 0,
+        "endLine": 834,
+        "endChar": 42
+      },
+      "revId": "1228ea166be44c337887c2a0bc49888e4101a678",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "027cacda_c8ad5e2c",
@@ -54,6 +95,30 @@
       "writtenOn": "2024-09-05T08:25:09Z",
       "side": 1,
       "message": "can you not set the param as `MouseEvent` directly in the args to `onDblClick` ? I thought TS would be happy with that but maybe not",
+      "range": {
+        "startLine": 835,
+        "startChar": 0,
+        "endLine": 835,
+        "endChar": 45
+      },
+      "revId": "1228ea166be44c337887c2a0bc49888e4101a678",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6232e1f3_5e4ffe9b",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 835,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-09-05T10:37:53Z",
+      "side": 1,
+      "message": "You\u0027re right, it TS is happy with that. I will change it to be `MouseEvent` in `onClick` and `onMouseMove` too.",
+      "parentUuid": "027cacda_c8ad5e2c",
       "range": {
         "startLine": 835,
         "startChar": 0,
