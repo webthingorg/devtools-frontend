@@ -296,8 +296,8 @@ export class LiveMetricsView extends LegacyWrapper.LegacyWrapper.WrappableCompon
     const cruxManager = CrUXManager.CrUXManager.instance();
     cruxManager.addEventListener(CrUXManager.Events.FIELD_DATA_CHANGED, this.#onFieldDataChanged, this);
 
-    const emulationModel = EmulationModel.DeviceModeModel.DeviceModeModel.instance();
-    emulationModel.addEventListener(EmulationModel.DeviceModeModel.Events.UPDATED, this.#onEmulationChanged, this);
+    const emulationModel = this.#deviceModeModel();
+    emulationModel?.addEventListener(EmulationModel.DeviceModeModel.Events.UPDATED, this.#onEmulationChanged, this);
 
     if (cruxManager.getConfigSetting().get().enabled) {
       void this.#refreshFieldDataForCurrentPage();
@@ -308,6 +308,20 @@ export class LiveMetricsView extends LegacyWrapper.LegacyWrapper.WrappableCompon
     this.#inpValue = liveMetrics.inpValue;
     this.#interactions = liveMetrics.interactions;
     void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#render);
+  }
+
+  #deviceModeModel(): EmulationModel.DeviceModeModel.DeviceModeModel|null {
+    // This is wrapped in a try/catch because in some DevTools entry points
+    // (such as worker_app.ts) the Emulation panel is not included and as such
+    // the below code fails; it tries to instantiate the model which requires
+    // reading the value of a setting which has not been registered.
+    // In this case, we fallback to 'ALL'. See crbug.com/361515458 for an
+    // example bug that this resolves.
+    try {
+      return EmulationModel.DeviceModeModel.DeviceModeModel.instance();
+    } catch {
+      return null;
+    }
   }
 
   disconnectedCallback(): void {
@@ -577,8 +591,9 @@ export class LiveMetricsView extends LegacyWrapper.LegacyWrapper.WrappableCompon
   }
 
   #getAutoDeviceScope(): CrUXManager.DeviceScope {
-    const emulationModel = EmulationModel.DeviceModeModel.DeviceModeModel.instance();
-    if (emulationModel.isMobile()) {
+    const emulationModel = this.#deviceModeModel();
+
+    if (emulationModel?.isMobile()) {
       if (this.#cruxPageResult?.[`${this.#fieldPageScope}-PHONE`]) {
         return 'PHONE';
       }
