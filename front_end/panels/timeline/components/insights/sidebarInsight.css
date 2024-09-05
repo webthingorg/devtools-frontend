@@ -90,6 +90,11 @@
 
 .dl-title {
   font-weight: bold;
+  text-align: right;
+}
+/* all header rows are right aligned except the first */
+.dl-title:first-child {
+  text-align: left;
 }
 
 .dl-value {
