@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "93b67fc9_b6bc657c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-05T10:43:00Z",
+      "side": 1,
+      "message": "lgtm with question",
+      "revId": "0566b912c59e224ed7946075a39f2e83d8601a85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8f3c6e7_7167e75b",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1250,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-05T10:43:00Z",
+      "side": 1,
+      "message": "Does `double click` fit? might be better especially for non-native English speakers",
+      "range": {
+        "startLine": 1250,
+        "startChar": 48,
+        "endLine": 1250,
+        "endChar": 51
+      },
+      "revId": "0566b912c59e224ed7946075a39f2e83d8601a85",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
