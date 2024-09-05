@@ -16,6 +16,24 @@
       "message": "added in https://crrev.com/c/1715083, but made moot by https://crrev.com/c/4315683.",
       "revId": "8c151db8c6f70e7a5e505d113c0abde926485145",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d82b6d44_3bbc1538",
+        "filename": "front_end/panels/timeline/TimelineController.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-05T20:54:04Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "b2a47095_2d740504",
+      "revId": "8c151db8c6f70e7a5e505d113c0abde926485145",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
