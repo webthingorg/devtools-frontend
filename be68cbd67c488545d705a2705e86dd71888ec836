@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f54aece_7c43b2ce",
+        "filename": "front_end/panels/explain/components/ConsoleInsight.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 504,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-09-05T17:24:43Z",
+      "side": 1,
+      "message": "Replaced this with doing it in `#onConsoleInsightsSettingChanged` and in `#onConsentReminderConfirmed`",
+      "parentUuid": "43d2ea55_d895747a",
+      "revId": "be68cbd67c488545d705a2705e86dd71888ec836",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "213383c6_0d697897",
@@ -65,6 +83,24 @@
       "writtenOn": "2024-09-05T16:30:12Z",
       "side": 1,
       "message": "AFAIU previously we didn\u0027t check for `consoleInsightsSettings` on this `condition`. Why did we start checking now?",
+      "revId": "be68cbd67c488545d705a2705e86dd71888ec836",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9bb070ab_ca8ac3fe",
+        "filename": "front_end/panels/explain/explain-meta.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-09-05T17:24:43Z",
+      "side": 1,
+      "message": "This ActionRegistration had setting as a member, gating the whole action on the setting being enabled. With the experiment on, we want the action to be available even when the setting is turned off. If the experiment is off, we still want the previous behaviour and need to therefore check the setting here.",
+      "parentUuid": "213383c6_0d697897",
       "revId": "be68cbd67c488545d705a2705e86dd71888ec836",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
