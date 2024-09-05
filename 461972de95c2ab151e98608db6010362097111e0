@@ -22,6 +22,30 @@
       },
       "revId": "461972de95c2ab151e98608db6010362097111e0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d38e594_e1c783f4",
+        "filename": "front_end/panels/timeline/overlays/components/timeRangeOverlay.css",
+        "patchSetId": 7
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-09-05T10:40:46Z",
+      "side": 1,
+      "message": "haha good catch, that was copied from somewhere else 😄",
+      "parentUuid": "b369345b_9b2ef100",
+      "range": {
+        "startLine": 64,
+        "startChar": 67,
+        "endLine": 64,
+        "endChar": 71
+      },
+      "revId": "461972de95c2ab151e98608db6010362097111e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
