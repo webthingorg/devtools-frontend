@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b369345b_9b2ef100",
+        "filename": "front_end/panels/timeline/overlays/components/timeRangeOverlay.css",
+        "patchSetId": 7
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-05T08:27:41Z",
+      "side": 1,
+      "message": "nit: don\u0027t think this is going to be a blue border 😄",
+      "range": {
+        "startLine": 64,
+        "startChar": 67,
+        "endLine": 64,
+        "endChar": 71
+      },
+      "revId": "461972de95c2ab151e98608db6010362097111e0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
