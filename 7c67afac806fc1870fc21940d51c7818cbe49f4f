@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3e4d61a_12cb37d1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2024-09-05T09:54:42Z",
+      "side": 1,
+      "message": "+1 let\u0027s keep the UX consitent w",
+      "parentUuid": "c5ffcf33_81083952",
+      "revId": "7c67afac806fc1870fc21940d51c7818cbe49f4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "6eb06213_512ee57e",
@@ -52,6 +70,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "00375947_5bf92fd2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2024-09-05T09:54:42Z",
+      "side": 1,
+      "message": "#### UI feedback:\n\n- Please use our icon-button component with SVG icon assets instead of text for plus and minus. The correct assets are:\n    - Minus icon: `devtools-frontend/front_end/Images/src/minus.svg`\n    - Plus icon: [Googel Drive link](https://drive.google.com/file/d/1kAtyIx-reB3z2N_55W_OJuHbcwx5YZLm/view?usp\u003ddrive_link) (please add it to `Images/src`)\n- Kim already mentioned this, the menu should stay open after clicking either the plus or minus buttons\n- Right-align the icon button row, so they are right-aligned with the above icons:\n    - [Here is a mock how it should look like](https://drive.google.com/file/d/1EQKcvCTHrogtPuOP4EPhNipoulBIYtS4/view?usp\u003ddrive_link)\n    - Gap between icons and text: `--sys-size-3`\n    - Font color: `--sys-color-on-surface`\n\n#### Bugs\n\n- If you start DevTools on a hi-dpi screen and open the 3-dot menu, [the default zoom level shows 200%](https://drive.google.com/file/d/1alnmoHw6YSo38UqPcHOLb5nCYuD2LzYU/view?usp\u003ddrive_link)",
+      "revId": "7c67afac806fc1870fc21940d51c7818cbe49f4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "18333577_811a5e33",
@@ -71,6 +106,57 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "be80fb7c_11359f3c",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2024-09-05T09:54:42Z",
+      "side": 1,
+      "message": "Change to \"Zoom in\" (sentence case)",
+      "range": {
+        "startLine": 122,
+        "startChar": 11,
+        "endLine": 122,
+        "endChar": 18
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "e7a5cbe3_d36b2ad8",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/entrypoints/main/MainImpl.ts",
+              "range": {
+                "startLine": 122,
+                "startChar": 0,
+                "endLine": 123,
+                "endChar": 0
+              },
+              "replacement": "  zoomIn: \u0027Zoom in\u0027,\n"
+            },
+            {
+              "path": "front_end/entrypoints/main/MainImpl.ts",
+              "range": {
+                "startLine": 126,
+                "startChar": 0,
+                "endLine": 127,
+                "endChar": 0
+              },
+              "replacement": "  zoomOut: \u0027Zoom out\u0027,\n"
+            }
+          ]
+        }
+      ],
+      "revId": "7c67afac806fc1870fc21940d51c7818cbe49f4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "48d1242f_e23d8ed4",
         "filename": "front_end/entrypoints/main/MainImpl.ts",
         "patchSetId": 4
@@ -82,6 +168,47 @@
       "writtenOn": "2024-09-05T08:15:56Z",
       "side": 1,
       "message": "nit: Same as above",
+      "revId": "7c67afac806fc1870fc21940d51c7818cbe49f4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15e06555_04234087",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2024-09-05T09:54:42Z",
+      "side": 1,
+      "message": "Change to \"Zoom out\" (sentence case)",
+      "range": {
+        "startLine": 126,
+        "startChar": 12,
+        "endLine": 126,
+        "endChar": 20
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "7fe1ee66_50a7a891",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/entrypoints/main/MainImpl.ts",
+              "range": {
+                "startLine": 126,
+                "startChar": 0,
+                "endLine": 127,
+                "endChar": 0
+              },
+              "replacement": "  zoomOut: \u0027Zoom out\u0027,\n"
+            }
+          ]
+        }
+      ],
       "revId": "7c67afac806fc1870fc21940d51c7818cbe49f4f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
