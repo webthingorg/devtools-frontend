@@ -132,6 +132,9 @@ export class FreestylerPanel extends UI.Panel.Panel {
       onFixThisIssueClick: () => {
         void this.#startConversation(FIX_THIS_ISSUE_PROMPT, true);
       },
+      onSuggestionClick: suggestion => {
+        void this.#startConversation(suggestion);
+      },
       canShowFeedbackForm: this.#serverSideLoggingEnabled,
       userInfo: {
         accountImage: syncInfo.accountImage,
