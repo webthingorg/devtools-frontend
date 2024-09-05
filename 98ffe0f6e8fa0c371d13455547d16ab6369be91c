@@ -86,6 +86,24 @@
       "parentUuid": "7a6f31d8_0fc0c59f",
       "revId": "98ffe0f6e8fa0c371d13455547d16ab6369be91c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3133f45b_d9c9a332",
+        "filename": "test/e2e/elements/adornment_test.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-09-05T15:19:39Z",
+      "side": 1,
+      "message": "No this is excellent, thanks a lot for digging in and fixing those other tests!",
+      "parentUuid": "2803a16e_75a3045b",
+      "revId": "98ffe0f6e8fa0c371d13455547d16ab6369be91c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
