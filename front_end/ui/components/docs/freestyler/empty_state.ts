@@ -19,7 +19,7 @@ const component = new Freestyler.FreestylerChatUi({
   onFeedbackSubmit: noop,
   onAcceptConsentClick: noop,
   onCancelClick: noop,
-  onFixThisIssueClick: noop,
+  onSuggestionClick: noop,
   inspectElementToggled: false,
   state: Freestyler.State.CHAT_VIEW,
   aidaAvailability: Host.AidaClient.AidaAccessPreconditions.AVAILABLE,

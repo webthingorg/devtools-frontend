@@ -129,8 +129,12 @@ export class FreestylerPanel extends UI.Panel.Panel {
       onFeedbackSubmit: this.#handleFeedbackSubmit.bind(this),
       onAcceptConsentClick: this.#handleAcceptConsentClick.bind(this),
       onCancelClick: this.#cancel.bind(this),
-      onFixThisIssueClick: () => {
-        void this.#startConversation(FIX_THIS_ISSUE_PROMPT, true);
+      onSuggestionClick: (suggestion, isFix) => {
+        if (isFix) {
+          void this.#startConversation(FIX_THIS_ISSUE_PROMPT, true);
+        } else {
+          void this.#startConversation(suggestion);
+        }
       },
       canShowFeedbackForm: this.#serverSideLoggingEnabled,
       userInfo: {
