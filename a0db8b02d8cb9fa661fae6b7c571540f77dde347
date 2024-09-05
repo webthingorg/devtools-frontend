@@ -67,6 +67,23 @@
       "message": "Wow this CL is so good in terms of shedding duplicated / unused styles. Thanks!",
       "revId": "a0db8b02d8cb9fa661fae6b7c571540f77dde347",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "506bbb86_48df2654",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-09-05T04:57:59Z",
+      "side": 1,
+      "message": "Thanks a lot for the review, and the comment, Changhao 😊! Submitting.",
+      "revId": "a0db8b02d8cb9fa661fae6b7c571540f77dde347",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
