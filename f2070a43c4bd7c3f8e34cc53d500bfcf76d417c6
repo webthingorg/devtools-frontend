@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd4455e4_61242281",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-05T09:00:23Z",
+      "side": 1,
+      "message": "lgtm, I think we might want to tweak the copy slightly but happy for that to happen in future CLs. Nice!",
+      "revId": "f2070a43c4bd7c3f8e34cc53d500bfcf76d417c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10bff66b_e2e34fa2",
+        "filename": "front_end/models/trace/insights/ThirdPartyWeb.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-05T09:00:23Z",
+      "side": 1,
+      "message": "silly question for my understanding: what does this represent?",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 28
+      },
+      "revId": "f2070a43c4bd7c3f8e34cc53d500bfcf76d417c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de8b6871_329ab9ed",
+        "filename": "front_end/panels/timeline/components/insights/ThirdParties.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-05T09:00:23Z",
+      "side": 1,
+      "message": "I wonder if we can shorten this text slightly so it fits better into the UI. @paulirish wdyt?",
+      "range": {
+        "startLine": 32,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 50
+      },
+      "revId": "f2070a43c4bd7c3f8e34cc53d500bfcf76d417c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4bd52467_8cd5a1dd",
+        "filename": "front_end/panels/timeline/components/insights/ThirdParties.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-05T09:00:23Z",
+      "side": 1,
+      "message": "generally we use `formatMicroSecondsTime` from the same module across the Performance panel, but that does force a higher resolution result than this, so that might not be what you want",
+      "range": {
+        "startLine": 99,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 116
+      },
+      "revId": "f2070a43c4bd7c3f8e34cc53d500bfcf76d417c6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
