@@ -79,59 +79,59 @@ const UIStrings = {
   /**
    *@description Threads used for background tasks.
    */
-  threadPool: 'Thread Pool',
+  threadPool: 'Thread pool',
   /**
    *@description Name for a thread that rasterizes graphics in a website.
    *@example {2} PH1
    */
-  rasterizerThreadS: 'Rasterizer Thread {PH1}',
+  rasterizerThreadS: 'Rasterizer thread {PH1}',
   /**
    *@description Text in Timeline Flame Chart Data Provider of the Performance panel
    *@example {2} PH1
    */
-  threadPoolThreadS: 'Thread Pool Worker {PH1}',
+  threadPoolThreadS: 'Thread pool worker {PH1}',
   /**
    *@description Title of a bidder auction worklet with known URL in the timeline flame chart of the Performance panel
    *@example {https://google.com} PH1
    */
-  bidderWorkletS: 'Bidder Worklet — {PH1}',
+  bidderWorkletS: 'Bidder worklet — {PH1}',
   /**
    *@description Title of a bidder auction worklet in the timeline flame chart of the Performance panel with an unknown URL
    */
-  bidderWorklet: 'Bidder Worklet',
+  bidderWorklet: 'Bidder worklet',
 
   /**
    *@description Title of a seller auction worklet in the timeline flame chart of the Performance panel with an unknown URL
    */
-  sellerWorklet: 'Seller Worklet',
+  sellerWorklet: 'Seller worklet',
 
   /**
    *@description Title of an auction worklet in the timeline flame chart of the Performance panel with an unknown URL
    */
-  unknownWorklet: 'Auction Worklet',
+  unknownWorklet: 'Auction worklet',
 
   /**
    *@description Title of control thread of a service process for an auction worklet in the timeline flame chart of the Performance panel with an unknown URL
    */
-  workletService: 'Auction Worklet Service',
+  workletService: 'Auction worklet Service',
 
   /**
    *@description Title of a seller auction worklet with known URL in the timeline flame chart of the Performance panel
    *@example {https://google.com} PH1
    */
-  sellerWorkletS: 'Seller Worklet — {PH1}',
+  sellerWorkletS: 'Seller worklet — {PH1}',
 
   /**
    *@description Title of an auction worklet with known URL in the timeline flame chart of the Performance panel
    *@example {https://google.com} PH1
    */
-  unknownWorkletS: 'Auction Worklet — {PH1}',
+  unknownWorkletS: 'Auction worklet — {PH1}',
 
   /**
    *@description Title of control thread of a service process for an auction worklet with known URL in the timeline flame chart of the Performance panel
    * @example {https://google.com} PH1
    */
-  workletServiceS: 'Auction Worklet Service — {PH1}',
+  workletServiceS: 'Auction worklet service — {PH1}',
   /**
    *@description Text used to show an EventDispatch event which has a type associated with it
    *@example {click} PH1
