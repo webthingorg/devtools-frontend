@@ -838,7 +838,7 @@ export function dumpDeepInnerHTML(node) {
  * @return {string}
  */
 export function deepTextContent(node) {
-  if (!node) {
+  if (!node || !node.checkVisibility()) {
     return '';
   }
   if (node.nodeType === Node.TEXT_NODE && node.nodeValue) {
