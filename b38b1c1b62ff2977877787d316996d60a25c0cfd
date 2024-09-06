@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d2b1eeb_a4eb5d76",
+        "filename": "front_end/ui/visual_logging/KnownContextValues.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 3020,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-06T09:02:45Z",
+      "side": 1,
+      "message": "this is an unrelated drive-by fix to fix an error I was getting",
+      "range": {
+        "startLine": 3020,
+        "startChar": 0,
+        "endLine": 3020,
+        "endChar": 27
+      },
+      "revId": "b38b1c1b62ff2977877787d316996d60a25c0cfd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
