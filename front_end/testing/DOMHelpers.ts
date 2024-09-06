@@ -41,6 +41,11 @@ export const renderElementIntoDOM = (element: HTMLElement, renderOptions: Render
 function removeChildren(node: Node): void {
   while (true) {
     const {firstChild} = node;
+
+    if (node instanceof Element && node.shadowRoot) {
+      removeChildren(node.shadowRoot);
+    }
+
     if (firstChild === null) {
       break;
     }
