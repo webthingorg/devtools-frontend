@@ -8,6 +8,7 @@ import * as CPUThrottlingSelector from './CPUThrottlingSelector.js';
 import * as DetailsView from './DetailsView.js';
 import * as FieldSettingsDialog from './FieldSettingsDialog.js';
 import * as InteractionBreakdown from './InteractionBreakdown.js';
+import * as LayoutShiftDetails from './LayoutShiftDetails.js';
 import * as LiveMetricsView from './LiveMetricsView.js';
 import * as MetricCard from './MetricCard.js';
 import * as NetworkRequestDetails from './NetworkRequestDetails.js';
@@ -24,6 +25,7 @@ export {
   DetailsView,
   FieldSettingsDialog,
   InteractionBreakdown,
+  LayoutShiftDetails,
   LiveMetricsView,
   MetricCard,
   NetworkRequestDetails,
