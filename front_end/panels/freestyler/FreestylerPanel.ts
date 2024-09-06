@@ -94,7 +94,7 @@ export class FreestylerPanel extends UI.Panel.Panel {
   #selectedElement: SDK.DOMModel.DOMNode|null;
   #contentContainer: HTMLElement;
   #aidaClient: Host.AidaClient.AidaClient;
-  #agent: FreestylerAgent;
+  #agent: FreestylerAgent|undefined;
   #viewProps: FreestylerChatUiProps;
   #viewOutput: ViewOutput = {};
   #serverSideLoggingEnabled = isFreestylerServerSideLoggingEnabled();
@@ -141,7 +141,6 @@ export class FreestylerPanel extends UI.Panel.Panel {
       this.#viewProps.inspectElementToggled = ev.data;
       this.doUpdate();
     });
-    this.#agent = this.#createAgent();
     UI.Context.Context.instance().addFlavorChangeListener(SDK.DOMModel.DOMNode, ev => {
       if (this.#viewProps.selectedElement === ev.data) {
         return;
@@ -151,14 +150,6 @@ export class FreestylerPanel extends UI.Panel.Panel {
       this.doUpdate();
     });
     this.doUpdate();
-  }
-
-  #createAgent(): FreestylerAgent {
-    return new FreestylerAgent({
-      aidaClient: this.#aidaClient,
-      changeManager: this.#changeManager,
-      serverSideLoggingEnabled: this.#serverSideLoggingEnabled,
-    });
   }
 
   static async instance(opts: {
@@ -229,7 +220,6 @@ export class FreestylerPanel extends UI.Panel.Panel {
   #clearMessages(): void {
     this.#viewProps.messages = [];
     this.#viewProps.isLoading = false;
-    this.#agent = this.#createAgent();
     this.#cancel();
     this.doUpdate();
   }
@@ -243,6 +233,12 @@ export class FreestylerPanel extends UI.Panel.Panel {
   }
 
   async #startConversation(text: string, isFixQuery: boolean = false): Promise<void> {
+    this.#agent = new FreestylerAgent({
+      aidaClient: this.#aidaClient,
+      changeManager: this.#changeManager,
+      serverSideLoggingEnabled: this.#serverSideLoggingEnabled,
+    });
+
     this.#viewProps.messages.push({
       entity: ChatMessageEntity.USER,
       text,
