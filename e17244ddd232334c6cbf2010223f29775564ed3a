@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "64817743_e42a3b2e",
+        "filename": "front_end/entrypoints/main/main-meta.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-09-06T09:03:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "be5151bd_52a65902",
+      "revId": "e17244ddd232334c6cbf2010223f29775564ed3a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "93887a53_1d88eb25",
@@ -65,6 +83,24 @@
       "writtenOn": "2024-09-02T09:54:54Z",
       "side": 1,
       "message": "In Peter\u0027s draft the title was: `Use Chrome theme colors` (go/chrome-devtools:dynamic-theming-post-launch), did we want to change that? I wasn\u0027t around so I might have missed discussions, so ignore if that was the case ^^. (Maybe this is tricky because we need to make this work for other Chromium based browsers too?)",
+      "revId": "e17244ddd232334c6cbf2010223f29775564ed3a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac1133a5_e0765e68",
+        "filename": "front_end/entrypoints/main/main-meta.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-09-06T09:03:45Z",
+      "side": 1,
+      "message": "Yes, I talked to Peter this morning and he changed his mind and suggested we use browser instead of Chrome:)",
+      "parentUuid": "93887a53_1d88eb25",
       "revId": "e17244ddd232334c6cbf2010223f29775564ed3a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
