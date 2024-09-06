@@ -27,6 +27,12 @@
   margin-right: -8px;
 }
 
+.zoom-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .soft-context-menu-item {
   display: flex;
   width: 100%;

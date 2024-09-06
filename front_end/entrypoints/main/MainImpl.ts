@@ -112,6 +112,18 @@ const UIStrings = {
    *@description Text describing how to navigate the dock side menu
    */
   dockSideNaviation: 'Use left and right arrow keys to navigate the options',
+  /**
+   *@description Title element text content in Main
+   */
+  zoom: 'Zoom',
+  /**
+   *@description Title text showing when hovering over a button to zoom DevTools in
+   */
+  zoomIn: 'Zoom in',
+  /**
+   *@description Title text showing when hovering over a button to zoom DevTools out
+   */
+  zoomOut: 'Zoom out',
 };
 const str_ = i18n.i18n.registerUIStrings('entrypoints/main/MainImpl.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -821,6 +833,28 @@ export class MainMenuItem implements UI.Toolbar.Provider {
     return this.#itemInternal;
   }
 
+  #setupMultiButtonMenuItemKeyboardNavigation(
+      buttons: UI.Toolbar.ToolbarButton[], element: HTMLElement, event: KeyboardEvent): void {
+    let dir = 0;
+    if (event.key === 'ArrowLeft') {
+      dir = -1;
+    } else if (event.key === 'ArrowRight') {
+      dir = 1;
+    } else if (event.key === 'ArrowDown') {
+      const contextMenuElement = element.closest('.soft-context-menu');
+      contextMenuElement?.dispatchEvent(new KeyboardEvent('keydown', {key: 'ArrowDown'}));
+      return;
+    } else {
+      return;
+    }
+
+    let index = buttons.findIndex(button => button.element.hasFocus());
+    index = Platform.NumberUtilities.clamp(index + dir, 0, buttons.length - 1);
+
+    buttons[index].element.focus();
+    event.consume(true);
+  }
+
   #handleContextMenu(contextMenu: UI.ContextMenu.ContextMenu): void {
     if (UI.DockController.DockController.instance().canDock()) {
       const dockItemElement = document.createElement('div');
@@ -869,27 +903,9 @@ export class MainMenuItem implements UI.Toolbar.Provider {
       dockItemToolbar.appendToolbarItem(left);
       dockItemToolbar.appendToolbarItem(bottom);
       dockItemToolbar.appendToolbarItem(right);
-      dockItemElement.addEventListener('keydown', event => {
-        let dir = 0;
-        if (event.key === 'ArrowLeft') {
-          dir = -1;
-        } else if (event.key === 'ArrowRight') {
-          dir = 1;
-        } else if (event.key === 'ArrowDown') {
-          const contextMenuElement = dockItemElement.closest('.soft-context-menu');
-          contextMenuElement?.dispatchEvent(new KeyboardEvent('keydown', {key: 'ArrowDown'}));
-          return;
-        } else {
-          return;
-        }
-
-        const buttons = [undock, left, bottom, right];
-        let index = buttons.findIndex(button => button.element.hasFocus());
-        index = Platform.NumberUtilities.clamp(index + dir, 0, buttons.length - 1);
-
-        buttons[index].element.focus();
-        event.consume(true);
-      });
+      dockItemElement.addEventListener(
+          'keydown',
+          this.#setupMultiButtonMenuItemKeyboardNavigation.bind(null, [undock, left, bottom, right], dockItemElement));
       contextMenu.headerSection().appendCustomItem(dockItemElement, 'dock-side');
     }
 
@@ -911,6 +927,58 @@ export class MainMenuItem implements UI.Toolbar.Provider {
         contextMenu.defaultSection().appendAction('inspector-main.focus-debuggee', i18nString(UIStrings.focusDebuggee));
       }
     }
+
+    const zoomControlsElement = document.createElement('div');
+    zoomControlsElement.classList.add('zoom-controls');
+    zoomControlsElement.classList.add('flex-auto');
+    zoomControlsElement.tabIndex = -1;
+
+    const zoomControlsTitleElement = zoomControlsElement.createChild('span', 'zoom-controls-title');
+    zoomControlsTitleElement.textContent = i18nString(UIStrings.zoom);
+
+    const zoomControlsToolbar = new UI.Toolbar.Toolbar('', zoomControlsElement);
+    const zoomLevel = new UI.Toolbar.ToolbarText(`${Math.round(window.devicePixelRatio * 100)}%`);
+    const zoomOut = new UI.Toolbar.ToolbarButton(i18nString(UIStrings.zoomOut), 'minus');
+    const zoomIn = new UI.Toolbar.ToolbarButton(i18nString(UIStrings.zoomIn), 'plus');
+
+    zoomOut.addEventListener(UI.Toolbar.ToolbarButton.Events.MOUSE_DOWN, event => event.data.consume());
+    zoomIn.addEventListener(UI.Toolbar.ToolbarButton.Events.MOUSE_DOWN, event => event.data.consume());
+
+    const observeAndUpdateZoomLevel = (button: UI.Toolbar.ToolbarButton) => {
+      const devToolsElem = UI.InspectorView.InspectorView.maybeGetInspectorViewInstance()?.element;
+      if (devToolsElem) {
+        button.setDisabled(true);
+        let firedOnce = false;
+        const observer = new ResizeObserver(() => {
+          if (firedOnce) {
+            observer.disconnect();
+            zoomLevel.setText(`${Math.round(window.devicePixelRatio * 100)}%`);
+            button.setDisabled(false);
+            return;
+          }
+          firedOnce = true;
+        });
+        observer.observe(devToolsElem);
+      }
+    };
+
+    zoomOut.addEventListener(UI.Toolbar.ToolbarButton.Events.CLICK, () => {
+      contextMenu.setKeepOpenOnAction(true);
+      observeAndUpdateZoomLevel(zoomOut);
+      Host.InspectorFrontendHost.InspectorFrontendHostInstance.zoomOut();
+    });
+    zoomIn.addEventListener(UI.Toolbar.ToolbarButton.Events.CLICK, () => {
+      contextMenu.setKeepOpenOnAction(true);
+      observeAndUpdateZoomLevel(zoomIn);
+      Host.InspectorFrontendHost.InspectorFrontendHostInstance.zoomIn();
+    });
+
+    zoomControlsToolbar.appendToolbarItem(zoomOut);
+    zoomControlsToolbar.appendToolbarItem(zoomLevel);
+    zoomControlsToolbar.appendToolbarItem(zoomIn);
+    zoomControlsElement.addEventListener(
+        'keydown', this.#setupMultiButtonMenuItemKeyboardNavigation.bind(null, [zoomOut, zoomIn], zoomControlsElement));
+    contextMenu.headerSection().appendCustomItem(zoomControlsElement, 'zoom-controls');
 
     contextMenu.defaultSection().appendAction(
         'main.toggle-drawer',

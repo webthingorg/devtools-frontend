@@ -669,6 +669,10 @@ export class ToolbarButton extends ToolbarItem<ToolbarButton.EventTypes> {
     this.element.classList.add('dark-text');
   }
 
+  setDisabled(isDisabled: boolean): void {
+    this.button.disabled = isDisabled;
+  }
+
   turnIntoSelect(shrinkable: boolean|undefined = false): void {
     this.element.classList.add('toolbar-has-dropdown');
     if (shrinkable) {
