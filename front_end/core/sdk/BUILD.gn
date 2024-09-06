@@ -62,6 +62,8 @@ devtools_module("sdk") {
     "PerformanceMetricsModel.ts",
     "PreloadingModel.ts",
     "ProfileTreeModel.ts",
+    "RehydratingConnection.ts",
+    "RehydratingObject.ts",
     "RemoteObject.ts",
     "Resource.ts",
     "ResourceTreeModel.ts",
