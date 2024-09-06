@@ -13,6 +13,7 @@ import * as MetricCard from './MetricCard.js';
 import * as NetworkRequestDetails from './NetworkRequestDetails.js';
 import * as NetworkRequestTooltip from './NetworkRequestTooltip.js';
 import * as NetworkThrottlingSelector from './NetworkThrottlingSelector.js';
+import * as OriginMap from './OriginMap.js';
 import * as Sidebar from './Sidebar.js';
 import * as SidebarAnnotationsTab from './SidebarAnnotationsTab.js';
 import * as Utils from './Utils.js';
@@ -29,6 +30,7 @@ export {
   NetworkRequestDetails,
   NetworkRequestTooltip,
   NetworkThrottlingSelector,
+  OriginMap,
   Sidebar,
   SidebarAnnotationsTab,
   Utils,
