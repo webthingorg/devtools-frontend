@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fdac5560_75b28b49",
+        "filename": "front_end/panels/timeline/components/LiveMetricsView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 514,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-09-06T22:51:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96c94383_63069626",
+      "revId": "cda7dbeb0c1f370a23d787547ba8dd55006fb27a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9e031933_4e42b083",
