@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b1f3c83_94d63c97",
+        "filename": "front_end/ui/legacy/UIUtils.ts",
+        "patchSetId": 20
+      },
+      "lineNbr": 1844,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-09-06T22:36:27Z",
+      "side": 1,
+      "message": "added this helper to avoid injecting more than we need",
+      "range": {
+        "startLine": 1844,
+        "startChar": 16,
+        "endLine": 1844,
+        "endChar": 38
+      },
+      "revId": "e0eede0595723cfb2c59f5397c0e14a07f1da19c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
