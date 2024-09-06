@@ -16,6 +16,24 @@
       "message": "If the model is `null` I think we should just return `\u0027ALL\u0027` since we don\u0027t really know if the user is trying to simulate a desktop or mobile device.",
       "revId": "7a96f4b8e80e5ae381aeac4c87731842be78afac",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b5a5655_7fd85933",
+        "filename": "front_end/panels/timeline/components/LiveMetricsView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 594,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-06T08:32:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "358a85aa_8cc2c494",
+      "revId": "7a96f4b8e80e5ae381aeac4c87731842be78afac",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
