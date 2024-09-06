@@ -142,8 +142,9 @@
       color: var(--sys-color-green-bright);
     }
 
-    devtools-icon.loading {
-      color: var(--sys-color-blue-bright);
+    devtools-spinner {
+      margin: 6px;
+      vertical-align: sub;
     }
   }
 }
