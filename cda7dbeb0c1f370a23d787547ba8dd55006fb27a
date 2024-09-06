@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "96c94383_63069626",
+        "filename": "front_end/panels/timeline/components/LiveMetricsView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 514,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-06T21:16:35Z",
+      "side": 1,
+      "message": "yes, lets.",
+      "parentUuid": "648fea33_5bb0045a",
+      "revId": "cda7dbeb0c1f370a23d787547ba8dd55006fb27a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9e031933_4e42b083",
         "filename": "front_end/panels/timeline/components/liveMetricsView.css",
         "patchSetId": 2
@@ -31,6 +49,24 @@
       "writtenOn": "2024-09-05T00:54:10Z",
       "side": 1,
       "message": "The native tooltip isn\u0027t ideal but non-native tooltips are a bit tricky to work with so I\u0027m leaving that for a follow-up. As a compromise I added `cursor: help` to signal the presence of a tooltip.",
+      "revId": "cda7dbeb0c1f370a23d787547ba8dd55006fb27a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad45172b_2439f338",
+        "filename": "front_end/panels/timeline/components/liveMetricsView.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-06T21:16:35Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "9e031933_4e42b083",
       "revId": "cda7dbeb0c1f370a23d787547ba8dd55006fb27a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
