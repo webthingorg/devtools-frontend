@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34bcfb48_0f1a1cde",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-06T20:07:24Z",
+      "side": 1,
+      "message": "Yup. per the chat thread with yuin/jack at go/czqde",
+      "revId": "0e7e187a79793a233cd9f949737dd721ea681277",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
