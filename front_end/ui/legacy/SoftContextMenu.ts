@@ -82,6 +82,7 @@ export class SoftContextMenu {
   private onMenuClosed?: () => void;
   private focusOnTheFirstItem = true;
   private keepOpen: boolean;
+  private keepOpenOnAction = false;
   private loggableParent: Element|null;
 
   constructor(
@@ -189,7 +190,16 @@ export class SoftContextMenu {
     }
   }
 
+  setKeepOpenOnAction(keepOpenOnAction: boolean): void {
+    this.keepOpenOnAction = keepOpenOnAction;
+  }
+
   discard(): void {
+    if (this.keepOpenOnAction) {
+      this.keepOpenOnAction = false;
+      return;
+    }
+
     if (this.subMenu) {
       this.subMenu.discard();
     }

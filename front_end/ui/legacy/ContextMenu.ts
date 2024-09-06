@@ -557,6 +557,12 @@ export class ContextMenu extends SubMenu {
     this.contextMenuLabel = label;
   }
 
+  setKeepOpenOnAction(keepOpenOnAction: boolean): void {
+    if (this.softMenu) {
+      this.softMenu.setKeepOpenOnAction(keepOpenOnAction);
+    }
+  }
+
   setX(x: number): void {
     this.x = x;
   }
