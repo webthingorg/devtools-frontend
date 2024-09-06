@@ -690,6 +690,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1495d2bd_0abf004a",
+        "filename": "front_end/panels/timeline/components/layoutShiftDetails.css",
+        "patchSetId": 13
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-09-06T00:25:19Z",
+      "side": 1,
+      "message": "oh this is great! thanks so much 😊 I struggled w the import \u0026 got ts errors on it. Perhaps something with how its exported? using `injectCoreStyles` works although i know this also injects many more styles...",
+      "parentUuid": "4fbb823c_7ad3bd6a",
+      "revId": "4adf317b1b7423aba519a158082c534e3b23e3d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e1e8f784_99d90ce5",
