@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "60fcf462_3dd44b11",
+        "filename": "front_end/models/trace/insights/SlowCSSSelector.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-06T22:16:40Z",
+      "side": 1,
+      "message": "ah true! :)",
+      "parentUuid": "cf4200f0_4f01bf18",
+      "revId": "aaeb05c76c40359daa71681671ce63ed35c7d63f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c5993bf4_ddec60c5",
