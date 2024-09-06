@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2263bd2c_240c340f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-06T21:33:14Z",
+      "side": 1,
+      "message": "nice nice. thank you. :)",
+      "revId": "01ee54a26284a8dc8e2680fbef280c04d64591d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "231a678b_789c90f6",
+        "filename": "front_end/core/sdk/EnhancedTracesParser.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-06T21:33:14Z",
+      "side": 1,
+      "message": "not a huge deal but i\u0027d argue the error from the try/catch would be more useful than this. :)",
+      "revId": "01ee54a26284a8dc8e2680fbef280c04d64591d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33354eac_0d02bfbe",
+        "filename": "front_end/core/sdk/EnhancedTracesParser.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-06T21:33:14Z",
+      "side": 1,
+      "message": "tbh i think the extra safety here is unlikely to pay off.\n\ni\u0027d be fine with `return event.cat \u003d\u003d\u003d \u0027disabled-by-default-devtools.target-rundown\u0027`  as we don\u0027t expect unexpected changes to those trace events.\n\n but... no big deal either way.",
+      "range": {
+        "startLine": 163,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 5
+      },
+      "revId": "01ee54a26284a8dc8e2680fbef280c04d64591d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6ad6da7_c4b3c3d6",
+        "filename": "front_end/core/sdk/RehydratingObject.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-06T21:33:14Z",
+      "side": 1,
+      "message": "do you need these protocol types? I don\u0027t see them being used. Also a little surprised there\u0027s no existing types you could adopt, but.. I am not often working near Connection/etc.",
+      "revId": "01ee54a26284a8dc8e2680fbef280c04d64591d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
