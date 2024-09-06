@@ -16,6 +16,24 @@
       "message": "I don\u0027t agree with the statement, we are hitting a bug with our testing implementation - the elements are not visible due to the small space we have to work with, not because we are changing how the structure works.",
       "revId": "a9c8ad0ef493e92cb36af4b120d537f2ae164f71",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15f11bfe_7307a0db",
+        "filename": "test/e2e/freestyler/freestyler_test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-06T11:51:24Z",
+      "side": 1,
+      "message": "I understand, I prefer to take the tradeoff of:\n* not having e2e tests to catch this (so that we can execute faster for now)\n* believing in manual testing for such cases for now, and enabling e2e tests after we\u0027re done with quickly iterating on the UI",
+      "parentUuid": "0addb280_c179dcad",
+      "revId": "a9c8ad0ef493e92cb36af4b120d537f2ae164f71",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
