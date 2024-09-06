@@ -241,20 +241,21 @@ Event.prototype.consume = function(preventDefault?: boolean): void {
   this.handled = true;
 };
 
-Node.prototype.deepTextContent = function(): string {
-  return this.childTextNodes()
+Node.prototype.deepTextContent = function(visibleOnly?: boolean): string {
+  return this.childTextNodes(visibleOnly)
       .map(function(node) {
         return node.textContent;
       })
       .join('');
 };
 
-Node.prototype.childTextNodes = function(): Node[] {
+Node.prototype.childTextNodes = function(visibleOnly?: boolean): Node[] {
   let node = this.traverseNextTextNode(this);
   const result = [];
   const nonTextTags = {STYLE: 1, SCRIPT: 1, '#document-fragment': 1};
   while (node) {
-    if (!nonTextTags[node.parentNode ? node.parentNode.nodeName : '']) {
+    if (!node.parentNode ||
+        (!nonTextTags[node.parentNode.nodeName] && (!visibleOnly || node.parentNode.checkVisibility()))) {
       result.push(node);
     }
     node = node.traverseNextTextNode(this);
