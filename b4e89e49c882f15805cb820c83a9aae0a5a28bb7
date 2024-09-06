@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1e37bd4_e2c8d957",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-06T10:50:57Z",
+      "side": 1,
+      "message": "Instead of duplicating `renderStepDetails` and other stuff around the icon, can we extract rendering the icon to a variable here and use it in the `\u003csummary\u003e` tag below.\n\nSomething like this:\n\n```\nlet badgeHtml: LitHtml.TemplateResult;\nif (\u003cshould we show icon?) {\n    const iconName \u003d \u003cwhich icon to show\u003e\n    badgeHtml \u003d LitHtml.html`\u003cIconButton ... .name\u003d${iconName}\u003e`\n} else if (\u003cshould we show loading?) {\n    badgeHtml \u003d LitHtml.html`\u003cspinner\u003e...`\n}\n\n...\n\n\u003cdetails class\u003d\"thought\" open\u003e\n      \u003csummary\u003e\n          ${badgeHtml}\n          ${this.#renderTitle(step)}\n      \u003c/summary\u003e\n      ${this.#renderStepDetails(step, {\n        isLast: options.isLast,\n      })}\n    \u003c/details\u003e\n```\n\n\nWDYT? @nvitkov@google.com @samiyac@google.com?",
+      "revId": "b4e89e49c882f15805cb820c83a9aae0a5a28bb7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
