@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69cf1b19_b724b85b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-06T12:22:46Z",
+      "side": 1,
+      "message": "LGTM with some style suggestions \u0026 interactions question.\n\nFeel free to skip interactions question and we can take a look at it later too :)",
+      "revId": "219ce551a3bb2a426d3ae22172a260339b1ac256",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "265f2234_5deaa2b9",
+        "filename": "front_end/panels/freestyler/components/ProvideFeedback.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-06T12:22:46Z",
+      "side": 1,
+      "message": "I think, previously we were able to trigger the feedback \u0026 on a subsequent click it was taking the rating back. (or at least gave the impression of that)\n\nCan you look at the interaction there? Here is an example issue I see:\n* Clicking on the Thumbs Up -\u003e Closing the comment dialog -\u003e Clicking on thumbs up again (to remove the rating) \u003e Clicking on thumbs up (for enabling it again)\n-\u003e The feedback form doesn\u0027t show up.",
+      "revId": "219ce551a3bb2a426d3ae22172a260339b1ac256",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5adc666_4cfe622f",
+        "filename": "front_end/panels/freestyler/components/provideFeedback.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-06T12:22:46Z",
+      "side": 1,
+      "message": "Can we add these two?\n```\ncolor: var(--sys-color-on-surface-subtle);\nfont: var(--sys-typescale-body4-regular);\n```\n\nthey are coming from the design spec (even though there isn\u0027t any striking visual difference after adding these)",
+      "revId": "219ce551a3bb2a426d3ae22172a260339b1ac256",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4f8aceb_70da6530",
+        "filename": "front_end/panels/freestyler/components/provideFeedback.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-06T12:22:46Z",
+      "side": 1,
+      "message": "I think we also need `font: var(--sys-typescale-body3-medium);` here",
+      "revId": "219ce551a3bb2a426d3ae22172a260339b1ac256",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
