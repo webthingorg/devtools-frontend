@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a9c69af_b8fd5d79",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-06T21:04:52Z",
+      "side": 1,
+      "message": "Let\u0027s go ahead. I want to make some changes to the description of the audit so it can be more instructional on how to analyze this. But seems good for now.",
+      "revId": "aaeb05c76c40359daa71681671ce63ed35c7d63f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0a0d995_35c75c16",
+        "filename": "front_end/models/trace/insights/SlowCSSSelector.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-06T21:04:52Z",
+      "side": 1,
+      "message": "i think you could just do .sort directly. seems okay to modify this array.",
+      "revId": "aaeb05c76c40359daa71681671ce63ed35c7d63f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5993bf4_ddec60c5",
+        "filename": "front_end/models/trace/insights/SlowCSSSelector.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-06T21:04:52Z",
+      "side": 1,
+      "message": "same for this, here and below",
+      "revId": "aaeb05c76c40359daa71681671ce63ed35c7d63f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4c2d802_ce18385f",
+        "filename": "front_end/models/trace/insights/SlowCSSSelector.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-06T21:04:52Z",
+      "side": 1,
+      "message": "similarly here i think you can drop the `[... ]` as it\u0027s fine to include this without making a copy.",
+      "revId": "aaeb05c76c40359daa71681671ce63ed35c7d63f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f940a4c6_0c557ae3",
+        "filename": "front_end/panels/timeline/components/SidebarInsightsTab.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-06T21:04:52Z",
+      "side": 1,
+      "message": "same",
+      "revId": "aaeb05c76c40359daa71681671ce63ed35c7d63f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "395fb678_ce5ee96d",
+        "filename": "front_end/panels/timeline/components/insights/types.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-06T21:04:52Z",
+      "side": 1,
+      "message": "you can omit this. We\u0027re gonna keep the categories to just All/other and the 3 metrics.",
+      "revId": "aaeb05c76c40359daa71681671ce63ed35c7d63f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
