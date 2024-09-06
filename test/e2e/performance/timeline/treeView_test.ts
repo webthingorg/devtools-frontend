@@ -101,7 +101,7 @@ describe('The Performance tool, Bottom-up panel', function() {
   it('match case button is working as expected', async () => {
     const expectedActivities = ['h2', 'H2', 'h2_with_suffix'];
 
-    await step('navigate to the Bottom Up tab', async () => {
+    await step('navigate to the Bottom-up tab', async () => {
       await navigateToBottomUpTab();
     });
 
@@ -120,7 +120,7 @@ describe('The Performance tool, Bottom-up panel', function() {
   it('regex button is working as expected', async () => {
     const expectedActivities = ['h2', 'H2', 'h2_with_suffix'];
 
-    await step('navigate to the Bottom Up tab', async () => {
+    await step('navigate to the Bottom-up tab', async () => {
       await navigateToBottomUpTab();
     });
 
@@ -139,7 +139,7 @@ describe('The Performance tool, Bottom-up panel', function() {
   it('match whole word is working as expected', async () => {
     const expectedActivities = ['h2', 'H2'];
 
-    await step('navigate to the Bottom Up tab', async () => {
+    await step('navigate to the Bottom-up tab', async () => {
       await navigateToBottomUpTab();
     });
 
@@ -151,14 +151,14 @@ describe('The Performance tool, Bottom-up panel', function() {
       }
       await toggleMatchWholeWordButtonBottomUp();
       await setFilter('function');
-      assert.isTrue(await validateTreeParentActivities(['Function Call']), 'Tree does not contain expected activities');
+      assert.isTrue(await validateTreeParentActivities(['Function call']), 'Tree does not contain expected activities');
     });
   });
 
   it('simple filter is working as expected', async () => {
     const expectedActivities = ['h2', 'H2', 'h2_with_suffix'];
 
-    await step('navigate to the Bottom Up tab', async () => {
+    await step('navigate to the Bottom-up tab', async () => {
       await navigateToBottomUpTab();
     });
 
@@ -176,7 +176,7 @@ describe('The Performance tool, Bottom-up panel', function() {
 
   it('group by', async () => {
     const expectedActivities = ['Scripting', 'System', 'Loading', 'Rendering', 'Painting'];
-    await step('navigate to the Bottom Up tab', async () => {
+    await step('navigate to the Bottom-up tab', async () => {
       await navigateToBottomUpTab();
     });
 
@@ -199,9 +199,9 @@ describe('The Performance tool, Bottom-up panel', function() {
 
   it('filtered results keep context', async () => {
     const {frontend} = getBrowserAndPages();
-    const expectedActivities = ['h2_with_suffix', 'container2', 'Function Call', 'Timer Fired'];
+    const expectedActivities = ['h2_with_suffix', 'container2', 'Function call', 'Timer fired'];
 
-    await step('navigate to the Bottom Up tab', async () => {
+    await step('navigate to the Bottom-up tab', async () => {
       await navigateToBottomUpTab();
     });
 
@@ -222,9 +222,9 @@ describe('The Performance tool, Bottom-up panel', function() {
 
   it('sorting "Title" column is working as expected', async () => {
     const {frontend} = getBrowserAndPages();
-    const expectedActivities = ['Commit', 'Function Call', 'h2_with_suffix', 'h2', 'H2', 'Layerize', 'Layout'];
+    const expectedActivities = ['Commit', 'Function call', 'h2_with_suffix', 'h2', 'H2', 'Layerize', 'Layout'];
 
-    await step('navigate to the Bottom Up tab', async () => {
+    await step('navigate to the Bottom-up tab', async () => {
       await navigateToBottomUpTab();
     });
 
