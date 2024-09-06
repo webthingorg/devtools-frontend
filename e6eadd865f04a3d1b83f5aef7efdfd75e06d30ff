@@ -94,6 +94,30 @@
       },
       "revId": "e6eadd865f04a3d1b83f5aef7efdfd75e06d30ff",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "910a4e34_4dcf0129",
+        "filename": "front_end/core/sdk/SourceMapManager.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1247388
+      },
+      "writtenOn": "2024-09-06T00:49:59Z",
+      "side": 0,
+      "message": "Thanks a lot for investigating and fixing this, Benedikt!",
+      "parentUuid": "a8764993_65b83f28",
+      "range": {
+        "startLine": 78,
+        "startChar": 6,
+        "endLine": 78,
+        "endChar": 76
+      },
+      "revId": "e6eadd865f04a3d1b83f5aef7efdfd75e06d30ff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
