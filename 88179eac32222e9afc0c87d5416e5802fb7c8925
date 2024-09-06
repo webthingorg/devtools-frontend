@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e4d51a0_10a98259",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-06T21:15:53Z",
+      "side": 1,
+      "message": "i dig it. as discussed it\u0027s not a slam dunk but i think it\u0027s a good move. we\u0027ll keep an eye on the response.",
+      "revId": "88179eac32222e9afc0c87d5416e5802fb7c8925",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "733fe4be_0b35cd61",
+        "filename": "front_end/panels/timeline/components/LiveMetricsView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 490,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-06T21:15:53Z",
+      "side": 1,
+      "message": "sorry, but can you set the link just on \"simulate different devices\" ?  the whole sentence being a link is weird to me",
+      "revId": "88179eac32222e9afc0c87d5416e5802fb7c8925",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
