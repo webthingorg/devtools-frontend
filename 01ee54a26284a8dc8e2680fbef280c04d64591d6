@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "240872d2_7c82000d",
+        "filename": "front_end/core/sdk/EnhancedTracesParser.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-06T21:43:07Z",
+      "side": 1,
+      "message": "Also just a thought... do you want to do the groupContextsAndScriptsUnderTarget work in here? seems like it belong closer to this data() method than it does in the Connection class",
+      "revId": "01ee54a26284a8dc8e2680fbef280c04d64591d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "231a678b_789c90f6",
         "filename": "front_end/core/sdk/EnhancedTracesParser.ts",
         "patchSetId": 3
