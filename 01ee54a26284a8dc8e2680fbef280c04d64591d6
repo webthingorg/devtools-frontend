@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ab17cf6_22628411",
+        "filename": "front_end/core/sdk/EnhancedTracesParser.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-09-07T01:25:41Z",
+      "side": 1,
+      "message": "Good point! I moved the logic under the parser and added test to cover the added logic here.",
+      "parentUuid": "240872d2_7c82000d",
+      "revId": "01ee54a26284a8dc8e2680fbef280c04d64591d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "231a678b_789c90f6",
@@ -48,6 +66,24 @@
       "writtenOn": "2024-09-06T21:33:14Z",
       "side": 1,
       "message": "not a huge deal but i\u0027d argue the error from the try/catch would be more useful than this. :)",
+      "revId": "01ee54a26284a8dc8e2680fbef280c04d64591d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a8fbfe4_09271f39",
+        "filename": "front_end/core/sdk/EnhancedTracesParser.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-09-07T01:25:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "231a678b_789c90f6",
       "revId": "01ee54a26284a8dc8e2680fbef280c04d64591d6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -75,6 +111,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b6bec76_dac68991",
+        "filename": "front_end/core/sdk/EnhancedTracesParser.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-09-07T01:25:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "33354eac_0d02bfbe",
+      "range": {
+        "startLine": 163,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 5
+      },
+      "revId": "01ee54a26284a8dc8e2680fbef280c04d64591d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f6ad6da7_c4b3c3d6",
@@ -88,6 +148,24 @@
       "writtenOn": "2024-09-06T21:33:14Z",
       "side": 1,
       "message": "do you need these protocol types? I don\u0027t see them being used. Also a little surprised there\u0027s no existing types you could adopt, but.. I am not often working near Connection/etc.",
+      "revId": "01ee54a26284a8dc8e2680fbef280c04d64591d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e44d735b_5eb5ece2",
+        "filename": "front_end/core/sdk/RehydratingObject.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-09-07T01:25:41Z",
+      "side": 1,
+      "message": "These will be used in connection layer, but yes I should remove them from this CL. Thanks for catching that!",
+      "parentUuid": "f6ad6da7_c4b3c3d6",
       "revId": "01ee54a26284a8dc8e2680fbef280c04d64591d6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
