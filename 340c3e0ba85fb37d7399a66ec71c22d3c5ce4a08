@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "730baea4_416655c9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-09T18:50:04Z",
+      "side": 1,
+      "message": "Could do more to help alleviate this confusion: https://i.imgur.com/1aBxiYd.png - however I don\u0027t know the tool and all its use cases well enough to know how to fix this.\n\nBut I think just pointing out where the docs are would help a future person not get stuck here like I did.",
+      "revId": "340c3e0ba85fb37d7399a66ec71c22d3c5ce4a08",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
