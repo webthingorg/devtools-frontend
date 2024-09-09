@@ -1,0 +1,101 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a4e163c_376b10cb",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 945,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-09-09T07:53:21Z",
+      "side": 1,
+      "message": "Is this needed? Does it not prevent click from firing?",
+      "range": {
+        "startLine": 944,
+        "startChar": 4,
+        "endLine": 945,
+        "endChar": 103
+      },
+      "revId": "b787fba5727ae3be22897703e9369cf1c39d2386",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc7b110e_8d64a514",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 948,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-09-09T07:53:21Z",
+      "side": 1,
+      "message": "rootElement",
+      "range": {
+        "startLine": 948,
+        "startChar": 12,
+        "endLine": 948,
+        "endChar": 24
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "eea82c03_a69bf39c",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/entrypoints/main/MainImpl.ts",
+              "range": {
+                "startLine": 948,
+                "startChar": 0,
+                "endLine": 950,
+                "endChar": 0
+              },
+              "replacement": "      const rootElement \u003d UI.InspectorView.InspectorView.maybeGetInspectorViewInstance()?.element;\n      if (rootElement) {\n"
+            },
+            {
+              "path": "front_end/entrypoints/main/MainImpl.ts",
+              "range": {
+                "startLine": 961,
+                "startChar": 0,
+                "endLine": 962,
+                "endChar": 0
+              },
+              "replacement": "        observer.observe(rootElement);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "b787fba5727ae3be22897703e9369cf1c39d2386",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56cf3d74_fb5309b6",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 953,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-09-09T07:53:21Z",
+      "side": 1,
+      "message": "What happens on the first invocation, and why do we want to wait until the second one?",
+      "range": {
+        "startLine": 953,
+        "startChar": 0,
+        "endLine": 953,
+        "endChar": 26
+      },
+      "revId": "b787fba5727ae3be22897703e9369cf1c39d2386",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
