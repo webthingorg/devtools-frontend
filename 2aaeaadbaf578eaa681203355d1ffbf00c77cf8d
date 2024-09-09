@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a4c8318_f26fa37c",
+        "filename": "front_end/ui/components/markdown_view/codeBlock.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-09-09T13:48:45Z",
+      "side": 1,
+      "message": "I am not sure about this removal of the scroll bar, I would keep it in untill we have the open in new tab and the cut the content with `...` then we won\u0027t have scroll. Currently it\u0027s hard to know it\u0027s scrollable, and I would error on the side of showing it",
+      "revId": "2aaeaadbaf578eaa681203355d1ffbf00c77cf8d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
