@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "42b822f7_d9441c0a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-09T14:46:13Z",
+      "side": 1,
+      "message": "lgtm with one point on the css",
+      "revId": "a4ab9c582e219fb757ca301a8e289c48983f456f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00687eb0_7d79c869",
+        "filename": "front_end/panels/timeline/overlays/components/entryLabelOverlay.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-09T14:46:13Z",
+      "side": 1,
+      "message": "can we use a --sys-size-X variable here?",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 51,
+        "endChar": 14
+      },
+      "revId": "a4ab9c582e219fb757ca301a8e289c48983f456f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
