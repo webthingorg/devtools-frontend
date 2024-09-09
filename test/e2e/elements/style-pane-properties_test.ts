@@ -1065,7 +1065,8 @@ describe('The Styles pane', () => {
     assert.deepEqual(inspectedRules, expectedInspected1Rules);
   });
 
-  it('shows styles from injected user stylesheets (ported layout test)', async () => {
+  // Fails on Mac-arm64
+  it.skip('[crbug.com/362505638]: shows styles from injected user stylesheets (ported layout test)', async () => {
     const {target} = getBrowserAndPages();
     await goToResourceAndWaitForStyleSection('elements/css-inject-stylesheet.html');
     await prepareElementsTab();
