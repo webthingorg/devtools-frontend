@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "2f56e62cbc90f196201f139f7e47af76bb0a9aee",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5c95b31_a1dc43bd",
+        "filename": "test/e2e/elements/style-pane-properties_test.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1069,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2024-09-09T08:20:00Z",
+      "side": 1,
+      "message": "Could be a skipOnPlatforms([\u0027mac\u0027],...",
+      "range": {
+        "startLine": 1068,
+        "startChar": 2,
+        "endLine": 1069,
+        "endChar": 10
+      },
+      "revId": "2f56e62cbc90f196201f139f7e47af76bb0a9aee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
