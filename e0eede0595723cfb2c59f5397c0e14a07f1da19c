@@ -37,6 +37,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "a8932a78_1b8833c3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-09-09T21:51:20Z",
+      "side": 1,
+      "message": "Thanks a lot Adriana for addressing the comments! LGTM. Sorry for the late +1, I\u0027m currently OOO since Friday and didn\u0027t get to have a look until now!",
+      "revId": "e0eede0595723cfb2c59f5397c0e14a07f1da19c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "2b1f3c83_94d63c97",
         "filename": "front_end/ui/legacy/UIUtils.ts",
         "patchSetId": 20
