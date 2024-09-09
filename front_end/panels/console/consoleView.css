@@ -395,6 +395,36 @@
   word-break: break-all;
 }
 
+.console-message-stack-trace-wrapper {
+  --override-display-stack-preview-toggle-link: none;
+
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.console-message-text .formatted-stack-frame:has(.ignore-list-link) {
+  display: var(--display-ignored-formatted-stack-frame);
+  opacity: 60%;
+}
+
+.console-message-stack-trace-wrapper:has(div > .stack-preview-container.show-hidden-rows) {
+  --display-ignored-formatted-stack-frame: inherit !important; /* stylelint-disable-line declaration-no-important */
+}
+
+.console-message-stack-trace-wrapper:has(.formatted-stack-frame .ignore-list-link):has(.formatted-stack-frame .devtools-link:not(.ignore-list-link)) {
+  --override-display-stack-preview-toggle-link: table-row;
+  --override-display-stack-preview-hidden-div: block;
+  --display-ignored-formatted-stack-frame: none;
+}
+
+.console-message-stack-trace-wrapper > .hidden-stack-trace {
+  display: var(--override-display-stack-preview-hidden-div, none);
+
+  --override-display-stack-preview-tbody: none;
+}
+
 .console-message-formatted-table {
   clear: both;
 }
@@ -436,13 +466,6 @@
 .console-object {
   white-space: pre-wrap;
   word-break: break-all;
-}
-
-.console-message-stack-trace-wrapper {
-  flex: 1 1 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
 }
 
 .console-message-stack-trace-wrapper > * {
