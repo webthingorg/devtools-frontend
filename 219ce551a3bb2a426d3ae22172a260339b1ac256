@@ -89,6 +89,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e7de187_8a75d161",
+        "filename": "front_end/panels/freestyler/components/ProvideFeedback.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-09-09T09:51:14Z",
+      "side": 1,
+      "message": "The small issue we found will be resolved in a separate CL",
+      "parentUuid": "5ea1af70_1164494e",
+      "revId": "219ce551a3bb2a426d3ae22172a260339b1ac256",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c5adc666_4cfe622f",
