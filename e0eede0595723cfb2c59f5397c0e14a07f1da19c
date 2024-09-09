@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "084535d2_27612c9d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-09T11:31:04Z",
+      "side": 1,
+      "message": "thanks, this LGTM!",
+      "revId": "e0eede0595723cfb2c59f5397c0e14a07f1da19c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "2b1f3c83_94d63c97",
         "filename": "front_end/ui/legacy/UIUtils.ts",
         "patchSetId": 20
