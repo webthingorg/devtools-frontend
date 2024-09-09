@@ -9,7 +9,6 @@ import {
   $$,
   assertNotNullOrUndefined,
   click,
-  clickElement,
   getBrowserAndPages,
   goToHtml,
   hover,
@@ -1072,23 +1071,7 @@ describe('The Styles pane', () => {
         await goToResourceAndWaitForStyleSection('elements/css-inject-stylesheet.html');
         await prepareElementsTab();
 
-        await waitForStyleRule('body');
-        await target.addScriptTag({
-          content: `
-      function injectStyleSheet(context) {
-          const styleSheet = "#main { color: red; border-style: solid; -webkit-border-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAQAAAC1+jfqAAAAiElEQVR42r2RsQrDMAxEBRdl8SDcX8lQPGg1GBI6lvz/h7QyRRXV0qUULwfvwZ1tenw5PxToRPWMC52eA9+WDnlh3HFQ/xBQl86NFYJqeGflkiogrOvVlIFhqURFVho3x1moGAa3deMs+LS30CAhBN5nNxeT5hbJ1zwmji2k+aF6NENIPf/hs54f0sZFUVAMigAAAABJRU5ErkJggg==) }  #iframeBody { background: red }";
-          const style = document.createElement('style');
-          style.textContent = styleSheet;
-          context.document.head.append(style);
-      }
-
-      injectStyleSheet(window);
-      function loadIframe() {
-          var iframe = document.createElement("iframe");
-          iframe.src = "css-inject-stylesheet-iframe-data.html";
-          document.getElementById("main").appendChild(iframe);
-      }`,
-        });
+        await target.evaluate('injectStyleSheet(window)');
 
         await waitForAndClickTreeElementWithPartialText('id=\u200B"main"');
         await waitForStyleRule('#main');
@@ -1131,10 +1114,16 @@ describe('The Styles pane', () => {
           },
         ];
         assert.deepEqual(inspectedRulesBefore, expectedInspectedRulesBefore);
-        await target.evaluate('loadIframe()');
+
+        await target.evaluate(async () => {
+          const iframe = document.createElement('iframe');
+          iframe.src = 'css-inject-stylesheet-iframe-data.html';
+          document.getElementById('main')?.appendChild(iframe);
+        });
+
+        // Expand the new injected iframe and trigger the injectStyleSheet at body onload.
         await expandSelectedNodeRecursively();
-        const iframeBody = await waitFor('onload', undefined, undefined, 'pierceShadowText');
-        await clickElement(iframeBody);
+        await waitForAndClickTreeElementWithPartialText('id=\u200B"iframeBody"');
         await waitForStyleRule('#iframeBody');
         const inspectedRulesAfter = await getDisplayedStyleRulesCompact();
         const expectedInspectedRulesAfter = [
