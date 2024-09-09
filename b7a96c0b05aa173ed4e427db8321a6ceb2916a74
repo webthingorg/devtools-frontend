@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f005b17f_84bb9cfd",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 221,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2024-09-09T13:11:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c0abf220_4e5ce5e4",
+      "range": {
+        "startLine": 221,
+        "startChar": 8,
+        "endLine": 221,
+        "endChar": 25
+      },
+      "revId": "b7a96c0b05aa173ed4e427db8321a6ceb2916a74",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a6c964dc_2f140b81",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-09-05T18:01:59Z",
       "side": 1,
       "message": "Visually this results in a floating button on the bottom. There should probably be some kind of horizontal divider, similar to the sources panel. And the button feels smaller than the one in the Sources panel.",
+      "range": {
+        "startLine": 246,
+        "startChar": 5,
+        "endLine": 246,
+        "endChar": 28
+      },
+      "revId": "b7a96c0b05aa173ed4e427db8321a6ceb2916a74",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b822be09_285551e1",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2024-09-09T13:11:35Z",
+      "side": 1,
+      "message": "I\u0027ve added an additional slot for the button in the class SplitView, and the button looks more consistent with other parts after the change.\nPlease have a look whether the method is OK.",
+      "parentUuid": "a6c964dc_2f140b81",
       "range": {
         "startLine": 246,
         "startChar": 5,
@@ -70,6 +118,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "220aecfc_d15dd47a",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 282,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2024-09-09T13:11:35Z",
+      "side": 1,
+      "message": "Ohh, that is right. Just updated.",
+      "parentUuid": "635fd038_7fb47305",
+      "range": {
+        "startLine": 282,
+        "startChar": 8,
+        "endLine": 282,
+        "endChar": 93
+      },
+      "revId": "b7a96c0b05aa173ed4e427db8321a6ceb2916a74",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6fbf52d1_2da2b71b",
@@ -83,6 +155,30 @@
       "writtenOn": "2024-09-05T18:01:59Z",
       "side": 1,
       "message": "Let\u0027s try to avoid this. I couldn\u0027t reproduce the error. In general, if you call an async function from sync code, you can put `void` in front: `void myAsyncFunction()`. You could also make `updateRuleSetDetails` async.",
+      "range": {
+        "startLine": 283,
+        "startChar": 5,
+        "endLine": 283,
+        "endChar": 73
+      },
+      "revId": "b7a96c0b05aa173ed4e427db8321a6ceb2916a74",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23693e6a_d859f9ac",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2024-09-09T13:11:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6fbf52d1_2da2b71b",
       "range": {
         "startLine": 283,
         "startChar": 5,
@@ -158,6 +254,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "62ef6513_953a2dd4",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsView.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2024-09-09T13:11:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d8bafbe2_52f29824",
+      "revId": "b7a96c0b05aa173ed4e427db8321a6ceb2916a74",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0ad72e3d_57171eb7",
@@ -219,6 +333,24 @@
           ]
         }
       ],
+      "revId": "b7a96c0b05aa173ed4e427db8321a6ceb2916a74",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a8b9763_5cabe1fe",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsView.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2024-09-09T13:11:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0ad72e3d_57171eb7",
       "revId": "b7a96c0b05aa173ed4e427db8321a6ceb2916a74",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

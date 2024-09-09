@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22bc3e72_1e02ac23",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 23
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2024-09-09T13:11:35Z",
+      "side": 1,
+      "message": "It seems that there are some tests failing currently. I\u0027ll update this CL to fix them if the current change looks OK.",
+      "revId": "a15dda289b333aa41fd8f3e4d6bd62da3ccb5b5f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

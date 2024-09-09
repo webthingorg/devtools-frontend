@@ -54,6 +54,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1184d98b_6bb1dfa2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2024-09-09T13:11:35Z",
+      "side": 1,
+      "message": "I\u0027ve moved the parsing logic to `front_end/panels/application/preloading/components/RuleSetDetailsView.ts`. Please have a look.",
+      "parentUuid": "505461b5_b1c68503",
+      "revId": "f0d43e4bde44fd1231bd31f5a7ff4129fb4e2e79",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "52125082_aeb0eb13",
