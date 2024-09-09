@@ -1,0 +1,39 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "514d5981_a74de346",
+        "filename": "front_end/panels/freestyler/FreestylerPanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-09-09T08:58:35Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this also use the translation?",
+      "fixSuggestions": [
+        {
+          "fixId": "b834e7e2_a617b124",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/freestyler/FreestylerPanel.ts",
+              "range": {
+                "startLine": 62,
+                "startChar": 0,
+                "endLine": 63,
+                "endChar": 0
+              },
+              "replacement": "      new UI.Toolbar.ToolbarButton(i18nString(UIStringsTemp.newChat), \u0027plus\u0027, i18nString(UIStringsTemp.newChat), \u0027freestyler.new-chat\u0027);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "5b7390ed5223d5bf95bd4dc091063a2e348343a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
