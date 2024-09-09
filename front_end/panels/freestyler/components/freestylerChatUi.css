@@ -206,8 +206,9 @@
       color: var(--sys-color-blue-bright);
     }
 
-    &.paused {
-      color: var(--sys-color-on-surface);
+    &.paused,
+    &.canceled {
+      color: var(--sys-color-on-surface-subtle);
     }
   }
 
@@ -216,6 +217,7 @@
     grid-template-columns: auto 1fr auto;
     padding: var(--sys-size-3);
     line-height: var(--sys-size-9);
+    gap: var(--sys-size-3);
 
     .title {
       text-overflow: ellipsis;
