@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5ea1af70_1164494e",
+        "filename": "front_end/panels/freestyler/components/ProvideFeedback.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-09T08:49:06Z",
+      "side": 1,
+      "message": "Yes, I updated `aidaAvailability.disallowLogging` to be `false` manually so it\u0027s as if the host config said the `disallowLogging` is false.",
+      "parentUuid": "425bc5c8_ccee6fe0",
+      "revId": "219ce551a3bb2a426d3ae22172a260339b1ac256",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c5adc666_4cfe622f",
         "filename": "front_end/panels/freestyler/components/provideFeedback.css",
         "patchSetId": 1
