@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e730aa2_7c7c0fa2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-09-09T16:21:29Z",
+      "side": 1,
+      "message": "nit: between closest visible parents",
+      "range": {
+        "startLine": 9,
+        "startChar": 57,
+        "endLine": 10,
+        "endChar": 14
+      },
+      "revId": "3670fb9702fec3cd49d9f56ad7fc517b98d6b258",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "1c8f4660_04dd7004",
@@ -14,6 +37,29 @@
       "writtenOn": "2024-09-09T14:41:29Z",
       "side": 1,
       "message": "ptal",
+      "revId": "3670fb9702fec3cd49d9f56ad7fc517b98d6b258",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8328d77_bd0254a5",
+        "filename": "front_end/panels/timeline/overlays/OverlaysImpl.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1145,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-09-09T16:21:29Z",
+      "side": 1,
+      "message": "great catch!",
+      "range": {
+        "startLine": 1145,
+        "startChar": 18,
+        "endLine": 1145,
+        "endChar": 71
+      },
       "revId": "3670fb9702fec3cd49d9f56ad7fc517b98d6b258",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
