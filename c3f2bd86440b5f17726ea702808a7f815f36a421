@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb154829_a3382a61",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-09T13:34:36Z",
+      "side": 1,
+      "message": "I\u0027m not sure about the scrolling behavior in the code area since it might be annoying for users if it steals focus when they are focusing for the steps.\n\nFor now, we can move forward with this UX and I\u0027ll clarify this with Peter; then we can update it. So, think of this as part 1.",
+      "revId": "c3f2bd86440b5f17726ea702808a7f815f36a421",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
