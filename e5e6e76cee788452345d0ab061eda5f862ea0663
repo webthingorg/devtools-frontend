@@ -33,6 +33,23 @@
       "message": "Nit: When using LitHtml.nothing you don\u0027t need to wrap it in LitHtml.html.\nAnother nit: I would remove the suffix of `Html`, I think having the correct type tells us what it is already.",
       "revId": "e5e6e76cee788452345d0ab061eda5f862ea0663",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7171b127_91efd7c4",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-09-09T11:09:59Z",
+      "side": 1,
+      "message": "Nit: its better to have the opening tag `\u003e` and the closing tag `\u003c/` together \nso `\u003e\u003c/${Spinners.Spinner.Spinner.litTagName}\u003e` is one line. As that indicates that there is no child elements else there may be some spaces (as child node) that brake certain behavior (though I don\u0027t think this applies here).",
+      "revId": "e5e6e76cee788452345d0ab061eda5f862ea0663",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
