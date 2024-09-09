@@ -16,6 +16,40 @@
       "message": "PTAL",
       "revId": "43c55b72db799fab8d2b37c2939edf08df09af7b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bbbfa7c3_a19a2811",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-09T14:54:06Z",
+      "side": 1,
+      "message": "LGTM with 1 nit :)",
+      "revId": "43c55b72db799fab8d2b37c2939edf08df09af7b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd9ae6e9_e3a9641c",
+        "filename": "front_end/panels/explain/components/ConsoleInsight.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 861,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-09T14:54:06Z",
+      "side": 1,
+      "message": "Since we only use `settingsLink` inside the block where if condition holds, can we move to that block?",
+      "revId": "43c55b72db799fab8d2b37c2939edf08df09af7b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
