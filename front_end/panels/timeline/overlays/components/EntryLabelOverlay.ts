@@ -214,14 +214,15 @@ Otherwise, the entry label overlay object only gets repositioned.
     // Finish drawing in middle of the connector container.
     connector.setAttribute('x2', EntryLabelOverlay.LABEL_AND_CONNECTOR_SHIFT_LENGTH.toString());
     connector.setAttribute('y2', EntryLabelOverlay.LABEL_CONNECTOR_HEIGHT.toString());
-    connector.setAttribute('stroke', 'black');
+    const borderColor = ThemeSupport.ThemeSupport.instance().getComputedValue(`--color-text-primary`);
+    connector.setAttribute('stroke', borderColor);
     connector.setAttribute('stroke-width', '2');
 
     // Draw the circle at the bottom of the connector
     circle.setAttribute('cx', EntryLabelOverlay.LABEL_AND_CONNECTOR_SHIFT_LENGTH.toString());
     circle.setAttribute('cy', EntryLabelOverlay.LABEL_CONNECTOR_HEIGHT.toString());
     circle.setAttribute('r', '3');
-    circle.setAttribute('fill', 'black');
+    circle.setAttribute('fill', borderColor);
   }
 
   #drawLabel(initialLabel?: string): void {
