@@ -834,28 +834,6 @@ export function dumpDeepInnerHTML(node) {
 }
 
 /**
- * @param {!Node} node
- * @return {string}
- */
-export function deepTextContent(node) {
-  if (!node) {
-    return '';
-  }
-  if (node.nodeType === Node.TEXT_NODE && node.nodeValue) {
-    return !node.parentElement || node.parentElement.nodeName !== 'STYLE' ? node.nodeValue : '';
-  }
-  let res = '';
-  const children = node.childNodes;
-  for (let i = 0; i < children.length; ++i) {
-    res += deepTextContent(children[i]);
-  }
-  if (node.shadowRoot) {
-    res += deepTextContent(node.shadowRoot);
-  }
-  return res;
-}
-
-/**
  * @param {*} value
  * @param {!TestRunner.CustomFormatters=} customFormatters
  * @param {string=} prefix
