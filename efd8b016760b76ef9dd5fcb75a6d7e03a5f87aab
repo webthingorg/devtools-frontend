@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b7e6999_be66f2b4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-09T14:41:29Z",
+      "side": 1,
+      "message": "tal",
+      "revId": "efd8b016760b76ef9dd5fcb75a6d7e03a5f87aab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8db1a2c0_896407a2",
+        "filename": "front_end/panels/timeline/EntriesFilter.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-09T14:41:29Z",
+      "side": 1,
+      "message": "drive-by to fix typo and rename for clarity",
+      "range": {
+        "startLine": 110,
+        "startChar": 2,
+        "endLine": 110,
+        "endChar": 18
+      },
+      "revId": "efd8b016760b76ef9dd5fcb75a6d7e03a5f87aab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
