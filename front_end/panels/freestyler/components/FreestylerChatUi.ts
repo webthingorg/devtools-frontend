@@ -11,6 +11,7 @@ import * as Marked from '../../../third_party/marked/marked.js';
 import * as Buttons from '../../../ui/components/buttons/buttons.js';
 import * as IconButton from '../../../ui/components/icon_button/icon_button.js';
 import * as MarkdownView from '../../../ui/components/markdown_view/markdown_view.js';
+import * as Spinners from '../../../ui/components/spinners/spinners.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 import * as VisualLogging from '../../../ui/visual_logging/visual_logging.js';
 
@@ -370,25 +371,30 @@ export class FreestylerChatUi extends HTMLElement {
   #renderStep(step: CollapsibleStep, options: {isLast: boolean}): LitHtml.LitTemplate {
     const isLoading = this.#props.isLoading && options.isLast && !this.#props.confirmSideEffectDialog;
     let iconName: string = 'checkmark';
+    let badgeHtml: LitHtml.TemplateResult = LitHtml.html`${LitHtml.nothing}`;
     if (options.isLast && this.#props.confirmSideEffectDialog) {
       iconName = 'pause';
     } else if (isLoading) {
-      // TODO: Use correct loading image
-      iconName = 'dots-horizontal';
+      iconName = '';
+      // clang-format off
+      badgeHtml = LitHtml.html`<${Spinners.Spinner.Spinner.litTagName}>
+        </${Spinners.Spinner.Spinner.litTagName}>`;
+      // clang-format on
     }
 
-    const iconClasses = LitHtml.Directives.classMap({
-      'loading': isLoading,
-    });
+    if (iconName !== '') {
+      // clang-format off
+      badgeHtml = LitHtml.html`<${IconButton.Icon.Icon.litTagName}
+          .name=${iconName}>
+        </${IconButton.Icon.Icon.litTagName}>`;
+      // clang-format on
+    }
 
     // clang-format off
     return LitHtml.html`<details class="thought" open>
       <summary>
-        <${IconButton.Icon.Icon.litTagName}
-          class=${iconClasses}
-          .name=${iconName}
-        ></${IconButton.Icon.Icon.litTagName}>
-          ${this.#renderTitle(step)}
+        ${badgeHtml}
+        ${this.#renderTitle(step)}
       </summary>
       ${this.#renderStepDetails(step, {
         isLast: options.isLast,
