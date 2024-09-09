@@ -272,13 +272,28 @@
 .empty-state-container {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  height: 100%;
   align-items: center;
   justify-content: center;
-  gap: 4px;
-  font-size: 16px;
-  opacity: 70%;
+  font: var(--sys-typescale-headline4);
+  gap: var(--sys-size-10);
+  height: 100%;
+
+  .header {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sys-size-5);
+  }
+
+  .suggestions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sys-size-5);
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 .action-result {
