@@ -135,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f50bcc3_02f20b17",
+        "filename": "front_end/core/sdk/EnhancedTracesParser.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-09T20:03:51Z",
+      "side": 1,
+      "message": "fyi Rob. \nI\u0027m less of a TS nerd than many, so I\u0027m happy to defer to you on these matters.   (eg I couldn\u0027t tell you the difference between `unknown` vs `any` :) \n\nWhen I tried it, TS didn\u0027t care when all the `in` checks were removed, but.. yeah it looks like they\u0027d matter in the `unknown` case.",
+      "parentUuid": "1b6bec76_dac68991",
+      "range": {
+        "startLine": 163,
+        "startChar": 0,
+        "endLine": 165,
+        "endChar": 5
+      },
+      "revId": "01ee54a26284a8dc8e2680fbef280c04d64591d6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f6ad6da7_c4b3c3d6",

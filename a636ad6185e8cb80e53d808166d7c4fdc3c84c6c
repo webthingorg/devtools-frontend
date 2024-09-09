@@ -139,6 +139,41 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3cb38c3b_5102b3bb",
+        "filename": "front_end/core/sdk/RehydratingObject.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-09T20:03:51Z",
+      "side": 1,
+      "message": "good call. Now that I see they\u0027re fairly different from the SDK ones.. a clear distinct name sg.\n\nI like `Rehydrating` as a prefix.",
+      "parentUuid": "33f1dc26_c30a2455",
+      "revId": "a636ad6185e8cb80e53d808166d7c4fdc3c84c6c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55268644_9efa88c0",
+        "filename": "front_end/core/sdk/RehydratingObject.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-09T20:03:51Z",
+      "side": 1,
+      "message": "Random idea for both of you.  And feel free to dismiss it :) \n\nWould it be preferable to extend these types off of SDK.Script.Script, SDK.RuntimeModel.ExecutionContext, SDK.Target.Target, etc.. and using Omit,Exclude,Extract etc to filter down to the ones we want?\n\nWhile these types are like.. minimal enough to convince the SDK that everything is real..  I wonder if sharing some of the type info would defend against a future refactor leaving them out by accident.\n\nBut.. admittedly these types are a bit distinct from the true SDK ones, so.. maybe extending those types is a bit of a stretch.",
+      "revId": "a636ad6185e8cb80e53d808166d7c4fdc3c84c6c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "74cbd81f_beb0bbb9",
         "filename": "front_end/core/sdk/sdk.ts",
         "patchSetId": 4
