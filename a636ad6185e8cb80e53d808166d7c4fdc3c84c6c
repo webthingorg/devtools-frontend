@@ -1,0 +1,157 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e305846_130878bd",
+        "filename": "front_end/core/sdk/EnhancedTracesParser.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2024-09-09T17:56:18Z",
+      "side": 1,
+      "message": "We should define a local interface here instead of using `any`. Interfaces are not emitted into JS so they\u0027re free. Would really like it if we didn\u0027t need to duplicate them, though, so it might be appropriate to migrate interfaces here and then re-export the types from models/tracing which is where I suppose they are presently defined.\n\nWe don\u0027t need to migrate everything, just a narrow slice.",
+      "revId": "a636ad6185e8cb80e53d808166d7c4fdc3c84c6c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55e2bf8e_1cd67088",
+        "filename": "front_end/core/sdk/EnhancedTracesParser.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2024-09-09T17:56:18Z",
+      "side": 1,
+      "message": "How come all of these are public?",
+      "revId": "a636ad6185e8cb80e53d808166d7c4fdc3c84c6c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e64dfaf9_e88ef441",
+        "filename": "front_end/core/sdk/EnhancedTracesParser.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2024-09-09T17:56:18Z",
+      "side": 1,
+      "message": "This should absolutely not be `any`; one might be `unknown[]` but see my above comment about interfaces.",
+      "revId": "a636ad6185e8cb80e53d808166d7c4fdc3c84c6c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1bda961a_66329497",
+        "filename": "front_end/core/sdk/EnhancedTracesParser.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2024-09-09T17:56:18Z",
+      "side": 1,
+      "message": "Please don\u0027t use `console.error` directly. Throw a `UserVisibleError` (from platform.js) with a localized error message.\n\nAlso you concatenate `e` without a space. This would have been more obvious if you\u0027d had to write a placeholder in a UI string. ;)",
+      "revId": "a636ad6185e8cb80e53d808166d7c4fdc3c84c6c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c985247_b6bc5d1c",
+        "filename": "front_end/core/sdk/EnhancedTracesParser.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2024-09-09T17:56:18Z",
+      "side": 1,
+      "message": "This looks suspect",
+      "revId": "a636ad6185e8cb80e53d808166d7c4fdc3c84c6c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9634ac11_34c7e343",
+        "filename": "front_end/core/sdk/EnhancedTracesParser.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2024-09-09T17:56:18Z",
+      "side": 1,
+      "message": "`scriptId` has a type defined in SDK",
+      "revId": "a636ad6185e8cb80e53d808166d7c4fdc3c84c6c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99e089ea_f14e6b06",
+        "filename": "front_end/core/sdk/EnhancedTracesParser.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2024-09-09T17:56:18Z",
+      "side": 1,
+      "message": "Use `unknown` for type guards and `return \u0027cat\u0027 in event \u0026\u0026 event.cat \u003d\u003d\u003d ...`.",
+      "revId": "a636ad6185e8cb80e53d808166d7c4fdc3c84c6c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "33f1dc26_c30a2455",
+        "filename": "front_end/core/sdk/RehydratingObject.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2024-09-09T17:56:18Z",
+      "side": 1,
+      "message": "Not sure if Paul has given this feedback, but because we already have types `Target` and (I believe) `ExecutionContext`) in SDK, I suggest prefixing all of these with `Historical`, e.g., `HistoricalTarget`. (Or `RehydratedTarget`). Something to disambiguate it from the live versions. Anything coming from the trace should be prefixed the same way.",
+      "revId": "a636ad6185e8cb80e53d808166d7c4fdc3c84c6c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74cbd81f_beb0bbb9",
+        "filename": "front_end/core/sdk/sdk.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1329477
+      },
+      "writtenOn": "2024-09-09T17:56:18Z",
+      "side": 1,
+      "message": "The types defined in `RehydratingObject.js` are not exported, but very likely need to be able to be uttered in other modules.",
+      "revId": "a636ad6185e8cb80e53d808166d7c4fdc3c84c6c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
