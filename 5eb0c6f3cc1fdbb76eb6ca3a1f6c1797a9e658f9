@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4be9802d_f073e705",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-09T19:27:49Z",
+      "side": 1,
+      "message": "fyi this is a bit outdated now :) \nit\u0027s a very handy CL to me, so thanks",
+      "revId": "5eb0c6f3cc1fdbb76eb6ca3a1f6c1797a9e658f9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
