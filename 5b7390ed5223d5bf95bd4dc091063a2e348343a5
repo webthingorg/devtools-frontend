@@ -34,6 +34,24 @@
       ],
       "revId": "5b7390ed5223d5bf95bd4dc091063a2e348343a5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc61e572_9c4514a6",
+        "filename": "front_end/panels/freestyler/FreestylerPanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-09T09:55:27Z",
+      "side": 1,
+      "message": "Ouch, missed it 😬\n\nUpdated it, thanks for finding it :)",
+      "parentUuid": "514d5981_a74de346",
+      "revId": "5b7390ed5223d5bf95bd4dc091063a2e348343a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
