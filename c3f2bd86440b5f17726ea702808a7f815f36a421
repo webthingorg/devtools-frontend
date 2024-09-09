@@ -50,6 +50,24 @@
       "message": "Let\u0027s use tokens `--sys-shape-corner-extra-small`",
       "revId": "c3f2bd86440b5f17726ea702808a7f815f36a421",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8ca0cb2_3cbbf71d",
+        "filename": "front_end/ui/components/markdown_view/codeBlock.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-09T13:46:31Z",
+      "side": 1,
+      "message": "Done! :)",
+      "parentUuid": "6bd2a4e6_0fc430cc",
+      "revId": "c3f2bd86440b5f17726ea702808a7f815f36a421",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
