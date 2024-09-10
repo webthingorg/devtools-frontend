@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dabc0154_f9838dea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-10T13:27:45Z",
+      "side": 1,
+      "message": "LGTM with comments related to stripping `QUERY: `, `ANSWER: ` etc parts :)",
+      "revId": "8b7603ff450db418043c2ccb4a3609bc012f96ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2890859_87cf44ce",
+        "filename": "front_end/panels/freestyler/DrJonesNetworkAgent.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-10T13:27:45Z",
+      "side": 1,
+      "message": "Let\u0027s add a new line before `## Example session`",
+      "revId": "8b7603ff450db418043c2ccb4a3609bc012f96ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4ca3164_ed4bc270",
+        "filename": "front_end/panels/freestyler/DrJonesNetworkAgent.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-10T13:27:45Z",
+      "side": 1,
+      "message": "We don\u0027t need the \"QUERY: \" and \"ANSWER: \" tags I think, let\u0027s remove them and use the message received from the LLM directly as the answer.",
+      "revId": "8b7603ff450db418043c2ccb4a3609bc012f96ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80b86df7_b2310f58",
+        "filename": "front_end/panels/freestyler/DrJonesNetworkAgent.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-10T13:27:45Z",
+      "side": 1,
+      "message": "We don\u0027t need this `parseResponse` after removing the tags, we can directly use the `response` text as the answer.",
+      "revId": "8b7603ff450db418043c2ccb4a3609bc012f96ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
