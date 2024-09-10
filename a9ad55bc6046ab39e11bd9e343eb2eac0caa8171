@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90ed8bca_2f604b7d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-09-10T12:32:20Z",
+      "side": 1,
+      "message": "Please add a `Bug:` or `Fixed:` line.",
+      "revId": "a9ad55bc6046ab39e11bd9e343eb2eac0caa8171",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c587aa9_56e2d47d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-09-10T12:32:20Z",
+      "side": 1,
+      "message": "LGTM modulo missing `Bug:` line. I love the simplicity of this solution!",
+      "revId": "a9ad55bc6046ab39e11bd9e343eb2eac0caa8171",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
