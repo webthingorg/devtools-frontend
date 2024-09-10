@@ -71,6 +71,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7dad3509_a2502af8",
+        "filename": "front_end/core/common/SettingRegistration.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-09-10T14:02:26Z",
+      "side": 1,
+      "message": "It refers to the setting which this registration belongs to, so I think `the` is correct here.",
+      "parentUuid": "788bd999_d43c8687",
+      "revId": "4973aeaac44c07b61284d88c190dabc0fed29730",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5f918ab7_76f07c8e",
@@ -120,6 +138,24 @@
       "side": 1,
       "message": "The list of size tokens is here: crsrc.org/c/third_party/devtools-frontend/src/front_end/ui/legacy/designTokens.css;l\u003d17\n\n2px should be `--sys-size-2` and 16px - `--sys-size-8`",
       "parentUuid": "35340094_5902124b",
+      "revId": "4973aeaac44c07b61284d88c190dabc0fed29730",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b8e3c82_8c19e19d",
+        "filename": "front_end/ui/components/settings/settingCheckbox.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-09-10T14:02:26Z",
+      "side": 1,
+      "message": "Ack, will sent you a follow up CL.",
+      "parentUuid": "4d61777a_d8c5d4b5",
       "revId": "4973aeaac44c07b61284d88c190dabc0fed29730",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
