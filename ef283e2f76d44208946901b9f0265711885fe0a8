@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f6876060_b85812b7",
+        "filename": "front_end/panels/timeline/overlays/components/EntryLabelOverlay.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-09-10T12:19:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "92c39ad9_57700469",
+      "range": {
+        "startLine": 124,
+        "startChar": 37,
+        "endLine": 124,
+        "endChar": 39
+      },
+      "revId": "ef283e2f76d44208946901b9f0265711885fe0a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e4095b37_39f12d3e",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-09-10T08:55:01Z",
       "side": 1,
       "message": "nit: redundant",
+      "range": {
+        "startLine": 212,
+        "startChar": 37,
+        "endLine": 212,
+        "endChar": 40
+      },
+      "revId": "ef283e2f76d44208946901b9f0265711885fe0a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf297c58_477c9ae7",
+        "filename": "front_end/panels/timeline/overlays/components/TimeRangeOverlay.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-09-10T12:19:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4095b37_39f12d3e",
       "range": {
         "startLine": 212,
         "startChar": 37,
