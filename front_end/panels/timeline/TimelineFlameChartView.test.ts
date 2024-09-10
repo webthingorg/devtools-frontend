@@ -23,6 +23,8 @@ class MockViewDelegate implements Timeline.TimelinePanel.TimelineModeViewDelegat
   }
   highlightEvent(_event: TraceEngine.Types.TraceEvents.TraceEventData|null): void {
   }
+  navigateToBreadcrumbThatIncludesWindow(_window: TraceEngine.Types.Timing.TraceWindowMicroSeconds): void {
+  }
   element = document.createElement('div');
 }
 

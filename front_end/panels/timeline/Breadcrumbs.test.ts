@@ -94,6 +94,54 @@ describe('Timeline breadcrumbs', () => {
         [initialBreadcrumb, breadcrumb1, breadcrumb2]);
   });
 
+  it('can activate the smallest breadcrumb that includes provided window', () => {
+    const {initialBreadcrumb, breadcrumb1, breadcrumb2} = nestedBreadcrumbs();
+
+    TraceBounds.TraceBounds.BoundsManager.instance({forceNew: true}).resetWithNewBounds(initialBreadcrumb.window);
+    const crumbs = new TimelineComponents.Breadcrumbs.Breadcrumbs(initialBreadcrumb.window);
+    crumbs.add(breadcrumb1.window);
+    crumbs.add(breadcrumb2.window);
+
+    // Last added breadcrumb should be active
+    assert.deepEqual(crumbs.activeBreadcrumb, breadcrumb2);
+
+    // Create trace window that is outside of the current active breadcrumb, but is within the bounds of 'breadcrumb1'
+    const traceWindowOutsideCurrentBreadcrumb: TraceEngine.Types.Timing.TraceWindowMicroSeconds = {
+      min: TraceEngine.Types.Timing.MicroSeconds(4000),
+      max: TraceEngine.Types.Timing.MicroSeconds(8000),
+      range: TraceEngine.Types.Timing.MicroSeconds(4000),
+    };
+
+    crumbs.navigateToBreadcrumbThatIncludesWindowIfActiveDoesNot(traceWindowOutsideCurrentBreadcrumb);
+
+    // Make sure breadcrumb 1 is now activated
+    assert.deepEqual(crumbs.activeBreadcrumb, breadcrumb1);
+  });
+
+  it('does nothing if the window to navigate to is already within the active breadcrumb', () => {
+    const {initialBreadcrumb, breadcrumb1, breadcrumb2} = nestedBreadcrumbs();
+
+    TraceBounds.TraceBounds.BoundsManager.instance({forceNew: true}).resetWithNewBounds(initialBreadcrumb.window);
+    const crumbs = new TimelineComponents.Breadcrumbs.Breadcrumbs(initialBreadcrumb.window);
+    crumbs.add(breadcrumb1.window);
+    crumbs.add(breadcrumb2.window);
+
+    // Last added breadcrumb should be active
+    assert.deepEqual(crumbs.activeBreadcrumb, breadcrumb2);
+
+    // Create trace window that is winthin the active breadcrumb window
+    const traceWindowWithinCurrentBreadcrumb: TraceEngine.Types.Timing.TraceWindowMicroSeconds = {
+      min: TraceEngine.Types.Timing.MicroSeconds(5000),
+      max: TraceEngine.Types.Timing.MicroSeconds(5500),
+      range: TraceEngine.Types.Timing.MicroSeconds(500),
+    };
+
+    crumbs.navigateToBreadcrumbThatIncludesWindowIfActiveDoesNot(traceWindowWithinCurrentBreadcrumb);
+
+    // Make sure breadcrumb 2 is still activated
+    assert.deepEqual(crumbs.activeBreadcrumb, breadcrumb2);
+  });
+
   it('can overwrite child breadcrumbs when a new one is added', () => {
     const {initialBreadcrumb, breadcrumb1, breadcrumb2} = nestedBreadcrumbs();
 
