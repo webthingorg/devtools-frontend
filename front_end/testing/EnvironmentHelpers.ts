@@ -235,7 +235,7 @@ export async function initializeGlobalVars({reset = true} = {}) {
     createSettingValue(
         Common.Settings.SettingCategory.NONE, 'custom-network-conditions', [], Common.Settings.SettingType.ARRAY),
     createSettingValue(
-        Common.Settings.SettingCategory.APPEARANCE, 'ui-theme', 'systemPreferred', Common.Settings.SettingType.ENUM),
+        Common.Settings.SettingCategory.APPEARANCE, 'ui-theme', 'auto', Common.Settings.SettingType.ENUM),
     createSettingValue(
         Common.Settings.SettingCategory.APPEARANCE, 'language', 'en-US', Common.Settings.SettingType.ENUM),
     createSettingValue(
@@ -319,7 +319,7 @@ export async function initializeGlobalVars({reset = true} = {}) {
       {forceNew: true, win: window, frontendHost: Host.InspectorFrontendHost.InspectorFrontendHostInstance});
 
   // Initialize theme support and context menus.
-  Common.Settings.Settings.instance().createSetting('uiTheme', 'systemPreferred');
+  Common.Settings.Settings.instance().createSetting('uiTheme', 'auto');
   UI.UIUtils.initializeUIUtils(document);
 }
 

@@ -1108,9 +1108,9 @@ export class VersionController {
   }
 
   private updateVersionFrom27To28(): void {
-    const setting = Settings.instance().createSetting('uiTheme', 'systemPreferred');
-    if (setting.get() === 'default') {
-      setting.set('systemPreferred');
+    const setting = Settings.instance().createSetting('uiTheme', 'auto');
+    if (setting.get() === 'light') {
+      setting.set('auto');
     }
   }
 

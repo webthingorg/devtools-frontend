@@ -42,7 +42,7 @@ let themeSupportInstance: ThemeSupport;
 const themeValueByTargetByName = new Map<Element|null, Map<string, string>>();
 
 export class ThemeSupport extends EventTarget {
-  private themeNameInternal = 'default';
+  private themeNameInternal = 'light';
   private customSheets: Set<string> = new Set();
   private computedStyleOfHTML = Common.Lazy.lazy(() => window.getComputedStyle(document.documentElement));
 
@@ -142,7 +142,7 @@ export class ThemeSupport extends EventTarget {
   }
 
   hasTheme(): boolean {
-    return this.themeNameInternal !== 'default';
+    return this.themeNameInternal !== 'light';
   }
 
   themeName(): string {
@@ -179,9 +179,9 @@ export class ThemeSupport extends EventTarget {
 
   #applyThemeToDocument(document: Document): void {
     const isForcedColorsMode = window.matchMedia('(forced-colors: active)').matches;
-    const systemPreferredTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+    const systemPreferredTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 
-    const useSystemPreferred = this.setting.get() === 'systemPreferred' || isForcedColorsMode;
+    const useSystemPreferred = this.setting.get() === 'auto' || isForcedColorsMode;
     this.themeNameInternal = useSystemPreferred ? systemPreferredTheme : this.setting.get();
     document.documentElement.classList.toggle('theme-with-dark-background', this.themeNameInternal === 'dark');
 

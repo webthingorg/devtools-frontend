@@ -75,9 +75,9 @@ const UIStrings = {
    */
   switchToBrowserPreferredColor: 'Switch to browser\'s preferred color theme',
   /**
-   *@description A drop-down menu option to switch to the browser's preferred color theme
+   *@description A drop-down menu option to switch to the same (light or dark) theme as the browser
    */
-  browserPreference: 'Browser preference',
+  autoTheme: 'Auto',
   /**
    *@description Title of a setting under the Appearance category that can be invoked through the Command Menu
    */
@@ -583,18 +583,18 @@ Common.Settings.registerSettingExtension({
   title: i18nLazyString(UIStrings.theme),
   settingName: 'ui-theme',
   settingType: Common.Settings.SettingType.ENUM,
-  defaultValue: 'systemPreferred',
+  defaultValue: 'auto',
   reloadRequired: false,
   options: [
     {
       title: i18nLazyString(UIStrings.switchToBrowserPreferredColor),
-      text: i18nLazyString(UIStrings.browserPreference),
-      value: 'systemPreferred',
+      text: i18nLazyString(UIStrings.autoTheme),
+      value: 'auto',
     },
     {
       title: i18nLazyString(UIStrings.switchToLightTheme),
       text: i18nLazyString(UIStrings.lightCapital),
-      value: 'default',
+      value: 'light',
     },
     {
       title: i18nLazyString(UIStrings.switchToDarkTheme),

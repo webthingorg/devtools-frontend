@@ -35,7 +35,7 @@ beforeEach(() => {
 
   // Some unit tests exercise code that assumes a ThemeSupport instance is available.
   // Run this in a beforeEach in case an individual test overrides it.
-  const setting = createFakeSetting('theme', 'default');
+  const setting = createFakeSetting('theme', 'light');
   ThemeSupport.ThemeSupport.instance({forceNew: true, setting});
 
   startTrackingAsyncActivity();

@@ -10,7 +10,7 @@ import * as ThemeSupport from './theme_support.js';
 describeWithEnvironment('ThemeSupport', () => {
   let themeSupport: ThemeSupport.ThemeSupport;
   beforeEach(() => {
-    const setting = createFakeSetting('theme', 'default');
+    const setting = createFakeSetting('theme', 'light');
     themeSupport = ThemeSupport.ThemeSupport.instance({forceNew: true, setting});
   });
 
