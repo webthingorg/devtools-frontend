@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f8ed1e8_221d94c3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-09-10T14:14:39Z",
+      "side": 1,
+      "message": "Kateryna, PTAL!\nPeter suggested that I introduce a new app-color for card background to fix the background color in dark mode.",
+      "revId": "bd47f1cd23a382b24759efa76cbda54453652dd9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
