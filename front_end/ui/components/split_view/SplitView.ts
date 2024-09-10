@@ -185,6 +185,7 @@ export class SplitView extends HTMLElement {
             <slot name="main"></slot>
             <div id="resizer" @mousedown=${this.#onMouseDown}></div>
             <slot name="sidebar"></slot>
+            <slot name="bottom"></slot>
           </div>
         </div>
       `,

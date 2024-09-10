@@ -17,6 +17,7 @@ const coordinator = Coordinator.RenderCoordinator.RenderCoordinator.instance();
 async function renderRuleSetDetailsView(data: PreloadingComponents.RuleSetDetailsView.RuleSetDetailsViewData):
     Promise<HTMLElement> {
   const component = new PreloadingComponents.RuleSetDetailsView.RuleSetDetailsView();
+  component.shouldPrettyPrint = false;
   component.data = data;
   renderElementIntoDOM(component);
   assert.isNotNull(component.shadowRoot);
