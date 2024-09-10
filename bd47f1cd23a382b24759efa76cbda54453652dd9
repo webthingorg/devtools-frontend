@@ -39,6 +39,30 @@
       },
       "revId": "bd47f1cd23a382b24759efa76cbda54453652dd9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "086e905c_1f69cc3a",
+        "filename": "front_end/ui/legacy/themeColors.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-09-10T14:35:30Z",
+      "side": 1,
+      "message": "I see, thanks, done!",
+      "parentUuid": "65d118f0_12ac0d8e",
+      "range": {
+        "startLine": 382,
+        "startChar": 35,
+        "endLine": 382,
+        "endChar": 53
+      },
+      "revId": "bd47f1cd23a382b24759efa76cbda54453652dd9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
