@@ -57,6 +57,30 @@
       ],
       "revId": "11bf665a448b37c3cf4803a8d58e9983380ee428",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09f5a11a_c7128e80",
+        "filename": "front_end/panels/network/network-meta.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-09-10T10:50:42Z",
+      "side": 1,
+      "message": "Yes, jec@ will take of that.",
+      "parentUuid": "63096c88_ff9e2829",
+      "range": {
+        "startLine": 374,
+        "startChar": 10,
+        "endLine": 374,
+        "endChar": 46
+      },
+      "revId": "11bf665a448b37c3cf4803a8d58e9983380ee428",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
