@@ -147,7 +147,6 @@
   border-top: 1px solid var(--sys-color-divider);
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 header {
