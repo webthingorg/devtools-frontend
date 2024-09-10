@@ -16,6 +16,23 @@
       "message": "Fixed by removing CorsOptIn from NetworkRequest.ts",
       "revId": "59e2c0026616a08f7711ead82bcabd6a9b2ba559",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4138ab77_105ad9cd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-09-10T10:26:48Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "59e2c0026616a08f7711ead82bcabd6a9b2ba559",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
