@@ -18,6 +18,8 @@ devtools_module("extensions") {
     "LanguageExtensionEndpoint.ts",
     "RecorderExtensionEndpoint.ts",
     "RecorderPluginManager.ts",
+    "SourceMapServerExtensionEndpoint.ts",
+    "SourceMapServerPluginManager.ts",
   ]
 
   deps = [

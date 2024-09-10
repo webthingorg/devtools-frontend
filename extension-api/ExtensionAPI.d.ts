@@ -107,6 +107,7 @@ export namespace Chrome {
       languageServices: LanguageExtensions;
       recorder: RecorderExtensions;
       performance: Performance;
+      debugger: DebuggerExtensions;
     }
 
     export interface ExperimentalDevToolsAPI {
@@ -176,6 +177,14 @@ export namespace Chrome {
       linearMemoryAddress?: number;
       linearMemorySize?: number;
       hasChildren: boolean;
+    }
+
+    export interface SourceMapServerExtensionRequest {
+      sourceURL: string;
+    }
+
+    export interface SourceMapServerExtensionPlugin {
+      loadSourceMap(sourceMapServerRequest: SourceMapServerExtensionRequest): Promise<string>;
     }
 
     /**
@@ -307,6 +316,15 @@ export namespace Chrome {
     export interface Performance {
       onProfilingStarted: EventSink<() => unknown>;
       onProfilingStopped: EventSink<() => unknown>;
+    }
+
+    export interface DebuggerExtensions {
+      sourceMapServerExtensions: SourceMapServerExtensions;
+    }
+
+    export interface SourceMapServerExtensions {
+      registerSourceMapServerPlugin(plugin: SourceMapServerExtensionPlugin, pluginName: string): Promise<void>;
+      unregisterSourceMapServerPlugin(plugin: SourceMapServerExtensionPlugin): Promise<void>;
     }
 
     export interface Chrome {
