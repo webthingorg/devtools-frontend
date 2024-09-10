@@ -32,6 +32,11 @@ const UIStrings = {
    */
   filterAllPreloads: 'All speculative loads',
   /**
+   *@description Dropdown subtitle for filtering preloading attempts by rule set
+   *             when there are no rule sets in the page.
+   */
+  noRuleSets: 'no rule sets',
+  /**
    *@description Text in grid: Rule set is valid
    */
   validityValid: 'Valid',
@@ -110,10 +115,9 @@ class PreloadingUIUtils {
       SDK.PreloadingModel.PreloadingStatus.FAILURE,
     ];
 
-    return LIST.filter(status => (countsByStatus?.get(status) || 0) > 0)
-        .map(status => (countsByStatus?.get(status) || 0) + ' ' + this.status(status))
-        .join(', ')
-        .toLocaleLowerCase();
+    const stati = LIST.filter(status => countsByStatus.get(status))
+                      .map(status => `${countsByStatus.get(status)} ${this.status(status)}`);
+    return stati.join(', ').toLocaleLowerCase() || `(${i18nString(UIStrings.noRuleSets)})`;
   }
 
   // Summary of error of rule set shown in grid.
