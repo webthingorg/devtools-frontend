@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb9f03d0_f29bde24",
+        "filename": "front_end/ui/components/markdown_view/codeBlock.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-10T13:17:39Z",
+      "side": 1,
+      "message": "Discussed offline, there is no 10px size token for now so leaving it the way it is :)",
+      "parentUuid": "879fe7d3_b9452bf0",
+      "range": {
+        "startLine": 65,
+        "startChar": 18,
+        "endLine": 65,
+        "endChar": 22
+      },
+      "revId": "67ffb6b180be82329f3f4709eb8860a6ba517f51",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d41a4b93_3ab484bb",
@@ -54,6 +78,24 @@
       "writtenOn": "2024-09-10T12:29:04Z",
       "side": 1,
       "message": "and this one too?:)",
+      "revId": "67ffb6b180be82329f3f4709eb8860a6ba517f51",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0dda8c5f_6e730864",
+        "filename": "front_end/ui/components/markdown_view/codeBlock.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-10T13:17:39Z",
+      "side": 1,
+      "message": "Done!",
+      "parentUuid": "d41a4b93_3ab484bb",
       "revId": "67ffb6b180be82329f3f4709eb8860a6ba517f51",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
