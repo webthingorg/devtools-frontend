@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bfa39b14_999e4c12",
+        "filename": "front_end/panels/explain/components/ConsoleInsight.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 1134,
+      "author": {
+        "id": 3596264
+      },
+      "writtenOn": "2024-09-10T16:11:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cdf22ffd_c6b8d198",
+      "revId": "d859fd8874e943b911b84772f75e9df8029e9d4b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2ccf0f25_41854007",
@@ -48,6 +66,24 @@
       "writtenOn": "2024-09-10T13:00:34Z",
       "side": 1,
       "message": "I think we should use token here `--sys-size-5`",
+      "revId": "d859fd8874e943b911b84772f75e9df8029e9d4b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e7cc8bc_ffd447f1",
+        "filename": "front_end/panels/explain/components/consoleInsight.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 3596264
+      },
+      "writtenOn": "2024-09-10T16:11:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ccf0f25_41854007",
       "revId": "d859fd8874e943b911b84772f75e9df8029e9d4b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
