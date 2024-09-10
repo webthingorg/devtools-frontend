@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d12910db_f243ecd5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-09-10T12:41:35Z",
+      "side": 1,
+      "message": "Just a few tiny comments:) If we could address these in a follow-up",
+      "revId": "4973aeaac44c07b61284d88c190dabc0fed29730",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4b3190e_08811481",
+        "filename": "front_end/core/common/SettingRegistration.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-09-10T12:41:35Z",
+      "side": 1,
+      "message": "nit: \u0027a\u0027 instead of \u0027the\u0027?",
+      "revId": "4973aeaac44c07b61284d88c190dabc0fed29730",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f918ab7_76f07c8e",
+        "filename": "front_end/ui/components/settings/settingCheckbox.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-09-10T12:41:35Z",
+      "side": 1,
+      "message": "Could we please use size tokens for the values here?",
+      "revId": "4973aeaac44c07b61284d88c190dabc0fed29730",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
