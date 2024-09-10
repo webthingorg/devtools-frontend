@@ -101,7 +101,7 @@ ConsoleTestRunner.dumpConsoleMessagesIntoArray = async function(printOriginating
  * @return {string}
  */
 ConsoleTestRunner.prepareConsoleMessageText = function(messageElement) {
-  let messageText = messageElement.deepTextContent().replace(/\u200b/g, '');
+  let messageText = messageElement.deepTextContent(true).replace(/\u200b/g, '');
   // Replace scriptIds with generic scriptId string to avoid flakiness.
   messageText = messageText.replace(/VM\d+/g, 'VM');
   // Remove line and column of evaluate method.
@@ -229,7 +229,7 @@ ConsoleTestRunner.evaluateInConsole = function(code, callback, dontForceMainCont
           TestRunner.waitForPendingLiveLocationUpdates(),
         ])
         .then(() => {
-          callback(element.deepTextContent());
+          callback(element.deepTextContent(true));
         });
   });
 };
