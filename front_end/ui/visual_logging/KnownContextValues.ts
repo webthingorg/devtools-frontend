@@ -2945,6 +2945,7 @@ export const knownContextValues = new Set([
   'timeline-flamechart-main-view-group-expansion',
   'timeline-flamechart-network-view-group-expansion',
   'timeline-invalidation-tracking',
+  'timeline-layout-shift-details',
   'timeline-observations',
   'timeline-overview',
   'timeline-rpp-sidebar',
