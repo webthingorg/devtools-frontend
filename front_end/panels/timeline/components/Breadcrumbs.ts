@@ -88,6 +88,7 @@ export class Breadcrumbs {
     );
     TraceBounds.TraceBounds.BoundsManager.instance().setTimelineVisibleWindow(
         activeBreadcrumb.window,
+        {shouldAnimate: true},
     );
   }
 }
