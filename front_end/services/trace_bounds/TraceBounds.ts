@@ -166,12 +166,6 @@ export class BoundsManager extends EventTarget {
       return;
     }
 
-    // Ensure that the setTimelineVisibleWindow can never go outside the bounds of the minimap bounds.
-    newWindow.min =
-        TraceEngine.Types.Timing.MicroSeconds(Math.max(this.#currentState.minimapTraceBounds.min, newWindow.min));
-    newWindow.max =
-        TraceEngine.Types.Timing.MicroSeconds(Math.min(this.#currentState.minimapTraceBounds.max, newWindow.max));
-
     this.#currentState.timelineTraceWindow = newWindow;
     this.dispatchEvent(
         new StateChangedEvent(this.state() as State, 'VISIBLE_WINDOW', {shouldAnimate: options.shouldAnimate}));
