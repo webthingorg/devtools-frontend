@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "51852e4d_459a9956",
+        "filename": "front_end/ui/components/markdown_view/codeBlock.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-10T11:36:13Z",
+      "side": 1,
+      "message": "hahaha sorry for missing them, I\u0027m now creating a separate CL for using them! :)",
+      "parentUuid": "8a411ab9_43071938",
+      "range": {
+        "startLine": 70,
+        "startChar": 16,
+        "endLine": 71,
+        "endChar": 20
+      },
+      "revId": "e5a15084fae8c711f6e4b1644d411e6280255b6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "369df722_e644aa87",
         "filename": "front_end/ui/components/markdown_view/codeBlock.css",
         "patchSetId": 5
