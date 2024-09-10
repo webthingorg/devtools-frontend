@@ -52,6 +52,11 @@ const UIStringsTemp = {
    * not allow this feature.
    */
   policyRestricted: 'Your organization turned off this feature. Contact your administrators for more information',
+  /**
+   * @description Text of a tooltip to redirect to the AI assistant panel with
+   * the selected request as context
+   */
+  understandThisRequestWithAi: 'Understand this request with AI',
 };
 
 // TODO(nvitkov): b/346933425
@@ -90,6 +95,10 @@ async function loadFreestylerModule(): Promise<typeof Freestyler> {
 
 function isFeatureAvailable(config?: Root.Runtime.HostConfig): boolean {
   return (config?.aidaAvailability?.enabled && config?.devToolsFreestylerDogfood?.enabled) === true;
+}
+
+function isDrJonesFeatureAvailable(config?: Root.Runtime.HostConfig): boolean {
+  return (config?.aidaAvailability?.enabled && config?.devToolsExplainThisResourceDogfood?.enabled) === true;
 }
 
 UI.ViewManager.registerViewExtension({
@@ -164,4 +173,19 @@ UI.ActionRegistration.registerActionExtension({
     return new Freestyler.ActionDelegate();
   },
   condition: config => isFeatureAvailable(config) && !isPolicyRestricted(config),
+});
+
+UI.ActionRegistration.registerActionExtension({
+  actionId: 'drjones.network-panel-context',
+  contextTypes(): [] {
+    return [];
+  },
+  setting,
+  category: UI.ActionRegistration.ActionCategory.GLOBAL,
+  title: i18nLazyString(UIStringsTemp.understandThisRequestWithAi),
+  async loadActionDelegate() {
+    const Freestyler = await loadFreestylerModule();
+    return new Freestyler.ActionDelegate();
+  },
+  condition: config => isDrJonesFeatureAvailable(config) && !isPolicyRestricted(config),
 });
