@@ -243,7 +243,7 @@ const enum AnimationLonghandPart {
 
 export class LinkableNameMatch implements Match {
   constructor(
-      readonly text: string, readonly node: CodeMirror.SyntaxNode, readonly properyName: LinkableNameProperties) {
+      readonly text: string, readonly node: CodeMirror.SyntaxNode, readonly propertyName: LinkableNameProperties) {
   }
 }
 
@@ -255,8 +255,6 @@ export class LinkableNameMatcher extends matcherBase(LinkableNameMatch) {
       LinkableNameProperties.ANIMATION,
       LinkableNameProperties.ANIMATION_NAME,
       LinkableNameProperties.FONT_PALETTE,
-      LinkableNameProperties.POSITION_TRY_FALLBACKS,
-      LinkableNameProperties.POSITION_TRY,
     ];
     return names.includes(propertyName);
   }
@@ -344,12 +342,9 @@ export class LinkableNameMatcher extends matcherBase(LinkableNameMatch) {
     const isInsideVarCall = parentNode.name === 'ArgList' && parentNode.prevSibling?.name === 'Callee' &&
         matching.ast.text(parentNode.prevSibling) === 'var';
     const isAParentDeclarationOrVarCall = isParentADeclaration || isInsideVarCall;
-    // `position-try-fallbacks` and `position-try` only accept names with dashed ident.
-    const shouldMatchOnlyVariableName = propertyName === LinkableNameProperties.POSITION_TRY ||
-        propertyName === LinkableNameProperties.POSITION_TRY_FALLBACKS;
     // We only mark top level nodes or nodes that are inside `var()` expressions as linkable names.
     if (!propertyName || (node.name !== 'ValueName' && node.name !== 'VariableName') ||
-        !isAParentDeclarationOrVarCall || (node.name === 'ValueName' && shouldMatchOnlyVariableName)) {
+        !isAParentDeclarationOrVarCall) {
       return null;
     }
 
@@ -612,6 +607,17 @@ export class PositionAnchorMatcher extends matcherBase(PositionAnchorMatch) {
 
     const dashedIdentifier = matching.ast.text(node);
     return new PositionAnchorMatch(dashedIdentifier, matching, node);
+  }
+}
+
+export class PositionTryMatcher extends matcherBase(LinkableNameMatch) {
+  override accepts(propertyName: string): boolean {
+    return propertyName === 'position-try' || propertyName === 'position-try-fallbacks';
+  }
+
+  override matches(node: CodeMirror.SyntaxNode, matching: BottomUpTreeMatching): Match|null {
+    const linkableNameMatcher = new LinkableNameMatcher();
+    return linkableNameMatcher.matches(node, matching);
   }
 }
 // clang-format on
