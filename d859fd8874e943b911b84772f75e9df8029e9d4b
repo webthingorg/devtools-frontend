@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "313c3801_32ab0573",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-09-10T13:00:34Z",
+      "side": 1,
+      "message": "LGTM + 2 small comments",
+      "revId": "d859fd8874e943b911b84772f75e9df8029e9d4b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdf22ffd_c6b8d198",
+        "filename": "front_end/panels/explain/components/ConsoleInsight.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 1134,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-09-10T13:00:34Z",
+      "side": 1,
+      "message": "Just return LitHtml.nothing",
+      "revId": "d859fd8874e943b911b84772f75e9df8029e9d4b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ccf0f25_41854007",
+        "filename": "front_end/panels/explain/components/consoleInsight.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-09-10T13:00:34Z",
+      "side": 1,
+      "message": "I think we should use token here `--sys-size-5`",
+      "revId": "d859fd8874e943b911b84772f75e9df8029e9d4b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
