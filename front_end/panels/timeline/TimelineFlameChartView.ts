@@ -303,7 +303,7 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
 
   setActiveInsight(insight: TimelineComponents.Sidebar.ActiveInsight|null): void {
     this.#activeInsight = insight;
-    const minimapBounds = TraceBounds.TraceBounds.BoundsManager.instance().state()?.micro.minimapTraceBounds;
+    const minimapBounds = TraceBounds.TraceBounds.BoundsManager.instance().state()?.micro.entireTraceBounds;
 
     for (const overlay of this.#currentInsightOverlays) {
       this.removeOverlay(overlay);
@@ -345,6 +345,7 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
       // Trace window covering all overlays expanded by 100% so that the overlays cover 50% of the visible window.
       const expandedBounds =
           TraceEngine.Helpers.Timing.expandWindowByPercentOrToOneMillisecond(overlaysBounds, minimapBounds, 100);
+      this.delegate.navigateToBreadcrumbThatIncludesWindow(expandedBounds);
       TraceBounds.TraceBounds.BoundsManager.instance().setTimelineVisibleWindow(expandedBounds);
     }
   }

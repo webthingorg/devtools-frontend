@@ -25,6 +25,14 @@ export class RemoveAnnotation extends Event {
   }
 }
 
+export class NavigateToBreadcrumbToIncludeWindow extends Event {
+  static readonly eventName = 'navigatetobreadcrumbtoincludewindow';
+
+  constructor(public window: TraceEngine.Types.Timing.TraceWindowMicroSeconds) {
+    super(NavigateToBreadcrumbToIncludeWindow.eventName, {bubbles: true, composed: true});
+  }
+}
+
 export class EventReferenceClick extends Event {
   static readonly eventName = 'sidebarmetricclick';
 

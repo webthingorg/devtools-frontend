@@ -72,6 +72,25 @@ export class Breadcrumbs {
     this.setActiveBreadcrumb(lastBreadcrumb);
   }
 
+  // If the current active breadcrumb window does not include the window provided, navigate to the closest
+  // breadcrumb that includes that window.
+  navigateToBreadcrumbThatIncludesWindowIfActiveDoesNot(window: TraceEngine.Types.Timing.TraceWindowMicroSeconds):
+      TraceEngine.Types.File.Breadcrumb|null {
+    // If the active breadcrumb window includes the provided window, do nothing and return null.
+    if (this.isTraceWindowWithinTraceWindow(window, this.activeBreadcrumb.window)) {
+      return null;
+    }
+
+    // Start iterating from the initial breadcrumb to find the smallest window that includes the needed window.
+    let newActiveBreadcrumb = this.initialBreadcrumb;
+    while (newActiveBreadcrumb.child && this.isTraceWindowWithinTraceWindow(window, newActiveBreadcrumb.child.window)) {
+      newActiveBreadcrumb = newActiveBreadcrumb.child;
+    }
+
+    this.setActiveBreadcrumb(newActiveBreadcrumb);
+    return newActiveBreadcrumb;
+  }
+
   setActiveBreadcrumb(activeBreadcrumb: TraceEngine.Types.File.Breadcrumb, removeChildBreadcrumbs?: boolean): void {
     // If the children of the activated breadcrumb need to be removed, set the child on the
     // activated breadcrumb to null. Since breadcrumbs are a linked list, this will remove all
@@ -88,6 +107,7 @@ export class Breadcrumbs {
     );
     TraceBounds.TraceBounds.BoundsManager.instance().setTimelineVisibleWindow(
         activeBreadcrumb.window,
+        {shouldAnimate: true},
     );
   }
 }

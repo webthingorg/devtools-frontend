@@ -13,7 +13,7 @@ import * as Settings from '../../../ui/components/settings/settings.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 
 import {nameForEntry} from './EntryName.js';
-import {RemoveAnnotation} from './Sidebar.js';
+import {NavigateToBreadcrumbToIncludeWindow, RemoveAnnotation} from './Sidebar.js';
 import sidebarAnnotationsTabStyles from './sidebarAnnotationsTab.css.js';
 
 const diagramImageUrl = new URL('../../../Images/performance-panel-diagram.svg', import.meta.url).toString();
@@ -199,12 +199,15 @@ export class SidebarAnnotationsTab extends HTMLElement {
       }
     }
 
-    const currentMinimapWindow = TraceBounds.TraceBounds.BoundsManager.instance().state()?.micro.minimapTraceBounds;
-    if (annotationWindow && currentMinimapWindow) {
+    const entireTraceWindow = TraceBounds.TraceBounds.BoundsManager.instance().state()?.micro.entireTraceBounds;
+    if (annotationWindow && entireTraceWindow) {
       // Expand the bounds by 20% to make the new window 40% bigger than the annotation so it is not taking the whole visible window. Pass the minimap window to make
       // sure we do not set a window outside of the current bounds.
-      const newVisibleWindow = TraceEngine.Helpers.Timing.expandWindowByPercentOrToOneMillisecond(
-          annotationWindow, currentMinimapWindow, 40);
+      const newVisibleWindow =
+          TraceEngine.Helpers.Timing.expandWindowByPercentOrToOneMillisecond(annotationWindow, entireTraceWindow, 40);
+
+      this.dispatchEvent(new NavigateToBreadcrumbToIncludeWindow(newVisibleWindow));
+
       TraceBounds.TraceBounds.BoundsManager.instance().setTimelineVisibleWindow(
           newVisibleWindow, {shouldAnimate: true});
     } else {

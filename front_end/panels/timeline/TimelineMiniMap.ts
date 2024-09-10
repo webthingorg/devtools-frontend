@@ -145,10 +145,21 @@ export class TimelineMiniMap extends
 
       const addedBreadcrumb = this.breadcrumbs.add(newVisibleTraceWindow);
 
-      this.#breadcrumbsUI.data = {
-        initialBreadcrumb: this.breadcrumbs.initialBreadcrumb,
-        activeBreadcrumb: addedBreadcrumb,
-      };
+      this.updateBreadcrumbsUI(addedBreadcrumb);
+  }
+
+  updateBreadcrumbsUI(activeBreadcrumb: TraceEngine.Types.File.Breadcrumb): void {
+    if (!this.breadcrumbs) {
+      console.warn('ModificationsManager has not been created, therefore Breadcrumbs can not be added');
+      return;
+    }
+
+    // Only the initial and active breadcrumbs are passed because breadcrumbs are stored in
+    // a linked list and breadcrumbsUI component iterates through them
+    this.#breadcrumbsUI.data = {
+      initialBreadcrumb: this.breadcrumbs.initialBreadcrumb,
+      activeBreadcrumb,
+    };
   }
 
   #activateBreadcrumb(breadcrumb: TraceEngine.Types.File.Breadcrumb, removeChildBreadcrumbs?: boolean): void {
@@ -157,11 +168,7 @@ export class TimelineMiniMap extends
     }
 
     this.breadcrumbs.setActiveBreadcrumb(breadcrumb, removeChildBreadcrumbs);
-    // Only the initial breadcrumb is passed in because breadcrumbs are stored in a linked list and breadcrumbsUI component iterates through them
-    this.#breadcrumbsUI.data = {
-      initialBreadcrumb: this.breadcrumbs.initialBreadcrumb,
-      activeBreadcrumb: breadcrumb,
-    };
+    this.updateBreadcrumbsUI(breadcrumb);
   }
 
   override wasShown(): void {
@@ -246,9 +253,6 @@ export class TimelineMiniMap extends
       lastBreadcrumb = lastBreadcrumb.child;
     }
 
-    this.#breadcrumbsUI.data = {
-      initialBreadcrumb: this.breadcrumbs.initialBreadcrumb,
-      activeBreadcrumb: lastBreadcrumb,
-    };
+    this.updateBreadcrumbsUI(lastBreadcrumb);
   }
 }

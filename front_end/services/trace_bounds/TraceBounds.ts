@@ -139,7 +139,7 @@ export class BoundsManager extends EventTarget {
 
     this.#currentState.minimapTraceBounds = newBounds;
     // this.state() cannot be null here.
-    this.dispatchEvent(new StateChangedEvent(this.state() as State, 'MINIMAP_BOUNDS'));
+    this.dispatchEvent(new StateChangedEvent(this.state() as State, 'MINIMAP_BOUNDS', {shouldAnimate: true}));
   }
 
   setTimelineVisibleWindow(newWindow: TraceEngine.Types.Timing.TraceWindowMicroSeconds, options: {
@@ -149,7 +149,7 @@ export class BoundsManager extends EventTarget {
   }): void {
     if (!this.#currentState) {
       // This is a weird state to be in: we can't change the visible timeline
-      // window if we don't alreayd have an existing state with the trace
+      // window if we don't already have an existing state with the trace
       // bounds set.
       console.error(
           'TraceBounds.setTimelineVisibleWindow could not set bounds because there is no existing trace window set.');

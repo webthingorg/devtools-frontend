@@ -535,6 +535,12 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
       ModificationsManager.activeManager()?.removeAnnotation(removedAnnotation);
     });
 
+    this.#sideBar.element.addEventListener(
+        TimelineComponents.Sidebar.NavigateToBreadcrumbToIncludeWindow.eventName, event => {
+          const {window} = (event as TimelineComponents.Sidebar.NavigateToBreadcrumbToIncludeWindow);
+          this.navigateToBreadcrumbThatIncludesWindow(window);
+        });
+
     this.onModeChanged();
     this.populateToolbar();
     // The viewMode is set by default to the landing page, so we don't call
@@ -571,6 +577,15 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
       },
       targetRemoved: (_: SDK.Target.Target) => {},
     });
+  }
+
+  navigateToBreadcrumbThatIncludesWindow(window: TraceEngine.Types.Timing.TraceWindowMicroSeconds): void {
+    const activatedBreadcrumb = ModificationsManager.activeManager()
+                                    ?.getTimelineBreadcrumbs()
+                                    .navigateToBreadcrumbThatIncludesWindowIfActiveDoesNot(window);
+    if (activatedBreadcrumb) {
+      this.#minimapComponent.updateBreadcrumbsUI(activatedBreadcrumb);
+    }
   }
 
   #setActiveInsight(insight: TimelineComponents.Sidebar.ActiveInsight|null): void {
@@ -2200,6 +2215,7 @@ export interface TimelineModeViewDelegate {
   element: Element;
   selectEntryAtTime(events: TraceEngine.Types.TraceEvents.TraceEventData[]|null, time: number): void;
   highlightEvent(event: TraceEngine.Types.TraceEvents.TraceEventData|null): void;
+  navigateToBreadcrumbThatIncludesWindow(window: TraceEngine.Types.Timing.TraceWindowMicroSeconds): void;
 }
 
 export class StatusPane extends UI.Widget.VBox {
