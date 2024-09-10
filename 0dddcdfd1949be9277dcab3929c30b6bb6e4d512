@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "0dddcdfd1949be9277dcab3929c30b6bb6e4d512",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ee78026_5b31aa31",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-10T11:24:12Z",
+      "side": 1,
+      "message": "Nice CSS only solution! :)",
+      "revId": "0dddcdfd1949be9277dcab3929c30b6bb6e4d512",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
