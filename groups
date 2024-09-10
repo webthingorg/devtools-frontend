@@ -9,3 +9,4 @@ cria:project-devtools-frontend-ci-task-accounts	cria/project-devtools-frontend-c
 cria:project-devtools-sheriffs                 	cria/project-devtools-sheriffs
 global:Change-Owner                            	Change Owner
 global:Registered-Users                        	Logged-in Public Users
+mdb:copybara-git-readers                       	mdb/copybara-git-readers
