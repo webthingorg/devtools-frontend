@@ -145,7 +145,7 @@ describeWithEnvironment('Timing helpers', () => {
       );
 
       const expandedTraceWindow =
-          TraceModel.Helpers.Timing.expandWindowByPercentOrToOneMillisecond(traceWindow, maxTraceWindow, 50);
+          TraceModel.Helpers.Timing.expandWindowByPercentOrToOneMillisecond(traceWindow, 50, maxTraceWindow);
 
       // Since initial window was 20ms, make sure the that it is 30ms after being expanded by 50%
       assert.strictEqual(expandedTraceWindow.range, 30000);
@@ -166,7 +166,7 @@ describeWithEnvironment('Timing helpers', () => {
       );
 
       const expandedTraceWindow =
-          TraceModel.Helpers.Timing.expandWindowByPercentOrToOneMillisecond(traceWindow, maxTraceWindow, 5);
+          TraceModel.Helpers.Timing.expandWindowByPercentOrToOneMillisecond(traceWindow, 5, maxTraceWindow);
 
       // Make sure the window was expanded to 1 millisecond instead of 5 percent.
       assert.strictEqual(expandedTraceWindow.range, 1000);
@@ -189,7 +189,7 @@ describeWithEnvironment('Timing helpers', () => {
       );
 
       const expandedTraceWindow =
-          TraceModel.Helpers.Timing.expandWindowByPercentOrToOneMillisecond(traceWindow, maxTraceWindow, 50);
+          TraceModel.Helpers.Timing.expandWindowByPercentOrToOneMillisecond(traceWindow, 50, maxTraceWindow);
       assert.strictEqual(expandedTraceWindow.range, 67500);
       // Since the expanded window min bound would be smaller than the max window min bound, the expanded window min should be equal to the max window min
       assert.strictEqual(expandedTraceWindow.min, 0);

@@ -204,7 +204,7 @@ export class SidebarAnnotationsTab extends HTMLElement {
       // Expand the bounds by 20% to make the new window 40% bigger than the annotation so it is not taking the whole visible window. Pass the minimap window to make
       // sure we do not set a window outside of the current bounds.
       const newVisibleWindow = TraceEngine.Helpers.Timing.expandWindowByPercentOrToOneMillisecond(
-          annotationWindow, currentMinimapWindow, 40);
+          annotationWindow, 40, currentMinimapWindow);
       TraceBounds.TraceBounds.BoundsManager.instance().setTimelineVisibleWindow(
           newVisibleWindow, {shouldAnimate: true});
     } else {

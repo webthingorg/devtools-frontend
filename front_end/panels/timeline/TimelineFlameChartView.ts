@@ -332,19 +332,16 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
         }
       }
 
-      if (entries.length === 0) {
-        return;
+      // Reveal event if we have one.
+      if (entries.length !== 0) {
+        const earliestEntry =
+            entries.reduce((earliest, current) => (earliest.ts < current.ts ? earliest : current), entries[0]);
+        // Reveal the earliest event found from the overlays.
+        this.revealEvent(earliestEntry);
       }
-
-      const earliestEntry =
-          entries.reduce((earliest, current) => (earliest.ts < current.ts ? earliest : current), entries[0]);
-      // Reveal the earliest event found from the overlays.
-      this.revealEvent(earliestEntry);
-
       const overlaysBounds = this.#calculateOverlaysTraceWindow(this.#currentInsightOverlays);
       // Trace window covering all overlays expanded by 100% so that the overlays cover 50% of the visible window.
-      const expandedBounds =
-          TraceEngine.Helpers.Timing.expandWindowByPercentOrToOneMillisecond(overlaysBounds, minimapBounds, 100);
+      const expandedBounds = TraceEngine.Helpers.Timing.expandWindowByPercentOrToOneMillisecond(overlaysBounds, 50);
       TraceBounds.TraceBounds.BoundsManager.instance().setTimelineVisibleWindow(expandedBounds);
     }
   }
