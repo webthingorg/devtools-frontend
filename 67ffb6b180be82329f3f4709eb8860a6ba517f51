@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "882f23c2_df9baca6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-09-10T12:29:04Z",
+      "side": 1,
+      "message": "LGTM % two more values to update",
+      "revId": "67ffb6b180be82329f3f4709eb8860a6ba517f51",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "879fe7d3_b9452bf0",
+        "filename": "front_end/ui/components/markdown_view/codeBlock.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-09-10T12:29:04Z",
+      "side": 1,
+      "message": "As we already are on this, could we please also update this one?",
+      "range": {
+        "startLine": 65,
+        "startChar": 18,
+        "endLine": 65,
+        "endChar": 22
+      },
+      "revId": "67ffb6b180be82329f3f4709eb8860a6ba517f51",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d41a4b93_3ab484bb",
+        "filename": "front_end/ui/components/markdown_view/codeBlock.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-09-10T12:29:04Z",
+      "side": 1,
+      "message": "and this one too?:)",
+      "revId": "67ffb6b180be82329f3f4709eb8860a6ba517f51",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
