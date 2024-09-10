@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7cf87a45_485fed6b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-10T19:12:14Z",
+      "side": 1,
+      "message": "I know there\u0027s definitely a bit of CSS you can delete",
+      "revId": "e40205b6900dec4a255c8f7b193c04a8bd8d47f9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
