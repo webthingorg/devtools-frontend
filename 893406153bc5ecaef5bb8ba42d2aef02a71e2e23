@@ -1,0 +1,45 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "852b9612_cb9999df",
+        "filename": "front_end/panels/timeline/components/Breadcrumbs.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-09-10T20:33:46Z",
+      "side": 1,
+      "message": "suuuper drive by nit, but maybe this could be renamed to something like `findRelevantBreadcrumbForTraceWindow`? or something along those lines, im not the best at naming :)",
+      "range": {
+        "startLine": 77,
+        "startChar": 2,
+        "endLine": 77,
+        "endChar": 55
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "eacd7693_f23ba522",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/components/Breadcrumbs.ts",
+              "range": {
+                "startLine": 77,
+                "startChar": 0,
+                "endLine": 78,
+                "endChar": 0
+              },
+              "replacement": "  findRelevantBreadcrumbForTraceWindow(window: TraceEngine.Types.Timing.TraceWindowMicroSeconds):\n"
+            }
+          ]
+        }
+      ],
+      "revId": "893406153bc5ecaef5bb8ba42d2aef02a71e2e23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
