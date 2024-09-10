@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1fd419f3_6e2a461c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 23
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-09-10T23:50:28Z",
+      "side": 1,
+      "message": "+1 for KnownContextValues.ts and to unblock. Deferring to the other reviewers \"outdated\" +1s for the rest of the CL",
+      "revId": "d9251a4a41dcc102298ce01215940712e891173a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
