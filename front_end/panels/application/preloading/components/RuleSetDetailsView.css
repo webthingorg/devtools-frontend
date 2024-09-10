@@ -15,3 +15,5 @@
 .ruleset-header devtools-icon {
   vertical-align: sub;
 }
+
+.cm-editor { height: 100%; }
