@@ -16,6 +16,24 @@
       "message": "I think removing this also removes the center alignment in normal case too. Maybe we might need to add a container query or a media query for this case, WDYT?",
       "revId": "4014a4c232da720773c32c8e513231545e585444",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e964f1a_d35819d3",
+        "filename": "front_end/panels/settings/aiSettingsTab.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-09-10T15:34:07Z",
+      "side": 0,
+      "message": "Oh, you\u0027re right. I didn\u0027t verify with wide-enough DevTools where centering plays a role. Added a media-query.",
+      "parentUuid": "316e3d7e_afc23e3c",
+      "revId": "4014a4c232da720773c32c8e513231545e585444",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
