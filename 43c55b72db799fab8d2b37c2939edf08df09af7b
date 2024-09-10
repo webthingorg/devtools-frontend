@@ -50,6 +50,24 @@
       "message": "Since we only use `settingsLink` inside the block where if condition holds, can we move to that block?",
       "revId": "43c55b72db799fab8d2b37c2939edf08df09af7b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6490878f_b196efcd",
+        "filename": "front_end/panels/explain/components/ConsoleInsight.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 861,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-09-10T09:56:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd9ae6e9_e3a9641c",
+      "revId": "43c55b72db799fab8d2b37c2939edf08df09af7b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
