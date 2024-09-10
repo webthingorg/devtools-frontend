@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "316e3d7e_afc23e3c",
+        "filename": "front_end/panels/settings/aiSettingsTab.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 150,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-10T15:01:18Z",
+      "side": 0,
+      "message": "I think removing this also removes the center alignment in normal case too. Maybe we might need to add a container query or a media query for this case, WDYT?",
+      "revId": "4014a4c232da720773c32c8e513231545e585444",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
