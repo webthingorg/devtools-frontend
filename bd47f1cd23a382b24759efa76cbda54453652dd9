@@ -16,6 +16,29 @@
       "message": "Kateryna, PTAL!\nPeter suggested that I introduce a new app-color for card background to fix the background color in dark mode.",
       "revId": "bd47f1cd23a382b24759efa76cbda54453652dd9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65d118f0_12ac0d8e",
+        "filename": "front_end/ui/legacy/themeColors.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 382,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-09-10T14:22:56Z",
+      "side": 1,
+      "message": "Could we use a `--sys-color-...` for this? I think `--sys-color-base-container-elevated` would fit\n`--color-...`s are deprecated and we do not want to use them for new code",
+      "range": {
+        "startLine": 382,
+        "startChar": 35,
+        "endLine": 382,
+        "endChar": 53
+      },
+      "revId": "bd47f1cd23a382b24759efa76cbda54453652dd9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
