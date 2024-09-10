@@ -16,6 +16,24 @@
       "message": "fyi this is a bit outdated now :) \nit\u0027s a very handy CL to me, so thanks",
       "revId": "5eb0c6f3cc1fdbb76eb6ca3a1f6c1797a9e658f9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4154bed1_5e1526c1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-09-10T21:25:44Z",
+      "side": 1,
+      "message": "Hey Paul, I\u0027m guessing you meant this CL: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/5732520, and yes that\u0027s outdated and no longer working now. I kind of lost track of the changes across multiple CLs, so I abandoned the old one and this current one is the new CL that shows the changes that yield working rehydrated session. Could you try getting this patch to see if its working for you again? I\u0027ll update this CL once we land the change for moving EnhancedTracesParser to SDK layer and connection layer.\n\nOn the other hand, we figured out that we\u0027re actually able to implement the feature in native mode in a very similar manner as hosted mode, so with changes in this patch you\u0027re also able to launch rehydrated session in native experience :) Let me know if you have any questions!",
+      "parentUuid": "4be9802d_f073e705",
+      "revId": "5eb0c6f3cc1fdbb76eb6ca3a1f6c1797a9e658f9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
