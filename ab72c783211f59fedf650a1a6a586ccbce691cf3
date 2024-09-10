@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22542b81_df504602",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-10T20:55:13Z",
+      "side": 1,
+      "message": "Spacing is a little tighter now vs before. (But that wfm)\nAlso selector stats numbers werent bolded but now are.  (seems ok)\n\njust two small things.\n\nnice stuff. thx!",
+      "revId": "ab72c783211f59fedf650a1a6a586ccbce691cf3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ca9efa7_f19ce3f5",
+        "filename": "front_end/panels/timeline/components/insights/Table.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-10T20:55:13Z",
+      "side": 1,
+      "message": "thead around this row.",
+      "revId": "ab72c783211f59fedf650a1a6a586ccbce691cf3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a09ee8a_1b0a8c45",
+        "filename": "front_end/panels/timeline/components/insights/Table.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-10T20:55:13Z",
+      "side": 1,
+      "message": "tbody around these",
+      "revId": "ab72c783211f59fedf650a1a6a586ccbce691cf3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
