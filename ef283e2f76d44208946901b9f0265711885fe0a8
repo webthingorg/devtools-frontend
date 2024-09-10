@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c3d55e76_7732b4ec",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-09-10T08:55:01Z",
+      "side": 1,
+      "message": "Nice! lgtm",
+      "revId": "ef283e2f76d44208946901b9f0265711885fe0a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92c39ad9_57700469",
+        "filename": "front_end/panels/timeline/overlays/components/EntryLabelOverlay.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-09-10T08:55:01Z",
+      "side": 1,
+      "message": "nit: redundant",
+      "range": {
+        "startLine": 124,
+        "startChar": 37,
+        "endLine": 124,
+        "endChar": 39
+      },
+      "revId": "ef283e2f76d44208946901b9f0265711885fe0a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4095b37_39f12d3e",
+        "filename": "front_end/panels/timeline/overlays/components/TimeRangeOverlay.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-09-10T08:55:01Z",
+      "side": 1,
+      "message": "nit: redundant",
+      "range": {
+        "startLine": 212,
+        "startChar": 37,
+        "endLine": 212,
+        "endChar": 40
+      },
+      "revId": "ef283e2f76d44208946901b9f0265711885fe0a8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
