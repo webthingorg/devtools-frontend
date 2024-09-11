@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "deb922b9_23cc9170",
+        "filename": "front_end/panels/freestyler/FreestylerPanel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-11T13:54:23Z",
+      "side": 1,
+      "message": "(nit): I think we don\u0027t need to duplicate `#agentType`. We can use the `#viewProps.agentType` in this class as well.",
+      "revId": "4f0d65aba94189d463b5e621680bd2777cd2e5d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1fa422f9_871a99c3",
+        "filename": "front_end/panels/freestyler/components/freestylerChatUi.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-11T13:54:23Z",
+      "side": 1,
+      "message": "`text-overflow: ellipsis` doesn\u0027t have an effect here.\n\nAccording to our beloved Freestyler, it says \"The text-overflow: ellipsis property is not working because the element has display: flex. The text-overflow property only works on block or inline elements.\" :)",
+      "revId": "4f0d65aba94189d463b5e621680bd2777cd2e5d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

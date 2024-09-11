@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4923bf4_4d6ecdef",
+        "filename": "front_end/panels/freestyler/FreestylerPanel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-11T13:54:23Z",
+      "side": 0,
+      "message": "I think we need to bring this back and `#createAgent` should create either FreestylerAgent or DrJonesNetworkAgent depending on the entrypoint. Otherwise we lose the `history` for the next conversations.\n\n(Sorry for misguiding here as my previous CL did the same)",
+      "revId": "a726a53f92221397399b5d6dc00c0b33d16bc96d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
