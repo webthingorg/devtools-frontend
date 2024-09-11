@@ -55,6 +55,8 @@ import {HostUrlPattern} from './HostUrlPattern.js';
 import {LanguageExtensionEndpoint} from './LanguageExtensionEndpoint.js';
 import {RecorderExtensionEndpoint} from './RecorderExtensionEndpoint.js';
 import {RecorderPluginManager} from './RecorderPluginManager.js';
+import {SourceMapServerExtensionEndpoint} from './SourceMapServerExtensionEndpoint.js';
+import {SourceMapServerPluginManager} from './SourceMapServerPluginManager.js';
 
 const extensionOrigins: WeakMap<MessagePort, Platform.DevToolsPath.UrlString> = new WeakMap();
 
@@ -218,6 +220,9 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
     this.registerHandler(PrivateAPI.Commands.CreateRecorderView, this.onCreateRecorderView.bind(this));
     this.registerHandler(PrivateAPI.Commands.ShowRecorderView, this.onShowRecorderView.bind(this));
     this.registerHandler(PrivateAPI.Commands.ShowNetworkPanel, this.onShowNetworkPanel.bind(this));
+    this.registerHandler(
+        PrivateAPI.Commands.RegisterSourceMapServerExtensionPlugin,
+        this.registerSourceMapServerExtensionEndpoint.bind(this));
     window.addEventListener('message', this.onWindowMessage, false);  // Only for main window.
 
     const existingTabId =
@@ -423,6 +428,17 @@ export class ExtensionServer extends Common.ObjectWrapper.ObjectWrapper<EventTyp
     const {pluginName, mediaType, port, capabilities} = message;
     RecorderPluginManager.instance().addPlugin(
         new RecorderExtensionEndpoint(pluginName, port, capabilities, mediaType));
+    return this.status.OK();
+  }
+
+  private registerSourceMapServerExtensionEndpoint(
+      message: PrivateAPI.ExtensionServerRequestMessage, _shared_port: MessagePort): Record {
+    if (message.command !== PrivateAPI.Commands.RegisterSourceMapServerExtensionPlugin) {
+      return this.status.E_BADARG('command', `expected ${PrivateAPI.Commands.Subscribe}`);
+    }
+
+    const {pluginName, port} = message;
+    SourceMapServerPluginManager.instance().addPlugin(new SourceMapServerExtensionEndpoint(pluginName, port));
     return this.status.OK();
   }
 
