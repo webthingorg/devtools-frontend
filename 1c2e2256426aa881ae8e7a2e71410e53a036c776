@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5733490e_d9d9b5c3",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 32
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 1531877
+      },
+      "writtenOn": "2024-09-11T02:48:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c54f4bd1_99dd06fd",
+      "range": {
+        "startLine": 278,
+        "startChar": 34,
+        "endLine": 278,
+        "endChar": 119
+      },
+      "revId": "1c2e2256426aa881ae8e7a2e71410e53a036c776",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "41b1f23c_f3fa66f0",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-09-10T11:59:23Z",
       "side": 1,
       "message": "How about keeping the name `renderSource(sourceText: string)` for this method?\n\nAnd instead of calling it indirectly via `#render()` calling a helper which calls this method, why not have the helper return the sourceText?\n```\nasync #render() {\n  const sourceText \u003d await this.#getSourceText();\n  ...\n  LitHtml.render(LitHtml.html`\n    ...\n    ${this.#renderSource(sourceText)}\n    ...\n```",
+      "range": {
+        "startLine": 96,
+        "startChar": 2,
+        "endLine": 96,
+        "endChar": 26
+      },
+      "revId": "1c2e2256426aa881ae8e7a2e71410e53a036c776",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d28ed738_c4deeb57",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsView.ts",
+        "patchSetId": 32
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1531877
+      },
+      "writtenOn": "2024-09-11T02:48:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "41b1f23c_f3fa66f0",
       "range": {
         "startLine": 96,
         "startChar": 2,

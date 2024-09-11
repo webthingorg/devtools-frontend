@@ -121,6 +121,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2b53683f_f8ca405c",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1531877
+      },
+      "writtenOn": "2024-09-11T02:48:10Z",
+      "side": 1,
+      "message": "Adding nested `SplitView` or adding it into the sidebar will make the button start from the source code of speculation rules, but I\u0027m not quite sure about how to fix it at the bottom.\nHowever, adding another div containing the button right after SplitView seems to look the same visually. Please have a look.",
+      "parentUuid": "21764bee_7b63abf9",
+      "range": {
+        "startLine": 246,
+        "startChar": 5,
+        "endLine": 246,
+        "endChar": 28
+      },
+      "revId": "b7a96c0b05aa173ed4e427db8321a6ceb2916a74",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "635fd038_7fb47305",
         "filename": "front_end/panels/application/preloading/PreloadingView.ts",
         "patchSetId": 21
