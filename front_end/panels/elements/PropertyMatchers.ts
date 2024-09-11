@@ -582,12 +582,11 @@ export class AnchorFunctionMatcher extends matcherBase(AnchorFunctionMatch) {
     if (calleeText !== 'anchor' && calleeText !== 'anchor-size') {
       return null;
     }
-
-    const [firstArg] = ASTUtils.callArgs(node);
-    if (!firstArg || firstArg.length === 0) {
+    if ((!firstArg || firstArg.length === 0) && calleeText === 'anchor') {
       return null;
     }
 
+    const [firstArg] = ASTUtils.callArgs(node);
     return new AnchorFunctionMatch(matching.ast.text(node), matching, node, calleeText, firstArg);
   }
 }
