@@ -440,28 +440,26 @@ export class FreestylerChatUi extends HTMLElement {
     if (options.isLast && step.sideEffect) {
       iconName = 'pause-circle';
     } else if (step.canceled) {
-      iconName = 'cross-circle';
+      iconName = 'cross';
     } else if (isLoading) {
       return LitHtml.html`<${Spinners.Spinner.Spinner.litTagName}></${Spinners.Spinner.Spinner.litTagName}>`;
     }
 
-    const iconClasses = LitHtml.Directives.classMap({
-      indicator: true,
-      loading: isLoading,
-      paused: Boolean(step.sideEffect),
-      canceled: Boolean(step.canceled),
-    });
-
     return LitHtml.html`<${IconButton.Icon.Icon.litTagName}
-        class=${iconClasses}
+        class="indicator"
         .name=${iconName}
       ></${IconButton.Icon.Icon.litTagName}>`;
   }
 
   #renderStep(step: Step, options: {isLast: boolean}): LitHtml.LitTemplate {
+    const stepClasses = LitHtml.Directives.classMap({
+      step: true,
+      paused: Boolean(step.sideEffect),
+      canceled: Boolean(step.canceled),
+    });
     // clang-format off
     return LitHtml.html`
-      <details class="step" .open=${Boolean(step.sideEffect)}>
+      <details class=${stepClasses} .open=${Boolean(step.sideEffect)}>
         <summary>
           <div class="summary">
             ${this.#renderStepBadge(step, options)}
