@@ -320,8 +320,24 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
         return;
       }
 
+      const entries: TraceEngine.Types.TraceEvents.TraceEventData[] = [];
+
       for (const overlay of this.#currentInsightOverlays) {
         this.addOverlay(overlay);
+        if ('entry' in overlay) {
+          const entry = overlay.entry as TraceEngine.Types.TraceEvents.TraceEventData;
+          if (entry) {
+            entries.push(entry);
+          }
+        }
+      }
+
+      // If we have are handling an entry, we should make sure its track is expanded.
+      if (entries.length !== 0) {
+        const earliestEntry =
+            entries.reduce((earliest, current) => (earliest.ts < current.ts ? earliest : current), entries[0]);
+
+        this.#expandEntryTrack(earliestEntry);
       }
 
       const overlaysBounds = this.#calculateOverlaysTraceWindow(this.#currentInsightOverlays);
@@ -336,6 +352,38 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
       // the correct breadcrumb for us.
       TraceBounds.TraceBounds.BoundsManager.instance().setTimelineVisibleWindow(
           expandedBounds, {ignoreMiniMapBounds: true, shouldAnimate: true});
+    }
+  }
+
+  // Returns the chart the entry belongs in.
+  #chartForEntry(entry: TraceEngine.Types.TraceEvents.TraceEventData): string {
+    if (TraceEngine.Types.TraceEvents.isLegacyTimelineFrame(entry)) {
+      return 'main';
+    }
+    if (TraceEngine.Types.TraceEvents.isNetworkTrackEntry(entry)) {
+      return 'network';
+    }
+    return 'main';
+  }
+
+  // Expands the track of an entry
+  #expandEntryTrack(entry: TraceEngine.Types.TraceEvents.TraceEventData): void {
+    const chartName = this.#chartForEntry(entry);
+    const provider = chartName === 'main' ? this.mainDataProvider : this.networkDataProvider;
+    const entryChart = chartName === 'main' ? this.mainFlameChart : this.networkFlameChart;
+
+    const entryIndex = provider.indexForEvent?.(entry) ?? null;
+    if (entryIndex === null) {
+      return;
+    }
+
+    const group = provider.groupForEvent?.(entryIndex) ?? null;
+    if (!group) {
+      return;
+    }
+
+    if (!group.expanded) {
+      entryChart.toggleGroupExpand(group.startLevel);
     }
   }
 

@@ -980,7 +980,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.chartViewport.setScrollOffset(scrollTop, scrollHeight);
   }
 
-  private toggleGroupExpand(groupIndex: number): void {
+  toggleGroupExpand(groupIndex: number): void {
     if (groupIndex < 0 || !this.isGroupCollapsible(groupIndex)) {
       return;
     }
