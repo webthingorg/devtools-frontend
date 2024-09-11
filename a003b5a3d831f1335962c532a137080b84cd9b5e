@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38ea3158_1f192aa7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1251514
+      },
+      "writtenOn": "2024-09-11T11:13:03Z",
+      "side": 1,
+      "message": "ptal - This is new territory to me. Does the bot I triggered make sense?",
+      "revId": "a003b5a3d831f1335962c532a137080b84cd9b5e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
