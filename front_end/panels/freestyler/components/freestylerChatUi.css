@@ -184,35 +184,8 @@
   border-radius: var(--sys-size-6);
   position: relative;
 
-  &:not(&[open]):hover::after {
-    content: "";
-    height: 100%;
-    width: 100%;
-    border-radius: inherit;
-    position: absolute;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    background-color: var(--sys-color-state-hover-on-subtle);
-  }
-
-  devtools-icon {
-    vertical-align: bottom;
-  }
-
   .indicator {
     color: var(--sys-color-green-bright);
-
-    &.paused,
-    &.canceled {
-      color: var(--sys-color-on-surface-subtle);
-    }
-  }
-
-  devtools-spinner {
-    width: var(--sys-size-9);
-    height: var(--sys-size-9);
-    padding: var(--sys-size-2);
   }
 
   .summary {
@@ -235,6 +208,45 @@
         font: var(--sys-typescale-body4-bold);
       }
     }
+  }
+
+  &:not(&[open]):hover::after {
+    content: "";
+    height: 100%;
+    width: 100%;
+    border-radius: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background-color: var(--sys-color-state-hover-on-subtle);
+  }
+
+  &.paused {
+    .indicator {
+      color: var(--sys-color-on-surface-subtle);
+    }
+  }
+
+  &.canceled {
+    .summary {
+      color: var(--sys-color-state-disabled);
+      text-decoration: line-through;
+    }
+
+    .indicator {
+      color: var(--sys-color-state-disabled);
+    }
+  }
+
+  devtools-icon {
+    vertical-align: bottom;
+  }
+
+  devtools-spinner {
+    width: var(--sys-size-9);
+    height: var(--sys-size-9);
+    padding: var(--sys-size-2);
   }
 
   &[open] {
