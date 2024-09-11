@@ -207,7 +207,8 @@ export class TimelineController implements TraceEngine.TracingManager.TracingMan
   }
 
   private async finalizeTrace(): Promise<void> {
-    await SDK.TargetManager.TargetManager.instance().resumeAllTargets();
+    // Resuming Debugger target is timeconsuming. It can resume while the trace loads, no await needed.
+    void SDK.TargetManager.TargetManager.instance().resumeAllTargets();
     Extensions.ExtensionServer.ExtensionServer.instance().profilingStopped();
     await this.client.loadingComplete(
         this.#collectedEvents, /* exclusiveFilter= */ null, /* isCpuProfile= */ false, this.#recordingStartTime,
