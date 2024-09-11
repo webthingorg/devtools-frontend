@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "80e663b5573fbb597453477096180daea4c326cb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "485ec006_2fc0ef52",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-11T14:00:07Z",
+      "side": 1,
+      "message": "lgtm with 1 question: in which case the state can happen \"the setting is disabled but its value is true\"?",
+      "revId": "80e663b5573fbb597453477096180daea4c326cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
