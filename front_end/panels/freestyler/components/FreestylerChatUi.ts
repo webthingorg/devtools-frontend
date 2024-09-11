@@ -29,7 +29,11 @@ const UIStringsTemp = {
   /**
    *@description Placeholder text for the chat UI input.
    */
-  inputPlaceholder: 'Ask a question about the selected element',
+  inputPlaceholderForFreestylerAgent: 'Ask a question about the selected element',
+  /**
+   *@description Placeholder text for the chat UI input.
+   */
+  inputPlaceholderForDrJonesNetworkAgent: 'Ask a question about the selected network request',
   /**
    *@description Disclaimer text right after the chat input.
    */
@@ -153,10 +157,16 @@ const UIStringsTemp = {
 /* eslint-disable  rulesdir/l10n_i18nString_call_only_with_uistrings */
 const i18nString = i18n.i18n.lockedString;
 
-function getInputPlaceholderString(aidaAvailability: Host.AidaClient.AidaAccessPreconditions): string {
+function getInputPlaceholderString(
+    aidaAvailability: Host.AidaClient.AidaAccessPreconditions, agentType: AgentType): string {
   switch (aidaAvailability) {
     case Host.AidaClient.AidaAccessPreconditions.AVAILABLE:
-      return i18nString(UIStringsTemp.inputPlaceholder);
+      switch (agentType) {
+        case AgentType.FREESTYLER:
+          return i18nString(UIStringsTemp.inputPlaceholderForFreestylerAgent);
+        case AgentType.DRJONES_NETWORK_REQUEST:
+          return i18nString(UIStringsTemp.inputPlaceholderForDrJonesNetworkAgent);
+      }
     case Host.AidaClient.AidaAccessPreconditions.NO_ACCOUNT_EMAIL:
       return i18nString(UIStringsTemp.notLoggedIn);
     case Host.AidaClient.AidaAccessPreconditions.NO_ACTIVE_SYNC:
@@ -204,6 +214,11 @@ export const enum State {
   CHAT_VIEW = 'chat-view',
 }
 
+export const enum AgentType {
+  FREESTYLER = 'freestyler',
+  DRJONES_NETWORK_REQUEST = 'drjones-network-request',
+}
+
 export interface Props {
   onTextSubmit: (text: string) => void;
   onInspectElementClick: () => void;
@@ -216,9 +231,11 @@ export interface Props {
   aidaAvailability: Host.AidaClient.AidaAccessPreconditions;
   messages: ChatMessage[];
   selectedElement: SDK.DOMModel.DOMNode|null;
+  selectedNetworkRequest: SDK.NetworkRequest.NetworkRequest|null;
   isLoading: boolean;
   canShowFeedbackForm: boolean;
   userInfo: Pick<Host.InspectorFrontendHostAPI.SyncInformation, 'accountImage'>;
+  agentType: AgentType;
 }
 
 // The model returns multiline code blocks in an erroneous way with the language being in new line.
@@ -549,6 +566,28 @@ export class FreestylerChatUi extends HTMLElement {
     // clang-format on
   };
 
+  #renderSelection(): LitHtml.TemplateResult {
+    switch (this.#props.agentType) {
+      case AgentType.FREESTYLER:
+        return this.#renderSelectAnElement();
+      case AgentType.DRJONES_NETWORK_REQUEST:
+        return this.#renderSelectedNetworkRequest();
+    }
+  }
+
+  #renderSelectedNetworkRequest = (): LitHtml.TemplateResult => {
+    const resourceClass = LitHtml.Directives.classMap({
+      'not-selected': !this.#props.selectedNetworkRequest,
+      'resource-link': true,
+    });
+    // clang-format off
+    return LitHtml.html`<div class="select-element">
+      <div class=${resourceClass}>
+        ${this.#props.selectedNetworkRequest?.name()}
+      </div></div>`;
+    // clang-format on
+  };
+
   #renderSelectAnElement = (): LitHtml.TemplateResult => {
     const resourceClass = LitHtml.Directives.classMap({
       'not-selected': !this.#props.selectedElement,
@@ -636,7 +675,12 @@ export class FreestylerChatUi extends HTMLElement {
         return Boolean(step.sideEffect);
       });
     });
-    const isInputDisabled = !Boolean(this.#props.selectedElement) || !isAidaAvailable || showsSideEffects;
+    const isInputDisabledCheckForFreestylerAgent = !Boolean(this.#props.selectedElement) || showsSideEffects;
+    const isInputDisabledCheckForDrJonesNetworkAgent = true;
+    const isInputDisabled =
+        (this.#props.agentType === AgentType.FREESTYLER && isInputDisabledCheckForFreestylerAgent) ||
+        (this.#props.agentType === AgentType.DRJONES_NETWORK_REQUEST && isInputDisabledCheckForDrJonesNetworkAgent) ||
+        !isAidaAvailable;
 
     // clang-format off
     return LitHtml.html`
@@ -645,7 +689,7 @@ export class FreestylerChatUi extends HTMLElement {
           .disabled=${isInputDisabled}
           wrap="hard"
           @keydown=${this.#handleTextAreaKeyDown}
-          placeholder=${getInputPlaceholderString(this.#props.aidaAvailability)}
+          placeholder=${getInputPlaceholderString(this.#props.aidaAvailability, this.#props.agentType)}
           jslog=${VisualLogging.textField('query').track({ keydown: 'Enter' })}></textarea>
           ${this.#props.isLoading
             ? LitHtml.html`<${Buttons.Button.Button.litTagName}
@@ -694,7 +738,7 @@ export class FreestylerChatUi extends HTMLElement {
         <form class="input-form" @submit=${this.#handleSubmit}>
           <div class="input-header">
             <div class="header-link-container">
-              ${this.#renderSelectAnElement()}
+              ${this.#renderSelection()}
             </div>
             <div class="header-link-container">
               ${this.#renderFeedbackLink()}
