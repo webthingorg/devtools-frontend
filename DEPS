@@ -21,7 +21,7 @@ vars = {
   'depot_tools_revision': '46f5de67e137de4101c1337dd9b95252d14523e9',
 
   'inspector_protocol_url': 'https://chromium.googlesource.com/deps/inspector_protocol',
-  'inspector_protocol_revision': '2915acabcf62efd7257c57bb8a443a7c389c65cb',
+  'inspector_protocol_revision': 'ccf6613682a24413db28656da6f9c52948331bad',
 
   # Keeping track of the last time we rollerd the browser protocol files.
   'chromium_browser_protocol_revision' : '96ce4932257594d5a4acfffcb1f65d7b03905a69',
