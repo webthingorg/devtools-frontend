@@ -16,6 +16,24 @@
       "message": "re: the TODO\n\nhttps://imgur.com/a/OofsPWv\n\nwe either aren\u0027t rendering overlays for the interaction track; or aren\u0027t rendering it for events that are too small (like this interaction event with near-0 processing duration)",
       "revId": "38b5f358800f71cde49a8aba44b9663723a0c0e1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb9c54a5_47208c09",
+        "filename": "front_end/panels/timeline/components/insights/InteractionToNextPaint.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-11T17:29:43Z",
+      "side": 1,
+      "message": "not blocking for this CL. I fwd\u0027d to alinavarkki@",
+      "parentUuid": "6f74b54a_2146bed2",
+      "revId": "38b5f358800f71cde49a8aba44b9663723a0c0e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
