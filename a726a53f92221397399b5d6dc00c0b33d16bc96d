@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32c6b346_750336f0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-11T13:44:54Z",
+      "side": 1,
+      "message": "LGTM with 1 comment :)",
+      "revId": "a726a53f92221397399b5d6dc00c0b33d16bc96d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "320ecebf_2aef38ed",
+        "filename": "front_end/panels/freestyler/DrJonesNetworkAgent.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-11T13:44:54Z",
+      "side": 1,
+      "message": "Let\u0027s remove `QUERY: ` prefix from here too",
+      "revId": "a726a53f92221397399b5d6dc00c0b33d16bc96d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
