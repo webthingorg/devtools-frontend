@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "27a79f77_6d1ee2b0",
+        "filename": "front_end/panels/freestyler/components/freestylerChatUi.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-11T14:59:49Z",
+      "side": 1,
+      "message": "I needed to do that because CSS nesting \u0026 this rule doesn\u0027t play very well. After adding a nested rule you need to move things around a lot which makes the review much harder.\n\nSince we use CSS nesting here, let\u0027s disable it. I\u0027ll hopefully come up with a proposal to make this rule more useful for CSS nesting cases or just get rid of it.",
+      "revId": "10f80a993fc1eb7483919268d2ce8d3ff3deff1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
