@@ -20,6 +20,68 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c42cfd83_6738c542",
+        "filename": "front_end/panels/freestyler/FreestylerPanel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-09-11T14:06:55Z",
+      "side": 1,
+      "message": "This can be merged with the other, we make the separation in the `handleAction` on the class.",
+      "fixSuggestions": [
+        {
+          "fixId": "0bbe1e2b_50bac30b",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/freestyler/FreestylerPanel.ts",
+              "range": {
+                "startLine": 423,
+                "startChar": 0,
+                "endLine": 423,
+                "endChar": 0
+              },
+              "replacement": "      case \u0027drjones.network-panel-context\u0027:\n"
+            },
+            {
+              "path": "front_end/panels/freestyler/FreestylerPanel.ts",
+              "range": {
+                "startLine": 429,
+                "startChar": 0,
+                "endLine": 445,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "4f0d65aba94189d463b5e621680bd2777cd2e5d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2013e92e_52c9b1ce",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 593,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-09-11T14:06:55Z",
+      "side": 1,
+      "message": "Q: Is this resource linkifyable or not, meaning is there a way to link back to the network panel, similar to how we do with the elements panel.\nCC @ergunsh@chromium.org",
+      "revId": "4f0d65aba94189d463b5e621680bd2777cd2e5d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1fa422f9_871a99c3",
         "filename": "front_end/panels/freestyler/components/freestylerChatUi.css",
         "patchSetId": 5
@@ -31,6 +93,24 @@
       "writtenOn": "2024-09-11T13:54:23Z",
       "side": 1,
       "message": "`text-overflow: ellipsis` doesn\u0027t have an effect here.\n\nAccording to our beloved Freestyler, it says \"The text-overflow: ellipsis property is not working because the element has display: flex. The text-overflow property only works on block or inline elements.\" :)",
+      "revId": "4f0d65aba94189d463b5e621680bd2777cd2e5d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f349a0d_299978a8",
+        "filename": "front_end/panels/freestyler/components/freestylerChatUi.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-09-11T14:06:55Z",
+      "side": 1,
+      "message": "You can try with changing it to grid, I had success somewhere where I used it.",
+      "parentUuid": "1fa422f9_871a99c3",
       "revId": "4f0d65aba94189d463b5e621680bd2777cd2e5d8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
