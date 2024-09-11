@@ -315,6 +315,12 @@ async function buildLayoutShiftsClusters(): Promise<void> {
           good: traceWindowFromTime(clusterStartTime),
         },
         navigationId,
+        // Set default TraceEventData so that this event is treated accordingly for the track appender.
+        ts: event.ts,
+        pid: event.pid,
+        tid: event.tid,
+        ph: Types.TraceEvents.Phase.COMPLETE,
+        cat: '',
       });
 
       firstShiftTime = clusterStartTime;
