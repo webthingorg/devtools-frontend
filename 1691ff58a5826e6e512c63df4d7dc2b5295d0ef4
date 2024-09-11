@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91c02c5b_436067b5",
+        "filename": "front_end/panels/freestyler/components/freestylerChatUi.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-09-11T13:52:46Z",
+      "side": 1,
+      "message": "A little bit of a hack, but how it work is we set the width/height to the same as the icon, and then reduce the area the spinner has so it doesn\u0027t look very big.",
+      "revId": "1691ff58a5826e6e512c63df4d7dc2b5295d0ef4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
