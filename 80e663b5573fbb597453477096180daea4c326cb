@@ -33,6 +33,24 @@
       "message": "lgtm with 1 question: in which case the state can happen \"the setting is disabled but its value is true\"?",
       "revId": "80e663b5573fbb597453477096180daea4c326cb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2d69ea8_dee1fe43",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-09-11T14:19:47Z",
+      "side": 1,
+      "message": "You can run into this with the setting\u0027s `disabledCondition`: the setting\u0027s on/off state is independent of its disabled true/false value.\nConcretely, turn console insights on, then switch language to non-English. The setting is still on, but it is disabled because of the locale.",
+      "parentUuid": "485ec006_2fc0ef52",
+      "revId": "80e663b5573fbb597453477096180daea4c326cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
