@@ -49,7 +49,7 @@ export class Breadcrumbs {
     // To add a new Breadcrumb to the Breadcrumbs Linked List, set the child of active breadcrumb
     // to the new breadcrumb and update the active Breadcrumb to the newly added one
     this.activeBreadcrumb.child = newBreadcrumb;
-    this.setActiveBreadcrumb(newBreadcrumb);
+    this.setActiveBreadcrumb(newBreadcrumb, false, true);
     return newBreadcrumb;
   }
 
@@ -69,10 +69,22 @@ export class Breadcrumbs {
     while (lastBreadcrumb.child !== null) {
       lastBreadcrumb = lastBreadcrumb.child;
     }
-    this.setActiveBreadcrumb(lastBreadcrumb);
+    this.setActiveBreadcrumb(lastBreadcrumb, false, true);
   }
 
-  setActiveBreadcrumb(activeBreadcrumb: TraceEngine.Types.File.Breadcrumb, removeChildBreadcrumbs?: boolean): void {
+  /**
+   * Sets a breadcrumb to be active.
+   * Doing this will update the minimap bounds and optionally based on the
+   * `updateVisibleWindow` parameter, it will also update the active window.
+   * The reason `updateVisibleWindow` is configurable is because if we are
+   * changing which breadcrumb is active because we want to reveal something to
+   * the user, we may have already updated the visible timeline window, but we
+   * are activating the breadcrumb to show the user that they are now within
+   * this breadcrumb. This is used when revealing insights and annotations.
+   */
+  setActiveBreadcrumb(
+      activeBreadcrumb: TraceEngine.Types.File.Breadcrumb, removeChildBreadcrumbs: boolean,
+      updateVisibleWindow: boolean): void {
     // If the children of the activated breadcrumb need to be removed, set the child on the
     // activated breadcrumb to null. Since breadcrumbs are a linked list, this will remove all
     // of the following children.
@@ -86,8 +98,11 @@ export class Breadcrumbs {
     TraceBounds.TraceBounds.BoundsManager.instance().setMiniMapBounds(
         activeBreadcrumb.window,
     );
-    TraceBounds.TraceBounds.BoundsManager.instance().setTimelineVisibleWindow(
-        activeBreadcrumb.window,
-    );
+
+    if (updateVisibleWindow) {
+      TraceBounds.TraceBounds.BoundsManager.instance().setTimelineVisibleWindow(
+          activeBreadcrumb.window,
+      );
+    }
   }
 }
