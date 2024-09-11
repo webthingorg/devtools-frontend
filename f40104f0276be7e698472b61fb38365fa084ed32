@@ -16,6 +16,24 @@
       "message": "Can we also check for Freestyler\u0027s availability here too? So that DrJones entrypoints will be shown only when the \"AI Assistant\" panel is also available.",
       "revId": "f40104f0276be7e698472b61fb38365fa084ed32",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a43b583_1d5c44c1",
+        "filename": "front_end/panels/freestyler/freestyler-meta.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 3596264
+      },
+      "writtenOn": "2024-09-11T05:23:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e5e1d13_09f55804",
+      "revId": "f40104f0276be7e698472b61fb38365fa084ed32",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
