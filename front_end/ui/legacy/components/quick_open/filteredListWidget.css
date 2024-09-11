@@ -107,7 +107,7 @@ devtools-text-prompt {
   flex: none;
   overflow: hidden;
   text-overflow: ellipsis;
-  color: var(--sys-color-token-subtle);
+  color: var(--color-text-secondary);
   display: flex;
   white-space: pre;
 }
