@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af0e3efb_e092d618",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-11T15:11:29Z",
+      "side": 1,
+      "message": "PTAL! \n\nI know this CL removes the revealing entries code, but let\u0027s chat about how to bring that back. I removed it in this CL as it was conflicting + also trying to mutate the timeline window.",
+      "revId": "7a0d9790f6555aa9f50cc1ccf07fd06a16bd6179",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
