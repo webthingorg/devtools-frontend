@@ -451,14 +451,16 @@ describe('Matchers for SDK.CSSPropertyParser.BottomUpTreeMatching', () => {
       assert.isNull(match, text);
     });
 
-    it('should not match if the anchor() and anchor-size() calls dont have any arguments', () => {
+    it('should not match anchor() call without arguments', () => {
       const {match: anchorMatch} =
           matchSingleValue('left', 'anchor()', new Elements.PropertyMatchers.AnchorFunctionMatcher());
       assert.isNull(anchorMatch);
+    });
 
+    it('should match if anchor-size() call without arguments', () => {
       const {match: anchorSizeMatch} =
           matchSingleValue('width', 'anchor-size()', new Elements.PropertyMatchers.AnchorFunctionMatcher());
-      assert.isNull(anchorSizeMatch);
+      assert.exists(anchorSizeMatch, anchorSizeText);
     });
 
     it('should match if it is an anchor() or anchor-size() call', () => {
