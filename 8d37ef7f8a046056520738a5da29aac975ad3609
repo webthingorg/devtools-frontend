@@ -22,6 +22,30 @@
       },
       "revId": "8d37ef7f8a046056520738a5da29aac975ad3609",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b417b2f4_fb5dda85",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1659,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-09-12T13:17:02Z",
+      "side": 1,
+      "message": "you\u0027re right, I agree it\u0027s not very clean. \nI changed the approach to what you suggested 😄",
+      "parentUuid": "270fc55c_553377e8",
+      "range": {
+        "startLine": 1657,
+        "startChar": 6,
+        "endLine": 1659,
+        "endChar": 11
+      },
+      "revId": "8d37ef7f8a046056520738a5da29aac975ad3609",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
