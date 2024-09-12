@@ -1,11 +1,21 @@
 // Copyright 2024 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
+import * as i18n from '../../../../core/i18n/i18n.js';
 import * as ComponentHelpers from '../../../../ui/components/helpers/helpers.js';
 import * as IconButton from '../../../../ui/components/icon_button/icon_button.js';
 import * as LitHtml from '../../../../ui/lit-html/lit-html.js';
 
 import styles from './entryLabelOverlay.css.js';
+
+const UIStrings = {
+  /**
+   *@description Accessible label used to explain to a user that they are viewing an entry label.
+   */
+  entryLabel: 'Entry label',
+};
+const str_ = i18n.i18n.registerUIStrings('panels/timeline/overlays/components/EntryLabelOverlay.ts', UIStrings);
+const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 export class EmptyEntryLabelRemoveEvent extends Event {
   static readonly eventName = 'emptyentrylabelremoveevent';
@@ -335,7 +345,7 @@ Otherwise, the entry label overlay object only gets repositioned.
     // clang-format off
     LitHtml.render(
         LitHtml.html`
-        <span class="label-parts-wrapper">
+        <span class="label-parts-wrapper" role="region" aria-label=${i18nString(UIStrings.entryLabel)}>
           <div class="label-box">
             <${IconButton.Icon.Icon.litTagName} class="user-created-icon" .data=${{
                   iconName: 'profile',
