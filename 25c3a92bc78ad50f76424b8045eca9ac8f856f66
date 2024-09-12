@@ -78,6 +78,24 @@
       ],
       "revId": "25c3a92bc78ad50f76424b8045eca9ac8f856f66",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba8ab419_2e69b3fd",
+        "filename": "front_end/entrypoints/main/main-meta.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-09-12T12:17:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8686ac9_b48c9ba0",
+      "revId": "25c3a92bc78ad50f76424b8045eca9ac8f856f66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
