@@ -118,6 +118,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c61d0713_c5fbda7c",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 593,
+      "author": {
+        "id": 3596264
+      },
+      "writtenOn": "2024-09-12T07:45:09Z",
+      "side": 1,
+      "message": "Would something similar to \"Reveal in Network panel\" (code ref afaik: http://shortn/_7TIhgQOnj1) work here? I can create a bug to track this as a follow-up.",
+      "parentUuid": "2013e92e_52c9b1ce",
+      "revId": "4f0d65aba94189d463b5e621680bd2777cd2e5d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1fa422f9_871a99c3",
         "filename": "front_end/panels/freestyler/components/freestylerChatUi.css",
         "patchSetId": 5
