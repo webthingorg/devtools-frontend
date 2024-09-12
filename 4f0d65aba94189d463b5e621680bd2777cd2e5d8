@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9a76c9e_9c6fb67c",
+        "filename": "front_end/panels/freestyler/FreestylerPanel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 3596264
+      },
+      "writtenOn": "2024-09-12T07:22:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "deb922b9_23cc9170",
+      "revId": "4f0d65aba94189d463b5e621680bd2777cd2e5d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c42cfd83_6738c542",
@@ -59,6 +77,24 @@
           ]
         }
       ],
+      "revId": "4f0d65aba94189d463b5e621680bd2777cd2e5d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e67e16a5_4608b8fe",
+        "filename": "front_end/panels/freestyler/FreestylerPanel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 3596264
+      },
+      "writtenOn": "2024-09-12T07:22:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c42cfd83_6738c542",
       "revId": "4f0d65aba94189d463b5e621680bd2777cd2e5d8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -111,6 +147,24 @@
       "side": 1,
       "message": "You can try with changing it to grid, I had success somewhere where I used it.",
       "parentUuid": "1fa422f9_871a99c3",
+      "revId": "4f0d65aba94189d463b5e621680bd2777cd2e5d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b492401_d09c5d93",
+        "filename": "front_end/panels/freestyler/components/freestylerChatUi.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 3596264
+      },
+      "writtenOn": "2024-09-12T07:22:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9f349a0d_299978a8",
       "revId": "4f0d65aba94189d463b5e621680bd2777cd2e5d8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
