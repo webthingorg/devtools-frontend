@@ -54,6 +54,7 @@ enum SpecificPseudoStates {
   IN_RANGE = 'in-range',
   OUT_OF_RANGE = 'out-of-range',
   VISITED = 'visited',
+  LINK = 'link',
   CHECKED = 'checked',
   INDETERMINATE = 'indeterminate',
   PLACEHOLDER_SHOWN = 'placeholder-shown',
@@ -188,6 +189,7 @@ export class ElementStatePaneWidget extends UI.Widget.Widget {
         SpecificPseudoStates.OUT_OF_RANGE, createElementStateCheckbox(SpecificPseudoStates.OUT_OF_RANGE));
     this.specificPseudoStateDivs.set(
         SpecificPseudoStates.VISITED, createElementStateCheckbox(SpecificPseudoStates.VISITED));
+    this.specificPseudoStateDivs.set(SpecificPseudoStates.LINK, createElementStateCheckbox(SpecificPseudoStates.LINK));
     this.specificPseudoStateDivs.set(
         SpecificPseudoStates.CHECKED, createElementStateCheckbox(SpecificPseudoStates.CHECKED));
     this.specificPseudoStateDivs.set(
@@ -354,8 +356,10 @@ export class ElementStatePaneWidget extends UI.Widget.Widget {
 
     if (isElementOfTypes(node, ['a', 'area']) && node.getAttribute('href') !== undefined) {
       hideSpecificCheckbox(SpecificPseudoStates.VISITED, false);
+      hideSpecificCheckbox(SpecificPseudoStates.LINK, false);
     } else {
       hideSpecificCheckbox(SpecificPseudoStates.VISITED, true);
+      hideSpecificCheckbox(SpecificPseudoStates.LINK, true);
     }
 
     if (isInputWithTypeRadioOrCheckbox(node) || isElementOfTypes(node, ['option'])) {
