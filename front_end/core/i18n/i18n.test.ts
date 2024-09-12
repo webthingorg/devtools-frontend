@@ -149,7 +149,7 @@ describe('fetchAndRegisterLocaleData', () => {
     // was called.
     const actualUrl = fetchStub.args[0][0];
     assert.isTrue(
-        actualUrl.endsWith('gen/front_end/core/i18n/locales/en-US.json'), `Actually called with ${actualUrl}`);
+        actualUrl.endsWith('front_end/core/i18n/locales/en-US.json'), `Actually called with ${actualUrl}`);
   });
 
   it('fetches non-bundled locale files from the remote service endpoint', async () => {
