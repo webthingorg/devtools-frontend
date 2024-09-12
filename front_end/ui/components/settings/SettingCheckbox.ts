@@ -5,7 +5,7 @@
 import type * as Common from '../../../core/common/common.js';
 import * as LitHtml from '../../lit-html/lit-html.js';
 import * as VisualLogging from '../../visual_logging/visual_logging.js';
-import * as IconButton from '../icon_button/icon_button.js';
+import * as Buttons from '../buttons/buttons.js';
 import * as Input from '../input/input.js';
 
 import settingCheckboxStyles from './settingCheckbox.css.js';
@@ -66,8 +66,9 @@ export class SettingCheckbox extends HTMLElement {
                                   jslog=${jslog}
                                   tabIndex="0"
                                   class="devtools-link">
-                            <${IconButton.Icon.Icon.litTagName} name="help" class="link-icon"></${
-          IconButton.Icon.Icon.litTagName}>
+                            <${Buttons.Button.Button.litTagName} .iconName=${'help'} .size=${
+          Buttons.Button.Size.SMALL} .variant=${Buttons.Button.Variant.ICON} class="link-icon"></${
+          Buttons.Button.Button.litTagName}>
                           </x-link>`;
     }
 
@@ -82,8 +83,9 @@ export class SettingCheckbox extends HTMLElement {
     const icon = this.icon();
     const reason = this.#setting.disabledReason() ?
         LitHtml.html`
-      <${IconButton.Icon.Icon.litTagName} class="disabled-reason" name="info" title=${
-            this.#setting.disabledReason()} @click=${onclick}></${IconButton.Icon.Icon.litTagName}>
+      <${Buttons.Button.Button.litTagName} class="disabled-reason" .iconName=${'info'} .variant=${
+            Buttons.Button.Variant.ICON} .size=${Buttons.Button.Size.SMALL} title=${
+            this.#setting.disabledReason()} @click=${onclick}></${Buttons.Button.Button.litTagName}>
     ` :
         LitHtml.nothing;
     LitHtml.render(
