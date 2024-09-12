@@ -16,6 +16,68 @@
       "message": "Benedikt, could you please take a look?:)",
       "revId": "25c3a92bc78ad50f76424b8045eca9ac8f856f66",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "94e08d35_7c98535d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-09-12T10:45:46Z",
+      "side": 1,
+      "message": "LGTM modulo redness and nit.",
+      "revId": "25c3a92bc78ad50f76424b8045eca9ac8f856f66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8686ac9_b48c9ba0",
+        "filename": "front_end/entrypoints/main/main-meta.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-09-12T10:45:46Z",
+      "side": 1,
+      "message": "Nit: Let\u0027s call this `matchChromeColorSchemeDocumentation`.",
+      "fixSuggestions": [
+        {
+          "fixId": "7ce7f402_dd755e28",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/entrypoints/main/main-meta.ts",
+              "range": {
+                "startLine": 216,
+                "startChar": 0,
+                "endLine": 217,
+                "endChar": 0
+              },
+              "replacement": "  matchChromeColorSchemeDocumentation: \u0027Match DevTools colors to your customized Chrome theme (when enabled)\u0027,\n"
+            },
+            {
+              "path": "front_end/entrypoints/main/main-meta.ts",
+              "range": {
+                "startLine": 625,
+                "startChar": 0,
+                "endLine": 626,
+                "endChar": 0
+              },
+              "replacement": "    tooltip: i18nLazyString(UIStrings.matchChromeColorSchemeDocumentation),\n"
+            }
+          ]
+        }
+      ],
+      "revId": "25c3a92bc78ad50f76424b8045eca9ac8f856f66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
