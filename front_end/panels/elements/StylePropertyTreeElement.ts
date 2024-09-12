@@ -1132,7 +1132,7 @@ export class AnchorFunctionRenderer implements MatchRenderer<AnchorFunctionMatch
   async #decorateAnchor(container: HTMLElement, identifier?: string): Promise<void> {
     await decorateAnchorForAnchorLink(container, this.#treeElement, {
       identifier,
-      needsSpace: true,
+      needsSpace: false,
     });
     this.anchorDecoratedForTest();
   }
@@ -1141,22 +1141,37 @@ export class AnchorFunctionRenderer implements MatchRenderer<AnchorFunctionMatch
     const content = document.createElement('span');
     content.appendChild(document.createTextNode(`${match.functionName}(`));
 
-    const firstArgText = match.matching.ast.text(match.args[0]);
-    const hasDashedIdentifier = firstArgText.startsWith('--');
     const linkContainer = document.createElement('span');
-    if (hasDashedIdentifier) {
-      linkContainer.textContent = `${firstArgText} `;
+    let linkArgText;
+    let isFirstArg = true;
+    for (const arg of match.args) {
+      const argText = match.matching.ast.text(arg);
+      const hasDashedIdentifier = argText.startsWith('--');
+      let container;
+      if (hasDashedIdentifier) {
+        linkArgText = argText;
+        linkContainer.textContent = `${argText}`;
+        container = linkContainer;
+      } else {
+        if (match.args.length === 1) {
+          content.appendChild(linkContainer);
+        }
+        container = document.createElement('span');
+        Renderer.renderInto(arg, context, container);
+      }
+      if (isFirstArg) {
+        isFirstArg = false;
+      } else {
+        content.appendChild(document.createTextNode(' '));
+      }
+      content.appendChild(container);
     }
-    content.appendChild(linkContainer);
-
-    const remainingArgsContainer = content.appendChild(document.createElement('span'));
-    if (hasDashedIdentifier) {
-      Renderer.renderInto(match.args.slice(1), context, remainingArgsContainer);
-    } else {
-      Renderer.renderInto(match.args, context, remainingArgsContainer);
+    if (match.args.length === 0) {
+      // The empty anchor-size() function still needs the link swatch to the
+      // default anchor.
+      content.appendChild(linkContainer);
     }
-
-    void this.#decorateAnchor(linkContainer, hasDashedIdentifier ? firstArgText : undefined);
+    void this.#decorateAnchor(linkContainer, linkArgText);
     content.appendChild(document.createTextNode(')'));
     return [content];
   }
