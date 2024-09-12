@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e35a834_6eb509ac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-12T14:58:27Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "e5663253_afdad59e",
+      "revId": "2b3d60e2e99b1e4e88af0d7dfb4cf3c47a3b329e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a684f6f8_6ab7d216",
@@ -72,6 +90,30 @@
       "side": 1,
       "message": "Figured it out offline:)",
       "parentUuid": "a684f6f8_6ab7d216",
+      "range": {
+        "startLine": 8,
+        "startChar": 27,
+        "endLine": 8,
+        "endChar": 52
+      },
+      "revId": "2b3d60e2e99b1e4e88af0d7dfb4cf3c47a3b329e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5683efb_3dc9a743",
+        "filename": "front_end/ui/components/markdown_view/markdownView.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-12T14:58:27Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "bfe0a8ef_6b4fe7b7",
       "range": {
         "startLine": 8,
         "startChar": 27,
