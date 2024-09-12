@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "dae92221_3c3853b7",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-09-12T13:29:02Z",
+      "side": 1,
+      "message": "Why is this icon changed? The design call for the one with circle.",
+      "revId": "10f80a993fc1eb7483919268d2ce8d3ff3deff1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "27a79f77_6d1ee2b0",
