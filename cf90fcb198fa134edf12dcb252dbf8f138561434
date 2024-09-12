@@ -16,6 +16,24 @@
       "message": "Are you able to think of a CSS only way of doing this without attaching any event handler to the `details` element?",
       "revId": "cf90fcb198fa134edf12dcb252dbf8f138561434",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8fa238f_c2b52557",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-12T14:18:14Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "1abf9d5e_86a2b5b8",
+      "revId": "cf90fcb198fa134edf12dcb252dbf8f138561434",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
