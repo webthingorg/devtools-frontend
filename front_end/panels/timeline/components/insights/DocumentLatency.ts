@@ -85,15 +85,15 @@ export class DocumentLatency extends BaseInsight {
         <div slot="insight-description" class="insight-description">
           <ul class="insight-results insight-icon-results">
               <li class="insight-entry">
-                ${this.#adviceIcon(insight.redirectDuration === 0)}
+                ${this.#adviceIcon(insight.data?.redirectDuration === 0)}
                 <span>${i18nString(UIStrings.redirects)}</span>
               </li>
               <li class="insight-entry">
-                ${this.#adviceIcon(insight.serverResponseTime === 0)}
+                ${this.#adviceIcon(insight.data?.serverResponseTime === 0)}
                 <span>${i18nString(UIStrings.serverResponseTime)}</span>
               </li>
               <li class="insight-entry">
-                ${this.#adviceIcon(insight.uncompressedResponseBytes === 0)}
+                ${this.#adviceIcon(insight.data?.uncompressedResponseBytes === 0)}
                 <span>${i18nString(UIStrings.textCompression)}</span>
               </li>
             </ul>
@@ -109,7 +109,7 @@ export class DocumentLatency extends BaseInsight {
       activeCategory: this.data.activeCategory,
       insightCategory: this.insightCategory,
     });
-    const output = matchesCategory && insight ? this.#renderInsight(insight) : LitHtml.nothing;
+    const output = matchesCategory && insight?.data ? this.#renderInsight(insight) : LitHtml.nothing;
     LitHtml.render(output, this.shadow, {host: this});
   }
 }
