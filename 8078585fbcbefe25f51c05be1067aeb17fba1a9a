@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e7e3e29_05802034",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-12T09:33:10Z",
+      "side": 1,
+      "message": "lgtm with some notes which may not be valid - lmk what you think!",
+      "revId": "8078585fbcbefe25f51c05be1067aeb17fba1a9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c01bf3d_f66a4edc",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 897,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-12T09:33:10Z",
+      "side": 1,
+      "message": "Let\u0027s put `Synthetic` in front of this name (sorry, I think it was me who did this initially and should have done it then!)",
+      "range": {
+        "startLine": 897,
+        "startChar": 9,
+        "endLine": 897,
+        "endChar": 27
+      },
+      "revId": "8078585fbcbefe25f51c05be1067aeb17fba1a9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6957448_2c978d78",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 919,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-12T09:33:10Z",
+      "side": 1,
+      "message": "should clusters have a `dur` ?",
+      "range": {
+        "startLine": 919,
+        "startChar": 0,
+        "endLine": 919,
+        "endChar": 17
+      },
+      "revId": "8078585fbcbefe25f51c05be1067aeb17fba1a9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4acc2ae_54fd8f5e",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 2228,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-12T09:33:10Z",
+      "side": 1,
+      "message": "KnownEventNames.LAYOUT_SHIFT_CLUSTER ?",
+      "range": {
+        "startLine": 2228,
+        "startChar": 34,
+        "endLine": 2228,
+        "endChar": 52
+      },
+      "revId": "8078585fbcbefe25f51c05be1067aeb17fba1a9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
