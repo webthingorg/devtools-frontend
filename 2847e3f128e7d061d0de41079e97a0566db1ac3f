@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4de6b307_5fe12a1c",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-12T09:46:06Z",
+      "side": 1,
+      "message": "I think we should expand the tracks for all the entries we find.\n\nPicture an entries link annotation that has two entries, it would be weird to only reveal one of them.",
+      "range": {
+        "startLine": 335,
+        "startChar": 3,
+        "endLine": 341,
+        "endChar": 7
+      },
+      "revId": "2847e3f128e7d061d0de41079e97a0566db1ac3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9fbf35c_71b70304",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-12T09:46:06Z",
+      "side": 1,
+      "message": "is `group.startLevel` definitely the right value? I thought this method took the index of the group, rather than its start level, but I might be wrong 😊",
+      "range": {
+        "startLine": 386,
+        "startChar": 0,
+        "endLine": 386,
+        "endChar": 53
+      },
+      "revId": "2847e3f128e7d061d0de41079e97a0566db1ac3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
