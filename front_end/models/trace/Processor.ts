@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 import * as Handlers from './handlers/handlers.js';
+import * as Helpers from './helpers/helpers.js';
 import * as Insights from './insights/insights.js';
 import * as Lantern from './lantern/lantern.js';
 import * as LanternComputationData from './LanternComputationData.js';
@@ -308,6 +309,24 @@ export class TraceProcessor extends EventTarget {
     return {graph, simulator, metrics};
   }
 
+  #computeBoundedInsightData(
+      traceParsedData: Handlers.Types.TraceParseData, insightRunners: Partial<typeof Insights.InsightRunners>,
+      context: Insights.Types.BoundedInsightContext): Insights.Types.BoundedInsightData {
+    const boundedInsightData = {} as Insights.Types.BoundedInsightData;
+
+    for (const [name, insight] of Object.entries(insightRunners)) {
+      let insightResult;
+      try {
+        insightResult = insight.generateInsight(traceParsedData, context);
+      } catch (err) {
+        insightResult = err;
+      }
+      Object.assign(boundedInsightData, {[name]: insightResult});
+    }
+
+    return boundedInsightData;
+  }
+
   /**
    * Run all the insights and set the result to `#insights`.
    */
@@ -317,12 +336,40 @@ export class TraceProcessor extends EventTarget {
 
     const enabledInsightRunners = TraceProcessor.getEnabledInsightRunners(traceParsedData);
 
-    for (const navigation of traceParsedData.Meta.mainFrameNavigations) {
-      const frameId = navigation.args.frame;
-      const navigationId = navigation.args.data?.navigationId;
-      if (!frameId || !navigationId) {
-        continue;
+    const navigations = traceParsedData.Meta.mainFrameNavigations.filter(
+        navigation => navigation.args.frame && navigation.args.data?.navigationId);
+
+    // Check if there is a meaningful chunk of work happening prior to the first navigation.
+    // If so, we run the insights on that initial window.
+    // Otherwise, there are no navigations and we do a no-navigation insights pass on the entire trace.
+    if (navigations.length) {
+      const window =
+          Helpers.Timing.traceWindowFromMicroSeconds(traceParsedData.Meta.traceBounds.min, navigations[0].ts);
+      // It really shouldn't take more than a few ms for a navigation to trigger via the "Record and reload" option.
+      // TODO(b/366049346): after some user testing (by us), possibly update or remove this threshold.
+      const threshold = Helpers.Timing.millisecondsToMicroseconds(100 as Types.Timing.MilliSeconds);
+      if (window.range > threshold) {
+        const context: Insights.Types.BoundedInsightContext = {
+          type: 'no-navigation',
+          window,
+        };
+        const boundedInsightData = this.#computeBoundedInsightData(traceParsedData, enabledInsightRunners, context);
+        this.#insights.set('', boundedInsightData);
       }
+    } else {
+      const context: Insights.Types.BoundedInsightContext = {
+        type: 'no-navigation',
+        window: traceParsedData.Meta.traceBounds,
+      };
+      const boundedInsightData = this.#computeBoundedInsightData(traceParsedData, enabledInsightRunners, context);
+      this.#insights.set('', boundedInsightData);
+    }
+
+    // Now run the insights for each navigation in isolation.
+    for (const [i, navigation] of navigations.entries()) {
+      // The above filter guarantees these are present.
+      const frameId = navigation.args.frame;
+      const navigationId = navigation.args.data?.navigationId as string;
 
       // The lantern sub-context is optional on NavigationInsightContext, so not setting it is OK.
       // This is also a hedge against an error inside Lantern resulting in breaking the entire performance panel.
@@ -352,25 +399,20 @@ export class TraceProcessor extends EventTarget {
         }
       }
 
-      const context: Insights.Types.NavigationInsightContext = {
+      const min = navigation.ts;
+      const max = i + 1 < navigations.length ? navigations[i + 1].ts : traceParsedData.Meta.traceBounds.max;
+      const window = Helpers.Timing.traceWindowFromMicroSeconds(min, max);
+      const context: Insights.Types.BoundedInsightContext = {
+        type: 'with-navigation',
+        window,
         frameId,
         navigation,
         navigationId,
         lantern,
       };
 
-      const navInsightData = {} as Insights.Types.NavigationInsightData;
-      for (const [name, insight] of Object.entries(enabledInsightRunners)) {
-        let insightResult;
-        try {
-          insightResult = insight.generateInsight(traceParsedData, context);
-        } catch (err) {
-          insightResult = err;
-        }
-        Object.assign(navInsightData, {[name]: insightResult});
-      }
-
-      this.#insights.set(context.navigationId, navInsightData);
+      const boundedInsightData = this.#computeBoundedInsightData(traceParsedData, enabledInsightRunners, context);
+      this.#insights.set(context.navigationId, boundedInsightData);
     }
   }
 }
