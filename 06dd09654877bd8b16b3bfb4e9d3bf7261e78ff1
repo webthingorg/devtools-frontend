@@ -16,6 +16,87 @@
       "message": "Can you take a look please? Thanks! :pr",
       "revId": "06dd09654877bd8b16b3bfb4e9d3bf7261e78ff1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "797406a2_b0ed13c2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-09-12T12:21:45Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "06dd09654877bd8b16b3bfb4e9d3bf7261e78ff1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "873097e9_773e480f",
+        "filename": "docs/contributing/changes.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-09-12T12:21:45Z",
+      "side": 1,
+      "message": "Can we tone this down? I often find it to be important to split the change just for the sake of smaller CL. What do you mean by the next sentence? For me, building and passing tests would be enough, but this is kinda obvious, as you won\u0027t be able to submit otherwise.",
+      "range": {
+        "startLine": 24,
+        "startChar": 38,
+        "endLine": 25,
+        "endChar": 19
+      },
+      "revId": "06dd09654877bd8b16b3bfb4e9d3bf7261e78ff1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ba0d3f8_7c8dafdf",
+        "filename": "docs/contributing/changes.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-09-12T12:21:45Z",
+      "side": 1,
+      "message": "nutshell",
+      "range": {
+        "startLine": 31,
+        "startChar": 5,
+        "endLine": 31,
+        "endChar": 12
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "30936e92_39813258",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "docs/contributing/changes.md",
+              "range": {
+                "startLine": 31,
+                "startChar": 0,
+                "endLine": 32,
+                "endChar": 0
+              },
+              "replacement": "In a nutshell, optimize for meaningful CL (change list) descriptions:\n"
+            }
+          ]
+        }
+      ],
+      "revId": "06dd09654877bd8b16b3bfb4e9d3bf7261e78ff1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
