@@ -185,6 +185,14 @@
   border-radius: var(--sys-size-6);
   position: relative;
 
+  &.empty {
+    pointer-events: none;
+
+    .arrow {
+      display: none;
+    }
+  }
+
   &:not(&[open]):hover::after {
     content: "";
     height: 100%;
