@@ -33,6 +33,24 @@
       "message": "Move it to the start, that way we are a early return which is preferred.",
       "revId": "e8dd11153b1aa8b8f3c5b88f1d96d63ddbffade8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9491696_01cb316b",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-12T13:24:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c95d544f_82d91f25",
+      "revId": "e8dd11153b1aa8b8f3c5b88f1d96d63ddbffade8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
