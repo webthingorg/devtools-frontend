@@ -16,6 +16,29 @@
       "message": "WDYT of this approach to customize the colors outside of the components?",
       "revId": "2b3d60e2e99b1e4e88af0d7dfb4cf3c47a3b329e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a684f6f8_6ab7d216",
+        "filename": "front_end/ui/components/markdown_view/markdownView.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-09-12T14:38:37Z",
+      "side": 1,
+      "message": "How is the `:host` different to `devtools-markdown-view`? What is the use-case exactly? could you show some screenshots maybe?:)",
+      "range": {
+        "startLine": 8,
+        "startChar": 27,
+        "endLine": 8,
+        "endChar": 52
+      },
+      "revId": "2b3d60e2e99b1e4e88af0d7dfb4cf3c47a3b329e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
