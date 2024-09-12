@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d0f16cb_97f13edd",
+        "filename": "docs/contributing/changes.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-09-12T12:32:38Z",
+      "side": 1,
+      "message": "Rephrased it to make sense and provided the example of a bugfix that shouldn\u0027t be split into code change (CL1) and test case (CL2).",
+      "parentUuid": "873097e9_773e480f",
+      "range": {
+        "startLine": 24,
+        "startChar": 38,
+        "endLine": 25,
+        "endChar": 19
+      },
+      "revId": "06dd09654877bd8b16b3bfb4e9d3bf7261e78ff1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9ba0d3f8_7c8dafdf",
@@ -95,6 +119,30 @@
           ]
         }
       ],
+      "revId": "06dd09654877bd8b16b3bfb4e9d3bf7261e78ff1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df795a25_8b08a7a7",
+        "filename": "docs/contributing/changes.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-09-12T12:32:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ba0d3f8_7c8dafdf",
+      "range": {
+        "startLine": 31,
+        "startChar": 5,
+        "endLine": 31,
+        "endChar": 12
+      },
       "revId": "06dd09654877bd8b16b3bfb4e9d3bf7261e78ff1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
