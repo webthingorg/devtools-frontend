@@ -4,7 +4,7 @@
 
 import * as Types from '../types/types.js';
 
-import {type InsightResult, type NavigationInsightContext, type RequiredData} from './types.js';
+import {type BoundedInsightContext, type InsightResult, type RequiredData} from './types.js';
 
 // Due to the way that DevTools throttling works we cannot see if server response took less than ~570ms.
 // We set our failure threshold to 600ms to avoid those false positives but we want devs to shoot for 100ms.
@@ -15,10 +15,12 @@ const TARGET_MS = 100;
 const IGNORE_THRESHOLD_IN_BYTES = 1400;
 
 export type DocumentLatencyInsightResult = InsightResult<{
-  serverResponseTime: Types.Timing.MilliSeconds,
-  redirectDuration: Types.Timing.MilliSeconds,
-  uncompressedResponseBytes: number,
-  documentRequest?: Types.TraceEvents.SyntheticNetworkRequest,
+  data?: {
+    serverResponseTime: Types.Timing.MilliSeconds,
+    redirectDuration: Types.Timing.MilliSeconds,
+    uncompressedResponseBytes: number,
+    documentRequest: Types.TraceEvents.SyntheticNetworkRequest,
+  },
 }>;
 
 export function deps(): ['Meta', 'NetworkRequests'] {
@@ -99,7 +101,11 @@ function getCompressionSavings(request: Types.TraceEvents.SyntheticNetworkReques
 }
 
 export function generateInsight(
-    traceParsedData: RequiredData<typeof deps>, context: NavigationInsightContext): DocumentLatencyInsightResult {
+    traceParsedData: RequiredData<typeof deps>, context: BoundedInsightContext): DocumentLatencyInsightResult {
+  if (context.type === 'no-navigation') {
+    return {};
+  }
+
   const documentRequest =
       traceParsedData.NetworkRequests.byTime.find(req => req.args.data.requestId === context.navigationId);
   if (!documentRequest) {
@@ -125,10 +131,12 @@ export function generateInsight(
   };
 
   return {
-    serverResponseTime,
-    redirectDuration: Types.Timing.MilliSeconds(redirectDuration),
-    uncompressedResponseBytes: getCompressionSavings(documentRequest),
-    documentRequest,
+    data: {
+      serverResponseTime,
+      redirectDuration: Types.Timing.MilliSeconds(redirectDuration),
+      uncompressedResponseBytes: getCompressionSavings(documentRequest),
+      documentRequest,
+    },
     metricSavings,
   };
 }
