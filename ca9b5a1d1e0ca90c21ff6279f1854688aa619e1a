@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c08fb06_3115aa4a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-12T13:35:51Z",
+      "side": 1,
+      "message": "I think we need another thing to do here too:\n* As a follow-up: I created another bug for handling the empty state, it\u0027d be great if you can tackle that as part of doing follow-ups :)\n\nThe bug is b/366178644",
+      "revId": "ca9b5a1d1e0ca90c21ff6279f1854688aa619e1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
