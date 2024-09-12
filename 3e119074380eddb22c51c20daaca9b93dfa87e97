@@ -33,6 +33,24 @@
       "message": "Can we add a simple test similar to `forceGet` function?",
       "revId": "3e119074380eddb22c51c20daaca9b93dfa87e97",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64ad3ef3_dd00cd37",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-09-12T14:53:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02af0cf5_6219e1e3",
+      "revId": "3e119074380eddb22c51c20daaca9b93dfa87e97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
