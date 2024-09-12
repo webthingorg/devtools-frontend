@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81af2bc7_05cc88df",
+        "filename": "front_end/models/trace/Processor.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-12T19:08:12Z",
+      "side": 0,
+      "message": "you don\u0027t like sortedHandlers.entries()? :)",
+      "revId": "6fc2c1235b8186fbb9b5189cfba923d95cc4865a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be607263_b2959c59",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-12T19:08:12Z",
+      "side": 1,
+      "message": "nice!\n\nnothing blocking from me, just some suggestions for readability you can take or leave.\n\nI do have a bug # you can reference for TODOs.",
+      "revId": "51cab6b7e9b94267aca8dea6055c3b8cc611fbc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47d31f68_9af02006",
+        "filename": "front_end/models/trace/Processor.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-12T19:08:12Z",
+      "side": 1,
+      "message": "great idea",
+      "revId": "51cab6b7e9b94267aca8dea6055c3b8cc611fbc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "385cc95f_e478f83d",
+        "filename": "front_end/models/trace/Processor.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-12T19:08:12Z",
+      "side": 1,
+      "message": "It\u0027d be good for readability to wrap all the dispatchEvents just below this enum, to remove some unrelated complexity from #computeTraceParsedData\n\nmaybe: `reportProgress(processor: TraceProcessor, phase: ProgressPhase, data: number): void` and then keep all the progress stuff within a small function with a simple if/else.\n\nor maybe better: `calculateProgress(phase: ProgressPhase, data: number): number`",
+      "revId": "51cab6b7e9b94267aca8dea6055c3b8cc611fbc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a3680cb_b85a59e6",
+        "filename": "front_end/models/trace/TracingManager.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-12T19:08:12Z",
+      "side": 1,
+      "message": "CDP doesn\u0027t mention it\u0027s deprecated - https://chromedevtools.github.io/devtools-protocol/tot/Tracing/#event-bufferUsage - so file a bug to get confirmation this isn\u0027t just broken? At the least it needs a \"no longer works\" disclaimer on the CDP docs.",
+      "revId": "51cab6b7e9b94267aca8dea6055c3b8cc611fbc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a9f7248_de412c56",
+        "filename": "front_end/panels/timeline/TimelineController.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-12T19:08:12Z",
+      "side": 1,
+      "message": "fyi I made a bug: 366072294",
+      "revId": "51cab6b7e9b94267aca8dea6055c3b8cc611fbc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
