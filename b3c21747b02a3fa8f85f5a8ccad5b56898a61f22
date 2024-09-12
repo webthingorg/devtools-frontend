@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1ccd86b_9e1b467e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-12T10:56:15Z",
+      "side": 1,
+      "message": "PTAL.\n\n(Adriana started this CL + I picked it up today, we had discussed this, I haven\u0027t just jumped in 😄)",
+      "revId": "b3c21747b02a3fa8f85f5a8ccad5b56898a61f22",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
