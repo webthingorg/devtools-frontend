@@ -16,6 +16,23 @@
       "message": "Hey Jayson, could we please use `--sys-color-on-surface-subtle` here instead?\nAccording to our style guidelines (https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/docs/styleguide/ux/styles.md;l\u003d72) we should use this one when we need a slightly fainter text than the regular one:)",
       "revId": "074322e49780ec0ab881a074f29ba48fd8e7ab57",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff3d67af_b95d7c4a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-12T09:28:54Z",
+      "side": 1,
+      "message": "this lgtm after Kateryna\u0027s fix.",
+      "revId": "074322e49780ec0ab881a074f29ba48fd8e7ab57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
