@@ -38,6 +38,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "5f2e8e49_6d1323ba",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-09-12T13:32:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e25ac649_1a64f4c1",
+      "revId": "10f80a993fc1eb7483919268d2ce8d3ff3deff1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "27a79f77_6d1ee2b0",
         "filename": "front_end/panels/freestyler/components/freestylerChatUi.css",
         "patchSetId": 2
