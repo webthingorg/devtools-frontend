@@ -63,6 +63,7 @@ export interface EntryLabel {
   type: 'ENTRY_LABEL';
   entry: OverlayEntry;
   label: string;
+  editState?: boolean;
 }
 
 /**
@@ -91,6 +92,9 @@ export function isTimeRangeLabel(annotation: TimelineOverlay): annotation is Tim
 
 export function isEntriesLink(annotation: TimelineOverlay): annotation is EntriesLink {
   return annotation.type === 'ENTRIES_LINK';
+}
+export function isEntryLabel(annotation: TimelineOverlay): annotation is EntryLabel {
+  return annotation.type === 'ENTRY_LABEL';
 }
 
 /**
@@ -1285,6 +1289,17 @@ export class Overlays extends EventTarget {
         break;
       }
       case 'ENTRY_LABEL': {
+        const component = element.querySelector('devtools-entry-label-overlay');
+        // Entry edit state can be triggered from outside the label component by clicking on the
+        // Entry that already has a label. Instead of creating a new label, set the existing entry
+        // label into an editable state.
+        // Overlay `editState` parameter is only used as a way to trigger the edit state, while exiting
+        // that state is managed by the label component. Therefore, delete the `editState` parameter right
+        // after setting the label component into editable state.
+        if (component && overlay.editState) {
+          component.setLabelEditabilityAndRemoveEmptyLabel(true);
+        }
+        delete overlay.editState;
         break;
       }
       case 'TIMESPAN_BREAKDOWN': {
