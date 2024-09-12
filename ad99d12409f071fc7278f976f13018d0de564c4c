@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66c1089d_caf82158",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-09-12T13:13:00Z",
+      "side": 1,
+      "message": "Benedikt, I talked to Peter and we figured, since these are clickable, these should be buttons and not icons! Please kindly take a look?",
+      "revId": "ad99d12409f071fc7278f976f13018d0de564c4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
