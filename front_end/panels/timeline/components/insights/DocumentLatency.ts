@@ -14,17 +14,22 @@ import {InsightsCategories} from './types.js';
 
 const UIStrings = {
   /**
+   * @example {100 ms} PH1
+   * @description Text to tell the user how long the document request took.
+   */
+  serverResponseTime: 'Server response time: {PH1}',
+  /**
    * @description Text to tell the user that the document request does not have redirects.
    */
-  redirects: 'Avoids multiple page redirects',
+  redirects: 'Avoids redirects',
   /**
    * @description Text to tell the user that the time starting the document request to when the server started responding is acceptable.
    */
-  serverResponseTime: 'Initial server response time was short',
+  slowServerResponseTime: 'Server responds quickly',
   /**
    * @description Text to tell the user that text compression (like gzip) was applied.
    */
-  textCompression: 'Text compression applied',
+  textCompression: 'Applies text compression',
 };
 
 const str_ = i18n.i18n.registerUIStrings('panels/timeline/components/insights/DocumentLatency.ts', UIStrings);
@@ -67,8 +72,15 @@ export class DocumentLatency extends BaseInsight {
   }
 
   override createOverlays(): Overlays.Overlays.TimelineOverlay[] {
-    // TODO: create overlays
-    return [];
+    const insight = getDocumentLatencyInsight(this.data.insights, this.data.navigationId);
+    if (!insight?.documentRequest) {
+      return [];
+    }
+
+    return [{
+      type: 'ENTRY_SELECTED',
+      entry: insight.documentRequest,
+    }];
   }
 
   #renderInsight(insight: TraceEngine.Insights.Types.InsightResults['DocumentLatency']): LitHtml.LitTemplate {
@@ -83,14 +95,18 @@ export class DocumentLatency extends BaseInsight {
         @insighttoggleclick=${this.onSidebarClick}
       >
         <div slot="insight-description" class="insight-description">
+          <p>${i18nString(UIStrings.serverResponseTime, {
+            PH1: i18n.TimeUtilities.millisToString(insight.serverResponseTime),
+          })}</p>
+
           <ul class="insight-results insight-icon-results">
               <li class="insight-entry">
                 ${this.#adviceIcon(insight.redirectDuration === 0)}
                 <span>${i18nString(UIStrings.redirects)}</span>
               </li>
               <li class="insight-entry">
-                ${this.#adviceIcon(insight.serverResponseTime === 0)}
-                <span>${i18nString(UIStrings.serverResponseTime)}</span>
+                ${this.#adviceIcon(!insight.serverResponseTooSlow)}
+                <span>${i18nString(UIStrings.slowServerResponseTime)}</span>
               </li>
               <li class="insight-entry">
                 ${this.#adviceIcon(insight.uncompressedResponseBytes === 0)}
