@@ -33,7 +33,7 @@ import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import type * as Platform from '../../core/platform/platform.js';
 import * as Root from '../../core/root/root.js';
-import * as IconButton from '../../ui/components/icon_button/icon_button.js';
+import * as Buttons from '../../ui/components/buttons/buttons.js';
 import * as Components from '../../ui/legacy/components/utils/utils.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as VisualLogging from '../../ui/visual_logging/visual_logging.js';
@@ -494,10 +494,10 @@ export class ExperimentsSettingsTab extends SettingsTab {
       link.textContent = '';
       link.setAttribute('aria-label', i18nString(UIStrings.learnMore));
 
-      const linkIcon = new IconButton.Icon.Icon();
-      linkIcon.data = {iconName: 'help', color: 'var(--icon-default)', width: '16px', height: '16px'};
-      linkIcon.classList.add('link-icon');
-      link.prepend(linkIcon);
+      const linkButton = new Buttons.Button.Button();
+      linkButton.data = {iconName: 'help', variant: Buttons.Button.Variant.ICON, size: Buttons.Button.Size.SMALL};
+      linkButton.classList.add('link-icon');
+      link.prepend(linkButton);
 
       p.appendChild(link);
     }
