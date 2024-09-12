@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f869b319_532e4e67",
+        "filename": "front_end/panels/freestyler/FreestylerPanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-09-12T14:49:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "380c9646_a632963c",
+      "revId": "deec64cd40bdb349ea8fe3c7fe9a55d1d99871aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3ba2b374_f6e3935f",
@@ -52,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a7047b9_a7d380f0",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-09-12T14:49:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3ba2b374_f6e3935f",
+      "revId": "deec64cd40bdb349ea8fe3c7fe9a55d1d99871aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "04ae726e_44a239e5",
@@ -65,6 +101,24 @@
       "writtenOn": "2024-09-12T14:28:51Z",
       "side": 1,
       "message": "Just as a sanity check, can we add `!message.answer` condition here so that we only show error when there isn\u0027t any message?",
+      "revId": "deec64cd40bdb349ea8fe3c7fe9a55d1d99871aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ecc90235_3c96781e",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 589,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-09-12T14:49:44Z",
+      "side": 1,
+      "message": "As discussed offline this should not be possible with the current set up and even if it is, we should show the error.",
+      "parentUuid": "04ae726e_44a239e5",
       "revId": "deec64cd40bdb349ea8fe3c7fe9a55d1d99871aa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
