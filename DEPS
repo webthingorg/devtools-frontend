@@ -12,19 +12,19 @@ vars = {
   'build_with_chromium': False,
 
   'build_url': 'https://chromium.googlesource.com/chromium/src/build.git',
-  'build_revision': '6ad2a109821c5a126abedcbf0b10449f1b737970',
+  'build_revision': '58e988bf3be6ac9ac855d75840be7db928c61f2a',
 
   'buildtools_url': 'https://chromium.googlesource.com/chromium/src/buildtools.git',
-  'buildtools_revision': '34a8595e7595985d1b5ca6b6fb14a4a0ddd3b952',
+  'buildtools_revision': 'c50379e934fd5c1d3938356fc6c71d5e557fb7be',
 
   'depot_tools_url': 'https://chromium.googlesource.com/chromium/tools/depot_tools.git',
-  'depot_tools_revision': '20a0cda9e99abf86d37cb42cd98b1be9b727fdf8',
+  'depot_tools_revision': 'ab105459cbee9bb6bc8a3fb179fcfb65f1fdedf1',
 
   'inspector_protocol_url': 'https://chromium.googlesource.com/deps/inspector_protocol',
-  'inspector_protocol_revision': 'ccf6613682a24413db28656da6f9c52948331bad',
+  'inspector_protocol_revision': '2915acabcf62efd7257c57bb8a443a7c389c65cb',
 
   # Keeping track of the last time we rollerd the browser protocol files.
-  'chromium_browser_protocol_revision' : 'c591a29c8d429b6b5899bf4364c80fd8df7ccdb5',
+  'chromium_browser_protocol_revision' : '0f96db4f3bacc84f22709f53a4cc8a4551fcc01a',
 
   'clang_format_url': 'https://chromium.googlesource.com/external/github.com/llvm/llvm-project/clang/tools/clang-format.git',
   'clang_format_revision': '3c0acd2d4e73dd911309d9e970ba09d58bf23a62',
@@ -32,7 +32,7 @@ vars = {
   'emscripten_tag': 'ade9d780ff17c88d81aa13860361743e3c1e1396',
 
   # GN CIPD package version.
-  'gn_version': 'git_revision:20806f79c6b4ba295274e3a589d85db41a02fdaa',
+  'gn_version': 'git_revision:f792b9756418af8ab8a91a4c15b582431cb86ff9',
 
   'cmake_version': 'version:2@3.21.3',
 
@@ -49,7 +49,7 @@ vars = {
   # Chrome version used for tests. It should be regularly updated to
   # match the Canary version listed here:
   # https://googlechromelabs.github.io/chrome-for-testing/last-known-good-versions.json
-  'chrome': '130.0.6713.0',
+  'chrome': '130.0.6706.0',
 
   # 'magic' text to tell depot_tools that git submodules should be accepted but
   # but parity with DEPS file is expected.
