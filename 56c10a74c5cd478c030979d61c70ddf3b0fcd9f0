@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2105e509_140710f9",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1145,
+      "author": {
+        "id": 1251514
+      },
+      "writtenOn": "2024-09-12T13:16:49Z",
+      "side": 1,
+      "message": "\u003e This surprisingly complicated. If there happen to be multiple anchor names in the function, only the last one would get a link, is that on purpose?\n\nThere can only be one anchor name, right?\n\n\u003e I\u0027m wondering if there isn\u0027t a simpler solution. For example, what if the matcher matches either a dashed identifier inside of anchor or anchor-size, _or_ an empty anchor-size function?\n\nI don\u0027t understand what that means.",
+      "parentUuid": "b62b457e_12462ac0",
+      "revId": "56c10a74c5cd478c030979d61c70ddf3b0fcd9f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ffd9b95e_b4b17cf9",
         "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
         "patchSetId": 5
@@ -31,6 +49,24 @@
       "writtenOn": "2024-09-12T12:31:27Z",
       "side": 1,
       "message": "This adds an extra space before the comman in `anchor(--foo bar, baz)`, doesn\u0027t it?",
+      "revId": "56c10a74c5cd478c030979d61c70ddf3b0fcd9f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d6a8a1f_1c9d1e71",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1165,
+      "author": {
+        "id": 1251514
+      },
+      "writtenOn": "2024-09-12T13:16:49Z",
+      "side": 1,
+      "message": "\u003e This adds an extra space before the comman in `anchor(--foo bar, baz)`, doesn\u0027t it?\n\nWhat\u0027s after comma is not rendered at all. That\u0027s https://crbug.com/365802559. Check how anchor(top, 10px) is rendered in stable Chrome.",
+      "parentUuid": "ffd9b95e_b4b17cf9",
       "revId": "56c10a74c5cd478c030979d61c70ddf3b0fcd9f0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
