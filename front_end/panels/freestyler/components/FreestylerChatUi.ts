@@ -461,15 +461,19 @@ export class FreestylerChatUi extends HTMLElement {
   #renderStep(step: Step, options: {isLast: boolean}): LitHtml.LitTemplate {
     // clang-format off
     return LitHtml.html`
-      <details class="step" .open=${Boolean(step.sideEffect)}>
+      <details class="step" .open=${Boolean(step.sideEffect)} @click=${(ev: Event) => {
+        if (!step.thought) {
+          ev.preventDefault();
+        }
+      }}>
         <summary>
           <div class="summary">
             ${this.#renderStepBadge(step, options)}
             ${this.#renderTitle(step)}
-            <${IconButton.Icon.Icon.litTagName}
+            ${step.thought ? LitHtml.html`<${IconButton.Icon.Icon.litTagName}
               class="arrow"
               .name=${'chevron-down'}
-            ></${IconButton.Icon.Icon.litTagName}>
+            ></${IconButton.Icon.Icon.litTagName}>` : LitHtml.nothing}
           </div>
         </summary>
         ${this.#renderStepDetails(step, {
