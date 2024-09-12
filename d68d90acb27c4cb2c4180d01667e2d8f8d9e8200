@@ -16,6 +16,24 @@
       "message": "Hi Kateryna, this is a small CL to update the orange used for the warning icon to meet the accessibility requirements for luminosity. I understand that this orange is also used in couple other UI components, so would like to get your thoughts on this color update. \n\nAnother potential route to meet the luminosity requirement is to make the yellow of the console warning message lighter to increase the contrast ratio between the icon and warning, but I was afraid that making the warning message yellow lighter will make it too similar to the white background.\n\nLet me know how you think about it, happy to discuss 😊",
       "revId": "d68d90acb27c4cb2c4180d01667e2d8f8d9e8200",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a41ff164_e4d938a3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-09-12T08:38:53Z",
+      "side": 1,
+      "message": "Hey Jayson, I think we should let Peter decide on this:)",
+      "parentUuid": "31de5af0_5ab51788",
+      "revId": "d68d90acb27c4cb2c4180d01667e2d8f8d9e8200",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
