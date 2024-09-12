@@ -34,6 +34,24 @@
       "parentUuid": "e4923bf4_4d6ecdef",
       "revId": "a726a53f92221397399b5d6dc00c0b33d16bc96d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4409e93f_561eaaaf",
+        "filename": "front_end/panels/freestyler/FreestylerPanel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 3596264
+      },
+      "writtenOn": "2024-09-12T11:16:54Z",
+      "side": 0,
+      "message": "As per offline conversation, created two separate agent instances - one for freestyler and one for drjones network agent",
+      "parentUuid": "bd0f553b_5c2f2b90",
+      "revId": "a726a53f92221397399b5d6dc00c0b33d16bc96d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
