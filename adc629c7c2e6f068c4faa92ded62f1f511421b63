@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9888db4_9866f0ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-12T13:16:05Z",
+      "side": 1,
+      "message": "LGTM with 1 comment :)",
+      "revId": "adc629c7c2e6f068c4faa92ded62f1f511421b63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8bff8849_d2bb6352",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-12T13:16:05Z",
+      "side": 1,
+      "message": "(nit): Let\u0027s update the text here to be:\n```\nChat messages and the selected network request are sent to Google and may be seen by human reviewers to improve this feature. This is an experimental AI feature and won\\\u0027t always get it right.\n```",
+      "revId": "adc629c7c2e6f068c4faa92ded62f1f511421b63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
