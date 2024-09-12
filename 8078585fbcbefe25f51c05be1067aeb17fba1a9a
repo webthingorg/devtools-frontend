@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9dde4aae_efc60510",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 897,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-09-12T18:46:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8c01bf3d_f66a4edc",
+      "range": {
+        "startLine": 897,
+        "startChar": 9,
+        "endLine": 897,
+        "endChar": 27
+      },
+      "revId": "8078585fbcbefe25f51c05be1067aeb17fba1a9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b6957448_2c978d78",
@@ -64,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "95aa8289_91a85340",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 919,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-09-12T18:46:01Z",
+      "side": 1,
+      "message": "hmm good question. Im inclined to keep it for now for temporary visual purposes, as we get the new layout shift track created.\n\nopen to removing down the line since on our mocks and how we currently measure `dur` here is not the most accurate. these clusters should have a 1s \"session gap\" at the end - which would not align with how they\u0027re represented in the mocks. We could adjust how we calculate dur to keep this value accurate, \u0026 determine the length we show elsewhere on the frontend. but i don\u0027t feel too strongly with either.",
+      "parentUuid": "b6957448_2c978d78",
+      "range": {
+        "startLine": 919,
+        "startChar": 0,
+        "endLine": 919,
+        "endChar": 17
+      },
+      "revId": "8078585fbcbefe25f51c05be1067aeb17fba1a9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d4acc2ae_54fd8f5e",
@@ -77,6 +125,30 @@
       "writtenOn": "2024-09-12T09:33:10Z",
       "side": 1,
       "message": "KnownEventNames.LAYOUT_SHIFT_CLUSTER ?",
+      "range": {
+        "startLine": 2228,
+        "startChar": 34,
+        "endLine": 2228,
+        "endChar": 52
+      },
+      "revId": "8078585fbcbefe25f51c05be1067aeb17fba1a9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca692923_d7c9b2ca",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 2228,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-09-12T18:46:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d4acc2ae_54fd8f5e",
       "range": {
         "startLine": 2228,
         "startChar": 34,
