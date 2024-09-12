@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "caa77c81_44e19e4d",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1145,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-09-12T13:36:40Z",
+      "side": 1,
+      "message": "\u003e There can only be one anchor name, right?\n\nThat isn\u0027t checked anywhere, though. \n \n\u003e \u003e I\u0027m wondering if there isn\u0027t a simpler solution. For example, what if the matcher matches either a dashed identifier inside of anchor or anchor-size, _or_ an empty anchor-size function?\n\u003e \n\u003e I don\u0027t understand what that means.\n\nAnchorFunctionMatcher [0] matches anchor and anchor-size functions. But the AnchorFunctionRenderer then has to jump through hoops to find what to attach the link to, and manually render all other args around it, which causes the complexity here and the fallback bug. Instead, the matcher could just match nodes that need the link. There\u0027s two cases: a dashed identifier inside of an anchor or anchor-size (at that point we could check that there\u0027s just one of those), or an empty anchor-size.\n\nImplementation-wise that\u0027d roughly be: Match VariableName, check if its parent is an ArgList whose parent is a CallExpression whose Callee child is anchor or anchor-size (and count VariableNames in the ArgList). Or match CallExpressions with anchor-size Callee and empty ArgList.\n\n(FWIW, that would auto-fix the fallback bug)\n\n[0] https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/elements/PropertyMatchers.ts;drc\u003d47310242ac491bcef1c2ab8364157b13de1b57e2;l\u003d575",
+      "parentUuid": "2105e509_140710f9",
+      "revId": "56c10a74c5cd478c030979d61c70ddf3b0fcd9f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ffd9b95e_b4b17cf9",
         "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
         "patchSetId": 5
@@ -67,6 +85,24 @@
       "side": 1,
       "message": "\u003e This adds an extra space before the comman in `anchor(--foo bar, baz)`, doesn\u0027t it?\n\nWhat\u0027s after comma is not rendered at all. That\u0027s https://crbug.com/365802559. Check how anchor(top, 10px) is rendered in stable Chrome.",
       "parentUuid": "ffd9b95e_b4b17cf9",
+      "revId": "56c10a74c5cd478c030979d61c70ddf3b0fcd9f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e294cd9_a9695f38",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1165,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-09-12T13:36:40Z",
+      "side": 1,
+      "message": "Right, but if it were rendered we\u0027d get the extra space I think.",
+      "parentUuid": "6d6a8a1f_1c9d1e71",
       "revId": "56c10a74c5cd478c030979d61c70ddf3b0fcd9f0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
