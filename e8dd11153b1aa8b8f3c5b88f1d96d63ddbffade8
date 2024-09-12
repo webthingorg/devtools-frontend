@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "afefc67d_5e19ba3e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-09-12T13:16:30Z",
+      "side": 1,
+      "message": "LGTM + 1 comments",
+      "revId": "e8dd11153b1aa8b8f3c5b88f1d96d63ddbffade8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c95d544f_82d91f25",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-09-12T13:16:30Z",
+      "side": 1,
+      "message": "Move it to the start, that way we are a early return which is preferred.",
+      "revId": "e8dd11153b1aa8b8f3c5b88f1d96d63ddbffade8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
