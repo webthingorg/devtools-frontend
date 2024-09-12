@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b212266_8a705215",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-12T14:28:51Z",
+      "side": 1,
+      "message": "LGTM with 3 comments :)",
+      "revId": "deec64cd40bdb349ea8fe3c7fe9a55d1d99871aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "380c9646_a632963c",
+        "filename": "front_end/panels/freestyler/FreestylerPanel.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-12T14:28:51Z",
+      "side": 1,
+      "message": "It feels like this change is mostly related to the behavior of marking the thinking step as cancelled, so is the comment here correct or does it need update?",
+      "revId": "deec64cd40bdb349ea8fe3c7fe9a55d1d99871aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ba2b374_f6e3935f",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-12T14:28:51Z",
+      "side": 1,
+      "message": "(nit): Can we make this and `suggestingFix` optional too as they really are not needed for regular messages?",
+      "revId": "deec64cd40bdb349ea8fe3c7fe9a55d1d99871aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "04ae726e_44a239e5",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 589,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-12T14:28:51Z",
+      "side": 1,
+      "message": "Just as a sanity check, can we add `!message.answer` condition here so that we only show error when there isn\u0027t any message?",
+      "revId": "deec64cd40bdb349ea8fe3c7fe9a55d1d99871aa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
