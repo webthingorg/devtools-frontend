@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "270fc55c_553377e8",
+        "filename": "front_end/panels/timeline/TimelinePanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1659,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-12T11:27:57Z",
+      "side": 1,
+      "message": "I find it a bit odd that we store UI state in the overlay, that doesn\u0027t feel super clean to me.\n\nI\u0027m wondering if there\u0027s anyway we can do this with events? \n\nLike we could do `this.flameChart.enterEditMode(overlay)` and have that find the right overlay and call the `setLabelEditable...` method in the component.",
+      "range": {
+        "startLine": 1657,
+        "startChar": 6,
+        "endLine": 1659,
+        "endChar": 11
+      },
+      "revId": "8d37ef7f8a046056520738a5da29aac975ad3609",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
