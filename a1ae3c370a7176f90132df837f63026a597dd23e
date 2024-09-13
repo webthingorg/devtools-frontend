@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "623e765a_ad2badef",
+        "filename": "front_end/models/trace/Processor.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-13T05:59:34Z",
+      "side": 1,
+      "message": "I\u0027d like it if even without a navigation we could still have the frameId.... but I\u0027m not sure if we have that ... what would Meta.mainFrameId (or whatever its called) be set to when there\u0027s a lengthy period of time prior to navigation(s) in a trace?",
+      "revId": "a1ae3c370a7176f90132df837f63026a597dd23e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8eca637b_dc6ba422",
         "filename": "front_end/models/trace/insights/types.ts",
         "patchSetId": 6
@@ -31,6 +48,24 @@
       "writtenOn": "2024-09-13T01:29:05Z",
       "side": 1,
       "message": "an alternative to this string `type` is... `startsWithNavigation: Boolean` \n\njust kinda thinking about when non-us people try to write their own insights.. what are they checking this for? And can we encode that distinction into API.",
+      "revId": "a1ae3c370a7176f90132df837f63026a597dd23e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19176f1f_37241f05",
+        "filename": "front_end/models/trace/insights/types.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-13T05:59:34Z",
+      "side": 1,
+      "message": "Hm, that\u0027s just another way to do the same thing. boolean or string literals. I might be overlooking what you\u0027re suggesting.\n\nThese types enforce an interface (the API). Typescript won\u0027t allow you to use the navigation if it hasn\u0027t been checked to exist. If you want to use the navigation for the purpose of filtering events, you check this first (though the new context.window property could be better - maybe that\u0027s the API you are referring to?)\n\nAnyway, we don\u0027t need a separate type variable to enforce this, it\u0027s just what I reached for first. You can have a discriminated union like this instead:\n\n```\ninterface BoundedInsightContextWithoutNavigation {\n  window: Types.Timing.TraceWindowMicroSeconds;\n  navigation: undefined;\n}\n\ninterface BoundedInsightContextWithNavigation {\n  window: Types.Timing.TraceWindowMicroSeconds;\n  frameId: string;\n  navigation: Types.TraceEvents.TraceEventNavigationStart;\n  navigationId: string;\n  lantern?: LanternContext;\n}\n```\n\nWhich might be more natural.\n\nWith the above, insights check for one interface or the other by putting `context.navigation` (or `context.type`) in a conditional, and typescript does the rest.",
+      "parentUuid": "8eca637b_dc6ba422",
       "revId": "a1ae3c370a7176f90132df837f63026a597dd23e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
