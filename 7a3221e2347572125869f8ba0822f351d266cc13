@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43a00f06_95993287",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-13T09:05:47Z",
+      "side": 1,
+      "message": "lgtm with nit about func name",
+      "revId": "7a3221e2347572125869f8ba0822f351d266cc13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d46dd121_67ad6118",
+        "filename": "front_end/panels/timeline/ModificationsManager.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-13T09:05:47Z",
+      "side": 1,
+      "message": "`labelForEntry` makes it sound like it returns the text label.\n\n`findLabelOverlayForEntry` or something?",
+      "range": {
+        "startLine": 152,
+        "startChar": 3,
+        "endLine": 152,
+        "endChar": 16
+      },
+      "revId": "7a3221e2347572125869f8ba0822f351d266cc13",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
