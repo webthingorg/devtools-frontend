@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "587d91a8_ad7c6d8b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-13T15:23:08Z",
+      "side": 1,
+      "message": "for the fading, we want to fade in a gradient in the direction off-screen (have a look in figma for the latest mocks).",
+      "revId": "c7bd15c064cb00162d0b6917cfb2c09d9054e3d9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
