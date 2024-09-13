@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3dbd42e6_6a7c5f55",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-13T09:06:36Z",
+      "side": 1,
+      "message": "nice! love how easy this change is now we figured out a good way to manage activating breadcrumbs and dealing with time ranges",
+      "revId": "78da8f4b349bf2b7c01a6e916cda174088c76631",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
