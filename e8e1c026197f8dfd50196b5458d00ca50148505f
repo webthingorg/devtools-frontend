@@ -16,6 +16,24 @@
       "message": "Peter, could you please take a look?",
       "revId": "e8e1c026197f8dfd50196b5458d00ca50148505f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d92b754_0e186d92",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419292
+      },
+      "writtenOn": "2024-09-13T08:23:36Z",
+      "side": 1,
+      "message": "You can use `rgb(233 103 37 / 100%)` which is a bit closer to the original and also [fulfills the 3:1 contrast with the console\u0027s background](https://webaim.org/resources/contrastchecker/?fcolor\u003dE96725\u0026bcolor\u003dFEF6D5).",
+      "parentUuid": "532bcc1c_495f9b9e",
+      "revId": "e8e1c026197f8dfd50196b5458d00ca50148505f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
