@@ -764,6 +764,7 @@ export class FreestylerChatUi extends HTMLElement {
                 size: Buttons.Button.Size.REGULAR,
                 title: suggestion,
                 jslogContext: 'suggestion',
+                disabled: this.#props.aidaAvailability !== Host.AidaClient.AidaAccessPreconditions.AVAILABLE,
               } as Buttons.Button.ButtonData
             }
           >${suggestion}</${Buttons.Button.Button.litTagName}>`;
