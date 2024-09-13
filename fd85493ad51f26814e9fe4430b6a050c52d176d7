@@ -146,6 +146,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e6f144a_c1964471",
+        "filename": "front_end/ui/components/markdown_view/CodeBlock.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-09-13T12:51:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ef39ab6c_7df6c53f",
+      "revId": "fd85493ad51f26814e9fe4430b6a050c52d176d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "98b27ad3_5f59aa9b",
