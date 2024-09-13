@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "443b5d03_ab9cf934",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-09-13T12:19:35Z",
+      "side": 1,
+      "message": "LGTM + 1 comment/question",
+      "revId": "fd85493ad51f26814e9fe4430b6a050c52d176d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92a601b0_430bfd12",
+        "filename": "front_end/ui/components/markdown_view/CodeBlock.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-09-13T12:19:35Z",
+      "side": 1,
+      "message": "I am not sure if these 2 should be linked together or not, what is the motivation behind it? Usually having as single prop feels better from control perspective.",
+      "fixSuggestions": [
+        {
+          "fixId": "29c6d157_3507aeed",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/ui/components/markdown_view/CodeBlock.ts",
+              "range": {
+                "startLine": 34,
+                "startChar": 0,
+                "endLine": 39,
+                "endChar": 0
+              },
+              "replacement": ""
+            },
+            {
+              "path": "front_end/ui/components/markdown_view/CodeBlock.ts",
+              "range": {
+                "startLine": 62,
+                "startChar": 0,
+                "endLine": 63,
+                "endChar": 0
+              },
+              "replacement": "   * Text of the `heading` of the codeblock right after toolbar.\n"
+            },
+            {
+              "path": "front_end/ui/components/markdown_view/CodeBlock.ts",
+              "range": {
+                "startLine": 64,
+                "startChar": 0,
+                "endLine": 65,
+                "endChar": 0
+              },
+              "replacement": "  #heading?: string;\n  /**\n   * Whether to show the copy button in the `heading`.\n   */\n  #showCopyButton \u003d false;\n"
+            },
+            {
+              "path": "front_end/ui/components/markdown_view/CodeBlock.ts",
+              "range": {
+                "startLine": 109,
+                "startChar": 0,
+                "endLine": 111,
+                "endChar": 0
+              },
+              "replacement": "  set heading(value: string) {\n    this.#heading \u003d value;\n    this.#render();\n  }\n\n  set showCopyButton(value: boolean) {\n    this.#showCopyButton \u003d value;\n"
+            },
+            {
+              "path": "front_end/ui/components/markdown_view/CodeBlock.ts",
+              "range": {
+                "startLine": 186,
+                "startChar": 0,
+                "endLine": 188,
+                "endChar": 0
+              },
+              "replacement": "        \u003ch4 class\u003d\"heading-text\"\u003e${this.#heading}\u003c/h4\u003e\n        ${this.#showCopyButton ? LitHtml.html`\u003cdiv class\u003d\"copy-button\"\u003e\n"
+            }
+          ]
+        }
+      ],
+      "revId": "fd85493ad51f26814e9fe4430b6a050c52d176d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
