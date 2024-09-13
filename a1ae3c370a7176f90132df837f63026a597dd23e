@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25add5ce_9a619f15",
+        "filename": "front_end/models/trace/Processor.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-13T01:29:05Z",
+      "side": 1,
+      "message": "(cjamcl already heard this but mostly marking down as context for jack)\n\nThe record\u0026reload common case is handled here. (no boundeddata to deal with)\nBut I\u0027m unsure about the 105ms to 10s timeranges here that may or may not have interesting activity. \n\nTo me, the key question is... how does our sidebarselects what the default insightcontext should be?  (Oh and also, how does the initial timelineTraceWindow compare against that!)\n\nThat said, I\u0027m oKAY with using this duration threshold for the moment.",
+      "revId": "a1ae3c370a7176f90132df837f63026a597dd23e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8eca637b_dc6ba422",
+        "filename": "front_end/models/trace/insights/types.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-13T01:29:05Z",
+      "side": 1,
+      "message": "an alternative to this string `type` is... `startsWithNavigation: Boolean` \n\njust kinda thinking about when non-us people try to write their own insights.. what are they checking this for? And can we encode that distinction into API.",
+      "revId": "a1ae3c370a7176f90132df837f63026a597dd23e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
