@@ -16,6 +16,24 @@
       "message": "Could we just add a `centered?: boolean` option to the function above? I think there is a lot of shared logic here.",
       "revId": "c1a32bc869c4f3fa9be0f92e4dbcbd42cefe8d39",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a062ff80_4a7762b1",
+        "filename": "front_end/ui/legacy/components/perf_ui/ChartViewport.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-09-13T23:22:17Z",
+      "side": 1,
+      "message": "I think eventually we will end up with our own logic for this re: overlays. But, joining wfm in the meantime!",
+      "parentUuid": "0696d67c_c039f3e9",
+      "revId": "c1a32bc869c4f3fa9be0f92e4dbcbd42cefe8d39",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
