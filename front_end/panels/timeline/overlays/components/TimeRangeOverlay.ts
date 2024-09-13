@@ -9,6 +9,15 @@ import * as LitHtml from '../../../../ui/lit-html/lit-html.js';
 
 import styles from './timeRangeOverlay.css.js';
 
+const UIStrings = {
+  /**
+   *@description Accessible label used to explain to a user that they are viewing an entry label.
+   */
+  timeRange: 'Time range',
+};
+const str_ = i18n.i18n.registerUIStrings('panels/timeline/overlays/components/TimeRangeOverlay.ts', UIStrings);
+const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
+
 export class TimeRangeLabelChangeEvent extends Event {
   static readonly eventName = 'timerangelabelchange';
 
@@ -227,8 +236,7 @@ export class TimeRangeOverlay extends HTMLElement {
     // clang-format off
     LitHtml.render(
         LitHtml.html`
-          <span
-            class="range-container">
+          <span class="range-container" role="region" aria-label=${i18nString(UIStrings.timeRange)}>
             <${IconButton.Icon.Icon.litTagName} class="user-created-icon" .data=${{
                   iconName: 'profile',
                   color: 'var(--ref-palette-pink55)',
