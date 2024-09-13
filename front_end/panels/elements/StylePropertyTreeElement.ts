@@ -53,6 +53,7 @@ import {
   LinkableNameProperties,
   type PositionAnchorMatch,
   PositionAnchorMatcher,
+  PositionTryMatcher,
   type ShadowMatch,
   ShadowMatcher,
   ShadowType,
@@ -176,7 +177,7 @@ export class VariableRenderer implements MatchRenderer<SDK.CSSPropertyParser.Var
   }
 
   // clang-format off
-  computedText(match: SDK.CSSPropertyParser.VariableMatch): string|null {
+  computedText(match: SDK.CSSPropertyParser.VariableMatch): string | null {
     return this.resolveVariable(match)?.value ?? this.fallbackValue(match);
   }
   // clang-format on
@@ -641,7 +642,7 @@ export class LinkableNameRenderer implements MatchRenderer<LinkableNameMatch> {
 
   #getLinkData(match: LinkableNameMatch):
       {jslogContext: string, metric: null|Host.UserMetrics.SwatchType, ruleBlock: string, isDefined: boolean} {
-    switch (match.properyName) {
+    switch (match.propertyName) {
       case LinkableNameProperties.ANIMATION:
       case LinkableNameProperties.ANIMATION_NAME:
         return {
@@ -1191,6 +1192,63 @@ export class PositionAnchorRenderer implements MatchRenderer<PositionAnchorMatch
   }
 }
 
+export class PositionTryRenderer implements MatchRenderer<LinkableNameMatch> {
+  #treeElement: StylePropertyTreeElement;
+
+  constructor(treeElement: StylePropertyTreeElement) {
+    this.#treeElement = treeElement;
+  }
+
+  render(match: LinkableNameMatch): Node[] {
+    let fallbackIndex = 0;
+    let currentNode = match.node.prevSibling;
+    while (currentNode?.node.name !== ':') {
+      if (currentNode?.node.name !== ',') {
+        fallbackIndex++;
+      }
+      currentNode = currentNode?.prevSibling || null;
+    }
+    if (match.propertyName === LinkableNameProperties.POSITION_TRY) {
+      const positionTryOrderKeywords = [
+        'normal',
+        'most-height',
+        'most-width',
+        'most-block-size',
+        'most-inline-size',
+        // Global values
+        'inherit',
+        'initial',
+        'revert',
+        'revert-layer',
+        'unset',
+      ];
+      for (const keyword of positionTryOrderKeywords) {
+        if (this.#treeElement.property.value.startsWith(keyword)) {
+          fallbackIndex--;
+          break;
+        }
+      }
+    }
+    const isFallbackActive = fallbackIndex === this.#treeElement.matchedStyles().activePositionFallbackIndex();
+    let content;
+    if (match.text.startsWith('--')) {
+      const linkableNameRenderer = new LinkableNameRenderer(this.#treeElement);
+      [content] = linkableNameRenderer.render(match);
+    } else {
+      content = document.createElement('span');
+      content.appendChild(document.createTextNode(match.text));
+    }
+    if (isFallbackActive) {
+      (content as HTMLElement).style.textDecoration = 'line-through';
+    }
+    return [content];
+  }
+
+  matcher(): PositionTryMatcher {
+    return new PositionTryMatcher();
+  }
+}
+
 export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
   private readonly style: SDK.CSSStyleDeclaration.CSSStyleDeclaration;
   private matchedStylesInternal: SDK.CSSMatchedStyles.CSSMatchedStyles;
@@ -1617,6 +1675,7 @@ export class StylePropertyTreeElement extends UI.TreeOutline.TreeElement {
           new LinearGradientRenderer(),
           new AnchorFunctionRenderer(this),
           new PositionAnchorRenderer(this),
+          new PositionTryRenderer(this),
         ] :
         [];
 
