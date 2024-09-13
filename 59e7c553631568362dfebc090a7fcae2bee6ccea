@@ -22,6 +22,30 @@
       },
       "revId": "59e7c553631568362dfebc090a7fcae2bee6ccea",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e776a35b_55a49a97",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 697,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-09-13T21:10:13Z",
+      "side": 1,
+      "message": "good call here. Renamed! I can see us iterating on this for overlays or annotations, so created a new method.",
+      "parentUuid": "f3120ddd_362d2777",
+      "range": {
+        "startLine": 697,
+        "startChar": 0,
+        "endLine": 697,
+        "endChar": 74
+      },
+      "revId": "59e7c553631568362dfebc090a7fcae2bee6ccea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
