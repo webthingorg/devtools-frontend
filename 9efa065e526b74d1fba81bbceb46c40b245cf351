@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb42de12_7039888a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 21
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3596264
+      },
+      "writtenOn": "2024-09-13T10:15:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "134669e4_2b7c7169",
+      "revId": "9efa065e526b74d1fba81bbceb46c40b245cf351",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b9cb5bd0_2239cbfa",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-09-13T10:01:38Z",
       "side": 1,
       "message": "I think this is coming from the merge resolution, there are two `network-panel-context` registrations now. We need to remove one :)",
+      "revId": "9efa065e526b74d1fba81bbceb46c40b245cf351",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "50bda600_db70b54a",
+        "filename": "front_end/panels/freestyler/freestyler-meta.ts",
+        "patchSetId": 21
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 3596264
+      },
+      "writtenOn": "2024-09-13T10:15:30Z",
+      "side": 1,
+      "message": "Yep just removed it xp",
+      "parentUuid": "b9cb5bd0_2239cbfa",
       "revId": "9efa065e526b74d1fba81bbceb46c40b245cf351",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
