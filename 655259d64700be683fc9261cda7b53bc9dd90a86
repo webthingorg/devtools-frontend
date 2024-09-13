@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "61012c21_281a9d6a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1596737
+      },
+      "writtenOn": "2024-09-13T13:41:09Z",
+      "side": 1,
+      "message": "In Patchset 1, the new algorithm takes 10x the time as compared to the old algorithm to run on a heap snapshot of about:blank (~40k nodes; ~200ms vs ~20ms). Turned out that the majority of time was spent in creating the bit vectors, hence in Patchset 2 I used a regular Set for `bucket` instead. This reduced the time to ~20ms so the two algorithms are now comparable for small heap snapshots with \u003c50k nodes.\n\nI\u0027m getting a stack overflow error due to the recursive DFS on larger heap snapshots, so I\u0027ll next update it to use an iterative approach instead and then measure the performance metrics.",
+      "revId": "655259d64700be683fc9261cda7b53bc9dd90a86",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
