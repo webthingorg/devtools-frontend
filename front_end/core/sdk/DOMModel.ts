@@ -643,7 +643,7 @@ export class DOMNode {
   }
 
   frameId(): Protocol.Page.FrameId|null {
-    let node: DOMNode = this.parentNode || this;
+    let node: DOMNode = this;
     while (!node.#frameOwnerFrameIdInternal && node.parentNode) {
       node = node.parentNode;
     }
