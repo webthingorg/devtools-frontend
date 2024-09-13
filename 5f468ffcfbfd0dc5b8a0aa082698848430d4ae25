@@ -1,0 +1,218 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30e7851b_4f58069d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 35
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-09-13T15:31:10Z",
+      "side": 1,
+      "message": "Looking good now!\nMaybe (one of) the failing tests can be adapted, such that the `prettify` functionality is covered as well?",
+      "revId": "5f468ffcfbfd0dc5b8a0aa082698848430d4ae25",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4cc921d5_e90e269b",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 35
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-09-13T15:31:10Z",
+      "side": 1,
+      "message": "nit: How about `onPrettyPrintToggle` or `onPrettyPrintButtonClick`?",
+      "range": {
+        "startLine": 215,
+        "startChar": 10,
+        "endLine": 215,
+        "endChar": 22
+      },
+      "revId": "5f468ffcfbfd0dc5b8a0aa082698848430d4ae25",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f6839c0_e42f0079",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 35
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-09-13T15:31:10Z",
+      "side": 1,
+      "message": "Indentation, probably best to add `// clang-format off` to the whole LitHTML block",
+      "range": {
+        "startLine": 234,
+        "startChar": 8,
+        "endLine": 235,
+        "endChar": 38
+      },
+      "revId": "5f468ffcfbfd0dc5b8a0aa082698848430d4ae25",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3d9b2c3_8f3d17a0",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 35
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-09-13T15:31:10Z",
+      "side": 1,
+      "message": "Should this be `this.shouldPrettyPrint`?",
+      "range": {
+        "startLine": 236,
+        "startChar": 19,
+        "endLine": 236,
+        "endChar": 23
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "cafeaa1d_bdc1cfb7",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/application/preloading/PreloadingView.ts",
+              "range": {
+                "startLine": 236,
+                "startChar": 0,
+                "endLine": 237,
+                "endChar": 0
+              },
+              "replacement": "        .toggled\u003d${this.shouldPrettyPrint}\n"
+            }
+          ]
+        }
+      ],
+      "revId": "5f468ffcfbfd0dc5b8a0aa082698848430d4ae25",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45a1e47a_533e9e34",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 35
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-09-13T15:31:10Z",
+      "side": 1,
+      "message": "This should mention the button\u0027s function, maybe include `prettify` in this string",
+      "range": {
+        "startLine": 242,
+        "startChar": 69,
+        "endLine": 242,
+        "endChar": 92
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "fc96f0fa_f40ca48c",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/application/preloading/PreloadingView.ts",
+              "range": {
+                "startLine": 242,
+                "startChar": 0,
+                "endLine": 243,
+                "endChar": 0
+              },
+              "replacement": "        jslog\u003d${VisualLogging.action().track({click: true}).context(\u0027preloading-status-panel-pretty-print\u0027)}\u003e\n"
+            }
+          ]
+        }
+      ],
+      "revId": "5f468ffcfbfd0dc5b8a0aa082698848430d4ae25",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0df0527b_86947fc0",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsView.css",
+        "patchSetId": 35
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-09-13T15:31:10Z",
+      "side": 1,
+      "message": "I couldn\u0027t figure out where this applies to, maybe it\u0027s not needed?",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 28
+      },
+      "revId": "5f468ffcfbfd0dc5b8a0aa082698848430d4ae25",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d30df299_1f77167e",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsView.ts",
+        "patchSetId": 35
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-09-13T15:31:10Z",
+      "side": 1,
+      "message": "Why not `#renderSource` anymore?",
+      "range": {
+        "startLine": 96,
+        "startChar": 2,
+        "endLine": 96,
+        "endChar": 14
+      },
+      "revId": "5f468ffcfbfd0dc5b8a0aa082698848430d4ae25",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e005d9e_91f66cf3",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsView.ts",
+        "patchSetId": 35
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-09-13T15:31:10Z",
+      "side": 1,
+      "message": "nit: I think you don\u0027t need the `?` here",
+      "range": {
+        "startLine": 121,
+        "startChar": 92,
+        "endLine": 121,
+        "endChar": 93
+      },
+      "revId": "5f468ffcfbfd0dc5b8a0aa082698848430d4ae25",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
