@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31552af7_6154ea50",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-13T09:01:53Z",
+      "side": 1,
+      "message": "lgtm + ran this by some folks on DevTools who are in agreement.",
+      "revId": "c5d0ee9d903f989b208a8bdb57ce05bd0f2f5e0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
