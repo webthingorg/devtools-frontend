@@ -99,7 +99,6 @@ def add_file_to_grd(grd_doc, relative_filename, compress):
     new_include_node.setAttribute('name', make_name_from_filename(relative_filename))
     new_include_node.setAttribute('resource_path', relative_filename)
     new_include_node.setAttribute('type', 'BINDATA')
-    new_include_node.setAttribute('compress', 'false')
     includes_node.appendChild(new_include_node)
 
 
