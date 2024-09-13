@@ -55,6 +55,12 @@ export class TimeRangeOverlay extends HTMLElement {
       return;
     }
     this.#labelBox.innerText = initialLabel;
+    if (initialLabel !== '') {
+      // To construct a time range with a predefined label, it must have been
+      // loaded from the trace file. In this case we do not want it to default
+      // to editable.
+      this.#setLabelEditability(false);
+    }
   }
 
   set canvasRect(rect: DOMRect|null) {
