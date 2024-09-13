@@ -163,16 +163,21 @@ export class EntriesLinkOverlay extends HTMLElement {
           <svg class="connectorContainer" width="100%" height="100%">
             <defs>
               <marker
-                id='arrow'
+                id="arrow"
                 orient="auto"
-                markerWidth='3'
-                markerHeight='4'
-                refX='4'
-                refY='2'>
-                <path d='M0,0 V4 L4,2 Z' fill="black" />
+                markerWidth="3"
+                markerHeight="4"
+                fill-opacity=${!this.#entryFromVisible || !this.#entryToVisible ? OUT_OF_VIEW_STROKE_OPACITY : 1}
+                refX="4"
+                refY="2">
+                <path d="M0,0 V4 L4,2 Z" fill="black" />
               </marker>
             </defs>
-            <line marker-end='url(#arrow)'/>
+            <line
+              marker-end="url(#arrow)"
+              stroke-dasharray=${!this.#fromEntryIsSource || !this.#toEntryIsSource ? DASHED_STROKE_AMOUNT : 'none'}
+              stroke-opacity=${!this.#entryFromVisible || !this.#entryToVisible ? OUT_OF_VIEW_STROKE_OPACITY : 1}
+              />
             <rect
               class="entryFromWrapper" fill="none" stroke="black" stroke-dasharray=${this.#fromEntryIsSource ? 'none' : DASHED_STROKE_AMOUNT} />
             <rect
@@ -187,6 +192,7 @@ export class EntriesLinkOverlay extends HTMLElement {
 // Defines the gap in the border when we are drawing a dashed outline.
 // https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-dasharray
 const DASHED_STROKE_AMOUNT = 4;
+const OUT_OF_VIEW_STROKE_OPACITY = 0.2;
 
 customElements.define('devtools-entries-link-overlay', EntriesLinkOverlay);
 
