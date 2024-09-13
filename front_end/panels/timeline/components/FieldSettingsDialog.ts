@@ -608,6 +608,7 @@ export class FieldSettingsDialog extends HTMLElement {
                 @change=${this.#onUrlOverrideChange}
                 class="devtools-text-input"
                 .disabled=${!this.#urlOverrideEnabled}
+                .value=${this.#urlOverride}
                 placeholder=${this.#urlOverrideEnabled ? i18nString(UIStrings.url) : undefined}
               />
               ${
