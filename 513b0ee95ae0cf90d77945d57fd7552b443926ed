@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b12dd11f_84fb69f6",
+        "filename": "front_end/panels/console/ConsoleViewMessage.ts",
+        "patchSetId": 48
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-09-13T11:06:21Z",
+      "side": 1,
+      "message": "When would be the case where runtimeModel is null?",
+      "revId": "513b0ee95ae0cf90d77945d57fd7552b443926ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa2aca57_197c9b8f",
+        "filename": "front_end/ui/legacy/components/utils/JSPresentationUtils.ts",
+        "patchSetId": 48
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-09-13T11:06:21Z",
+      "side": 1,
+      "message": "qq: why does this `tableSection` have to be at this scope? Is it possible to move it more locally, i.e. within the for loop as `tableBody`, and then in this case you also probably don\u0027t need to nullify it every time after you set up the row.",
+      "revId": "513b0ee95ae0cf90d77945d57fd7552b443926ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b1d3104_b7434c69",
+        "filename": "front_end/ui/legacy/components/utils/JSPresentationUtils.ts",
+        "patchSetId": 48
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-09-13T11:06:21Z",
+      "side": 1,
+      "message": "Just curious, why do we nullify `tableSection` in the previous if-block but not in this else-block?",
+      "revId": "513b0ee95ae0cf90d77945d57fd7552b443926ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
