@@ -33,6 +33,24 @@
       "message": "i suspect we\u0027ll need to do two strings.. one for passing one for not. (ala LH failureTitle) otherwise the iconography is sometimes not helpful. That\u0027s why the strings in the mocks for this really match their failing/passing state.\n\nHere\u0027s my take but.. open to whatever\n\n🚫 Had redirects\n✅ Avoids redirects\n\n🚫 Server responded too slowly\n✅ Server responds quickly\n\n🚫 No compression applied\n✅ Applies text compression\n\n\nI don\u0027t know why but using past tense for failing and present tense for passing feels weirdly natural and helps reinforce the bad/good thing. I might be crazy though. Perhaps this is a convo for the tuesday call.",
       "revId": "13194bcde8eeea96e91d412f12c4eb635f90b6ad",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2a8da4a_2b8a46e1",
+        "filename": "front_end/panels/timeline/components/insights/DocumentLatency.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-13T19:38:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9c50318a_ef457e86",
+      "revId": "13194bcde8eeea96e91d412f12c4eb635f90b6ad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
