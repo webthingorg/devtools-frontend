@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "53f78b90_f2c96643",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-13T12:50:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3d485d2c_785c3770",
+      "revId": "fd85493ad51f26814e9fe4430b6a050c52d176d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "92a601b0_430bfd12",
@@ -106,6 +124,24 @@
           ]
         }
       ],
+      "revId": "fd85493ad51f26814e9fe4430b6a050c52d176d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef39ab6c_7df6c53f",
+        "filename": "front_end/ui/components/markdown_view/CodeBlock.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-13T12:50:41Z",
+      "side": 1,
+      "message": "There are two ways to have a copy button in this component: one in the toolbar and one in the heading. I want the people using `heading` to make a conscious choice to enable/disable the copy button so that they consider its relationship with the copy button in the toolbar.",
+      "parentUuid": "92a601b0_430bfd12",
       "revId": "fd85493ad51f26814e9fe4430b6a050c52d176d7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -255,6 +291,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "77ebc761_6469b25b",
+        "filename": "front_end/ui/components/markdown_view/CodeBlock.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-13T12:50:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "98b27ad3_5f59aa9b",
+      "revId": "fd85493ad51f26814e9fe4430b6a050c52d176d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "39d18fa5_f9797092",
@@ -286,6 +340,24 @@
           ]
         }
       ],
+      "revId": "fd85493ad51f26814e9fe4430b6a050c52d176d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e1f2c16_7cfe28f2",
+        "filename": "front_end/ui/components/markdown_view/CodeBlock.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-13T12:50:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39d18fa5_f9797092",
       "revId": "fd85493ad51f26814e9fe4430b6a050c52d176d7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
