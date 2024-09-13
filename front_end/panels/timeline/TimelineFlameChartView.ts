@@ -345,6 +345,13 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
       // the correct breadcrumb for us.
       TraceBounds.TraceBounds.BoundsManager.instance().setTimelineVisibleWindow(
           expandedBounds, {ignoreMiniMapBounds: true, shouldAnimate: true});
+
+      // Reveal entry if we have one.
+      if (entries.length !== 0) {
+        const earliestEntry =
+            entries.reduce((earliest, current) => (earliest.ts < current.ts ? earliest : current), entries[0]);
+        this.revealEvent(earliestEntry);
+      }
     }
   }
 
@@ -686,13 +693,14 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     }
   }
 
+  // Given an event, it reveals its position vertically
   revealEvent(event: TraceEngine.Types.TraceEvents.TraceEventData): void {
     const mainIndex = this.mainDataProvider.indexForEvent(event);
     const networkIndex = this.networkDataProvider.indexForEvent(event);
     if (mainIndex) {
-      this.mainFlameChart.revealEntry(mainIndex);
+      this.mainFlameChart.revealEntryVertically(mainIndex);
     } else if (networkIndex) {
-      this.networkFlameChart.revealEntry(networkIndex);
+      this.networkFlameChart.revealEntryVertically(networkIndex);
     }
   }
 
