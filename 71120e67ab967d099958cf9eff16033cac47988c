@@ -56,6 +56,30 @@
       },
       "revId": "71120e67ab967d099958cf9eff16033cac47988c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3af85824_be37602f",
+        "filename": "front_end/ui/legacy/components/source_frame/SourceFrame.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-09-13T09:35:03Z",
+      "side": 1,
+      "message": "Yes, subclasses override this.",
+      "parentUuid": "3b60d4d0_96f7ce7e",
+      "range": {
+        "startLine": 324,
+        "startChar": 12,
+        "endLine": 324,
+        "endChar": 19
+      },
+      "revId": "71120e67ab967d099958cf9eff16033cac47988c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
