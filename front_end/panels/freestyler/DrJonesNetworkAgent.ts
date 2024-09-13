@@ -212,7 +212,7 @@ export class DrJonesNetworkAgent {
       ]);
     };
     const currentRunEntries = this.#chatHistory.get(currentRunId) ?? [];
-    addToHistory(`ANSWER: ${response}`);
+    addToHistory(response);
     yield {
       type: DrJonesNetworkAgentResponseType.ANSWER,
       text: response,
