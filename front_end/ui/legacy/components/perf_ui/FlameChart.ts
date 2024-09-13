@@ -288,6 +288,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
   private entryColorsCache?: string[]|null;
   private totalTime?: number;
   private lastPopoverState: PopoverState;
+  private dimHighlightSVG: Element;
 
   #tooltipPopoverYAdjustment: number = 0;
 
@@ -347,6 +348,9 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.canvas.addEventListener('keydown', this.onKeyDown.bind(this), false);
     this.canvas.addEventListener('contextmenu', this.onContextMenu.bind(this), false);
 
+    this.dimHighlightSVG =
+        UI.UIUtils.createSVGChild(this.viewportElement, 'svg', 'flame-chart-dim-highlight-svg fill hidden');
+
     this.popoverElement =
         optionalConfig.tooltipElement || this.viewportElement.createChild('div', 'flame-chart-entry-info');
     this.markerHighlighElement = this.viewportElement.createChild('div', 'flame-chart-marker-highlight-element');
@@ -354,6 +358,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.revealDescendantsArrowHighlightElement =
         this.viewportElement.createChild('div', 'reveal-descendants-arrow-highlight-element');
 
+    this.selectedElement = this.viewportElement.createChild('div', 'flame-chart-selected-element');
     if (this.#selectedElementOutlineEnabled) {
       this.selectedElement = this.viewportElement.createChild('div', 'flame-chart-selected-element');
     }
@@ -470,15 +475,56 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
   }
 
   highlightAllEntries(entries: number[]): void {
+    const elPositions: Array<ReturnType<FlameChart['updateElementPosition']>> = [];
     for (const entry of entries) {
       const searchElement = this.viewportElement.createChild('div', 'flame-chart-search-element');
       this.#searchResultHighlightElements.push(searchElement);
       searchElement.id = entry.toString();
-      this.updateElementPosition(searchElement, entry);
+      const newPosition = this.updateElementPosition(searchElement, entry);
+      elPositions.push(newPosition);
     }
+
+    let mask = this.dimHighlightSVG?.querySelector('mask');
+    if (!mask) {
+      const defs = UI.UIUtils.createSVGChild(this.dimHighlightSVG, 'defs');
+      mask = UI.UIUtils.createSVGChild(defs, 'mask') as SVGMaskElement;
+      mask.id = 'dim-highlight-cutouts';
+      /* Within the mask...
+          - black fill = punch, fully transparently, through to the next thing. these are the cutouts to the color.
+          - white fill = be 100% desaturated
+          - grey fill  = show at the Lightness level of grayscale/desaturation
+      */
+      const showAllRect = UI.UIUtils.createSVGChild(mask, 'rect');
+      showAllRect.setAttribute('width', '100%');
+      showAllRect.setAttribute('height', '100%');
+      showAllRect.setAttribute('fill', 'hsl(0deg 0% 95%)');
+
+      const desaturateRect = UI.UIUtils.createSVGChild(this.dimHighlightSVG, 'rect') as SVGRectElement;
+      desaturateRect.setAttribute('width', '100%');
+      desaturateRect.setAttribute('height', '100%');
+      desaturateRect.setAttribute('fill', '#ffffff');
+      desaturateRect.setAttribute('mask', `url(#${mask.id})`);
+      desaturateRect.style.mixBlendMode = 'saturation';
+    }
+
+    mask.querySelectorAll('rect.punch').forEach(el => el.remove());
+    for (const elPosition of elPositions) {
+      if (!elPosition) {
+        continue;
+      }
+      const punchRect = UI.UIUtils.createSVGChild(mask, 'rect', 'punch');
+      punchRect.setAttribute('x', elPosition.position.left.toString());
+      punchRect.setAttribute('y', elPosition.position.top.toString());
+      punchRect.setAttribute('width', elPosition.position.width.toString());
+      punchRect.setAttribute('height', elPosition.position.height.toString());
+      punchRect.setAttribute('fill', 'black');
+    }
+
+    this.dimHighlightSVG.classList.remove('hidden');
   }
 
   removeSearchResultHighlights(): void {
+    this.dimHighlightSVG.classList.add('hidden');
     for (const element of this.#searchResultHighlightElements) {
       element.remove();
     }
@@ -3435,7 +3481,14 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
    * Update position of an Element. By default, the element is treated as a full entry and it's dimentions are set to the full entry width/length/height.
    * If isDecoration parameter is set to true, the element will be positioned on the right side of the entry and have a square shape where width == height of the entry.
    */
-  private updateElementPosition(element: Element|null, entryIndex: number, isDecoration?: boolean): void {
+  private updateElementPosition(element: Element|null, entryIndex: number, isDecoration?: boolean): void|{
+  position: {
+  top:
+    number, width: number, height: number, left: number,
+  }
+    , visible: boolean,
+  }
+  {
     if (!element) {
       return;
     }
@@ -3475,21 +3528,28 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     const entryLevel = timelineData.entryLevels[entryIndex];
     const barY = this.levelToOffset(entryLevel) - this.chartViewport.scrollOffset();
     const barHeight = this.levelHeight(entryLevel);
-    const style = (element as HTMLElement).style;
 
-    if (isDecoration) {
-      style.top = barY + 'px';
-      style.width = barHeight + 'px';
-      style.height = barHeight + 'px';
-      style.left = barX + barWidth - barHeight + 'px';
-    } else {
-      style.top = barY + 'px';
-      style.width = barWidth + 'px';
-      style.height = barHeight - 1 + 'px';
-      style.left = barX + 'px';
+    const position = isDecoration ? {
+      top: barY,
+      width: barHeight,
+      height: barHeight,
+      left: barX + barWidth - barHeight,
+    } :
+                                    {
+                                      top: barY,
+                                      width: barWidth,
+                                      height: barHeight - 1,
+                                      left: barX,
+                                    };
+
+    const elStyle = (element as HTMLElement).style;
+    for (const prop of Object.keys(position)) {
+      elStyle[prop] = `${position[prop]}px`;
     }
     element.classList.toggle('hidden', !visible);
     this.viewportElement.appendChild(element);
+
+    return {position, visible};
   }
 
   // Updates the highlight of an Arrow button that is shown on an entry if it has hidden child entries
