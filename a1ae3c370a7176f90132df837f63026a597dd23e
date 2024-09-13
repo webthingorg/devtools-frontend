@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b4ca4c62_fb84cd1a",
+        "filename": "front_end/models/trace/Processor.test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-13T10:01:44Z",
+      "side": 1,
+      "message": "I agree on symbols being useful in a follow-up, but I would really like this CL to land without the empty string being used. Even `PRE_NAVIGATION` as a string or something that gives us a clue. Else tbh reading this test it kinda looks like a bug.",
+      "range": {
+        "startLine": 340,
+        "startChar": 6,
+        "endLine": 340,
+        "endChar": 11
+      },
+      "revId": "a1ae3c370a7176f90132df837f63026a597dd23e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "25add5ce_9a619f15",
         "filename": "front_end/models/trace/Processor.ts",
         "patchSetId": 6
@@ -20,6 +43,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7f4d97be_d800a456",
+        "filename": "front_end/models/trace/Processor.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-13T10:01:44Z",
+      "side": 1,
+      "message": "I think the UI questions will probably cause us to be able to answer this with more confidence.\n\nRight now my initial reaction is a bit torn...\n\n- on one hand, I see the benefit in not caring about a 10ms gap before the first navigation\n\n- on the other hand, I can see why we should report everything in the trace regardless of the duration\n\nWe also have the option of telling the trace engine if a given recording was a \"reload + record\" recording. If it is, we could discard everything before the first navigation from an Insights perspective. And if it is not, we keep it all. That to me feels like a nice middle ground, wdyt?\n\nalso I am happy for you two to make the call today during your time zone, don\u0027t feel I have to block this until Monday",
+      "parentUuid": "25add5ce_9a619f15",
+      "revId": "a1ae3c370a7176f90132df837f63026a597dd23e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "623e765a_ad2badef",
         "filename": "front_end/models/trace/Processor.ts",
         "patchSetId": 6
@@ -31,6 +72,47 @@
       "writtenOn": "2024-09-13T05:59:34Z",
       "side": 1,
       "message": "I\u0027d like it if even without a navigation we could still have the frameId.... but I\u0027m not sure if we have that ... what would Meta.mainFrameId (or whatever its called) be set to when there\u0027s a lengthy period of time prior to navigation(s) in a trace?",
+      "revId": "a1ae3c370a7176f90132df837f63026a597dd23e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7a26d49_695a0467",
+        "filename": "front_end/models/trace/Processor.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-13T10:01:44Z",
+      "side": 1,
+      "message": "It would be set based on the TracingStartedInBrowser event which I think we can rely on as accurate.",
+      "parentUuid": "623e765a_ad2badef",
+      "revId": "a1ae3c370a7176f90132df837f63026a597dd23e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44ca3dbb_9650d6ad",
+        "filename": "front_end/models/trace/insights/types.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-13T10:01:44Z",
+      "side": 1,
+      "message": "would we ever want to associate this to a frame id? (not sure if we can reliably actually...)",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 57
+      },
       "revId": "a1ae3c370a7176f90132df837f63026a597dd23e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -66,6 +148,70 @@
       "side": 1,
       "message": "Hm, that\u0027s just another way to do the same thing. boolean or string literals. I might be overlooking what you\u0027re suggesting.\n\nThese types enforce an interface (the API). Typescript won\u0027t allow you to use the navigation if it hasn\u0027t been checked to exist. If you want to use the navigation for the purpose of filtering events, you check this first (though the new context.window property could be better - maybe that\u0027s the API you are referring to?)\n\nAnyway, we don\u0027t need a separate type variable to enforce this, it\u0027s just what I reached for first. You can have a discriminated union like this instead:\n\n```\ninterface BoundedInsightContextWithoutNavigation {\n  window: Types.Timing.TraceWindowMicroSeconds;\n  navigation: undefined;\n}\n\ninterface BoundedInsightContextWithNavigation {\n  window: Types.Timing.TraceWindowMicroSeconds;\n  frameId: string;\n  navigation: Types.TraceEvents.TraceEventNavigationStart;\n  navigationId: string;\n  lantern?: LanternContext;\n}\n```\n\nWhich might be more natural.\n\nWith the above, insights check for one interface or the other by putting `context.navigation` (or `context.type`) in a conditional, and typescript does the rest.",
       "parentUuid": "8eca637b_dc6ba422",
+      "revId": "a1ae3c370a7176f90132df837f63026a597dd23e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a378422_70a00acc",
+        "filename": "front_end/models/trace/insights/types.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-13T10:01:44Z",
+      "side": 1,
+      "message": "fwiw I don\u0027t feel strongly about this, I like the idea probably of `navigation` being present or not to avoid an extra string key,\n\nWe could also write an `isNavigationContext(x: BoundedContext): x is NavigationContext` to aid with the checking.",
+      "parentUuid": "19176f1f_37241f05",
+      "revId": "a1ae3c370a7176f90132df837f63026a597dd23e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "690536fc_5a7519ed",
+        "filename": "front_end/models/trace/insights/types.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-13T10:01:44Z",
+      "side": 1,
+      "message": "I like the idea of a symbol, or at least a `const NO_NAVIGATION \u003d \u0027no_navigation\u0027` or similar. wdyt?",
+      "range": {
+        "startLine": 79,
+        "startChar": 28,
+        "endLine": 79,
+        "endChar": 76
+      },
+      "revId": "a1ae3c370a7176f90132df837f63026a597dd23e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9e7ca52_388eee27",
+        "filename": "front_end/panels/timeline/components/SidebarInsightsTab.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-13T10:01:44Z",
+      "side": 1,
+      "message": "can you two sync w/ Yuin on how to display this ? Is it just another entry in the accordion in the sidebar? (probably). But also we probably don\u0027t want it to be the default opened one if we have navigations.",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 58
+      },
       "revId": "a1ae3c370a7176f90132df837f63026a597dd23e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
