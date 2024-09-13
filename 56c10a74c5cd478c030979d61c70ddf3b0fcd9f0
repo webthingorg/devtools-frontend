@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a7d093cb_68bb42e2",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1145,
+      "author": {
+        "id": 1251514
+      },
+      "writtenOn": "2024-09-13T16:35:43Z",
+      "side": 1,
+      "message": "New patch set now. Is that closer to what you were thinking?",
+      "parentUuid": "caa77c81_44e19e4d",
+      "revId": "56c10a74c5cd478c030979d61c70ddf3b0fcd9f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ffd9b95e_b4b17cf9",
         "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
         "patchSetId": 5
