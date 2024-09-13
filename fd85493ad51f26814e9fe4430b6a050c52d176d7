@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3d485d2c_785c3770",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-09-13T12:23:07Z",
+      "side": 1,
+      "message": "Let\u0027s add it where is needed rather then disable it for the whole function.",
+      "revId": "fd85493ad51f26814e9fe4430b6a050c52d176d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "92a601b0_430bfd12",
         "filename": "front_end/ui/components/markdown_view/CodeBlock.ts",
         "patchSetId": 2
@@ -85,6 +102,186 @@
                 "endChar": 0
               },
               "replacement": "        \u003ch4 class\u003d\"heading-text\"\u003e${this.#heading}\u003c/h4\u003e\n        ${this.#showCopyButton ? LitHtml.html`\u003cdiv class\u003d\"copy-button\"\u003e\n"
+            }
+          ]
+        }
+      ],
+      "revId": "fd85493ad51f26814e9fe4430b6a050c52d176d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98b27ad3_5f59aa9b",
+        "filename": "front_end/ui/components/markdown_view/CodeBlock.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-09-13T12:23:07Z",
+      "side": 1,
+      "message": "Lets move this comment before the template part.",
+      "fixSuggestions": [
+        {
+          "fixId": "7da2334c_91eea5fe",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/ui/components/markdown_view/CodeBlock.ts",
+              "range": {
+                "startLine": 125,
+                "startChar": 0,
+                "endLine": 125,
+                "endChar": 0
+              },
+              "replacement": "  // clang-format off\n"
+            },
+            {
+              "path": "front_end/ui/components/markdown_view/CodeBlock.ts",
+              "range": {
+                "startLine": 126,
+                "startChar": 0,
+                "endLine": 127,
+                "endChar": 0
+              },
+              "replacement": ""
+            },
+            {
+              "path": "front_end/ui/components/markdown_view/CodeBlock.ts",
+              "range": {
+                "startLine": 151,
+                "startChar": 0,
+                "endLine": 152,
+                "endChar": 0
+              },
+              "replacement": ""
+            },
+            {
+              "path": "front_end/ui/components/markdown_view/CodeBlock.ts",
+              "range": {
+                "startLine": 154,
+                "startChar": 0,
+                "endLine": 154,
+                "endChar": 0
+              },
+              "replacement": "  // clang-format off\n"
+            },
+            {
+              "path": "front_end/ui/components/markdown_view/CodeBlock.ts",
+              "range": {
+                "startLine": 155,
+                "startChar": 0,
+                "endLine": 156,
+                "endChar": 0
+              },
+              "replacement": ""
+            },
+            {
+              "path": "front_end/ui/components/markdown_view/CodeBlock.ts",
+              "range": {
+                "startLine": 162,
+                "startChar": 0,
+                "endLine": 163,
+                "endChar": 0
+              },
+              "replacement": ""
+            },
+            {
+              "path": "front_end/ui/components/markdown_view/CodeBlock.ts",
+              "range": {
+                "startLine": 165,
+                "startChar": 0,
+                "endLine": 165,
+                "endChar": 0
+              },
+              "replacement": "  // clang-format off\n"
+            },
+            {
+              "path": "front_end/ui/components/markdown_view/CodeBlock.ts",
+              "range": {
+                "startLine": 166,
+                "startChar": 0,
+                "endLine": 167,
+                "endChar": 0
+              },
+              "replacement": ""
+            },
+            {
+              "path": "front_end/ui/components/markdown_view/CodeBlock.ts",
+              "range": {
+                "startLine": 175,
+                "startChar": 0,
+                "endLine": 176,
+                "endChar": 0
+              },
+              "replacement": ""
+            },
+            {
+              "path": "front_end/ui/components/markdown_view/CodeBlock.ts",
+              "range": {
+                "startLine": 195,
+                "startChar": 0,
+                "endLine": 195,
+                "endChar": 0
+              },
+              "replacement": "  // clang-format off\n"
+            },
+            {
+              "path": "front_end/ui/components/markdown_view/CodeBlock.ts",
+              "range": {
+                "startLine": 196,
+                "startChar": 0,
+                "endLine": 197,
+                "endChar": 0
+              },
+              "replacement": ""
+            },
+            {
+              "path": "front_end/ui/components/markdown_view/CodeBlock.ts",
+              "range": {
+                "startLine": 211,
+                "startChar": 0,
+                "endLine": 212,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "fd85493ad51f26814e9fe4430b6a050c52d176d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39d18fa5_f9797092",
+        "filename": "front_end/ui/components/markdown_view/CodeBlock.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-09-13T12:23:07Z",
+      "side": 1,
+      "message": "I think the correct way is to control it though CSS or size?",
+      "fixSuggestions": [
+        {
+          "fixId": "f989d587_8e191bc2",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/ui/components/markdown_view/CodeBlock.ts",
+              "range": {
+                "startLine": 140,
+                "startChar": 0,
+                "endLine": 142,
+                "endChar": 0
+              },
+              "replacement": ""
             }
           ]
         }
