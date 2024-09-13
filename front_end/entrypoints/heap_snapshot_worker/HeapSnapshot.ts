@@ -872,7 +872,22 @@ export abstract class HeapSnapshot {
     const result = this.buildPostOrderIndex();
     // Actually it is array that maps node ordinal number to dominator node ordinal number.
     this.#progress.updateStatus('Building dominator tree…');
+    // Time the dominator tree calculation.
+    const oldStartTime = performance.now();
     this.dominatorsTree = this.buildDominatorTree(result.postOrderIndex2NodeOrdinal, result.nodeOrdinal2PostOrderIndex);
+    const oldDuration = performance.now() - oldStartTime;
+    const newStartTime = performance.now();
+    const newDominatorsTree = this.buildDominatorTreeUsingLengauerTarjan();
+    const newDuration = performance.now() - newStartTime;
+    console.log(`Node count: ${this.nodeCount}; old: ${oldDuration}ms, new: ${newDuration}ms`);
+    const mismatches = new Set();
+    for (let i = 0; i < this.nodeCount; i++) {
+      if (newDominatorsTree[i] !== this.dominatorsTree[i]) {
+        mismatches.add({ordinal: i, new: newDominatorsTree[i], old: this.dominatorsTree[i]});
+      }
+    }
+    console.warn(`Found ${mismatches.size} mismatches between algorithms`);
+    this.dominatorsTree = newDominatorsTree;
     this.#progress.updateStatus('Calculating shallow sizes…');
     this.calculateShallowSizes();
     this.#progress.updateStatus('Calculating retained sizes…');
@@ -1710,6 +1725,146 @@ export abstract class HeapSnapshot {
       }
     }
     return true;
+  }
+
+  private buildDominatorTreeUsingLengauerTarjan(): Uint32Array {
+    // The Lengauer-Tarjan algorithm expects vectors to be numbered from 1 to n
+    // and uses 0 as an invalid value, so use 1-indexing for all the arrays.
+    const arrayLength = this.nodeCount + 1;
+    const parent = new Uint32Array(arrayLength);
+    const ancestor = new Uint32Array(arrayLength);
+    const vertex = new Uint32Array(arrayLength);
+    const label = new Uint32Array(arrayLength);
+    const semi = new Uint32Array(arrayLength);
+    const bucket = new Array<Platform.TypedArrayUtilities.BitVector>(arrayLength);
+    let n = 0;
+
+    const notVisited = Platform.TypedArrayUtilities.createBitVector(arrayLength);
+    for (let v = 1; v <= this.nodeCount; v++) {
+      notVisited.setBit(v);
+    }
+
+    const dfs = (v: number) => {
+      notVisited.clearBit(v);
+      semi[v] = ++n;
+      vertex[n] = label[v] = v;
+      ancestor[v] = 0;
+
+      // Iterate over all successors w of v.
+      const vOrdinal = v - 1;
+      for (let edgeIndex = this.firstEdgeIndexes[vOrdinal]; edgeIndex < this.firstEdgeIndexes[vOrdinal + 1];
+           edgeIndex += this.edgeFieldsCount) {
+        if (!this.isEssentialEdge(edgeIndex)) {
+          continue;
+        }
+        const childNodeIndex = this.containmentEdges.getValue(edgeIndex + this.edgeToNodeOffset);
+        const wOrdinal = childNodeIndex / this.nodeFieldCount;
+        const w = wOrdinal + 1;
+        if (semi[w] === 0) {
+          parent[w] = v;
+          dfs(w);
+        }
+      }
+    };
+
+    const compress = (v: number) => {
+      if (ancestor[ancestor[v]] !== 0) {
+        compress(ancestor[v]);
+        if (semi[label[ancestor[v]]] < semi[label[v]]) {
+          label[v] = label[ancestor[v]];
+        }
+        ancestor[v] = ancestor[ancestor[v]];
+      }
+    };
+
+    const evaluate = (v: number) => {
+      if (ancestor[v] === 0) {
+        return v;
+      }
+      compress(v);
+      return label[v];
+    };
+
+    const link = (v: number, w: number) => {
+      ancestor[w] = v;
+    };
+
+    // Algorithm begins here. The variable names are as per the research paper.
+    const rootNodeOrdinal = this.rootNodeIndexInternal / this.nodeFieldCount;
+    const r = rootNodeOrdinal + 1;
+    n = 0;
+    const dom = new Uint32Array(arrayLength);
+    dfs(r);
+
+    // Visit all orphan nodes (ones with only weak retainers).
+    for (let v = notVisited.previous(arrayLength); v !== -1; v = notVisited.previous(v)) {
+      const ordinal = v - 1;
+      if (this.hasOnlyWeakRetainers(ordinal)) {
+        dfs(v);
+      }
+    }
+    if (n !== this.nodeCount) {
+      console.warn('Failed to visit all nodes in the graph');
+    }
+
+    for (let i = n; i >= 2; --i) {
+      const w = vertex[i];
+      // Iterate over all predecessors v of w.
+      const wOrdinal = w - 1;
+      let hasOnlyWeakRetainers = true;
+      for (let retainerIndex = this.firstRetainerIndex[wOrdinal]; retainerIndex < this.firstRetainerIndex[wOrdinal + 1];
+           retainerIndex++) {
+        if (!this.isEssentialEdge(this.retainingEdges[retainerIndex])) {
+          continue;
+        }
+        hasOnlyWeakRetainers = false;
+        const vOrdinal = this.retainingNodes[retainerIndex] / this.nodeFieldCount;
+        const v = vOrdinal + 1;
+        const u = evaluate(v);
+        if (semi[u] < semi[w]) {
+          semi[w] = semi[u];
+        }
+      }
+      if (hasOnlyWeakRetainers) {
+        // We treat orphan nodes as having a single predecessor - the root.
+        // semi[r] is always less than any semi[w] so set it unconditionally.
+        semi[w] = semi[r];
+      }
+
+      if (bucket[vertex[semi[w]]] === undefined) {
+        bucket[vertex[semi[w]]] = Platform.TypedArrayUtilities.createBitVector(arrayLength);
+      }
+      bucket[vertex[semi[w]]].setBit(w);
+      link(parent[w], w);
+
+      // Process all vertices v in bucket(parent(w)).
+      if (bucket[parent[w]] !== undefined) {
+        for (let v = bucket[parent[w]].previous(arrayLength); v !== -1; v = bucket[parent[w]].previous(v)) {
+          bucket[parent[w]].clearBit(v);
+          const u = evaluate(v);
+          dom[v] = semi[u] < semi[v] ? u : parent[w];
+        }
+      }
+    }
+
+    for (let i = 2; i <= n; i++) {
+      const w = vertex[i];
+      if (dom[w] !== vertex[semi[w]]) {
+        dom[w] = dom[dom[w]];
+      }
+    }
+    dom[r] = 0;
+    // Algorithm ends here.
+
+    // Transform and copy the dominators to an ordinal-indexed array.
+    const dominatorTree = new Uint32Array(this.nodeCount);
+    for (let ordinal = 0; ordinal < this.nodeCount; ordinal++) {
+      dominatorTree[ordinal] = dom[ordinal + 1] - 1;
+    }
+    // Set the dominator of the root node to itself.
+    dominatorTree[rootNodeOrdinal] = rootNodeOrdinal;
+
+    return dominatorTree;
   }
 
   // The algorithm is based on the article:
