@@ -429,6 +429,7 @@ export class FreestylerChatUi extends HTMLElement {
   }
 
   #renderStepDetails(step: Step, options: {isLast: boolean}): LitHtml.LitTemplate {
+    // clang-format off
     const sideEffects =
         options.isLast && step.sideEffect ? this.#renderSideEffectConfirmationUi(step) : LitHtml.nothing;
     const thought = step.thought ? LitHtml.html`<p>${this.#renderTextAsMarkdown(step.thought)}</p>` : LitHtml.nothing;
@@ -444,22 +445,25 @@ export class FreestylerChatUi extends HTMLElement {
           .codeLang=${'js'}
           .displayToolbar=${false}
           .displayNotice=${!Boolean(step.output)}
-          .headingText=${codeHeadingText}
+          .heading=${{
+            text: codeHeadingText,
+            showCopyButton: true,
+          }}
         ></${MarkdownView.CodeBlock.CodeBlock.litTagName}>
-    </div>` :
-                             LitHtml.nothing;
+    </div>` : LitHtml.nothing;
     const output = step.output ? LitHtml.html`<div class="js-code-output">
       <${MarkdownView.CodeBlock.CodeBlock.litTagName}
         .code=${step.output}
         .codeLang=${'js'}
         .displayToolbar=${false}
         .displayNotice=${true}
-        .headingText=${i18nString(UIStringsTemp.dataReturned)}
+        .heading=${{
+          text: i18nString(UIStringsTemp.dataReturned),
+          showCopyButton: false,
+        }}
       ></${MarkdownView.CodeBlock.CodeBlock.litTagName}>
-    </div>` :
-                                 LitHtml.nothing;
+    </div>` : LitHtml.nothing;
 
-    // clang-format off
     return LitHtml.html`<div class="step-details">
       ${thought}
       ${code}
