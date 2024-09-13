@@ -18,6 +18,41 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca50fca5_573f2f69",
+        "filename": "front_end/panels/console/ConsoleViewMessage.ts",
+        "patchSetId": 48
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1458307
+      },
+      "writtenOn": "2024-09-13T12:55:36Z",
+      "side": 1,
+      "message": "It is null when we don\u0027t actually want a stack trace; we\u0027re just sharing code to get the Show ignore-listed/Show less links. See change below.",
+      "parentUuid": "b12dd11f_84fb69f6",
+      "revId": "513b0ee95ae0cf90d77945d57fd7552b443926ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58bbf5d0_ac5e909f",
+        "filename": "front_end/panels/console/ConsoleViewMessage.ts",
+        "patchSetId": 48
+      },
+      "lineNbr": 1248,
+      "author": {
+        "id": 1458307
+      },
+      "writtenOn": "2024-09-13T12:55:36Z",
+      "side": 1,
+      "message": "This is where we call with null.",
+      "revId": "513b0ee95ae0cf90d77945d57fd7552b443926ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fa2aca57_197c9b8f",
@@ -37,6 +72,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e9db0493_c97022a6",
+        "filename": "front_end/ui/legacy/components/utils/JSPresentationUtils.ts",
+        "patchSetId": 48
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1458307
+      },
+      "writtenOn": "2024-09-13T12:55:36Z",
+      "side": 1,
+      "message": "It carries over between iterations. A segment of the callstack with all synchronous calls will go in one section.",
+      "parentUuid": "fa2aca57_197c9b8f",
+      "revId": "513b0ee95ae0cf90d77945d57fd7552b443926ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2b1d3104_b7434c69",
         "filename": "front_end/ui/legacy/components/utils/JSPresentationUtils.ts",
         "patchSetId": 48
@@ -48,6 +101,24 @@
       "writtenOn": "2024-09-13T11:06:21Z",
       "side": 1,
       "message": "Just curious, why do we nullify `tableSection` in the previous if-block but not in this else-block?",
+      "revId": "513b0ee95ae0cf90d77945d57fd7552b443926ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "336bcd7f_f6d97171",
+        "filename": "front_end/ui/legacy/components/utils/JSPresentationUtils.ts",
+        "patchSetId": 48
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1458307
+      },
+      "writtenOn": "2024-09-13T12:55:36Z",
+      "side": 1,
+      "message": "Because in this case we want to use the same tableSection on the next iteration, as this is a synchronous frame.",
+      "parentUuid": "2b1d3104_b7434c69",
       "revId": "513b0ee95ae0cf90d77945d57fd7552b443926ed",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
