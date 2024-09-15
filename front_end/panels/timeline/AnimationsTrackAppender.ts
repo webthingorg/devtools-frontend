@@ -6,13 +6,15 @@ import * as i18n from '../../core/i18n/i18n.js';
 import type * as TraceEngine from '../../models/trace/trace.js';
 import * as ThemeSupport from '../../ui/legacy/theme_support/theme_support.js';
 
-import {buildGroupStyle, buildTrackHeader} from './AppenderUtils.js';
+import {buildGroupStyle, buildTrackHeader, getFormattedTime} from './AppenderUtils.js';
 import {
   type CompatibilityTracksAppender,
+  type HighlightedEntryInfo,
   type TrackAppender,
   type TrackAppenderName,
   VisualLoggingTrackName,
 } from './CompatibilityTracksAppender.js';
+import * as Components from './components/components.js';
 
 const UIStrings = {
   /**
@@ -55,5 +57,14 @@ export class AnimationsTrackAppender implements TrackAppender {
 
   colorForEvent(): string {
     return ThemeSupport.ThemeSupport.instance().getComputedValue('--app-color-rendering');
+  }
+
+  highlightedEntryInfo(event: TraceEngine.Types.TraceEvents.SyntheticAnimationPair): HighlightedEntryInfo {
+    let title = Components.EntryName.nameForEntry(event, this.#traceParsedData);
+    const {displayName} = event.args.data.beginEvent.args.data;
+    if (displayName) {
+      title += ` (${displayName})`;
+    }
+    return {title, formattedTime: getFormattedTime(event.dur)};
   }
 }
