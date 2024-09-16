@@ -372,19 +372,21 @@ export class FreestylerAgent {
     return this.#getHistoryEntry;
   }
 
-  async #aidaFetch(request: Host.AidaClient.AidaRequest): Promise<{response: string, rpcId: number|undefined}> {
+  async #aidaFetch(request: Host.AidaClient.AidaRequest):
+      Promise<{response: string, rpcId: number|undefined, rawResponse: Host.AidaClient.AidaResponse|undefined}> {
+    let rawResponse: Host.AidaClient.AidaResponse|undefined = undefined;
     let response = '';
     let rpcId;
-    for await (const lastResult of this.#aidaClient.fetch(request)) {
-      response = lastResult.explanation;
-      rpcId = lastResult.metadata.rpcGlobalId ?? rpcId;
-      if (lastResult.metadata.attributionMetadata?.some(
+    for await (rawResponse of this.#aidaClient.fetch(request)) {
+      response = rawResponse.explanation;
+      rpcId = rawResponse.metadata.rpcGlobalId ?? rpcId;
+      if (rawResponse.metadata.attributionMetadata?.some(
               meta => meta.attributionAction === Host.AidaClient.RecitationAction.BLOCK)) {
         throw new Error('Attribution action does not allow providing the response');
       }
     }
 
-    return {response, rpcId};
+    return {response, rpcId, rawResponse};
   }
 
   async #generateObservation(
@@ -556,10 +558,12 @@ export class FreestylerAgent {
       });
       let response: string;
       let rpcId: number|undefined;
+      let rawResponse: Host.AidaClient.AidaResponse|undefined;
       try {
         const fetchResult = await this.#aidaFetch(request);
         response = fetchResult.response;
         rpcId = fetchResult.rpcId;
+        rawResponse = fetchResult.rawResponse;
       } catch (err) {
         debugLog('Error calling the AIDA API', err);
 
@@ -579,7 +583,12 @@ export class FreestylerAgent {
         break;
       }
 
-      debugLog(`Iteration: ${i}`, 'Request', request, 'Response', response);
+      debugLog({
+        iteration: i,
+        request,
+        response: rawResponse,
+      });
+
       structuredLog.push({
         request: structuredClone(request),
         response,
