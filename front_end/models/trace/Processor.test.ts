@@ -243,7 +243,7 @@ describeWithEnvironment('TraceProcessor', function() {
   });
 
   describe('insights', () => {
-    it('returns no insights if no navigations', async function() {
+    it('returns a single group of insights even if no navigations', async function() {
       const processor = TraceModel.Processor.TraceProcessor.createWithAllHandlers();
       const file = await TraceLoader.rawEvents(this, 'basic.json.gz');
 
@@ -252,7 +252,8 @@ describeWithEnvironment('TraceProcessor', function() {
         throw new Error('No insights');
       }
 
-      assert.strictEqual(processor.insights.size, 0);
+      assert.strictEqual(processor.insights.size, 1);
+      assert.deepStrictEqual([...processor.insights.keys()], ['']);
     });
 
     it('captures errors thrown by insights', async function() {
@@ -276,9 +277,9 @@ describeWithEnvironment('TraceProcessor', function() {
       }
 
       const insights = Array.from(processor.insights.values());
-      assert.strictEqual(insights.length, 1);
-      assert(insights[0].RenderBlocking instanceof Error, 'RenderBlocking did not throw an error');
-      assert.strictEqual(insights[0].RenderBlocking.message, 'forced error');
+      assert.strictEqual(insights.length, 2);
+      assert(insights[1].RenderBlocking instanceof Error, 'RenderBlocking did not throw an error');
+      assert.strictEqual(insights[1].RenderBlocking.message, 'forced error');
     });
 
     it('skips insights that are missing one or more dependencies', async function() {
@@ -292,8 +293,12 @@ describeWithEnvironment('TraceProcessor', function() {
         throw new Error('No insights');
       }
 
+      assert.deepStrictEqual([...processor.insights.keys()], [
+        '',
+        '0BCFC23BC7D7BEDC9F93E912DCCEC1DA',
+      ]);
+
       const insights = Array.from(processor.insights.values());
-      assert.strictEqual(processor.insights.size, 1);
       assert.isUndefined(insights[0].RenderBlocking);
     });
 
@@ -306,14 +311,21 @@ describeWithEnvironment('TraceProcessor', function() {
         throw new Error('No insights');
       }
 
-      const insights = Array.from(processor.insights.values());
-      assert.strictEqual(insights.length, 1);
+      assert.deepStrictEqual([...processor.insights.keys()], [
+        '',
+        '0BCFC23BC7D7BEDC9F93E912DCCEC1DA',
+      ]);
 
+      const insights = Array.from(processor.insights.values());
       if (insights[0].RenderBlocking instanceof Error) {
         throw new Error('RenderBlocking threw an error');
       }
+      if (insights[1].RenderBlocking instanceof Error) {
+        throw new Error('RenderBlocking threw an error');
+      }
 
-      assert.strictEqual(insights[0].RenderBlocking.renderBlockingRequests.length, 2);
+      assert.strictEqual(insights[0].RenderBlocking.renderBlockingRequests.length, 0);
+      assert.strictEqual(insights[1].RenderBlocking.renderBlockingRequests.length, 2);
     });
 
     it('returns insights for multiple navigations', async function() {
@@ -325,9 +337,14 @@ describeWithEnvironment('TraceProcessor', function() {
         throw new Error('No insights');
       }
 
-      const insights = Array.from(processor.insights.values());
-      assert.strictEqual(insights.length, 3);
+      assert.deepStrictEqual([...processor.insights.keys()], [
+        '',
+        '83ACBFD389F1F66EF79CEDB4076EB44A',
+        '70BCD304FD2C098BA2513488AB0FF3F2',
+        '71CF0F2B9FE50F2CB31B261D129D06E8',
+      ]);
 
+      const insights = Array.from(processor.insights.values());
       if (insights[0].RenderBlocking instanceof Error) {
         throw new Error('RenderBlocking threw an error');
       }
@@ -337,10 +354,14 @@ describeWithEnvironment('TraceProcessor', function() {
       if (insights[2].RenderBlocking instanceof Error) {
         throw new Error('RenderBlocking threw an error');
       }
+      if (insights[3].RenderBlocking instanceof Error) {
+        throw new Error('RenderBlocking threw an error');
+      }
 
       assert.strictEqual(insights[0].RenderBlocking.renderBlockingRequests.length, 0);
       assert.strictEqual(insights[1].RenderBlocking.renderBlockingRequests.length, 0);
-      assert.strictEqual(insights[2].RenderBlocking.renderBlockingRequests.length, 1);
+      assert.strictEqual(insights[2].RenderBlocking.renderBlockingRequests.length, 0);
+      assert.strictEqual(insights[3].RenderBlocking.renderBlockingRequests.length, 1);
     });
   });
 });
