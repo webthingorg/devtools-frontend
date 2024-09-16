@@ -90,6 +90,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "66b72ca9_6805207d",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1145,
+      "author": {
+        "id": 1251514
+      },
+      "writtenOn": "2024-09-16T12:54:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a16f5bc_7f06bd7c",
+      "revId": "56c10a74c5cd478c030979d61c70ddf3b0fcd9f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ffd9b95e_b4b17cf9",
