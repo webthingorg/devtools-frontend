@@ -85,6 +85,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "37775929_bd9bdc3a",
+        "filename": "front_end/models/trace/Processor.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-16T19:20:07Z",
+      "side": 1,
+      "message": "\u003e telling the trace engine if a given recording was a \"reload + record\" recording.\n\nUnless this information gets injected into the trace somehow, this is problematic when importing/sharing the trace.",
+      "parentUuid": "7f4d97be_d800a456",
+      "revId": "a1ae3c370a7176f90132df837f63026a597dd23e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "623e765a_ad2badef",
         "filename": "front_end/models/trace/Processor.ts",
         "patchSetId": 6
@@ -314,6 +332,30 @@
       "writtenOn": "2024-09-13T10:01:44Z",
       "side": 1,
       "message": "can you two sync w/ Yuin on how to display this ? Is it just another entry in the accordion in the sidebar? (probably). But also we probably don\u0027t want it to be the default opened one if we have navigations.",
+      "range": {
+        "startLine": 89,
+        "startChar": 0,
+        "endLine": 89,
+        "endChar": 58
+      },
+      "revId": "a1ae3c370a7176f90132df837f63026a597dd23e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a102a156_a91af1af",
+        "filename": "front_end/panels/timeline/components/SidebarInsightsTab.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-16T19:20:07Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "a9e7ca52_388eee27",
       "range": {
         "startLine": 89,
         "startChar": 0,
