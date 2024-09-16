@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8085d77_49a34289",
+        "filename": "front_end/panels/timeline/overlays/components/TimeRangeOverlay.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-09-16T09:42:49Z",
+      "side": 1,
+      "message": "nit: `updateLabelPositioning`\n`check` feels like it should just return the position",
+      "range": {
+        "startLine": 112,
+        "startChar": 2,
+        "endLine": 112,
+        "endChar": 23
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "f627daa7_8f99cb08",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/overlays/components/TimeRangeOverlay.ts",
+              "range": {
+                "startLine": 112,
+                "startChar": 0,
+                "endLine": 113,
+                "endChar": 0
+              },
+              "replacement": "  updateLabelPositioning(): void {\n"
+            },
+            {
+              "path": "front_end/panels/timeline/overlays/components/TimeRangeOverlay.ts",
+              "range": {
+                "startLine": 268,
+                "startChar": 0,
+                "endLine": 269,
+                "endChar": 0
+              },
+              "replacement": "    this.updateLabelPositioning();\n"
+            }
+          ]
+        }
+      ],
+      "revId": "31fdbd2cc64b86b635d969866e33d5017dbd3def",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
