@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6a16f5bc_7f06bd7c",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1145,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-09-16T08:49:59Z",
+      "side": 1,
+      "message": "This looks much nicer, don\u0027t you think? Thanks!",
+      "parentUuid": "a7d093cb_68bb42e2",
+      "revId": "56c10a74c5cd478c030979d61c70ddf3b0fcd9f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ffd9b95e_b4b17cf9",
         "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
         "patchSetId": 5
@@ -121,6 +139,24 @@
       "side": 1,
       "message": "Right, but if it were rendered we\u0027d get the extra space I think.",
       "parentUuid": "6d6a8a1f_1c9d1e71",
+      "revId": "56c10a74c5cd478c030979d61c70ddf3b0fcd9f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "81af787d_955dac2b",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1165,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-09-16T08:49:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e294cd9_a9695f38",
       "revId": "56c10a74c5cd478c030979d61c70ddf3b0fcd9f0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0693cd15_424a6d28",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-09-16T08:49:59Z",
+      "side": 1,
+      "message": "Couple of nits, but overall this loks great!",
+      "revId": "301ab5e9f6b30d163a9213401cca717285dd6d26",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23b59a7d_77af3a6b",
+        "filename": "front_end/panels/elements/PropertyMatchers.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 596,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-09-16T08:49:59Z",
+      "side": 1,
+      "message": "Pass `null` as anchor function name?",
+      "revId": "301ab5e9f6b30d163a9213401cca717285dd6d26",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c720cd31_4dea52d5",
+        "filename": "front_end/panels/elements/PropertyMatchers.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 601,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-09-16T08:49:59Z",
+      "side": 1,
+      "message": "Style nit: This could be written more concisely I think. WDYT about \n```\nconst args \u003d ASTUtils.children(node.getChild(\u0027ArgList\u0027));\nif (calleeText \u003d\u003d\u003d \u0027anchor\u0027 \u0026\u0026 args.length \u003c\u003d 2) {\n  return null;\n}\nif (args.find(arg \u003d\u003e arg.name \u003d\u003d\u003d \u0027VariableName\u0027)) {\n  return null;\n}\n```",
+      "revId": "301ab5e9f6b30d163a9213401cca717285dd6d26",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08cb231b_6273c0eb",
+        "filename": "front_end/panels/elements/PropertyMatchers.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-09-16T08:49:59Z",
+      "side": 1,
+      "message": "Everywhere else the node and text on the match to belong to the matched node.",
+      "revId": "301ab5e9f6b30d163a9213401cca717285dd6d26",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
