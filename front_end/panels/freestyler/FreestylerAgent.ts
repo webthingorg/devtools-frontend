@@ -532,11 +532,10 @@ export class FreestylerAgent {
     signal?: AbortSignal, selectedElement: SDK.DOMModel.DOMNode|null, isFixQuery: boolean,
   }): AsyncGenerator<ResponseData, void, void> {
     const structuredLog = [];
-    query = `${
-        options.selectedElement ?
-            `# Inspected element\n${
-                await FreestylerAgent.describeElement(options.selectedElement)}\n\n# User request\n\n` :
-            ''}QUERY: ${query}`;
+    const elementEnchantmentQuery = options.selectedElement ?
+        `# Inspected element\n${await FreestylerAgent.describeElement(options.selectedElement)}\n\n# User request\n` :
+        '';
+    query = `${elementEnchantmentQuery}QUERY: ${query}`;
     const currentRunId = ++this.#runId;
 
     options.signal?.addEventListener('abort', () => {
