@@ -3,22 +3,27 @@
 // found in the LICENSE file.
 
 import * as i18n from '../../core/i18n/i18n.js';
+import * as Root from '../../core/root/root.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
 import type * as Security from './security.js';
 
 const UIStrings = {
   /**
-   *@description Title of the security panel
+   *@description Title of the security panel. Placeholder for when privacyUI is enabled
+   *@example { & Privacy} PH1
    */
-  security: 'Security',
+  security: 'Security{PH1}',
   /**
-   *@description Command to open the security panel
+   *@description Command to open the security panel. Placeholder for when privacyUI is enabled
+   *@example { and Privacy} PH1
    */
-  showSecurity: 'Show Security',
+  showSecurity: 'Show Security{PH1}',
 };
+
 const str_ = i18n.i18n.registerUIStrings('panels/security/security-meta.ts', UIStrings);
 const i18nLazyString = i18n.i18n.getLazilyComputedLocalizedString.bind(undefined, str_);
+const isPrivacyUIEnabled = Root.Runtime.Runtime.queryParam('privacyUI') === 'true';
 
 let loadedSecurityModule: (typeof Security|undefined);
 
@@ -32,8 +37,10 @@ async function loadSecurityModule(): Promise<typeof Security> {
 UI.ViewManager.registerViewExtension({
   location: UI.ViewManager.ViewLocationValues.PANEL,
   id: 'security',
-  title: i18nLazyString(UIStrings.security),
-  commandPrompt: i18nLazyString(UIStrings.showSecurity),
+  title: isPrivacyUIEnabled ? i18nLazyString(UIStrings.security, {PH1: ' & Security'}) :
+                              i18nLazyString(UIStrings.security),
+  commandPrompt: isPrivacyUIEnabled ? i18nLazyString(UIStrings.showSecurity, {PH1: ' and Privacy'}) :
+                                      i18nLazyString(UIStrings.showSecurity),
   order: 80,
   persistence: UI.ViewManager.ViewPersistence.CLOSEABLE,
   async loadView() {
