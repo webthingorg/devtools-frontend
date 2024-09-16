@@ -205,47 +205,62 @@ export class EntriesLinkOverlay extends HTMLElement {
   }
 }
 
+export class CreateEntriesLinkRemoveEvent extends Event {
+  static readonly eventName = 'createentrieslinkremoveevent';
+
+  constructor() {
+    super(CreateEntriesLinkRemoveEvent.eventName);
+  }
+}
+
 export class CreateEntriesLinkOverlay extends HTMLElement {
   static readonly litTagName = LitHtml.literal`devtools-create-entries-link-overlay`;
   readonly #shadow = this.attachShadow({mode: 'open'});
-  #creatingState: CreatingState;
-  #fromEntryCoordinateAndDimentions: {x: number, y: number, width: number, height: number};
+  #fromEntryData: {entryStartX: number, entryStartY: number, entryWidth: number, entryHeight: number};
 
-  constructor(initialFromEntryCoordinateAndDimentions: {x: number, y: number, width: number, height: number}, state?: CreatingState) {
+  constructor(initialFromEntryParams:
+                  {entryStartX: number, entryStartY: number, entryWidth: number, entryHeight: number}) {
     super();
-    this.#creatingState = state ?? CreatingState.START_CREATING;
     this.#render();
-    this.#fromEntryCoordinateAndDimentions = initialFromEntryCoordinateAndDimentions;
-    this.#updateCreateLinkBox()
+    this.#fromEntryData = initialFromEntryParams;
+    this.#updateCreateLinkBox();
+    const createLinkBox = this.#shadow.querySelector<HTMLElement>('.crate-link-box');
+    const createLinkIcon = createLinkBox?.querySelector<HTMLElement>('.crate-link-icon') ?? null;
+    createLinkIcon?.addEventListener('click', this.#onClick.bind(this));
   }
 
   connectedCallback(): void {
     this.#shadow.adoptedStyleSheets = [styles];
   }
 
-  set fromEntryCoordinateAndDimentions(fromEntryParams: {x: number, y: number, width: number, height: number}) {
-    this.#fromEntryCoordinateAndDimentions = fromEntryParams;
+  set fromEntryData(fromEntryParams:
+                        {entryStartX: number, entryStartY: number, entryWidth: number, entryHeight: number}) {
+    this.#fromEntryData = fromEntryParams;
     this.#updateCreateLinkBox();
   }
 
   #updateCreateLinkBox(): void {
     const createLinkBox = this.#shadow.querySelector<HTMLElement>('.crate-link-box');
-    const createLinkIcon =createLinkBox?.querySelector<HTMLElement>('.crate-link-icon') ?? null;
+    const createLinkIcon = createLinkBox?.querySelector<HTMLElement>('.crate-link-icon') ?? null;
     const entryHighlightWrapper = createLinkBox?.querySelector<HTMLElement>('.entry-highlight-wrapper') ?? null;
-    
+
     if (!createLinkBox || !createLinkIcon || !entryHighlightWrapper) {
       console.error('creating element is missing.');
       return;
     }
 
-    const {x, y, width, height} = this.#fromEntryCoordinateAndDimentions;
-    
-    createLinkIcon.style.left = `${x + width}px`
-    createLinkIcon.style.top = `${y}px`
-    entryHighlightWrapper.style.left = `${x}px`
-    entryHighlightWrapper.style.top = `${y}px`
-    entryHighlightWrapper.style.width = `${width}px`
-    entryHighlightWrapper.style.height = `${height}px`
+    const {entryStartX, entryStartY, entryWidth, entryHeight} = this.#fromEntryData;
+
+    createLinkIcon.style.left = `${entryStartX + entryWidth}px`;
+    createLinkIcon.style.top = `${entryStartY}px`;
+    entryHighlightWrapper.style.left = `${entryStartX}px`;
+    entryHighlightWrapper.style.top = `${entryStartY}px`;
+    entryHighlightWrapper.style.width = `${entryWidth}px`;
+    entryHighlightWrapper.style.height = `${entryHeight}px`;
+  }
+
+  #onClick(): void {
+    this.dispatchEvent(new CreateEntriesLinkRemoveEvent());
   }
 
   #render(): void {

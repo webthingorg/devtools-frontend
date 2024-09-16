@@ -161,7 +161,12 @@ function traceWindowForOverlay(overlay: TimelineOverlay): TraceEngine.Types.Timi
 
       break;
     }
-
+    case 'CREATE_ENTRIES_LINK': {
+      const timings = timingsForOverlayEntry(overlay.entry);
+      overlayMinBounds.push(timings.startTime);
+      overlayMaxBounds.push(timings.endTime);
+      break;
+    }
     case 'TIMESPAN_BREAKDOWN': {
       if (overlay.entry) {
         const timings = timingsForOverlayEntry(overlay.entry);
@@ -223,6 +228,10 @@ export function entriesForOverlay(overlay: TimelineOverlay): readonly OverlayEnt
       if (overlay.entryTo) {
         entries.push(overlay.entryTo);
       }
+      break;
+    }
+    case 'CREATE_ENTRIES_LINK': {
+      entries.push(overlay.entry);
       break;
     }
     case 'TIMESPAN_BREAKDOWN': {
@@ -299,7 +308,8 @@ export type TimelineOverlay = EntrySelected|EntryOutline|TimeRangeLabel|EntryLab
  */
 type SingletonOverlay = EntrySelected|CursorTimestampMarker|CreateEntriesLink;
 export function overlayIsSingleton(overlay: TimelineOverlay): overlay is SingletonOverlay {
-  return overlay.type === 'CURSOR_TIMESTAMP_MARKER' || overlay.type === 'ENTRY_SELECTED' || overlay.type === 'CREATE_ENTRIES_LINK';
+  return overlay.type === 'CURSOR_TIMESTAMP_MARKER' || overlay.type === 'ENTRY_SELECTED' ||
+      overlay.type === 'CREATE_ENTRIES_LINK';
 }
 
 /**
@@ -357,7 +367,7 @@ export interface OverlayEntryQueries {
 // An event dispatched when one of the Annotation Overlays (overlay created by the user,
 // ex. EntryLabel) is removed or updated. When one of the Annotation Overlays is removed or updated,
 // ModificationsManager listens to this event and updates the current annotations.
-export type UpdateAction = 'Remove'|'Update';
+export type UpdateAction = 'Remove'|'Update'|'CreateLink';
 export class AnnotationOverlayActionEvent extends Event {
   static readonly eventName = 'annotationoverlayactionsevent';
 
@@ -945,21 +955,20 @@ export class Overlays extends EventTarget {
     }
   }
 
-  #positionCreateEntriesLinkOverlay(overlay: CreateEntriesLink, element: HTMLElement):
-      void {
+  #positionCreateEntriesLinkOverlay(overlay: CreateEntriesLink, element: HTMLElement): void {
     const componentDefault = element.querySelector('devtools-create-entries-link-overlay');
 
     if (componentDefault) {
       const component = componentDefault.querySelector('devtools-entries-link-overlay');
       if (!component) {
-        const entryEndX = this.xPixelForEventEndOnChart(overlay.entry) ?? 0;
         const entryStartX = this.xPixelForEventStartOnChart(overlay.entry) ?? 0;
-        const entryStartY = (this.yPixelForEventOnChart(overlay.entry) ?? 0);
+        const entryEndX = this.xPixelForEventEndOnChart(overlay.entry) ?? 0;
         const entryWidth = entryEndX - entryStartX;
+        const entryStartY = (this.yPixelForEventOnChart(overlay.entry) ?? 0);
         const entryHeight = this.pixelHeightForEventOnChart(overlay.entry) ?? 0;
 
-        componentDefault.fromEntryCoordinateAndDimentions = {x: entryStartX, y: entryStartY, width: entryWidth, height: entryHeight};
-      } 
+        componentDefault.fromEntryData = {entryStartX, entryStartY, entryWidth, entryHeight};
+      }
     }
   }
   /**
@@ -1376,25 +1385,6 @@ export class Overlays extends EventTarget {
         div.appendChild(component);
         return div;
       }
-      case 'CREATE_ENTRIES_LINK': {
-        //Add initial here
-        if (overlay.entry === null) {
-          // For some reason, we don't have two entries we can draw between
-          // (can happen if the user has collapsed an icicle in the flame
-          // chart, or a track), so just draw an empty div.
-          return div;
-        }
-        const entryEndX = this.xPixelForEventEndOnChart(overlay.entry) ?? 0;
-        const entryStartX = this.xPixelForEventEndOnChart(overlay.entry) ?? 0;
-        const entryStartY = (this.yPixelForEventOnChart(overlay.entry) ?? 0);
-        const entryWidth = entryEndX - entryStartX;
-        const entryHeight = this.pixelHeightForEventOnChart(overlay.entry) ?? 0;
-
-        const component = new Components.EntriesLinkOverlay.CreateEntriesLinkOverlay(
-            {x: entryEndX, y: entryStartY, width: entryWidth, height: entryHeight});
-        div.appendChild(component);
-        return div;
-      }
       case 'ENTRIES_LINK': {
         const entries = this.#calculateFromAndToForEntriesLink(overlay);
         if (entries === null) {
@@ -1411,6 +1401,28 @@ export class Overlays extends EventTarget {
 
         const component = new Components.EntriesLinkOverlay.EntriesLinkOverlay(
             {x: entryEndX, y: entryStartY, width: entryWidth, height: entryHeight});
+        div.appendChild(component);
+        return div;
+      }
+      case 'CREATE_ENTRIES_LINK': {
+        if (overlay.entry === null) {
+          // For some reason, we don't have two entries we can draw between
+          // (can happen if the user has collapsed an icicle in the flame
+          // chart, or a track), so just draw an empty div.
+          return div;
+        }
+        const entryStartX = this.xPixelForEventStartOnChart(overlay.entry) ?? 0;
+        const entryEndX = this.xPixelForEventEndOnChart(overlay.entry) ?? 0;
+        const entryWidth = entryEndX - entryStartX;
+        const entryStartY = (this.yPixelForEventOnChart(overlay.entry) ?? 0);
+        const entryHeight = this.pixelHeightForEventOnChart(overlay.entry) ?? 0;
+
+        const component = new Components.EntriesLinkOverlay.CreateEntriesLinkOverlay(
+            {entryStartX, entryStartY, entryWidth, entryHeight});
+
+        component.addEventListener(Components.EntriesLinkOverlay.CreateEntriesLinkRemoveEvent.eventName, () => {
+          this.dispatchEvent(new AnnotationOverlayActionEvent(overlay, 'CreateLink'));
+        });
         div.appendChild(component);
         return div;
       }
@@ -1465,13 +1477,11 @@ export class Overlays extends EventTarget {
         break;
       }
       case 'ENTRY_OUTLINE':
+      case 'ENTRIES_LINK':
+      case 'ENTRY_LABEL':
+      case 'CREATE_ENTRIES_LINK':
+        // Nothing to do here.
         break;
-      case 'ENTRIES_LINK': {
-        break;
-      }
-      case 'ENTRY_LABEL': {
-        break;
-      }
       case 'TIMESPAN_BREAKDOWN': {
         const component = element.querySelector('devtools-timespan-breakdown-overlay');
         if (component) {
@@ -1481,9 +1491,6 @@ export class Overlays extends EventTarget {
         }
         break;
       }
-      case 'CREATE_ENTRIES_LINK':
-        // Nothing to do here.
-        break;
       case 'CURSOR_TIMESTAMP_MARKER':
         // No contents within this that need updating.
         break;
