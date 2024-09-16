@@ -233,6 +233,19 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
         ModificationsManager.activeManager()?.removeAnnotationOverlay(overlay);
       } else if (action === 'Update') {
         ModificationsManager.activeManager()?.updateAnnotationOverlay(overlay);
+      } else if (action === 'CreateLink') {
+        console.assert(
+            overlay.type === 'CREATE_ENTRIES_LINK',
+            'CreateLink should only be dispatched by CREATE_ENTRIES_LINK type overlay');
+        if (overlay.type === 'CREATE_ENTRIES_LINK') {
+          this.removeOverlay(overlay);
+
+          this.#linkSelectionAnnotation = {
+            type: 'ENTRIES_LINK',
+            entryFrom: overlay.entry,
+          };
+          ModificationsManager.activeManager()?.createAnnotation(this.#linkSelectionAnnotation);
+        }
       }
     });
 
