@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "78bee99d_99349ae8",
+        "filename": "front_end/core/sdk/EnhancedTracesParser.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-09-16T22:52:40Z",
+      "side": 1,
+      "message": "I tried defining interface here for the minimal trace data structure. Since we only have minimal overlap with the original trace event (cat, pid), I didn\u0027t go around to do the migration and re-export like you mentioned. How do you think about this?",
+      "parentUuid": "1e305846_130878bd",
+      "revId": "a636ad6185e8cb80e53d808166d7c4fdc3c84c6c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "55e2bf8e_1cd67088",
         "filename": "front_end/core/sdk/EnhancedTracesParser.ts",
         "patchSetId": 4
@@ -31,6 +49,24 @@
       "writtenOn": "2024-09-09T17:56:18Z",
       "side": 1,
       "message": "How come all of these are public?",
+      "revId": "a636ad6185e8cb80e53d808166d7c4fdc3c84c6c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4360d28_03392e9e",
+        "filename": "front_end/core/sdk/EnhancedTracesParser.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-09-16T22:52:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "55e2bf8e_1cd67088",
       "revId": "a636ad6185e8cb80e53d808166d7c4fdc3c84c6c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -52,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "db3b15be_e7ef49c4",
+        "filename": "front_end/core/sdk/EnhancedTracesParser.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-09-16T22:52:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e64dfaf9_e88ef441",
+      "revId": "a636ad6185e8cb80e53d808166d7c4fdc3c84c6c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1bda961a_66329497",
@@ -65,6 +119,24 @@
       "writtenOn": "2024-09-09T17:56:18Z",
       "side": 1,
       "message": "Please don\u0027t use `console.error` directly. Throw a `UserVisibleError` (from platform.js) with a localized error message.\n\nAlso you concatenate `e` without a space. This would have been more obvious if you\u0027d had to write a placeholder in a UI string. ;)",
+      "revId": "a636ad6185e8cb80e53d808166d7c4fdc3c84c6c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa2a3e1e_75774602",
+        "filename": "front_end/core/sdk/EnhancedTracesParser.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-09-16T22:52:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1bda961a_66329497",
       "revId": "a636ad6185e8cb80e53d808166d7c4fdc3c84c6c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -86,6 +158,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1cba5e3_6406b476",
+        "filename": "front_end/core/sdk/EnhancedTracesParser.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-09-16T22:52:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c985247_b6bc5d1c",
+      "revId": "a636ad6185e8cb80e53d808166d7c4fdc3c84c6c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9634ac11_34c7e343",
@@ -103,6 +193,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "edf3cf77_162d5edb",
+        "filename": "front_end/core/sdk/EnhancedTracesParser.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-09-16T22:52:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9634ac11_34c7e343",
+      "revId": "a636ad6185e8cb80e53d808166d7c4fdc3c84c6c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "99e089ea_f14e6b06",
@@ -116,6 +224,24 @@
       "writtenOn": "2024-09-09T17:56:18Z",
       "side": 1,
       "message": "Use `unknown` for type guards and `return \u0027cat\u0027 in event \u0026\u0026 event.cat \u003d\u003d\u003d ...`.",
+      "revId": "a636ad6185e8cb80e53d808166d7c4fdc3c84c6c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb88fec0_e2e11ae9",
+        "filename": "front_end/core/sdk/EnhancedTracesParser.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-09-16T22:52:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "99e089ea_f14e6b06",
       "revId": "a636ad6185e8cb80e53d808166d7c4fdc3c84c6c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -155,6 +281,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb1d22f0_d2f818bf",
+        "filename": "front_end/core/sdk/RehydratingObject.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-09-16T22:52:40Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3cb38c3b_5102b3bb",
+      "revId": "a636ad6185e8cb80e53d808166d7c4fdc3c84c6c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "55268644_9efa88c0",
@@ -172,6 +316,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd5c6581_41c7bc80",
+        "filename": "front_end/core/sdk/RehydratingObject.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-09-16T22:52:40Z",
+      "side": 1,
+      "message": "Yea I think they\u0027re a bit distinct for one to be extended off another. I see your point though, the current structure could leave it vulnerable for refactor in the future (if any).",
+      "parentUuid": "55268644_9efa88c0",
+      "revId": "a636ad6185e8cb80e53d808166d7c4fdc3c84c6c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "74cbd81f_beb0bbb9",
@@ -185,6 +347,24 @@
       "writtenOn": "2024-09-09T17:56:18Z",
       "side": 1,
       "message": "The types defined in `RehydratingObject.js` are not exported, but very likely need to be able to be uttered in other modules.",
+      "revId": "a636ad6185e8cb80e53d808166d7c4fdc3c84c6c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef65e063_823669cd",
+        "filename": "front_end/core/sdk/sdk.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-09-16T22:52:40Z",
+      "side": 1,
+      "message": "Currently EnhancedTracesParser is only exported to read a specific variable and all the usages of RehydartingObject are limited to sdk layer, so I\u0027d lean towards adding the export for RehydratingObject when we need it in the future.",
+      "parentUuid": "74cbd81f_beb0bbb9",
       "revId": "a636ad6185e8cb80e53d808166d7c4fdc3c84c6c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
