@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "182e4a3a_a09dad18",
+        "filename": "front_end/models/trace/Processor.test.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-16T19:15:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b4ca4c62_fb84cd1a",
+      "range": {
+        "startLine": 340,
+        "startChar": 6,
+        "endLine": 340,
+        "endChar": 11
+      },
+      "revId": "a1ae3c370a7176f90132df837f63026a597dd23e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "25add5ce_9a619f15",
@@ -94,6 +118,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9567b2d9_5a366b1e",
+        "filename": "front_end/models/trace/Processor.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-16T19:15:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a7a26d49_695a0467",
+      "revId": "a1ae3c370a7176f90132df837f63026a597dd23e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "44ca3dbb_9650d6ad",
@@ -107,6 +149,30 @@
       "writtenOn": "2024-09-13T10:01:44Z",
       "side": 1,
       "message": "would we ever want to associate this to a frame id? (not sure if we can reliably actually...)",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 57
+      },
+      "revId": "a1ae3c370a7176f90132df837f63026a597dd23e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05879418_3ff0d086",
+        "filename": "front_end/models/trace/insights/types.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-16T19:15:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "44ca3dbb_9650d6ad",
       "range": {
         "startLine": 16,
         "startChar": 0,
@@ -170,6 +236,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6aefefad_76abbe6f",
+        "filename": "front_end/models/trace/insights/types.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-16T19:15:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a378422_70a00acc",
+      "revId": "a1ae3c370a7176f90132df837f63026a597dd23e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "690536fc_5a7519ed",
@@ -183,6 +267,30 @@
       "writtenOn": "2024-09-13T10:01:44Z",
       "side": 1,
       "message": "I like the idea of a symbol, or at least a `const NO_NAVIGATION \u003d \u0027no_navigation\u0027` or similar. wdyt?",
+      "range": {
+        "startLine": 79,
+        "startChar": 28,
+        "endLine": 79,
+        "endChar": 76
+      },
+      "revId": "a1ae3c370a7176f90132df837f63026a597dd23e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06dfdd31_fc27d7ee",
+        "filename": "front_end/models/trace/insights/types.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-16T19:15:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "690536fc_5a7519ed",
       "range": {
         "startLine": 79,
         "startChar": 28,
