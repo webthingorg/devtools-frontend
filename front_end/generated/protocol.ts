@@ -4554,6 +4554,24 @@ export namespace DOM {
     nodeIds: NodeId[];
   }
 
+  export interface GetOverflowingChildrenRequest {
+    /**
+     * The id of the node.
+     */
+    nodeId: DOM.NodeId;
+    /**
+     * load?
+     */
+    load: boolean;
+  }
+
+  export interface GetOverflowingChildrenResponse extends ProtocolResponseWithError {
+    /**
+     * overflowing children
+     */
+    overflowingChildren: NodeId[];
+  }
+
   export const enum GetElementByRelationRequestRelation {
     PopoverTarget = 'PopoverTarget',
   }
@@ -4993,6 +5011,20 @@ export namespace DOM {
      * If the node is scrollable.
      */
     isScrollable: boolean;
+  }
+
+  /**
+   * TODO
+   */
+  export interface OverflowingChildrenUpdatedEvent {
+    /**
+     * The id of the node.
+     */
+    nodeId: DOM.NodeId;
+    /**
+     * overflowing children
+     */
+    overflowingChildren: NodeId[];
   }
 
   /**

@@ -69,6 +69,7 @@ export class DOMNode {
   #xmlVersion!: string|undefined;
   #isSVGNodeInternal!: boolean;
   #isScrollableInternal!: boolean;
+  #overflowingChildrenInternal?: Protocol.DOM.NodeId[];
   #creationStackTraceInternal: Promise<Protocol.Runtime.StackTrace|null>|null;
   #pseudoElements: Map<string, DOMNode[]>;
   #distributedNodesInternal: DOMNodeShortcut[];
@@ -140,7 +141,9 @@ export class DOMNode {
     this.#xmlVersion = payload.xmlVersion;
     this.#isSVGNodeInternal = Boolean(payload.isSVG);
     this.#isScrollableInternal = Boolean(payload.isScrollable);
-
+    if (this.#isScrollableInternal) {
+      void this.updateOverflowingChildren(false);
+    }
     if (payload.attributes) {
       this.setAttributesPayload(payload.attributes);
     }
@@ -237,6 +240,14 @@ export class DOMNode {
     return this.#isScrollableInternal;
   }
 
+  getOverflowingChildren(): Protocol.DOM.NodeId[] {
+    return this.#overflowingChildrenInternal || [];
+  }
+
+  async updateOverflowingChildren(load: boolean): Promise<void> {
+    this.domModel().overflowingChildrenUpdated(this.id, await this.domModel().getOverflowingChildren(this.id, load));
+  }
+
   isMediaNode(): boolean {
     return this.#nodeNameInternal === 'AUDIO' || this.#nodeNameInternal === 'VIDEO';
   }
@@ -287,6 +298,10 @@ export class DOMNode {
 
   setIsScrollable(isScrollable: boolean): void {
     this.#isScrollableInternal = isScrollable;
+  }
+
+  setOverflowingChildren(overflowingChildren: Protocol.DOM.NodeId[]): void {
+    this.#overflowingChildrenInternal = overflowingChildren;
   }
 
   hasAttributes(): boolean {
@@ -1491,6 +1506,33 @@ export class DOMModel extends SDKModel<EventTypes> {
     this.dispatchEventToListeners(Events.ScrollableFlagUpdated, {node});
   }
 
+  overflowingChildrenUpdated(nodeId: Protocol.DOM.NodeId, overflowingChildren: Protocol.DOM.NodeId[]): void {
+    const node = this.nodeForId(nodeId);
+    if (!node) {
+      return;
+    }
+    // I am using a big hammer here. :<
+    const union = new Set([...overflowingChildren, ...node.getOverflowingChildren()]);
+    const intersection = new Set(overflowingChildren).intersection(new Set(node.getOverflowingChildren()));
+    for (const i of intersection) {
+      union.delete(i);
+    }
+    // eslint-disable-next-line no-console
+    console.log('changed=', Array.from(union));
+    if (!union.size) {
+      return;
+    }
+
+    for (const nodeId of union) {
+      const overflowNode = this.nodeForId(nodeId);
+      if (!overflowNode) {
+        return;
+      }
+      this.dispatchEventToListeners(Events.OverflowingChildrenUpdated, {node: overflowNode});
+    }
+    node.setOverflowingChildren(overflowingChildren);
+  }
+
   topLayerElementsUpdated(): void {
     this.dispatchEventToListeners(Events.TopLayerElementsChanged);
   }
@@ -1600,6 +1642,12 @@ export class DOMModel extends SDKModel<EventTypes> {
     return this.agent.invoke_getTopLayerElements().then(({nodeIds}) => nodeIds);
   }
 
+  getOverflowingChildren(nodeId: Protocol.DOM.NodeId, load: boolean): Promise<Protocol.DOM.NodeId[]> {
+    return this.agent.invoke_getOverflowingChildren({nodeId, load})
+               .then(({overflowingChildren}) => overflowingChildren) ||
+        [];
+  }
+
   getDetachedDOMNodes(): Promise<Protocol.DOM.DetachedElementInfo[]|null> {
     return this.agent.invoke_getDetachedDomNodes().then(({detachedNodes}) => detachedNodes);
   }
@@ -1676,6 +1724,7 @@ export enum Events {
   MarkersChanged = 'MarkersChanged',
   TopLayerElementsChanged = 'TopLayerElementsChanged',
   ScrollableFlagUpdated = 'ScrollableFlagUpdated',
+  OverflowingChildrenUpdated = 'OverflowingChildrenUpdated',
   /* eslint-enable @typescript-eslint/naming-convention */
 }
 
@@ -1692,6 +1741,7 @@ export type EventTypes = {
   [Events.MarkersChanged]: DOMNode,
   [Events.TopLayerElementsChanged]: void,
   [Events.ScrollableFlagUpdated]: {node: DOMNode},
+  [Events.OverflowingChildrenUpdated]: {node: DOMNode},
 };
 
 class DOMDispatcher implements ProtocolProxyApi.DOMDispatcher {
@@ -1762,6 +1812,10 @@ class DOMDispatcher implements ProtocolProxyApi.DOMDispatcher {
 
   scrollableFlagUpdated({nodeId, isScrollable}: Protocol.DOM.ScrollableFlagUpdatedEvent): void {
     this.#domModel.scrollableFlagUpdated(nodeId, isScrollable);
+  }
+
+  overflowingChildrenUpdated(params: Protocol.DOM.OverflowingChildrenUpdatedEvent): void {
+    this.#domModel.overflowingChildrenUpdated(params.nodeId, params.overflowingChildren);
   }
 }
 

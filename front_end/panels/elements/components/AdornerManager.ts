@@ -33,6 +33,7 @@ export enum RegisteredAdorners {
   REVEAL = 'reveal',
   MEDIA = 'media',
   SCROLL = 'scroll',
+  OVERFLOW = 'overflow',
 }
 
 // This enum-like const object serves as the authoritative registry for all the
@@ -102,6 +103,12 @@ export function getRegisteredAdorner(which: RegisteredAdorners): RegisteredAdorn
     case RegisteredAdorners.SCROLL:
       return {
         name: 'scroll',
+        category: AdornerCategories.LAYOUT,
+        enabledByDefault: true,
+      };
+    case RegisteredAdorners.OVERFLOW:
+      return {
+        name: 'overflow',
         category: AdornerCategories.LAYOUT,
         enabledByDefault: true,
       };

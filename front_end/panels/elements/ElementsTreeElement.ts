@@ -2472,6 +2472,51 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     const adorner = this.adorn(config);
     UI.Tooltip.Tooltip.install(adorner, i18nString(UIStrings.elementHasScrollableOverflow));
     adorner.classList.add('scroll');
+
+    const onClick = ((async () => {
+                       await this.node().updateOverflowingChildren(true);
+
+                       const overflowingNodeIds = this.node().getOverflowingChildren();
+                       for (const id of overflowingNodeIds) {
+                         const node = this.node().domModel().nodeForId(id);
+                         if (node) {
+                           const nodeShortcut = new SDK.DOMModel.DOMNodeShortcut(
+                               node.domModel().target(), node.backendNodeId(), node.nodeType(), node.nodeName());
+                           const deferredNode = nodeShortcut.deferredNode;
+                           deferredNode.resolve(node => {
+                             void Common.Revealer.reveal(node);
+                           });
+                           node.highlightForTwoSeconds();
+                         }
+                       }
+                     }) as EventListener);
+
+    adorner.addInteraction(onClick, {
+      isToggle: false,
+      shouldPropagateOnKeydown: false,
+      ariaLabelDefault: i18nString(UIStrings.elementHasScrollableOverflow),
+      ariaLabelActive: i18nString(UIStrings.elementHasScrollableOverflow),
+    });
+  }
+
+  changeOverflowAdorner(): void {
+    if (!isOpeningTag(this.tagTypeContext)) {
+      return;
+    }
+    const overflowAdorner = this.tagTypeContext.adorners.find(x => x.name === 'overflow');
+    if (overflowAdorner) {
+      this.removeAdorner(overflowAdorner, this.tagTypeContext);
+    } else {
+      this.pushOverflowAdorner();
+    }
+  }
+
+  pushOverflowAdorner(): void {
+    const config = ElementsComponents.AdornerManager.getRegisteredAdorner(
+        ElementsComponents.AdornerManager.RegisteredAdorners.OVERFLOW);
+    const adorner = this.adorn(config);
+    UI.Tooltip.Tooltip.install(adorner, i18nString(UIStrings.elementHasScrollableOverflow));
+    adorner.classList.add('overflow');
   }
 }
 
