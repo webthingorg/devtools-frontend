@@ -367,7 +367,7 @@ export interface OverlayEntryQueries {
 // An event dispatched when one of the Annotation Overlays (overlay created by the user,
 // ex. EntryLabel) is removed or updated. When one of the Annotation Overlays is removed or updated,
 // ModificationsManager listens to this event and updates the current annotations.
-export type UpdateAction = 'Remove'|'Update';
+export type UpdateAction = 'Remove'|'Update'|'CreateLink';
 export class AnnotationOverlayActionEvent extends Event {
   static readonly eventName = 'annotationoverlayactionsevent';
 
@@ -1417,6 +1417,10 @@ export class Overlays extends EventTarget {
 
         const component = new Components.EntriesLinkOverlay.CreateEntriesLinkOverlay(
             {entryStartX, entryStartY, entryWidth, entryHeight});
+
+        component.addEventListener(Components.EntriesLinkOverlay.CreateEntriesLinkRemoveEvent.eventName, () => {
+          this.dispatchEvent(new AnnotationOverlayActionEvent(overlay, 'CreateLink'));
+        });
         div.appendChild(component);
         return div;
       }
@@ -1471,7 +1475,6 @@ export class Overlays extends EventTarget {
         break;
       }
       case 'ENTRY_OUTLINE':
-        break;
       case 'ENTRIES_LINK':
       case 'ENTRY_LABEL':
       case 'CREATE_ENTRIES_LINK':
