@@ -55,9 +55,21 @@ export class TimeRangeOverlay extends HTMLElement {
       return;
     }
     this.#labelBox.innerText = initialLabel;
+    if (initialLabel !== '') {
+      // To construct a time range with a predefined label, it must have been
+      // loaded from the trace file. In this case we do not want it to default
+      // to editable.
+      this.#setLabelEditability(false);
+    }
   }
 
   set canvasRect(rect: DOMRect|null) {
+    if (rect === null) {
+      return;
+    }
+    if (this.#canvasRect && this.#canvasRect.width === rect.width && this.#canvasRect.height === rect.height) {
+      return;
+    }
     this.#canvasRect = rect;
     void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
   }
@@ -97,7 +109,7 @@ export class TimeRangeOverlay extends HTMLElement {
    * If the label is off to the left or right, we fix it to that corner and
    * align the text so the label is visible as long as possible.
    */
-  afterOverlayUpdate(): void {
+  updateLabelPositioning(): void {
     if (!this.#rangeContainer) {
       return;
     }
@@ -250,6 +262,10 @@ export class TimeRangeOverlay extends HTMLElement {
           `,
         this.#shadow, {host: this});
     // clang-format on
+
+    // Now we have rendered, we need to re-run the code to tweak the margin &
+    // positioning of the label.
+    this.updateLabelPositioning();
   }
 }
 
