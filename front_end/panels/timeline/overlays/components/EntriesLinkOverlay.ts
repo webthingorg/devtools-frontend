@@ -205,6 +205,14 @@ export class EntriesLinkOverlay extends HTMLElement {
   }
 }
 
+export class CreateEntriesLinkRemoveEvent extends Event {
+  static readonly eventName = 'createentrieslinkremoveevent';
+
+  constructor() {
+    super(CreateEntriesLinkRemoveEvent.eventName);
+  }
+}
+
 export class CreateEntriesLinkOverlay extends HTMLElement {
   static readonly litTagName = LitHtml.literal`devtools-create-entries-link-overlay`;
   readonly #shadow = this.attachShadow({mode: 'open'});
@@ -216,6 +224,9 @@ export class CreateEntriesLinkOverlay extends HTMLElement {
     this.#render();
     this.#fromEntryData = initialFromEntryParams;
     this.#updateCreateLinkBox();
+    const createLinkBox = this.#shadow.querySelector<HTMLElement>('.crate-link-box');
+    const createLinkIcon = createLinkBox?.querySelector<HTMLElement>('.crate-link-icon') ?? null;
+    createLinkIcon?.addEventListener('click', this.#onClick.bind(this));
   }
 
   connectedCallback(): void {
@@ -246,6 +257,10 @@ export class CreateEntriesLinkOverlay extends HTMLElement {
     entryHighlightWrapper.style.top = `${entryStartY}px`;
     entryHighlightWrapper.style.width = `${entryWidth}px`;
     entryHighlightWrapper.style.height = `${entryHeight}px`;
+  }
+
+  #onClick(): void {
+    this.dispatchEvent(new CreateEntriesLinkRemoveEvent());
   }
 
   #render(): void {

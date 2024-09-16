@@ -18,6 +18,8 @@
 }
 
 .crate-link-icon {
+  pointer-events: auto;
+  cursor: pointer;
   color: var(--sys-color-on-surface);
   width: 16px;
   height: 16px;
