@@ -672,6 +672,7 @@ export class FreestylerChatUi extends HTMLElement {
   }
 
   #renderSelectedNetworkRequest = (): LitHtml.TemplateResult => {
+    // TODO(samiyac): Add icon for network request
     const resourceClass = LitHtml.Directives.classMap({
       'not-selected': !this.#props.selectedNetworkRequest,
       'resource-link': true,
@@ -756,11 +757,7 @@ export class FreestylerChatUi extends HTMLElement {
   };
 
   #renderEmptyState = (): LitHtml.TemplateResult => {
-    const suggestions: string[] = [
-      'Why is the element not visible?',
-      'Why is this element overlapping another element?',
-      'How can I center this element?',
-    ];
+    const suggestions: string[] = this.#getSuggestions();
 
     // clang-format off
     return LitHtml.html`<div class="empty-state-container">
@@ -791,6 +788,21 @@ export class FreestylerChatUi extends HTMLElement {
       </div>
     </div>`;
     // clang-format on
+  };
+
+  #getSuggestions = (): string[] => {
+    switch (this.#props.agentType) {
+      case AgentType.FREESTYLER:
+        return [
+          'Why is the element not visible?',
+          'Why is this element overlapping another element?',
+          'How can I center this element?',
+        ];
+      case AgentType.DRJONES_NETWORK_REQUEST:
+        return [
+          'Why is this network request taking longer to complete?',
+        ];
+    }
   };
 
   #renderChatInput = (): LitHtml.TemplateResult => {

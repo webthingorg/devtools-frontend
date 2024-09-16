@@ -52,6 +52,11 @@ const UIStringsTemp = {
    * not allow this feature.
    */
   policyRestricted: 'Your organization turned off this feature. Contact your administrators for more information',
+  /**
+   * @description Text of a tooltip to redirect to the AI assistant panel with
+   * the selected request as context
+   */
+  understandThisRequestWithAi: 'Understand this request with AI',
 };
 
 // TODO(nvitkov): b/346933425
