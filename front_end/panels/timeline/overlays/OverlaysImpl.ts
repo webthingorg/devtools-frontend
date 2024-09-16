@@ -75,6 +75,15 @@ export interface EntriesLink {
 }
 
 /**
+ * Represents an object created when a user double click an entry and before
+ * creating a link between two entries.
+ */
+export interface CreateEntriesLink {
+  type: 'CREATE_ENTRIES_LINK';
+  entry: OverlayEntry;
+}
+
+/**
  * Represents a time range on the trace. Also used when the user shift+clicks
  * and drags to create a time range.
  */
@@ -280,17 +289,17 @@ export interface CursorTimestampMarker {
 /**
  * All supported overlay types. Expected to grow in time!
  */
-export type TimelineOverlay = EntrySelected|EntryOutline|TimeRangeLabel|EntryLabel|EntriesLink|TimespanBreakdown|
-    CursorTimestampMarker|CandyStripedTimeRange;
+export type TimelineOverlay = EntrySelected|EntryOutline|TimeRangeLabel|EntryLabel|EntriesLink|CreateEntriesLink|
+    TimespanBreakdown|CursorTimestampMarker|CandyStripedTimeRange;
 
 /**
  * Denotes overlays that are singletons; only one of these will be allowed to
  * exist at any given time. If one exists and the add() method is called, the
  * new overlay will replace the existing one.
  */
-type SingletonOverlay = EntrySelected|CursorTimestampMarker;
+type SingletonOverlay = EntrySelected|CursorTimestampMarker|CreateEntriesLink;
 export function overlayIsSingleton(overlay: TimelineOverlay): overlay is SingletonOverlay {
-  return overlay.type === 'CURSOR_TIMESTAMP_MARKER' || overlay.type === 'ENTRY_SELECTED';
+  return overlay.type === 'CURSOR_TIMESTAMP_MARKER' || overlay.type === 'ENTRY_SELECTED' || overlay.type === 'CREATE_ENTRIES_LINK';
 }
 
 /**
@@ -795,6 +804,16 @@ export class Overlays extends EventTarget {
         }
         break;
       }
+      case 'CREATE_ENTRIES_LINK': {
+        this.#setOverlayElementVisibility(element, !annotationsAreHidden);
+
+        if (overlay.entry === null) {
+          this.#setOverlayElementVisibility(element, false);
+        } else {
+          this.#positionCreateEntriesLinkOverlay(overlay, element);
+        }
+        break;
+      }
       case 'TIMESPAN_BREAKDOWN': {
         this.#positionTimespanBreakdownOverlay(overlay, element);
         // TODO: Have the timespan squeeze instead.
@@ -926,6 +945,23 @@ export class Overlays extends EventTarget {
     }
   }
 
+  #positionCreateEntriesLinkOverlay(overlay: CreateEntriesLink, element: HTMLElement):
+      void {
+    const componentDefault = element.querySelector('devtools-create-entries-link-overlay');
+
+    if (componentDefault) {
+      const component = componentDefault.querySelector('devtools-entries-link-overlay');
+      if (!component) {
+        const entryEndX = this.xPixelForEventEndOnChart(overlay.entry) ?? 0;
+        const entryStartX = this.xPixelForEventStartOnChart(overlay.entry) ?? 0;
+        const entryStartY = (this.yPixelForEventOnChart(overlay.entry) ?? 0);
+        const entryWidth = entryEndX - entryStartX;
+        const entryHeight = this.pixelHeightForEventOnChart(overlay.entry) ?? 0;
+
+        componentDefault.fromEntryCoordinateAndDimentions = {x: entryStartX, y: entryStartY, width: entryWidth, height: entryHeight};
+      } 
+    }
+  }
   /**
    * Positions the arrow between two entries. Takes in the entriesToConnect
    * because if one of the original entries is hidden in a collapsed main thread
@@ -1340,6 +1376,25 @@ export class Overlays extends EventTarget {
         div.appendChild(component);
         return div;
       }
+      case 'CREATE_ENTRIES_LINK': {
+        //Add initial here
+        if (overlay.entry === null) {
+          // For some reason, we don't have two entries we can draw between
+          // (can happen if the user has collapsed an icicle in the flame
+          // chart, or a track), so just draw an empty div.
+          return div;
+        }
+        const entryEndX = this.xPixelForEventEndOnChart(overlay.entry) ?? 0;
+        const entryStartX = this.xPixelForEventEndOnChart(overlay.entry) ?? 0;
+        const entryStartY = (this.yPixelForEventOnChart(overlay.entry) ?? 0);
+        const entryWidth = entryEndX - entryStartX;
+        const entryHeight = this.pixelHeightForEventOnChart(overlay.entry) ?? 0;
+
+        const component = new Components.EntriesLinkOverlay.CreateEntriesLinkOverlay(
+            {x: entryEndX, y: entryStartY, width: entryWidth, height: entryHeight});
+        div.appendChild(component);
+        return div;
+      }
       case 'ENTRIES_LINK': {
         const entries = this.#calculateFromAndToForEntriesLink(overlay);
         if (entries === null) {
@@ -1426,6 +1481,9 @@ export class Overlays extends EventTarget {
         }
         break;
       }
+      case 'CREATE_ENTRIES_LINK':
+        // Nothing to do here.
+        break;
       case 'CURSOR_TIMESTAMP_MARKER':
         // No contents within this that need updating.
         break;

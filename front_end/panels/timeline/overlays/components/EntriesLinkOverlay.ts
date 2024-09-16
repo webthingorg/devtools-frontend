@@ -4,6 +4,7 @@
 // found in the LICENSE file.
 import * as i18n from '../../../../core/i18n/i18n.js';
 import * as ComponentHelpers from '../../../../ui/components/helpers/helpers.js';
+import * as IconButton from '../../../../ui/components/icon_button/icon_button.js';
 import * as LitHtml from '../../../../ui/lit-html/lit-html.js';
 
 const UIStrings = {
@@ -80,7 +81,7 @@ export class EntriesLinkOverlay extends HTMLElement {
   }
 
   // The arrow might be pointing either to an entry or an empty space.
-  // If the dimentions are not passed, it is pointing at an empty space.
+  // If the dimensions are not passed, it is pointing at an empty space.
   set toEntryCoordinateAndDimentions(toEntryParams: {x: number, y: number, length?: number, height?: number}) {
     this.#coordinateTo = {x: toEntryParams.x, y: toEntryParams.y};
     if (toEntryParams.length && toEntryParams.height) {
@@ -136,7 +137,7 @@ export class EntriesLinkOverlay extends HTMLElement {
     // If the arrow is pointing to the entry, point it to the middle of the entry and draw a box around the entry.
     // If the arrow is pointing to an entry, but it is not visible, the coordinates are for the edge of the track
     // and we don't need the half entry height offset.
-    // Otherwise, thhe arrow is following the mouse so we assign it to the provided coordinates.
+    // Otherwise, the arrow is following the mouse so we assign it to the provided coordinates.
     if (this.#toEntryDimentions) {
       if (this.#entryToVisible) {
         this.#entryToWrapper.setAttribute('visibility', 'visible');
@@ -204,14 +205,76 @@ export class EntriesLinkOverlay extends HTMLElement {
   }
 }
 
+export class CreateEntriesLinkOverlay extends HTMLElement {
+  static readonly litTagName = LitHtml.literal`devtools-create-entries-link-overlay`;
+  readonly #shadow = this.attachShadow({mode: 'open'});
+  #creatingState: CreatingState;
+  #fromEntryCoordinateAndDimentions: {x: number, y: number, width: number, height: number};
+
+  constructor(initialFromEntryCoordinateAndDimentions: {x: number, y: number, width: number, height: number}, state?: CreatingState) {
+    super();
+    this.#creatingState = state ?? CreatingState.START_CREATING;
+    this.#render();
+    this.#fromEntryCoordinateAndDimentions = initialFromEntryCoordinateAndDimentions;
+    this.#updateCreateLinkBox()
+  }
+
+  connectedCallback(): void {
+    this.#shadow.adoptedStyleSheets = [styles];
+  }
+
+  set fromEntryCoordinateAndDimentions(fromEntryParams: {x: number, y: number, width: number, height: number}) {
+    this.#fromEntryCoordinateAndDimentions = fromEntryParams;
+    this.#updateCreateLinkBox();
+  }
+
+  #updateCreateLinkBox(): void {
+    const createLinkBox = this.#shadow.querySelector<HTMLElement>('.crate-link-box');
+    const createLinkIcon =createLinkBox?.querySelector<HTMLElement>('.crate-link-icon') ?? null;
+    const entryHighlightWrapper = createLinkBox?.querySelector<HTMLElement>('.entry-highlight-wrapper') ?? null;
+    
+    if (!createLinkBox || !createLinkIcon || !entryHighlightWrapper) {
+      console.error('creating element is missing.');
+      return;
+    }
+
+    const {x, y, width, height} = this.#fromEntryCoordinateAndDimentions;
+    
+    createLinkIcon.style.left = `${x + width}px`
+    createLinkIcon.style.top = `${y}px`
+    entryHighlightWrapper.style.left = `${x}px`
+    entryHighlightWrapper.style.top = `${y}px`
+    entryHighlightWrapper.style.width = `${width}px`
+    entryHighlightWrapper.style.height = `${height}px`
+  }
+
+  #render(): void {
+    // clang-format off
+    LitHtml.render(
+      LitHtml.html`
+        <div class='crate-link-box'>
+          <div class="entry-highlight-wrapper"></div>
+          <${IconButton.Icon.Icon.litTagName}
+            class='crate-link-icon'
+            name='play'>
+          </${IconButton.Icon.Icon.litTagName}>
+        </div>
+      `,
+      this.#shadow, {host: this});
+    // clang-format on
+  }
+}
+
 // Defines the gap in the border when we are drawing a dashed outline.
 // https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-dasharray
 const DASHED_STROKE_AMOUNT = 4;
 
 customElements.define('devtools-entries-link-overlay', EntriesLinkOverlay);
+customElements.define('devtools-create-entries-link-overlay', CreateEntriesLinkOverlay);
 
 declare global {
   interface HTMLElementTagNameMap {
     'devtools-entries-link-overlay': EntriesLinkOverlay;
+    'devtools-create-entries-link-overlay': CreateEntriesLinkOverlay;
   }
 }
