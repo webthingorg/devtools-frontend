@@ -233,6 +233,19 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
         ModificationsManager.activeManager()?.removeAnnotationOverlay(overlay);
       } else if (action === 'Update') {
         ModificationsManager.activeManager()?.updateAnnotationOverlay(overlay);
+      } else if (action === 'CreateLink') {
+        console.assert(
+            overlay.type === 'CREATE_ENTRIES_LINK',
+            'CreateLink should only be dispatched by CREATE_ENTRIES_LINK type overlay');
+        if (overlay.type === 'CREATE_ENTRIES_LINK') {
+          this.removeOverlay(overlay);
+
+          this.#linkSelectionAnnotation = {
+            type: 'ENTRIES_LINK',
+            entryFrom: overlay.entry,
+          };
+          ModificationsManager.activeManager()?.createAnnotation(this.#linkSelectionAnnotation);
+        }
       }
     });
 
@@ -266,10 +279,10 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     this.onNetworkAddEntryLabelAnnotation = this.onAddEntryLabelAnnotation.bind(this, this.networkDataProvider);
     this.onMainEntriesLinkAnnotationCreated = event => {
       this.onEntriesLinkAnnotationCreate(this.mainDataProvider, event.data.entryFromIndex);
-    }, this;
+    };
     this.onNetworkEntriesLinkAnnotationCreated = event => {
       this.onEntriesLinkAnnotationCreate(this.networkDataProvider, event.data.entryFromIndex);
-    }, this;
+    };
     if (Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.TIMELINE_ANNOTATIONS)) {
       this.mainFlameChart.addEventListener(
           PerfUI.FlameChart.Events.ENTRY_LABEL_ANNOTATION_ADDED, this.onMainAddEntryLabelAnnotation, this);
