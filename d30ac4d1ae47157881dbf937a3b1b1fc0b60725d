@@ -16,6 +16,23 @@
       "message": "Hi Kateryna!\n\nI\u0027m making a few fixes to the navigator tree UI after the branch review with\nPeter, ptal!",
       "revId": "d30ac4d1ae47157881dbf937a3b1b1fc0b60725d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "575984cc_5d10301d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-09-17T08:36:59Z",
+      "side": 1,
+      "message": "Looks good to me, thank you, Kim!",
+      "revId": "d30ac4d1ae47157881dbf937a3b1b1fc0b60725d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
