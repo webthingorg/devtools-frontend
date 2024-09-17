@@ -19,6 +19,7 @@ import {
 
 export type RenderBlockingInsightResult = InsightResult<{
   renderBlockingRequests: Types.TraceEvents.SyntheticNetworkRequest[],
+  topRequests: Types.TraceEvents.SyntheticNetworkRequest[],
   requestIdToWastedMs?: Map<string, number>,
 }>;
 
@@ -156,6 +157,7 @@ export function generateInsight(
   if (!firstPaintTs) {
     return {
       renderBlockingRequests: [],
+      topRequests: [],
       warnings: [InsightWarning.NO_FP],
     };
   }
@@ -198,8 +200,16 @@ export function generateInsight(
 
   const savings = computeSavings(traceParsedData, context, renderBlockingRequests);
 
+  const MAX_REQUESTS = 3;
+  const topRequests = renderBlockingRequests
+                          .sort((a, b) => {
+                            return b.dur - a.dur;
+                          })
+                          .slice(0, MAX_REQUESTS);
+
   return {
     renderBlockingRequests,
+    topRequests,
     ...savings,
   };
 }
