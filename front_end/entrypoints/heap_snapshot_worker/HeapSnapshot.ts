@@ -868,15 +868,61 @@ export abstract class HeapSnapshot {
     this.calculateFlags();
     this.#progress.updateStatus('Calculating distances…');
     this.calculateDistances(/* isForRetainersView=*/ false);
-    this.#progress.updateStatus('Building postorder index…');
-    const result = this.buildPostOrderIndex();
-    // Actually it is array that maps node ordinal number to dominator node ordinal number.
-    this.#progress.updateStatus('Building dominator tree…');
-    this.dominatorsTree = this.buildDominatorTree(result.postOrderIndex2NodeOrdinal, result.nodeOrdinal2PostOrderIndex);
     this.#progress.updateStatus('Calculating shallow sizes…');
     this.calculateShallowSizes();
+
     this.#progress.updateStatus('Calculating retained sizes…');
+    const start = performance.now();
+    const result = this.buildPostOrderIndex();
+    const indexBuilt = performance.now();
+    this.dominatorsTree = this.buildDominatorTree(result.postOrderIndex2NodeOrdinal, result.nodeOrdinal2PostOrderIndex);
+    const domTreeBuilt = performance.now();
     this.calculateRetainedSizes(result.postOrderIndex2NodeOrdinal);
+    const retainedSizesCalculated = performance.now();
+
+    // Print performance stats for the old algorithm.
+    console.warn('Old algorithm performance stats:');
+    console.warn(`  Traversal     : ${indexBuilt - start} ms`);
+    console.warn(`  Dom tree build: ${domTreeBuilt - indexBuilt} ms`);
+    console.warn(`  Retained sizes: ${retainedSizesCalculated - domTreeBuilt} ms`);
+    console.warn(`  Total         : ${retainedSizesCalculated - start} ms`);
+
+    const oldDominatorsTree = new Uint32Array(this.dominatorsTree);
+    const oldRetainedSizes = new Float64Array(this.retainedSizes);
+
+    this.#progress.updateStatus('Calculating retained sizes…');
+    this.calculateRetainedSizesUsingLengauerTarjan();
+
+    // Evaluate correctness of the new algorithm.
+    console.warn(`Node count: ${this.nodeCount}`);
+    const mismatchedDominators = [];
+    const mismatchedRetainedSizes = [];
+    for (let i = 0; i < this.nodeCount; i++) {
+      if (oldDominatorsTree[i] !== this.dominatorsTree[i]) {
+        mismatchedDominators.push(i);
+      }
+      if (oldRetainedSizes[i] !== this.retainedSizes[i]) {
+        mismatchedRetainedSizes.push(i);
+      }
+    }
+    if (mismatchedDominators.length > 0) {
+      console.error(`${mismatchedDominators.length} mismatched dominators`);
+      // Print the index, old dominator, and new dominator.
+      for (const index of mismatchedDominators) {
+        console.error(`  ${index}: ${oldDominatorsTree[index]}(old) !== ${this.dominatorsTree[index]}(new)`);
+      }
+    }
+    if (mismatchedRetainedSizes.length > 0) {
+      console.error(`${mismatchedRetainedSizes.length} mismatched retained sizes:`);
+      // Print the index, old retained size, and new retained size.
+      for (const index of mismatchedRetainedSizes) {
+        console.error(`  ${index}: ${oldRetainedSizes[index]}(old) !== ${this.retainedSizes[index]}(new)`);
+      }
+    }
+    if (mismatchedDominators.length == 0 && mismatchedRetainedSizes.length == 0) {
+      console.warn('Outputs of both algorithms match exactly.');
+    }
+
     this.#progress.updateStatus('Building dominated nodes…');
     this.buildDominatedNodes();
     this.#progress.updateStatus('Calculating object names…');
@@ -1710,6 +1756,196 @@ export abstract class HeapSnapshot {
       }
     }
     return true;
+  }
+
+  private calculateRetainedSizesUsingLengauerTarjan(): void {
+    const start = performance.now();
+    // Preload fields into local variables for better performance.
+    const nodeCount = this.nodeCount;
+    const firstEdgeIndexes = this.firstEdgeIndexes;
+    const edgeFieldsCount = this.edgeFieldsCount;
+    const containmentEdges = this.containmentEdges;
+    const edgeToNodeOffset = this.edgeToNodeOffset;
+    const nodeFieldCount = this.nodeFieldCount;
+    const firstRetainerIndex = this.firstRetainerIndex;
+    const retainingEdges = this.retainingEdges;
+    const retainingNodes = this.retainingNodes;
+    const isEssentialEdge = this.isEssentialEdge.bind(this);
+    const hasOnlyWeakRetainers = this.hasOnlyWeakRetainers.bind(this);
+
+    // The Lengauer-Tarjan algorithm expects vectors to be numbered from 1 to n
+    // and uses 0 as an invalid value, so use 1-indexing for all the arrays.
+    const arrayLength = nodeCount + 1;
+    const parent = new Uint32Array(arrayLength);
+    const ancestor = new Uint32Array(arrayLength);
+    const vertex = new Uint32Array(arrayLength);
+    const label = new Uint32Array(arrayLength);
+    const semi = new Uint32Array(arrayLength);
+    const bucket = new Array<Set<number>>(arrayLength);
+    let n = 0;
+
+    const dfs = (root: number):
+        void => {
+          const stack = new Uint32Array(arrayLength);
+          let stackPointer = 0;
+          const processStackTillEmpty = ():
+              void => {
+                while (stackPointer > 0) {
+                  const v = stack[stackPointer--] as number;
+                  if (semi[v] !== 0) {
+                    continue;
+                  }
+                  semi[v] = ++n;
+                  vertex[n] = label[v] = v;
+
+                  // Iterate over all successors w of v.
+                  const vOrdinal = v - 1;
+                  for (let edgeIndex = firstEdgeIndexes[vOrdinal]; edgeIndex < firstEdgeIndexes[vOrdinal + 1];
+                       edgeIndex += edgeFieldsCount) {
+                    if (!isEssentialEdge(edgeIndex)) {
+                      continue;
+                    }
+                    const wOrdinal = containmentEdges.getValue(edgeIndex + edgeToNodeOffset) / nodeFieldCount;
+                    const w = wOrdinal + 1;
+                    if (semi[w] === 0) {
+                      parent[w] = v;
+                      stack[++stackPointer] = w;
+                      if (stackPointer == stack.length) {
+                        // TODO: Create an overflow stack when this happens.
+                        throw new Error('Need bigger stack for iterative DFS');
+                      }
+                    }
+                  }
+                }
+              }
+
+          // Start the DFS from the root.
+          stack[++stackPointer] = root;
+          processStackTillEmpty();
+
+          // Visit all orphan nodes (ones with only weak retainers).
+          for (let v = 1; v <= nodeCount; v++) {
+            if (semi[v] === 0 && hasOnlyWeakRetainers(v - 1)) {
+              stack[++stackPointer] = v;
+            }
+          }
+          processStackTillEmpty();
+        }
+
+    const compress = (v: number): void => {
+      if (ancestor[ancestor[v]] !== 0) {
+        compress(ancestor[v]);
+        if (semi[label[ancestor[v]]] < semi[label[v]]) {
+          label[v] = label[ancestor[v]];
+        }
+        ancestor[v] = ancestor[ancestor[v]];
+      }
+    };
+
+    const evaluate = (v: number): number => {
+      if (ancestor[v] === 0) {
+        return v;
+      }
+      compress(v);
+      return label[v];
+    };
+
+    const link = (v: number, w: number): void => {
+      ancestor[w] = v;
+    };
+
+    // Algorithm begins here. The variable names are as per the research paper.
+    const rootNodeOrdinal = this.rootNodeIndexInternal / nodeFieldCount;
+    const r = rootNodeOrdinal + 1;
+    n = 0;
+    const dom = new Uint32Array(arrayLength);
+    dfs(r);
+    const indexBuilt = performance.now();
+
+    for (let i = n; i >= 2; --i) {
+      const w = vertex[i];
+      // Iterate over all predecessors v of w.
+      const wOrdinal = w - 1;
+      let isOrphanNode = true;
+      for (let retainerIndex = firstRetainerIndex[wOrdinal]; retainerIndex < firstRetainerIndex[wOrdinal + 1];
+           retainerIndex++) {
+        if (!isEssentialEdge(retainingEdges[retainerIndex])) {
+          continue;
+        }
+        isOrphanNode = false;
+        const vOrdinal = retainingNodes[retainerIndex] / nodeFieldCount;
+        const v = vOrdinal + 1;
+        const u = evaluate(v);
+        if (semi[u] < semi[w]) {
+          semi[w] = semi[u];
+        }
+      }
+      if (isOrphanNode) {
+        // We treat orphan nodes as having a single predecessor - the root.
+        // semi[r] is always less than any semi[w] so set it unconditionally.
+        semi[w] = semi[r];
+      }
+
+      if (bucket[vertex[semi[w]]] === undefined) {
+        bucket[vertex[semi[w]]] = new Set<number>();
+      }
+      bucket[vertex[semi[w]]].add(w);
+      link(parent[w], w);
+
+      // Process all vertices v in bucket(parent(w)).
+      if (bucket[parent[w]] !== undefined) {
+        for (const v of bucket[parent[w]]) {
+          const u = evaluate(v);
+          dom[v] = semi[u] < semi[v] ? u : parent[w];
+        }
+        bucket[parent[w]].clear();
+      }
+    }
+
+    for (let i = 2; i <= n; i++) {
+      const w = vertex[i];
+      if (dom[w] !== vertex[semi[w]]) {
+        dom[w] = dom[dom[w]];
+      }
+    }
+    dom[r] = r;
+    // Algorithm ends here.
+
+    // Transform and copy the dominators to an ordinal-indexed array.
+    // If we couldn't find the dominator for a node, set it to the root.
+    const dominatorsTree = new Uint32Array(nodeCount);
+    for (let v = 1; v <= nodeCount; v++) {
+      dominatorsTree[v - 1] = dom[v] === 0 ? rootNodeOrdinal : dom[v] - 1;
+    }
+    this.dominatorsTree = dominatorsTree;
+    const domTreeBuilt = performance.now();
+
+    // Calculate retained sizes.
+    const nodes = this.nodes;
+    const nodeSelfSizeOffset = this.nodeSelfSizeOffset;
+    const retainedSizes = this.retainedSizes;
+    for (let nodeOrdinal = 0; nodeOrdinal < nodeCount; nodeOrdinal++) {
+      retainedSizes[nodeOrdinal] = nodes.getValue(nodeOrdinal * nodeFieldCount + nodeSelfSizeOffset);
+      if (dom[nodeOrdinal + 1] === 0) {
+        // Unreachable node whose dom we couldn't find.
+        retainedSizes[rootNodeOrdinal] += retainedSizes[nodeOrdinal];
+      }
+    }
+
+    // Propagate up the retained sizes for each traversed node excluding the root.
+    for (let i = n; i > 1; i--) {
+      const nodeOrdinal = vertex[i] - 1;
+      const dominatorOrdinal = dominatorsTree[nodeOrdinal];
+      retainedSizes[dominatorOrdinal] += retainedSizes[nodeOrdinal];
+    }
+    const retainedSizesCalculated = performance.now();
+
+    // Print performance stats for the new algorithm.
+    console.warn('New algorithm performance stats:');
+    console.warn(`  Traversal     : ${indexBuilt - start} ms`);
+    console.warn(`  Dom tree build: ${domTreeBuilt - indexBuilt} ms`);
+    console.warn(`  Retained sizes: ${retainedSizesCalculated - domTreeBuilt} ms`);
+    console.warn(`  Total         : ${retainedSizesCalculated - start} ms`);
   }
 
   // The algorithm is based on the article:
