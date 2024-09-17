@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "adb8d679_57605a41",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-09-17T11:39:04Z",
+      "side": 1,
+      "message": "Hi Kateryna,\n\nhere\u0027s one more CL to change the coloring of the navigation trees on select (requested by Peter), ptal!",
+      "revId": "4f4b1c53167b48fb5d631acf84572f8a67ebb51b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
