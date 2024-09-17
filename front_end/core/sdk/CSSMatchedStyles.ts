@@ -717,6 +717,10 @@ export class CSSMatchedStyles {
     return resolved ? new CSSValueSource(resolved) : null;
   }
 
+  getCurrentColor(property: CSSProperty): CSSProperty|null {
+    return this.#styleToDOMCascade.get(property.ownerStyle)?.getCurrentColor(property) ?? null;
+  }
+
   isInherited(style: CSSStyleDeclaration): boolean {
     return this.#inheritedStyles.has(style);
   }
@@ -949,15 +953,16 @@ class DOMInheritanceCascade {
     return Array.from(availableCSSVariables.keys());
   }
 
-  #findPropertyInPreviousStyle(property: CSSProperty, filter: (property: CSSProperty) => boolean): CSSProperty|null {
-    const cascade = this.#styleToNodeCascade.get(property.ownerStyle);
+  #findPropertyInPreviousStyle(
+      startAfterStyle: CSSStyleDeclaration, name: string, filter: (property: CSSProperty) => boolean): CSSProperty
+      |null {
+    const cascade = this.#styleToNodeCascade.get(startAfterStyle);
     if (!cascade) {
       return null;
     }
 
-    for (const style of forEach(cascade.styles, property.ownerStyle)) {
-      const candidate =
-          style.allProperties().findLast(candidate => candidate.name === property.name && filter(candidate));
+    for (const style of forEach(cascade.styles, startAfterStyle)) {
+      const candidate = style.allProperties().findLast(candidate => candidate.name === name && filter(candidate));
       if (candidate) {
         return candidate;
       }
@@ -995,6 +1000,17 @@ class DOMInheritanceCascade {
     return registration ? registration : null;
   }
 
+  getCurrentColor(property: CSSProperty): CSSProperty|null {
+    if (property.name === 'color') {
+      return this.#findPropertyInParentCascade(property);
+    }
+    const candidate = property.ownerStyle.allProperties().findLast(candidate => candidate.name === 'color');
+    if (candidate) {
+      return candidate;
+    }
+    return this.#findPropertyInPreviousStyle(property.ownerStyle, 'color', () => true);
+  }
+
   resolveGlobalKeyword(property: CSSProperty, keyword: CSSWideKeyword): null|CSSProperty|CSSRegisteredProperty {
     switch (keyword) {
       case CSSWideKeyword.INITIAL:
@@ -1003,14 +1019,14 @@ class DOMInheritanceCascade {
         return this.#findPropertyInParentCascade(property) ?? this.#findCustomPropertyRegistration(property);
       case CSSWideKeyword.REVERT:
         return this.#findPropertyInPreviousStyle(
-                   property,
+                   property.ownerStyle, property.name,
                    other => other.ownerStyle.parentRule !== null &&
                        other.ownerStyle.parentRule.origin !==
                            (property.ownerStyle.parentRule?.origin ?? Protocol.CSS.StyleSheetOrigin.Regular)) ??
             this.resolveGlobalKeyword(property, CSSWideKeyword.UNSET);
       case CSSWideKeyword.REVERT_LAYER:
         return this.#findPropertyInPreviousStyle(
-                   property,
+                   property.ownerStyle, property.name,
                    other =>
                        (other.ownerStyle.type === Type.Inline || other.ownerStyle.parentRule instanceof CSSStyleRule) &&
                        property.ownerStyle.parentRule instanceof CSSStyleRule &&
