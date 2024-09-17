@@ -332,6 +332,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae4bf1eb_1564de49",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 941,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-09-17T07:04:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7321364_46cbd873",
+      "revId": "7c67afac806fc1870fc21940d51c7818cbe49f4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "89250e41_70d78797",

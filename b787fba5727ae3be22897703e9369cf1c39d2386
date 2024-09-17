@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "98851784_eac27489",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-09-17T07:04:35Z",
+      "side": 1,
+      "message": "Hi Kalon, is this ready to be reviewed again (esp. regarding the wrong zoom factor and keeping the menu open on zoom changes)?",
+      "revId": "b787fba5727ae3be22897703e9369cf1c39d2386",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1a4e163c_376b10cb",
