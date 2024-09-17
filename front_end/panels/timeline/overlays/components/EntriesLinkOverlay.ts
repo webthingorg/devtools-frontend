@@ -31,6 +31,7 @@ export class EntriesLinkOverlay extends HTMLElement {
   #entryToWrapper: SVGLineElement|null = null;
   #entryFromVisible: boolean = true;
   #entryToVisible: boolean = true;
+  #canvasRect: DOMRect|null = null;
 
   // These flags let us know if the entry we are drawing from/to are the
   // originals, or if they are the parent, which can happen if an entry is
@@ -52,6 +53,17 @@ export class EntriesLinkOverlay extends HTMLElement {
     this.#connector = this.#connectorLineContainer?.querySelector('line') ?? null;
     this.#entryFromWrapper = this.#connectorLineContainer?.querySelector('.entryFromWrapper') ?? null;
     this.#entryToWrapper = this.#connectorLineContainer?.querySelector('.entryToWrapper') ?? null;
+  }
+
+  set canvasRect(rect: DOMRect|null) {
+    if (rect === null) {
+      return;
+    }
+    if (this.#canvasRect && this.#canvasRect.width === rect.width && this.#canvasRect.height === rect.height) {
+      return;
+    }
+    this.#canvasRect = rect;
+    void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
   }
 
   connectedCallback(): void {
@@ -150,10 +162,49 @@ export class EntriesLinkOverlay extends HTMLElement {
       this.#connector.setAttribute('y2', this.#coordinateTo.y.toString());
     }
 
-    this.#connector.setAttribute('stroke', 'black');
     this.#connector.setAttribute('stroke-width', '2');
 
+    if (this.#entryFromVisible && !this.#entryToVisible) {
+      this.#connector.setAttribute('stroke', 'url(#fromVisibleLineGradient)');
+    } else if (this.#entryToVisible && !this.#entryFromVisible) {
+      this.#connector.setAttribute('stroke', 'url(#toVisibleLineGradient)');
+    } else {
+      this.#connector.setAttribute('stroke', 'black');
+    }
+
     void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
+  }
+
+  /*
+   * When only one entry from the connection is visible, the connection
+   * line becomes a gradient from the visible entry to the edge of
+   * the screen towards the entry that is not visible.
+   *
+   * To achieve this, we need to calculate what percentage of the
+   * visible screen the connection is currently occupying and apply
+   * that gradient to the visible connection part.
+   */
+  #partlyVisibleConnectionLinePercentage(): number {
+    if (!this.#canvasRect) {
+      return 100;
+    }
+
+    const lineLength = this.#coordinateTo.x - (this.#coordinateFrom.x + this.#fromEntryDimentions.width);
+    let visibleLineLength = 0;
+
+    // If the visible entry is the 'From' entry, find the length of the visible arrow by
+    // substracting the point where the arrow starts from the whole canvas length.
+    // If the 'to' entry is visible, the coordinate of the entry will be equal to
+    // the visible arrow length.
+    if (this.#entryFromVisible && !this.#entryToVisible) {
+      visibleLineLength = this.#canvasRect.width - (this.#coordinateFrom.x + this.#fromEntryDimentions.width);
+    } else if (!this.#entryFromVisible && this.#entryToVisible) {
+      visibleLineLength = this.#coordinateTo.x;
+    }
+
+    const visibleLineFromTotalPercentage = (visibleLineLength * 100) / lineLength;
+
+    return (visibleLineFromTotalPercentage < 100) ? visibleLineFromTotalPercentage : 100;
   }
 
   /*
@@ -172,17 +223,47 @@ export class EntriesLinkOverlay extends HTMLElement {
         LitHtml.html`
           <svg class="connectorContainer" width="100%" height="100%" role="region" aria-label=${i18nString(UIStrings.diagram)}>
             <defs>
+              <linearGradient
+                id="fromVisibleLineGradient"
+                x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop
+                  offset="0%"
+                  stop-color="black"
+                  stop-opacity="1" />
+                <stop
+                  offset="${this.#partlyVisibleConnectionLinePercentage()}%"
+                  stop-color="black"
+                  stop-opacity="0" />
+              </linearGradient>
+
+              <linearGradient
+                id="toVisibleLineGradient"
+                x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop
+                  offset="${100 - this.#partlyVisibleConnectionLinePercentage()}%"
+                  stop-color="black"
+                  stop-opacity="0" />
+                <stop
+                  offset="100%"
+                  stop-color="black"
+                  stop-opacity="1" />
+              </linearGradient>
               <marker
-                id='arrow'
+                id="arrow"
                 orient="auto"
-                markerWidth='3'
-                markerHeight='4'
-                refX='4'
-                refY='2'>
-                <path d='M0,0 V4 L4,2 Z' fill="black" />
+                markerWidth="3"
+                markerHeight="4"
+                fill-opacity="1"
+                refX="4"
+                refY="2">
+                <path d="M0,0 V4 L4,2 Z" fill="black" />
               </marker>
             </defs>
-            <line marker-end='url(#arrow)'/>
+            <line
+              marker-end="url(#arrow)"
+              stroke-dasharray=${!this.#fromEntryIsSource || !this.#toEntryIsSource ? DASHED_STROKE_AMOUNT : 'none'}
+              stroke-opacity=${!this.#entryFromVisible && !this.#entryToVisible ? OUT_OF_VIEW_STROKE_OPACITY : 1}
+              />
             <rect
               class="entryFromWrapper" fill="none" stroke="black" stroke-dasharray=${this.#fromEntryIsSource ? 'none' : DASHED_STROKE_AMOUNT} />
             <rect
@@ -197,6 +278,7 @@ export class EntriesLinkOverlay extends HTMLElement {
 // Defines the gap in the border when we are drawing a dashed outline.
 // https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/stroke-dasharray
 const DASHED_STROKE_AMOUNT = 4;
+const OUT_OF_VIEW_STROKE_OPACITY = 0.2;
 
 customElements.define('devtools-entries-link-overlay', EntriesLinkOverlay);
 

@@ -1345,6 +1345,7 @@ export class Overlays extends EventTarget {
 
         const component = new Components.EntriesLinkOverlay.EntriesLinkOverlay(
             {x: entryEndX, y: entryStartY, width: entryWidth, height: entryHeight});
+        component.canvasRect = this.#charts.mainChart.canvasBoundingClientRect();
         div.appendChild(component);
         return div;
       }
@@ -1401,6 +1402,10 @@ export class Overlays extends EventTarget {
       case 'ENTRY_OUTLINE':
         break;
       case 'ENTRIES_LINK': {
+        const component = element.querySelector('devtools-entries-link-overlay');
+        if (component) {
+          component.canvasRect = this.#charts.mainChart.canvasBoundingClientRect();
+        }
         break;
       }
       case 'ENTRY_LABEL': {
