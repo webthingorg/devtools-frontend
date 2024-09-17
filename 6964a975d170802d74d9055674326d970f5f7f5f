@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d39f329_c36d2632",
+        "filename": "front_end/panels/timeline/AnimationsTrackAppender.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-17T23:08:59Z",
+      "side": 1,
+      "message": "good call. done",
+      "parentUuid": "fba6c46a_7ad99406",
+      "revId": "6964a975d170802d74d9055674326d970f5f7f5f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4adc2d22_09edb810",
@@ -48,6 +66,24 @@
       "writtenOn": "2024-09-17T19:55:32Z",
       "side": 1,
       "message": "What does `flat()` do here? Isn\u0027t it just a single depth array?",
+      "revId": "6964a975d170802d74d9055674326d970f5f7f5f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46135aaa_5a06bf48",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1422,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-17T23:08:59Z",
+      "side": 1,
+      "message": "\u003e What does `flat()` do here? Isn\u0027t it just a single depth array?\n\ngood eye.",
+      "parentUuid": "4adc2d22_09edb810",
       "revId": "6964a975d170802d74d9055674326d970f5f7f5f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
