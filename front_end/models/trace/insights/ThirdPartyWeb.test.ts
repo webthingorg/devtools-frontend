@@ -125,8 +125,8 @@ describeWithEnvironment('ThirdPartyWeb', function() {
             'Google Analytics',
             [
               'https://www.google-analytics.com/analytics.js',
-              'https://www.google-analytics.com/g/collect?v=2&tid=G-PGXNGYWP8E&gtm=45je4580v880158425za200&_p=1715625261583&gcd=13l3l3l3l1&npa=0&dma=0&cid=414801335.1715625262&ul=en-us&sr=412x823&uaa=&uab=64&uafvl=Not%252FA)Brand%3B8.0.0.0%7CChromium%3B126.0.6475.0%7CGoogle%2520Chrome%3B126.0.6475.0&uamb=1&uam=moto%20g%20power%20(2022)&uap=Android&uapv=11.0&uaw=0&are=1&frm=0&pscdl=noapi&_s=1&sid=1715625261&sct=1&seg=0&dl=https%3A%2F%2Fwww.paulirish.com%2F&dt=Paul%20Irish&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&tfd=353',
-              'https://www.google-analytics.com/j/collect?v=1&_v=j101&a=272264939&t=pageview&_s=1&dl=https%3A%2F%2Fwww.paulirish.com%2F&ul=en-us&de=UTF-8&dt=Paul%20Irish&sd=30-bit&sr=412x823&vp=412x823&je=0&_u=IADAAEABAAAAACAAI~&jid=1388679807&gjid=654531532&cid=414801335.1715625262&tid=UA-692547-2&_gid=1964734610.1715625262&_r=1&_slc=1&z=1746264594',
+              'https://www.google-analytics.com/g/collect?v=2&tid=G-PGXNGYWP8E&gtm=45je4990v880158425za200&_p=1726588474065&gcd=13l3l3l3l1l1&npa=0&dma=0&tag_exp=0&cid=1242500015.1726588475&ul=en-us&sr=412x823&uaa=&uab=64&uafvl=Chromium%3B130.0.6722.0%7CGoogle%2520Chrome%3B130.0.6722.0%7CNot%253FA_Brand%3B99.0.0.0&uamb=1&uam=moto%20g%20power%20(2022)&uap=Android&uapv=11.0&uaw=0&are=1&frm=0&pscdl=noapi&_s=1&sid=1726588474&sct=1&seg=0&dl=https%3A%2F%2Fwww.paulirish.com%2F&dt=Paul%20Irish&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&tfd=713',
+              'https://www.google-analytics.com/j/collect?v=1&_v=j101&a=315487777&t=pageview&_s=1&dl=https%3A%2F%2Fwww.paulirish.com%2F&ul=en-us&de=UTF-8&dt=Paul%20Irish&sd=30-bit&sr=412x823&vp=412x823&je=0&_u=IADAAEABAAAAACAAI~&jid=1464954907&gjid=1920492911&cid=1242500015.1726588475&tid=UA-692547-2&_gid=1217107072.1726588475&_r=1&_slc=1&z=1470364192',
             ],
           ],
           [
@@ -148,13 +148,13 @@ describeWithEnvironment('ThirdPartyWeb', function() {
     const summaryResult = [...insight.summaryByEntity.entries()].map(([entity, summary]) => {
       return [entity.name, summary];
     });
-    assert.deepEqual(summaryResult, [
-      ['paulirish.com', {transferSize: 157130, mainThreadTime: 6626}],
-      ['Google Tag Manager', {transferSize: 95375, mainThreadTime: 83}],
-      ['Google Fonts', {transferSize: 80003, mainThreadTime: 0}],
-      ['Google Analytics', {transferSize: 20865, mainThreadTime: 97}],
-      ['Disqus', {transferSize: 1551, mainThreadTime: 23}],
-      ['Firebase', {transferSize: 2847, mainThreadTime: 0}],
+    assert.deepStrictEqual(summaryResult, [
+      ['paulirish.com', {transferSize: 157161, mainThreadTime: 6251}],
+      ['Google Tag Manager', {transferSize: 98169, mainThreadTime: 138}],
+      ['Google Fonts', {transferSize: 80005, mainThreadTime: 0}],
+      ['Google Analytics', {transferSize: 19957, mainThreadTime: 103}],
+      ['Disqus', {transferSize: 1552, mainThreadTime: 25}],
+      ['Firebase', {transferSize: 2893, mainThreadTime: 0}],
     ]);
   });
 });
