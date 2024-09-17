@@ -112,6 +112,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0150081a_1c292fea",
+        "filename": "front_end/models/trace/types/TraceEvents.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 919,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-17T21:29:22Z",
+      "side": 1,
+      "message": "\u003e should clusters have a dur ?\n\nYes! :)",
+      "parentUuid": "95aa8289_91a85340",
+      "range": {
+        "startLine": 919,
+        "startChar": 0,
+        "endLine": 919,
+        "endChar": 17
+      },
+      "revId": "8078585fbcbefe25f51c05be1067aeb17fba1a9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d4acc2ae_54fd8f5e",
