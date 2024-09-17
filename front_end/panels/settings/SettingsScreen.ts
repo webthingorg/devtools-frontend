@@ -33,6 +33,7 @@ import * as Host from '../../core/host/host.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import type * as Platform from '../../core/platform/platform.js';
 import * as Root from '../../core/root/root.js';
+import * as Cards from '../../ui/components/cards/cards.js';
 import * as IconButton from '../../ui/components/icon_button/icon_button.js';
 import * as Components from '../../ui/legacy/components/utils/utils.js';
 import * as UI from '../../ui/legacy/legacy.js';
@@ -252,16 +253,13 @@ abstract class SettingsTab extends UI.Widget.VBox {
                                 .createChild('div', 'settings-tab settings-content settings-container');
   }
 
-  protected appendSection(name?: string): HTMLElement {
-    const block = this.containerElement.createChild('div', 'settings-block');
+  protected appendSection(name?: string): Cards.Card.Card {
+    const card = new Cards.Card.Card(settingsScreenStyles);
     if (name) {
-      UI.ARIAUtils.markAsGroup(block);
-      const title = block.createChild('div', 'settings-section-title');
-      title.textContent = name;
-      UI.ARIAUtils.markAsHeading(title, 2);
-      UI.ARIAUtils.setLabel(block, name);
+      card.data = {heading: name, ariaLabel: name};
     }
-    return block;
+    this.containerElement.appendChild(card);
+    return card;
   }
 
   abstract highlightObject(_object: Object): void;
@@ -318,7 +316,8 @@ export class GenericSettingsTab extends SettingsTab {
     const restoreAndReloadButton = UI.UIUtils.createTextButton(
         i18nString(UIStrings.restoreDefaultsAndReload), restoreAndReload,
         {jslogContext: 'settings.restore-defaults-and-reload'});
-    this.appendSection().appendChild(restoreAndReloadButton);
+    // kcomment: button should not get a card
+    // this.appendSection().appendChild(restoreAndReloadButton);
 
     function restoreAndReload(): void {
       Common.Settings.Settings.instance().clearAll();
@@ -381,7 +380,9 @@ export class GenericSettingsTab extends SettingsTab {
       const settingControl = UI.SettingsUI.createControlForSetting(setting);
       if (settingControl) {
         this.settingToControl.set(setting, settingControl);
-        sectionElement.appendChild(settingControl);
+        setTimeout(() => sectionElement.shadowRoot?.querySelector('slot')?.assign(settingControl), 5000);
+        setTimeout(() => console.log('SLOT: ', sectionElement.shadowRoot?.querySelector('slot')), 5100);
+        // sectionElement.appendCardChild(settingControl);
       }
     }
     return sectionElement;
@@ -398,14 +399,15 @@ export class GenericSettingsTab extends SettingsTab {
 }
 
 export class ExperimentsSettingsTab extends SettingsTab {
-  #experimentsSection: HTMLElement|undefined;
-  #unstableExperimentsSection: HTMLElement|undefined;
+  #experimentsSection: Cards.Card.Card|undefined;
+  #unstableExperimentsSection: Cards.Card.Card|undefined;
   #inputElement: HTMLInputElement;
   private readonly experimentToControl = new Map<Root.Runtime.Experiment, HTMLElement>();
 
   constructor() {
     super(i18nString(UIStrings.experiments), 'experiments-tab-content');
     const filterSection = this.appendSection();
+    // kcomment: filter should not get a card
     filterSection.classList.add('experiments-filter');
 
     this.element.setAttribute('jslog', `${VisualLogging.pane('experiments')}`);
@@ -414,7 +416,7 @@ export class ExperimentsSettingsTab extends SettingsTab {
     labelElement.textContent = i18nString(UIStrings.filterExperimentsLabel);
     this.#inputElement = UI.UIUtils.createInput('', 'text', 'experiments-filter');
     UI.ARIAUtils.bindLabelToControl(labelElement, this.#inputElement);
-    filterSection.appendChild(this.#inputElement);
+    // filterSection.appendChild(this.#inputElement);
     this.#inputElement.addEventListener(
         'input', () => this.renderExperiments(this.#inputElement.value.toLowerCase()), false);
     this.setDefaultFocusedElement(this.#inputElement);
@@ -436,24 +438,25 @@ export class ExperimentsSettingsTab extends SettingsTab {
     if (stableExperiments.length) {
       this.#experimentsSection = this.appendSection();
       const warningMessage = i18nString(UIStrings.theseExperimentsCouldBeUnstable);
-      this.#experimentsSection.appendChild(this.createExperimentsWarningSubsection(warningMessage));
+      // this.#experimentsSection.appendCardChild(this.createExperimentsWarningSubsection(warningMessage));
       for (const experiment of stableExperiments) {
-        this.#experimentsSection.appendChild(this.createExperimentCheckbox(experiment));
+        // this.#experimentsSection.appendCardChild(this.createExperimentCheckbox(experiment));
       }
     }
     if (unstableExperiments.length) {
       this.#unstableExperimentsSection = this.appendSection();
       const warningMessage = i18nString(UIStrings.theseExperimentsAreParticularly);
-      this.#unstableExperimentsSection.appendChild(this.createExperimentsWarningSubsection(warningMessage));
+      // this.#unstableExperimentsSection.appendCardChild(this.createExperimentsWarningSubsection(warningMessage));
       for (const experiment of unstableExperiments) {
-        this.#unstableExperimentsSection.appendChild(this.createExperimentCheckbox(experiment));
+        // this.#unstableExperimentsSection.appendCardChild(this.createExperimentCheckbox(experiment));
       }
     }
     if (!stableExperiments.length && !unstableExperiments.length) {
       this.#experimentsSection = this.appendSection();
-      const warning = this.#experimentsSection.createChild('span');
+      const warning = document.createElement('span');
       warning.textContent = i18nString(UIStrings.noResults);
       UI.ARIAUtils.alert(warning.textContent);
+      // this.#experimentsSection.appendCardChild(warning);
     }
   }
 

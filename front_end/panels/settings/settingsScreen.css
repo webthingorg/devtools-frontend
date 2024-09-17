@@ -19,7 +19,7 @@
 
 .settings-container {
   width: 100%;
-  column-width: 288px;
+  /* column-width: 288px; */
 }
 
 .settings-block {
@@ -30,7 +30,8 @@
 }
 
 .settings-tab.settings-container {
-  column-width: 308px;
+  column-width: var(--sys-size-32);
+  column-gap: var(--sys-size-14);
 }
 
 .settings-tab .settings-block {
@@ -146,7 +147,7 @@ label {
 
 .settings-tab.settings-content {
   margin: 0;
-  padding: 0;
+  padding: 0 0 0 60px;
 }
 
 .settings-tab-container {
