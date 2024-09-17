@@ -4,15 +4,15 @@
 
 import {describeWithEnvironment} from '../../../testing/EnvironmentHelpers.js';
 import {TraceLoader} from '../../../testing/TraceLoader.js';
-import * as TraceModel from '../trace.js';
+import * as Trace from '../trace.js';
 
 export async function processTrace(testContext: Mocha.Suite|Mocha.Context|null, traceFile: string) {
-  const {traceData, insights} = await TraceLoader.traceEngine(testContext, traceFile);
+  const {parsedTrace, insights} = await TraceLoader.traceEngine(testContext, traceFile);
   if (!insights) {
     throw new Error('No insights');
   }
 
-  return {data: traceData, insights};
+  return {data: parsedTrace, insights};
 }
 
 describeWithEnvironment('InteractionToNextPaint', function() {
@@ -29,7 +29,7 @@ describeWithEnvironment('InteractionToNextPaint', function() {
       //      const insight = getInsight(insights, data.Meta.navigationsByNavigationId.keys().next().value);
       // we manually run the insight.
       const [navigationId, navigation] = data.Meta.navigationsByNavigationId.entries().next().value ?? [];
-      const insight = TraceModel.Insights.InsightRunners.InteractionToNextPaint.generateInsight(data, {
+      const insight = Trace.Insights.InsightRunners.InteractionToNextPaint.generateInsight(data, {
         frameId: data.Meta.mainFrameId,
         navigation,
         navigationId,

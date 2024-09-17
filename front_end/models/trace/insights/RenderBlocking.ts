@@ -18,7 +18,7 @@ import {
 } from './types.js';
 
 export type RenderBlockingInsightResult = InsightResult<{
-  renderBlockingRequests: Types.TraceEvents.SyntheticNetworkRequest[],
+  renderBlockingRequests: Types.Events.SyntheticNetworkRequest[],
   requestIdToWastedMs?: Map<string, number>,
 }>;
 
@@ -82,8 +82,8 @@ function estimateSavingsWithGraphs(deferredIds: Set<string>, lanternContext: Lan
   return Math.round(Math.max(estimateBeforeInline - estimateAfterInline, 0));
 }
 
-function hasImageLCP(traceParsedData: RequiredData<typeof deps>, context: NavigationInsightContext): boolean {
-  const frameMetrics = traceParsedData.PageLoadMetrics.metricScoresByFrameId.get(context.frameId);
+function hasImageLCP(parsedTrace: RequiredData<typeof deps>, context: NavigationInsightContext): boolean {
+  const frameMetrics = parsedTrace.PageLoadMetrics.metricScoresByFrameId.get(context.frameId);
   if (!frameMetrics) {
     throw new Error('no frame metrics');
   }
@@ -94,16 +94,16 @@ function hasImageLCP(traceParsedData: RequiredData<typeof deps>, context: Naviga
   }
   const metricScore = navMetrics.get(Handlers.ModelHandlers.PageLoadMetrics.MetricName.LCP);
   const lcpEvent = metricScore?.event;
-  if (!lcpEvent || !Types.TraceEvents.isTraceEventLargestContentfulPaintCandidate(lcpEvent)) {
+  if (!lcpEvent || !Types.Events.isLargestContentfulPaintCandidate(lcpEvent)) {
     return false;
   }
 
-  return findLCPRequest(traceParsedData, context, lcpEvent) !== null;
+  return findLCPRequest(parsedTrace, context, lcpEvent) !== null;
 }
 
 function computeSavings(
-    traceParsedData: RequiredData<typeof deps>, context: NavigationInsightContext,
-    renderBlockingRequests: Types.TraceEvents.SyntheticNetworkRequest[]):
+    parsedTrace: RequiredData<typeof deps>, context: NavigationInsightContext,
+    renderBlockingRequests: Types.Events.SyntheticNetworkRequest[]):
     Pick<RenderBlockingInsightResult, 'metricSavings'|'requestIdToWastedMs'>|undefined {
   if (!context.lantern) {
     return;
@@ -139,7 +139,7 @@ function computeSavings(
     metricSavings.FCP = estimateSavingsWithGraphs(deferredNodeIds, context.lantern);
 
     // In most cases, render blocking resources only affect LCP if LCP isn't an image.
-    if (!hasImageLCP(traceParsedData, context)) {
+    if (!hasImageLCP(parsedTrace, context)) {
       metricSavings.LCP = metricSavings.FCP;
     }
   }
@@ -148,8 +148,8 @@ function computeSavings(
 }
 
 export function generateInsight(
-    traceParsedData: RequiredData<typeof deps>, context: NavigationInsightContext): RenderBlockingInsightResult {
-  const firstPaintTs = traceParsedData.PageLoadMetrics.metricScoresByFrameId.get(context.frameId)
+    parsedTrace: RequiredData<typeof deps>, context: NavigationInsightContext): RenderBlockingInsightResult {
+  const firstPaintTs = parsedTrace.PageLoadMetrics.metricScoresByFrameId.get(context.frameId)
                            ?.get(context.navigationId)
                            ?.get(Handlers.ModelHandlers.PageLoadMetrics.MetricName.FP)
                            ?.event?.ts;
@@ -161,7 +161,7 @@ export function generateInsight(
   }
 
   const renderBlockingRequests = [];
-  for (const req of traceParsedData.NetworkRequests.byTime) {
+  for (const req of parsedTrace.NetworkRequests.byTime) {
     if (req.args.data.frame !== context.frameId) {
       continue;
     }
@@ -190,13 +190,13 @@ export function generateInsight(
     }
 
     const navigation =
-        Helpers.Trace.getNavigationForTraceEvent(req, context.frameId, traceParsedData.Meta.navigationsByFrameId);
+        Helpers.Trace.getNavigationForTraceEvent(req, context.frameId, parsedTrace.Meta.navigationsByFrameId);
     if (navigation === context.navigation) {
       renderBlockingRequests.push(req);
     }
   }
 
-  const savings = computeSavings(traceParsedData, context, renderBlockingRequests);
+  const savings = computeSavings(parsedTrace, context, renderBlockingRequests);
 
   return {
     renderBlockingRequests,

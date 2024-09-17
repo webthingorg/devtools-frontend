@@ -2,22 +2,22 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import * as TraceModel from '../../trace.js';
+import * as Trace from '../../trace.js';
 import * as Lantern from '../lantern.js';
 
-function toLanternTrace(traceEvents: readonly TraceModel.Types.TraceEvents.TraceEventData[]): Lantern.Types.Trace {
+function toLanternTrace(traceEvents: readonly Trace.Types.Events.Event[]): Lantern.Types.Trace {
   return {
     traceEvents: traceEvents as unknown as Lantern.Types.TraceEvent[],
   };
 }
 
 async function runTraceEngine(trace: Lantern.Types.Trace) {
-  const processor = TraceModel.Processor.TraceProcessor.createWithAllHandlers();
-  await processor.parse(trace.traceEvents as TraceModel.Types.TraceEvents.TraceEventData[]);
-  if (!processor.traceParsedData) {
+  const processor = Trace.Processor.TraceProcessor.createWithAllHandlers();
+  await processor.parse(trace.traceEvents as Trace.Types.Events.Event[]);
+  if (!processor.parsedTrace) {
     throw new Error('No data');
   }
-  return processor.traceParsedData;
+  return processor.parsedTrace;
 }
 
 async function getComputationDataFromFixture({trace, settings, url}: {
@@ -30,7 +30,7 @@ async function getComputationDataFromFixture({trace, settings, url}: {
     settings.throttlingMethod = 'simulate';
   }
   const traceEngineData = await runTraceEngine(trace);
-  const requests = TraceModel.LanternComputationData.createNetworkRequests(trace, traceEngineData);
+  const requests = Trace.LanternComputationData.createNetworkRequests(trace, traceEngineData);
   const networkAnalysis = Lantern.Core.NetworkAnalyzer.analyze(requests);
   const frameId = traceEngineData.Meta.mainFrameId;
   const navigationId = traceEngineData.Meta.mainFrameNavigations[0].args.data?.navigationId;
@@ -40,9 +40,8 @@ async function getComputationDataFromFixture({trace, settings, url}: {
 
   return {
     simulator: Lantern.Simulation.Simulator.createSimulator({...settings, networkAnalysis}),
-    graph: TraceModel.LanternComputationData.createGraph(requests, trace, traceEngineData, url),
-    processedNavigation:
-        TraceModel.LanternComputationData.createProcessedNavigation(traceEngineData, frameId, navigationId),
+    graph: Trace.LanternComputationData.createGraph(requests, trace, traceEngineData, url),
+    processedNavigation: Trace.LanternComputationData.createProcessedNavigation(traceEngineData, frameId, navigationId),
   };
 }
 

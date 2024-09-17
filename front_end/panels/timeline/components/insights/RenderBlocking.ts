@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 import * as i18n from '../../../../core/i18n/i18n.js';
-import type * as TraceEngine from '../../../../models/trace/trace.js';
+import type * as Trace from '../../../../models/trace/trace.js';
 import * as LitHtml from '../../../../ui/lit-html/lit-html.js';
 import type * as Overlays from '../../overlays/overlays.js';
 
@@ -24,8 +24,8 @@ const str_ = i18n.i18n.registerUIStrings('panels/timeline/components/insights/Re
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 export function getRenderBlockingInsight(
-    insights: TraceEngine.Insights.Types.TraceInsightData|null,
-    navigationId: string|null): TraceEngine.Insights.Types.InsightResults['RenderBlocking']|null {
+    insights: Trace.Insights.Types.TraceInsightData|null,
+    navigationId: string|null): Trace.Insights.Types.InsightResults['RenderBlocking']|null {
   if (!insights || !navigationId) {
     return null;
   }
@@ -65,8 +65,7 @@ export class RenderBlockingRequests extends BaseInsight {
     return entryOutlineOverlays;
   }
 
-  #renderRenderBlocking(insightResult: TraceEngine.Insights.Types.InsightResults['RenderBlocking']):
-      LitHtml.TemplateResult {
+  #renderRenderBlocking(insightResult: Trace.Insights.Types.InsightResults['RenderBlocking']): LitHtml.TemplateResult {
     const estimatedSavings = insightResult.metricSavings?.FCP;
     // clang-format off
     return LitHtml.html`

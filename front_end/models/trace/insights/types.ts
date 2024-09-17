@@ -13,14 +13,14 @@ import type * as InsightsRunners from './InsightRunners.js';
  */
 export interface NavigationInsightContext {
   frameId: string;
-  navigation: Types.TraceEvents.TraceEventNavigationStart;
+  navigation: Types.Events.NavigationStart;
   navigationId: string;
   lantern?: LanternContext;
 }
 
 export interface LanternContext {
-  graph: Lantern.Graph.Node<Types.TraceEvents.SyntheticNetworkRequest>;
-  simulator: Lantern.Simulation.Simulator<Types.TraceEvents.SyntheticNetworkRequest>;
+  graph: Lantern.Graph.Node<Types.Events.SyntheticNetworkRequest>;
+  simulator: Lantern.Simulation.Simulator<Types.Events.SyntheticNetworkRequest>;
   metrics: Record<string, Lantern.Metrics.MetricResult>;
 }
 

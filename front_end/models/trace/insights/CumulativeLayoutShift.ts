@@ -14,8 +14,8 @@ import {
 
 export type CLSInsightResult = InsightResult<{
   animationFailures?: readonly NoncompositedAnimationFailure[],
-  shifts?: Map<Types.TraceEvents.TraceEventLayoutShift, LayoutShiftRootCausesData>,
-        clusters: Types.TraceEvents.SyntheticLayoutShiftCluster[],
+  shifts?: Map<Types.Events.LayoutShift, LayoutShiftRootCausesData>,
+        clusters: Types.Events.SyntheticLayoutShiftCluster[],
 }>;
 
 export function deps(): ['Meta', 'Animations', 'LayoutShifts', 'NetworkRequests'] {
@@ -44,7 +44,7 @@ export interface NoncompositedAnimationFailure {
   /**
    * Unsupported properties.
    */
-  unsupportedProperties?: Types.TraceEvents.TraceEventAnimation['args']['data']['unsupportedProperties'];
+  unsupportedProperties?: Types.Events.Animation['args']['data']['unsupportedProperties'];
 }
 
 /**
@@ -86,11 +86,10 @@ const INVALIDATION_WINDOW = Helpers.Timing.secondsToMicroseconds(Types.Timing.Se
 
 export interface LayoutShiftRootCausesData {
   iframeIds: string[];
-  fontRequests: Types.TraceEvents.SyntheticNetworkRequest[];
+  fontRequests: Types.Events.SyntheticNetworkRequest[];
 }
 
-function isInInvalidationWindow(
-    event: Types.TraceEvents.TraceEventData, targetEvent: Types.TraceEvents.TraceEventData): boolean {
+function isInInvalidationWindow(event: Types.Events.Event, targetEvent: Types.Events.Event): boolean {
   const eventEnd = event.dur ? event.ts + event.dur : event.ts;
   return eventEnd < targetEvent.ts && eventEnd >= targetEvent.ts - INVALIDATION_WINDOW;
 }
@@ -98,7 +97,7 @@ function isInInvalidationWindow(
 /**
  * Returns a list of NoncompositedAnimationFailures.
  */
-function getNonCompositedAnimations(animations: readonly Types.TraceEvents.SyntheticAnimationPair[]):
+function getNonCompositedAnimations(animations: readonly Types.Events.SyntheticAnimationPair[]):
     NoncompositedAnimationFailure[] {
   const failures: NoncompositedAnimationFailure[] = [];
   for (const event of animations) {
@@ -133,11 +132,11 @@ function getNonCompositedAnimations(animations: readonly Types.TraceEvents.Synth
  * PrePaint events to layout shifts dispatched within it.
  */
 function getShiftsByPrePaintEvents(
-    layoutShifts: Types.TraceEvents.TraceEventLayoutShift[],
-    prePaintEvents: Types.TraceEvents.TraceEventPrePaint[],
-    ): Map<Types.TraceEvents.TraceEventPrePaint, Types.TraceEvents.TraceEventLayoutShift[]> {
+    layoutShifts: Types.Events.LayoutShift[],
+    prePaintEvents: Types.Events.PrePaint[],
+    ): Map<Types.Events.PrePaint, Types.Events.LayoutShift[]> {
   // Maps from PrePaint events to LayoutShifts that occured in each one.
-  const shiftsByPrePaint = new Map<Types.TraceEvents.TraceEventPrePaint, Types.TraceEvents.TraceEventLayoutShift[]>();
+  const shiftsByPrePaint = new Map<Types.Events.PrePaint, Types.Events.LayoutShift[]>();
 
   // Associate all shifts to their corresponding PrePaint.
   for (const prePaintEvent of prePaintEvents) {
@@ -166,8 +165,7 @@ function getShiftsByPrePaintEvents(
  * This gets the first prePaint event that follows the provided event and returns it.
  */
 function getNextPrePaintEvent(
-    prePaintEvents: Types.TraceEvents.TraceEventPrePaint[],
-    targetEvent: Types.TraceEvents.TraceEventData): Types.TraceEvents.TraceEventPrePaint|undefined {
+    prePaintEvents: Types.Events.PrePaint[], targetEvent: Types.Events.Event): Types.Events.PrePaint|undefined {
   // Get the first PrePaint event that happened after the targetEvent.
   const nextPrePaintIndex = Platform.ArrayUtilities.nearestIndexFromBeginning(
       prePaintEvents, prePaint => prePaint.ts > targetEvent.ts + (targetEvent.dur || 0));
@@ -184,12 +182,10 @@ function getNextPrePaintEvent(
  * and within this prePaint event a layout shift(s) occurs.
  */
 function getIframeRootCauses(
-    iframeCreatedEvents: readonly Types.TraceEvents.TraceEventRenderFrameImplCreateChildFrame[],
-    prePaintEvents: Types.TraceEvents.TraceEventPrePaint[],
-    shiftsByPrePaint: Map<Types.TraceEvents.TraceEventPrePaint, Types.TraceEvents.TraceEventLayoutShift[]>,
-    rootCausesByShift: Map<Types.TraceEvents.TraceEventLayoutShift, LayoutShiftRootCausesData>,
-    domLoadingEvents: readonly Types.TraceEvents.TraceEventDomLoading[]):
-    Map<Types.TraceEvents.TraceEventLayoutShift, LayoutShiftRootCausesData> {
+    iframeCreatedEvents: readonly Types.Events.RenderFrameImplCreateChildFrame[],
+    prePaintEvents: Types.Events.PrePaint[], shiftsByPrePaint: Map<Types.Events.PrePaint, Types.Events.LayoutShift[]>,
+    rootCausesByShift: Map<Types.Events.LayoutShift, LayoutShiftRootCausesData>,
+    domLoadingEvents: readonly Types.Events.DomLoading[]): Map<Types.Events.LayoutShift, LayoutShiftRootCausesData> {
   for (const iframeEvent of iframeCreatedEvents) {
     const nextPrePaint = getNextPrePaintEvent(prePaintEvents, iframeEvent);
     // If no following prePaint, this is not a root cause.
@@ -229,11 +225,10 @@ function getIframeRootCauses(
  * happen within the INVALIDATION_WINDOW of the prePaint event.
  */
 function getFontRootCauses(
-    networkRequests: Types.TraceEvents.SyntheticNetworkRequest[],
-    prePaintEvents: Types.TraceEvents.TraceEventPrePaint[],
-    shiftsByPrePaint: Map<Types.TraceEvents.TraceEventPrePaint, Types.TraceEvents.TraceEventLayoutShift[]>,
-    rootCausesByShift: Map<Types.TraceEvents.TraceEventLayoutShift, LayoutShiftRootCausesData>):
-    Map<Types.TraceEvents.TraceEventLayoutShift, LayoutShiftRootCausesData> {
+    networkRequests: Types.Events.SyntheticNetworkRequest[], prePaintEvents: Types.Events.PrePaint[],
+    shiftsByPrePaint: Map<Types.Events.PrePaint, Types.Events.LayoutShift[]>,
+    rootCausesByShift: Map<Types.Events.LayoutShift, LayoutShiftRootCausesData>):
+    Map<Types.Events.LayoutShift, LayoutShiftRootCausesData> {
   const fontRequests =
       networkRequests.filter(req => req.args.data.resourceType === 'Font' && req.args.data.mimeType.startsWith('font'));
 
@@ -270,31 +265,29 @@ function getFontRootCauses(
 }
 
 export function generateInsight(
-    traceParsedData: RequiredData<typeof deps>, context: NavigationInsightContext): CLSInsightResult {
-  const isWithinSameNavigation = ((event: Types.TraceEvents.TraceEventData): boolean => {
-    const nav =
-        Helpers.Trace.getNavigationForTraceEvent(event, context.frameId, traceParsedData.Meta.navigationsByFrameId);
+    parsedTrace: RequiredData<typeof deps>, context: NavigationInsightContext): CLSInsightResult {
+  const isWithinSameNavigation = ((event: Types.Events.Event): boolean => {
+    const nav = Helpers.Trace.getNavigationForTraceEvent(event, context.frameId, parsedTrace.Meta.navigationsByFrameId);
     return nav === context.navigation;
   });
 
-  const compositeAnimationEvents = traceParsedData.Animations.animations.filter(isWithinSameNavigation);
+  const compositeAnimationEvents = parsedTrace.Animations.animations.filter(isWithinSameNavigation);
   const animationFailures = getNonCompositedAnimations(compositeAnimationEvents);
 
-  const iframeEvents =
-      traceParsedData.LayoutShifts.renderFrameImplCreateChildFrameEvents.filter(isWithinSameNavigation);
-  const networkRequests = traceParsedData.NetworkRequests.byTime.filter(isWithinSameNavigation);
+  const iframeEvents = parsedTrace.LayoutShifts.renderFrameImplCreateChildFrameEvents.filter(isWithinSameNavigation);
+  const networkRequests = parsedTrace.NetworkRequests.byTime.filter(isWithinSameNavigation);
 
-  const domLoadingEvents = traceParsedData.LayoutShifts.domLoadingEvents.filter(isWithinSameNavigation);
+  const domLoadingEvents = parsedTrace.LayoutShifts.domLoadingEvents.filter(isWithinSameNavigation);
 
   // Sort by cumulative score, since for insights we interpret these for their "bad" scores.
-  const clusters = traceParsedData.LayoutShifts.clustersByNavigationId.get(context.navigationId)
+  const clusters = parsedTrace.LayoutShifts.clustersByNavigationId.get(context.navigationId)
                        ?.sort((a, b) => b.clusterCumulativeScore - a.clusterCumulativeScore) ??
       [];
   const layoutShifts = clusters.flatMap(cluster => cluster.events);
-  const prePaintEvents = traceParsedData.LayoutShifts.prePaintEvents.filter(isWithinSameNavigation);
+  const prePaintEvents = parsedTrace.LayoutShifts.prePaintEvents.filter(isWithinSameNavigation);
 
   // Get root causes.
-  const rootCausesByShift = new Map<Types.TraceEvents.TraceEventLayoutShift, LayoutShiftRootCausesData>();
+  const rootCausesByShift = new Map<Types.Events.LayoutShift, LayoutShiftRootCausesData>();
   const shiftsByPrePaint = getShiftsByPrePaintEvents(layoutShifts, prePaintEvents);
 
   for (const shift of layoutShifts) {

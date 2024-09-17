@@ -15,12 +15,12 @@ export type SlowCSSSelectorInsightResult = InsightResult<{
   totalElapsedMs: Types.Timing.MilliSeconds,
   totalMatchAttempts: number,
   totalMatchCount: number,
-  topElapsedMs: Types.TraceEvents.SelectorTiming[],
-  topMatchAttempts: Types.TraceEvents.SelectorTiming[],
+  topElapsedMs: Types.Events.SelectorTiming[],
+  topMatchAttempts: Types.Events.SelectorTiming[],
 }>;
 
-function aggregateSelectorStats(data: Map<Types.TraceEvents.TraceEventUpdateLayoutTree, {
-  timings: Types.TraceEvents.SelectorTiming[],
+function aggregateSelectorStats(data: Map<Types.Events.UpdateLayoutTree, {
+  timings: Types.Events.SelectorTiming[],
 }>): SelectorTiming[] {
   const selectorMap = new Map<String, SelectorTiming>();
 
@@ -43,10 +43,10 @@ function aggregateSelectorStats(data: Map<Types.TraceEvents.TraceEventUpdateLayo
 }
 
 export function generateInsight(
-    traceParsedData: RequiredData<typeof deps>, context: NavigationInsightContext): SlowCSSSelectorInsightResult {
-  const selectorStatsData = traceParsedData.SelectorStats;
+    parsedTrace: RequiredData<typeof deps>, context: NavigationInsightContext): SlowCSSSelectorInsightResult {
+  const selectorStatsData = parsedTrace.SelectorStats;
 
-  const nav = traceParsedData.Meta.navigationsByNavigationId.get(context.navigationId);
+  const nav = parsedTrace.Meta.navigationsByNavigationId.get(context.navigationId);
   if (!nav) {
     throw new Error('no trace navigation');
   }

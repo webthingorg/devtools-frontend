@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import * as TraceEngine from '../../../models/trace/trace.js';
+import * as Trace from '../../../models/trace/trace.js';
 import {describeWithEnvironment} from '../../../testing/EnvironmentHelpers.js';
 import {defaultTraceEvent} from '../../../testing/TraceHelpers.js';
 import type * as PerfUI from '../../../ui/legacy/components/perf_ui/perf_ui.js';
@@ -68,23 +68,23 @@ describeWithEnvironment('AppenderUtils', () => {
     });
 
     it('returns the time info for given total time correctly', async () => {
-      const totalTime = TraceEngine.Types.Timing.MicroSeconds(10000);
+      const totalTime = Trace.Types.Timing.MicroSeconds(10000);
       const formattedTime = Timeline.AppenderUtils.getFormattedTime(totalTime);
       // The i18n encodes spaces using the u00A0 unicode character.
       assert.strictEqual(formattedTime, '10.00\u00A0ms');
     });
 
     it('returns the time info for given total time and self time correctly', async () => {
-      const totalTime = TraceEngine.Types.Timing.MicroSeconds(10000);
-      const selfTime = TraceEngine.Types.Timing.MicroSeconds(1000);
+      const totalTime = Trace.Types.Timing.MicroSeconds(10000);
+      const selfTime = Trace.Types.Timing.MicroSeconds(1000);
       const formattedTime = Timeline.AppenderUtils.getFormattedTime(totalTime, selfTime);
       // The i18n encodes spaces using the u00A0 unicode character.
       assert.strictEqual(formattedTime, '10.00\u00A0ms (self 1.00\u00A0ms)');
     });
 
     it('returns the time info for same total time and self time correctly', async () => {
-      const totalTime = TraceEngine.Types.Timing.MicroSeconds(10000);
-      const selfTime = TraceEngine.Types.Timing.MicroSeconds(10000);
+      const totalTime = Trace.Types.Timing.MicroSeconds(10000);
+      const selfTime = Trace.Types.Timing.MicroSeconds(10000);
       const formattedTime = Timeline.AppenderUtils.getFormattedTime(totalTime, selfTime);
       // The i18n encodes spaces using the u00A0 unicode character.
       assert.strictEqual(formattedTime, '10.00\u00A0ms');
@@ -96,18 +96,18 @@ describeWithEnvironment('AppenderUtils', () => {
       const lastTimestampByLevel: Timeline.AppenderUtils.LastTimestampByLevel = [];
       const eventOne = {
         ...defaultTraceEvent,
-        ts: TraceEngine.Types.Timing.MicroSeconds(0),
-        dur: TraceEngine.Types.Timing.MicroSeconds(10),
+        ts: Trace.Types.Timing.MicroSeconds(0),
+        dur: Trace.Types.Timing.MicroSeconds(10),
       };
       const eventTwo = {
         ...defaultTraceEvent,
-        ts: TraceEngine.Types.Timing.MicroSeconds(5),
-        dur: TraceEngine.Types.Timing.MicroSeconds(10),
+        ts: Trace.Types.Timing.MicroSeconds(5),
+        dur: Trace.Types.Timing.MicroSeconds(10),
       };
       const eventThree = {
         ...defaultTraceEvent,
-        ts: TraceEngine.Types.Timing.MicroSeconds(20),
-        dur: TraceEngine.Types.Timing.MicroSeconds(10),
+        ts: Trace.Types.Timing.MicroSeconds(20),
+        dur: Trace.Types.Timing.MicroSeconds(10),
       };
 
       let level = Timeline.AppenderUtils.getEventLevel(eventOne, lastTimestampByLevel);
@@ -127,23 +127,23 @@ describeWithEnvironment('AppenderUtils', () => {
       const lastTimestampByLevel: Timeline.AppenderUtils.LastTimestampByLevel = [];
       const eventOne = {
         ...defaultTraceEvent,
-        ts: TraceEngine.Types.Timing.MicroSeconds(0),
-        dur: TraceEngine.Types.Timing.MicroSeconds(30),
+        ts: Trace.Types.Timing.MicroSeconds(0),
+        dur: Trace.Types.Timing.MicroSeconds(30),
       };
       const eventTwo = {
         ...defaultTraceEvent,
-        ts: TraceEngine.Types.Timing.MicroSeconds(5),
-        dur: TraceEngine.Types.Timing.MicroSeconds(10),
+        ts: Trace.Types.Timing.MicroSeconds(5),
+        dur: Trace.Types.Timing.MicroSeconds(10),
       };
       const eventThree = {
         ...defaultTraceEvent,
-        ts: TraceEngine.Types.Timing.MicroSeconds(10),
-        dur: TraceEngine.Types.Timing.MicroSeconds(2),
+        ts: Trace.Types.Timing.MicroSeconds(10),
+        dur: Trace.Types.Timing.MicroSeconds(2),
       };
       const eventFour = {
         ...defaultTraceEvent,
-        ts: TraceEngine.Types.Timing.MicroSeconds(20),
-        dur: TraceEngine.Types.Timing.MicroSeconds(10),
+        ts: Trace.Types.Timing.MicroSeconds(20),
+        dur: Trace.Types.Timing.MicroSeconds(10),
       };
 
       let level = Timeline.AppenderUtils.getEventLevel(eventOne, lastTimestampByLevel);

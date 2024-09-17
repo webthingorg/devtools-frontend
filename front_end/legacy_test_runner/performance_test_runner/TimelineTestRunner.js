@@ -120,7 +120,7 @@ PerformanceTestRunner.createTraceEngineDataFromEvents = async function(events) {
   await model.parse(events);
   // Model only has one trace, so we can hardcode 0 here to get the latest
   // result.
-  return model.traceParsedData(0);
+  return model.parsedTrace(0);
 };
 
 PerformanceTestRunner.createTimelineController = function() {

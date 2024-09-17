@@ -56,7 +56,7 @@ export interface EnhancedTracesData {
 
 let handlerState = HandlerState.UNINITIALIZED;
 
-const scriptRundownEvents: Types.TraceEvents.TraceEventScriptRundown[] = [];
+const scriptRundownEvents: Types.Events.ScriptRundown[] = [];
 const scriptToV8Context: Map<string, string> = new Map<string, string>();
 const scriptToScriptSource: Map<string, string> = new Map<string, string>();
 const largeScriptToScriptSource: Map<string, string[]> = new Map<string, string[]>();
@@ -89,11 +89,11 @@ export function reset(): void {
   handlerState = HandlerState.UNINITIALIZED;
 }
 
-export function handleEvent(event: Types.TraceEvents.TraceEventData): void {
+export function handleEvent(event: Types.Events.Event): void {
   if (handlerState !== HandlerState.INITIALIZED) {
     throw new Error('Enhanced Traces Handler is not initialized while handling event');
   }
-  if (Types.TraceEvents.isTraceEventTargetRundown(event)) {
+  if (Types.Events.isTargetRundown(event)) {
     // Set up script to v8 context mapping
     const data = event.args?.data;
     scriptToV8Context.set(getScriptIsolateId(data.isolate, data.scriptId), data.v8context);
@@ -121,7 +121,7 @@ export function handleEvent(event: Types.TraceEvents.TraceEventData): void {
         isolate: data.isolate,
       });
     }
-  } else if (Types.TraceEvents.isTraceEventScriptRundown(event)) {
+  } else if (Types.Events.isScriptRundown(event)) {
     scriptRundownEvents.push(event);
     const data = event.args.data;
     // Add script
@@ -141,7 +141,7 @@ export function handleEvent(event: Types.TraceEvents.TraceEventData): void {
         sourceMapUrl: data.sourceMapUrl,
       });
     }
-  } else if (Types.TraceEvents.isTraceEventScriptRundownSource(event)) {
+  } else if (Types.Events.isScriptRundownSource(event)) {
     // Set up script to source text and length mapping
     const data = event.args.data;
     const scriptIsolateId = getScriptIsolateId(data.isolate, data.scriptId);

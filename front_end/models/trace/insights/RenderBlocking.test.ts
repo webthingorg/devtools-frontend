@@ -4,18 +4,18 @@
 
 import {describeWithEnvironment} from '../../../testing/EnvironmentHelpers.js';
 import {TraceLoader} from '../../../testing/TraceLoader.js';
-import type * as TraceModel from '../trace.js';
+import type * as Trace from '../trace.js';
 
 export async function processTrace(testContext: Mocha.Suite|Mocha.Context|null, traceFile: string) {
-  const {traceData, insights} = await TraceLoader.traceEngine(testContext, traceFile);
+  const {parsedTrace, insights} = await TraceLoader.traceEngine(testContext, traceFile);
   if (!insights) {
     throw new Error('No insights');
   }
 
-  return {data: traceData, insights};
+  return {data: parsedTrace, insights};
 }
 
-function getInsight(insights: TraceModel.Insights.Types.TraceInsightData, navigationId: string) {
+function getInsight(insights: Trace.Insights.Types.TraceInsightData, navigationId: string) {
   const navInsights = insights.get(navigationId);
   if (!navInsights) {
     throw new Error('missing navInsights');

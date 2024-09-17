@@ -7,7 +7,7 @@ import * as i18n from '../../core/i18n/i18n.js';
 import * as Root from '../../core/root/root.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as TimelineModel from '../../models/timeline_model/timeline_model.js';
-import * as TraceEngine from '../../models/trace/trace.js';
+import * as Trace from '../../models/trace/trace.js';
 import * as TraceBounds from '../../services/trace_bounds/trace_bounds.js';
 import * as Components from '../../ui/legacy/components/utils/utils.js';
 import * as UI from '../../ui/legacy/legacy.js';
@@ -69,16 +69,16 @@ export class TimelineDetailsView extends UI.Widget.VBox {
   private readonly defaultDetailsWidget: UI.Widget.VBox;
   private readonly defaultDetailsContentElement: HTMLElement;
   private rangeDetailViews: Map<string, TimelineTreeView>;
-  #selectedEvents?: TraceEngine.Types.TraceEvents.TraceEventData[]|null;
+  #selectedEvents?: Trace.Types.Events.Event[]|null;
   private lazyPaintProfilerView?: TimelinePaintProfilerView|null;
   private lazyLayersView?: TimelineLayersView|null;
   private preferredTabId?: string;
   private selection?: TimelineSelection|null;
   private updateContentsScheduled: boolean;
   private lazySelectorStatsView: TimelineSelectorStatsView|null;
-  #traceEngineData: TraceEngine.Handlers.Types.TraceParseData|null = null;
-  #traceInsightsData: TraceEngine.Insights.Types.TraceInsightData|null = null;
-  #filmStrip: TraceEngine.Extras.FilmStrip.Data|null = null;
+  #traceEngineData: Trace.Handlers.Types.ParsedTrace|null = null;
+  #traceInsightsData: Trace.Insights.Types.TraceInsightData|null = null;
+  #filmStrip: Trace.Extras.FilmStrip.Data|null = null;
   #networkRequestDetails: TimelineComponents.NetworkRequestDetails.NetworkRequestDetails;
   #layoutShiftDetails: TimelineComponents.LayoutShiftDetails.LayoutShiftDetails;
   #onTraceBoundsChangeBound = this.#onTraceBoundsChange.bind(this);
@@ -125,7 +125,7 @@ export class TimelineDetailsView extends UI.Widget.VBox {
 
     this.tabbedPane.addEventListener(UI.TabbedPane.Events.TabSelected, this.tabSelected, this);
 
-    TraceBounds.TraceBounds.onChange(this.#onTraceBoundsChangeBound);
+    TraceBounds.onChange(this.#onTraceBoundsChangeBound);
 
     this.lazySelectorStatsView = null;
   }
@@ -145,7 +145,7 @@ export class TimelineDetailsView extends UI.Widget.VBox {
     return this.defaultDetailsContentElement;
   }
 
-  async #onTraceBoundsChange(event: TraceBounds.TraceBounds.StateChangedEvent): Promise<void> {
+  async #onTraceBoundsChange(event: TraceBounds.StateChangedEvent): Promise<void> {
     if (event.updateType === 'MINIMAP_BOUNDS') {
       // If new minimap bounds are set, we might need to update the selected entry summary because
       // the links to other entries (ex. initiator) might be outside of the new breadcrumb.
@@ -164,9 +164,8 @@ export class TimelineDetailsView extends UI.Widget.VBox {
   }
 
   async setModel(
-      traceEngineData: TraceEngine.Handlers.Types.TraceParseData|null,
-      selectedEvents: TraceEngine.Types.TraceEvents.TraceEventData[]|null,
-      traceInsightsData: TraceEngine.Insights.Types.TraceInsightData|null): Promise<void> {
+      traceEngineData: Trace.Handlers.Types.ParsedTrace|null, selectedEvents: Trace.Types.Events.Event[]|null,
+      traceInsightsData: Trace.Insights.Types.TraceInsightData|null): Promise<void> {
     if (this.#traceEngineData !== traceEngineData) {
       // Clear the selector stats view, so the next time the user views it we
       // reconstruct it with the new trace data.
@@ -175,7 +174,7 @@ export class TimelineDetailsView extends UI.Widget.VBox {
       this.#traceEngineData = traceEngineData;
     }
     if (traceEngineData) {
-      this.#filmStrip = TraceEngine.Extras.FilmStrip.fromTraceData(traceEngineData);
+      this.#filmStrip = Trace.Extras.FilmStrip.fromTraceData(traceEngineData);
     }
     this.#selectedEvents = selectedEvents;
     this.#traceInsightsData = traceInsightsData;
@@ -202,7 +201,7 @@ export class TimelineDetailsView extends UI.Widget.VBox {
   private updateContents(): void {
     const view = this.rangeDetailViews.get(this.tabbedPane.selectedTabId || '');
     if (view) {
-      const traceBoundsState = TraceBounds.TraceBounds.BoundsManager.instance().state();
+      const traceBoundsState = TraceBounds.BoundsManager.instance().state();
       if (!traceBoundsState) {
         return;
       }
@@ -256,7 +255,7 @@ export class TimelineDetailsView extends UI.Widget.VBox {
   }
 
   private updateContentsFromWindow(): void {
-    const traceBoundsState = TraceBounds.TraceBounds.BoundsManager.instance().state();
+    const traceBoundsState = TraceBounds.BoundsManager.instance().state();
     if (!traceBoundsState) {
       return;
     }
@@ -265,18 +264,16 @@ export class TimelineDetailsView extends UI.Widget.VBox {
     this.updateContents();
   }
 
-  #getFilmStripFrame(frame: TraceEngine.Types.TraceEvents.LegacyTimelineFrame): TraceEngine.Extras.FilmStrip.Frame
-      |null {
+  #getFilmStripFrame(frame: Trace.Types.Events.LegacyTimelineFrame): Trace.Extras.FilmStrip.Frame|null {
     if (!this.#filmStrip) {
       return null;
     }
     const screenshotTime = (frame.idle ? frame.startTime : frame.endTime);
-    const filmStripFrame = TraceEngine.Extras.FilmStrip.frameClosestToTimestamp(this.#filmStrip, screenshotTime);
+    const filmStripFrame = Trace.Extras.FilmStrip.frameClosestToTimestamp(this.#filmStrip, screenshotTime);
     if (!filmStripFrame) {
       return null;
     }
-    const frameTimeMilliSeconds =
-        TraceEngine.Helpers.Timing.microSecondsToMilliseconds(filmStripFrame.screenshotEvent.ts);
+    const frameTimeMilliSeconds = Trace.Helpers.Timing.microSecondsToMilliseconds(filmStripFrame.screenshotEvent.ts);
     return frameTimeMilliSeconds - frame.endTime < 10 ? filmStripFrame : null;
   }
 
@@ -299,10 +296,10 @@ export class TimelineDetailsView extends UI.Widget.VBox {
       const maybeTarget = targetForEvent(this.#traceEngineData, networkRequest);
       await this.#networkRequestDetails.setData(this.#traceEngineData, networkRequest, maybeTarget);
       this.setContent(this.#networkRequestDetails);
-    } else if (TimelineSelection.isTraceEventSelection(selectionObject)) {
+    } else if (TimelineSelection.isSelection(selectionObject)) {
       const event = selectionObject;
       if (Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.TIMELINE_LAYOUT_SHIFT_DETAILS) &&
-          TraceEngine.Types.TraceEvents.isSyntheticLayoutShift(event)) {
+          Trace.Types.Events.isSyntheticLayoutShift(event)) {
         const isFreshRecording =
             Boolean(this.#traceEngineData && Tracker.instance().recordingIsFresh(this.#traceEngineData));
         this.#layoutShiftDetails.setData(event, this.#traceInsightsData, this.#traceEngineData, isFreshRecording);
@@ -371,11 +368,11 @@ export class TimelineDetailsView extends UI.Widget.VBox {
     this.tabbedPane.selectTab(Tab.PaintProfiler, true);
   }
 
-  private showSelectorStatsForIndividualEvent(event: TraceEngine.Types.TraceEvents.TraceEventUpdateLayoutTree): void {
+  private showSelectorStatsForIndividualEvent(event: Trace.Types.Events.UpdateLayoutTree): void {
     this.showAggregatedSelectorStats([event]);
   }
 
-  private showAggregatedSelectorStats(events: TraceEngine.Types.TraceEvents.TraceEventUpdateLayoutTree[]): void {
+  private showAggregatedSelectorStats(events: Trace.Types.Events.UpdateLayoutTree[]): void {
     const selectorStatsView = this.selectorStatsView();
 
     selectorStatsView.setAggregatedEvents(events);
@@ -385,20 +382,18 @@ export class TimelineDetailsView extends UI.Widget.VBox {
     }
   }
 
-  private appendDetailsTabsForTraceEventAndShowDetails(
-      event: TraceEngine.Types.TraceEvents.TraceEventData, content: Node): void {
+  private appendDetailsTabsForTraceEventAndShowDetails(event: Trace.Types.Events.Event, content: Node): void {
     this.setContent(content);
-    if (TraceEngine.Types.TraceEvents.isTraceEventPaint(event) ||
-        TraceEngine.Types.TraceEvents.isTraceEventRasterTask(event)) {
+    if (Trace.Types.Events.isPaint(event) || Trace.Types.Events.isRasterTask(event)) {
       this.showEventInPaintProfiler(event);
     }
 
-    if (TraceEngine.Types.TraceEvents.isTraceEventUpdateLayoutTree(event)) {
+    if (Trace.Types.Events.isUpdateLayoutTree(event)) {
       this.showSelectorStatsForIndividualEvent(event);
     }
   }
 
-  private showEventInPaintProfiler(event: TraceEngine.Types.TraceEvents.TraceEventData): void {
+  private showEventInPaintProfiler(event: Trace.Types.Events.Event): void {
     const paintProfilerModel =
         SDK.TargetManager.TargetManager.instance().models(SDK.PaintProfiler.PaintProfilerModel)[0];
     if (!paintProfilerModel) {
@@ -419,13 +414,12 @@ export class TimelineDetailsView extends UI.Widget.VBox {
   }
 
   private updateSelectedRangeStats(
-      startTime: TraceEngine.Types.Timing.MilliSeconds, endTime: TraceEngine.Types.Timing.MilliSeconds): void {
+      startTime: Trace.Types.Timing.MilliSeconds, endTime: Trace.Types.Timing.MilliSeconds): void {
     if (!this.#selectedEvents || !this.#traceEngineData) {
       return;
     }
 
-    const minBoundsMilli =
-        TraceEngine.Helpers.Timing.traceWindowMilliSeconds(this.#traceEngineData.Meta.traceBounds).min;
+    const minBoundsMilli = Trace.Helpers.Timing.traceWindowMilliSeconds(this.#traceEngineData.Meta.traceBounds).min;
     const aggregatedStats = TimelineUIUtils.statsForTimeRange(this.#selectedEvents, startTime, endTime);
     const startOffset = startTime - minBoundsMilli;
     const endOffset = endTime - minBoundsMilli;
@@ -442,10 +436,10 @@ export class TimelineDetailsView extends UI.Widget.VBox {
     const isSelectorStatsEnabled =
         Common.Settings.Settings.instance().createSetting('timeline-capture-selector-stats', false).get();
     if (this.#selectedEvents && isSelectorStatsEnabled) {
-      const eventsInRange = TraceEngine.Helpers.Trace.findUpdateLayoutTreeEvents(
+      const eventsInRange = Trace.Helpers.Trace.findUpdateLayoutTreeEvents(
           this.#selectedEvents,
-          TraceEngine.Helpers.Timing.millisecondsToMicroseconds(startTime),
-          TraceEngine.Helpers.Timing.millisecondsToMicroseconds(endTime),
+          Trace.Helpers.Timing.millisecondsToMicroseconds(startTime),
+          Trace.Helpers.Timing.millisecondsToMicroseconds(endTime),
       );
       if (eventsInRange.length > 0) {
         this.showAggregatedSelectorStats(eventsInRange);

@@ -13,18 +13,18 @@ export function deps(): ['Meta', 'UserInteractions'] {
 
 export type ViewportInsightResult = InsightResult<{
   mobileOptimized: boolean | null,
-  viewportEvent?: Types.TraceEvents.TraceEventParseMetaViewport,
+  viewportEvent?: Types.Events.ParseMetaViewport,
 }>;
 
 export function generateInsight(
-    traceParsedData: RequiredData<typeof deps>, context: NavigationInsightContext): ViewportInsightResult {
-  const compositorEvents = traceParsedData.UserInteractions.beginCommitCompositorFrameEvents.filter(event => {
+    parsedTrace: RequiredData<typeof deps>, context: NavigationInsightContext): ViewportInsightResult {
+  const compositorEvents = parsedTrace.UserInteractions.beginCommitCompositorFrameEvents.filter(event => {
     if (event.args.frame !== context.frameId) {
       return false;
     }
 
     const navigation =
-        Helpers.Trace.getNavigationForTraceEvent(event, context.frameId, traceParsedData.Meta.navigationsByFrameId);
+        Helpers.Trace.getNavigationForTraceEvent(event, context.frameId, parsedTrace.Meta.navigationsByFrameId);
     return navigation === context.navigation;
   });
 
@@ -36,13 +36,13 @@ export function generateInsight(
     };
   }
 
-  const viewportEvent = traceParsedData.UserInteractions.parseMetaViewportEvents.find(event => {
+  const viewportEvent = parsedTrace.UserInteractions.parseMetaViewportEvents.find(event => {
     if (event.args.data.frame !== context.frameId) {
       return false;
     }
 
     const navigation =
-        Helpers.Trace.getNavigationForTraceEvent(event, context.frameId, traceParsedData.Meta.navigationsByFrameId);
+        Helpers.Trace.getNavigationForTraceEvent(event, context.frameId, parsedTrace.Meta.navigationsByFrameId);
     return navigation === context.navigation;
   });
 

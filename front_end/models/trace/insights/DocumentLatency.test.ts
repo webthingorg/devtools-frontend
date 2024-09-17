@@ -4,19 +4,19 @@
 
 import {describeWithEnvironment} from '../../../testing/EnvironmentHelpers.js';
 import {TraceLoader} from '../../../testing/TraceLoader.js';
-import * as TraceModel from '../trace.js';
+import * as Trace from '../trace.js';
 import * as Types from '../types/types.js';
 
 export async function processTrace(testContext: Mocha.Suite|Mocha.Context|null, traceFile: string) {
-  const {traceData, insights} = await TraceLoader.traceEngine(testContext, traceFile);
+  const {parsedTrace, insights} = await TraceLoader.traceEngine(testContext, traceFile);
   if (!insights) {
     throw new Error('No insights');
   }
 
-  return {data: traceData, insights};
+  return {data: parsedTrace, insights};
 }
 
-function getInsight(insights: TraceModel.Insights.Types.TraceInsightData, navigationId: string) {
+function getInsight(insights: Trace.Insights.Types.TraceInsightData, navigationId: string) {
   const navInsights = insights.get(navigationId);
   if (!navInsights) {
     throw new Error('missing navInsights');
@@ -46,11 +46,11 @@ describeWithEnvironment('DocumentLatency', function() {
 
   it('reports savings for server with high response time', async function() {
     const traceEvents = [...await TraceLoader.rawEvents(this, 'lantern/paul/trace.json.gz')];
-    const processor = TraceModel.Processor.TraceProcessor.createWithAllHandlers();
+    const processor = Trace.Processor.TraceProcessor.createWithAllHandlers();
 
     const mainRequestEventIndex = traceEvents.findIndex(e => e.name === 'ResourceReceiveResponse');
     const mainRequestEvent = structuredClone(traceEvents[mainRequestEventIndex]);
-    assert(Types.TraceEvents.isTraceEventResourceReceiveResponse(mainRequestEvent));
+    assert(Types.Events.isResourceReceiveResponse(mainRequestEvent));
     assert.strictEqual(mainRequestEvent.args.data.requestId, '1000C0FDC0A75327167272FC7438E999');
     if (!mainRequestEvent.args.data.timing) {
       throw new Error('missing timing field');
@@ -60,9 +60,9 @@ describeWithEnvironment('DocumentLatency', function() {
     traceEvents[mainRequestEventIndex] = mainRequestEvent;
 
     await processor.parse(traceEvents);
-    const data = processor.traceParsedData;
+    const data = processor.parsedTrace;
     if (!data) {
-      throw new Error('missing traceParsedData');
+      throw new Error('missing parsedTrace');
     }
 
     const [navigationId, navigation] = data.Meta.navigationsByNavigationId.entries().next().value;
@@ -71,7 +71,7 @@ describeWithEnvironment('DocumentLatency', function() {
       navigation,
       navigationId,
     };
-    const insight = TraceModel.Insights.InsightRunners.DocumentLatency.generateInsight(data, context);
+    const insight = Trace.Insights.InsightRunners.DocumentLatency.generateInsight(data, context);
     assert.strictEqual(insight.serverResponseTime, 1043);
     assert(insight.serverResponseTooSlow);
     assert.deepEqual(insight.metricSavings, {FCP: 943, LCP: 943});
@@ -86,20 +86,20 @@ describeWithEnvironment('DocumentLatency', function() {
 
   it('reports compression savings for uncompressed text', async function() {
     const traceEvents = [...await TraceLoader.rawEvents(this, 'lantern/paul/trace.json.gz')];
-    const processor = TraceModel.Processor.TraceProcessor.createWithAllHandlers();
+    const processor = Trace.Processor.TraceProcessor.createWithAllHandlers();
 
     const mainRequestEventIndex = traceEvents.findIndex(e => e.name === 'ResourceReceiveResponse');
     const mainRequestEvent = structuredClone(traceEvents[mainRequestEventIndex]);
-    assert(Types.TraceEvents.isTraceEventResourceReceiveResponse(mainRequestEvent));
+    assert(Types.Events.isResourceReceiveResponse(mainRequestEvent));
     assert.strictEqual(mainRequestEvent.args.data.requestId, '1000C0FDC0A75327167272FC7438E999');
     // Delete content-encoding header.
     mainRequestEvent.args.data.headers = mainRequestEvent.args.data.headers?.filter(h => h.name !== 'content-encoding');
     traceEvents[mainRequestEventIndex] = mainRequestEvent;
 
     await processor.parse(traceEvents);
-    const data = processor.traceParsedData;
+    const data = processor.parsedTrace;
     if (!data) {
-      throw new Error('missing traceParsedData');
+      throw new Error('missing parsedTrace');
     }
 
     const [navigationId, navigation] = data.Meta.navigationsByNavigationId.entries().next().value;
@@ -108,7 +108,7 @@ describeWithEnvironment('DocumentLatency', function() {
       navigation,
       navigationId,
     };
-    const insight = TraceModel.Insights.InsightRunners.DocumentLatency.generateInsight(data, context);
+    const insight = Trace.Insights.InsightRunners.DocumentLatency.generateInsight(data, context);
     assert.strictEqual(insight.uncompressedResponseBytes, 39799);
     assert.deepEqual(insight.metricSavings, {FCP: 0, LCP: 0});
   });

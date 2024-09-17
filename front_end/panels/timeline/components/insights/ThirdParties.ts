@@ -4,7 +4,7 @@
 
 import * as i18n from '../../../../core/i18n/i18n.js';
 import * as Platform from '../../../../core/platform/platform.js';
-import type * as TraceEngine from '../../../../models/trace/trace.js';
+import type * as Trace from '../../../../models/trace/trace.js';
 import * as LitHtml from '../../../../ui/lit-html/lit-html.js';
 import type * as Overlays from '../../overlays/overlays.js';
 
@@ -36,9 +36,8 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('panels/timeline/components/insights/ThirdParties.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
-export function getThirdPartiesInsight(
-    insights: TraceEngine.Insights.Types.TraceInsightData|null,
-    navigationId: string|null): TraceEngine.Insights.Types.InsightResults['ThirdPartyWeb']|null {
+export function getThirdPartiesInsight(insights: Trace.Insights.Types.TraceInsightData|null, navigationId: string|null):
+    Trace.Insights.Types.InsightResults['ThirdPartyWeb']|null {
   if (!insights || !navigationId) {
     return null;
   }
@@ -85,7 +84,7 @@ export class ThirdParties extends BaseInsight {
     return overlays;
   }
 
-  #render(data: TraceEngine.Insights.Types.InsightResults['ThirdPartyWeb']): LitHtml.TemplateResult {
+  #render(data: Trace.Insights.Types.InsightResults['ThirdPartyWeb']): LitHtml.TemplateResult {
     const entries = [...data.summaryByEntity.entries()].filter(kv => kv[0] !== data.firstPartyEntity);
     // clang-format off
     const rows1 = entries

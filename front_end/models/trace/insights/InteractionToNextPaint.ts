@@ -16,8 +16,8 @@ export type INPInsightResult = InsightResult<{
 }>;
 
 export function generateInsight(
-    traceParsedData: RequiredData<typeof deps>, context: NavigationInsightContext): INPInsightResult {
-  const interactionEvents = traceParsedData.UserInteractions.interactionEvents.filter(event => {
+    parsedTrace: RequiredData<typeof deps>, context: NavigationInsightContext): INPInsightResult {
+  const interactionEvents = parsedTrace.UserInteractions.interactionEvents.filter(event => {
     return event.args.data.navigationId === context.navigationId;
   });
 

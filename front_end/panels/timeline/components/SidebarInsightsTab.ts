@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import type * as TraceEngine from '../../../models/trace/trace.js';
+import type * as Trace from '../../../models/trace/trace.js';
 import * as ComponentHelpers from '../../../ui/components/helpers/helpers.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 import * as VisualLogging from '../../../ui/visual_logging/visual_logging.js';
@@ -25,8 +25,8 @@ export class SidebarInsightsTab extends HTMLElement {
   readonly #boundRender = this.#render.bind(this);
   readonly #shadow = this.attachShadow({mode: 'open'});
 
-  #traceParsedData: TraceEngine.Handlers.Types.TraceParseData|null = null;
-  #insights: TraceEngine.Insights.Types.TraceInsightData|null = null;
+  #parsedTrace: Trace.Handlers.Types.ParsedTrace|null = null;
+  #insights: Trace.Insights.Types.TraceInsightData|null = null;
   #activeInsight: ActiveInsight|null = null;
   #selectedCategory: InsightsCategories = InsightsCategories.ALL;
   /**
@@ -40,11 +40,11 @@ export class SidebarInsightsTab extends HTMLElement {
     this.#shadow.adoptedStyleSheets = [styles];
   }
 
-  set traceParsedData(data: TraceEngine.Handlers.Types.TraceParseData|null) {
-    if (data === this.#traceParsedData) {
+  set parsedTrace(data: Trace.Handlers.Types.ParsedTrace|null) {
+    if (data === this.#parsedTrace) {
       return;
     }
-    this.#traceParsedData = data;
+    this.#parsedTrace = data;
     // When the trace data gets set, we clear the active navigation ID (as any old
     // navigation ID is now outdated) and we auto-set the first ID to be
     // active.
@@ -54,7 +54,7 @@ export class SidebarInsightsTab extends HTMLElement {
     void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
   }
 
-  set insights(data: TraceEngine.Insights.Types.TraceInsightData|null) {
+  set insights(data: Trace.Insights.Types.TraceInsightData|null) {
     if (data === this.#insights) {
       return;
     }
@@ -87,12 +87,12 @@ export class SidebarInsightsTab extends HTMLElement {
   }
 
   #render(): void {
-    if (!this.#traceParsedData || !this.#insights) {
+    if (!this.#parsedTrace || !this.#insights) {
       LitHtml.render(LitHtml.nothing, this.#shadow, {host: this});
       return;
     }
 
-    const navigations = this.#traceParsedData.Meta.mainFrameNavigations ?? [];
+    const navigations = this.#parsedTrace.Meta.mainFrameNavigations ?? [];
 
     const hasMultipleNavigations = navigations.length > 1;
 
@@ -119,7 +119,7 @@ export class SidebarInsightsTab extends HTMLElement {
             return LitHtml.nothing;
           }
           const data = {
-            traceParsedData: this.#traceParsedData ?? null,
+            parsedTrace: this.#parsedTrace ?? null,
             insights: this.#insights,
             navigationId: id,
             activeCategory: this.#selectedCategory,

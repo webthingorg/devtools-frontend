@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import type * as TraceEngine from '../../../../models/trace/trace.js';
+import type * as Trace from '../../../../models/trace/trace.js';
 import * as LitHtml from '../../../../ui/lit-html/lit-html.js';
 import type * as Overlays from '../../overlays/overlays.js';
 
@@ -10,8 +10,8 @@ import {BaseInsight, shouldRenderForCategory} from './Helpers.js';
 import * as SidebarInsight from './SidebarInsight.js';
 import {InsightsCategories} from './types.js';
 
-export function getCLSInsight(insights: TraceEngine.Insights.Types.TraceInsightData|null, navigationId: string|null):
-    TraceEngine.Insights.Types.InsightResults['CumulativeLayoutShift']|null {
+export function getCLSInsight(insights: Trace.Insights.Types.TraceInsightData|null, navigationId: string|null):
+    Trace.Insights.Types.InsightResults['CumulativeLayoutShift']|null {
   if (!insights || !navigationId) {
     return null;
   }
@@ -43,11 +43,10 @@ export class CLSCulprits extends BaseInsight {
    * getTopCulprits gets the top 3 shift root causes based on clusters.
    */
   getTopCulprits(
-      clusters: TraceEngine.Types.TraceEvents.SyntheticLayoutShiftCluster[],
+      clusters: Trace.Types.Events.SyntheticLayoutShiftCluster[],
       culpritsByShift:
-          Map<TraceEngine.Types.TraceEvents.TraceEventLayoutShift,
-              TraceEngine.Insights.InsightRunners.CumulativeLayoutShift.LayoutShiftRootCausesData>|
-      undefined): string[] {
+          Map<Trace.Types.Events.LayoutShift,
+              Trace.Insights.InsightRunners.CumulativeLayoutShift.LayoutShiftRootCausesData>|undefined): string[] {
     if (!culpritsByShift) {
       return [];
     }

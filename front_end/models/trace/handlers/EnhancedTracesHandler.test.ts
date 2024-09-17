@@ -3,24 +3,24 @@
 // found in the LICENSE file.
 
 import {TraceLoader} from '../../../testing/TraceLoader.js';
-import * as TraceEngine from '../trace.js';
+import * as Trace from '../trace.js';
 
 describe('EnhancedTracesHandler', () => {
   beforeEach(async function() {
-    TraceEngine.Handlers.ModelHandlers.EnhancedTraces.reset();
+    Trace.Handlers.ModelHandlers.EnhancedTraces.reset();
     const events = await TraceLoader.rawEvents(this, 'enhanced-traces.json.gz');
-    TraceEngine.Handlers.ModelHandlers.EnhancedTraces.initialize();
+    Trace.Handlers.ModelHandlers.EnhancedTraces.initialize();
     for (const event of events) {
-      TraceEngine.Handlers.ModelHandlers.EnhancedTraces.handleEvent(event);
+      Trace.Handlers.ModelHandlers.EnhancedTraces.handleEvent(event);
     }
-    await TraceEngine.Handlers.ModelHandlers.EnhancedTraces.finalize();
+    await Trace.Handlers.ModelHandlers.EnhancedTraces.finalize();
   });
   afterEach(() => {
-    TraceEngine.Handlers.ModelHandlers.EnhancedTraces.reset();
+    Trace.Handlers.ModelHandlers.EnhancedTraces.reset();
   });
 
   it('captures targets from target rundown events', async function() {
-    const data = TraceEngine.Handlers.ModelHandlers.EnhancedTraces.data();
+    const data = Trace.Handlers.ModelHandlers.EnhancedTraces.data();
     assert.deepEqual(data.targets, [
       {
         targetId: '21D58E83A5C17916277166140F6A464B',
@@ -40,7 +40,7 @@ describe('EnhancedTracesHandler', () => {
   });
 
   it('captures execution context info', async function() {
-    const data = TraceEngine.Handlers.ModelHandlers.EnhancedTraces.data();
+    const data = Trace.Handlers.ModelHandlers.EnhancedTraces.data();
     assert.deepEqual(data.executionContexts, [
       {
         id: 1,
@@ -79,7 +79,7 @@ describe('EnhancedTracesHandler', () => {
   });
 
   it('captures script info and source text', async function() {
-    const data = TraceEngine.Handlers.ModelHandlers.EnhancedTraces.data();
+    const data = Trace.Handlers.ModelHandlers.EnhancedTraces.data();
     assert.deepEqual(data.scripts, [
       {
         scriptId: 1,
