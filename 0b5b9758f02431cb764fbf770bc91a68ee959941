@@ -1,6 +1,63 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f64cc4f1_0390d588",
+        "filename": "front_end/models/trace/insights/DocumentLatency.test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-17T19:21:05Z",
+      "side": 1,
+      "message": "howd that happen?\n\noh you updated the fixture.",
+      "revId": "0b5b9758f02431cb764fbf770bc91a68ee959941",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17fc6dcf_a49bf638",
+        "filename": "front_end/models/trace/insights/RemoteFont.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-17T19:21:05Z",
+      "side": 1,
+      "message": "Lets call this insight \"FontDisplay\" rather than \"RemoteFont\".\n\n\nbut.. it does make sense to keep `remoteFontLoadEvents`",
+      "range": {
+        "startLine": 15,
+        "startChar": 12,
+        "endLine": 15,
+        "endChar": 28
+      },
+      "revId": "0b5b9758f02431cb764fbf770bc91a68ee959941",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97af2cdb_ab4ba16c",
+        "filename": "front_end/models/trace/insights/RemoteFont.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-17T19:21:05Z",
+      "side": 1,
+      "message": "Let\u0027s be direct and call out the problem. This is a performance tool, so I don\u0027t think we need to give undue credit. They can ignore the insight if they don\u0027t like it.\n\noptional \u0026 swap are great and they pass.\n\nwe fail on block, fallback and emptystring/auto.",
+      "revId": "0b5b9758f02431cb764fbf770bc91a68ee959941",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9f750bc6_47e3c0e9",
@@ -14,6 +71,24 @@
       "writtenOn": "2024-09-17T18:07:12Z",
       "side": 1,
       "message": "I thought it could be good to round this down to the nearest 5ms... 1ms precision seems too exact. On the fence about it tho so lmk",
+      "revId": "0b5b9758f02431cb764fbf770bc91a68ee959941",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1dd1cf48_ddddbec0",
+        "filename": "front_end/models/trace/insights/RemoteFont.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-17T19:21:05Z",
+      "side": 1,
+      "message": "seems cool.",
+      "parentUuid": "9f750bc6_47e3c0e9",
       "revId": "0b5b9758f02431cb764fbf770bc91a68ee959941",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
