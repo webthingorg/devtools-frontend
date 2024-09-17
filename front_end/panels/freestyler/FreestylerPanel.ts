@@ -33,11 +33,11 @@ import freestylerPanelStyles from './freestylerPanel.css.js';
   */
 const UIStringsTemp = {
   /**
-   *@description Freestyler UI text for clearing messages.
+   *@description AI assistant UI text for clearing messages.
    */
   clearMessages: 'Clear messages',
   /**
-   *@description Freestyler UI text for sending feedback.
+   *@description AI assistant UI text for sending feedback.
    */
   sendFeedback: 'Send feedback',
 };
@@ -290,19 +290,6 @@ export class FreestylerPanel extends UI.Panel.Panel {
     this.#runAbortController = new AbortController();
 
     const signal = this.#runAbortController.signal;
-    signal.addEventListener('abort', () => {
-      systemMessage.rpcId = undefined;
-      systemMessage.aborted = true;
-      systemMessage.suggestingFix = false;
-      const lastStep = systemMessage.steps.at(-1);
-      // Mark the last step as cancelled to make the UI feel better.
-      if (lastStep) {
-        lastStep.canceled = true;
-      }
-      this.#viewProps.isLoading = false;
-      this.doUpdate();
-      this.#viewOutput.freestylerChatUi?.scrollToLastMessage();
-    });
 
     if (this.#viewProps.agentType === AgentType.FREESTYLER) {
       await this.#conversationStepsForFreestylerAgent(text, isFixQuery, signal, systemMessage);
@@ -379,7 +366,17 @@ export class FreestylerPanel extends UI.Panel.Panel {
         case ResponseType.ERROR: {
           step.isLoading = false;
           systemMessage.error = data.error;
+          systemMessage.suggestingFix = false;
+          systemMessage.rpcId = undefined;
           this.#viewProps.isLoading = false;
+          if (data.error === ErrorType.ABORT) {
+            systemMessage.aborted = true;
+            const lastStep = systemMessage.steps.at(-1);
+            // Mark the last step as cancelled to make the UI feel better.
+            if (lastStep) {
+              lastStep.canceled = true;
+            }
+          }
         }
       }
 
