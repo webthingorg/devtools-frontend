@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f750bc6_47e3c0e9",
+        "filename": "front_end/models/trace/insights/RemoteFont.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-17T18:07:12Z",
+      "side": 1,
+      "message": "I thought it could be good to round this down to the nearest 5ms... 1ms precision seems too exact. On the fence about it tho so lmk",
+      "revId": "0b5b9758f02431cb764fbf770bc91a68ee959941",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
