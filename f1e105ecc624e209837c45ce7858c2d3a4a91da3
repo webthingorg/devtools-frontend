@@ -16,6 +16,46 @@
       "message": "Hey both! Let me know how this looks - I\u0027m happy to break it up if needed, but this felt like a good chunk that adds something visible in the UI without going too far into the implementation.",
       "revId": "f1e105ecc624e209837c45ce7858c2d3a4a91da3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc257758_33208699",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-09-17T12:25:50Z",
+      "side": 1,
+      "message": "Code LGTM but we need more tests for the model",
+      "revId": "f1e105ecc624e209837c45ce7858c2d3a4a91da3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96b6b641_5d96927c",
+        "filename": "front_end/panels/application/ExtensionStorageModel.test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-09-17T12:25:50Z",
+      "side": 1,
+      "message": "This needs more tests, see SharedStorageModel.test.ts for an example.",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 5
+      },
+      "revId": "f1e105ecc624e209837c45ce7858c2d3a4a91da3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
