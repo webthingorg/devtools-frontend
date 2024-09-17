@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0c580001_af4730fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 35
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2024-09-17T13:38:44Z",
+      "side": 1,
+      "message": "I happen to find out that the failure comes from `render` being async, comparing the source text which is not ready (undefined) with the expected string.\nI\u0027ve introduced `awaitRenderForTesting` to avoid this scenario, but I\u0027m not sure if there is another way to address this problem. Please have a look.",
+      "parentUuid": "30e7851b_4f58069d",
+      "revId": "5f468ffcfbfd0dc5b8a0aa082698848430d4ae25",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4cc921d5_e90e269b",
         "filename": "front_end/panels/application/preloading/PreloadingView.ts",
         "patchSetId": 35
@@ -31,6 +49,30 @@
       "writtenOn": "2024-09-13T15:31:10Z",
       "side": 1,
       "message": "nit: How about `onPrettyPrintToggle` or `onPrettyPrintButtonClick`?",
+      "range": {
+        "startLine": 215,
+        "startChar": 10,
+        "endLine": 215,
+        "endChar": 22
+      },
+      "revId": "5f468ffcfbfd0dc5b8a0aa082698848430d4ae25",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bbcc1258_2872ab8c",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 35
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2024-09-17T13:38:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4cc921d5_e90e269b",
       "range": {
         "startLine": 215,
         "startChar": 10,
@@ -54,6 +96,30 @@
       "writtenOn": "2024-09-13T15:31:10Z",
       "side": 1,
       "message": "Indentation, probably best to add `// clang-format off` to the whole LitHTML block",
+      "range": {
+        "startLine": 234,
+        "startChar": 8,
+        "endLine": 235,
+        "endChar": 38
+      },
+      "revId": "5f468ffcfbfd0dc5b8a0aa082698848430d4ae25",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "153ea9ff_179ddd55",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 35
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2024-09-17T13:38:44Z",
+      "side": 1,
+      "message": "I found that maybe it doesn\u0027t need `// clang-format off` to do so. Please have a look if the format is what you mean. 🙏",
+      "parentUuid": "3f6839c0_e42f0079",
       "range": {
         "startLine": 234,
         "startChar": 8,
@@ -105,6 +171,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b92d4225_0a4a5056",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 35
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2024-09-17T13:38:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e3d9b2c3_8f3d17a0",
+      "range": {
+        "startLine": 236,
+        "startChar": 19,
+        "endLine": 236,
+        "endChar": 23
+      },
+      "revId": "5f468ffcfbfd0dc5b8a0aa082698848430d4ae25",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "45a1e47a_533e9e34",
@@ -146,6 +236,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aab8f773_15299f4c",
+        "filename": "front_end/panels/application/preloading/PreloadingView.ts",
+        "patchSetId": 35
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2024-09-17T13:38:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45a1e47a_533e9e34",
+      "range": {
+        "startLine": 242,
+        "startChar": 69,
+        "endLine": 242,
+        "endChar": 92
+      },
+      "revId": "5f468ffcfbfd0dc5b8a0aa082698848430d4ae25",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0df0527b_86947fc0",
@@ -159,6 +273,30 @@
       "writtenOn": "2024-09-13T15:31:10Z",
       "side": 1,
       "message": "I couldn\u0027t figure out where this applies to, maybe it\u0027s not needed?",
+      "range": {
+        "startLine": 18,
+        "startChar": 0,
+        "endLine": 19,
+        "endChar": 28
+      },
+      "revId": "5f468ffcfbfd0dc5b8a0aa082698848430d4ae25",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c309019_03cc6385",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsView.css",
+        "patchSetId": 35
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2024-09-17T13:38:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0df0527b_86947fc0",
       "range": {
         "startLine": 18,
         "startChar": 0,
@@ -192,6 +330,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9042ca8_a1f6dcc3",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsView.ts",
+        "patchSetId": 35
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2024-09-17T13:38:44Z",
+      "side": 1,
+      "message": "Updated, thanks!",
+      "parentUuid": "d30df299_1f77167e",
+      "range": {
+        "startLine": 96,
+        "startChar": 2,
+        "endLine": 96,
+        "endChar": 14
+      },
+      "revId": "5f468ffcfbfd0dc5b8a0aa082698848430d4ae25",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7e005d9e_91f66cf3",
@@ -205,6 +367,30 @@
       "writtenOn": "2024-09-13T15:31:10Z",
       "side": 1,
       "message": "nit: I think you don\u0027t need the `?` here",
+      "range": {
+        "startLine": 121,
+        "startChar": 92,
+        "endLine": 121,
+        "endChar": 93
+      },
+      "revId": "5f468ffcfbfd0dc5b8a0aa082698848430d4ae25",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee714da9_3eaf47aa",
+        "filename": "front_end/panels/application/preloading/components/RuleSetDetailsView.ts",
+        "patchSetId": 35
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1517927
+      },
+      "writtenOn": "2024-09-17T13:38:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e005d9e_91f66cf3",
       "range": {
         "startLine": 121,
         "startChar": 92,
