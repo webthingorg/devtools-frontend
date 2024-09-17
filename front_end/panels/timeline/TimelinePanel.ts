@@ -77,6 +77,15 @@ import {TimelineUIUtils} from './TimelineUIUtils.js';
 import {UIDevtoolsController} from './UIDevtoolsController.js';
 import {UIDevtoolsUtils} from './UIDevtoolsUtils.js';
 
+/** {string} */
+const NonPresetOptions = {
+  NoOverride: 'no-override',
+  Nominal: 'nominal',
+  Fair: 'fair',
+  Serious: 'serious',
+  Critical: 'critical',
+};
+
 const UIStrings = {
   /**
    *@description Text that appears when user drag and drop something (for example, a file) in Timeline Panel of the Performance panel
@@ -164,6 +173,10 @@ const UIStrings = {
    *@description Text in Timeline Panel of the Performance panel
    */
   CpuThrottlingIsEnabled: '- CPU throttling is enabled',
+  /**
+   *@description Text in Timeline Panel of the Performance panel
+   */
+  CpuGlobalPressureOverrideIsEnabled: '- CPU global pressure override is enabled',
   /**
    *@description Text in Timeline Panel of the Performance panel
    */
@@ -281,7 +294,30 @@ const UIStrings = {
    * @description Screen reader announcement when the sidebar is hidden in the Performance panel.
    */
   sidebarHidden: 'Performance sidebar hidden',
-
+  /**
+   *@description Title for a group of pressure states
+   */
+  cpuPressure: 'CPU Pressure:',
+  /**
+  *@description An option that appears in a drop-down to prevent the pressure states of the system from being overridden.
+  */
+  noOverride: 'No override',
+  /**
+  *@description An option that appears in a drop-down that represents the nominal state.
+  */
+  nominal: 'Nominal',
+  /**
+  *@description An option that appears in a drop-down that represents the fair state.
+  */
+  fair: 'Fair',
+  /**
+  *@description An option that appears in a drop-down that represents the serious state.
+  */
+  serious: 'Serious',
+  /**
+  *@description An option that appears in a drop-down that represents the critical state.
+  */
+  critical: 'Critical',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/timeline/TimelinePanel.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -314,6 +350,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
   private readonly recordingOptionUIControls: UI.Toolbar.ToolbarItem[];
   private state: State;
   private recordingPageReload: boolean;
+  private pressureOverrideEnabled: boolean;
   private readonly millisecondsToRecordAfterLoadEvent: number;
   private readonly toggleRecordAction: UI.ActionRegistration.Action;
   private readonly recordReloadAction: UI.ActionRegistration.Action;
@@ -367,6 +404,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
   private showMemoryToolbarCheckbox?: UI.Toolbar.ToolbarItem;
   private networkThrottlingSelect?: UI.Toolbar.ToolbarComboBox;
   private cpuThrottlingSelect?: UI.Toolbar.ToolbarComboBox;
+  private cpuPressureOverrideSelect?: UI.Toolbar.ToolbarComboBox;
   private fileSelectorElement?: HTMLInputElement;
   private selection?: TimelineSelection|null;
   private traceLoadStart!: TraceEngine.Types.Timing.MilliSeconds|null;
@@ -425,6 +463,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     this.recordingOptionUIControls = [];
     this.state = State.Idle;
     this.recordingPageReload = false;
+    this.pressureOverrideEnabled = false;
     this.millisecondsToRecordAfterLoadEvent = 5000;
     this.toggleRecordAction = UI.ActionRegistry.ActionRegistry.instance().getAction('timeline.toggle-recording');
     this.recordReloadAction = UI.ActionRegistry.ActionRegistry.instance().getAction('timeline.record-reload');
@@ -964,6 +1003,11 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     this.cpuThrottlingSelect = MobileThrottling.ThrottlingManager.throttlingManager().createCPUThrottlingSelector();
     cpuThrottlingToolbar.appendToolbarItem(this.cpuThrottlingSelect);
 
+    const cpuPressureToolbar = new UI.Toolbar.Toolbar('', throttlingPane.element);
+    cpuPressureToolbar.appendText(i18nString(UIStrings.cpuPressure));
+    this.cpuPressureOverrideSelect = this.createCPUGlobalPressureSelect();
+    cpuPressureToolbar.appendToolbarItem(this.cpuPressureOverrideSelect);
+
     const networkThrottlingToolbar = new UI.Toolbar.Toolbar('', throttlingPane.element);
     networkThrottlingToolbar.appendText(i18nString(UIStrings.network));
     this.networkThrottlingSelect = this.createNetworkConditionsSelect();
@@ -998,6 +1042,71 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     toolbarItem.setMaxWidth(140);
     MobileThrottling.ThrottlingManager.throttlingManager().decorateSelectWithNetworkThrottling(
         toolbarItem.selectElement());
+    return toolbarItem;
+  }
+
+  private createCPUGlobalPressureSelect(): UI.Toolbar.ToolbarComboBox {
+    const toolbarItem = new UI.Toolbar.ToolbarComboBox(null, i18nString(UIStrings.cpuPressure));
+    toolbarItem.setMaxWidth(140);
+
+    const setPressureSourceOverrideEnabled =
+        async (enabled: boolean) => {
+      if (enabled === this.pressureOverrideEnabled) {
+        return;
+      }
+      this.pressureOverrideEnabled = enabled;
+
+      for (const emulationModel of SDK.TargetManager.TargetManager.instance().models(
+               SDK.EmulationModel.EmulationModel)) {
+        await emulationModel.setPressureSourceOverrideEnabled(enabled);
+      }
+    }
+
+    const setPressureStateOverride =
+        async (state: string) => {
+      if (state === 'no-override') {
+        return;
+      }
+
+      for (const emulationModel of SDK.TargetManager.TargetManager.instance().models(
+               SDK.EmulationModel.EmulationModel)) {
+        await emulationModel.setPressureStateOverride(state as string);
+      }
+    }
+
+    const optionSelected =
+        async () => {
+      const pressureState = selectElement.options[selectElement.selectedIndex].value;
+
+      await setPressureSourceOverrideEnabled(pressureState != 'no-override');
+      await setPressureStateOverride(pressureState);
+    }
+
+    const selectElement = toolbarItem.selectElement();
+    //selectElement.setAttribute("jslog", `${VisualLogging.dropDown().track({ change: true }).context(this.currentNetworkThrottlingConditionsSetting.name)}`);
+    selectElement.addEventListener('change', optionSelected, false);
+
+    const noOverrideOption = {title: i18nString(UIStrings.noOverride), state: NonPresetOptions.NoOverride};
+    const nominalOption = {title: i18nString(UIStrings.nominal), state: NonPresetOptions.Nominal};
+    const fairOption = {title: i18nString(UIStrings.fair), state: NonPresetOptions.Fair};
+    const seriousOption = {title: i18nString(UIStrings.serious), state: NonPresetOptions.Serious};
+    const criticalOption = {title: i18nString(UIStrings.critical), state: NonPresetOptions.Critical};
+
+    // No override
+    selectElement.appendChild(UI.UIUtils.createOption(noOverrideOption.title, noOverrideOption.state, 'no-override'));
+
+    // Nominal
+    selectElement.appendChild(UI.UIUtils.createOption(nominalOption.title, nominalOption.state, 'nominal'));
+
+    // Fair
+    selectElement.appendChild(UI.UIUtils.createOption(fairOption.title, fairOption.state, 'fair'));
+
+    // Serious
+    selectElement.appendChild(UI.UIUtils.createOption(seriousOption.title, seriousOption.state, 'serious'));
+
+    // Critical
+    selectElement.appendChild(UI.UIUtils.createOption(criticalOption.title, criticalOption.state, 'critical'));
+
     return toolbarItem;
   }
 
@@ -1205,6 +1314,9 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
 
   private updateShowSettingsToolbarButton(): void {
     const messages: string[] = [];
+
+    // ===
+
     if (SDK.CPUThrottlingManager.CPUThrottlingManager.instance().cpuThrottlingRate() !== 1) {
       messages.push(i18nString(UIStrings.CpuThrottlingIsEnabled));
     }
