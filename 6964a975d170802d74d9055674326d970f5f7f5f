@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b67769df_4f2cf215",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-09-17T19:55:32Z",
+      "side": 1,
+      "message": "If we are going to use this logic outside the sidebar insights, then I think it should live in the trace engine somewhere. That\u0027s probably too much churn for this CL though so I think it\u0027s fine.",
+      "revId": "6964a975d170802d74d9055674326d970f5f7f5f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fba6c46a_7ad99406",
+        "filename": "front_end/panels/timeline/AnimationsTrackAppender.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-09-17T19:55:32Z",
+      "side": 1,
+      "message": "This can be a follow-up, but I think it would be useful to show the animation display name in the timeline (not just the hover tooltip). Having everything labeled \"Animation\" is not a good UX IMO.\n\nTBH I don\u0027t think we need to put the word \"Animation\" in the name at all.",
+      "revId": "6964a975d170802d74d9055674326d970f5f7f5f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4adc2d22_09edb810",
+        "filename": "front_end/panels/timeline/TimelineUIUtils.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1422,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-09-17T19:55:32Z",
+      "side": 1,
+      "message": "What does `flat()` do here? Isn\u0027t it just a single depth array?",
+      "revId": "6964a975d170802d74d9055674326d970f5f7f5f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
