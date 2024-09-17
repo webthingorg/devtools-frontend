@@ -33,6 +33,24 @@
       "message": "move this link to something higher, so we can get rid of this extra lil phrase?\n how about [amount of third party code]",
       "revId": "1ab12a385b5269fa59e306b0df5ccf12fa97c054",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9412781_d59d7e57",
+        "filename": "front_end/panels/timeline/components/insights/ThirdParties.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-17T23:34:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "73358342_acb746d7",
+      "revId": "1ab12a385b5269fa59e306b0df5ccf12fa97c054",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
