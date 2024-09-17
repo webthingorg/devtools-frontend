@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0e4efd8a_989e8ba7",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 945,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2024-09-17T07:00:47Z",
+      "side": 1,
+      "message": "This consumes the event MouseDown event of the soft context menu item. We need to do this or the ToolbarButton click event doesn\u0027t get handled properly. The dock mode buttons have to do the same thing [1]\n\n[1] https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/entrypoints/main/MainImpl.ts;l\u003d869-872?q\u003dinspector-main.focus-debuggee%27",
+      "parentUuid": "1a4e163c_376b10cb",
+      "range": {
+        "startLine": 944,
+        "startChar": 4,
+        "endLine": 945,
+        "endChar": 103
+      },
+      "revId": "b787fba5727ae3be22897703e9369cf1c39d2386",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dc7b110e_8d64a514",
         "filename": "front_end/entrypoints/main/MainImpl.ts",
         "patchSetId": 7
@@ -77,6 +101,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "68de92bc_0e9c36fb",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 948,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2024-09-17T07:00:47Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "dc7b110e_8d64a514",
+      "range": {
+        "startLine": 948,
+        "startChar": 12,
+        "endLine": 948,
+        "endChar": 24
+      },
+      "revId": "b787fba5727ae3be22897703e9369cf1c39d2386",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "56cf3d74_fb5309b6",
         "filename": "front_end/entrypoints/main/MainImpl.ts",
         "patchSetId": 7
@@ -88,6 +136,30 @@
       "writtenOn": "2024-09-09T07:53:21Z",
       "side": 1,
       "message": "What happens on the first invocation, and why do we want to wait until the second one?",
+      "range": {
+        "startLine": 953,
+        "startChar": 0,
+        "endLine": 953,
+        "endChar": 26
+      },
+      "revId": "b787fba5727ae3be22897703e9369cf1c39d2386",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93725972_1d62f304",
+        "filename": "front_end/entrypoints/main/MainImpl.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 953,
+      "author": {
+        "id": 1341869
+      },
+      "writtenOn": "2024-09-17T07:00:47Z",
+      "side": 1,
+      "message": "The handler fires immediately when `observe()` is called, so we need to wait ignore that one.",
+      "parentUuid": "56cf3d74_fb5309b6",
       "range": {
         "startLine": 953,
         "startChar": 0,
