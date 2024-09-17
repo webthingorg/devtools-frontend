@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7c6ddeb_6f7419f0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 48
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-09-17T12:18:34Z",
+      "side": 1,
+      "message": "Style-wise it looks good. Have you considered using CSS Nesting to simplify the css logic here? It seems like a lot of CSS are about manipulating styles based on different states of a selector/element. Maybe with nesting the logic can be more explicit.",
+      "revId": "513b0ee95ae0cf90d77945d57fd7552b443926ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b12dd11f_84fb69f6",
