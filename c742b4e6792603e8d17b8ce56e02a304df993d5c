@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e290a9ba_bb4c6ef6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-18T13:19:37Z",
+      "side": 1,
+      "message": "LGTM % 3 comments",
+      "revId": "c742b4e6792603e8d17b8ce56e02a304df993d5c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d795b8b7_71a13a32",
+        "filename": "front_end/panels/freestyler/components/freestylerChatUi.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-18T13:19:37Z",
+      "side": 1,
+      "message": "`flex-direction: column` does not apply here now so we can remove it",
+      "revId": "c742b4e6792603e8d17b8ce56e02a304df993d5c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4cabcb29_d8245c5b",
+        "filename": "front_end/panels/freestyler/components/freestylerChatUi.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-18T13:19:37Z",
+      "side": 1,
+      "message": "Let\u0027s add some padding to bottom and top too so that it doesn\u0027t stick to the top of the drawer. WDYT?",
+      "revId": "c742b4e6792603e8d17b8ce56e02a304df993d5c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee8acafb_bda8e2b8",
+        "filename": "front_end/panels/freestyler/components/freestylerChatUi.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 344,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-18T13:19:37Z",
+      "side": 1,
+      "message": "(nit): let\u0027s use `start` and `end` without the `flex-` prefix as they behave the same for the grid layout.",
+      "revId": "c742b4e6792603e8d17b8ce56e02a304df993d5c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
