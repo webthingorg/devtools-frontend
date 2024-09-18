@@ -1,0 +1,56 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23a39535_73fb18c6",
+        "filename": "front_end/models/trace/insights/RenderBlocking.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-09-18T19:00:40Z",
+      "side": 1,
+      "message": "Can we move this \"get top 3\" logic to live in the UI code rather than the insight?",
+      "revId": "a47ed3c3687930fa87174f57beb27211aa570f4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a560e03_442ad4b7",
+        "filename": "front_end/panels/timeline/components/insights/RenderBlocking.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-09-18T19:00:40Z",
+      "side": 1,
+      "message": "\"Longest blocking requests\"?",
+      "fixSuggestions": [
+        {
+          "fixId": "e6c65234_bf6f2295",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/components/insights/RenderBlocking.ts",
+              "range": {
+                "startLine": 111,
+                "startChar": 0,
+                "endLine": 112,
+                "endChar": 0
+              },
+              "replacement": "              Longest blocking requests:\n"
+            }
+          ]
+        }
+      ],
+      "revId": "a47ed3c3687930fa87174f57beb27211aa570f4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
