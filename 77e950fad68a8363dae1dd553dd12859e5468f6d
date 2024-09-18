@@ -16,6 +16,24 @@
       "message": "nit: slight preference to doing this sorting in the UI as well",
       "revId": "77e950fad68a8363dae1dd553dd12859e5468f6d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "387fbc33_e3940dd2",
+        "filename": "front_end/models/trace/insights/RenderBlocking.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-09-18T20:10:59Z",
+      "side": 1,
+      "message": "yeah was going a bit back \u0026 forth about doing this in the UI instead. One of my reasonings for having it here instead is so that this isn\u0027t sorted every time the UI renders. but wdyt?",
+      "parentUuid": "9555b32c_8149d91c",
+      "revId": "77e950fad68a8363dae1dd553dd12859e5468f6d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
