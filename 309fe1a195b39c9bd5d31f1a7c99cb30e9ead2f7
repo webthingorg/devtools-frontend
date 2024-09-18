@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "81ec23ef_d86246b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-18T17:06:59Z",
+      "side": 1,
+      "message": "i can dig it.",
+      "revId": "309fe1a195b39c9bd5d31f1a7c99cb30e9ead2f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92f2786a_201c7aa2",
+        "filename": "front_end/panels/timeline/components/insights/Table.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-18T17:06:59Z",
+      "side": 1,
+      "message": "this looked a little repetitive so i tried to DRY it. \nthis works. but i\u0027m not attached, so whatever you want.\n\n```suggestion\n\n  #handleRowEvent(\n      e: MouseEvent, callback: (index: number, rowEl: HTMLTableRowElement) \u003d\u003e void): void {\n    if (!callback || !(e.target instanceof HTMLElement)) {\n      return;\n    }\n\n    const rowEl \u003d e.target.closest(\u0027tr\u0027);\n    if (!rowEl || !rowEl.parentElement) {\n      return;\n    }\n\n    const index \u003d [...rowEl.parentElement.children].indexOf(rowEl);\n    if (index \u003d\u003d\u003d -1 || (e.type \u003d\u003d\u003d \u0027mouseover\u0027 \u0026\u0026 index \u003d\u003d\u003d this.#currentHoverIndex)) {\n      return;\n    }\n\n    this.#currentHoverIndex \u003d index;\n    callback(index, rowEl);\n  }\n\n  #onHoverRow(e: MouseEvent): void {\n    this.#handleRowEvent(e, (i, el) \u003d\u003e this.#onHoverRowCallback?.(i, el));\n  }\n\n  #onClickRow(e: MouseEvent): void {\n    this.#handleRowEvent(e, (i, el) \u003d\u003e this.#onClickRowCallback?.(i, el));\n  }\n```",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 3
+      },
+      "revId": "309fe1a195b39c9bd5d31f1a7c99cb30e9ead2f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
