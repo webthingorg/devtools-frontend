@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7422f43_25acfa92",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-18T00:03:49Z",
+      "side": 1,
+      "message": "Jack - I\u0027m gonna iterate on this some more tomorrow. After using for a bit, I realized we reallllly need a way to \"stick\" the on-hover effect. But we also want to be able to click on these rows to show the Network panel filtered to that origin, or show the bottom-up panel w/ the origins filtered .... so gonna work w/ Yuin and think on this more tomorrow.",
+      "revId": "470f235847997b02df93e0a575332471643899df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
