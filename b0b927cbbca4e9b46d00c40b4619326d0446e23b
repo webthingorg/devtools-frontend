@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d386300_a29f8eab",
+        "filename": "front_end/panels/elements/domLinkifier.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-09-18T18:52:13Z",
+      "side": 1,
+      "message": "This allows us to control the maximum width of the button element by modifying the width of the root element.\n\nWithout this change the button could expand as large as 550px which is too big in some contexts.",
+      "revId": "b0b927cbbca4e9b46d00c40b4619326d0446e23b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
