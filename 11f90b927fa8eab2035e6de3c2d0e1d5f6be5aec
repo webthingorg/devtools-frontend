@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "76a68d7b_fe83bd7c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-09-18T13:20:32Z",
+      "side": 1,
+      "message": "Love the AnnotationsHelper!",
+      "revId": "11f90b927fa8eab2035e6de3c2d0e1d5f6be5aec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
