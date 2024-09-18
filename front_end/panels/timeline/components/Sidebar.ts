@@ -88,14 +88,16 @@ export class SidebarWidget extends UI.Widget.VBox {
           'annotations', 'Annotations', this.#annotationsView, undefined, undefined, false, false, 1,
           'timeline.annotations-tab');
     }
-    // TODO: automatically select the right tab depending on what content is
-    // available to us.
   }
 
   setAnnotations(
       updatedAnnotations: TraceEngine.Types.File.Annotation[],
       annotationEntryToColorMap: Map<TraceEngine.Types.TraceEvents.TraceEventData, string>): void {
     this.#annotationsView.setAnnotations(updatedAnnotations, annotationEntryToColorMap);
+
+    const div = document.createElement('div');
+    div.textContent = updatedAnnotations.length.toString();
+    this.#tabbedPane.setCountBadge('annotations', div);
   }
 
   setTraceParsedData(traceParsedData: TraceEngine.Handlers.Types.TraceParseData|null): void {

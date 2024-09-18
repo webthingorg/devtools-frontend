@@ -404,6 +404,15 @@ export class TabbedPane extends Common.ObjectWrapper.eventMixin<EventTypes, type
     this.updateTabElements();
   }
 
+  setCountBadge(id: string, count: HTMLElement): void {
+    const tab = this.tabsById.get(id);
+    if (!tab) {
+      return;
+    }
+    tab.setCountBadge(count);
+    this.updateTabElements();
+  }
+
   setTabEnabled(id: string, enabled: boolean): void {
     const tab = this.tabsById.get(id);
     if (tab) {
@@ -999,6 +1008,7 @@ export class TabbedPaneTab {
   measuredWidth!: number|undefined;
   private tabElementInternal!: HTMLElement|undefined;
   private icon: IconButton.Icon.Icon|null = null;
+  private countBadge: HTMLElement|null = null;
   private widthInternal?: number;
   private delegate?: TabbedPaneTabDelegate;
   private titleElement?: HTMLElement;
@@ -1056,6 +1066,14 @@ export class TabbedPaneTab {
     delete this.measuredWidth;
   }
 
+  setCountBadge(countBadge: HTMLElement): void {
+    this.countBadge = countBadge;
+    if (this.tabElementInternal && this.titleElement) {
+      this.createCountElement(this.tabElementInternal, this.titleElement);
+    }
+    delete this.measuredWidth;
+  }
+
   toggleClass(className: string, force?: boolean): boolean {
     const element = this.tabElement;
     const hasClass = element.classList.contains(className);
@@ -1108,10 +1126,10 @@ export class TabbedPaneTab {
   }
 
   private createIconElement(tabElement: Element, titleElement: Element, measuring: boolean): void {
-    const iconElement = tabIcons.get(tabElement);
+    const iconElement = tabIconsAndCounts.get(tabElement);
     if (iconElement) {
       iconElement.remove();
-      tabIcons.delete(tabElement);
+      tabIconsAndCounts.delete(tabElement);
     }
     if (!this.icon) {
       return;
@@ -1122,7 +1140,21 @@ export class TabbedPaneTab {
     const iconNode = measuring ? this.createMeasureClone(this.icon) : this.icon;
     iconContainer.appendChild(iconNode);
     tabElement.insertBefore(iconContainer, titleElement);
-    tabIcons.set(tabElement, iconContainer);
+    tabIconsAndCounts.set(tabElement, iconContainer);
+  }
+
+  private createCountElement(tabElement: Element, titleElement: Element): void {
+    const countElement = tabIconsAndCounts.get(tabElement);
+    if (countElement) {
+      countElement.remove();
+      tabIconsAndCounts.delete(tabElement);
+    }
+    if (!this.countBadge) {
+      return;
+    }
+
+    tabElement.insertBefore(this.countBadge, titleElement);
+    tabIconsAndCounts.set(tabElement, this.countBadge);
   }
 
   private createMeasureClone(original: IconButton.Icon.Icon): Node {
@@ -1354,7 +1386,7 @@ export class TabbedPaneTab {
   }
 }
 
-const tabIcons = new WeakMap<Element, Element>();
+const tabIconsAndCounts = new WeakMap<Element, Element>();
 
 export interface TabbedPaneTabDelegate {
   closeTabs(tabbedPane: TabbedPane, ids: string[]): void;
