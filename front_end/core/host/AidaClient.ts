@@ -128,6 +128,7 @@ export const enum AidaAccessPreconditions {
   AVAILABLE = 'available',
   NO_ACCOUNT_EMAIL = 'no-account-email',
   NO_INTERNET = 'no-internet',
+  SYNC_IS_PAUSED = 'sync-is-paused',
 }
 
 export const CLIENT_NAME = 'CHROME_DEVTOOLS';
@@ -178,6 +179,10 @@ export class AidaClient {
         resolve => InspectorFrontendHostInstance.getSyncInformation(syncInfo => resolve(syncInfo)));
     if (!syncInfo.accountEmail) {
       return AidaAccessPreconditions.NO_ACCOUNT_EMAIL;
+    }
+
+    if (syncInfo.isSyncPaused) {
+      return AidaAccessPreconditions.SYNC_IS_PAUSED;
     }
 
     return AidaAccessPreconditions.AVAILABLE;
