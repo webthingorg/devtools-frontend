@@ -81,6 +81,18 @@ export class RenderBlockingRequests extends BaseInsight {
           <div slot="insight-description" class="insight-description">
             ${md(i18nString(UIStrings.description))}
           </div>
+          <div slot="insight-content" style="insight-content">
+            <p>
+              Top blocking requests:
+              <ul class="url-list">
+                ${insightResult.topRequests.map(req => {
+                  return LitHtml.html `
+                    <li>${req.args.data.url}</li>
+                  `;
+                })}
+              </ul>
+            <p>
+          </div>
         </${SidebarInsight.SidebarInsight}>
       </div>`;
     // clang-format on
