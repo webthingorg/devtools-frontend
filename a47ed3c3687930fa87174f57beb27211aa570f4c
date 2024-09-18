@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0bb6fc3f_4664322a",
+        "filename": "front_end/models/trace/insights/RenderBlocking.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-09-18T20:04:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23a39535_73fb18c6",
+      "revId": "a47ed3c3687930fa87174f57beb27211aa570f4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8a560e03_442ad4b7",
@@ -49,6 +67,24 @@
           ]
         }
       ],
+      "revId": "a47ed3c3687930fa87174f57beb27211aa570f4c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51be9936_a0877760",
+        "filename": "front_end/panels/timeline/components/insights/RenderBlocking.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-09-18T20:04:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a560e03_442ad4b7",
       "revId": "a47ed3c3687930fa87174f57beb27211aa570f4c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
