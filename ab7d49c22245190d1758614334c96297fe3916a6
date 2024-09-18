@@ -1,0 +1,75 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5eac44d0_078058ac",
+        "filename": "front_end/panels/timeline/overlays/components/EntriesLinkOverlay.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-09-18T09:35:02Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 228,
+        "startChar": 68,
+        "endLine": 228,
+        "endChar": 73
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "3dbf7d9d_bc389321",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/overlays/components/EntriesLinkOverlay.ts",
+              "range": {
+                "startLine": 228,
+                "startChar": 0,
+                "endLine": 230,
+                "endChar": 0
+              },
+              "replacement": "    const createLinkBox \u003d this.#shadow.querySelector\u003cHTMLElement\u003e(\u0027.create-link-box\u0027);\n    const createLinkIcon \u003d createLinkBox?.querySelector\u003cHTMLElement\u003e(\u0027.create-link-icon\u0027) ?? null;\n"
+            },
+            {
+              "path": "front_end/panels/timeline/overlays/components/EntriesLinkOverlay.ts",
+              "range": {
+                "startLine": 244,
+                "startChar": 0,
+                "endLine": 246,
+                "endChar": 0
+              },
+              "replacement": "    const createLinkBox \u003d this.#shadow.querySelector\u003cHTMLElement\u003e(\u0027.create-link-box\u0027);\n    const createLinkIcon \u003d createLinkBox?.querySelector\u003cHTMLElement\u003e(\u0027.create-link-icon\u0027) ?? null;\n"
+            },
+            {
+              "path": "front_end/panels/timeline/overlays/components/EntriesLinkOverlay.ts",
+              "range": {
+                "startLine": 271,
+                "startChar": 0,
+                "endLine": 272,
+                "endChar": 0
+              },
+              "replacement": "        \u003cdiv class\u003d\u0027create-link-box\u0027\u003e\n"
+            },
+            {
+              "path": "front_end/panels/timeline/overlays/components/EntriesLinkOverlay.ts",
+              "range": {
+                "startLine": 274,
+                "startChar": 0,
+                "endLine": 275,
+                "endChar": 0
+              },
+              "replacement": "            class\u003d\u0027create-link-icon\u0027\n"
+            }
+          ]
+        }
+      ],
+      "revId": "ab7d49c22245190d1758614334c96297fe3916a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
