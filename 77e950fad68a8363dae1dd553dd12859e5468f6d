@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9555b32c_8149d91c",
+        "filename": "front_end/models/trace/insights/RenderBlocking.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-09-18T20:07:36Z",
+      "side": 1,
+      "message": "nit: slight preference to doing this sorting in the UI as well",
+      "revId": "77e950fad68a8363dae1dd553dd12859e5468f6d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
