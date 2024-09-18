@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "522948fd_1537b1f3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-09-18T12:02:21Z",
+      "side": 1,
+      "message": "I did some greping around the code base and the generated output, but couldn\u0027t find a use-site. There also is also no `BUILD.gn` to depend on anything.",
+      "revId": "a7f0868c40aa4987d44a974a3f3a0d0fa1a678fd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
