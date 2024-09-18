@@ -34,6 +34,24 @@
       "parentUuid": "9555b32c_8149d91c",
       "revId": "77e950fad68a8363dae1dd553dd12859e5468f6d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3005169d_22d4a147",
+        "filename": "front_end/models/trace/insights/RenderBlocking.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 203,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-09-18T20:12:15Z",
+      "side": 1,
+      "message": "That\u0027s a good point, probably fine how it is then.",
+      "parentUuid": "387fbc33_e3940dd2",
+      "revId": "77e950fad68a8363dae1dd553dd12859e5468f6d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
