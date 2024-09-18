@@ -16,6 +16,24 @@
       "message": "this breaks lines in the middle of words. looks real weird with a long label. :/\n\nhttps://screenshot.googleplex.com/AywZVGYFkNSNVzq\n \n`word-break: break-word` seems like a better choice that will still break if we need to, but not mid-word.",
       "revId": "3de3f2c2bc22ce781b8cb141897fe04385b71585",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "461e9e9b_671ec3ce",
+        "filename": "front_end/panels/timeline/components/sidebarAnnotationsTab.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-18T08:56:20Z",
+      "side": 1,
+      "message": "crrev.com/c/5868064",
+      "parentUuid": "978dd801_4e5031a6",
+      "revId": "3de3f2c2bc22ce781b8cb141897fe04385b71585",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
