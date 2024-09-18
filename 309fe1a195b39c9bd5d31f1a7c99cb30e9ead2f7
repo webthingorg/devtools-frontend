@@ -39,6 +39,30 @@
       },
       "revId": "309fe1a195b39c9bd5d31f1a7c99cb30e9ead2f7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ddfb71f5_2e2b0be6",
+        "filename": "front_end/panels/timeline/components/insights/Table.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-18T17:27:06Z",
+      "side": 1,
+      "message": "I tried that too, but didn\u0027t like the readability of it. In fact there\u0027s a bug here because you are setting the currentHoverIndex even for click :) Easier to understand the code when repeating a bit.",
+      "parentUuid": "92f2786a_201c7aa2",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 3
+      },
+      "revId": "309fe1a195b39c9bd5d31f1a7c99cb30e9ead2f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
