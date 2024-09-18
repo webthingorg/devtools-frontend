@@ -1,0 +1,108 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "50374787_f277c484",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-09-18T09:29:25Z",
+      "side": 1,
+      "message": "LGTM!",
+      "revId": "86d97b6124b830c8b481a9daa8dfb81336e5f56d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9dbd07f2_e42145f5",
+        "filename": "front_end/panels/timeline/overlays/OverlaysImpl.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-09-18T09:29:25Z",
+      "side": 1,
+      "message": "Maybe `ENTRIES_LINK_CREATE_BUTTON`?",
+      "range": {
+        "startLine": 164,
+        "startChar": 10,
+        "endLine": 164,
+        "endChar": 29
+      },
+      "revId": "86d97b6124b830c8b481a9daa8dfb81336e5f56d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37f46ffb_008cfc3c",
+        "filename": "front_end/panels/timeline/overlays/OverlaysImpl.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 1423,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-09-18T09:29:25Z",
+      "side": 1,
+      "message": "I think this is not applicable here, we only have 1 entry",
+      "range": {
+        "startLine": 1421,
+        "startChar": 0,
+        "endLine": 1423,
+        "endChar": 59
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "8ee2eb7c_4c74312e",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/overlays/OverlaysImpl.ts",
+              "range": {
+                "startLine": 1421,
+                "startChar": 0,
+                "endLine": 1424,
+                "endChar": 0
+              },
+              "replacement": "          // For some reason, we don\u0027t have an entry we can draw between\n          // (can happen if the user has collapsed an icicle in the flame chart,\n          // or a track), so just draw an empty div.\n"
+            }
+          ]
+        }
+      ],
+      "revId": "86d97b6124b830c8b481a9daa8dfb81336e5f56d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "179b3cd6_98b65432",
+        "filename": "front_end/panels/timeline/overlays/components/entriesLinkOverlay.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-09-18T09:29:25Z",
+      "side": 1,
+      "message": "let\u0027s remove this 😄",
+      "range": {
+        "startLine": 15,
+        "startChar": 1,
+        "endLine": 15,
+        "endChar": 30
+      },
+      "revId": "86d97b6124b830c8b481a9daa8dfb81336e5f56d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
