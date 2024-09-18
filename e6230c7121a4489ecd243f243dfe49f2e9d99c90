@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "534eb0d7_030fa970",
+        "filename": "front_end/ui/lit-html/static.test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-18T23:32:25Z",
+      "side": 1,
+      "message": "This would previously fail, because both elements would be \u0027div\u0027.",
+      "revId": "e6230c7121a4489ecd243f243dfe49f2e9d99c90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
