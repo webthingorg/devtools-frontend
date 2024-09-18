@@ -2854,7 +2854,6 @@ export const knownContextValues = new Set([
   'sw',
   'sw-scope',
   'symbols',
-  'sync-is-off',
   'sync-preferences',
   'sync-tag',
   'syntax',
