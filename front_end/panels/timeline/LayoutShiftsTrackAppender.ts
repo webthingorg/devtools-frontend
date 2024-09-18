@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 import * as i18n from '../../core/i18n/i18n.js';
-import * as Root from '../../core/root/root.js';
 import * as TraceEngine from '../../models/trace/trace.js';
 import * as ThemeSupport from '../../ui/legacy/theme_support/theme_support.js';
 
@@ -102,14 +101,11 @@ export class LayoutShiftsTrackAppender implements TrackAppender {
           this.#compatibilityBuilder.getFlameChartTimelineData().entryTotalTimes[index] =
               TraceEngine.Helpers.Timing.microSecondsToMilliseconds(totalTime);
         };
-    let shiftLevel = currentLevel;
-    if (Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.TIMELINE_LAYOUT_SHIFT_DETAILS)) {
-      const allClusters = this.#traceParsedData.LayoutShifts.clusters;
-      this.#compatibilityBuilder.appendEventsAtLevel(allClusters, currentLevel, this, setFlameChartEntryTotalTime);
+    const allClusters = this.#traceParsedData.LayoutShifts.clusters;
+    this.#compatibilityBuilder.appendEventsAtLevel(allClusters, currentLevel, this, setFlameChartEntryTotalTime);
 
-      // layout shifts should be below clusters.
-      shiftLevel = currentLevel + 1;
-    }
+    // layout shifts should be below clusters.
+    const shiftLevel = currentLevel + 1;
 
     return this.#compatibilityBuilder.appendEventsAtLevel(
         allLayoutShifts, shiftLevel, this, setFlameChartEntryTotalTime);
