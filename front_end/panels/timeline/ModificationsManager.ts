@@ -9,6 +9,7 @@ import * as TimelineComponents from '../../panels/timeline/components/components
 
 import {EntriesFilter} from './EntriesFilter.js';
 import {EventsSerializer} from './EventsSerializer.js';
+import * as OverlaysComponents from './overlays/components/components.js';
 import * as Overlays from './overlays/overlays.js';
 
 const modificationsManagerByTraceIndex: ModificationsManager[] = [];
@@ -181,6 +182,7 @@ export class ModificationsManager extends EventTarget {
           type: 'ENTRIES_LINK',
           entryFrom: annotation.entryFrom,
           entryTo: annotation.entryTo,
+          state: OverlaysComponents.EntriesLinkOverlay.CreateState.CREATED,
         };
       default:
         Platform.assertNever(annotation, 'Overlay for provided annotation cannot be created');

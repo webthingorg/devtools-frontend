@@ -18,6 +18,7 @@ import type * as TimelineComponents from './components/components.js';
 import {CountersGraph} from './CountersGraph.js';
 import {SHOULD_SHOW_EASTER_EGG} from './EasterEgg.js';
 import {ModificationsManager} from './ModificationsManager.js';
+import * as OverlaysComponents from './overlays/components/components.js';
 import * as Overlays from './overlays/overlays.js';
 import {targetForEvent} from './TargetForEvent.js';
 import {TimelineDetailsView} from './TimelineDetailsView.js';
@@ -227,6 +228,21 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
         ModificationsManager.activeManager()?.removeAnnotationOverlay(overlay);
       } else if (action === 'Update') {
         ModificationsManager.activeManager()?.updateAnnotationOverlay(overlay);
+      } else if (action === 'CreateLink') {
+        console.assert(
+            overlay.type === 'ENTRIES_LINK', 'CreateLink should only be dispatched by ENTRIES_LINK type overlay');
+        if (overlay.type === 'ENTRIES_LINK') {
+          console.assert(
+              overlay.state === OverlaysComponents.EntriesLinkOverlay.CreateState.BUTTON_TO_CREATE,
+              'CreateLink should only be dispatched by ENTRIES_LINK type overlay');
+          this.removeOverlay(overlay);
+          this.#linkSelectionAnnotation = {
+            type: 'ENTRIES_LINK',
+            entryFrom: overlay.entryFrom,
+            entryTo: overlay.entryTo,
+          };
+          ModificationsManager.activeManager()?.createAnnotation(this.#linkSelectionAnnotation);
+        }
       }
     });
 
@@ -761,6 +777,7 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
     }
     this.#overlays.update();
   }
+
   addOverlay<T extends Overlays.Overlays.TimelineOverlay>(newOverlay: T): T {
     const overlay = this.#overlays.add(newOverlay);
     this.#overlays.update();
@@ -794,6 +811,11 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
         type: 'ENTRY_LABEL',
         entry: selection.object,
         label: '',
+      });
+      this.addOverlay({
+        type: 'ENTRIES_LINK',
+        entryFrom: selection.object,
+        state: OverlaysComponents.EntriesLinkOverlay.CreateState.BUTTON_TO_CREATE,
       });
     }
   }

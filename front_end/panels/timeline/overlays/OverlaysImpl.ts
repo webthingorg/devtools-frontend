@@ -70,6 +70,7 @@ export interface EntryLabel {
  */
 export interface EntriesLink {
   type: 'ENTRIES_LINK';
+  state: Components.EntriesLinkOverlay.CreateState;
   entryFrom: OverlayEntry;
   entryTo?: OverlayEntry;
 }
@@ -351,7 +352,7 @@ export interface OverlayEntryQueries {
 // An event dispatched when one of the Annotation Overlays (overlay created by the user,
 // ex. EntryLabel) is removed or updated. When one of the Annotation Overlays is removed or updated,
 // ModificationsManager listens to this event and updates the current annotations.
-export type UpdateAction = 'Remove'|'Update';
+export type UpdateAction = 'Remove'|'Update'|'CreateLink';
 export class AnnotationOverlayActionEvent extends Event {
   static readonly eventName = 'annotationoverlayactionsevent';
 
@@ -994,7 +995,10 @@ export class Overlays extends EventTarget {
           height: toEntryHeight,
         };
 
-      } else if (this.#lastMouseOffsetX && this.#lastMouseOffsetY) {
+      } else if (
+          overlay.state !== Components.EntriesLinkOverlay.CreateState.BUTTON_TO_CREATE && this.#lastMouseOffsetX &&
+          this.#lastMouseOffsetY) {
+        // overlay.state = Components.EntriesLinkOverlay.CreateState.CREATING
         // The second coordinate for in progress link gets updated on mousemove
         this.#entriesLinkInProgress = overlay;
       }
@@ -1369,7 +1373,11 @@ export class Overlays extends EventTarget {
         const entryHeight = this.pixelHeightForEventOnChart(entries.entryFrom) ?? 0;
 
         const component = new Components.EntriesLinkOverlay.EntriesLinkOverlay(
-            {x: entryEndX, y: entryStartY, width: entryWidth, height: entryHeight});
+            overlay, {x: entryEndX, y: entryStartY, width: entryWidth, height: entryHeight});
+
+        component.addEventListener(Components.EntriesLinkOverlay.CreateEntriesLinkRemoveEvent.eventName, () => {
+          this.dispatchEvent(new AnnotationOverlayActionEvent(overlay, 'CreateLink'));
+        });
         div.appendChild(component);
         return div;
       }
