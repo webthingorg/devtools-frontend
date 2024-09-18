@@ -16,6 +16,24 @@
       "message": "Why was this change necessary? Were timespan overlays only used in the network track?",
       "revId": "3bb45740f2c4990ca30943fbcb7cd3352e0b3cdf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7c92a5f_c2722539",
+        "filename": "front_end/panels/timeline/overlays/OverlaysImpl.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 914,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-09-18T22:31:38Z",
+      "side": 1,
+      "message": "yeah they were initially just on the network track. Though tbh the conditional wasn\u0027t needed in the first place (at least I don\u0027t remember why I added it)",
+      "parentUuid": "920aa5f2_d8a4032d",
+      "revId": "3bb45740f2c4990ca30943fbcb7cd3352e0b3cdf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
