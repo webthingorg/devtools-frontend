@@ -16,6 +16,24 @@
       "message": "I think this is not looking as expected, WDYT?\n\nSee the screenshot in: b/367653977#comment2",
       "revId": "a17766dd0a0d90f67bfd7cdeee5b6af34462f6a0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66afad5b_32356a4a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-09-18T11:54:08Z",
+      "side": 1,
+      "message": "Fixed, check it out now",
+      "parentUuid": "c2b824cc_a3a8cf7d",
+      "revId": "a17766dd0a0d90f67bfd7cdeee5b6af34462f6a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
