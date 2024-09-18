@@ -60,6 +60,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1190271a_30fa4f6f",
+        "filename": "front_end/panels/application/ExtensionStorageModel.test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1568253
+      },
+      "writtenOn": "2024-09-18T11:00:24Z",
+      "side": 1,
+      "message": "Thanks for the reference! I was previously looking at DOMStorageModel.test.ts, which is woefully short, but SharedStorageModel was a much better starting point. Added a significant number of additional tests.",
+      "parentUuid": "96b6b641_5d96927c",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 5
+      },
+      "revId": "f1e105ecc624e209837c45ce7858c2d3a4a91da3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "55a883cd_b896cc91",
         "filename": "front_end/panels/application/ExtensionStorageModel.ts",
         "patchSetId": 4
@@ -71,6 +95,24 @@
       "writtenOn": "2024-09-17T14:01:42Z",
       "side": 1,
       "message": "I think we want to await invoke_ calls and also the invoke_* commands do not throw and instead you need to check if result.hasError() or something similar\n\nSo let\u0027s make it async and void the promises on the consumer side.",
+      "revId": "f1e105ecc624e209837c45ce7858c2d3a4a91da3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f83bae2_7b9b29da",
+        "filename": "front_end/panels/application/ExtensionStorageModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1568253
+      },
+      "writtenOn": "2024-09-18T11:00:24Z",
+      "side": 1,
+      "message": "Oh, good spot! As discussed in Chat I just changed this to throw an error if needed.",
+      "parentUuid": "55a883cd_b896cc91",
       "revId": "f1e105ecc624e209837c45ce7858c2d3a4a91da3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
