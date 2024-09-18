@@ -19,6 +19,7 @@ import {
 
 export type RenderBlockingInsightResult = InsightResult<{
   renderBlockingRequests: Types.TraceEvents.SyntheticNetworkRequest[],
+  topRequests?: Types.TraceEvents.SyntheticNetworkRequest[],
   requestIdToWastedMs?: Map<string, number>,
 }>;
 
@@ -160,7 +161,7 @@ export function generateInsight(
     };
   }
 
-  const renderBlockingRequests = [];
+  let renderBlockingRequests: Types.TraceEvents.SyntheticNetworkRequest[] = [];
   for (const req of traceParsedData.NetworkRequests.byTime) {
     if (req.args.data.frame !== context.frameId) {
       continue;
@@ -198,8 +199,16 @@ export function generateInsight(
 
   const savings = computeSavings(traceParsedData, context, renderBlockingRequests);
 
+  // Sort by request duration for insights.
+  renderBlockingRequests = renderBlockingRequests.sort((a, b) => {
+    return b.dur - a.dur;
+  });
+  const MAX_REQUESTS = 3;
+  const topRequests = renderBlockingRequests.slice(0, MAX_REQUESTS);
+
   return {
     renderBlockingRequests,
+    topRequests,
     ...savings,
   };
 }
