@@ -271,21 +271,24 @@ export function allowHeader(header: SDK.NetworkRequest.NameValue): boolean {
   return true;
 }
 
-export function formatNetworkRequest(
-    request:
-        Pick<SDK.NetworkRequest.NetworkRequest, 'url'|'requestHeaders'|'responseHeaders'|'statusCode'|'statusText'>):
-    string {
-  const formatHeaders = (title: string, headers: SDK.NetworkRequest.NameValue[]): string => formatLines(
+export function formatHeaders(title: string, headers: SDK.NetworkRequest.NameValue[]): string {
+  return formatLines(
       title, headers.filter(allowHeader).map(header => header.name + ': ' + header.value + '\n'), MAX_HEADERS_SIZE);
+}
+
+export function formatNetworkRequest(request: SDK.NetworkRequest.NetworkRequest|null): string {
   // TODO: anything else that might be relavant?
   // TODO: handle missing headers
-  return `Request: ${request.url()}
+  if (request !== null) {
+    return `Request: ${request.url()}
 
 ${formatHeaders('Request headers:', request.requestHeaders())}
 
 ${formatHeaders('Response headers:', request.responseHeaders)}
 
 Response status: ${request.statusCode} ${request.statusText}`;
+  }
+  return '';
 }
 
 // @ts-ignore
