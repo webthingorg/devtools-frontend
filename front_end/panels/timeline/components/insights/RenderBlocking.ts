@@ -68,6 +68,7 @@ export class RenderBlockingRequests extends BaseInsight {
   #renderRenderBlocking(insightResult: TraceEngine.Insights.Types.InsightResults['RenderBlocking']):
       LitHtml.TemplateResult {
     const estimatedSavings = insightResult.metricSavings?.FCP;
+    const topRequests = insightResult.topRequests ?? [];
     // clang-format off
     return LitHtml.html`
         <div class="insights">
@@ -80,6 +81,18 @@ export class RenderBlockingRequests extends BaseInsight {
         >
           <div slot="insight-description" class="insight-description">
             ${md(i18nString(UIStrings.description))}
+          </div>
+          <div slot="insight-content" style="insight-content">
+            <p>
+              Top blocking requests:
+              <ul class="url-list">
+                ${topRequests.map(req => {
+                  return LitHtml.html `
+                    <li>${req.args.data.url}</li>
+                  `;
+                })}
+              </ul>
+            <p>
           </div>
         </${SidebarInsight.SidebarInsight}>
       </div>`;
