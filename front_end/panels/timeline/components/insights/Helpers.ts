@@ -63,6 +63,13 @@ export abstract class BaseInsight extends HTMLElement {
     this.shadow.adoptedStyleSheets.push(sidebarInsightStyles);
   }
 
+  // TODO(cjamcl): use `set data` like all the other custom components. Requires removing `this.data` and making properties
+  // directly on the object.
+  set dataObj(newData: BaseInsightData) {
+    this.data = newData;
+    void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
+  }
+
   set insights(insights: TraceEngine.Insights.Types.TraceInsightData|null) {
     this.data.insights = insights;
     void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
@@ -73,7 +80,7 @@ export abstract class BaseInsight extends HTMLElement {
     void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
   }
 
-  set activeInsight(activeInsight: ActiveInsight) {
+  set activeInsight(activeInsight: ActiveInsight|null) {
     this.data.activeInsight = activeInsight;
     void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
   }
