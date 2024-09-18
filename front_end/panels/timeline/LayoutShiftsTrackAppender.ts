@@ -89,30 +89,22 @@ export class LayoutShiftsTrackAppender implements TrackAppender {
    */
   #appendLayoutShiftsAtLevel(currentLevel: number): number {
     const allLayoutShifts = this.#traceParsedData.LayoutShifts.clusters.flatMap(cluster => cluster.events);
-    const setFlameChartEntryTotalTime =
-        (_event: TraceEngine.Types.TraceEvents.SyntheticLayoutShift|
-         TraceEngine.Types.TraceEvents.SyntheticLayoutShiftCluster,
-         index: number): void => {
-          let totalTime = LAYOUT_SHIFT_SYNTHETIC_DURATION;
-          if (TraceEngine.Types.TraceEvents.isSyntheticLayoutShiftCluster(_event)) {
-            // This is to handle the cases where there is a singular shift for a cluster.
-            // A single shift would make the cluster duration 0 and hard to read.
-            // So in this case, give it the LAYOUT_SHIFT_SYNTHETIC_DURATION duration.
-            totalTime = _event.dur || LAYOUT_SHIFT_SYNTHETIC_DURATION;
-          }
-          this.#compatibilityBuilder.getFlameChartTimelineData().entryTotalTimes[index] =
-              TraceEngine.Helpers.Timing.microSecondsToMilliseconds(totalTime);
-        };
-    let shiftLevel = currentLevel;
+
     if (Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.TIMELINE_LAYOUT_SHIFT_DETAILS)) {
       const allClusters = this.#traceParsedData.LayoutShifts.clusters;
-      this.#compatibilityBuilder.appendEventsAtLevel(allClusters, currentLevel + 1, this, setFlameChartEntryTotalTime);
-
-      // layout shifts should be below clusters.
-      shiftLevel = currentLevel + 2;
+      for (const event of allClusters) {
+        if (TraceEngine.Types.TraceEvents.isSyntheticLayoutShiftCluster(event) && event.dur === 0) {
+          const cluster = event as TraceEngine.Types.TraceEvents.SyntheticLayoutShiftCluster;
+          // This is to handle the cases where there is a singular shift for a cluster.
+          // A single shift would make the cluster duration 0 and hard to read.
+          // So in this case, give it the LAYOUT_SHIFT_SYNTHETIC_DURATION duration.
+          cluster.dur = LAYOUT_SHIFT_SYNTHETIC_DURATION;
+        }
+      }
+      this.#compatibilityBuilder.appendEventsAtLevel(allClusters, currentLevel, this);
     }
 
-    return this.#compatibilityBuilder.appendEventsAtLevel(allLayoutShifts, shiftLevel, this);
+    return this.#compatibilityBuilder.appendEventsAtLevel(allLayoutShifts, currentLevel, this);
   }
 
   /*
@@ -137,7 +129,7 @@ export class LayoutShiftsTrackAppender implements TrackAppender {
       return 'Layout shift';
     }
     if (TraceEngine.Types.TraceEvents.isSyntheticLayoutShiftCluster(event)) {
-      return 'Layout shift cluster';
+      return '';
     }
     return event.name;
   }
@@ -152,29 +144,38 @@ export class LayoutShiftsTrackAppender implements TrackAppender {
   }
 
   getDrawOverride(event: TraceEngine.Types.TraceEvents.TraceEventData): DrawOverride|undefined {
-    if (!TraceEngine.Types.TraceEvents.isTraceEventLayoutShift(event)) {
-      return;
-    }
+    if (TraceEngine.Types.TraceEvents.isTraceEventLayoutShift(event)) {
+      const score = event.args.data?.weighted_score_delta || 0;
+      const bufferScale = 1 - Math.min(score / 0.1, 1);
+      const buffer = Math.round(bufferScale * 3);
 
-    const score = event.args.data?.weighted_score_delta || 0;
-    const bufferScale = 1 - Math.min(score / 0.1, 1);
-    const buffer = Math.round(bufferScale * 3);
-
-    return (context, x, y, _width, height) => {
-      const boxSize = height;
-      const halfSize = boxSize / 2;
-      context.beginPath();
-      context.moveTo(x, y + buffer);
-      context.lineTo(x + halfSize - buffer, y + halfSize);
-      context.lineTo(x, y + height - buffer);
-      context.lineTo(x - halfSize + buffer, y + halfSize);
-      context.closePath();
-      context.fillStyle = this.colorForEvent(event);
-      context.fill();
-      return {
-        x: x - halfSize,
-        width: boxSize,
+      return (context, x, y, _width, height) => {
+        const boxSize = height;
+        const halfSize = boxSize / 2;
+        context.beginPath();
+        context.moveTo(x, y + buffer);
+        context.lineTo(x + halfSize - buffer, y + halfSize);
+        context.lineTo(x, y + height - buffer);
+        context.lineTo(x - halfSize + buffer, y + halfSize);
+        context.closePath();
+        context.fillStyle = this.colorForEvent(event);
+        context.fill();
+        return {
+          x: x - halfSize,
+          width: boxSize,
+        };
       };
-    };
+    }
+    if (TraceEngine.Types.TraceEvents.isSyntheticLayoutShiftCluster(event)) {
+      return (context, x, y, width, height) => {
+        const barHeight = height * 0.5;
+        const barY = y + (height - barHeight) / 2 + 0.5;
+        context.fillStyle = this.colorForEvent(event).replace('100%)', '66%)');  // hack to add opacity
+        context.rect(x, barY, width - 0.5, barHeight - 1);
+        context.fill();
+        return {x, width, z: -1};
+      };
+    }
+    return;
   }
 }
