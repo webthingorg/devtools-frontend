@@ -2,13 +2,23 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import type * as TraceEngine from '../../../../models/trace/trace.js';
+import * as i18n from '../../../../core/i18n/i18n.js';
+import * as TraceEngine from '../../../../models/trace/trace.js';
 import * as LitHtml from '../../../../ui/lit-html/lit-html.js';
 import type * as Overlays from '../../overlays/overlays.js';
 
 import {BaseInsight, shouldRenderForCategory} from './Helpers.js';
 import * as SidebarInsight from './SidebarInsight.js';
 import {InsightsCategories} from './types.js';
+
+const UIStrings = {
+  /**
+   *@description Text indicating the worst layout shift cluster.
+   */
+  worstCluster: 'Worst layout shift cluster',
+};
+const str_ = i18n.i18n.registerUIStrings('panels/timeline/components/insights/CLSCulprits.ts', UIStrings);
+const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 export function getCLSInsight(insights: TraceEngine.Insights.Types.TraceInsightData|null, navigationId: string|null):
     TraceEngine.Insights.Types.InsightResults['CumulativeLayoutShift']|null {
@@ -35,8 +45,21 @@ export class CLSCulprits extends BaseInsight {
   override userVisibleTitle: string = 'Layout shift culprits';
 
   override createOverlays(): Overlays.Overlays.TimelineOverlay[] {
-    // TODO: create overlays
-    return [];
+    const insight = getCLSInsight(this.data.insights, this.data.navigationId);
+    // Clusters are sorted by bad scores, so we can grab the first.
+    const worstCluster = insight?.clusters[0];
+    if (!worstCluster) {
+      return [];
+    }
+    const range = TraceEngine.Types.Timing.MicroSeconds(worstCluster.dur ?? 0);
+    const max = TraceEngine.Types.Timing.MicroSeconds(worstCluster.ts + range);
+    return [{
+      type: 'TIMESPAN_BREAKDOWN',
+      sections: [
+        {bounds: {min: worstCluster.ts, range, max}, label: i18nString(UIStrings.worstCluster), showDuration: false},
+      ],
+      entry: worstCluster,
+    }];
   }
 
   /**
