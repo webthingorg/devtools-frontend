@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a73b8cba_909a441c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-09-18T21:14:37Z",
+      "side": 1,
+      "message": "Hi Kateryna, got another CL for luminosity contrast ratio issue. Could you take a look when you get a chance? Thanks!",
+      "revId": "30c368ffc4391f92cd3a936dfa431ff0e980e086",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
