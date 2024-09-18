@@ -16,6 +16,24 @@
       "message": "compression is done in scripts/build/compress_files.js conditionally to speed non-release builds. Could you clarify if improvements you are seeing are in the release build and if you check it why is scripts/build/compress_files.js not working in the files that bring improvements?",
       "revId": "12152853d5a66a878cf9fba615f8e725147fecb9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ac50b6b_08373f5d",
+        "filename": "scripts/build/generate_devtools_grd.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1410814
+      },
+      "writtenOn": "2024-09-18T12:38:46Z",
+      "side": 0,
+      "message": "CL for context: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/2905507",
+      "parentUuid": "54020798_bbc8f33a",
+      "revId": "12152853d5a66a878cf9fba615f8e725147fecb9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
