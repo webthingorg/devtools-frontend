@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "848c837e_2bd05bf9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 35
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-09-18T15:56:29Z",
+      "side": 1,
+      "message": "There is a `await coordinator.done({waitForWork: true});`, which should wait for async stuff to finish. Could you try that instead?",
+      "parentUuid": "0c580001_af4730fe",
+      "revId": "5f468ffcfbfd0dc5b8a0aa082698848430d4ae25",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4cc921d5_e90e269b",
         "filename": "front_end/panels/application/preloading/PreloadingView.ts",
         "patchSetId": 35
