@@ -103,6 +103,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ab14a303_74026edf",
+        "filename": "front_end/models/trace/Processor.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-18T08:23:05Z",
+      "side": 1,
+      "message": "I guess we could store into the metadata for traces if they were a \"reload + record\" trace if we think that would help.",
+      "parentUuid": "37775929_bd9bdc3a",
+      "revId": "a1ae3c370a7176f90132df837f63026a597dd23e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "623e765a_ad2badef",
         "filename": "front_end/models/trace/Processor.ts",
         "patchSetId": 6
