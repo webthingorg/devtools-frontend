@@ -30,7 +30,7 @@ describeWithEnvironment('DocumentLatency', function() {
     const {data, insights} = await processTrace(this, 'lantern/paul/trace.json.gz');
     const insight =
         getInsight('DocumentLatency', insights, getFirstOrError(data.Meta.navigationsByNavigationId.values()));
-    assert.strictEqual(insight.data?.serverResponseTime, 43);
+    assert.strictEqual(insight.data?.serverResponseTime, 38);
     assert(!insight.data?.serverResponseTooSlow);
     assert.deepEqual(insight.metricSavings, {FCP: 0, LCP: 0});
   });
@@ -42,7 +42,7 @@ describeWithEnvironment('DocumentLatency', function() {
     const mainRequestEventIndex = traceEvents.findIndex(e => e.name === 'ResourceReceiveResponse');
     const mainRequestEvent = structuredClone(traceEvents[mainRequestEventIndex]);
     assert(Types.TraceEvents.isTraceEventResourceReceiveResponse(mainRequestEvent));
-    assert.strictEqual(mainRequestEvent.args.data.requestId, '1000C0FDC0A75327167272FC7438E999');
+    assert.strictEqual(mainRequestEvent.args.data.requestId, '1547EDB9A4C5BD0659C7DB88DDFD88FD');
     if (!mainRequestEvent.args.data.timing) {
       throw new Error('missing timing field');
     }
@@ -59,9 +59,9 @@ describeWithEnvironment('DocumentLatency', function() {
     const navigation = getFirstOrError(data.Meta.navigationsByNavigationId.values());
     const context = createContextForNavigation(navigation, data.Meta.mainFrameId);
     const insight = TraceModel.Insights.InsightRunners.DocumentLatency.generateInsight(data, context);
-    assert.strictEqual(insight.data?.serverResponseTime, 1043);
+    assert.strictEqual(insight.data?.serverResponseTime, 1038);
     assert(insight.data?.serverResponseTooSlow);
-    assert.deepEqual(insight.metricSavings, {FCP: 943, LCP: 943});
+    assert.deepEqual(insight.metricSavings, {FCP: 938, LCP: 938});
   });
 
   it('reports no compression savings for compressed text', async () => {
@@ -79,7 +79,7 @@ describeWithEnvironment('DocumentLatency', function() {
     const mainRequestEventIndex = traceEvents.findIndex(e => e.name === 'ResourceReceiveResponse');
     const mainRequestEvent = structuredClone(traceEvents[mainRequestEventIndex]);
     assert(Types.TraceEvents.isTraceEventResourceReceiveResponse(mainRequestEvent));
-    assert.strictEqual(mainRequestEvent.args.data.requestId, '1000C0FDC0A75327167272FC7438E999');
+    assert.strictEqual(mainRequestEvent.args.data.requestId, '1547EDB9A4C5BD0659C7DB88DDFD88FD');
     // Delete content-encoding header.
     mainRequestEvent.args.data.headers = mainRequestEvent.args.data.headers?.filter(h => h.name !== 'content-encoding');
     traceEvents[mainRequestEventIndex] = mainRequestEvent;
