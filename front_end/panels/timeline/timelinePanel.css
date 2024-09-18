@@ -503,6 +503,10 @@
   z-index: 2;
 }
 
+.extension-feedback-link {
+  padding-left: 6px;
+}
+
 .timeline-stack-view-header {
   height: 27px;
   background-color: var(--sys-color-cdt-base-container);

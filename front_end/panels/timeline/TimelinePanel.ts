@@ -293,6 +293,10 @@ const UIStrings = {
    * @description Screen reader announcement when the sidebar is hidden in the Performance panel.
    */
   sidebarHidden: 'Performance sidebar hidden',
+  /**
+   *@description Text that is usually a hyperlink to a feedback form
+   */
+  sendFeedback: '(Send feedback)',
 
 };
 const str_ = i18n.i18n.registerUIStrings('panels/timeline/TimelinePanel.ts', UIStrings);
@@ -1016,8 +1020,14 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     const thirdPartyToolbar = new UI.Toolbar.Toolbar('', this.settingsPane.element);
     thirdPartyToolbar.element.classList.add('flex-auto');
     thirdPartyToolbar.makeVertical();
-    thirdPartyToolbar.appendToolbarItem(
-        this.createSettingCheckbox(this.#thirdPartyTracksSetting, i18nString(UIStrings.showDataAddedByExtensions)));
+    const settingCheckbox =
+        this.createSettingCheckbox(this.#thirdPartyTracksSetting, i18nString(UIStrings.showDataAddedByExtensions));
+    const link = UI.XLink.XLink.create(
+        'https://issues.chromium.org/367962586', undefined, undefined, undefined, 'extension-timeline-data-feedback');
+    link.textContent = i18nString(UIStrings.sendFeedback);
+    link.classList.add('extension-feedback-link');
+    settingCheckbox.element.append(link);
+    thirdPartyToolbar.appendToolbarItem(settingCheckbox);
 
     const {toggle, input, reset, warning} =
         MobileThrottling.ThrottlingManager.throttlingManager().createHardwareConcurrencySelector();
