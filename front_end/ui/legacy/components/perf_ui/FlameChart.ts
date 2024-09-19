@@ -227,10 +227,15 @@ export interface PossibleFilterActions {
   [FilterAction.UNDO_ALL_ACTIONS]: boolean;
 }
 
-export type DrawOverride = (context: CanvasRenderingContext2D, x: number, y: number, width: number, height: number) => {
-x:
-  number, width: number,
-};
+export interface PositionOverride {
+  x: number;
+  width: number;
+  /** The z index of this entry. Use -1 if placing it underneath other entries. A z of 0 is assumed, otherwise, much like CSS's z-index */
+  z?: number;
+}
+
+export type DrawOverride = (context: CanvasRenderingContext2D, x: number, y: number, width: number, height: number) =>
+    PositionOverride;
 
 export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, typeof UI.Widget.VBox>(UI.Widget.VBox)
     implements Calculator, ChartViewportDelegate {
@@ -269,14 +274,8 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
    **/
   private selectedEntryIndex: number;
   private rawTimelineDataLength: number;
-  private readonly markerPositions: Map<number, {
-    x: number,
-    width: number,
-  }>;
-  private readonly customDrawnPositions: Map<number, {
-    x: number,
-    width: number,
-  }>;
+  private readonly markerPositions: Map<number, PositionOverride>;
+  private readonly customDrawnPositions: Map<number, PositionOverride>;
   private lastMouseOffsetX: number;
   private selectedGroupIndex: number;
   private keyboardFocusedGroup: number;
@@ -2606,6 +2605,8 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     const {entryStartTimes, entryLevels} = timelineData;
     this.customDrawnPositions.clear();
     context.save();
+
+    const posArray = [];
     for (const [entryIndex, drawOverride] of this.#indexToDrawOverride.entries()) {
       const entryStartTime = entryStartTimes[entryIndex];
       const level = entryLevels[entryIndex];
@@ -2614,6 +2615,11 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
       const height = this.levelHeight(level);
       const width = this.#eventBarWidth(timelineData, entryIndex);
       const pos = drawOverride(context, x, y, width, height);
+      posArray.push({entryIndex, pos});
+    }
+    // Place in z order so coordinatesToEntryIndex finds the highest z-index match first.
+    posArray.sort((a, b) => (b.pos.z ?? 0) - (a.pos.z ?? 0));
+    for (const {entryIndex, pos} of posArray) {
       this.customDrawnPositions.set(entryIndex, pos);
     }
     context.restore();
@@ -3500,7 +3506,7 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     return false;
   }
 
-  getCustomDrawnPositionForEntryIndex(entryIndex: number): {x: number, width: number}|null {
+  getCustomDrawnPositionForEntryIndex(entryIndex: number): PositionOverride|null {
     const customPos = this.customDrawnPositions.get(entryIndex);
     if (customPos) {
       return customPos;

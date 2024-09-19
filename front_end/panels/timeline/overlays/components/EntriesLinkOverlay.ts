@@ -17,6 +17,9 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('panels/timeline/overlays/components/EntriesLinkOverlay.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
+// In other overlays, the border line width is set to 2px.
+const BORDER_LINE_WIDTH = 2;
+
 import styles from './entriesLinkOverlay.css.js';
 
 export class EntriesLinkOverlay extends HTMLElement {
@@ -43,6 +46,7 @@ export class EntriesLinkOverlay extends HTMLElement {
   // draw the border as dashed, not solid.
   #fromEntryIsSource: boolean = true;
   #toEntryIsSource: boolean = true;
+  #arrowHidden: boolean = false;
 
   constructor(initialFromEntryCoordinateAndDimentions: {x: number, y: number, width: number, height: number}) {
     super();
@@ -81,6 +85,7 @@ export class EntriesLinkOverlay extends HTMLElement {
    * but hide only the arrow.
    */
   set hideArrow(shouldHide: boolean) {
+    this.#arrowHidden = shouldHide;
     if (this.#connector) {
       this.#connector.style.display = shouldHide ? 'none' : 'block';
     }
@@ -133,13 +138,22 @@ export class EntriesLinkOverlay extends HTMLElement {
       return;
     }
 
+    // If the user is zoomed out, the connector circles can be as large as the
+    // event itself. So if the rectangle for this entry is too small, we
+    // don't draw the circles.
+    const minWidthToDrawConnectorCircles = 8;
+
     // We do not draw the connectors if the entry is not visible, or if the
     // entry we are connecting to isn't the actual source entry.
     // We also don't draw them if an entry is completely hidden, in which case
     // we aren't drawing the arrows, so it doesn't make sense to draw the
     // connectors.
-    const drawFromEntryConnectorCircle = this.#entryFromVisible && this.#entryToVisible && this.#fromEntryIsSource;
-    const drawToEntryConnectorCircle = this.#entryFromVisible && this.#entryToVisible && this.#toEntryIsSource;
+    const drawFromEntryConnectorCircle = this.#entryFromVisible && !this.#arrowHidden && this.#fromEntryIsSource &&
+        this.#fromEntryDimentions.width >= minWidthToDrawConnectorCircles;
+
+    const widthOfToEntry = this.#toEntryDimentions?.width ?? 0;
+    const drawToEntryConnectorCircle = !this.#arrowHidden && this.#entryToVisible && this.#toEntryIsSource &&
+        widthOfToEntry >= minWidthToDrawConnectorCircles && !this.#arrowHidden;
 
     this.#entryFromConnector.setAttribute('visibility', drawFromEntryConnectorCircle ? 'visible' : 'hidden');
     this.#entryToConnector.setAttribute('visibility', drawToEntryConnectorCircle ? 'visible' : 'hidden');
@@ -158,11 +172,15 @@ export class EntriesLinkOverlay extends HTMLElement {
       this.#entryFromConnector.setAttribute('cx', endConnectionPointX);
       this.#entryFromConnector.setAttribute('cy', endConnectionPointY);
 
+      const adjustedEntryFromWrapperX = String(this.#coordinateFrom.x + BORDER_LINE_WIDTH / 2);
+      const adjustedEntryFromWrapperY = String(this.#coordinateFrom.y + BORDER_LINE_WIDTH / 2);
+      const adjustedWidth = String(this.#fromEntryDimentions.width - BORDER_LINE_WIDTH);
+      const adjustedHeight = String(this.#fromEntryDimentions.height - BORDER_LINE_WIDTH);
       this.#entryFromWrapper.setAttribute('visibility', 'visible');
-      this.#entryFromWrapper.setAttribute('x', this.#coordinateFrom.x.toString());
-      this.#entryFromWrapper.setAttribute('y', this.#coordinateFrom.y.toString());
-      this.#entryFromWrapper.setAttribute('width', this.#fromEntryDimentions.width.toString());
-      this.#entryFromWrapper.setAttribute('height', this.#fromEntryDimentions.height.toString());
+      this.#entryFromWrapper.setAttribute('x', adjustedEntryFromWrapperX);
+      this.#entryFromWrapper.setAttribute('y', adjustedEntryFromWrapperY);
+      this.#entryFromWrapper.setAttribute('width', adjustedWidth);
+      this.#entryFromWrapper.setAttribute('height', adjustedHeight);
     } else {
       this.#connector.setAttribute('x1', (this.#coordinateFrom.x + this.#fromEntryDimentions.width).toString());
       this.#connector.setAttribute('y1', this.#coordinateFrom.y.toString());
@@ -175,11 +193,15 @@ export class EntriesLinkOverlay extends HTMLElement {
     // Otherwise, the arrow is following the mouse so we assign it to the provided coordinates.
     if (this.#toEntryDimentions) {
       if (this.#entryToVisible) {
+        const adjustedEntryToWrapperX = String(this.#coordinateTo.x + BORDER_LINE_WIDTH / 2);
+        const adjustedEntryToWrapperY = String(this.#coordinateTo.y + BORDER_LINE_WIDTH / 2);
+        const adjustedWidth = String(this.#toEntryDimentions.width - BORDER_LINE_WIDTH);
+        const adjustedHeight = String(this.#toEntryDimentions.height - BORDER_LINE_WIDTH);
         this.#entryToWrapper.setAttribute('visibility', 'visible');
-        this.#entryToWrapper.setAttribute('x', this.#coordinateTo.x.toString());
-        this.#entryToWrapper.setAttribute('y', this.#coordinateTo.y.toString());
-        this.#entryToWrapper.setAttribute('width', this.#toEntryDimentions.width.toString());
-        this.#entryToWrapper.setAttribute('height', this.#toEntryDimentions.height.toString());
+        this.#entryToWrapper.setAttribute('x', adjustedEntryToWrapperX);
+        this.#entryToWrapper.setAttribute('y', adjustedEntryToWrapperY);
+        this.#entryToWrapper.setAttribute('width', adjustedWidth);
+        this.#entryToWrapper.setAttribute('height', adjustedHeight);
 
         const connectionPointX = String(this.#coordinateTo.x);
         const connectionPointY = String(this.#coordinateTo.y + this.#toEntryDimentions.height / 2);
@@ -270,11 +292,11 @@ export class EntriesLinkOverlay extends HTMLElement {
                 x1="0%" y1="0%" x2="100%" y2="0%">
                 <stop
                   offset="0%"
-                  stop-color="black"
+                  stop-color=${arrowColor}
                   stop-opacity="1" />
                 <stop
                   offset="${this.#partlyVisibleConnectionLinePercentage()}%"
-                  stop-color="black"
+                  stop-color=${arrowColor}
                   stop-opacity="0" />
               </linearGradient>
 
@@ -283,11 +305,11 @@ export class EntriesLinkOverlay extends HTMLElement {
                 x1="0%" y1="0%" x2="100%" y2="0%">
                 <stop
                   offset="${100 - this.#partlyVisibleConnectionLinePercentage()}%"
-                  stop-color="black"
+                  stop-color=${arrowColor}
                   stop-opacity="0" />
                 <stop
                   offset="100%"
-                  stop-color="black"
+                  stop-color=${arrowColor}
                   stop-opacity="1" />
               </linearGradient>
               <marker
@@ -308,18 +330,21 @@ export class EntriesLinkOverlay extends HTMLElement {
               />
 
             <rect
-              class="entryFromWrapper" fill="none" stroke="black" stroke-dasharray=${this.#fromEntryIsSource ? 'none' : DASHED_STROKE_AMOUNT} />
+              class="entryFromWrapper" fill="none" stroke=${arrowColor} stroke-width=${BORDER_LINE_WIDTH} stroke-dasharray=${this.#fromEntryIsSource ? 'none' : DASHED_STROKE_AMOUNT} />
             <rect
-              class="entryToWrapper" fill="none" stroke="black" stroke-dasharray=${this.#toEntryIsSource ? 'none' : DASHED_STROKE_AMOUNT} />
+              class="entryToWrapper" fill="none" stroke=${arrowColor} stroke-width=${BORDER_LINE_WIDTH} stroke-dasharray=${this.#toEntryIsSource ? 'none' : DASHED_STROKE_AMOUNT} />
 
-            <circle class="entryFromConnector" fill="none" stroke=${arrowColor} stroke-width="2" cx="50" cy="50" r="3" />
-            <circle class="entryToConnector" fill="none" stroke=${arrowColor} stroke-width="2" cx="50" cy="50" r="3" />
+            <circle class="entryFromConnector" fill="none" stroke=${arrowColor} stroke-width=${CONNECTOR_CIRCLE_STROKE_WIDTH} r=${CONNECTOR_CIRCLE_RADIUS} />
+            <circle class="entryToConnector" fill="none" stroke=${arrowColor} stroke-width=${CONNECTOR_CIRCLE_STROKE_WIDTH} r=${CONNECTOR_CIRCLE_RADIUS} />
           </svg>
         `,
         this.#shadow, {host: this});
     // clang-format on
   }
 }
+
+const CONNECTOR_CIRCLE_RADIUS = 2;
+const CONNECTOR_CIRCLE_STROKE_WIDTH = 1;
 
 export class CreateEntriesLinkRemoveEvent extends Event {
   static readonly eventName = 'createentrieslinkremoveevent';

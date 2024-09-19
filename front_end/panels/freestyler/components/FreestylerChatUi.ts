@@ -201,10 +201,16 @@ export interface Step {
   output?: string;
   canceled?: boolean;
   sideEffect?: ConfirmSideEffectDialog;
+  contextDetails?: ContextDetail[];
 }
 
 interface ConfirmSideEffectDialog {
   onAnswer: (result: boolean) => void;
+}
+
+export interface ContextDetail {
+  title: string;
+  text: string;
 }
 
 export const enum ChatMessageEntity {
@@ -244,6 +250,7 @@ export interface Props {
   onAcceptConsentClick: () => void;
   onCancelClick: () => void;
   onFixThisIssueClick: () => void;
+  onSelectedNetworkRequestClick: () => void | Promise<void>;
   inspectElementToggled: boolean;
   state: State;
   aidaAvailability: Host.AidaClient.AidaAccessPreconditions;
@@ -331,6 +338,20 @@ export class FreestylerChatUi extends HTMLElement {
     }
     message.scrollIntoViewIfNeeded();
   }
+
+  #isTextInputDisabled = (): boolean => {
+    const isAidaAvailable = this.#props.aidaAvailability === Host.AidaClient.AidaAccessPreconditions.AVAILABLE;
+    const showsSideEffects = this.#props.messages.some(message => {
+      return message.entity === ChatMessageEntity.MODEL && message.steps.some(step => {
+        return Boolean(step.sideEffect);
+      });
+    });
+    const isInputDisabledCheckForFreestylerAgent = !Boolean(this.#props.selectedElement) || showsSideEffects;
+    const isInputDisabledCheckForDrJonesNetworkAgent = !Boolean(this.#props.selectedNetworkRequest);
+    return (this.#props.agentType === AgentType.FREESTYLER && isInputDisabledCheckForFreestylerAgent) ||
+        (this.#props.agentType === AgentType.DRJONES_NETWORK_REQUEST && isInputDisabledCheckForDrJonesNetworkAgent) ||
+        !isAidaAvailable;
+  };
 
   #handleScroll = (ev: Event): void => {
     if (!ev.target || !(ev.target instanceof HTMLElement)) {
@@ -457,12 +478,31 @@ export class FreestylerChatUi extends HTMLElement {
         }}
       ></${MarkdownView.CodeBlock.CodeBlock.litTagName}>
     </div>` : LitHtml.nothing;
+    const contextDetails = step.contextDetails && step.contextDetails?.length > 0 ?
+    LitHtml.html`${LitHtml.Directives.repeat(
+      step.contextDetails,
+        contextDetail => {
+          return LitHtml.html`<div class="context-details">
+        <${MarkdownView.CodeBlock.CodeBlock.litTagName}
+          .code=${contextDetail.text}
+          .codeLang=${'js'}
+          .displayToolbar=${false}
+          .displayNotice=${false}
+          .heading=${{
+            text: i18nString(contextDetail.title),
+            showCopyButton: true,
+          }}
+        ></${MarkdownView.CodeBlock.CodeBlock.litTagName}>
+      </div>`;
+        },
+      )}` : LitHtml.nothing;
 
     return LitHtml.html`<div class="step-details">
       ${thought}
       ${code}
       ${sideEffects}
       ${output}
+      ${contextDetails}
     </div>`;
     // clang-format on
   }
@@ -494,7 +534,9 @@ export class FreestylerChatUi extends HTMLElement {
     });
     // clang-format off
     return LitHtml.html`
-      <details class=${stepClasses} .open=${Boolean(step.sideEffect)}>
+      <details class=${stepClasses}
+        jslog=${VisualLogging.section('step')}
+        .open=${Boolean(step.sideEffect)}>
         <summary>
           <div class="summary">
             ${this.#renderStepBadge(step, options)}
@@ -564,10 +606,11 @@ export class FreestylerChatUi extends HTMLElement {
           errorMessage = UIStringsTemp.maxStepsError;
           break;
         case ErrorType.ABORT:
-          return LitHtml.html`<p class="aborted">${i18nString(UIStringsTemp.stoppedResponse)}</p>`;
+          return LitHtml.html`<p class="aborted" jslog=${VisualLogging.section('aborted')}>${
+              i18nString(UIStringsTemp.stoppedResponse)}</p>`;
       }
 
-      return LitHtml.html`<p class="error">${i18nString(errorMessage)}</p>`;
+      return LitHtml.html`<p class="error" jslog=${VisualLogging.section('error')}>${i18nString(errorMessage)}</p>`;
     }
 
     return LitHtml.nothing;
@@ -593,7 +636,7 @@ export class FreestylerChatUi extends HTMLElement {
             <span>${name}</span>
           </div>
         </div>
-        <div class="message-content">${message.text}</div>
+        <div class="message-content">${this.#renderTextAsMarkdown(message.text)}</div>
       </div>`;
       // clang-format on
     }
@@ -663,9 +706,11 @@ export class FreestylerChatUi extends HTMLElement {
       'not-selected': !this.#props.selectedNetworkRequest,
       'resource-link': true,
     });
+
     // clang-format off
     return LitHtml.html`<div class="select-element">
-      <div class=${resourceClass}>
+      <div class=${resourceClass}
+      @click=${this.#props.onSelectedNetworkRequestClick}>
         <${IconButton.Icon.Icon.litTagName} name="file-script"></${IconButton.Icon.Icon.litTagName}>
         ${this.#props.selectedNetworkRequest?.name()}
       </div></div>`;
@@ -746,7 +791,7 @@ export class FreestylerChatUi extends HTMLElement {
     const suggestions: string[] = this.#getSuggestions();
 
     // clang-format off
-    return LitHtml.html`<div class="empty-state-container">
+    return LitHtml.html`<div class="empty-state-container messages-scroll-container">
       <div class="header">
         <div class="icon">
           <${IconButton.Icon.Icon.litTagName}
@@ -766,7 +811,7 @@ export class FreestylerChatUi extends HTMLElement {
                 size: Buttons.Button.Size.REGULAR,
                 title: suggestion,
                 jslogContext: 'suggestion',
-                disabled: this.#props.aidaAvailability !== Host.AidaClient.AidaAccessPreconditions.AVAILABLE,
+                disabled: this.#isTextInputDisabled(),
               } as Buttons.Button.ButtonData
             }
           >${suggestion}</${Buttons.Button.Button.litTagName}>`;
@@ -792,25 +837,11 @@ export class FreestylerChatUi extends HTMLElement {
   };
 
   #renderChatInput = (): LitHtml.TemplateResult => {
-    // TODO(ergunsh): Show a better UI for the states where Aida client is not available.
-    const isAidaAvailable = this.#props.aidaAvailability === Host.AidaClient.AidaAccessPreconditions.AVAILABLE;
-    const showsSideEffects = this.#props.messages.some(message => {
-      return message.entity === ChatMessageEntity.MODEL && message.steps.some(step => {
-        return Boolean(step.sideEffect);
-      });
-    });
-    const isInputDisabledCheckForFreestylerAgent = !Boolean(this.#props.selectedElement) || showsSideEffects;
-    const isInputDisabledCheckForDrJonesNetworkAgent = !Boolean(this.#props.selectedNetworkRequest);
-    const isInputDisabled =
-        (this.#props.agentType === AgentType.FREESTYLER && isInputDisabledCheckForFreestylerAgent) ||
-        (this.#props.agentType === AgentType.DRJONES_NETWORK_REQUEST && isInputDisabledCheckForDrJonesNetworkAgent) ||
-        !isAidaAvailable;
-
     // clang-format off
     return LitHtml.html`
       <div class="chat-input-container">
         <textarea class="chat-input"
-          .disabled=${isInputDisabled}
+          .disabled=${this.#isTextInputDisabled()}
           wrap="hard"
           @keydown=${this.#handleTextAreaKeyDown}
           placeholder=${getInputPlaceholderString(this.#props.aidaAvailability, this.#props.agentType)}
@@ -824,7 +855,7 @@ export class FreestylerChatUi extends HTMLElement {
                 {
                   variant: Buttons.Button.Variant.PRIMARY,
                   size: Buttons.Button.Size.SMALL,
-                  disabled: isInputDisabled,
+                  disabled: this.#isTextInputDisabled(),
                   iconName: 'stop',
                   title: i18nString(UIStringsTemp.cancelButtonTitle),
                   jslogContext: 'stop',
@@ -839,7 +870,7 @@ export class FreestylerChatUi extends HTMLElement {
                   type: 'submit',
                   variant: Buttons.Button.Variant.ICON,
                   size: Buttons.Button.Size.SMALL,
-                  disabled: isInputDisabled,
+                  disabled: this.#isTextInputDisabled(),
                   iconName: 'send',
                   title: i18nString(UIStringsTemp.sendButtonTitle),
                   jslogContext: 'send',
@@ -879,8 +910,8 @@ export class FreestylerChatUi extends HTMLElement {
           </div>
           ${this.#renderChatInput()}
         </form>
-        <div class="disclaimer">
-          <div class="disclaimer-text">${i18nString(
+        <footer class="disclaimer">
+          <p class="disclaimer-text">${i18nString(
             this.#getDisclaimerText(),
           )} See <x-link
               class="link"
@@ -889,8 +920,8 @@ export class FreestylerChatUi extends HTMLElement {
                 click: true,
               })}
             >dogfood terms</x-link>.
-          </div>
-        </div>
+          </p>
+        </footer>
       </div>
     `;
     // clang-format on

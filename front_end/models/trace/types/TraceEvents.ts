@@ -913,7 +913,7 @@ export interface SyntheticLayoutShiftCluster {
   ts: MicroSeconds;
   // The duration of the cluster. This should include up until the end of the last
   // layout shift in this cluster.
-  dur?: MicroSeconds;
+  dur: MicroSeconds;
   cat: '';
   ph: Phase.COMPLETE;
   pid: ProcessID;
@@ -1227,6 +1227,14 @@ export interface TraceEventDomLoading extends TraceEventUserTiming {
   name: KnownEventName.DOM_LOADING;
   args: TraceEventArgs&{
     frame?: string,
+  };
+}
+
+export interface TraceEventBeginRemoteFontLoad extends TraceEventUserTiming {
+  name: KnownEventName.BEGIN_REMOTE_FONT_LOAD;
+  args: TraceEventArgs&{
+    display: string,
+    id: number,
   };
 }
 
@@ -2185,6 +2193,11 @@ export function isTraceEventDomLoading(traceEventData: TraceEventData): traceEve
   return traceEventData.name === KnownEventName.DOM_LOADING;
 }
 
+export function isTraceEventBeginRemoteFontLoad(traceEventData: TraceEventData):
+    traceEventData is TraceEventBeginRemoteFontLoad {
+  return traceEventData.name === KnownEventName.BEGIN_REMOTE_FONT_LOAD;
+}
+
 export function isTraceEventPerformanceMeasure(traceEventData: TraceEventData):
     traceEventData is TraceEventPerformanceMeasure {
   return isTraceEventUserTiming(traceEventData) && isTraceEventAsyncPhase(traceEventData);
@@ -2863,6 +2876,7 @@ export const enum KnownEventName {
   RENDER_FRAME_IMPL_CREATE_CHILD_FRAME = 'RenderFrameImpl::createChildFrame',
 
   DOM_LOADING = 'domLoading',
+  BEGIN_REMOTE_FONT_LOAD = 'BeginRemoteFontLoad',
 }
 
 // NOT AN EXHAUSTIVE LIST: just some categories we use and refer
