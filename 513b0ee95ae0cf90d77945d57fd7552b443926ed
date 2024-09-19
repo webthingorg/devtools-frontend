@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5abf2ca_aec72d7b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 48
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1458307
+      },
+      "writtenOn": "2024-09-19T15:16:47Z",
+      "side": 1,
+      "message": "Changed to use css nesting",
+      "parentUuid": "e7c6ddeb_6f7419f0",
+      "revId": "513b0ee95ae0cf90d77945d57fd7552b443926ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b12dd11f_84fb69f6",
@@ -105,6 +123,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4c8debc_d17a1b2a",
+        "filename": "front_end/ui/legacy/components/utils/JSPresentationUtils.ts",
+        "patchSetId": 48
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1458307
+      },
+      "writtenOn": "2024-09-19T15:16:47Z",
+      "side": 1,
+      "message": "Added comment",
+      "parentUuid": "e9db0493_c97022a6",
+      "revId": "513b0ee95ae0cf90d77945d57fd7552b443926ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2b1d3104_b7434c69",
@@ -136,6 +172,24 @@
       "side": 1,
       "message": "Because in this case we want to use the same tableSection on the next iteration, as this is a synchronous frame.",
       "parentUuid": "2b1d3104_b7434c69",
+      "revId": "513b0ee95ae0cf90d77945d57fd7552b443926ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12eeda4c_0ec4b922",
+        "filename": "front_end/ui/legacy/components/utils/JSPresentationUtils.ts",
+        "patchSetId": 48
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1458307
+      },
+      "writtenOn": "2024-09-19T15:16:47Z",
+      "side": 1,
+      "message": "Added comment",
+      "parentUuid": "336bcd7f_f6d97171",
       "revId": "513b0ee95ae0cf90d77945d57fd7552b443926ed",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
