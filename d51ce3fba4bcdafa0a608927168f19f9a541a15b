@@ -1,0 +1,45 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "080a512f_f3fcf201",
+        "filename": "front_end/panels/timeline/overlays/components/EntriesLinkOverlay.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-09-19T12:45:50Z",
+      "side": 1,
+      "message": "is 😄",
+      "range": {
+        "startLine": 20,
+        "startChar": 44,
+        "endLine": 20,
+        "endChar": 47
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "e0059747_0d7ea138",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/timeline/overlays/components/EntriesLinkOverlay.ts",
+              "range": {
+                "startLine": 20,
+                "startChar": 0,
+                "endLine": 21,
+                "endChar": 0
+              },
+              "replacement": "// In other overlays, the border line width is set to 2px.\n"
+            }
+          ]
+        }
+      ],
+      "revId": "d51ce3fba4bcdafa0a608927168f19f9a541a15b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
