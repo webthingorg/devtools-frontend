@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd26f8ce_c1f21094",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-19T02:27:11Z",
+      "side": 1,
+      "message": "I avoided any renames from navigation -\u003e something else (bounded?) throughout b/c that would be the CL too noisy. I\u0027ll do just that in a follow-up.",
+      "revId": "6c35cce36616d086daf918949c5567c47cc0aa50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
