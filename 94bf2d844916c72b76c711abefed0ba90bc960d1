@@ -74,6 +74,30 @@
       },
       "revId": "94bf2d844916c72b76c711abefed0ba90bc960d1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e7dee37_c7618d48",
+        "filename": "front_end/panels/timeline/components/insights/Helpers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-19T14:31:14Z",
+      "side": 1,
+      "message": "Short answer: I stopped reading before getting to the section that says \"maybe don\u0027t use data setters\": https://chromium.googlesource.com/devtools/devtools-frontend/+/c59526e345ffcad992e7c1d5426bfbeb621da23d/front_end/ui/components/docs/building-ui-documentation/CreatingComponents.md#performance-concerns-with-data-passing - and I changed it assuming that `set data` was the preference given the type safety and the fewer calls to scheduleRender (which I understand is just costing a few map lookups for subsequent calls on each component).\n\nbetween the above doc and https://chromium.googlesource.com/devtools/devtools-frontend/+/c59526e345ffcad992e7c1d5426bfbeb621da23d/front_end/ui/components/docs/building-ui-documentation/ComponentPerformance.md I\u0027m left not totally sure of when to use which pattern (too nuanced / I\u0027m reading to quickly?). Do you see an opportunity to simplify/reduce the documented guidance here?",
+      "parentUuid": "ea86f67e_f54d7c23",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 3
+      },
+      "revId": "94bf2d844916c72b76c711abefed0ba90bc960d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
