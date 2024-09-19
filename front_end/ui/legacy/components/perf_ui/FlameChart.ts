@@ -230,6 +230,8 @@ export interface PossibleFilterActions {
 export interface PositionOverride {
   x: number;
   width: number;
+  /** The z index of this entry. Use -1 if placing it underneath other entries. A z of 0 is assumed, otherwise, much like CSS's z-index */
+  z?: number;
 }
 
 export type DrawOverride = (context: CanvasRenderingContext2D, x: number, y: number, width: number, height: number) =>
@@ -2603,6 +2605,8 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
     const {entryStartTimes, entryLevels} = timelineData;
     this.customDrawnPositions.clear();
     context.save();
+
+    const posArray = [];
     for (const [entryIndex, drawOverride] of this.#indexToDrawOverride.entries()) {
       const entryStartTime = entryStartTimes[entryIndex];
       const level = entryLevels[entryIndex];
@@ -2611,6 +2615,11 @@ export class FlameChart extends Common.ObjectWrapper.eventMixin<EventTypes, type
       const height = this.levelHeight(level);
       const width = this.#eventBarWidth(timelineData, entryIndex);
       const pos = drawOverride(context, x, y, width, height);
+      posArray.push({entryIndex, pos});
+    }
+    // Place in z order so coordinatesToEntryIndex finds the highest z-index match first.
+    posArray.sort((a, b) => (b.pos.z ?? 0) - (a.pos.z ?? 0));
+    for (const {entryIndex, pos} of posArray) {
       this.customDrawnPositions.set(entryIndex, pos);
     }
     context.restore();
