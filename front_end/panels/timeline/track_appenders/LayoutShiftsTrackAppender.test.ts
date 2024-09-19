@@ -74,13 +74,13 @@ describeWithEnvironment('LayoutShiftsTrackAppender', function() {
     }
   });
 
-  it('sets all layout shifts to be 5ms in duration', async function() {
+  it('sets all layout shifts to instantaneous', async function() {
     const {flameChartData, traceParsedData, entryData} = await renderTrackAppender(this, 'cls-single-frame.json.gz');
     const events = traceParsedData.LayoutShifts.clusters.flatMap(c => c.events);
     for (const event of events) {
       const markerIndex = entryData.indexOf(event);
       assert.exists(markerIndex);
-      assert.strictEqual(flameChartData.entryTotalTimes[markerIndex], 5);
+      assert.strictEqual(flameChartData.entryTotalTimes[markerIndex], 0.001);
     }
   });
 
