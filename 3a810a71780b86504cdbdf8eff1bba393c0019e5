@@ -34,6 +34,24 @@
       "parentUuid": "cbd30041_349baff6",
       "revId": "3a810a71780b86504cdbdf8eff1bba393c0019e5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "284639ce_ecc2d220",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-19T09:16:39Z",
+      "side": 1,
+      "message": "Fair, but when I see it here as the callback; I\u0027m asking \"Why is this callback needed, what\u0027s its purpose\". If we give it with a named parameter, we can say that \"ah, it\u0027s used for getting `currentColor`\".\n\nThough don\u0027t have strong opinions here :)",
+      "parentUuid": "075bcaf3_ec78910e",
+      "revId": "3a810a71780b86504cdbdf8eff1bba393c0019e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
