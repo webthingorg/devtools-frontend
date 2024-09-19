@@ -40,6 +40,30 @@
       ],
       "revId": "d51ce3fba4bcdafa0a608927168f19f9a541a15b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6fb9fc21_618ead8f",
+        "filename": "front_end/panels/timeline/overlays/components/EntriesLinkOverlay.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-09-19T13:29:26Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "080a512f_f3fcf201",
+      "range": {
+        "startLine": 20,
+        "startChar": 44,
+        "endLine": 20,
+        "endChar": 47
+      },
+      "revId": "d51ce3fba4bcdafa0a608927168f19f9a541a15b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
