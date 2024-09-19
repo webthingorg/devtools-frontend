@@ -16,6 +16,46 @@
       "message": "I avoided any renames from navigation -\u003e something else (bounded?) throughout b/c that would be the CL too noisy. I\u0027ll do just that in a follow-up.",
       "revId": "6c35cce36616d086daf918949c5567c47cc0aa50",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aee7743b_7cc3d950",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-19T13:40:17Z",
+      "side": 1,
+      "message": "lgtm",
+      "revId": "6c35cce36616d086daf918949c5567c47cc0aa50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7aa4545e_116b9ec1",
+        "filename": "front_end/panels/timeline/components/SidebarInsightsTab.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-19T13:40:17Z",
+      "side": 1,
+      "message": "I think a comment explaining what this is would be useful.\n\nAFAIU this is \"insightsByNavigationId\" with the additional ability for the id to be \"no navigation\".",
+      "range": {
+        "startLine": 30,
+        "startChar": 0,
+        "endLine": 30,
+        "endChar": 63
+      },
+      "revId": "6c35cce36616d086daf918949c5567c47cc0aa50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
