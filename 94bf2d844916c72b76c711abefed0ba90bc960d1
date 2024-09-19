@@ -106,6 +106,42 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0819276b_26800286",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-19T20:41:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d13eb72_fcd728da",
+      "revId": "94bf2d844916c72b76c711abefed0ba90bc960d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "822f1111_a3847bff",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-19T20:41:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eb15949b_adbed58d",
+      "revId": "94bf2d844916c72b76c711abefed0ba90bc960d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ea86f67e_f54d7c23",
@@ -167,6 +203,30 @@
       "side": 1,
       "message": "Apologies this is confusing; it\u0027s changed a bit over the years. I would say that now the preferred approach is individual setters; the look-up for the renderer isn\u0027t costly and it\u0027s preferred because it is easier to check if values have changed and if so early exit. Whereas if we do `.data\u003d{}` we are creating a brand new object every time.\n\nSo I would just undo this part of the CL and stick to individual setters like it had already.",
       "parentUuid": "1e7dee37_c7618d48",
+      "range": {
+        "startLine": 65,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 3
+      },
+      "revId": "94bf2d844916c72b76c711abefed0ba90bc960d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e59ab44_5ab074a8",
+        "filename": "front_end/panels/timeline/components/insights/Helpers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-19T20:41:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9625452_20f03c17",
       "range": {
         "startLine": 65,
         "startChar": 0,
