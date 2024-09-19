@@ -272,6 +272,11 @@ export function allowHeader(header: SDK.NetworkRequest.NameValue): boolean {
   return true;
 }
 
+export function formatHeaders(title: string, headers: SDK.NetworkRequest.NameValue[]): string {
+  return formatLines(
+      title, headers.filter(allowHeader).map(header => header.name + ': ' + header.value + '\n'), MAX_HEADERS_SIZE);
+}
+
 function formatNetworkRequestTiming(request: SDK.NetworkRequest.NetworkRequest): string {
   const timing = request.timing;
 
