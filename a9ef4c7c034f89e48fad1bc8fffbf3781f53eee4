@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c62c40f8_34158654",
+        "filename": "front_end/panels/timeline/LayoutShiftsTrackAppender.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-19T22:28:43Z",
+      "side": 1,
+      "message": "what\u0027s buffer mean? is there a better name?\nalso drop a comment to better explain how this value is being calculated?",
+      "range": {
+        "startLine": 167,
+        "startChar": 2,
+        "endLine": 169,
+        "endChar": 0
+      },
+      "revId": "a9ef4c7c034f89e48fad1bc8fffbf3781f53eee4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96f9f772_985e6f2b",
+        "filename": "front_end/ui/legacy/components/perf_ui/FlameChart.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-19T22:28:43Z",
+      "side": 1,
+      "message": "can you define a type for this obj so we can use it on the customDrawnPositions below?",
+      "revId": "a9ef4c7c034f89e48fad1bc8fffbf3781f53eee4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
