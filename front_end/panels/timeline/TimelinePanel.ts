@@ -1077,7 +1077,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
       metadata.modifications = ModificationsManager.activeManager()?.toJSON();
     }
     if (metadata && isEnhancedTraces) {
-      metadata.enhancedTraceVersion = TraceEngine.Handlers.ModelHandlers.EnhancedTraces.EnhancedTracesVersion;
+      metadata.enhancedTraceVersion = SDK.EnhancedTracesParser.EnhancedTracesParser.enhancedTraceVersion;
     }
     if (!traceEvents) {
       return;
