@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90e4c02d_ac0f2dde",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-09-19T08:25:29Z",
+      "side": 1,
+      "message": "Thanks, Nik! LGTM",
+      "revId": "81f6fffe4db45c10a93c060d9516a7ee1ea755bf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
