@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32cb2b68_c61d250c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1323977
+      },
+      "writtenOn": "2024-09-19T06:01:42Z",
+      "side": 1,
+      "message": "I\u0027m wholly unfamiliar with this part of our code. Basically TIL that we built a cache for static templates on top of Lit, so I\u0027ll leave the review up to Jack.\n\nSuperficially I assume that this code affects the code path that most components use in DevTools? The only thing I\u0027m worried about is that for render-heavy code we now do more work to calculate the `staticValuesKey` and I have zero intuition if this is (more or less) for free, or if it impacts performance.",
+      "revId": "94bf2d844916c72b76c711abefed0ba90bc960d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
