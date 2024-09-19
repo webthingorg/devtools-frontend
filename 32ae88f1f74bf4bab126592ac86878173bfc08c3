@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a57d7ab2_0b7015bb",
+        "filename": "front_end/panels/freestyler/FreestylerPanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-09-19T11:28:18Z",
+      "side": 1,
+      "message": "Leaving a comment per our discussion to unify this with the other function.",
+      "revId": "32ae88f1f74bf4bab126592ac86878173bfc08c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2e588bb_8b8bcf43",
+        "filename": "front_end/panels/freestyler/FreestylerPanel.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-09-19T11:28:18Z",
+      "side": 1,
+      "message": "Let\u0027s move this on the Component level, as it should maintain it\u0027s own state.",
+      "revId": "32ae88f1f74bf4bab126592ac86878173bfc08c3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
