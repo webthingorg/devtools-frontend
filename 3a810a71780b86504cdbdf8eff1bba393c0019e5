@@ -70,6 +70,24 @@
       "parentUuid": "284639ce_ecc2d220",
       "revId": "3a810a71780b86504cdbdf8eff1bba393c0019e5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4d15431_cdd07f4b",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-19T09:25:17Z",
+      "side": 1,
+      "message": "sgtm! (with the trade-off of this not being codified in the ColorMatcher but I\u0027m fine with it 😊)",
+      "parentUuid": "79e081d0_7e229418",
+      "revId": "3a810a71780b86504cdbdf8eff1bba393c0019e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
