@@ -1,6 +1,7 @@
 // Copyright 2023 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
+import * as Common from '../../core/common/common.js';
 import * as i18n from '../../core/i18n/i18n.js';
 import * as Root from '../../core/root/root.js';
 import * as TraceEngine from '../../models/trace/trace.js';
@@ -89,30 +90,22 @@ export class LayoutShiftsTrackAppender implements TrackAppender {
    */
   #appendLayoutShiftsAtLevel(currentLevel: number): number {
     const allLayoutShifts = this.#traceParsedData.LayoutShifts.clusters.flatMap(cluster => cluster.events);
-    const setFlameChartEntryTotalTime =
-        (_event: TraceEngine.Types.TraceEvents.SyntheticLayoutShift|
-         TraceEngine.Types.TraceEvents.SyntheticLayoutShiftCluster,
-         index: number): void => {
-          let totalTime = LAYOUT_SHIFT_SYNTHETIC_DURATION;
-          if (TraceEngine.Types.TraceEvents.isSyntheticLayoutShiftCluster(_event)) {
-            // This is to handle the cases where there is a singular shift for a cluster.
-            // A single shift would make the cluster duration 0 and hard to read.
-            // So in this case, give it the LAYOUT_SHIFT_SYNTHETIC_DURATION duration.
-            totalTime = _event.dur || LAYOUT_SHIFT_SYNTHETIC_DURATION;
-          }
-          this.#compatibilityBuilder.getFlameChartTimelineData().entryTotalTimes[index] =
-              TraceEngine.Helpers.Timing.microSecondsToMilliseconds(totalTime);
-        };
-    let shiftLevel = currentLevel;
+
     if (Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.TIMELINE_LAYOUT_SHIFT_DETAILS)) {
       const allClusters = this.#traceParsedData.LayoutShifts.clusters;
-      this.#compatibilityBuilder.appendEventsAtLevel(allClusters, currentLevel + 1, this, setFlameChartEntryTotalTime);
-
-      // layout shifts should be below clusters.
-      shiftLevel = currentLevel + 2;
+      for (const event of allClusters) {
+        if (TraceEngine.Types.TraceEvents.isSyntheticLayoutShiftCluster(event) && event.dur === 0) {
+          const cluster = event as TraceEngine.Types.TraceEvents.SyntheticLayoutShiftCluster;
+          // This is to handle the cases where there is a singular shift for a cluster.
+          // A single shift would make the cluster duration 0 and hard to read.
+          // So in this case, give it the LAYOUT_SHIFT_SYNTHETIC_DURATION duration.
+          cluster.dur = LAYOUT_SHIFT_SYNTHETIC_DURATION;
+        }
+      }
+      this.#compatibilityBuilder.appendEventsAtLevel(allClusters, currentLevel, this);
     }
 
-    return this.#compatibilityBuilder.appendEventsAtLevel(allLayoutShifts, shiftLevel, this);
+    return this.#compatibilityBuilder.appendEventsAtLevel(allLayoutShifts, currentLevel, this);
   }
 
   /*
@@ -126,7 +119,15 @@ export class LayoutShiftsTrackAppender implements TrackAppender {
    * Gets the color an event added by this appender should be rendered with.
    */
   colorForEvent(_event: TraceEngine.Types.TraceEvents.TraceEventData): string {
-    return ThemeSupport.ThemeSupport.instance().getComputedValue('--app-color-rendering');
+    const purple = ThemeSupport.ThemeSupport.instance().getComputedValue('--app-color-rendering');
+    if (TraceEngine.Types.TraceEvents.isSyntheticLayoutShiftCluster(_event)) {
+      const parsedColor = Common.Color.parse(purple);
+      if (parsedColor) {
+        const colorWithAlpha = parsedColor.setAlpha(0.5).asString(Common.Color.Format.RGBA);
+        return colorWithAlpha;
+      }
+    }
+    return purple;
   }
 
   /**
@@ -137,7 +138,7 @@ export class LayoutShiftsTrackAppender implements TrackAppender {
       return 'Layout shift';
     }
     if (TraceEngine.Types.TraceEvents.isSyntheticLayoutShiftCluster(event)) {
-      return 'Layout shift cluster';
+      return '';
     }
     return event.name;
   }
@@ -152,29 +153,38 @@ export class LayoutShiftsTrackAppender implements TrackAppender {
   }
 
   getDrawOverride(event: TraceEngine.Types.TraceEvents.TraceEventData): DrawOverride|undefined {
-    if (!TraceEngine.Types.TraceEvents.isTraceEventLayoutShift(event)) {
-      return;
-    }
+    if (TraceEngine.Types.TraceEvents.isTraceEventLayoutShift(event)) {
+      const score = event.args.data?.weighted_score_delta || 0;
+      const bufferScale = 1 - Math.min(score / 0.1, 1);
+      const buffer = Math.round(bufferScale * 3);
 
-    const score = event.args.data?.weighted_score_delta || 0;
-    const bufferScale = 1 - Math.min(score / 0.1, 1);
-    const buffer = Math.round(bufferScale * 3);
-
-    return (context, x, y, _width, height) => {
-      const boxSize = height;
-      const halfSize = boxSize / 2;
-      context.beginPath();
-      context.moveTo(x, y + buffer);
-      context.lineTo(x + halfSize - buffer, y + halfSize);
-      context.lineTo(x, y + height - buffer);
-      context.lineTo(x - halfSize + buffer, y + halfSize);
-      context.closePath();
-      context.fillStyle = this.colorForEvent(event);
-      context.fill();
-      return {
-        x: x - halfSize,
-        width: boxSize,
+      return (context, x, y, _width, height) => {
+        const boxSize = height;
+        const halfSize = boxSize / 2;
+        context.beginPath();
+        context.moveTo(x, y + buffer);
+        context.lineTo(x + halfSize - buffer, y + halfSize);
+        context.lineTo(x, y + height - buffer);
+        context.lineTo(x - halfSize + buffer, y + halfSize);
+        context.closePath();
+        context.fillStyle = this.colorForEvent(event);
+        context.fill();
+        return {
+          x: x - halfSize,
+          width: boxSize,
+        };
       };
-    };
+    }
+    if (TraceEngine.Types.TraceEvents.isSyntheticLayoutShiftCluster(event)) {
+      return (context, x, y, width, height) => {
+        const barHeight = height * 0.5;
+        const barY = y + (height - barHeight) / 2 + 0.5;
+        context.fillStyle = this.colorForEvent(event);
+        context.rect(x, barY, width - 0.5, barHeight - 1);
+        context.fill();
+        return {x, width, z: -1};
+      };
+    }
+    return;
   }
 }
