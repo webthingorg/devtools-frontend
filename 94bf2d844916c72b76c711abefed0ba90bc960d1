@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0d13eb72_fcd728da",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-19T15:00:56Z",
+      "side": 1,
+      "message": "\u003e (the only place we wouldn\u0027t is this CL if it lands)\n\n`component.litTagName` is a static tag.\n\n\u003e as the cache key would never change so we still only compute once\n\nYes, the \"flatten\" only is called once per unique combination of (template string invocation, set of static tags).\n\nThe cache lookup for all static tags now use two maps for a double-key lookup (the template array strings from the global registry, and then the static tags join\u0027d together).\n\nRe: Performance impact\n\nhttps://trace.cafe/t/DesBXcue1T - trace of perf panel while moving around cnn.com (incl. a flamegraph of cnn.com). If you look up htmlStatics - which has all the cache key lookups and the call to Lit.html - the entire function is still just 0.1ms.\n\nNote, all this cache lookup stuff is more than just a performance improvement - without the strings array being the equal referentially (object \u003d\u003d\u003d object) Lit will re-create the component on each draw, causing constant flashes of content. Just mentioning b/c I did consider just removing this cache entirely - but that can\u0027t work.",
+      "parentUuid": "5471a0c0_0b2a5d97",
+      "revId": "94bf2d844916c72b76c711abefed0ba90bc960d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ea86f67e_f54d7c23",
         "filename": "front_end/panels/timeline/components/insights/Helpers.ts",
         "patchSetId": 4
