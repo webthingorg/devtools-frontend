@@ -321,6 +321,7 @@ async function buildLayoutShiftsClusters(): Promise<void> {
         tid: event.tid,
         ph: Types.TraceEvents.Phase.COMPLETE,
         cat: '',
+        dur: Types.Timing.MicroSeconds(-1),  // Will be updated below.
       });
 
       firstShiftTime = clusterStartTime;
@@ -455,6 +456,13 @@ async function buildLayoutShiftsClusters(): Promise<void> {
     cluster.ts = cluster.events[0].ts;
     const lastShiftTimings = Helpers.Timing.eventTimingsMicroSeconds(cluster.events[cluster.events.length - 1]);
     cluster.dur = Types.Timing.MicroSeconds(lastShiftTimings.endTime - cluster.events[0].ts);
+    if (cluster.dur === 0) {
+      // This is to handle the cases where there is a singular shift for a cluster.
+      // A single shift would make the cluster duration 0 and hard to read.
+      // So in this case, give a small duration.
+      // TODO: Use the session window math to determine a better cluster duration for this case.
+      cluster.dur = Types.Timing.MicroSeconds(5_000);
+    }
 
     if (weightedScore > sessionMaxScore) {
       clsWindowID = windowID;
