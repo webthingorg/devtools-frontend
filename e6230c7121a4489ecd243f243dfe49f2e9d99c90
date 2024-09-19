@@ -16,6 +16,24 @@
       "message": "This would previously fail, because both elements would be \u0027div\u0027.",
       "revId": "e6230c7121a4489ecd243f243dfe49f2e9d99c90",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1913899_d6b6a751",
+        "filename": "front_end/ui/lit-html/static.test.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-19T02:40:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "534eb0d7_030fa970",
+      "revId": "e6230c7121a4489ecd243f243dfe49f2e9d99c90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
