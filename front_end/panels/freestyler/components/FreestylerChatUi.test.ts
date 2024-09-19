@@ -48,6 +48,7 @@ css
       onCancelClick: noop,
       onFixThisIssueClick: noop,
       onSelectedNetworkRequestClick: noop,
+      onSuggestionClick: noop,
       inspectElementToggled: false,
       state: Freestyler.State.CHAT_VIEW,
       agentType: Freestyler.AgentType.FREESTYLER,

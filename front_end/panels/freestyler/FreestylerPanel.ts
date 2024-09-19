@@ -134,8 +134,11 @@ export class FreestylerPanel extends UI.Panel.Panel {
       onFeedbackSubmit: this.#handleFeedbackSubmit.bind(this),
       onAcceptConsentClick: this.#handleAcceptConsentClick.bind(this),
       onCancelClick: this.#cancel.bind(this),
+      onSuggestionClick: (suggestion: string) => {
+        this.#handleSuggestionClick(suggestion);
+      },
       onFixThisIssueClick: () => {
-        void this.#startConversation(FIX_THIS_ISSUE_PROMPT, true);
+        this.#handleSuggestionClick(FIX_THIS_ISSUE_PROMPT);
       },
       onSelectedNetworkRequestClick: this.#handleSelectedNetworkRequestClick.bind(this),
       canShowFeedbackForm: this.#serverSideLoggingEnabled,
@@ -246,6 +249,11 @@ export class FreestylerPanel extends UI.Panel.Panel {
     }
   }
 
+  #handleSuggestionClick = (suggestion: string): void => {
+    this.#viewOutput.freestylerChatUi?.setInputText(suggestion);
+    this.#viewOutput.freestylerChatUi?.focusTextInput();
+  };
+
   handleAction(actionId: string): void {
     switch (actionId) {
       case 'freestyler.element-panel-context': {
@@ -280,7 +288,7 @@ export class FreestylerPanel extends UI.Panel.Panel {
     this.doUpdate();
   }
 
-  async #startConversation(text: string, isFixQuery: boolean = false): Promise<void> {
+  async #startConversation(text: string): Promise<void> {
     // TODO(samiyac): Refactor startConversation
     this.#viewProps.messages.push({
       entity: ChatMessageEntity.USER,
@@ -300,18 +308,18 @@ export class FreestylerPanel extends UI.Panel.Panel {
     const signal = this.#runAbortController.signal;
 
     if (this.#viewProps.agentType === AgentType.FREESTYLER) {
-      await this.#conversationStepsForFreestylerAgent(text, isFixQuery, signal, systemMessage);
+      await this.#conversationStepsForFreestylerAgent(text, signal, systemMessage);
     } else if (this.#viewProps.agentType === AgentType.DRJONES_NETWORK_REQUEST) {
       await this.#conversationStepsForDrJonesNetworkAgent(text, signal, systemMessage);
     }
   }
 
-  async #conversationStepsForFreestylerAgent(
-      text: string, isFixQuery: boolean = false, signal: AbortSignal, systemMessage: ModelChatMessage): Promise<void> {
+  async #conversationStepsForFreestylerAgent(text: string, signal: AbortSignal, systemMessage: ModelChatMessage):
+      Promise<void> {
     let step: Step = {isLoading: true};
 
-    for await (const data of this.#freestylerAgent.run(
-        text, {signal, selectedElement: this.#viewProps.selectedElement, isFixQuery})) {
+    for await (
+        const data of this.#freestylerAgent.run(text, {signal, selectedElement: this.#viewProps.selectedElement})) {
       step.sideEffect = undefined;
       switch (data.type) {
         case ResponseType.QUERYING: {
