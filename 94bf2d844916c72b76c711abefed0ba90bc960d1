@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5471a0c0_0b2a5d97",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-19T13:37:28Z",
+      "side": 1,
+      "message": "My read of the code is that because we use static tags in the majority of places (the only place we wouldn\u0027t is this CL if it lands), I don\u0027t think there is that much of a perf hit (if any) as the cache key would never change so we still only compute once. @connor is that correct?",
+      "parentUuid": "32cb2b68_c61d250c",
+      "revId": "94bf2d844916c72b76c711abefed0ba90bc960d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ea86f67e_f54d7c23",
         "filename": "front_end/panels/timeline/components/insights/Helpers.ts",
         "patchSetId": 4
