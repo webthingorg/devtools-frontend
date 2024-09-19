@@ -244,6 +244,7 @@ export interface Props {
   onAcceptConsentClick: () => void;
   onCancelClick: () => void;
   onFixThisIssueClick: () => void;
+  onSuggestionClick: (suggestion: string) => void;
   inspectElementToggled: boolean;
   state: State;
   aidaAvailability: Host.AidaClient.AidaAccessPreconditions;
@@ -300,6 +301,15 @@ export class FreestylerChatUi extends HTMLElement {
   connectedCallback(): void {
     this.#shadow.adoptedStyleSheets = [freestylerChatUiStyles];
     this.#render();
+  }
+
+  setInputText(text: string): void {
+    const textArea = this.#shadow.querySelector('.chat-input') as HTMLTextAreaElement;
+    if (!textArea) {
+      return;
+    }
+
+    textArea.value = text;
   }
 
   focusTextInput(): void {
@@ -773,7 +783,7 @@ export class FreestylerChatUi extends HTMLElement {
         ${suggestions.map(suggestion => {
           return LitHtml.html`<${Buttons.Button.Button.litTagName}
             class="suggestion"
-            @click=${() => this.#props.onTextSubmit(suggestion)}
+            @click=${() => this.#props.onSuggestionClick(suggestion)}
             .data=${
               {
                 variant: Buttons.Button.Variant.OUTLINED,
