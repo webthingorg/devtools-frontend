@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e85beff_f6dfd685",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1568253
+      },
+      "writtenOn": "2024-09-19T09:42:23Z",
+      "side": 1,
+      "message": "Thanks so much for spending time on this! Confirming the following behavior with these changes applied:\n\n- With an empty out/Default in devtools-frontend, I get an \"out/Default does not exist or is not a directory\" error.\n\n- Without an out/Default and in a full Chromium checkout, this identifies the correct binary if you are building non-branded Chrome.",
+      "revId": "861283684924ac125528b84583803205ea3db6f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
