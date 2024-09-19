@@ -149,7 +149,8 @@ export class EntriesLinkOverlay extends HTMLElement {
     // This way it will be attached to the track edge.
     if (this.#entryFromVisible) {
       const halfEntryHeight = this.#fromEntryDimentions.height / 2;
-      const endConnectionPointX = String(this.#coordinateFrom.x + this.#fromEntryDimentions.width);
+      const endConnectionPointX =
+          String(this.#coordinateFrom.x + this.#fromEntryDimentions.width - BORDER_LINE_WIDTH / 2);
       const endConnectionPointY = String(this.#coordinateFrom.y + halfEntryHeight);
 
       this.#connector.setAttribute('x1', endConnectionPointX);
@@ -181,7 +182,7 @@ export class EntriesLinkOverlay extends HTMLElement {
         this.#entryToWrapper.setAttribute('width', this.#toEntryDimentions.width.toString());
         this.#entryToWrapper.setAttribute('height', this.#toEntryDimentions.height.toString());
 
-        const connectionPointX = String(this.#coordinateTo.x);
+        const connectionPointX = String(this.#coordinateTo.x + BORDER_LINE_WIDTH / 2);
         const connectionPointY = String(this.#coordinateTo.y + this.#toEntryDimentions.height / 2);
 
         this.#connector.setAttribute('x2', connectionPointX);
@@ -260,6 +261,7 @@ export class EntriesLinkOverlay extends HTMLElement {
   */
   #render(): void {
     const arrowColor = ThemeSupport.ThemeSupport.instance().getComputedValue('--color-text-primary');
+    const backgroundColor = ThemeSupport.ThemeSupport.instance().getComputedValue('--color-background');
     // clang-format off
     LitHtml.render(
         LitHtml.html`
@@ -312,8 +314,8 @@ export class EntriesLinkOverlay extends HTMLElement {
             <rect
               class="entryToWrapper" fill="none" stroke="black" stroke-dasharray=${this.#toEntryIsSource ? 'none' : DASHED_STROKE_AMOUNT} />
 
-            <circle class="entryFromConnector" fill="none" stroke=${arrowColor} stroke-width="2" cx="50" cy="50" r="3" />
-            <circle class="entryToConnector" fill="none" stroke=${arrowColor} stroke-width="2" cx="50" cy="50" r="3" />
+            <circle class="entryFromConnector" fill=${backgroundColor} stroke=${arrowColor} stroke-width="2" r="2" />
+            <circle class="entryToConnector" fill=${backgroundColor} stroke=${arrowColor} stroke-width="2" r="2" />
           </svg>
         `,
         this.#shadow, {host: this});
