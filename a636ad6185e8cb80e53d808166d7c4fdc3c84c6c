@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1424b80b_3b380119",
+        "filename": "front_end/core/sdk/EnhancedTracesParser.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-09-19T23:08:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "78bee99d_99349ae8",
+      "revId": "a636ad6185e8cb80e53d808166d7c4fdc3c84c6c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "55e2bf8e_1cd67088",
