@@ -18,6 +18,46 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "128a75e4_eb345a72",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-19T17:43:41Z",
+      "side": 1,
+      "message": "I will leave Paul to do the full review, but just wanted to say thanks for all your work on this, it\u0027s looking great!",
+      "revId": "6851979ddc338acf02f7b565db8776606e0b4361",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "161743d8_c78d5298",
+        "filename": "front_end/core/sdk/EnhancedTracesParser.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-19T17:43:41Z",
+      "side": 1,
+      "message": "I don\u0027t feel massively strongly as the devtools codebase is a mix of both; but broadly we\u0027ve been preferring native private properties over TS private. Is there a reason you went for `private` over `#` ?",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 77,
+        "endChar": 44
+      },
+      "revId": "6851979ddc338acf02f7b565db8776606e0b4361",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1fd97ace_ae8eacc5",
