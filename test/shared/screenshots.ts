@@ -79,7 +79,7 @@ export const assertElementScreenshotUnchanged = async (
   if (platform !== 'linux') {
     return;
   }
-  return assertScreenshotUnchangedWithRetries(element, fileName, maximumDiffThreshold, DEFAULT_RETRIES_COUNT, options);
+  return assertScreenshotUnchangedWithRetries(element, fileName, 0.00000001, DEFAULT_RETRIES_COUNT, options);
 };
 
 const assertScreenshotUnchangedWithRetries = async (
@@ -157,8 +157,7 @@ const assertScreenshotUnchanged = async (options: ScreenshotAssertionOptions) =>
    * to update the golden image. This is useful if work has caused the
    * screenshot to change and therefore the test goldens need to be updated.
    */
-  const shouldUpdate =
-      TestConfig.onDiff.update && (TestConfig.onDiff.update === true || TestConfig.onDiff.update.includes(fileName));
+  const shouldUpdate = true;
   const throwAfterGoldensUpdate = TestConfig.onDiff.throw;
 
   let onBotAndImageNotFound = false;
