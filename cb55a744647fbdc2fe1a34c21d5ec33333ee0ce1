@@ -16,6 +16,24 @@
       "message": "this type is the same as BoundedInsights[data]. i think boundedinsights is a more canonical type now..  can we drop this one?",
       "revId": "cb55a744647fbdc2fe1a34c21d5ec33333ee0ce1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b31a119c_af9a3bec",
+        "filename": "front_end/models/trace/insights/types.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-20T16:50:17Z",
+      "side": 1,
+      "message": "hm not really, without making the code a bit more ugly. see:\n\n`TraceEngine.Insights.Types.BoundedInsights[\u0027data\u0027][\u0027CumulativeLayoutShift\u0027]`\n\nvs \n\n`TraceEngine.Insights.Types.InsightResults[\u0027CumulativeLayoutShift\u0027]`\n\nbut I think I can probably refactor out all these usages, I\u0027ll try later today.",
+      "parentUuid": "2b7dd3fe_de3fc718",
+      "revId": "cb55a744647fbdc2fe1a34c21d5ec33333ee0ce1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
