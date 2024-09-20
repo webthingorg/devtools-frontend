@@ -5,6 +5,8 @@
 import * as Platform from '../../core/platform/platform.js';
 import * as TraceEngine from '../../models/trace/trace.js';
 
+import type * as OverlaysImpl from './overlays/OverlaysImpl.js';
+
 export function getAnnotationEntries(
     annotation: TraceEngine.Types.File.Annotation,
     ): TraceEngine.Types.TraceEvents.TraceEventData[] {
@@ -80,4 +82,16 @@ export function getAnnotationWindow(
   }
 
   return annotationWindow;
+}
+
+export function isTimeRangeLabel(annotation: OverlaysImpl.TimelineOverlay): annotation is OverlaysImpl.TimeRangeLabel {
+  return annotation.type === 'TIME_RANGE';
+}
+
+export function isEntriesLink(annotation: OverlaysImpl.TimelineOverlay): annotation is OverlaysImpl.EntriesLink {
+  return annotation.type === 'ENTRIES_LINK';
+}
+
+export function isEntryLabel(annotation: OverlaysImpl.TimelineOverlay): annotation is OverlaysImpl.EntryLabel {
+  return annotation.type === 'ENTRY_LABEL';
 }
