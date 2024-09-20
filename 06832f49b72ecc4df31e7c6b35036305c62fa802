@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52742c3c_7280f845",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-09-20T13:20:30Z",
+      "side": 1,
+      "message": "Hi Kateryna!\n\nThis is the correct CL to back-merge for M130, which updates the navigator tree 😊 ptal!",
+      "revId": "06832f49b72ecc4df31e7c6b35036305c62fa802",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
