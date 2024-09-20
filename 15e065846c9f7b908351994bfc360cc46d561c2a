@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "322e9ad4_8cc76e9f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-20T09:48:31Z",
+      "side": 1,
+      "message": "leaving review to not block but a few nits for me 😊 this is looking great though!",
+      "revId": "15e065846c9f7b908351994bfc360cc46d561c2a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cfb321c9_fa2447b2",
+        "filename": "front_end/models/trace/handlers/LayoutShiftsHandler.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 331,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-20T09:48:31Z",
+      "side": 1,
+      "message": "is this actually updated below? I don\u0027t see it in this CL.",
+      "range": {
+        "startLine": 331,
+        "startChar": 0,
+        "endLine": 331,
+        "endChar": 70
+      },
+      "revId": "15e065846c9f7b908351994bfc360cc46d561c2a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c80a7d4_7ffed05c",
+        "filename": "front_end/panels/timeline/LayoutShiftsTrackAppender.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-20T09:48:31Z",
+      "side": 1,
+      "message": "rename to not have the underscore now we are using this param",
+      "range": {
+        "startLine": 105,
+        "startChar": 16,
+        "endLine": 105,
+        "endChar": 22
+      },
+      "revId": "15e065846c9f7b908351994bfc360cc46d561c2a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0f9e4a0_122dee38",
+        "filename": "front_end/panels/timeline/LayoutShiftsTrackAppender.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-20T09:48:31Z",
+      "side": 1,
+      "message": "tiny nit: I\u0027d call this `renderingColor` or something in case it ever becomes not purple",
+      "range": {
+        "startLine": 106,
+        "startChar": 10,
+        "endLine": 106,
+        "endChar": 16
+      },
+      "revId": "15e065846c9f7b908351994bfc360cc46d561c2a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "399e8df4_d1decc84",
+        "filename": "front_end/panels/timeline/LayoutShiftsTrackAppender.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-20T09:48:31Z",
+      "side": 1,
+      "message": "is 0.1 a bit low to be considered \"max size\" here? e.g. is a layout shift of 0.1 going to be visually the same size as a layout shift of 0.9 ?",
+      "range": {
+        "startLine": 152,
+        "startChar": 0,
+        "endLine": 152,
+        "endChar": 66
+      },
+      "revId": "15e065846c9f7b908351994bfc360cc46d561c2a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
