@@ -236,7 +236,7 @@ type ClosingTagContext = {
 
 export type TagTypeContext = OpeningTagContext|ClosingTagContext;
 
-function isOpeningTag(context: TagTypeContext): context is OpeningTagContext {
+export function isOpeningTag(context: TagTypeContext): context is OpeningTagContext {
   return context.tagType === TagType.OPENING;
 }
 
@@ -315,7 +315,7 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
         UI.Tooltip.Tooltip.install(adorner, i18nString(UIStrings.thisFrameWasIdentifiedAsAnAd));
       }
 
-      this.updateScrollAdorner();
+      void this.updateScrollAdorner();
     }
     this.expandAllButtonElement = null;
   }
@@ -2450,20 +2450,20 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     context.styleAdorners.push(adorner);
   }
 
-  updateScrollAdorner(): void {
+  updateScrollAdorner(): Promise<void> {
     if (!isOpeningTag(this.tagTypeContext)) {
-      return;
+      return Promise.resolve();
     }
+    const scrollAdorner = this.tagTypeContext.adorners.find(x => x.name === 'scroll');
     // Check if the node is scrollable, or if it's the <html> element and the document is scrollable because the top-level document (#document) doesn't have a corresponding tree element.
-    if ((this.node().nodeName() === 'HTML' && this.node().ownerDocument?.isScrollable()) ||
-        (this.node().nodeName() !== '#document' && this.node().isScrollable())) {
+    const needsAScrollAdorner = (this.node().nodeName() === 'HTML' && this.node().ownerDocument?.isScrollable()) ||
+        (this.node().nodeName() !== '#document' && this.node().isScrollable());
+    if (needsAScrollAdorner && !scrollAdorner) {
       this.pushScrollAdorner();
-    } else {
-      const scrollAdorner = this.tagTypeContext.adorners.find(x => x.name === 'scroll');
-      if (scrollAdorner) {
-        this.removeAdorner(scrollAdorner, this.tagTypeContext);
-      }
+    } else if (!needsAScrollAdorner && scrollAdorner) {
+      this.removeAdorner(scrollAdorner, this.tagTypeContext);
     }
+    return Promise.resolve();
   }
 
   pushScrollAdorner(): void {
