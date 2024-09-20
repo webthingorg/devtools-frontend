@@ -82,6 +82,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "729a3be1_8847912d",
+        "filename": "front_end/panels/application/ExtensionStorageModel.test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1568253
+      },
+      "writtenOn": "2024-09-20T08:48:48Z",
+      "side": 1,
+      "message": "Marking this as resolved.",
+      "parentUuid": "1190271a_30fa4f6f",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 5
+      },
+      "revId": "f1e105ecc624e209837c45ce7858c2d3a4a91da3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "55a883cd_b896cc91",
