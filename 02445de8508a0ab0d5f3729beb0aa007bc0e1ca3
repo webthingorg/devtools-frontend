@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2419c155_7d9a088f",
+        "filename": "front_end/models/trace/README.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-20T20:59:47Z",
+      "side": 1,
+      "message": "fix!!!111",
+      "revId": "02445de8508a0ab0d5f3729beb0aa007bc0e1ca3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "309f66fa_3e3e18ce",
+        "filename": "front_end/models/trace/insights/types.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-20T20:59:47Z",
+      "side": 1,
+      "message": "InsightSet, not InsightSets.",
+      "revId": "02445de8508a0ab0d5f3729beb0aa007bc0e1ca3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b50d2d7_81a5191c",
+        "filename": "front_end/panels/timeline/components/SidebarInsightsTab.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-20T20:59:47Z",
+      "side": 1,
+      "message": "wanna do insightSets?",
+      "revId": "02445de8508a0ab0d5f3729beb0aa007bc0e1ca3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aeb44bfd_bd643ff8",
+        "filename": "front_end/panels/timeline/components/SidebarInsightsTab.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-20T20:59:47Z",
+      "side": 1,
+      "message": "sorry, this #insightSets is now a different thing from this CL\u0027s InsightSet. You can fix or leave with me.",
+      "revId": "02445de8508a0ab0d5f3729beb0aa007bc0e1ca3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80e45e18_7d5c912f",
+        "filename": "front_end/panels/timeline/components/SidebarSingleNavigation.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-20T20:59:47Z",
+      "side": 1,
+      "message": "insightSets?",
+      "revId": "02445de8508a0ab0d5f3729beb0aa007bc0e1ca3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1ec6ed4_15114798",
+        "filename": "front_end/panels/timeline/components/insights/Helpers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-20T20:59:47Z",
+      "side": 1,
+      "message": "insightSets?",
+      "revId": "02445de8508a0ab0d5f3729beb0aa007bc0e1ca3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7ee6ae1_b2ce731d",
+        "filename": "front_end/panels/timeline/components/insights/Helpers.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-20T20:59:47Z",
+      "side": 1,
+      "message": "insightSets?",
+      "revId": "02445de8508a0ab0d5f3729beb0aa007bc0e1ca3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
