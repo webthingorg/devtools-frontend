@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f82b8a36_aeac6be3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 49
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-09-20T12:08:04Z",
+      "side": 1,
+      "message": "The nested version is so much more digestible, thanks a lot!",
+      "revId": "d069c99a11228acd0582b78884bbdf0aee1c6349",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8aedf953_1110bff2",
+        "filename": "test/e2e/console/console-truncate-long-messages_test.ts",
+        "patchSetId": 49
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-09-20T12:08:04Z",
+      "side": 1,
+      "message": "Is this excessive? What\u0027s slowing down these tests so much more now?",
+      "revId": "d069c99a11228acd0582b78884bbdf0aee1c6349",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

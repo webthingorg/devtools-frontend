@@ -71,6 +71,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "52764b20_4e95b291",
+        "filename": "front_end/panels/console/ConsoleViewMessage.ts",
+        "patchSetId": 48
+      },
+      "lineNbr": 579,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-09-20T12:08:04Z",
+      "side": 1,
+      "message": "How about breaking the shared part out into a separate helper? I think that would ease readability.",
+      "parentUuid": "ca50fca5_573f2f69",
+      "revId": "513b0ee95ae0cf90d77945d57fd7552b443926ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "58bbf5d0_ac5e909f",
