@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "130f43cf_35ba75d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-09-20T09:49:28Z",
+      "side": 1,
+      "message": "Opened https://g-issues.chromium.org/issues/368523861",
+      "parentUuid": "67ff3965_9fc08767",
+      "revId": "8158242017bfe7f6375fd37ce6a7b02427574509",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "60ece48d_fb31eb46",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-09-20T09:00:25Z",
       "side": 1,
       "message": "(nit): I think we can simplify this part with:\n```\nconst target \u003d selectedNode?.domModel().target() ?? UI.Context.Context.instance().flavor(SDK.Target.Target);\n  if (!target) {\n    throw new Error(\u0027Target is not found for executing code\u0027);\n  }\n```\n\nand below part with\n```\nconst frameId \u003d selectedNode?.frameId() ?? resourceTreeModel?.mainFrame?.id;\n  if (!frameId) {\n    throw new Error(\u0027Main frame is not found for executing code\u0027);\n  }\n```\n\nWDYT?",
+      "revId": "8158242017bfe7f6375fd37ce6a7b02427574509",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2dd9168_ff89a38e",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-09-20T09:49:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60ece48d_fb31eb46",
       "revId": "8158242017bfe7f6375fd37ce6a7b02427574509",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
