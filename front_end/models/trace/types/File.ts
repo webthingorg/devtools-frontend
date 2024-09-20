@@ -70,6 +70,7 @@ export interface EntriesLinkAnnotation {
   type: 'ENTRIES_LINK';
   entryFrom: TraceEventData;
   entryTo?: TraceEventData;
+  linkCreateButton?: true;
 }
 
 /**

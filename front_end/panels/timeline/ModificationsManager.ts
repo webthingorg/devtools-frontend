@@ -182,6 +182,7 @@ export class ModificationsManager extends EventTarget {
           type: 'ENTRIES_LINK',
           entryFrom: annotation.entryFrom,
           entryTo: annotation.entryTo,
+          linkCreateButton: annotation.linkCreateButton,
         };
       default:
         Platform.assertNever(annotation, 'Overlay for provided annotation cannot be created');
