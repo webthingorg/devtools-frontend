@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2087aa34_f00410b0",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-09-20T12:13:08Z",
+      "side": 1,
+      "message": "Nit we can move FIX_THIS_ISSUE_PROMPT in this file.",
+      "revId": "2f51f1ad3f78e439cffe0f08cc10f64cdb3cd815",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
