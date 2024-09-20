@@ -16,6 +16,24 @@
       "message": "this CL is not related to this bug",
       "revId": "6a6cd676779db91bb0cd7ed0388dd65c758257a6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86dc2b1a_3cfc7e7f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-20T16:42:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d746afe4_dd858a6f",
+      "revId": "6a6cd676779db91bb0cd7ed0388dd65c758257a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
