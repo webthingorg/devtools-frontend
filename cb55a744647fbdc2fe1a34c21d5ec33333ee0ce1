@@ -34,6 +34,24 @@
       "parentUuid": "2b7dd3fe_de3fc718",
       "revId": "cb55a744647fbdc2fe1a34c21d5ec33333ee0ce1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1456946_8383c170",
+        "filename": "front_end/models/trace/insights/types.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-20T17:24:13Z",
+      "side": 1,
+      "message": "mkay cool",
+      "parentUuid": "b31a119c_af9a3bec",
+      "revId": "cb55a744647fbdc2fe1a34c21d5ec33333ee0ce1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
