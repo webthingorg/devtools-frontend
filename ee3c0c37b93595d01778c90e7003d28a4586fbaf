@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9056624_facfccc3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-20T09:53:43Z",
+      "side": 1,
+      "message": "happy with this % the TS errors. nice!",
+      "revId": "ee3c0c37b93595d01778c90e7003d28a4586fbaf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "854b956a_bb7e81e1",
+        "filename": "front_end/models/trace/Processor.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-20T09:53:43Z",
+      "side": 1,
+      "message": "just highlighting this so we don\u0027t accidentally land without resolving",
+      "range": {
+        "startLine": 347,
+        "startChar": 0,
+        "endLine": 349,
+        "endChar": 41
+      },
+      "revId": "ee3c0c37b93595d01778c90e7003d28a4586fbaf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3afb102_51097575",
+        "filename": "front_end/models/trace/insights/types.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-20T09:53:43Z",
+      "side": 1,
+      "message": "can we fix as part of this CL please 😊 (don\u0027t have context on what the error is, but can\u0027t this be `BoundedInsightContext` ?)",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 63
+      },
+      "revId": "ee3c0c37b93595d01778c90e7003d28a4586fbaf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74a7686e_8c761e1d",
+        "filename": "front_end/panels/timeline/components/SidebarInsightsTab.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-20T09:53:43Z",
+      "side": 1,
+      "message": "and another to make sure we resolve",
+      "range": {
+        "startLine": 125,
+        "startChar": 3,
+        "endLine": 126,
+        "endChar": 35
+      },
+      "revId": "ee3c0c37b93595d01778c90e7003d28a4586fbaf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
