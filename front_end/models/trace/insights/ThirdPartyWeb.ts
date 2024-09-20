@@ -186,23 +186,17 @@ function getSummaries(
 
 export function generateInsight(
     traceData: RequiredData<typeof deps>, context: BoundedInsightContext): ThirdPartyWebInsightResult {
-  const networkRequests = [];
-  for (const req of traceData.NetworkRequests.byTime) {
+  const networkRequests = traceData.NetworkRequests.byTime.filter(event => {
     if (!context.navigation) {
-      break;
+      return false;
     }
 
-    if (req.args.data.frame !== context.frameId) {
-      continue;
+    if (event.args.data.frame !== context.frameId) {
+      return false;
     }
 
-    // TODO(crbug.com/366049346): use context.bounds instead
-    const navigation =
-        Helpers.Trace.getNavigationForTraceEvent(req, context.frameId, traceData.Meta.navigationsByFrameId);
-    if (navigation === context.navigation) {
-      networkRequests.push(req);
-    }
-  }
+    return Helpers.Timing.eventIsInBounds(event, context.bounds);
+  });
 
   const entityByRequest = new Map<Types.TraceEvents.SyntheticNetworkRequest, Entity>();
   const madeUpEntityCache = new Map<string, Entity>();

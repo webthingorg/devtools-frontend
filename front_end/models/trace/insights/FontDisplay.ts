@@ -22,22 +22,12 @@ export type FontDisplayResult = InsightResult<{
 
 export function generateInsight(
     traceData: RequiredData<typeof deps>, context: BoundedInsightContext): FontDisplayResult {
-  // TODO(b/366049346) make this work w/o a navigation.
-  if (!context.navigation) {
-    return {fonts: []};
-  }
-
-  const remoteFontLoadEvents = [];
-  for (const event of traceData.LayoutShifts.beginRemoteFontLoadEvents) {
-    const navigation =
-        Helpers.Trace.getNavigationForTraceEvent(event, context.frameId, traceData.Meta.navigationsByFrameId);
-    if (navigation === context.navigation) {
-      remoteFontLoadEvents.push(event);
-    }
-  }
-
   const fonts = [];
-  for (const event of remoteFontLoadEvents) {
+  for (const event of traceData.LayoutShifts.beginRemoteFontLoadEvents) {
+    if (!Helpers.Timing.eventIsInBounds(event, context.bounds)) {
+      continue;
+    }
+
     const requestId = `${event.pid}.${event.args.id}`;
     const request = traceData.NetworkRequests.byId.get(requestId);
     if (!request) {

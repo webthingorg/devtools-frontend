@@ -265,34 +265,32 @@ function getFontRootCauses(
 
 export function generateInsight(
     traceParsedData: RequiredData<typeof deps>, context: BoundedInsightContext): CLSInsightResult {
-  // TODO(crbug.com/366049346) make this work w/o a navigation.
+  // TODO(crbug.com/366049346): won't work without nav right now. See comment on clusterKey below.
   if (!context.navigation) {
     return {
       clusters: [],
     };
   }
 
-  const isWithinSameNavigation = ((event: Types.TraceEvents.TraceEventData): boolean => {
-    const nav =
-        Helpers.Trace.getNavigationForTraceEvent(event, context.frameId, traceParsedData.Meta.navigationsByFrameId);
-    return nav === context.navigation;
-  });
+  const isWithinContext = (event: Types.TraceEvents.TraceEventData): boolean =>
+      Helpers.Timing.eventIsInBounds(event, context.bounds);
 
-  const compositeAnimationEvents = traceParsedData.Animations.animations.filter(isWithinSameNavigation);
+  const compositeAnimationEvents = traceParsedData.Animations.animations.filter(isWithinContext);
   const animationFailures = compositeAnimationEvents.map(getNonCompositedFailure).flat();
 
-  const iframeEvents =
-      traceParsedData.LayoutShifts.renderFrameImplCreateChildFrameEvents.filter(isWithinSameNavigation);
-  const networkRequests = traceParsedData.NetworkRequests.byTime.filter(isWithinSameNavigation);
+  const iframeEvents = traceParsedData.LayoutShifts.renderFrameImplCreateChildFrameEvents.filter(isWithinContext);
+  const networkRequests = traceParsedData.NetworkRequests.byTime.filter(isWithinContext);
 
-  const domLoadingEvents = traceParsedData.LayoutShifts.domLoadingEvents.filter(isWithinSameNavigation);
+  const domLoadingEvents = traceParsedData.LayoutShifts.domLoadingEvents.filter(isWithinContext);
 
   // Sort by cumulative score, since for insights we interpret these for their "bad" scores.
-  const clusters = traceParsedData.LayoutShifts.clustersByNavigationId.get(context.navigationId)
+  // TODO(crbug.com/366049346): buildLayoutShiftsClusters is dropping non-nav clusters.
+  const clusterKey = context.navigation ? context.navigationId : '';
+  const clusters = traceParsedData.LayoutShifts.clustersByNavigationId.get(clusterKey)
                        ?.sort((a, b) => b.clusterCumulativeScore - a.clusterCumulativeScore) ??
       [];
   const layoutShifts = clusters.flatMap(cluster => cluster.events);
-  const prePaintEvents = traceParsedData.LayoutShifts.prePaintEvents.filter(isWithinSameNavigation);
+  const prePaintEvents = traceParsedData.LayoutShifts.prePaintEvents.filter(isWithinContext);
 
   // Get root causes.
   const rootCausesByShift = new Map<Types.TraceEvents.TraceEventLayoutShift, LayoutShiftRootCausesData>();

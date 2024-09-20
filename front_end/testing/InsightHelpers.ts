@@ -5,14 +5,22 @@
 import * as TraceModel from '../models/trace/trace.js';
 
 export function createContextForNavigation(
+    parsedTrace: TraceModel.Handlers.Types.TraceParseData,
     navigation: TraceModel.Types.TraceEvents.TraceEventNavigationStart,
     frameId: string): TraceModel.Insights.Types.BoundedInsightContextWithNavigation {
   if (!navigation.args.data?.navigationId) {
     throw new Error('expected navigationId');
   }
 
+  const navigationIndex = parsedTrace.Meta.mainFrameNavigations.indexOf(navigation);
+  if (navigationIndex === -1) {
+    throw new Error('unexpected navigation');
+  }
+
   const min = navigation.ts;
-  const max = (navigation.ts + (navigation?.dur ?? 0)) as TraceModel.Types.Timing.MicroSeconds;
+  const max = navigationIndex + 1 < parsedTrace.Meta.mainFrameNavigations.length ?
+      parsedTrace.Meta.mainFrameNavigations[navigationIndex + 1].ts :
+      parsedTrace.Meta.traceBounds.max;
   const bounds = TraceModel.Helpers.Timing.traceWindowFromMicroSeconds(min, max);
 
   return {

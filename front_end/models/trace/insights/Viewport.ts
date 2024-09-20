@@ -18,19 +18,12 @@ export type ViewportInsightResult = InsightResult<{
 
 export function generateInsight(
     traceParsedData: RequiredData<typeof deps>, context: BoundedInsightContext): ViewportInsightResult {
-  // TODO(crbug.com/366049346)
-  if (!context.navigation) {
-    return {mobileOptimized: null};
-  }
-
   const compositorEvents = traceParsedData.UserInteractions.beginCommitCompositorFrameEvents.filter(event => {
     if (event.args.frame !== context.frameId) {
       return false;
     }
 
-    const navigation =
-        Helpers.Trace.getNavigationForTraceEvent(event, context.frameId, traceParsedData.Meta.navigationsByFrameId);
-    return navigation === context.navigation;
+    return Helpers.Timing.eventIsInBounds(event, context.bounds);
   });
 
   if (!compositorEvents.length) {
@@ -46,9 +39,7 @@ export function generateInsight(
       return false;
     }
 
-    const navigation =
-        Helpers.Trace.getNavigationForTraceEvent(event, context.frameId, traceParsedData.Meta.navigationsByFrameId);
-    return navigation === context.navigation;
+    return Helpers.Timing.eventIsInBounds(event, context.bounds);
   });
 
   // Returns true only if all events are mobile optimized.
