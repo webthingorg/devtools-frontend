@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd265cb5_b6acb950",
+        "filename": "front_end/models/trace/Processor.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 349,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-20T15:49:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "854b956a_bb7e81e1",
+      "range": {
+        "startLine": 347,
+        "startChar": 0,
+        "endLine": 349,
+        "endChar": 41
+      },
+      "revId": "ee3c0c37b93595d01778c90e7003d28a4586fbaf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a3afb102_51097575",
@@ -64,6 +88,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce24c3ea_072b443e",
+        "filename": "front_end/models/trace/insights/types.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-20T15:49:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3afb102_51097575",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 66,
+        "endChar": 63
+      },
+      "revId": "ee3c0c37b93595d01778c90e7003d28a4586fbaf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "74a7686e_8c761e1d",
@@ -77,6 +125,30 @@
       "writtenOn": "2024-09-20T09:53:43Z",
       "side": 1,
       "message": "and another to make sure we resolve",
+      "range": {
+        "startLine": 125,
+        "startChar": 3,
+        "endLine": 126,
+        "endChar": 35
+      },
+      "revId": "ee3c0c37b93595d01778c90e7003d28a4586fbaf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1efdbf1d_1914c6f0",
+        "filename": "front_end/panels/timeline/components/SidebarInsightsTab.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-20T15:49:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "74a7686e_8c761e1d",
       "range": {
         "startLine": 125,
         "startChar": 3,
