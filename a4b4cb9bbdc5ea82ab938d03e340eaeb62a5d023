@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96f8e6c1_0d2a187a",
+        "filename": "front_end/panels/settings/FrameworkIgnoreListSettingsTab.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2024-09-20T08:32:24Z",
+      "side": 0,
+      "message": "This part isn\u0027t quite right either but I\u0027m concerned this message may get too verbose. \"will not step through them or break on exceptions only affecting them\" would be more accurate.",
+      "range": {
+        "startLine": 23,
+        "startChar": 73,
+        "endLine": 23,
+        "endChar": 116
+      },
+      "revId": "a4b4cb9bbdc5ea82ab938d03e340eaeb62a5d023",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

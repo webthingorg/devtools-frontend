@@ -16,6 +16,23 @@
       "message": "Any suggestions for the wording, Sofia? https://screenshot.googleplex.com/9vjp4oWR5iLGdSn",
       "revId": "4390f6bd9619c28c606cda93c7339a417f04f79d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6599a3e1_17b1e0e5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1369666
+      },
+      "writtenOn": "2024-09-20T08:32:24Z",
+      "side": 1,
+      "message": "Definitely an improvement, thanks! LGTM once tests are updated.",
+      "revId": "4390f6bd9619c28c606cda93c7339a417f04f79d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
