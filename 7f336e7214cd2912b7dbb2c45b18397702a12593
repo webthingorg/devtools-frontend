@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22d3fb1a_634a2ff3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-20T12:39:18Z",
+      "side": 1,
+      "message": "lgtm with two tweaks!",
+      "revId": "7f336e7214cd2912b7dbb2c45b18397702a12593",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58d46383_6c2e1a7b",
+        "filename": "front_end/panels/timeline/AnnotationHelpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-20T12:39:18Z",
+      "side": 1,
+      "message": "import type * as Overlays from \u0027./overlays/overlays.js\u0027",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 64
+      },
+      "revId": "7f336e7214cd2912b7dbb2c45b18397702a12593",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30a30ce7_96e5b5ae",
+        "filename": "front_end/panels/timeline/AnnotationHelpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-20T12:39:18Z",
+      "side": 1,
+      "message": "I would call the argument to these functions `overlay` because else it\u0027s a bit confusing that we are checking an overlay that is called an `annotation` as they are similar but different concepts.",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 119
+      },
+      "revId": "7f336e7214cd2912b7dbb2c45b18397702a12593",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
