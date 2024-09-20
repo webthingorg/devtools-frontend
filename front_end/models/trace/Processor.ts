@@ -345,6 +345,8 @@ export class TraceProcessor extends EventTarget {
       Object.assign(boundedInsightData, {[name]: insightResult});
     }
 
+    // @ts-expect-error
+    boundedInsightData.context = context;
     return boundedInsightData;
   }
 

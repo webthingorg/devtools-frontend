@@ -63,6 +63,8 @@ export type InsightResult<R extends Record<string, unknown>> = R&{
  */
 export type BoundedInsightData = {
   [I in keyof InsightRunnersType]: ReturnType<InsightRunnersType[I]['generateInsight']>|Error;
+  // @ts-expect-error Smuggling this in for now. cjamcl to fix.
+  context: Insights.Types.BoundedInsightContext;
 };
 
 /**
