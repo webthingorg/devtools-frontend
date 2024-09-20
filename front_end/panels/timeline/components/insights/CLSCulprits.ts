@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 import * as i18n from '../../../../core/i18n/i18n.js';
-import * as TraceEngine from '../../../../models/trace/trace.js';
+import * as Trace from '../../../../models/trace/trace.js';
 import * as LitHtml from '../../../../ui/lit-html/lit-html.js';
 import type * as Overlays from '../../overlays/overlays.js';
 
@@ -20,8 +20,8 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('panels/timeline/components/insights/CLSCulprits.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
-export function getCLSInsight(insights: TraceEngine.Insights.Types.TraceInsightData|null, navigationId: string|null):
-    TraceEngine.Insights.Types.InsightResults['CumulativeLayoutShift']|null {
+export function getCLSInsight(insights: Trace.Insights.Types.InsightSets|null, navigationId: string|null):
+    Trace.Insights.Types.InsightResults['CumulativeLayoutShift']|null {
   if (!insights || !navigationId) {
     return null;
   }
@@ -45,14 +45,14 @@ export class CLSCulprits extends BaseInsight {
   override userVisibleTitle: string = 'Layout shift culprits';
 
   override createOverlays(): Overlays.Overlays.TimelineOverlay[] {
-    const insight = getCLSInsight(this.data.insights, this.data.navigationId);
+    const insight = getCLSInsight(this.data.insightSets, this.data.navigationId);
     // Clusters are sorted by bad scores, so we can grab the first.
     const worstCluster = insight?.clusters[0];
     if (!worstCluster) {
       return [];
     }
-    const range = TraceEngine.Types.Timing.MicroSeconds(worstCluster.dur ?? 0);
-    const max = TraceEngine.Types.Timing.MicroSeconds(worstCluster.ts + range);
+    const range = Trace.Types.Timing.MicroSeconds(worstCluster.dur ?? 0);
+    const max = Trace.Types.Timing.MicroSeconds(worstCluster.ts + range);
 
     const label = LitHtml.html`<div>${i18nString(UIStrings.worstCluster)}</div>`;
     return [{
@@ -69,11 +69,10 @@ export class CLSCulprits extends BaseInsight {
    * getTopCulprits gets the top 3 shift root causes based on clusters.
    */
   getTopCulprits(
-      clusters: TraceEngine.Types.TraceEvents.SyntheticLayoutShiftCluster[],
+      clusters: Trace.Types.Events.SyntheticLayoutShiftCluster[],
       culpritsByShift:
-          Map<TraceEngine.Types.TraceEvents.TraceEventLayoutShift,
-              TraceEngine.Insights.InsightRunners.CumulativeLayoutShift.LayoutShiftRootCausesData>|
-      undefined): string[] {
+          Map<Trace.Types.Events.LayoutShift,
+              Trace.Insights.InsightRunners.CumulativeLayoutShift.LayoutShiftRootCausesData>|undefined): string[] {
     if (!culpritsByShift) {
       return [];
     }
@@ -139,7 +138,7 @@ export class CLSCulprits extends BaseInsight {
   }
 
   override render(): void {
-    const clsInsight = getCLSInsight(this.data.insights, this.data.navigationId);
+    const clsInsight = getCLSInsight(this.data.insightSets, this.data.navigationId);
     const culpritsByShift = clsInsight?.shifts;
     const clusters = clsInsight?.clusters ?? [];
 

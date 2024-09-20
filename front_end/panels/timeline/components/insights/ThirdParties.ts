@@ -4,7 +4,7 @@
 
 import * as i18n from '../../../../core/i18n/i18n.js';
 import * as Platform from '../../../../core/platform/platform.js';
-import type * as TraceEngine from '../../../../models/trace/trace.js';
+import type * as Trace from '../../../../models/trace/trace.js';
 import * as LitHtml from '../../../../ui/lit-html/lit-html.js';
 import type * as Overlays from '../../overlays/overlays.js';
 
@@ -14,8 +14,8 @@ import {Table, type TableData} from './Table.js';
 import {InsightsCategories} from './types.js';
 
 type ThirdPartiesEntires = Array<[
-  TraceEngine.Insights.InsightRunners.ThirdPartyWeb.Entity,
-  TraceEngine.Insights.InsightRunners.ThirdPartyWeb.Summary,
+  Trace.Insights.InsightRunners.ThirdPartyWeb.Entity,
+  Trace.Insights.InsightRunners.ThirdPartyWeb.Summary,
 ]>;
 
 const UIStrings = {
@@ -40,9 +40,8 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('panels/timeline/components/insights/ThirdParties.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
-export function getThirdPartiesInsight(
-    insights: TraceEngine.Insights.Types.TraceInsightData|null,
-    navigationId: string|null): TraceEngine.Insights.Types.InsightResults['ThirdPartyWeb']|null {
+export function getThirdPartiesInsight(insights: Trace.Insights.Types.InsightSets|null, navigationId: string|null):
+    Trace.Insights.Types.InsightResults['ThirdPartyWeb']|null {
   if (!insights || !navigationId) {
     return null;
   }
@@ -66,14 +65,14 @@ export class ThirdParties extends BaseInsight {
   override userVisibleTitle: string = i18nString(UIStrings.title);
 
   #overlaysForEntity =
-      new Map<TraceEngine.Insights.InsightRunners.ThirdPartyWeb.Entity, Overlays.Overlays.TimelineOverlay[]>();
+      new Map<Trace.Insights.InsightRunners.ThirdPartyWeb.Entity, Overlays.Overlays.TimelineOverlay[]>();
   #currentSelectedRowEl: HTMLElement|null = null;
   #currentSelectionIsSticky = false;
 
   override createOverlays(): Overlays.Overlays.TimelineOverlay[] {
     this.#overlaysForEntity.clear();
 
-    const insight = getThirdPartiesInsight(this.data.insights, this.data.navigationId);
+    const insight = getThirdPartiesInsight(this.data.insightSets, this.data.navigationId);
     if (!insight) {
       return [];
     }
@@ -102,8 +101,7 @@ export class ThirdParties extends BaseInsight {
   }
 
   #onSelectedRowChanged(
-      entity: TraceEngine.Insights.InsightRunners.ThirdPartyWeb.Entity|null, rowEl: HTMLElement|null,
-      sticky: boolean): void {
+      entity: Trace.Insights.InsightRunners.ThirdPartyWeb.Entity|null, rowEl: HTMLElement|null, sticky: boolean): void {
     if (this.#currentSelectionIsSticky && !sticky) {
       return;
     }
@@ -177,7 +175,7 @@ export class ThirdParties extends BaseInsight {
   }
 
   override render(): void {
-    const insight = getThirdPartiesInsight(this.data.insights, this.data.navigationId);
+    const insight = getThirdPartiesInsight(this.data.insightSets, this.data.navigationId);
     const entries = insight && [...insight.summaryByEntity.entries()].filter(kv => kv[0] !== insight.firstPartyEntity);
     const shouldShow = entries?.length;
 

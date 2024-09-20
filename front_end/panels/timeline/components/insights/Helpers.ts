@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import type * as TraceEngine from '../../../../models/trace/trace.js';
+import type * as Trace from '../../../../models/trace/trace.js';
 import * as Marked from '../../../../third_party/marked/marked.js';
 import * as ComponentHelpers from '../../../../ui/components/helpers/helpers.js';
 import * as MarkdownView from '../../../../ui/components/markdown_view/markdown_view.js';
@@ -31,7 +31,7 @@ export function insightIsActive(options: {
 }
 
 export interface BaseInsightData {
-  insights: TraceEngine.Insights.Types.TraceInsightData|null;
+  insightSets: Trace.Insights.Types.InsightSets|null;
   navigationId: string|null;
   activeInsight: ActiveInsight|null;
   activeCategory: InsightsCategories;
@@ -47,7 +47,7 @@ export abstract class BaseInsight extends HTMLElement {
   protected readonly shadow = this.attachShadow({mode: 'open'});
 
   protected data: BaseInsightData = {
-    insights: null,
+    insightSets: null,
     navigationId: null,
     activeInsight: null,
     activeCategory: InsightsCategories.ALL,
@@ -63,8 +63,8 @@ export abstract class BaseInsight extends HTMLElement {
     this.shadow.adoptedStyleSheets.push(sidebarInsightStyles);
   }
 
-  set insights(insights: TraceEngine.Insights.Types.TraceInsightData|null) {
-    this.data.insights = insights;
+  set insights(insights: Trace.Insights.Types.InsightSets|null) {
+    this.data.insightSets = insights;
     void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
   }
 

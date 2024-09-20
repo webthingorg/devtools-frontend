@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 import * as i18n from '../../../../core/i18n/i18n.js';
-import type * as TraceEngine from '../../../../models/trace/trace.js';
+import type * as Trace from '../../../../models/trace/trace.js';
 import * as IconButton from '../../../../ui/components/icon_button/icon_button.js';
 import * as LitHtml from '../../../../ui/lit-html/lit-html.js';
 import type * as Overlays from '../../overlays/overlays.js';
@@ -42,9 +42,8 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('panels/timeline/components/insights/DocumentLatency.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
-export function getDocumentLatencyInsight(
-    insights: TraceEngine.Insights.Types.TraceInsightData|null,
-    navigationId: string|null): TraceEngine.Insights.Types.InsightResults['DocumentLatency']|null {
+export function getDocumentLatencyInsight(insights: Trace.Insights.Types.InsightSets|null, navigationId: string|null):
+    Trace.Insights.Types.InsightResults['DocumentLatency']|null {
   if (!insights || !navigationId) {
     return null;
   }
@@ -80,7 +79,7 @@ export class DocumentLatency extends BaseInsight {
   }
 
   override createOverlays(): Overlays.Overlays.TimelineOverlay[] {
-    const insight = getDocumentLatencyInsight(this.data.insights, this.data.navigationId);
+    const insight = getDocumentLatencyInsight(this.data.insightSets, this.data.navigationId);
     if (!insight?.data?.documentRequest) {
       return [];
     }
@@ -92,7 +91,7 @@ export class DocumentLatency extends BaseInsight {
     }];
   }
 
-  #renderInsight(insight: TraceEngine.Insights.Types.InsightResults['DocumentLatency']): LitHtml.LitTemplate {
+  #renderInsight(insight: Trace.Insights.Types.InsightResults['DocumentLatency']): LitHtml.LitTemplate {
     if (!insight.data) {
       return LitHtml.nothing;
     }
@@ -129,7 +128,7 @@ export class DocumentLatency extends BaseInsight {
   }
 
   override render(): void {
-    const insight = getDocumentLatencyInsight(this.data.insights, this.data.navigationId);
+    const insight = getDocumentLatencyInsight(this.data.insightSets, this.data.navigationId);
     const matchesCategory = shouldRenderForCategory({
       activeCategory: this.data.activeCategory,
       insightCategory: this.insightCategory,
