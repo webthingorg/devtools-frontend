@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1ceb4d0_47733cd0",
+        "filename": "front_end/panels/security/OriginTreeElement.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 3584853
+      },
+      "writtenOn": "2024-09-20T18:15:51Z",
+      "side": 1,
+      "message": "Is this correct? I copied from another file and updated the year. Wasn\u0027t sure if there\u0027s a process for adding Copyright for new files.",
+      "revId": "66c4a68146563584d8a567246e18a99f4ab06a23",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
