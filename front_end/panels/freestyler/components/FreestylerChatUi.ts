@@ -853,10 +853,10 @@ export class FreestylerChatUi extends HTMLElement {
               @click=${this.#handleCancel}
               .data=${
                 {
-                  variant: Buttons.Button.Variant.PRIMARY,
+                  variant: Buttons.Button.Variant.ICON,
                   size: Buttons.Button.Size.SMALL,
                   disabled: this.#isTextInputDisabled(),
-                  iconName: 'stop',
+                  iconName: 'record-stop',
                   title: i18nString(UIStringsTemp.cancelButtonTitle),
                   jslogContext: 'stop',
                 } as Buttons.Button.ButtonData
