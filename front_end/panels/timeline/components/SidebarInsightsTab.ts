@@ -120,6 +120,17 @@ export class SidebarInsightsTab extends HTMLElement {
     void ComponentHelpers.ScheduledRender.scheduleRender(this, this.#boundRender);
   }
 
+  #navigationHovered(id: string): void {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const data = this.#insights?.get(id);
+    // @TODO(cjamcl): resolve this navigation id to the associated Insights.Types.BoundedInsightContext
+    // this.dispatchEvent(new Insights.SidebarInsight.NavigationBoundsHovered(bounds));
+  }
+
+  #navigationUnhovered(): void {
+    this.dispatchEvent(new Insights.SidebarInsight.NavigationBoundsHovered());
+  }
+
   #render(): void {
     if (!this.#traceParsedData || !this.#insights || !this.#insightSets) {
       LitHtml.render(LitHtml.nothing, this.#shadow, {host: this});
@@ -164,7 +175,11 @@ export class SidebarInsightsTab extends HTMLElement {
               ?open=${id === this.#activeNavigationId}
               class="navigation-wrapper"
             >
-              <summary @click=${() => this.#navigationClicked(id)}>${label}</summary>
+              <summary
+                @click=${() => this.#navigationClicked(id)}
+                @mouseenter=${() => this.#navigationHovered(id)}
+                @mouseleave=${() => this.#navigationUnhovered()}
+                >${label}</summary>
               ${contents}
             </details>`;
           }
