@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b7dd3fe_de3fc718",
+        "filename": "front_end/models/trace/insights/types.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-20T16:40:51Z",
+      "side": 1,
+      "message": "this type is the same as BoundedInsights[data]. i think boundedinsights is a more canonical type now..  can we drop this one?",
+      "revId": "cb55a744647fbdc2fe1a34c21d5ec33333ee0ce1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
