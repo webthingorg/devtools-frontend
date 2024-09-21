@@ -437,6 +437,10 @@ const UIStrings = {
   incompatibleAnimations: 'Target has another animation which is incompatible',
   /** Descriptive reason for why a user-provided animation failed to be optimized by the browser due to an effect having unsupported timing parameters. Shown in a table with a list of other potential failure reasons.  */
   unsupportedTimingParameters: 'Effect has unsupported timing parameters',
+  /** Descriptive reason for why a user-provided animation failed to be optimized by the browser due to an effect affecting an important property. Shown in a table with a list of other potential failure reasons.  */
+  affectsImportantProperty: 'Effect affects a property with !important',
+  /** Descriptive reason for why a user-provided animation failed to be optimized by the browser due to an unknown reason. Shown in a table with a list of other potential failure reasons.  */
+  unknownReason: 'Unknown Reason',
 
   /**
    *@description Text for the execution stack trace
@@ -1419,36 +1423,48 @@ export class TimelineUIUtils {
         const unsupportedProperties =
             new Set(failures.map(f => f.unsupportedProperties).flat().filter(Boolean)) as Set<string>;
 
-        for (const reason of failureReasons) {
-          let str;
-          switch (reason) {
-            case CLSInsight.AnimationFailureReasons.UNSUPPORTED_CSS_PROPERTY:
-              str = i18nString(UIStrings.unsupportedCSSProperty, {
-                propertyCount: unsupportedProperties.size,
-                properties:
-                    new Intl.ListFormat(undefined, {style: 'short', type: 'conjunction'}).format(unsupportedProperties),
-              });
-              break;
-            case CLSInsight.AnimationFailureReasons.TRANSFROM_BOX_SIZE_DEPENDENT:
-              str = i18nString(UIStrings.transformDependsBoxSize);
-              break;
-            case CLSInsight.AnimationFailureReasons.FILTER_MAY_MOVE_PIXELS:
-              str = i18nString(UIStrings.filterMayMovePixels);
-              break;
-            case CLSInsight.AnimationFailureReasons.NON_REPLACE_COMPOSITE_MODE:
-              str = i18nString(UIStrings.nonReplaceCompositeMode);
-              break;
-            case CLSInsight.AnimationFailureReasons.INCOMPATIBLE_ANIMATIONS:
-              str = i18nString(UIStrings.incompatibleAnimations);
-              break;
-            case CLSInsight.AnimationFailureReasons.UNSUPPORTED_TIMING_PARAMS:
-              str = i18nString(UIStrings.unsupportedTimingParameters);
-              break;
-            default:
-              break;
+        // The failureReasons can be empty when Blink added a new failure reason that is
+        // not supported by DevTools yet
+        let str;
+        if (failureReasons.size === 0) {
+          str = i18nString(UIStrings.unknownReason);
+        } else {
+          for (const reason of failureReasons) {
+            switch (reason) {
+              case CLSInsight.AnimationFailureReasons.UNSUPPORTED_CSS_PROPERTY:
+                str = i18nString(UIStrings.unsupportedCSSProperty, {
+                  propertyCount: unsupportedProperties.size,
+                  properties: new Intl.ListFormat(undefined, {style: 'short', type: 'conjunction'})
+                                  .format(unsupportedProperties),
+                });
+                break;
+              case CLSInsight.AnimationFailureReasons.TRANSFROM_BOX_SIZE_DEPENDENT:
+                str = i18nString(UIStrings.transformDependsBoxSize);
+                break;
+              case CLSInsight.AnimationFailureReasons.FILTER_MAY_MOVE_PIXELS:
+                str = i18nString(UIStrings.filterMayMovePixels);
+                break;
+              case CLSInsight.AnimationFailureReasons.NON_REPLACE_COMPOSITE_MODE:
+                str = i18nString(UIStrings.nonReplaceCompositeMode);
+                break;
+              case CLSInsight.AnimationFailureReasons.INCOMPATIBLE_ANIMATIONS:
+                str = i18nString(UIStrings.incompatibleAnimations);
+                break;
+              case CLSInsight.AnimationFailureReasons.UNSUPPORTED_TIMING_PARAMS:
+                str = i18nString(UIStrings.unsupportedTimingParameters);
+                break;
+              case CLSInsight.AnimationFailureReasons.AFFECTS_IMPORTANT_PROPERTY:
+                str = i18nString(UIStrings.affectsImportantProperty);
+                break;
+              default:
+                // We should never actually end up here, as adding a new AnimationFailureReason
+                // should also require adding a UIString that describes it
+                str = i18nString(UIStrings.unknownReason);
+                break;
+            }
           }
-          str && contentHelper.appendElementRow(i18nString(UIStrings.compositingFailed), str, true);
         }
+        str && contentHelper.appendElementRow(i18nString(UIStrings.compositingFailed), str, true);
 
         break;
       }

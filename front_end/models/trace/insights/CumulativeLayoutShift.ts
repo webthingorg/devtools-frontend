@@ -29,6 +29,7 @@ export const enum AnimationFailureReasons {
   NON_REPLACE_COMPOSITE_MODE = 'NON_REPLACE_COMPOSITE_MODE',
   INCOMPATIBLE_ANIMATIONS = 'INCOMPATIBLE_ANIMATIONS',
   UNSUPPORTED_TIMING_PARAMS = 'UNSUPPORTED_TIMING_PARAMS',
+  AFFECTS_IMPORTANT_PROPERTY = 'AFFECTS_IMPORTANT_PROPERTY',
 }
 
 export interface NoncompositedAnimationFailure {
@@ -54,6 +55,10 @@ export interface NoncompositedAnimationFailure {
  * @type {{flag: number, failure: AnimationFailureReasons}[]}
  */
 const ACTIONABLE_FAILURE_REASONS = [
+  {
+    flag: 1 << 18,
+    failure: AnimationFailureReasons.AFFECTS_IMPORTANT_PROPERTY,
+  },
   {
     flag: 1 << 13,
     failure: AnimationFailureReasons.UNSUPPORTED_CSS_PROPERTY,
@@ -105,7 +110,7 @@ export function getNonCompositedFailure(event: Types.Events.SyntheticAnimationPa
   for (const event of instantEvents) {
     const failureMask = event.args.data.compositeFailed;
     const unsupportedProperties = event.args.data.unsupportedProperties;
-    if (!failureMask || !unsupportedProperties) {
+    if (!failureMask) {
       continue;
     }
     const failureReasons =
