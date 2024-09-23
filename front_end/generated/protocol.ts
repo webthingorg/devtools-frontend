@@ -17929,7 +17929,6 @@ export namespace Debugger {
   }
 
   export const enum DebugSymbolsType {
-    None = 'None',
     SourceMap = 'SourceMap',
     EmbeddedDWARF = 'EmbeddedDWARF',
     ExternalDWARF = 'ExternalDWARF',
@@ -18681,7 +18680,7 @@ export namespace Debugger {
     /**
      * If the scriptLanguage is WebASsembly, the source of debug symbols for the module.
      */
-    debugSymbols?: Debugger.DebugSymbols;
+    debugSymbols?: Debugger.DebugSymbols[];
     /**
      * The name the embedder supplied for this script.
      */

@@ -156,6 +156,12 @@ export const enum StepMode {
   STEP_OVER = 'StepOver',
 }
 
+export const WASM_SYMBOLS_PRIORITY = [
+  Protocol.Debugger.DebugSymbolsType.ExternalDWARF,
+  Protocol.Debugger.DebugSymbolsType.EmbeddedDWARF,
+  Protocol.Debugger.DebugSymbolsType.SourceMap,
+];
+
 export class DebuggerModel extends SDKModel<EventTypes> {
   readonly agent: ProtocolProxyApi.DebuggerApi;
   runtimeModelInternal: RuntimeModel;
@@ -243,6 +249,27 @@ export class DebuggerModel extends SDKModel<EventTypes> {
     if (resourceTreeModel) {
       resourceTreeModel.addEventListener(ResourceTreeModelEvents.FrameNavigated, this.onFrameNavigated, this);
     }
+  }
+
+  static selectSymbolSource(debugSymbols: Protocol.Debugger.DebugSymbols[]|null): Protocol.Debugger.DebugSymbols|null {
+    if (!debugSymbols || debugSymbols.length === 0) {
+      return null;
+    }
+    let debugSymbolsSource;
+    const symbolTypes = new Map(debugSymbols.map(symbol => [symbol.type, symbol]));
+    for (const symbol of WASM_SYMBOLS_PRIORITY) {
+      if (symbolTypes.has(symbol)) {
+        debugSymbolsSource = symbolTypes.get(symbol);
+        break;
+      }
+    }
+
+    Platform.assertNotNullOrUndefined(debugSymbolsSource);
+    if (debugSymbols.length > 1) {
+      Common.Console.Console.instance().warn(
+          `Multiple debug symbols for script were found. Using ${debugSymbolsSource.type}`);
+    }
+    return debugSymbolsSource;
   }
 
   sourceMapManager(): SourceMapManager<Script> {
@@ -708,7 +735,7 @@ export class DebuggerModel extends SDKModel<EventTypes> {
       executionContextId: number, hash: string, executionContextAuxData: any, isLiveEdit: boolean,
       sourceMapURL: string|undefined, hasSourceURLComment: boolean, hasSyntaxError: boolean, length: number,
       isModule: boolean|null, originStackTrace: Protocol.Runtime.StackTrace|null, codeOffset: number|null,
-      scriptLanguage: string|null, debugSymbols: Protocol.Debugger.DebugSymbols|null,
+      scriptLanguage: string|null, debugSymbols: Protocol.Debugger.DebugSymbols[]|null,
       embedderName: Platform.DevToolsPath.UrlString|null): Script {
     const knownScript = this.#scriptsInternal.get(scriptId);
     if (knownScript) {
@@ -718,10 +745,12 @@ export class DebuggerModel extends SDKModel<EventTypes> {
     if (executionContextAuxData && ('isDefault' in executionContextAuxData)) {
       isContentScript = !executionContextAuxData['isDefault'];
     }
+
+    const debugSymbolsSource = DebuggerModel.selectSymbolSource(debugSymbols);
     const script = new Script(
         this, scriptId, sourceURL, startLine, startColumn, endLine, endColumn, executionContextId, hash,
         isContentScript, isLiveEdit, sourceMapURL, hasSourceURLComment, length, isModule, originStackTrace, codeOffset,
-        scriptLanguage, debugSymbols, embedderName);
+        scriptLanguage, debugSymbolsSource, embedderName);
     this.registerScript(script);
     this.dispatchEventToListeners(Events.ParsedScriptSource, script);
 

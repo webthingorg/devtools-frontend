@@ -606,7 +606,6 @@ domain Debugger
     properties
       # Type of the debug symbols.
       enum type
-        None
         SourceMap
         EmbeddedDWARF
         ExternalDWARF
@@ -690,7 +689,7 @@ domain Debugger
       # The language of the script.
       experimental optional Debugger.ScriptLanguage scriptLanguage
       # If the scriptLanguage is WebASsembly, the source of debug symbols for the module.
-      experimental optional Debugger.DebugSymbols debugSymbols
+      experimental optional array of Debugger.DebugSymbols debugSymbols
       # The name the embedder supplied for this script.
       experimental optional string embedderName
 
