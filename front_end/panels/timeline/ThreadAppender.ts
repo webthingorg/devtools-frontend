@@ -26,6 +26,7 @@ import {
 } from './CompatibilityTracksAppender.js';
 import * as Components from './components/components.js';
 import * as ModificationsManager from './ModificationsManager.js';
+import * as Utils from './utils/utils.js';
 
 const UIStrings = {
   /**
@@ -474,7 +475,7 @@ export class ThreadAppender implements TrackAppender {
     for (const node of nodes) {
       let nextLevel = startingLevel;
       const entry = node.entry;
-      const entryIsIgnoreListed = this.isIgnoreListedEntry(entry);
+      const entryIsIgnoreListed = Utils.IgnoreList.isIgnoreListedEntry(entry);
       // Events' visibility is determined from their predefined styles,
       // which is something that's not available in the engine data.
       // Thus it needs to be checked in the appenders, but preemptively
@@ -535,18 +536,6 @@ export class ThreadAppender implements TrackAppender {
     });
   }
 
-  isIgnoreListedEntry(entry: TraceEngine.Types.TraceEvents.TraceEventData): boolean {
-    if (!TraceEngine.Types.TraceEvents.isProfileCall(entry)) {
-      return false;
-    }
-    const url = entry.callFrame.url as Platform.DevToolsPath.UrlString;
-    return url && this.isIgnoreListedURL(url);
-  }
-
-  private isIgnoreListedURL(url: Platform.DevToolsPath.UrlString): boolean {
-    return Bindings.IgnoreListManager.IgnoreListManager.instance().isUserIgnoreListedURL(url);
-  }
-
   /*
     ------------------------------------------------------------------------------------
      The following methods  are invoked by the flame chart renderer to query features about
@@ -584,7 +573,7 @@ export class ThreadAppender implements TrackAppender {
    * Gets the title an event added by this appender should be rendered with.
    */
   titleForEvent(entry: TraceEngine.Types.TraceEvents.TraceEventData): string {
-    if (this.isIgnoreListedEntry(entry)) {
+    if (Utils.IgnoreList.isIgnoreListedEntry(entry)) {
       return i18nString(UIStrings.onIgnoreList);
     }
     return Components.EntryName.nameForEntry(entry, this.#traceParsedData);
