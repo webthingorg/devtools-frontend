@@ -16,6 +16,23 @@
       "message": "Wow! Thanks for putting such an effort into the code health!\n\nOverall, this looks like a step in the right direction. I have a bunch of comment, however. Next time, I suggest to reach out earlier, to discuss a high level idea of refactoring, before making it all work and polishing the code. I am sure it wasn\u0027t easy for you and I am sorry that I have to critique it now:)\n\n1. Unfortunately Application Panel is not the best example to follow. Overall it is not easy to find a good example to follow in the code base without talking to us, as the codebase is ~20 years old and the code is very far from uniform.\n\n2. If you have time, read through the http://go/chrome-devtools:ui-engineering-proposal. I understand that it is somewhat longer read, if you are in rush, read at least to \"Application to existing code\" subsections.\n\n3. With the direction set out in the document above in mind, converting a TreeOutline subclass into a VBox subclass is a good call. It is becoming more of a presenter. \n\n4. I would, however, encourage you to avoid two-way dependency between the `SecurityPanel` and `...Sidebar`. Instead of injecting the panel, can we pass a couple of callbacks to the Sidebar constructor? Can we also move the functions that are currently exported by the Panel file but used in the Sidebar file to the Sidebar file? \n\n5. The TreeElements, that hold data and delegate the rendering are also inline with the approach we are taking. However I\u0027d suggest to make it even move explicit and pass a simple `render` callback acting on the generic `TreeElement` instance. Long term we\u0027d like such code to look like: https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/5452883/1/front_end/panels/console/ConsoleSidebar.ts",
       "revId": "adbfd004e1585e2b62b1d09fcb9ef0edc23d94d7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e44f89a0_19e0a6e6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1434270
+      },
+      "writtenOn": "2024-09-23T15:13:52Z",
+      "side": 1,
+      "message": "Added Emily as FYI for the Security panel refactoring work since she is the owner.",
+      "revId": "adbfd004e1585e2b62b1d09fcb9ef0edc23d94d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
