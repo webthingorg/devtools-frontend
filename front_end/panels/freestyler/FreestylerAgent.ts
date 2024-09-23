@@ -548,12 +548,21 @@ export class FreestylerAgent {
     signal?: AbortSignal, selectedElement: SDK.DOMModel.DOMNode|null, isFixQuery: boolean,
   }): AsyncGenerator<ResponseData, void, void> {
     const structuredLog = [];
-    const elementEnchantmentQuery = options.selectedElement ?
-        `# Inspected element\n\n${
-            await FreestylerAgent.describeElement(options.selectedElement)}\n\n# User request\n\n` :
-        '';
-    query = `${elementEnchantmentQuery}QUERY: ${query}`;
+
+    query = `QUERY: ${query}`;
     const currentRunId = ++this.#runId;
+
+    if (options.selectedElement) {
+      const elementEnchantmentQuery =
+          `# Inspected element\n\n${await FreestylerAgent.describeElement(options.selectedElement)}`;
+
+      this.#chatHistory.set(currentRunId, [
+        {
+          text: elementEnchantmentQuery,
+          entity: Host.AidaClient.Entity.USER,
+        },
+      ]);
+    }
 
     for (let i = 0; i < MAX_STEPS; i++) {
       yield {
@@ -563,7 +572,7 @@ export class FreestylerAgent {
       const request = FreestylerAgent.buildRequest({
         input: query,
         preamble,
-        chatHistory: this.#chatHistory.size ? this.#getHistoryEntry : undefined,
+        chatHistory: this.#getHistoryEntry,
         serverSideLoggingEnabled: this.#serverSideLoggingEnabled,
         sessionId: this.#sessionId,
       });
