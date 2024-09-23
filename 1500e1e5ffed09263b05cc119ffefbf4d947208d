@@ -16,6 +16,24 @@
       "message": "I added all missing failure reasons but do have the following questions:\n\n1. There are two obsolete reasons present in Blink. I included them in the DevTools code, but am wondering if that is feasible. Do I keep those two, or do I simply omit them? A reason for not omitting them, is that someone might get the impression that we forgot to add them.\n\n2. The `default` case in the processing of the `failureReasons` should never be reached. If it is reached, it means the DevTools engineer forgot to add a UIString for that reason. Right now it also reads “Unknown Reason” but that’s not exactly correct as the reason _is_ known. It is merely the description that wasn’t added. Should I use a different UIString here? Maybe something like “Missing Description” instead of “Unknown Reason”? Alternatively the `default` case remains empty and an extra test that enforces a UIString to be set would prevent this scenario from happening.\n\n3. The overall code structure feels like a lot of loose pieces working together. There’s the `AnimationFailureReasons` enum, the `ACTIONABLE_FAILURE_REASONS` const, and then the processing of those reasons that map it back to UIStrings. This feels very brittle, as you could incorrectly link up things in either of those. Ideally I would love for a structure that does it all one go: define the failure reason along with it its bitmask and relevant UIString. Should I try and pursue this now, or maybe leave it for a follow-up CL? \n\nWould love your advice here, paulirish@",
       "revId": "1500e1e5ffed09263b05cc119ffefbf4d947208d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba008b5c_853b9e1f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-23T21:59:48Z",
+      "side": 1,
+      "message": "\u003e 1. There are two obsolete reasons present in Blink. I included them in the DevTools code, but am wondering if that is feasible. Do I keep those two, or do I simply omit them? A reason for not omitting them, is that someone might get the impression that we forgot to add them.\n\nlet\u0027s omit them. (We dont need to translate/ship strings we know wont be used. :) Just leave a comment in ACTIONABLE_FAILURE_REASONS where the 1\u003c\u003c8 and 1\u003c\u003c14 would go.\n\n\u003e 2. The `default` case in the processing of the `failureReasons` should never be reached. If it is reached, it means the DevTools engineer forgot to add a UIString for that reason. Right now it also reads “Unknown Reason” but that’s not exactly correct as the reason _is_ known. It is merely the description that wasn’t added. Should I use a different UIString here? Maybe something like “Missing Description” instead of “Unknown Reason”? Alternatively the `default` case remains empty and an extra test that enforces a UIString to be set would prevent this scenario from happening.\n\nI like the behavior you left this with. In either unknownReason case.. we can perceive it as our bug to investigate. All good.\n\n\u003e 3. The overall code structure feels like a lot of loose pieces working together. There’s the `AnimationFailureReasons` enum, the `ACTIONABLE_FAILURE_REASONS` const, and then the processing of those reasons that map it back to UIStrings. This feels very brittle, as you could incorrectly link up things in either of those. Ideally I would love for a structure that does it all one go: define the failure reason along with it its bitmask and relevant UIString. Should I try and pursue this now, or maybe leave it for a follow-up CL? \n\nI agree. And followup is def better. :)\n\nThe unfortunate part is that models/trace is (mostly) a standalone component and doesn\u0027t really have UI consideration. OTOH, we don\u0027t have any UIStrings in models/trace at all currently, and that\u0027s convenient. But.. even if UIStrings stay separate, there\u0027s probably still room to consolidate these pieces.  I\u0027d love to see it, so thank you!",
+      "parentUuid": "f8eb0caf_6d526c95",
+      "revId": "1500e1e5ffed09263b05cc119ffefbf4d947208d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
