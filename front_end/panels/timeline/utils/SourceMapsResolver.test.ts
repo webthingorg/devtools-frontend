@@ -2,22 +2,22 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import {type Chrome} from '../../../extension-api/ExtensionAPI.js';
-import type * as SDK from '../../core/sdk/sdk.js';
-import * as Bindings from '../../models/bindings/bindings.js';
-import * as Trace from '../../models/trace/trace.js';
-import {createTarget} from '../../testing/EnvironmentHelpers.js';
-import {TestPlugin} from '../../testing/LanguagePluginHelpers.js';
+import {type Chrome} from '../../../../extension-api/ExtensionAPI.js';
+import type * as SDK from '../../../core/sdk/sdk.js';
+import * as Bindings from '../../../models/bindings/bindings.js';
+import * as Trace from '../../../models/trace/trace.js';
+import {createTarget} from '../../../testing/EnvironmentHelpers.js';
+import {TestPlugin} from '../../../testing/LanguagePluginHelpers.js';
 import {
   describeWithMockConnection,
-} from '../../testing/MockConnection.js';
-import {loadBasicSourceMapExample} from '../../testing/SourceMapHelpers.js';
+} from '../../../testing/MockConnection.js';
+import {loadBasicSourceMapExample} from '../../../testing/SourceMapHelpers.js';
 import {
   makeMockSamplesHandlerData,
   makeProfileCall,
-} from '../../testing/TraceHelpers.js';
+} from '../../../testing/TraceHelpers.js';
 
-import * as Timeline from './timeline.js';
+import * as Utils from './utils.js';
 
 const MINIFIED_FUNCTION_NAME = 'minified';
 const AUTHORED_FUNCTION_NAME = 'someFunction';
@@ -58,7 +58,7 @@ describeWithMockConnection('SourceMapsResolver', () => {
 
   it('renames nodes from the profile models when the corresponding scripts and source maps have loaded',
      async function() {
-       const resolver = new Timeline.SourceMapsResolver.SourceMapsResolver(parsedTrace);
+       const resolver = new Utils.SourceMapsResolver.SourceMapsResolver(parsedTrace);
 
        // Test the node's name is minified before the script and source maps load.
        assert.strictEqual(
@@ -75,7 +75,7 @@ describeWithMockConnection('SourceMapsResolver', () => {
 
        // Ensure we populate the cache
        assert.strictEqual(
-           Timeline.SourceMapsResolver.SourceMapsResolver.resolvedNodeNameForEntry(profileCall),
+           Utils.SourceMapsResolver.SourceMapsResolver.resolvedCodeLocationForEntry(profileCall)?.name,
            AUTHORED_FUNCTION_NAME);
      });
 
@@ -97,7 +97,7 @@ describeWithMockConnection('SourceMapsResolver', () => {
 
     const {pluginManager} = Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance();
     pluginManager.addPlugin(new Plugin());
-    const resolver = new Timeline.SourceMapsResolver.SourceMapsResolver(parsedTrace);
+    const resolver = new Utils.SourceMapsResolver.SourceMapsResolver(parsedTrace);
     await resolver.install();
     assert.strictEqual(
         Trace.Handlers.ModelHandlers.Samples.getProfileCallFunctionName(parsedTrace.Samples, profileCall),

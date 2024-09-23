@@ -2,10 +2,18 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import * as SDK from '../../core/sdk/sdk.js';
-import * as SourceMapScopes from '../../models/source_map_scopes/source_map_scopes.js';
-import type * as Trace from '../../models/trace/trace.js';
+import type * as Platform from '../../../core/platform/platform.js';
+import * as SDK from '../../../core/sdk/sdk.js';
+import type * as Protocol from '../../../generated/protocol.js';
+import * as Bindings from '../../../models/bindings/bindings.js';
+import * as SourceMapScopes from '../../../models/source_map_scopes/source_map_scopes.js';
+import * as Trace from '../../../models/trace/trace.js';
+import * as Workspace from '../../../models/workspace/workspace.js';
 
+type ResolvedCodeLocationData = {
+  name: string|null,
+  devtoolsLocation: Workspace.UISourceCode.UILocation|null,
+};
 export class NodeNamesUpdated extends Event {
   static readonly eventName = 'nodenamesupdated';
 
@@ -17,12 +25,14 @@ export class NodeNamesUpdated extends Event {
   }
 }
 
-// Track node function names resolved by sourcemaps.
-// Because NodeIDs could conflict, we key these based on:
-// ProcessID=>ThreadID=>NodeId=>resolved function name.
-// Keying it by the IDs rather than the Node itself means we can avoid passing around trace data in order to get or set values in this map.
-const resolvedNodeNames: Map<Trace.Types.Events.ProcessID, Map<Trace.Types.Events.ThreadID, Map<number, string|null>>> =
-    new Map();
+// Resolved code location data is keyed based on
+// ProcessID=>ThreadID=> Call frame key.
+// The code location key is created as a concatenation of its fields.
+const resolvedCodeLocationDataNames:
+    Map<Trace.Types.Events.ProcessID, Map<Trace.Types.Events.ThreadID, Map<string, ResolvedCodeLocationData|null>>> =
+        new Map();
+
+// ProcessID => ThreadID => scriptid,linenumber,columnnumber,url =>
 
 export class SourceMapsResolver extends EventTarget {
   #parsedTrace: Trace.Handlers.Types.ParsedTrace;
@@ -42,22 +52,63 @@ export class SourceMapsResolver extends EventTarget {
   }
 
   static clearResolvedNodeNames(): void {
-    resolvedNodeNames.clear();
+    resolvedCodeLocationDataNames.clear();
+  }
+  static keyForCodeLocation(callFrame: Protocol.Runtime.CallFrame): string {
+    return `${callFrame.url}$$$${callFrame.scriptId}$$$${callFrame.functionName}$$$${callFrame.lineNumber}$$$${
+        callFrame.columnNumber}`;
   }
 
-  static resolvedNodeNameForEntry(entry: Trace.Types.Events.SyntheticProfileCall): string|null {
-    return resolvedNodeNames.get(entry.pid)?.get(entry.tid)?.get(entry.nodeId) ?? null;
+  /**
+   * For trace events containing a call frame / source location
+   * (f.e. a stack trace), attempts to obtain the resolved source
+   * location based on the thos that have been resolved so far from
+   * listened source maps.
+   *
+   * Note that a single deployed URL can map to multiple authored URLs
+   * (f.e. if an app is bundled). Thus, beyond a URL we can use code
+   * location data like line and column numbers to obtain the specific
+   * authored code according to the source mappings.
+   */
+  static resolvedCodeLocationForEntry(entry: Trace.Types.Events.Event): ResolvedCodeLocationData|null {
+    let callFrame = null;
+    if (Trace.Types.Events.isProfileCall(entry)) {
+      callFrame = entry.callFrame;
+    } else {
+      const stackTrace = Trace.Helpers.Trace.getZeroIndexedStackTraceForEvent(entry);
+      if (stackTrace === null) {
+        return null;
+      }
+      callFrame = stackTrace[0];
+    }
+    const codeLocationKey = this.keyForCodeLocation(callFrame as Protocol.Runtime.CallFrame);
+    return resolvedCodeLocationDataNames.get(entry.pid)?.get(entry.tid)?.get(codeLocationKey) ?? null;
   }
 
-  static storeResolvedNodeNameForEntry(
-      pid: Trace.Types.Events.ProcessID, tid: Trace.Types.Events.ThreadID, nodeId: number,
-      resolvedFunctionName: string|null): void {
-    const resolvedForPid =
-        resolvedNodeNames.get(pid) || new Map<Trace.Types.Events.ThreadID, Map<number, string|null>>();
-    const resolvedForTid = resolvedForPid.get(tid) || new Map<number, string|null>();
-    resolvedForTid.set(nodeId, resolvedFunctionName);
+  static resolvedURLForEntry(traceParseData: Trace.Handlers.Types.ParsedTrace, entry: Trace.Types.Events.Event):
+      Platform.DevToolsPath.UrlString|null {
+    const resolvedCallFrameURL =
+        SourceMapsResolver.resolvedCodeLocationForEntry(entry)?.devtoolsLocation?.uiSourceCode.url();
+    if (resolvedCallFrameURL) {
+      return resolvedCallFrameURL;
+    }
+    const url = Trace.Extras.URLForEntry.get(traceParseData, entry);
+    if (url) {
+      return Workspace.Workspace.WorkspaceImpl.instance().uiSourceCodeForURL(url)?.url() ?? null;
+    }
+    return null;
+  }
+
+  static storeResolvedNodeDataForEntry(
+      pid: Trace.Types.Events.ProcessID, tid: Trace.Types.Events.ThreadID, callFrame: Protocol.Runtime.CallFrame,
+      resolvedCodeLocationData: ResolvedCodeLocationData): void {
+    const resolvedForPid = resolvedCodeLocationDataNames.get(pid) ||
+        new Map<Trace.Types.Events.ThreadID, Map<string, ResolvedCodeLocationData|null>>();
+    const resolvedForTid = resolvedForPid.get(tid) || new Map<string, ResolvedCodeLocationData|null>();
+    const keyForCallFrame = this.keyForCodeLocation(callFrame);
+    resolvedForTid.set(keyForCallFrame, resolvedCodeLocationData);
     resolvedForPid.set(tid, resolvedForTid);
-    resolvedNodeNames.set(pid, resolvedForPid);
+    resolvedCodeLocationDataNames.set(pid, resolvedForPid);
   }
 
   async install(): Promise<void> {
@@ -93,13 +144,13 @@ export class SourceMapsResolver extends EventTarget {
 
     for (const debuggerModel of this.#debuggerModelsToListen) {
       debuggerModel.sourceMapManager().addEventListener(
-          SDK.SourceMapManager.Events.SourceMapAttached, this.#onAttachedSourceMap, this);
+          SDK.SourceMapManager.Events.SourceMapAttached, () => this.#onAttachedSourceMap(), this);
     }
 
     // Although we have added listeners for SourceMapAttached events, we also
     // immediately try to resolve function names. This ensures we use any
     // sourcemaps that were attached before we bound our event listener.
-    await this.#resolveNamesForNodes();
+    await this.#resolveMappingsForProfileNodes();
   }
 
   /**
@@ -110,12 +161,12 @@ export class SourceMapsResolver extends EventTarget {
   uninstall(): void {
     for (const debuggerModel of this.#debuggerModelsToListen) {
       debuggerModel.sourceMapManager().removeEventListener(
-          SDK.SourceMapManager.Events.SourceMapAttached, this.#onAttachedSourceMap, this);
+          SDK.SourceMapManager.Events.SourceMapAttached, () => this.#onAttachedSourceMap(), this);
     }
     this.#debuggerModelsToListen.clear();
   }
 
-  async #resolveNamesForNodes(): Promise<void> {
+  async #resolveMappingsForProfileNodes(): Promise<void> {
     if (!this.#parsedTrace.Samples) {
       return;
     }
@@ -132,7 +183,16 @@ export class SourceMapsResolver extends EventTarget {
               await SourceMapScopes.NamesResolver.resolveProfileFrameFunctionName(node.callFrame, target);
           node.setFunctionName(resolvedFunctionName);
 
-          SourceMapsResolver.storeResolvedNodeNameForEntry(pid, tid, node.id, resolvedFunctionName);
+          const debuggerModel = target?.model(SDK.DebuggerModel.DebuggerModel);
+          const location = debuggerModel &&
+              new SDK.DebuggerModel.Location(
+                  debuggerModel, node.callFrame.scriptId, node.callFrame.lineNumber, node.callFrame.columnNumber);
+          const uiLocation = location &&
+              await Bindings.DebuggerWorkspaceBinding.DebuggerWorkspaceBinding.instance().rawLocationToUILocation(
+                  location);
+
+          SourceMapsResolver.storeResolvedNodeDataForEntry(
+              pid, tid, node.callFrame, {name: resolvedFunctionName, devtoolsLocation: uiLocation});
         }
       }
     }
@@ -154,7 +214,7 @@ export class SourceMapsResolver extends EventTarget {
     // of source maps is particularly large.
     setTimeout(async () => {
       this.#isResolvingNames = false;
-      await this.#resolveNamesForNodes();
+      await this.#resolveMappingsForProfileNodes();
     }, 500);
   }
 
