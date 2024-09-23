@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b38c1148_ca5aef42",
+        "filename": "front_end/panels/timeline/components/SidebarSingleNavigation.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 187,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-23T16:52:21Z",
+      "side": 1,
+      "message": "haha, I fixed this locally and then seemingly instantly regressed it before that recent refactor CL landed. oops!",
+      "revId": "72da59f146f611aa1a27c977b4f29ee5a73b49ad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
