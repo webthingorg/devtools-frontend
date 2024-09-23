@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d3ec6b0_9541097e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-09-23T09:25:36Z",
+      "side": 1,
+      "message": "Thanks!\nIt looks like this fixes a regression created in https://crrev.com/c/5793099. Benedikt, should this be back-merged to 130?",
+      "revId": "8090174fcf1349fbe746d30c330ff20becd3c713",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
