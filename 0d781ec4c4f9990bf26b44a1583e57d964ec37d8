@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9539c236_3ffb2308",
+        "filename": "front_end/testing/InsightHelpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-23T18:56:37Z",
+      "side": 1,
+      "message": "I\u0027m trying to figure out why we have this helper when Common.getInsight is now almost the same.\n\nIf you\u0027re expecting more refactor then whatever, but.. otherwise maybe there\u0027s room for a ~`getFirstNavId` method",
+      "revId": "0d781ec4c4f9990bf26b44a1583e57d964ec37d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5f9c6537_177eb3bd",
+        "filename": "front_end/testing/InsightHelpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-23T18:56:37Z",
+      "side": 1,
+      "message": "rename Key to InsightName\n\nnotably this `Key` has nothing to do with the `key` local below.",
+      "range": {
+        "startLine": 25,
+        "startChar": 34,
+        "endLine": 25,
+        "endChar": 37
+      },
+      "revId": "0d781ec4c4f9990bf26b44a1583e57d964ec37d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

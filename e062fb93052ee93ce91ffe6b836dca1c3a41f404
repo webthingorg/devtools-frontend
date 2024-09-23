@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0549ac9f_1d9c0cdc",
+        "filename": "front_end/panels/timeline/components/insights/RenderBlocking.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-23T18:56:37Z",
+      "side": 0,
+      "message": "getting rid of this boilerplate is awesome. thx",
+      "revId": "e062fb93052ee93ce91ffe6b836dca1c3a41f404",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
