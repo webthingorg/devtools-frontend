@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37560b00_8fe0d2de",
+        "filename": "front_end/panels/timeline/components/Sidebar.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-09-23T10:37:50Z",
+      "side": 1,
+      "message": "what do you think we just pass the the annotations count to ` this.#updateAnnotationsCountBadge()` and then we don\u0027t need `this.#annotationCount` variable\n\n```\nthis.#updateAnnotationsCountBadge(updatedAnnotations.length);\n```",
+      "range": {
+        "startLine": 112,
+        "startChar": 4,
+        "endLine": 113,
+        "endChar": 40
+      },
+      "revId": "aefad805b6b45f0db9d17b2197ef2717dcaddf50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "64d2b455_ee1dd2b9",
+        "filename": "front_end/panels/timeline/components/Sidebar.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-09-23T10:37:50Z",
+      "side": 1,
+      "message": "does it need a null state?\n\n`#countAdorner: Adorners.Adorner.Adorner \u003d new Adorners.Adorner.Adorner();`",
+      "range": {
+        "startLine": 117,
+        "startChar": 4,
+        "endLine": 117,
+        "endChar": 59
+      },
+      "revId": "aefad805b6b45f0db9d17b2197ef2717dcaddf50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
