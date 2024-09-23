@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "5a4af715_c2750754",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 3514702
+      },
+      "writtenOn": "2024-09-23T07:47:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70f31a17_78ffb4f7",
+      "revId": "6bc2c20bf1529ae0b8451c2bb436cb80ca46fdd1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "329aa11f_e3ec31f6",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -48,6 +66,24 @@
       "writtenOn": "2024-09-23T06:48:43Z",
       "side": 1,
       "message": "Why return a promise here when it never awaits anything?",
+      "revId": "6bc2c20bf1529ae0b8451c2bb436cb80ca46fdd1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0faf0fa_203e6147",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 2453,
+      "author": {
+        "id": 3514702
+      },
+      "writtenOn": "2024-09-23T07:47:46Z",
+      "side": 1,
+      "message": "The schedule method of the throttler expects a Promise-returning function.\n\nI got this pattern from the `updateAdornersInternal` method, but now I think it\u0027s better to use an async lambda wrapper, as in this new patch. What do you think?",
+      "parentUuid": "61a0787b_fd4eaf00",
       "revId": "6bc2c20bf1529ae0b8451c2bb436cb80ca46fdd1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
