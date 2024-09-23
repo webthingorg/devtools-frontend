@@ -39,6 +39,48 @@
       },
       "revId": "0d781ec4c4f9990bf26b44a1583e57d964ec37d8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9dde7e37_bc077857",
+        "filename": "front_end/testing/InsightHelpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-23T19:11:55Z",
+      "side": 1,
+      "message": "currently tests are setup to go from a navigation event to the insight, and always expects them to be present so will error if not found.\n\nthe expectations are different in the components, where we are making a component even if a insight is not present, hence it shouldn\u0027t error in that case. we also just have the key string, not the (nullable) navigation event.",
+      "parentUuid": "9539c236_3ffb2308",
+      "revId": "0d781ec4c4f9990bf26b44a1583e57d964ec37d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe8ec322_c0c4764e",
+        "filename": "front_end/testing/InsightHelpers.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-23T19:11:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5f9c6537_177eb3bd",
+      "range": {
+        "startLine": 25,
+        "startChar": 34,
+        "endLine": 25,
+        "endChar": 37
+      },
+      "revId": "0d781ec4c4f9990bf26b44a1583e57d964ec37d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
