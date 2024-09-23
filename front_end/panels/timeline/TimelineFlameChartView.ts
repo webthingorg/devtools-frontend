@@ -235,19 +235,6 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
         ModificationsManager.activeManager()?.removeAnnotationOverlay(overlay);
       } else if (action === 'Update') {
         ModificationsManager.activeManager()?.updateAnnotationOverlay(overlay);
-      } else if (action === 'CreateLink') {
-        console.assert(
-            overlay.type === 'ENTRIES_LINK_CREATE_BUTTON',
-            'CreateLink should only be dispatched by ENTRIES_LINK_CREATE_BUTTON type overlay');
-        if (overlay.type === 'ENTRIES_LINK_CREATE_BUTTON') {
-          this.removeOverlay(overlay);
-
-          this.#linkSelectionAnnotation = {
-            type: 'ENTRIES_LINK',
-            entryFrom: overlay.entry,
-          };
-          ModificationsManager.activeManager()?.createAnnotation(this.#linkSelectionAnnotation);
-        }
       }
     });
 
@@ -816,7 +803,6 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
 
     // Clear any existing entry selection.
     this.#overlays.removeOverlaysOfType('ENTRY_SELECTED');
-    this.#overlays.removeOverlaysOfType('ENTRIES_LINK_CREATE_BUTTON');
     // If:
     // 1. There is no selection, or the selection is not a range selection
     // AND 2. we have an active time range selection overlay
@@ -900,17 +886,14 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
         label: '',
       });
       if (event.data.withLinkCreationButton) {
-        this.addOverlay({
-          type: 'ENTRIES_LINK_CREATE_BUTTON',
-          entry: selection.object,
-        });
+        this.onEntriesLinkAnnotationCreate(dataProvider, event.data.entryIndex, true);
       }
     }
   }
 
   onEntriesLinkAnnotationCreate(
-      dataProvider: TimelineFlameChartDataProvider|TimelineFlameChartNetworkDataProvider,
-      entryFromIndex: number): void {
+      dataProvider: TimelineFlameChartDataProvider|TimelineFlameChartNetworkDataProvider, entryFromIndex: number,
+      onlyButton?: boolean): void {
     const fromSelectionObject = (entryFromIndex) ? this.#selectionIfTraceEvent(entryFromIndex, dataProvider) : null;
 
     if (fromSelectionObject) {
@@ -918,6 +901,10 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
         type: 'ENTRIES_LINK',
         entryFrom: fromSelectionObject,
       };
+
+      if (onlyButton) {
+        this.#linkSelectionAnnotation.linkCreateButton = true;
+      }
       ModificationsManager.activeManager()?.createAnnotation(this.#linkSelectionAnnotation);
     }
   }

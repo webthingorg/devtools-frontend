@@ -7,9 +7,10 @@ import * as Platform from '../../core/platform/platform.js';
 import * as Trace from '../../models/trace/trace.js';
 import * as TimelineComponents from '../../panels/timeline/components/components.js';
 
+import * as AnnotationHelpers from './AnnotationHelpers.js';
 import {EntriesFilter} from './EntriesFilter.js';
 import {EventsSerializer} from './EventsSerializer.js';
-import * as Overlays from './overlays/overlays.js';
+import type * as Overlays from './overlays/overlays.js';
 
 const modificationsManagerByTraceIndex: ModificationsManager[] = [];
 let activeManager: ModificationsManager|null;
@@ -180,6 +181,7 @@ export class ModificationsManager extends EventTarget {
           type: 'ENTRIES_LINK',
           entryFrom: annotation.entryFrom,
           entryTo: annotation.entryTo,
+          linkCreateButton: annotation.linkCreateButton,
         };
       default:
         Platform.assertNever(annotation, 'Overlay for provided annotation cannot be created');
@@ -209,14 +211,14 @@ export class ModificationsManager extends EventTarget {
   updateAnnotation(updatedAnnotation: Trace.Types.File.Annotation): void {
     const overlay = this.#overlayForAnnotation.get(updatedAnnotation);
 
-    if (overlay && Overlays.Overlays.isTimeRangeLabel(overlay) &&
+    if (overlay && AnnotationHelpers.isTimeRangeLabel(overlay) &&
         Trace.Types.File.isTimeRangeAnnotation(updatedAnnotation)) {
       overlay.label = updatedAnnotation.label;
       overlay.bounds = updatedAnnotation.bounds;
       this.dispatchEvent(new AnnotationModifiedEvent(overlay, 'UpdateTimeRange'));
 
     } else if (
-        overlay && Overlays.Overlays.isEntriesLink(overlay) &&
+        overlay && AnnotationHelpers.isEntriesLink(overlay) &&
         Trace.Types.File.isEntriesLinkAnnotation(updatedAnnotation)) {
       overlay.entryFrom = updatedAnnotation.entryFrom;
       overlay.entryTo = updatedAnnotation.entryTo;
