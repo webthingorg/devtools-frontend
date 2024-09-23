@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d9b9c59_c8df4c81",
+        "filename": "front_end/panels/timeline/components/Sidebar.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-09-23T10:45:31Z",
+      "side": 1,
+      "message": "We do need this, when we first time load a trace file, the `setAnnotations` is called before the `Annotations` tab is appended. so we do either need to store the annotations or the number of them to handle this case, so when the `Annotations` tab is appended (in `wasShown()` wen can render the count.",
+      "parentUuid": "37560b00_8fe0d2de",
+      "range": {
+        "startLine": 112,
+        "startChar": 4,
+        "endLine": 113,
+        "endChar": 40
+      },
+      "revId": "aefad805b6b45f0db9d17b2197ef2717dcaddf50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "64d2b455_ee1dd2b9",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-09-23T10:37:50Z",
       "side": 1,
       "message": "does it need a null state?\n\n`#countAdorner: Adorners.Adorner.Adorner \u003d new Adorners.Adorner.Adorner();`",
+      "range": {
+        "startLine": 117,
+        "startChar": 4,
+        "endLine": 117,
+        "endChar": 59
+      },
+      "revId": "aefad805b6b45f0db9d17b2197ef2717dcaddf50",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4bc9c29e_6b8db3e3",
+        "filename": "front_end/panels/timeline/components/Sidebar.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1327793
+      },
+      "writtenOn": "2024-09-23T10:45:31Z",
+      "side": 1,
+      "message": "Yeah I think when the number of annotations is 0, we don\u0027t show the counter, so the adorner will be null in that case",
+      "parentUuid": "64d2b455_ee1dd2b9",
       "range": {
         "startLine": 117,
         "startChar": 4,
