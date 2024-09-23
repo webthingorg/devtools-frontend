@@ -104,6 +104,30 @@
       },
       "revId": "e698b6bd476c0b156cfa7ce1a30b0b798de2896f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ea0d086_69ae7f91",
+        "filename": "front_end/panels/timeline/components/CPUThrottlingSelector.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-23T11:05:26Z",
+      "side": 1,
+      "message": "If people don\u0027t open the settings pane, then there is no UI other than this on the live metrics view to set the throttling, which is why I think it\u0027s important.",
+      "parentUuid": "c0794a0f_4024c387",
+      "range": {
+        "startLine": 42,
+        "startChar": 13,
+        "endLine": 42,
+        "endChar": 34
+      },
+      "revId": "e698b6bd476c0b156cfa7ce1a30b0b798de2896f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
