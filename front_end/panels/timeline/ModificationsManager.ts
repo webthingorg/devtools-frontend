@@ -181,6 +181,7 @@ export class ModificationsManager extends EventTarget {
           type: 'ENTRIES_LINK',
           entryFrom: annotation.entryFrom,
           entryTo: annotation.entryTo,
+          linkCreateButton: annotation.linkCreateButton,
         };
       default:
         Platform.assertNever(annotation, 'Overlay for provided annotation cannot be created');
@@ -241,6 +242,11 @@ export class ModificationsManager extends EventTarget {
       annotationForUpdatedOverlay.label = updatedOverlay.label;
     }
     this.dispatchEvent(new AnnotationModifiedEvent(updatedOverlay, 'UpdateLabel'));
+
+    if ((updatedOverlay.type === 'ENTRIES_LINK' && annotationForUpdatedOverlay.type === 'ENTRIES_LINK')) {
+      this.#annotationsHiddenSetting.set(false);
+      annotationForUpdatedOverlay.linkCreateButton = updatedOverlay.linkCreateButton;
+    }
   }
 
   getAnnotationByOverlay(overlay: Overlays.Overlays.TimelineOverlay): Trace.Types.File.Annotation|null {

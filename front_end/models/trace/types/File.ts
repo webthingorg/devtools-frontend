@@ -65,11 +65,14 @@ export interface TimeRangeAnnotation {
 
 /**
  * Represents an object that is used to store the Entries link Annotation.
+ * If `linkCreateButton` is present, we only show the button that, if clicked,
+ * triggers the creation of a link.
  */
 export interface EntriesLinkAnnotation {
   type: 'ENTRIES_LINK';
   entryFrom: Event;
   entryTo?: Event;
+  linkCreateButton?: true;
 }
 
 /**
