@@ -16,6 +16,69 @@
       "message": "Hi Kateryna, got another CL for luminosity contrast ratio issue. Could you take a look when you get a chance? Thanks!",
       "revId": "30c368ffc4391f92cd3a936dfa431ff0e980e086",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "32a09476_f429af4d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-09-23T08:33:01Z",
+      "side": 1,
+      "message": "Hey Peter, could you please take a look?",
+      "revId": "30c368ffc4391f92cd3a936dfa431ff0e980e086",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28d023d8_4f8292e8",
+        "filename": "front_end/panels/elements/components/computedStyleProperty.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-09-23T08:33:01Z",
+      "side": 1,
+      "message": "I\u0027ll defer to Peter for this, maybe he could also suggest a token for below :)",
+      "range": {
+        "startLine": 32,
+        "startChar": 2,
+        "endLine": 32,
+        "endChar": 14
+      },
+      "revId": "30c368ffc4391f92cd3a936dfa431ff0e980e086",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1de18802_f852b091",
+        "filename": "front_end/panels/elements/stylesSidebarPane.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-09-23T08:33:01Z",
+      "side": 1,
+      "message": "We do not want to use reference tokens directly in the code, in case there is no system token that has a desired behaviour, you can create application tokens (you can see some examples if you search for `--app-color`)",
+      "range": {
+        "startLine": 57,
+        "startChar": 15,
+        "endLine": 57,
+        "endChar": 38
+      },
+      "revId": "30c368ffc4391f92cd3a936dfa431ff0e980e086",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
