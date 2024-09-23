@@ -16,6 +16,23 @@
       "message": "PTAL",
       "revId": "64d5cb72f8e27507c39ad9714076b58aa704c6b5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2cd49e2b_52d12cea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-23T12:45:38Z",
+      "side": 1,
+      "message": "LGTM % comment on the \"AidaAccessPreconditions\" enum too :)",
+      "revId": "64d5cb72f8e27507c39ad9714076b58aa704c6b5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
