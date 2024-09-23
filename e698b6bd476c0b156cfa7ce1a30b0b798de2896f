@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a58062b1_7d6a1f0c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-23T08:58:23Z",
+      "side": 1,
+      "message": "lgtm; adding Adam to answer the Q about why a separate component. Happy for this to land though \n\nthanks for the fix Andrés!",
+      "revId": "e698b6bd476c0b156cfa7ce1a30b0b798de2896f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c5cffcce_09fcdb90",
@@ -31,6 +48,30 @@
       "writtenOn": "2024-09-23T08:36:50Z",
       "side": 1,
       "message": "I wonder if we need a separate component for the live metrics config:\n\n1. Couldn\u0027t we just use whatever throttling config is set with the old selectors on the settings toolbar (instead of having another pair of throttling selectors)? \n\n2. If not, couldn\u0027t we reuse the existing components? That way we would save a bit on the extra maintenance cost.",
+      "range": {
+        "startLine": 42,
+        "startChar": 13,
+        "endLine": 42,
+        "endChar": 34
+      },
+      "revId": "e698b6bd476c0b156cfa7ce1a30b0b798de2896f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1fec905d_526d5785",
+        "filename": "front_end/panels/timeline/components/CPUThrottlingSelector.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-23T08:58:23Z",
+      "side": 1,
+      "message": "We want to have another pair to have them prominently in the UI and so we can put the text next to them along the lines of \"hey, based on field data set throttling to XYZ\". But I agree that we could consider re-using the component.\n\nOne for @asraine to think about as I don\u0027t know if there was a reason he built a new component for the live metrics page.",
+      "parentUuid": "c5cffcce_09fcdb90",
       "range": {
         "startLine": 42,
         "startChar": 13,
