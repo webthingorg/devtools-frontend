@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3c1d62c0_30cd1fe6",
+        "filename": "front_end/core/sdk/CSSMatchedStyles.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 1021,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-09-23T13:18:30Z",
+      "side": 1,
+      "message": "Yes, that\u0027s the fallback. MDN says \"if there is no matching CSS rule in the current layer, the property value for the element rolls back to the style defined in a previous style origin\": https://developer.mozilla.org/en-US/docs/Web/CSS/revert-layer#:~:text\u003dif%20there%20is%20no%20matching%20CSS%20rule%20in%20the%20current%20layer%2C%20the%20property%20value%20for%20the%20element%20rolls%20back%20to%20the%20style%20defined%20in%20a%20previous%20style%20origin",
+      "parentUuid": "8b565da6_6ce3b2d0",
+      "revId": "3b5b4efcfafd883288f6715714c273ee02662d3d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b0115fc8_7fb62b91",
         "filename": "front_end/core/sdk/CSSMatchedStyles.ts",
         "patchSetId": 10
@@ -48,6 +66,24 @@
       "writtenOn": "2024-09-23T11:55:48Z",
       "side": 1,
       "message": "I think this local variable `value` is only used as a check in the next line. Would it be better to simplify this and just say `if (!declaration.value) {...}`?",
+      "revId": "3b5b4efcfafd883288f6715714c273ee02662d3d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8feee5f_059d87ed",
+        "filename": "front_end/core/sdk/CSSMatchedStyles.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 1061,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-09-23T13:18:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b0115fc8_7fb62b91",
       "revId": "3b5b4efcfafd883288f6715714c273ee02662d3d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -69,6 +105,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cea4ed42_710fb79c",
+        "filename": "front_end/panels/elements/StylePropertyTreeElement.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-09-23T13:18:30Z",
+      "side": 1,
+      "message": "That\u0027s so that I\u0027m allowed to access the property `declaration`. I need to get the string case out of the way first.",
+      "parentUuid": "1e1739f6_9df3e7a5",
+      "revId": "3b5b4efcfafd883288f6715714c273ee02662d3d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d4398930_3cfc1c89",
@@ -82,6 +136,24 @@
       "writtenOn": "2024-09-23T11:55:48Z",
       "side": 1,
       "message": "nit: looking at the double `declaration.declaration`, would it make sense to name the incoming parameter something like `cssValueSource`?",
+      "revId": "3b5b4efcfafd883288f6715714c273ee02662d3d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "08ab3e39_4fdca688",
+        "filename": "front_end/panels/elements/StylesSidebarPane.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 522,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-09-23T13:18:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d4398930_3cfc1c89",
       "revId": "3b5b4efcfafd883288f6715714c273ee02662d3d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
