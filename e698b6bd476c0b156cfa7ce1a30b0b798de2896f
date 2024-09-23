@@ -80,6 +80,30 @@
       },
       "revId": "e698b6bd476c0b156cfa7ce1a30b0b798de2896f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0794a0f_4024c387",
+        "filename": "front_end/panels/timeline/components/CPUThrottlingSelector.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-09-23T09:03:42Z",
+      "side": 1,
+      "message": "I see. I find it a bit confusing to have two ways to configure throttling so close to each other, especially if they have the same effect (although I\u0027m not sure that\u0027s the case).",
+      "parentUuid": "1fec905d_526d5785",
+      "range": {
+        "startLine": 42,
+        "startChar": 13,
+        "endLine": 42,
+        "endChar": 34
+      },
+      "revId": "e698b6bd476c0b156cfa7ce1a30b0b798de2896f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
