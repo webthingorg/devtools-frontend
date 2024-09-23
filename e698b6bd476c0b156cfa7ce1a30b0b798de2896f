@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58a56008_4670909f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-09-23T08:36:50Z",
+      "side": 1,
+      "message": "PTAL",
+      "revId": "e698b6bd476c0b156cfa7ce1a30b0b798de2896f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5cffcce_09fcdb90",
+        "filename": "front_end/panels/timeline/components/CPUThrottlingSelector.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-09-23T08:36:50Z",
+      "side": 1,
+      "message": "I wonder if we need a separate component for the live metrics config:\n\n1. Couldn\u0027t we just use whatever throttling config is set with the old selectors on the settings toolbar (instead of having another pair of throttling selectors)? \n\n2. If not, couldn\u0027t we reuse the existing components? That way we would save a bit on the extra maintenance cost.",
+      "range": {
+        "startLine": 42,
+        "startChar": 13,
+        "endLine": 42,
+        "endChar": 34
+      },
+      "revId": "e698b6bd476c0b156cfa7ce1a30b0b798de2896f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
