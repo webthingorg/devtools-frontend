@@ -106,8 +106,7 @@ UI.ViewManager.registerViewExtension({
   isPreviewFeature: true,
   persistence: UI.ViewManager.ViewPersistence.CLOSEABLE,
   hasToolbar: false,
-  condition: config => isFeatureAvailable(config) && !isPolicyRestricted(config) &&
-      Common.Settings.Settings.instance().moduleSetting(setting).get(),
+  condition: config => isFeatureAvailable(config) && !isPolicyRestricted(config),
   async loadView() {
     const Freestyler = await loadFreestylerModule();
     return Freestyler.FreestylerPanel.instance();
@@ -115,11 +114,13 @@ UI.ViewManager.registerViewExtension({
 });
 
 Common.Settings.registerSettingExtension({
+  // TODO(crbug.com/350668580) SettingCategory.NONE once experiment GEN_AI_SETTINGS_PANEL is removed
   category: Common.Settings.SettingCategory.GLOBAL,
   settingName: setting,
   settingType: Common.Settings.SettingType.BOOLEAN,
   title: i18nLazyString(UIStringsTemp.enableAiAssistant),
-  defaultValue: isFeatureAvailable,
+  defaultValue: false,
+  // TODO(crbug.com/350668580) set to false once experiment GEN_AI_SETTINGS_PANEL is removed
   reloadRequired: true,
   condition: isFeatureAvailable,
   disabledCondition: config => {
@@ -145,7 +146,6 @@ UI.ActionRegistration.registerActionExtension({
   contextTypes(): [] {
     return [];
   },
-  setting,
   category: UI.ActionRegistration.ActionCategory.GLOBAL,
   title: i18nLazyString(UIStringsTemp.askAiAssistant),
   async loadActionDelegate() {
@@ -160,7 +160,6 @@ UI.ActionRegistration.registerActionExtension({
   contextTypes(): [] {
     return [];
   },
-  setting,
   category: UI.ActionRegistration.ActionCategory.GLOBAL,
   title: i18nLazyString(UIStringsTemp.askAiAssistant),
   async loadActionDelegate() {

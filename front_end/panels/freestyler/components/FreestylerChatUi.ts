@@ -12,6 +12,7 @@ import * as Buttons from '../../../ui/components/buttons/buttons.js';
 import * as IconButton from '../../../ui/components/icon_button/icon_button.js';
 import * as MarkdownView from '../../../ui/components/markdown_view/markdown_view.js';
 import * as Spinners from '../../../ui/components/spinners/spinners.js';
+import * as UI from '../../../ui/legacy/legacy.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 import * as VisualLogging from '../../../ui/visual_logging/visual_logging.js';
 import {ErrorType} from '../FreestylerAgent.js';
@@ -164,6 +165,14 @@ const UIStringsTemp = {
    *@description Heading text for the code block that shows the returned data.
    */
   dataReturned: 'Data returned',
+  /**
+   * @description Text for a link to Chrome DevTools Settings.
+   */
+  settingsLink: 'AI assistance in Settings',
+  /**
+   * @description Placeholder text for an inactive text field. When active, it's used for the user's input to the GenAI assistance.
+   */
+  followTheSteps: 'Follow the steps above to ask a question',
 };
 // const str_ = i18n.i18n.registerUIStrings('panels/freestyler/components/FreestylerChatUi.ts', UIStrings);
 // const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -171,7 +180,10 @@ const UIStringsTemp = {
 const i18nString = i18n.i18n.lockedString;
 
 function getInputPlaceholderString(
-    aidaAvailability: Host.AidaClient.AidaAccessPreconditions, agentType: AgentType): string {
+    aidaAvailability: Host.AidaClient.AidaAccessPreconditions, agentType: AgentType, state: State): string {
+  if (state === State.CONSENT_VIEW) {
+    return i18nString(UIStringsTemp.followTheSteps);
+  }
   switch (aidaAvailability) {
     case Host.AidaClient.AidaAccessPreconditions.AVAILABLE:
       switch (agentType) {
@@ -241,7 +253,6 @@ export interface Props {
   onTextSubmit: (text: string) => void;
   onInspectElementClick: () => void;
   onFeedbackSubmit: (rpcId: number, rate: Host.AidaClient.Rating, feedback?: string) => void;
-  onAcceptConsentClick: () => void;
   onCancelClick: () => void;
   onFixThisIssueClick: () => void;
   onSelectedNetworkRequestClick: () => void | Promise<void>;
@@ -335,6 +346,7 @@ export class FreestylerChatUi extends HTMLElement {
 
   #isTextInputDisabled = (): boolean => {
     const isAidaAvailable = this.#props.aidaAvailability === Host.AidaClient.AidaAccessPreconditions.AVAILABLE;
+    const isConsentView = this.#props.state === State.CONSENT_VIEW;
     const showsSideEffects = this.#props.messages.some(message => {
       return message.entity === ChatMessageEntity.MODEL && message.steps.some(step => {
         return Boolean(step.sideEffect);
@@ -344,7 +356,7 @@ export class FreestylerChatUi extends HTMLElement {
     const isInputDisabledCheckForDrJonesNetworkAgent = !Boolean(this.#props.selectedNetworkRequest);
     return (this.#props.agentType === AgentType.FREESTYLER && isInputDisabledCheckForFreestylerAgent) ||
         (this.#props.agentType === AgentType.DRJONES_NETWORK_REQUEST && isInputDisabledCheckForDrJonesNetworkAgent) ||
-        !isAidaAvailable;
+        !isAidaAvailable || isConsentView;
   };
 
   #handleScroll = (ev: Event): void => {
@@ -838,7 +850,7 @@ export class FreestylerChatUi extends HTMLElement {
           .disabled=${this.#isTextInputDisabled()}
           wrap="hard"
           @keydown=${this.#handleTextAreaKeyDown}
-          placeholder=${getInputPlaceholderString(this.#props.aidaAvailability, this.#props.agentType)}
+          placeholder=${getInputPlaceholderString(this.#props.aidaAvailability, this.#props.agentType, this.#props.state)}
           jslog=${VisualLogging.textField('query').track({ keydown: 'Enter' })}></textarea>
           ${this.#props.isLoading
             ? LitHtml.html`<${Buttons.Button.Button.litTagName}
@@ -922,37 +934,47 @@ export class FreestylerChatUi extends HTMLElement {
   };
 
   #renderConsentView = (): LitHtml.TemplateResult => {
+    const settingsLink = document.createElement('button');
+    settingsLink.textContent = i18nString(UIStringsTemp.settingsLink);
+    settingsLink.classList.add('link');
+    UI.ARIAUtils.markAsLink(settingsLink);
+    settingsLink.addEventListener('click', () => {
+      void UI.ViewManager.ViewManager.instance().showView('chrome-ai');
+    });
+    settingsLink.setAttribute('jslog', `${VisualLogging.action('open-ai-settings').track({click: true})}`);
+
     // clang-format off
     return LitHtml.html`
-      <div class="consent-view">
-        <h2 tabindex="-1">
-          ${i18nString(UIStringsTemp.consentScreenHeading)}
-        </h2>
-        <main>
-          ${i18nString(UIStringsTemp.consentTextAiDisclaimer)}
-          <ul>
-            <li>${i18nString(UIStringsTemp.consentTextDataDisclaimer)}</li>
-            <li>${i18nString(UIStringsTemp.consentTextVisibilityDisclaimer)}</li>
-            <li>${i18nString(UIStringsTemp.consentTextDoNotUseDisclaimer)}</li>
-            <li>See <x-link
+      <div class="chat-ui">
+        <div class="empty-state-container">
+          <div class="opt-in">
+            <div class="icon-container">
+              <${IconButton.Icon.Icon.litTagName} .data=${{
+                iconName: 'smart-assistant',
+                width: 'var(--sys-size-8)',
+                height: 'var(--sys-size-8)',
+              } as IconButton.Icon.IconData}>
+            </div>
+            <div>
+              Turn on ${settingsLink} to get help with styles, network requests, performance, and files
+            </div>
+          </div>
+        </div>
+        <form class="input-form" @submit=${this.#handleSubmit}>
+          ${this.#renderChatInput()}
+        </form>
+        <div class="disclaimer">
+          <div class="disclaimer-text">${i18nString(
+            this.#getDisclaimerText(),
+          )} See <x-link
               class="link"
               href=${DOGFOOD_INFO}
               jslog=${VisualLogging.link('freestyler.dogfood-info').track({
                 click: true,
               })}
-            >dogfood terms</x-link>.</li>
-          </ul>
-          <${Buttons.Button.Button.litTagName}
-            class="accept-button"
-            @click=${this.#props.onAcceptConsentClick}
-            .data=${{
-              variant: Buttons.Button.Variant.PRIMARY,
-              jslogContext: 'accept',
-            } as Buttons.Button.ButtonData}
-          >${
-            i18nString(UIStringsTemp.acceptButtonTitle)
-          }</${Buttons.Button.Button.litTagName}>
-        </main>
+            >dogfood terms</x-link>.
+          </div>
+        </div>
       </div>
     `;
     // clang-format on
