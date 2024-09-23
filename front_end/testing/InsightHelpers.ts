@@ -22,7 +22,7 @@ export function createContextForNavigation(navigation: Trace.Types.Events.Naviga
   };
 }
 
-export function getInsight<Key extends keyof Trace.Insights.Types.InsightResults>(
+export function getInsightOrError<Key extends keyof Trace.Insights.Types.InsightResults>(
     insightKey: Key, insights: Trace.Insights.Types.TraceInsightSets,
     navigation?: Trace.Types.Events.NavigationStart): Trace.Insights.Types.InsightResults[Key] {
   let key;
