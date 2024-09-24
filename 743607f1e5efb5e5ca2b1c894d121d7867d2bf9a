@@ -22,6 +22,30 @@
       },
       "revId": "743607f1e5efb5e5ca2b1c894d121d7867d2bf9a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dcf41aff_440fcb91",
+        "filename": "front_end/models/trace/insights/SlowCSSSelector.test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2024-09-24T16:31:27Z",
+      "side": 1,
+      "message": "Here I reused an existing test data \u0027selector-stats.json.gz\u0027. The 1st test case is to make sure the test data is not updated. When updated, we\u0027ll get an error in the selector stats test. The 2nd test is to make sure the generateInsights function returned what we expected, including the statistics and ranked results.",
+      "parentUuid": "cdb2573d_943a1785",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 27
+      },
+      "revId": "743607f1e5efb5e5ca2b1c894d121d7867d2bf9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
