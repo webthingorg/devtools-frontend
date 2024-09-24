@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1bbb2f26_123d47e1",
+        "filename": "front_end/panels/freestyler/components/freestylerChatUi.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-09-24T09:57:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e2a54846_77d79e65",
+      "range": {
+        "startLine": 388,
+        "startChar": 17,
+        "endLine": 388,
+        "endChar": 34
+      },
+      "revId": "b1bb2a2a466e5217f38d16595d2868035a8e20a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f6de1b6c_5ae5235b",
@@ -71,6 +95,30 @@
       "writtenOn": "2024-09-24T09:27:15Z",
       "side": 1,
       "message": "Same here, 4px would be `--sys-shape-corner-extra-small`",
+      "range": {
+        "startLine": 433,
+        "startChar": 17,
+        "endLine": 433,
+        "endChar": 34
+      },
+      "revId": "b1bb2a2a466e5217f38d16595d2868035a8e20a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "88f9e70a_066059a7",
+        "filename": "front_end/panels/freestyler/components/freestylerChatUi.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-09-24T09:57:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6de1b6c_5ae5235b",
       "range": {
         "startLine": 433,
         "startChar": 17,
