@@ -16,6 +16,24 @@
       "message": "lgtm; wouldn\u0027t be against adding a unit test for this behaviour with a trace that has a trivial set though 😊",
       "revId": "c4ae8c6e26801bf2eee31bfed45ec3d178a292ed",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c56931f6_60a9e461",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-24T10:20:45Z",
+      "side": 1,
+      "message": "(we really should have more tests in this part of the codebase and that\u0027s my bad; feel free to defer this to another CL).",
+      "parentUuid": "948c7691_54ab9f21",
+      "revId": "c4ae8c6e26801bf2eee31bfed45ec3d178a292ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
