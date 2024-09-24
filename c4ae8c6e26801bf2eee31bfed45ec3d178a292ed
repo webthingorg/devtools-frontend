@@ -34,6 +34,24 @@
       "parentUuid": "948c7691_54ab9f21",
       "revId": "c4ae8c6e26801bf2eee31bfed45ec3d178a292ed",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70c0597f_b8f497f0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-24T17:15:22Z",
+      "side": 1,
+      "message": "Deferring as suggested - didn\u0027t immediately know how to add a unit test for this and I wanted us to start getting a feel for the behavior here asap.",
+      "parentUuid": "c56931f6_60a9e461",
+      "revId": "c4ae8c6e26801bf2eee31bfed45ec3d178a292ed",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
