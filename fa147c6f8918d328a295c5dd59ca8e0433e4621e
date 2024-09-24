@@ -1,0 +1,45 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c333b35f_2d3bd02a",
+        "filename": "front_end/panels/freestyler/AiAgent.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 3596264
+      },
+      "writtenOn": "2024-09-24T11:03:46Z",
+      "side": 1,
+      "message": "Can this be removed? ThoughtResponse seems to handle thought step for both Freestyler and DrJones",
+      "range": {
+        "startLine": 75,
+        "startChar": 17,
+        "endLine": 75,
+        "endChar": 34
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "25a0dabc_64da3104",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/freestyler/AiAgent.ts",
+              "range": {
+                "startLine": 75,
+                "startChar": 0,
+                "endLine": 81,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "fa147c6f8918d328a295c5dd59ca8e0433e4621e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
