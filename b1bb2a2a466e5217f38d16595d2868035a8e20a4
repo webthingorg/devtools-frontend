@@ -16,6 +16,69 @@
       "message": "PTAL",
       "revId": "b1bb2a2a466e5217f38d16595d2868035a8e20a4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8239ebab_281b1359",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-09-24T09:27:15Z",
+      "side": 1,
+      "message": "Wolfgang, left some Material comments:)",
+      "revId": "b1bb2a2a466e5217f38d16595d2868035a8e20a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2a54846_77d79e65",
+        "filename": "front_end/panels/freestyler/components/freestylerChatUi.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 388,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-09-24T09:27:15Z",
+      "side": 1,
+      "message": "Please use `--sys-shape-corner-small` here instead",
+      "range": {
+        "startLine": 388,
+        "startChar": 17,
+        "endLine": 388,
+        "endChar": 34
+      },
+      "revId": "b1bb2a2a466e5217f38d16595d2868035a8e20a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6de1b6c_5ae5235b",
+        "filename": "front_end/panels/freestyler/components/freestylerChatUi.css",
+        "patchSetId": 5
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-09-24T09:27:15Z",
+      "side": 1,
+      "message": "Same here, 4px would be `--sys-shape-corner-extra-small`",
+      "range": {
+        "startLine": 433,
+        "startChar": 17,
+        "endLine": 433,
+        "endChar": 34
+      },
+      "revId": "b1bb2a2a466e5217f38d16595d2868035a8e20a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
