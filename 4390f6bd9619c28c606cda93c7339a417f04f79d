@@ -33,6 +33,80 @@
       "message": "Definitely an improvement, thanks! LGTM once tests are updated.",
       "revId": "4390f6bd9619c28c606cda93c7339a417f04f79d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe9c0f54_57886bea",
+        "filename": "front_end/panels/settings/FrameworkIgnoreListSettingsTab.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2024-09-24T09:25:30Z",
+      "side": 1,
+      "message": "We should strive to contain the info in one sentence (https://chromium.googlesource.com/devtools/devtools-frontend/+/main/docs/styleguide/ux/writing.md#Patterns). The \"full URL\" note feels out of place, I moved it to another string. WDYT?\n```suggestion\n      \u0027Debugger will skip through these scripts and won\u0027t stop on exceptions thrown by them and the Performance panel will collapse matching items in the flamechart.\u0027,\n```",
+      "range": {
+        "startLine": 24,
+        "startChar": 7,
+        "endLine": 24,
+        "endChar": 199
+      },
+      "revId": "4390f6bd9619c28c606cda93c7339a417f04f79d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52cbab37_60d9ecdb",
+        "filename": "front_end/panels/settings/FrameworkIgnoreListSettingsTab.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2024-09-24T09:25:30Z",
+      "side": 1,
+      "message": "Nit: Chains of more than 3 nouns are hard to parse for non-native speakers.\n```suggestion\n  addFilenamePattern: \u0027Add a regex rule for the file\u0027s URL\u0027,\n```",
+      "revId": "4390f6bd9619c28c606cda93c7339a417f04f79d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88c88544_6b590aa8",
+        "filename": "front_end/panels/settings/FrameworkIgnoreListSettingsTab.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2024-09-24T09:25:30Z",
+      "side": 1,
+      "message": "Nit: We should start using sentence case everywhere (https://chromium.googlesource.com/devtools/devtools-frontend/+/main/docs/styleguide/ux/writing.md#Use-sentence-case). Added the \"full URL\" here since it\u0027s more relevant to this particular place.\n```suggestion\n  pattern: \u0027Add a rule for the script\u0027s full URL\u0027,\n```",
+      "revId": "4390f6bd9619c28c606cda93c7339a417f04f79d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9ee09e5_2c03ff16",
+        "filename": "front_end/panels/settings/FrameworkIgnoreListSettingsTab.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2024-09-24T09:25:30Z",
+      "side": 1,
+      "message": "```suggestion\n  patternCannotBeEmpty: \u0027Rule can\u0027t be empty\u0027,\n```",
+      "revId": "4390f6bd9619c28c606cda93c7339a417f04f79d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
