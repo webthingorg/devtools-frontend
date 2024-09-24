@@ -16,6 +16,23 @@
       "message": "Just pushed more changes to check frame ID and added a test case for selector stats by frame ID. Please take a look.",
       "revId": "92a02f614c4348bc003cf9415ced4ab6902f44de",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecc73430_29ba190d",
+        "filename": "front_end/models/trace/insights/SlowCSSSelector.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-24T20:00:26Z",
+      "side": 1,
+      "message": "frameId isn\u0027t unique for an insight set - but context.bounds would be. Can you filter on the time range denoted by context.bounds too?",
+      "revId": "92a02f614c4348bc003cf9415ced4ab6902f44de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
