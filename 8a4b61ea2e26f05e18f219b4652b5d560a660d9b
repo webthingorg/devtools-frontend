@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b93374b_2033fe2f",
+        "filename": "front_end/models/trace/types/File.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-24T10:24:34Z",
+      "side": 1,
+      "message": "`showCreateButtonOnly` ?\n\nor alternatively, the annotation could have a state:\n\n```\nstate: \u0027PENDING_FINAL_CONNECTION\u0027 | \u0027CREATED\u0027\n```\n\nor something like that...wdyt?\n\nthe type could then even be:\n\n```\nexport type EntriesLinkAnnotation \u003d {\n  type: \u0027ENTRIES_LINK\u0027\n} \u0026 ({\n  state: \u0027PENDING_TO_EVENT\u0027;\n  fromEvent: Event;\n} | {\n  state: \u0027CONNECTED\u0027;\n  fromEvent: Event;\n  toEvent: Event;\n});\n```",
+      "range": {
+        "startLine": 75,
+        "startChar": 2,
+        "endLine": 75,
+        "endChar": 18
+      },
+      "revId": "8a4b61ea2e26f05e18f219b4652b5d560a660d9b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
