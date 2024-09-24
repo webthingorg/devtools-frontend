@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c96e3d11_d90740ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-09-24T22:46:36Z",
+      "side": 1,
+      "message": "Hi all,\nI updated the CL with the migrated EnhancedTracesParser in SDK layer to avoid dynamically importing the whole tracing module. Could you take a look at this CL when you get a chance?",
+      "revId": "35265a5c8b74199171ded32d9e4ffe89bd7a3163",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
