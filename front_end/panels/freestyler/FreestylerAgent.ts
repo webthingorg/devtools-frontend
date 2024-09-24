@@ -8,6 +8,7 @@ import * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
+import {type AidaRequestOptions, ErrorType, type ResponseData, ResponseType} from './AiAgent.js';
 import {ChangeManager} from './ChangeManager.js';
 import {ExtensionScope, FREESTYLER_WORLD_NAME} from './ExtensionScope.js';
 import {ExecutionError, FreestylerEvaluateAction, SideEffectError} from './FreestylerEvaluateAction.js';
@@ -108,69 +109,6 @@ FIXABLE: true
 
 export const FIX_THIS_ISSUE_PROMPT = 'Fix this issue using JavaScript code execution';
 
-export enum ResponseType {
-  TITLE = 'title',
-  THOUGHT = 'thought',
-  ACTION = 'action',
-  SIDE_EFFECT = 'side-effect',
-  ANSWER = 'answer',
-  ERROR = 'error',
-  QUERYING = 'querying',
-}
-
-export interface AnswerResponse {
-  type: ResponseType.ANSWER;
-  text: string;
-  rpcId?: number;
-  fixable: boolean;
-}
-
-export const enum ErrorType {
-  UNKNOWN = 'unknown',
-  ABORT = 'abort',
-  MAX_STEPS = 'max-steps',
-}
-
-export interface ErrorResponse {
-  type: ResponseType.ERROR;
-  error: ErrorType;
-  rpcId?: number;
-}
-
-export interface TitleResponse {
-  type: ResponseType.TITLE;
-  title: string;
-  rpcId?: number;
-}
-
-export interface ThoughtResponse {
-  type: ResponseType.THOUGHT;
-  thought: string;
-  rpcId?: number;
-}
-
-export interface SideEffectResponse {
-  type: ResponseType.SIDE_EFFECT;
-  code: string;
-  confirm: (confirm: boolean) => void;
-  rpcId?: number;
-}
-
-export interface ActionResponse {
-  type: ResponseType.ACTION;
-  code: string;
-  output: string;
-  canceled: boolean;
-  rpcId?: number;
-}
-
-export interface QueryResponse {
-  type: ResponseType.QUERYING;
-}
-
-export type ResponseData =
-    AnswerResponse|ErrorResponse|ActionResponse|SideEffectResponse|ThoughtResponse|TitleResponse|QueryResponse;
-
 async function executeJsCode(code: string, {throwOnSideEffect}: {throwOnSideEffect: boolean}): Promise<string> {
   const selectedNode = UI.Context.Context.instance().flavor(SDK.DOMModel.DOMNode);
   const target = selectedNode?.domModel().target() ?? UI.Context.Context.instance().flavor(SDK.Target.Target);
@@ -227,17 +165,6 @@ type AgentOptions = {
   createExtensionScope?: CreateExtensionScopeFunction,
   execJs?: typeof executeJsCode,
 };
-
-interface AidaRequestOptions {
-  input: string;
-  preamble?: string;
-  chatHistory?: Host.AidaClient.Chunk[];
-  /**
-   * @default false
-   */
-  serverSideLoggingEnabled?: boolean;
-  sessionId?: string;
-}
 
 /**
  * One agent instance handles one conversation. Create a new agent
