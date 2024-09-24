@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ceb4ee91_3a39b750",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-09-24T11:49:47Z",
+      "side": 1,
+      "message": "Changed the approach to not query the ShadowDOM, should I still file a bug?",
+      "parentUuid": "fa7900f1_2959eabf",
+      "revId": "2ffa5bb72c102fb3e1d18282cf5085cf8d435a18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dd5bc893_0d84f64b",
         "filename": "front_end/panels/timeline/overlays/OverlaysImpl.ts",
         "patchSetId": 1
@@ -31,6 +49,30 @@
       "writtenOn": "2024-09-24T10:29:41Z",
       "side": 1,
       "message": "this really doesn\u0027t feel great to me that we are reaching into a component\u0027s shadow dom and manipulating the contents; that goes against what the ShadowDOM is designed for and it feels like this is shouting about there being another solution.\n\nI wonder if we do need an EntryLabelOverlay to be able to have two child outline overlays created for it; that perhaps is going to be a better, clearer implementation (but perhaps not).\n\nIn the interests of progressing + resolving some bugs for the first launch of this I won\u0027t block this CL landing, but I would like us to revisit this as I\u0027m not happy with this approach. It feels like a short term fix that in a few months we will be so confused with something reaching into a component\u0027s \"private\" DOM and manipulating its position.",
+      "range": {
+        "startLine": 1105,
+        "startChar": 5,
+        "endLine": 1109,
+        "endChar": 0
+      },
+      "revId": "2ffa5bb72c102fb3e1d18282cf5085cf8d435a18",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81589d41_44fdc817",
+        "filename": "front_end/panels/timeline/overlays/OverlaysImpl.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1109,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-09-24T11:49:47Z",
+      "side": 1,
+      "message": "I agree, reaching into a component\u0027s shadow DOM doesn\u0027t feel right.\n\nI changed it for the LabelOverlay component to return the wrapper instead.",
+      "parentUuid": "dd5bc893_0d84f64b",
       "range": {
         "startLine": 1105,
         "startChar": 5,
