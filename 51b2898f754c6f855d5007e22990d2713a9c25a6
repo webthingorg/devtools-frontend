@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9aa7e904_9d9bf978",
+        "filename": "front_end/panels/timeline/AnimationsTrackAppender.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1544442
+      },
+      "writtenOn": "2024-09-24T08:29:08Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "fbf990c4_f31977cd",
+      "revId": "51b2898f754c6f855d5007e22990d2713a9c25a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "66120314_178e9581",
@@ -48,6 +66,30 @@
       "writtenOn": "2024-09-23T22:26:25Z",
       "side": 1,
       "message": "i dont think you need these two. should be find to omit these and go with the default.",
+      "range": {
+        "startLine": 66,
+        "startChar": 0,
+        "endLine": 67,
+        "endChar": 87
+      },
+      "revId": "51b2898f754c6f855d5007e22990d2713a9c25a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "066e2a48_e16cfcb3",
+        "filename": "front_end/panels/timeline/AnimationsTrackAppender.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1544442
+      },
+      "writtenOn": "2024-09-24T08:29:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "66120314_178e9581",
       "range": {
         "startLine": 66,
         "startChar": 0,
