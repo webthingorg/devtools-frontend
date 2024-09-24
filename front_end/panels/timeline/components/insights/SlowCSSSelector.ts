@@ -90,11 +90,8 @@ export class SlowCSSSelector extends BaseInsight {
   }
 
   #hasDataToRender(): boolean {
-    const selectorStatsFeatureEnabled =
-        Common.Settings.Settings.instance().createSetting('timeline-capture-selector-stats', false);
-    this.#slowCSSSelector = selectorStatsFeatureEnabled.get() ?
-        Trace.Insights.Common.getInsight('SlowCSSSelector', this.data.insights, this.data.insightSetKey) :
-        null;
+    this.#slowCSSSelector =
+        Trace.Insights.Common.getInsight('SlowCSSSelector', this.data.insights, this.data.insightSetKey);
     return this.#slowCSSSelector !== null;
   }
 
