@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "240b88ec_e17cc063",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-09-24T15:27:46Z",
+      "side": 1,
+      "message": "Sofia, could you please take a look at this too? Just adding command line commands here",
+      "revId": "0bb874dfd271113516ea4744ad172d5bddf5f249",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
