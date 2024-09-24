@@ -293,7 +293,23 @@ const UIStrings = {
    * @description Screen reader announcement when the sidebar is hidden in the Performance panel.
    */
   sidebarHidden: 'Performance sidebar hidden',
-
+  /**
+   * @description Screen reader announcement when the user clears their selection
+   */
+  selectionCleared: 'Selection cleared',
+  /**
+   * @description Screen reader announcement when the user selects a time range
+   */
+  timeRangeSelected: 'Time range selected',
+  /**
+   * @description Screen reader announcement when the user selects a frame.
+   */
+  frameSelected: 'Frame selected',
+  /**
+   * @description Screen reader announcement when the user selects a trace event.
+   * @example {Paint} PH1
+   */
+  eventSelected: 'Event {PH1} selected',
 };
 const str_ = i18n.i18n.registerUIStrings('panels/timeline/TimelinePanel.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
@@ -378,7 +394,7 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
   private networkThrottlingSelect?: UI.Toolbar.ToolbarComboBox;
   private cpuThrottlingSelect?: UI.Toolbar.ToolbarComboBox;
   private fileSelectorElement?: HTMLInputElement;
-  private selection?: TimelineSelection|null;
+  private selection: TimelineSelection|null = null;
   private traceLoadStart!: Trace.Types.Timing.MilliSeconds|null;
   private primaryPageTargetPromiseCallback = (_target: SDK.Target.Target): void => {};
   // Note: this is technically unused, but we need it to define the promiseCallback function above.
@@ -1662,6 +1678,8 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
 
     // Add ModificationsManager listeners for annotations change to update the Annotation Overlays.
     currentManager?.addEventListener(AnnotationModifiedEvent.eventName, event => {
+      AnnotationHelpers.makeAriaAnnouncementForAnnotationModified(event as AnnotationModifiedEvent);
+
       const {overlay, action} = (event as AnnotationModifiedEvent);
       if (action === 'Add') {
         this.flameChart.addOverlay(overlay);
@@ -2143,7 +2161,28 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
     return true;
   }
 
+  #announceSelectionToAria(oldSelection: TimelineSelection|null, newSelection: TimelineSelection|null): void {
+    if (oldSelection !== null && newSelection === null) {
+      UI.ARIAUtils.alert(i18nString(UIStrings.selectionCleared));
+    }
+    if (newSelection === null) {
+      return;
+    }
+    if (TimelineSelection.isRangeSelection(newSelection.object)) {
+      UI.ARIAUtils.alert(i18nString(UIStrings.timeRangeSelected));
+      return;
+    }
+    if (TimelineSelection.isLegacyTimelineFrame(newSelection.object)) {
+      UI.ARIAUtils.alert(i18nString(UIStrings.frameSelected));
+      return;
+    }
+    // At this point we know the object is a trace event
+    const name = TimelineComponents.EntryName.nameForEntry(newSelection.object);
+    UI.ARIAUtils.alert(i18nString(UIStrings.eventSelected, {PH1: name}));
+  }
+
   select(selection: TimelineSelection|null): void {
+    this.#announceSelectionToAria(this.selection, selection);
     this.selection = selection;
     this.flameChart.setSelectionAndReveal(selection);
   }
