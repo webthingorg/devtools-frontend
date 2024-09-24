@@ -19,12 +19,17 @@ export type SlowCSSSelectorInsightResult = InsightResult<{
   topMatchAttempts: Types.Events.SelectorTiming[],
 }>;
 
-function aggregateSelectorStats(data: Map<Types.Events.UpdateLayoutTree, {
-  timings: Types.Events.SelectorTiming[],
-}>): SelectorTiming[] {
+function aggregateSelectorStats(
+    data: Map<Types.Events.UpdateLayoutTree, {
+      timings: Types.Events.SelectorTiming[],
+    }>,
+    frameId: string): SelectorTiming[] {
   const selectorMap = new Map<String, SelectorTiming>();
 
-  for (const value of data.values()) {
+  for (const [key, value] of data) {
+    if (key.args.beginData?.frame != frameId) {
+      continue;
+    }
     for (const timing of value.timings) {
       const key = timing[SelectorTimingsKey.Selector] + '_' + timing[SelectorTimingsKey.StyleSheetId];
       const findTiming = selectorMap.get(key);
@@ -43,7 +48,6 @@ function aggregateSelectorStats(data: Map<Types.Events.UpdateLayoutTree, {
 }
 
 export function generateInsight(
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     parsedTrace: RequiredData<typeof deps>, context: InsightSetContext): SlowCSSSelectorInsightResult {
   const selectorStatsData = parsedTrace.SelectorStats;
 
@@ -51,8 +55,7 @@ export function generateInsight(
     throw new Error('no selector stats data');
   }
 
-  // TODO(b/357047902): this needs to be scoped to the context.window.
-  const selectorTimings = aggregateSelectorStats(selectorStatsData.dataForUpdateLayoutEvent);
+  const selectorTimings = aggregateSelectorStats(selectorStatsData.dataForUpdateLayoutEvent, context.frameId);
 
   let totalElapsedUs = 0;
   let totalMatchAttempts = 0;
