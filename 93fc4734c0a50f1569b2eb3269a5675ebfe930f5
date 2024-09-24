@@ -1,5 +1,23 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "29cc2552_934fdfd3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-09-24T12:57:53Z",
+      "side": 1,
+      "message": "Hi Simon!\n\nHere\u0027s the protocol roll + chromium pin roll with the adapted changes in DebuggerModel and disabling the failing test. PTAL!",
+      "revId": "93fc4734c0a50f1569b2eb3269a5675ebfe930f5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
