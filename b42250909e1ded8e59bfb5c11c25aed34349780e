@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e47686d_f3eb902d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1334873
+      },
+      "writtenOn": "2024-09-24T16:44:28Z",
+      "side": 1,
+      "message": "Hi Simon and Benedikt,\n\nThis is the first part (1/2)for the sourcemap server implementation, the expected user workflow is: \nto register a plugin the developer will call `registerSourceMapServerPlugin`. This function requires two parameters two be passed:\n\n1. An instance of `SourceMapServerExtensionPlugin`\n  1.1 This instance needs to implement the `loadSourceMap(sourceMapServerRequest)` method which returns the SourceMap for the passed `sourceMapServerRequest`\n2. A name for the plugin\n\nFull details can be found in the associated proposal here:\nhttps://docs.google.com/document/d/1x9_MTMVr213ApruMK6ryc4JpPHahvOBlExP6sHkMv8Y/edit?pli\u003d1\n\nOnce this goes in, my plan is to start working on the Debugger SDK to wire the API behavior to the sourcemap resolution. (that should be part 2/2)",
+      "revId": "b42250909e1ded8e59bfb5c11c25aed34349780e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
