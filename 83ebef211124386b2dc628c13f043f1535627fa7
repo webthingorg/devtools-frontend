@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af897c5c_6e3f1e01",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1544442
+      },
+      "writtenOn": "2024-09-24T08:30:33Z",
+      "side": 1,
+      "message": "Addressed your remarks. IUC this needs two upvotes. Who else would you suggest to give this a review?",
+      "revId": "83ebef211124386b2dc628c13f043f1535627fa7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
