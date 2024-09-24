@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c984ffd0_a35dc28d",
+        "filename": "front_end/core/sdk/CSSMatchedStyles.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 1021,
+      "author": {
+        "id": 1372423
+      },
+      "writtenOn": "2024-09-24T10:39:40Z",
+      "side": 1,
+      "message": "Sure, that was in the last patchset already, pulled the callback out into a function :) WDYT?",
+      "parentUuid": "64127773_aac4b5e7",
+      "revId": "3b5b4efcfafd883288f6715714c273ee02662d3d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b0115fc8_7fb62b91",
         "filename": "front_end/core/sdk/CSSMatchedStyles.ts",
         "patchSetId": 10
