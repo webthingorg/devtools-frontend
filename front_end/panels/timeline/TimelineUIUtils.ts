@@ -57,10 +57,10 @@ import * as TimelineComponents from './components/components.js';
 import * as Extensions from './extensions/extensions.js';
 import {Tracker} from './FreshRecording.js';
 import {ModificationsManager} from './ModificationsManager.js';
-import {SourceMapsResolver} from './SourceMapsResolver.js';
 import {targetForEvent} from './TargetForEvent.js';
 import {TimelinePanel} from './TimelinePanel.js';
 import {TimelineSelection} from './TimelineSelection.js';
+import {SourceMapsResolver} from './utils/SourceMapsResolver.js';
 
 const UIStrings = {
   /**
@@ -647,8 +647,8 @@ export class TimelineUIUtils {
     // need to check for profile calls in the beginning of this
     // function.
     if (Trace.Types.Events.isProfileCall(event)) {
-      const maybeResolvedName = SourceMapsResolver.resolvedNodeNameForEntry(event);
-      const displayName = maybeResolvedName || TimelineUIUtils.frameDisplayName(event.callFrame);
+      const maybeResolvedData = SourceMapsResolver.resolvedCodeLocationForEntry(event);
+      const displayName = maybeResolvedData?.name || TimelineUIUtils.frameDisplayName(event.callFrame);
       return displayName;
     }
     if (event.name === 'EventTiming' && Trace.Types.Events.isSyntheticInteraction(event)) {
@@ -943,8 +943,8 @@ export class TimelineUIUtils {
         if (!Trace.Types.Events.isProfileCall(event)) {
           break;
         }
-        const maybeResolvedName = SourceMapsResolver.resolvedNodeNameForEntry(event);
-        const functionName = maybeResolvedName || TimelineUIUtils.frameDisplayName(event.callFrame);
+        const maybeResolvedData = SourceMapsResolver.resolvedCodeLocationForEntry(event);
+        const functionName = maybeResolvedData?.name || TimelineUIUtils.frameDisplayName(event.callFrame);
         UI.UIUtils.createTextChild(details, functionName);
         const location = this.linkifyLocation({
           scriptId: event.callFrame['scriptId'],
