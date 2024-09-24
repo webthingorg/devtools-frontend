@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "64127773_aac4b5e7",
+        "filename": "front_end/core/sdk/CSSMatchedStyles.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 1021,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-09-24T10:22:48Z",
+      "side": 1,
+      "message": "Is it possible to simplify the multiple ternary operators so that it\u0027s easier to follow? Right now I need to put them into `if-else` blocks locally XD",
+      "parentUuid": "3c1d62c0_30cd1fe6",
+      "revId": "3b5b4efcfafd883288f6715714c273ee02662d3d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b0115fc8_7fb62b91",
         "filename": "front_end/core/sdk/CSSMatchedStyles.ts",
         "patchSetId": 10
