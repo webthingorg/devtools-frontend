@@ -34,6 +34,41 @@
       "parentUuid": "f8eb0caf_6d526c95",
       "revId": "1500e1e5ffed09263b05cc119ffefbf4d947208d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35f65315_1aed7eb7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1544442
+      },
+      "writtenOn": "2024-09-24T08:38:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba008b5c_853b9e1f",
+      "revId": "1500e1e5ffed09263b05cc119ffefbf4d947208d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "573a3850_1d95e02d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1544442
+      },
+      "writtenOn": "2024-09-24T08:38:42Z",
+      "side": 1,
+      "message": "Removed the obsolete reasons. Agree that a potential refactor is food for a follow-up CL",
+      "revId": "1500e1e5ffed09263b05cc119ffefbf4d947208d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
