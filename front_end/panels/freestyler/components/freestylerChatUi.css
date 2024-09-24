@@ -329,6 +329,13 @@
   text-decoration: underline;
 }
 
+button.link {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font: inherit;
+}
+
 .select-an-element-text {
   margin-left: 2px;
 }
@@ -377,6 +384,16 @@
   }
 }
 
+.opt-in {
+  border-radius: var(--sys-shape-corner-small);
+  padding: var(--sys-size-6) var(--sys-size-8);
+  box-shadow: var(--drop-shadow);
+  font: var(--sys-typescale-body4-regular);
+  margin: var(--sys-size-8);
+  max-width: var(--sys-size-34);
+  display: flex;
+}
+
 .action-result {
   /* devtools-code-block adds `margin-top: 8px` however we want the margin between `.action-result` and `.js-code-output` to be 2px
   that's why we use -6px here. */
@@ -412,20 +429,15 @@
   gap: var(--sys-size-4);
 }
 
-.consent-view {
-  padding: 24px;
-  text-wrap: pretty;
+.icon-container {
+  border-radius: var(--sys-shape-corner-extra-small);
+  width: var(--sys-size-9);
+  height: var(--sys-size-9);
+  background: linear-gradient(135deg, var(--sys-color-gradient-primary), var(--sys-color-gradient-tertiary));
+  margin-right: var(--sys-size-5);
 
-  .accept-button {
-    margin-top: 8px;
-  }
-
-  ul {
-    padding: 0 13px;
-  }
-
-  h2 {
-    font-weight: 500;
+  devtools-icon {
+    margin: var(--sys-size-2);
   }
 }
 
