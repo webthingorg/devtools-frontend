@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8a01c83a_bf9fda45",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-24T11:26:56Z",
+      "side": 1,
+      "message": "LGTM % 1 comment, also:\n\nCan we add a test for `parseResponse` where it returns `thought, action, title` when also the `answer` is present in the response?",
+      "revId": "633dbac6eb1b9f77dbdf784bc534f0a570241e21",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43a5371f_0c615491",
+        "filename": "front_end/panels/freestyler/FreestylerAgent.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-24T11:26:56Z",
+      "side": 1,
+      "message": "I think this changes the behavior and we\u0027d like to keep the previous one.\n\nPreviously, we were not returning `answer` when only the `action` is present. Now we\u0027re not returning `answer` when the `thought` is also present. We need to keep the previous behavior to handle answers such as:\n```\nTHOUGHT: X\nTITLE: X\nANSWER: X\nFIXABLE: false\n```\n\nwhich I encountered by asking \"How\u0027re you?\".\n\nIn the previous version, we were returning `answer, fixable` and now we return `thought, title, action`.\n\nCan we keep the previous behavior and only put higher priority to `thought, title, action` when the `action` is present?",
+      "revId": "633dbac6eb1b9f77dbdf784bc534f0a570241e21",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
