@@ -38,31 +38,22 @@ describeWithEnvironment('FreestylerAgent', () => {
       assert.deepStrictEqual(
           FreestylerAgent.parseResponse(`THOUGHT: ${payload}`),
           {
-            action: undefined,
             title: undefined,
             thought: payload,
-            answer: undefined,
-            fixable: false,
           },
       );
       assert.deepStrictEqual(
           FreestylerAgent.parseResponse(`   THOUGHT: ${payload}`),
           {
-            action: undefined,
             title: undefined,
             thought: payload,
-            answer: undefined,
-            fixable: false,
           },
       );
       assert.deepStrictEqual(
           FreestylerAgent.parseResponse(`Something\n   THOUGHT: ${payload}`),
           {
-            action: undefined,
             title: undefined,
             thought: payload,
-            answer: undefined,
-            fixable: false,
           },
       );
     });
@@ -71,9 +62,6 @@ describeWithEnvironment('FreestylerAgent', () => {
       assert.deepStrictEqual(
           FreestylerAgent.parseResponse(`ANSWER: ${payload}`),
           {
-            action: undefined,
-            title: undefined,
-            thought: undefined,
             answer: payload,
             fixable: false,
           },
@@ -81,9 +69,6 @@ describeWithEnvironment('FreestylerAgent', () => {
       assert.deepStrictEqual(
           FreestylerAgent.parseResponse(`   ANSWER: ${payload}`),
           {
-            action: undefined,
-            title: undefined,
-            thought: undefined,
             answer: payload,
             fixable: false,
           },
@@ -91,9 +76,6 @@ describeWithEnvironment('FreestylerAgent', () => {
       assert.deepStrictEqual(
           FreestylerAgent.parseResponse(`Something\n   ANSWER: ${payload}`),
           {
-            action: undefined,
-            title: undefined,
-            thought: undefined,
             answer: payload,
             fixable: false,
           },
@@ -106,9 +88,6 @@ c`;
       assert.deepStrictEqual(
           FreestylerAgent.parseResponse(`ANSWER: ${payload}`),
           {
-            action: undefined,
-            title: undefined,
-            thought: undefined,
             answer: payload,
             fixable: false,
           },
@@ -116,9 +95,6 @@ c`;
       assert.deepStrictEqual(
           FreestylerAgent.parseResponse(`   ANSWER: ${payload}`),
           {
-            action: undefined,
-            title: undefined,
-            thought: undefined,
             answer: payload,
             fixable: false,
           },
@@ -126,9 +102,6 @@ c`;
       assert.deepStrictEqual(
           FreestylerAgent.parseResponse(`Something\n   ANSWER: ${payload}`),
           {
-            action: undefined,
-            title: undefined,
-            thought: undefined,
             answer: payload,
             fixable: false,
           },
@@ -136,9 +109,6 @@ c`;
       assert.deepStrictEqual(
           FreestylerAgent.parseResponse(`ANSWER: ${payload}\nTHOUGHT: thought`),
           {
-            action: undefined,
-            title: undefined,
-            thought: 'thought',
             answer: payload,
             fixable: false,
           },
@@ -148,9 +118,6 @@ c`;
               `ANSWER: ${payload}\nOBSERVATION: observation`,
               ),
           {
-            action: undefined,
-            title: undefined,
-            thought: undefined,
             answer: payload,
             fixable: false,
           },
@@ -163,8 +130,6 @@ c`;
             action: 'action',
             title: undefined,
             thought: undefined,
-            answer: payload,
-            fixable: false,
           },
       );
     });
@@ -178,8 +143,6 @@ c`;
             action: payload,
             title: undefined,
             thought: undefined,
-            answer: undefined,
-            fixable: false,
           },
       );
       assert.deepStrictEqual(
@@ -188,8 +151,6 @@ c`;
             action: payload,
             title: undefined,
             thought: undefined,
-            answer: undefined,
-            fixable: false,
           },
       );
       assert.deepStrictEqual(
@@ -198,8 +159,6 @@ c`;
             action: payload,
             title: undefined,
             thought: undefined,
-            answer: undefined,
-            fixable: false,
           },
       );
 
@@ -209,8 +168,6 @@ c`;
             action: payload,
             title: undefined,
             thought: undefined,
-            answer: 'answer',
-            fixable: false,
           },
       );
     });
@@ -220,11 +177,8 @@ c`;
       assert.deepStrictEqual(
           FreestylerAgent.parseResponse(`THOUGHT: ${payload}\nTITLE: ${title}`),
           {
-            action: undefined,
             thought: payload,
             title,
-            answer: undefined,
-            fixable: false,
           },
       );
     });
@@ -241,8 +195,6 @@ c`;
             action: payload,
             title: undefined,
             thought: undefined,
-            answer: undefined,
-            fixable: false,
           },
       );
     });
@@ -259,8 +211,6 @@ c`;
             action: payload,
             title: undefined,
             thought: undefined,
-            answer: undefined,
-            fixable: false,
           },
       );
     });
@@ -278,8 +228,6 @@ c`;
             action: actionPayload,
             title: undefined,
             thought: thoughtPayload,
-            answer: undefined,
-            fixable: false,
           },
       );
     });
@@ -290,9 +238,6 @@ c`;
               'This is also an answer',
               ),
           {
-            action: undefined,
-            title: undefined,
-            thought: undefined,
             answer: 'This is also an answer',
             fixable: false,
           },
@@ -858,16 +803,7 @@ c`;
         },
       ]);
       sinon.assert.notCalled(execJs);
-      assert.deepStrictEqual(agent.chatHistoryForTesting, [
-        {
-          entity: 1,
-          text: '# Inspected element\n\n* Its selector is `undefined`\n\n# User request\n\nQUERY: test',
-        },
-        {
-          entity: 2,
-          text: '',
-        },
-      ]);
+      assert.deepStrictEqual(agent.chatHistoryForTesting, []);
     });
 
     it('generates an action response if action and answer both present', async () => {
