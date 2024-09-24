@@ -8,6 +8,7 @@ import * as Platform from '../../core/platform/platform.js';
 import * as SDK from '../../core/sdk/sdk.js';
 import * as UI from '../../ui/legacy/legacy.js';
 
+import {type AidaRequestOptions, ErrorType, type ResponseData, ResponseType} from './AiAgent.js';
 import {ChangeManager} from './ChangeManager.js';
 import {ExtensionScope, FREESTYLER_WORLD_NAME} from './ExtensionScope.js';
 import {ExecutionError, FreestylerEvaluateAction, SideEffectError} from './FreestylerEvaluateAction.js';
@@ -108,69 +109,6 @@ FIXABLE: true
 
 export const FIX_THIS_ISSUE_PROMPT = 'Fix this issue using JavaScript code execution';
 
-export enum ResponseType {
-  TITLE = 'title',
-  THOUGHT = 'thought',
-  ACTION = 'action',
-  SIDE_EFFECT = 'side-effect',
-  ANSWER = 'answer',
-  ERROR = 'error',
-  QUERYING = 'querying',
-}
-
-export interface AnswerResponse {
-  type: ResponseType.ANSWER;
-  text: string;
-  rpcId?: number;
-  fixable: boolean;
-}
-
-export const enum ErrorType {
-  UNKNOWN = 'unknown',
-  ABORT = 'abort',
-  MAX_STEPS = 'max-steps',
-}
-
-export interface ErrorResponse {
-  type: ResponseType.ERROR;
-  error: ErrorType;
-  rpcId?: number;
-}
-
-export interface TitleResponse {
-  type: ResponseType.TITLE;
-  title: string;
-  rpcId?: number;
-}
-
-export interface ThoughtResponse {
-  type: ResponseType.THOUGHT;
-  thought: string;
-  rpcId?: number;
-}
-
-export interface SideEffectResponse {
-  type: ResponseType.SIDE_EFFECT;
-  code: string;
-  confirm: (confirm: boolean) => void;
-  rpcId?: number;
-}
-
-export interface ActionResponse {
-  type: ResponseType.ACTION;
-  code: string;
-  output: string;
-  canceled: boolean;
-  rpcId?: number;
-}
-
-export interface QueryResponse {
-  type: ResponseType.QUERYING;
-}
-
-export type ResponseData =
-    AnswerResponse|ErrorResponse|ActionResponse|SideEffectResponse|ThoughtResponse|TitleResponse|QueryResponse;
-
 async function executeJsCode(code: string, {throwOnSideEffect}: {throwOnSideEffect: boolean}): Promise<string> {
   const selectedNode = UI.Context.Context.instance().flavor(SDK.DOMModel.DOMNode);
   const target = selectedNode?.domModel().target() ?? UI.Context.Context.instance().flavor(SDK.Target.Target);
@@ -228,17 +166,6 @@ type AgentOptions = {
   execJs?: typeof executeJsCode,
 };
 
-interface AidaRequestOptions {
-  input: string;
-  preamble?: string;
-  chatHistory?: Host.AidaClient.Chunk[];
-  /**
-   * @default false
-   */
-  serverSideLoggingEnabled?: boolean;
-  sessionId?: string;
-}
-
 /**
  * One agent instance handles one conversation. Create a new agent
  * instance for a new conversation.
@@ -271,8 +198,15 @@ export class FreestylerAgent {
     return request;
   }
 
-  static parseResponse(response: string):
-      {thought?: string, title?: string, action?: string, answer?: string, fixable: boolean} {
+  static parseResponse(response: string): {
+    thought?: string,
+    title?: string,
+    action?: string,
+  }|{
+  answer:
+    string, fixable: boolean,
+  }
+  {
     const lines = response.split('\n');
     let thought: string|undefined;
     let title: string|undefined;
@@ -336,12 +270,26 @@ export class FreestylerAgent {
         i++;
       }
     }
+
+    // Sometimes the answer will follow an action and a thought. In
+    // that case, we only use the action and the thought (if present)
+    // since the answer is not based on the observation resulted from
+    // the action.
+    if (thought || action) {
+      return {
+        thought,
+        title,
+        action,
+      };
+    }
+
     // If we could not parse the parts, consider the response to be an
     // answer.
-    if (!answer && !thought && !action) {
+    if (!answer) {
       answer = response;
     }
-    return {thought, title, action, answer, fixable};
+
+    return {answer, fixable};
   }
 
   #aidaClient: Host.AidaClient.AidaClient;
@@ -624,36 +572,64 @@ export class FreestylerAgent {
         ]);
       };
       const currentRunEntries = this.#chatHistory.get(currentRunId) ?? [];
-      const {thought, title, action, answer, fixable} = FreestylerAgent.parseResponse(response);
-      // Sometimes the answer will follow an action and a thought. In
-      // that case, we only use the action and the thought (if present)
-      // since the answer is not based on the observation resulted from
-      // the action.
-      if (action) {
-        if (title) {
+      const parsedResponse = FreestylerAgent.parseResponse(response);
+
+      if ('answer' in parsedResponse) {
+        const {
+          answer,
+          fixable,
+        } = parsedResponse;
+        if (answer) {
+          addToHistory(`ANSWER: ${answer}`);
           yield {
-            type: ResponseType.TITLE,
-            title,
+            type: ResponseType.ANSWER,
+            text: answer,
+            rpcId,
+            fixable,
+          };
+        } else {
+          yield {
+            type: ResponseType.ERROR,
+            error: ErrorType.UNKNOWN,
             rpcId,
           };
         }
 
-        if (thought) {
-          addToHistory(`THOUGHT: ${thought}
+        break;
+      }
+
+      const {
+        title,
+        thought,
+        action,
+      } = parsedResponse;
+
+      if (title) {
+        yield {
+          type: ResponseType.TITLE,
+          title,
+          rpcId,
+        };
+      }
+
+      if (thought) {
+        addToHistory(`THOUGHT: ${thought}
 TITLE: ${title}
 ACTION
 ${action}
 STOP`);
-          yield {
-            type: ResponseType.THOUGHT,
-            thought,
-            rpcId,
-          };
-        } else {
-          addToHistory(`ACTION
+        yield {
+          type: ResponseType.THOUGHT,
+          thought,
+          rpcId,
+        };
+      } else {
+        addToHistory(`ACTION
 ${action}
 STOP`);
-        }
+      }
+
+      if (action) {
         debugLog(`Action to execute: ${action}`);
         const scope = this.#createExtensionScope(this.#changes);
         await scope.install();
@@ -691,23 +667,6 @@ STOP`);
         } finally {
           await scope.uninstall();
         }
-      } else if (answer) {
-        addToHistory(`ANSWER: ${answer}`);
-        yield {
-          type: ResponseType.ANSWER,
-          text: answer,
-          rpcId,
-          fixable,
-        };
-        break;
-      } else {
-        addToHistory(response);
-        yield {
-          type: ResponseType.ERROR,
-          error: ErrorType.UNKNOWN,
-          rpcId,
-        };
-        break;
       }
 
       if (i === MAX_STEPS - 1) {
