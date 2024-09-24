@@ -171,10 +171,6 @@ export class DrJonesNetworkAgent {
             ''}${query}`;
     const currentRunId = ++this.#runId;
 
-    options.signal?.addEventListener('abort', () => {
-      this.#chatHistory.delete(currentRunId);
-    });
-
     const request = DrJonesNetworkAgent.buildRequest({
       input: query,
       preamble,
@@ -201,8 +197,13 @@ export class DrJonesNetworkAgent {
       rpcId = fetchResult.rpcId;
     } catch (err) {
       debugLog('Error calling the AIDA API', err);
-
-      if (options.signal?.aborted) {
+      if (err instanceof Host.AidaClient.AidaAbortError) {
+        this.#chatHistory.delete(currentRunId);
+        yield {
+          type: ResponseType.ERROR,
+          error: ErrorType.ABORT,
+          rpcId,
+        };
         return;
       }
 
