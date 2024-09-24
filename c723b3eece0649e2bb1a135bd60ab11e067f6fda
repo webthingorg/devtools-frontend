@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e52ff8c0_eb56a612",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-24T13:11:32Z",
+      "side": 1,
+      "message": "LGTM % 1 nit and following up on our offline discussion :)",
+      "revId": "c723b3eece0649e2bb1a135bd60ab11e067f6fda",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31e6aee4_3111a2d3",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 965,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-24T13:11:32Z",
+      "side": 1,
+      "message": "Following our offline discussion, we can add the opt-in disclaimer text conditionally to `getDisclaimerText`. WDYT?",
+      "revId": "c723b3eece0649e2bb1a135bd60ab11e067f6fda",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75f2bd13_87cd6357",
+        "filename": "front_end/panels/freestyler/components/freestylerChatUi.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-24T13:11:32Z",
+      "side": 1,
+      "message": "(nit): Can we rename this to `.opt-in-icon-container` or nest it under `.opt-in` rule?",
+      "revId": "c723b3eece0649e2bb1a135bd60ab11e067f6fda",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

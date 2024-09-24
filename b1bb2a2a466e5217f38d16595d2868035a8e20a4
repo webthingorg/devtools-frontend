@@ -37,6 +37,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3673722b_1b0db09c",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 936,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-24T13:11:32Z",
+      "side": 1,
+      "message": "Instead of replicating rendering `chat-ui` skeleton again here, we can render `opt-in` parts inside `#renderChatUi` and remove the switch case below. Then we can even remove `#renderChatUi` and move the rendering logic below to `#render`. WDYT?\n\n(This was a comment prior to our offline discussion 😊)",
+      "revId": "b1bb2a2a466e5217f38d16595d2868035a8e20a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e2a54846_77d79e65",
         "filename": "front_end/panels/freestyler/components/freestylerChatUi.css",
         "patchSetId": 5
