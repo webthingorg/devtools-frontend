@@ -99,12 +99,16 @@ export class CLSCulprits extends BaseInsight {
         }
         const fontReq = culprits.fontRequests;
         const iframes = culprits.iframeIds;
+        const animations = culprits.nonCompositedAnimations;
 
         for (let i = 0; i < fontReq.length && causes.length < MAX_TOP_CULPRITS; i++) {
           causes.push(i18nString(UIStrings.fontRequest));
         }
         for (let i = 0; i < iframes.length && causes.length < MAX_TOP_CULPRITS; i++) {
           causes.push(i18nString(UIStrings.injectedIframe));
+        }
+        for (let i = 0; i < animations.length && causes.length < MAX_TOP_CULPRITS; i++) {
+          causes.push('Animation');
         }
       }
     }
