@@ -33,6 +33,23 @@
       "message": "@Alex, do you see any problems enabling this? AFAIU we\u0027d later compress anyway when we include it in the chrome binary so this only helps with disk space savings for the out directory?",
       "revId": "af086af0f8f618e1a5b2f49e05b1b01023868e6f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be3dc737_fec1f42d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1431812
+      },
+      "writtenOn": "2024-09-24T10:55:43Z",
+      "side": 1,
+      "message": "Closed",
+      "revId": "af086af0f8f618e1a5b2f49e05b1b01023868e6f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

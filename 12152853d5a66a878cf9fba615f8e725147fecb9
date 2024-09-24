@@ -34,6 +34,24 @@
       "parentUuid": "54020798_bbc8f33a",
       "revId": "12152853d5a66a878cf9fba615f8e725147fecb9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "333b1873_d864fad2",
+        "filename": "scripts/build/generate_devtools_grd.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1431812
+      },
+      "writtenOn": "2024-09-24T10:55:43Z",
+      "side": 0,
+      "message": "Got it. I missed that before.",
+      "parentUuid": "4ac50b6b_08373f5d",
+      "revId": "12152853d5a66a878cf9fba615f8e725147fecb9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
