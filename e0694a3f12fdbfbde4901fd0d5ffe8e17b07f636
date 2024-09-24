@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1bf0098_6ee23fbc",
+        "filename": "front_end/entrypoints/heap_snapshot_worker/HeapSnapshot.ts",
+        "patchSetId": 14
+      },
+      "lineNbr": 902,
+      "author": {
+        "id": 1325508
+      },
+      "writtenOn": "2024-09-24T17:26:17Z",
+      "side": 0,
+      "message": "Nit: if we don\u0027t use these strings anymore, then we can also remove the corresponding properties from the UIStrings object in ModuleUIStrings.ts.",
+      "range": {
+        "startLine": 902,
+        "startChar": 33,
+        "endLine": 902,
+        "endChar": 58
+      },
+      "revId": "e0694a3f12fdbfbde4901fd0d5ffe8e17b07f636",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

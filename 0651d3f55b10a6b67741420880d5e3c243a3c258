@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b5696d0_caf016be",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1325508
+      },
+      "writtenOn": "2024-09-24T17:26:17Z",
+      "side": 1,
+      "message": "Thanks a lot, this is a huge improvement! I like how you kept the naming, index behavior, and control flow consistent with the original paper; this makes it easy to see that this implementation matches the original.\n\nIt looks like you\u0027ll need to first land a Blink change to disable the failing tests in http/tests/devtools/profiler/heap-snapshot.js. Any of those tests which still make sense after this change could be re-enabled in a follow-up change.",
+      "revId": "0651d3f55b10a6b67741420880d5e3c243a3c258",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
