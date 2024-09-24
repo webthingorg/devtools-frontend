@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be03b430_1583f2e0",
+        "filename": "front_end/panels/freestyler/DrJonesNetworkAgent.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-24T12:31:12Z",
+      "side": 1,
+      "message": "I think we need to pass this `signal` to aida fetch, WDYT? This implementation seems a bit different than the FreestylerAgent one.",
+      "revId": "25d1ee5b0cdfd283277a988a043330ae9cc07f27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
