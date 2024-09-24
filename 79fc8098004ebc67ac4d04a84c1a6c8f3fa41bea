@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46f1c580_583255fe",
+        "filename": "front_end/panels/timeline/ModificationsManager.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-24T12:29:56Z",
+      "side": 1,
+      "message": "@alina this is a drive by fix; but I think we don\u0027t need to dispatch this event unless we change the label.",
+      "range": {
+        "startLine": 243,
+        "startChar": 1,
+        "endLine": 243,
+        "endChar": 5
+      },
+      "revId": "79fc8098004ebc67ac4d04a84c1a6c8f3fa41bea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
