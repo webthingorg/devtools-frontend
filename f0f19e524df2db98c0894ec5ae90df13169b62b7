@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9290a092_1d5c2b85",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-09-25T12:28:19Z",
+      "side": 1,
+      "message": "Please review carefully if there are any Error string that I missed to move,\nOr if something that is now translated should not be.",
+      "revId": "f0f19e524df2db98c0894ec5ae90df13169b62b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
