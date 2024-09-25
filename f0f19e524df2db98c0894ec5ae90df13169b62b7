@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4c6fefea_c5b4f68d",
+        "filename": "front_end/panels/freestyler/DrJonesNetworkAgent.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-09-25T14:18:40Z",
+      "side": 1,
+      "message": "I think that is happening on the ChatUi level, but we should move it here.\nLet\u0027s do that in a follow up.\nCC @samiyac@chromium.org",
+      "parentUuid": "a5b4ee6f_ec3a1c54",
+      "range": {
+        "startLine": 190,
+        "startChar": 15,
+        "endLine": 190,
+        "endChar": 36
+      },
+      "revId": "f0f19e524df2db98c0894ec5ae90df13169b62b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0f90abae_64db7720",
         "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
         "patchSetId": 1
@@ -54,6 +78,30 @@
       "writtenOn": "2024-09-25T14:10:32Z",
       "side": 1,
       "message": "Non-english users should only see the opt-in screen (WIP). Screenshot: https://i.imgur.com/slos6Hh.png\n\nTherefore I think only the UI strings and title-attributes visible there need to be translated.",
+      "range": {
+        "startLine": 26,
+        "startChar": 6,
+        "endLine": 26,
+        "endChar": 19
+      },
+      "revId": "f0f19e524df2db98c0894ec5ae90df13169b62b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "868040fd_41bc1f9e",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-09-25T14:18:40Z",
+      "side": 1,
+      "message": "Can you be more specific which one here are not part of this? \nI have put only Error, Consent and Disclaimers as they may be visible during that preview?",
+      "parentUuid": "0f90abae_64db7720",
       "range": {
         "startLine": 26,
         "startChar": 6,
