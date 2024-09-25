@@ -16,6 +16,23 @@
       "message": "Kim, please kindly take a look?:)",
       "revId": "bd2d29bcebf84c3ad3e4b4cf38f9f99875cca9ab",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7d29d60_0e0ecdbf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-09-25T10:48:23Z",
+      "side": 1,
+      "message": "LGTM, thanks Kateryna! Just a little nit: could you upload a screenshot here?",
+      "revId": "bd2d29bcebf84c3ad3e4b4cf38f9f99875cca9ab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
