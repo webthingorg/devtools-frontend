@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "025bc0c9_d8901c13",
+        "filename": "front_end/panels/network/NetworkLogView.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 1724,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-25T17:07:42Z",
+      "side": 1,
+      "message": "I think I found out about the test failure... We missed that `selectRequest` can take an optional `{ clearFilter: boolean; }` parameter and it is `true` by default which clears filters on selection.\n\nSo, we were causing the filters to be cleared on right click and the failing test inside `NetworkLogView.test.ts` was testing it. Since the failure caused the `networkLogView` not to be detached from DOM, it was causing unrelated tests to be failed too. (I\u0027m super glad that the test failed and caught an otherwise a bug we were introducing 😊)\n\nAdding `{ clearFilter: false; }` to the `selectRequest` call here should fix it :)\n\nand as a follow-up, maybe we can update `NetworkLogView.test.ts` to `detach` views on `afterEach` instead of doing it inside the test but we can skip doing it for now.",
+      "revId": "7d7d7e4b070c4460fe1cb6afb3b603d353aabce4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
