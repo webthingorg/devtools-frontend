@@ -50,6 +50,24 @@
       "message": "Nit: with the change at front_end/testing/EnvironmentHelpers.ts I don\u0027t think this is needed?",
       "revId": "d7cb84ddcbee28a7f7803906b97b96ef6b94b485",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d94e96f_3aff81e8",
+        "filename": "front_end/panels/explain/components/ConsoleInsight.test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-09-25T17:01:38Z",
+      "side": 1,
+      "message": "The individual tests in this file are messing around with these settings, and we want to reset them for each test. I\u0027ll turn it into a `afterEach`",
+      "parentUuid": "cf7344b5_19d0acc5",
+      "revId": "d7cb84ddcbee28a7f7803906b97b96ef6b94b485",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
