@@ -53,7 +53,6 @@ import * as VisualLogging from '../../ui/visual_logging/visual_logging.js';
 import * as MobileThrottling from '../mobile_throttling/mobile_throttling.js';
 
 import {ActiveFilters} from './ActiveFilters.js';
-import * as AnnotationHelpers from './AnnotationHelpers.js';
 import {TraceLoadEvent} from './BenchmarkEvents.js';
 import * as TimelineComponents from './components/components.js';
 import * as TimelineInsights from './components/insights/insights.js';
@@ -76,6 +75,7 @@ import timelineStatusDialogStyles from './timelineStatusDialog.css.js';
 import {TimelineUIUtils} from './TimelineUIUtils.js';
 import {UIDevtoolsController} from './UIDevtoolsController.js';
 import {UIDevtoolsUtils} from './UIDevtoolsUtils.js';
+import * as TimelineUtils from './utils/utils.js';
 
 const UIStrings = {
   /**
@@ -1667,15 +1667,15 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
         this.flameChart.addOverlay(overlay);
       } else if (action === 'Remove') {
         this.flameChart.removeOverlay(overlay);
-      } else if (action === 'UpdateTimeRange' && AnnotationHelpers.isTimeRangeLabel(overlay)) {
+      } else if (action === 'UpdateTimeRange' && TimelineUtils.AnnotationHelpers.isTimeRangeLabel(overlay)) {
         this.flameChart.updateExistingOverlay(overlay, {
           bounds: overlay.bounds,
         });
-      } else if (action === 'UpdateLinkToEntry' && AnnotationHelpers.isEntriesLink(overlay)) {
+      } else if (action === 'UpdateLinkToEntry' && TimelineUtils.AnnotationHelpers.isEntriesLink(overlay)) {
         this.flameChart.updateExistingOverlay(overlay, {
           entryTo: overlay.entryTo,
         });
-      } else if (action === 'EnterLabelEditState' && AnnotationHelpers.isEntryLabel(overlay)) {
+      } else if (action === 'EnterLabelEditState' && TimelineUtils.AnnotationHelpers.isEntryLabel(overlay)) {
         this.flameChart.enterLabelEditMode(overlay);
       }
 

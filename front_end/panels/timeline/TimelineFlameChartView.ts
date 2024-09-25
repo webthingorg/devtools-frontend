@@ -14,7 +14,6 @@ import * as PerfUI from '../../ui/legacy/components/perf_ui/perf_ui.js';
 import * as UI from '../../ui/legacy/legacy.js';
 import * as VisualLogging from '../../ui/visual_logging/visual_logging.js';
 
-import {getAnnotationEntries, getAnnotationWindow} from './AnnotationHelpers.js';
 import type * as TimelineComponents from './components/components.js';
 import {CountersGraph} from './CountersGraph.js';
 import {SHOULD_SHOW_EASTER_EGG} from './EasterEgg.js';
@@ -33,6 +32,7 @@ import {type TimelineModeViewDelegate} from './TimelinePanel.js';
 import {TimelineSelection} from './TimelineSelection.js';
 import {AggregatedTimelineTreeView} from './TimelineTreeView.js';
 import {type TimelineMarkerStyle} from './TimelineUIUtils.js';
+import * as TimelineUtils from './utils/utils.js';
 
 const UIStrings = {
   /**
@@ -371,12 +371,12 @@ export class TimelineFlameChartView extends UI.Widget.VBox implements PerfUI.Fla
       return;
     }
 
-    const annotationWindow = getAnnotationWindow(annotation);
+    const annotationWindow = TimelineUtils.AnnotationHelpers.getAnnotationWindow(annotation);
     if (!annotationWindow) {
       return;
     }
 
-    const annotationEntries = getAnnotationEntries(annotation);
+    const annotationEntries = TimelineUtils.AnnotationHelpers.getAnnotationEntries(annotation);
 
     for (const entry of annotationEntries) {
       this.#expandEntryTrack(entry);

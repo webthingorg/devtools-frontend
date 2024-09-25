@@ -6,7 +6,10 @@ import("../../../../scripts/build/ninja/devtools_entrypoint.gni")
 import("../../../../scripts/build/ninja/devtools_module.gni")
 
 devtools_module("utils") {
-  sources = [ "NetworkRequest.ts" ]
+  sources = [
+    "AnnotationHelpers.ts",
+    "NetworkRequest.ts",
+  ]
 
   deps = [
     "../../../core/common:bundle",
@@ -14,6 +17,7 @@ devtools_module("utils") {
     "../../../core/sdk:bundle",
     "../../../models/bindings:bundle",
     "../../../models/trace:bundle",
+    "../overlays:bundle",
   ]
 }
 
@@ -27,5 +31,16 @@ devtools_entrypoint("bundle") {
     "..:*",
     "../../network/*",
     "../components:*",
+  ]
+}
+
+ts_library("unittests") {
+  testonly = true
+
+  sources = [ "AnnotationHelpers.test.ts" ]
+
+  deps = [
+    ":bundle",
+    # "../../../models/trace:bundle",
   ]
 }

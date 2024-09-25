@@ -2,10 +2,9 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import * as Platform from '../../core/platform/platform.js';
-import * as Trace from '../../models/trace/trace.js';
-
-import type * as Overlays from './overlays/OverlaysImpl.js';
+import * as Platform from '../../../core/platform/platform.js';
+import * as Trace from '../../../models/trace/trace.js';
+import type * as Overlays from '../overlays/overlays.js';
 
 export function getAnnotationEntries(
     annotation: Trace.Types.File.Annotation,
@@ -84,14 +83,37 @@ export function getAnnotationWindow(
   return annotationWindow;
 }
 
-export function isTimeRangeLabel(overlay: Overlays.TimelineOverlay): overlay is Overlays.TimeRangeLabel {
+export function isTimeRangeLabel(overlay: Overlays.Overlays.TimelineOverlay):
+    overlay is Overlays.Overlays.TimeRangeLabel {
   return overlay.type === 'TIME_RANGE';
 }
 
-export function isEntriesLink(overlay: Overlays.TimelineOverlay): overlay is Overlays.EntriesLink {
+export function isEntriesLink(overlay: Overlays.Overlays.TimelineOverlay): overlay is Overlays.Overlays.EntriesLink {
   return overlay.type === 'ENTRIES_LINK';
 }
 
-export function isEntryLabel(overlay: Overlays.TimelineOverlay): overlay is Overlays.EntryLabel {
+export function isEntryLabel(overlay: Overlays.Overlays.TimelineOverlay): overlay is Overlays.Overlays.EntryLabel {
   return overlay.type === 'ENTRY_LABEL';
+}
+
+function getAnnotationTimestamp(annotation: Trace.Types.File.Annotation): Trace.Types.Timing.MicroSeconds {
+  if (Trace.Types.File.isEntryLabelAnnotation(annotation)) {
+    return annotation.entry.ts;
+  }
+  if (Trace.Types.File.isEntriesLinkAnnotation(annotation)) {
+    return annotation.entryFrom.ts;
+  }
+  if (Trace.Types.File.isTimeRangeAnnotation(annotation)) {
+    return annotation.bounds.min;
+  }
+  // This part of code shouldn't be reached. If it is here then the annotation has an invalid type, so return the
+  // max timestamp to push it to the end.
+  console.error('Invalid annotation type.');
+  // Since we need to compare the values, so use `MAX_SAFE_INTEGER` instead of `MAX_VALUE`.
+  return Trace.Types.Timing.MicroSeconds(Number.MAX_SAFE_INTEGER);
+}
+
+export function compareAnnotationsTimestamps(
+    firstAnnotation: Trace.Types.File.Annotation, secondAnnotation: Trace.Types.File.Annotation): number {
+  return getAnnotationTimestamp(firstAnnotation) - getAnnotationTimestamp(secondAnnotation);
 }
