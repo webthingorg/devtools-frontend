@@ -1,0 +1,43 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  ArgsTable,
+} from '@web/storybook-prebuilt/addon-docs/blocks.js';
+
+import './Button.js';
+import { html } from '../../lit-html/lit-html.js';
+
+<Meta title="button" />
+
+export const Template = (args) =>
+  html`<devtools-button .data=${args.data}>label</devtools-button>`;
+
+# Buttons
+
+### &lt;devtools-button>
+
+## Variants
+
+```
+data.variant = Variant.Primary
+```
+
+Prefer the data= setter over the individual setter for better typesafety.
+
+<Canvas>
+  <Story name="Default" args={{ data: { variant: 'primary' } }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## IconButton
+
+Use the variant `Variant.Icon` and either `iconName` or the `iconUrl` to use an IconButton.
+When using the icon variant, there mustn't be a slot (inner HTML content).
+
+<Canvas>
+  <Story name="IconButton" args={{ data: { variant: 'icon', iconName: 'plus' } }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
