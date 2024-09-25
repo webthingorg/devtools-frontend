@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c2d2c64_bc27bbe4",
+        "filename": "front_end/panels/security/OriginTreeElement.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 3584853
+      },
+      "writtenOn": "2024-09-25T20:21:41Z",
+      "side": 1,
+      "message": "Does it make sense to continue passing call backs for these functions? \n\nOr would it be better to define this behavior in the `#renderTreeElement` function based off the `element`\u0027s instance and className?",
+      "revId": "8f5fc8b21b420b8d95eebfbd1c7cbdc37e0ce3b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

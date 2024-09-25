@@ -33,6 +33,24 @@
       "message": "Added Emily as FYI for the Security panel refactoring work since she is the owner.",
       "revId": "adbfd004e1585e2b62b1d09fcb9ef0edc23d94d7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7640f71_7d65c6ca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3584853
+      },
+      "writtenOn": "2024-09-25T20:21:41Z",
+      "side": 1,
+      "message": "I tried addressing these concerns. I want to make sure I do this right, so definitely feel free to continue giving feedback.\n\n1. Ack\n2. Ack- I am new to this code base and some of the tools/conventions used, so some of the design decisions are unfamiliar to me. But I would like to align future work with this doc. I appreciate the help to do this.\n3. Ack\n4. I removed the dependency on the `SecurityPanel` from the `...Sidebar`. The exported functions are also used from the Panel file, so I would need to then export them from the Sidebar file if I moved it. So, I left them where they are for now.\n5. I attempted to do as you suggested. I created the `#renderTreeElement` function in the `...Sidebar` class and passed that down to the tree element. This one function can be passed to future `SecurityPanelSidebarTreeElements` and extended accordingly. Without implementing the supporting code, I tried to match the pattern you referred to (Future CLs may attempt to match more closely): https://chromium-review.googlesource.com/c/devtools/devtools-frontend/+/5452883/1/front_end/panels/console/ConsoleSidebar.ts#94\n\n\nI also changed the private fields per the style guide, but this didn\u0027t play well with parameter properties. So let me know if that should change.",
+      "parentUuid": "e616e4aa_5ea4d232",
+      "revId": "adbfd004e1585e2b62b1d09fcb9ef0edc23d94d7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
