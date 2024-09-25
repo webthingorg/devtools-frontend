@@ -122,7 +122,8 @@
 }
 
 .security-main-view-reload-message,
-.tree-outline li.security-sidebar-origins {
+.tree-outline li.security-sidebar-origins,
+.tree-outline li.security-group-list-item {
   margin: var(--sys-size-6) 0 0 0;
   line-height: var(--sys-size-8);
 
