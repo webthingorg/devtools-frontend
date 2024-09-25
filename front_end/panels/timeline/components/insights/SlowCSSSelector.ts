@@ -2,7 +2,6 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-import * as Common from '../../../../core/common/common.js';
 import * as Trace from '../../../../models/trace/trace.js';
 import * as LitHtml from '../../../../ui/lit-html/lit-html.js';
 import type * as Components from '../../overlays/components/components.js';
@@ -90,12 +89,10 @@ export class SlowCSSSelector extends BaseInsight {
   }
 
   #hasDataToRender(): boolean {
-    const selectorStatsFeatureEnabled =
-        Common.Settings.Settings.instance().createSetting('timeline-capture-selector-stats', false);
-    this.#slowCSSSelector = selectorStatsFeatureEnabled.get() ?
-        Trace.Insights.Common.getInsight('SlowCSSSelector', this.data.insights, this.data.insightSetKey) :
-        null;
-    return this.#slowCSSSelector !== null;
+    this.#slowCSSSelector =
+        Trace.Insights.Common.getInsight('SlowCSSSelector', this.data.insights, this.data.insightSetKey);
+    return this.#slowCSSSelector !== null && this.#slowCSSSelector.topElapsedMs.length !== 0 &&
+        this.#slowCSSSelector.topMatchAttempts.length !== 0;
   }
 
   override render(): void {
