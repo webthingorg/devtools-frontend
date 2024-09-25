@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "39bbed91_36cc6409",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 965,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-09-25T15:06:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "31e6aee4_3111a2d3",
+      "revId": "c723b3eece0649e2bb1a135bd60ab11e067f6fda",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "75f2bd13_87cd6357",
@@ -48,6 +66,24 @@
       "writtenOn": "2024-09-24T13:11:32Z",
       "side": 1,
       "message": "(nit): Can we rename this to `.opt-in-icon-container` or nest it under `.opt-in` rule?",
+      "revId": "c723b3eece0649e2bb1a135bd60ab11e067f6fda",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01b1583c_d4578bd1",
+        "filename": "front_end/panels/freestyler/components/freestylerChatUi.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-09-25T15:06:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75f2bd13_87cd6357",
       "revId": "c723b3eece0649e2bb1a135bd60ab11e067f6fda",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
