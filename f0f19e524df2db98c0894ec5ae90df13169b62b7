@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9bfb10ca_7bd4de6f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-09-25T15:05:21Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "f0f19e524df2db98c0894ec5ae90df13169b62b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a5b4ee6f_ec3a1c54",
@@ -55,6 +72,30 @@
       "side": 1,
       "message": "I think that is happening on the ChatUi level, but we should move it here.\nLet\u0027s do that in a follow up.\nCC @samiyac@chromium.org",
       "parentUuid": "a5b4ee6f_ec3a1c54",
+      "range": {
+        "startLine": 190,
+        "startChar": 15,
+        "endLine": 190,
+        "endChar": 36
+      },
+      "revId": "f0f19e524df2db98c0894ec5ae90df13169b62b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1932f946_743ef6c8",
+        "filename": "front_end/panels/freestyler/DrJonesNetworkAgent.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-09-25T15:05:21Z",
+      "side": 1,
+      "message": "SGTM",
+      "parentUuid": "4c6fefea_c5b4f68d",
       "range": {
         "startLine": 190,
         "startChar": 15,
