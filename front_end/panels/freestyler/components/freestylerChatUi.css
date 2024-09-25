@@ -45,10 +45,24 @@
     max-width: var(--sys-size-32);
     cursor: pointer;
 
-    devtools-icon[name="file-script"] {
-      color: var(--icon-file-script);
+    .icon {
+      display: inline-flex;
       vertical-align: top;
-      margin-right: var(--sys-size-1);
+      margin-right: var(--sys-size-3);
+      width: var(--sys-size-9);
+      height: var(--sys-size-9);
+    }
+
+    .image.icon {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: var(--sys-size-3);
+
+      img {
+        max-width: var(--sys-size-8);
+        max-height: var(--sys-size-8);
+      }
     }
   }
 
