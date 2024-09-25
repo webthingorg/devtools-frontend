@@ -33,6 +33,24 @@
       "message": "frameId isn\u0027t unique for an insight set - but context.bounds would be. Can you filter on the time range denoted by context.bounds too?",
       "revId": "92a02f614c4348bc003cf9415ced4ab6902f44de",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b11a539e_3717fa33",
+        "filename": "front_end/models/trace/insights/SlowCSSSelector.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1429976
+      },
+      "writtenOn": "2024-09-25T22:05:43Z",
+      "side": 1,
+      "message": "Added a check for context.bounds as suggested. Thanks.",
+      "parentUuid": "ecc73430_29ba190d",
+      "revId": "92a02f614c4348bc003cf9415ced4ab6902f44de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
