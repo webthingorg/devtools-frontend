@@ -8,9 +8,8 @@ import("../../../../scripts/build/ninja/generate_css.gni")
 import("../../../../scripts/build/typescript/typescript.gni")
 import("../visibility.gni")
 
-generate_css("legacy_css_files") {
+generate_css("css_files") {
   sources = [ "button.css" ]
-
   legacy = true
 }
 
@@ -29,10 +28,23 @@ devtools_entrypoint("bundle") {
 
   deps = [
     ":button",
-    ":legacy_css_files",
+    ":css_files",
   ]
 
   visibility = default_components_visibility
+}
+
+ts_library("button_stories") {
+  sources = [ "button.stories.ts" ]
+
+  deps = [
+    ":button",
+    ":css_files",
+  ]
+}
+
+copy_to_gen("copy_markdown") {
+  sources = [ "Button.stories.mdx" ]
 }
 
 ts_library("unittests") {
