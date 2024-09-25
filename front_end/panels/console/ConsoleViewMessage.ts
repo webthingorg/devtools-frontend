@@ -584,69 +584,73 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
     return null;
   }
 
-  private buildMessageWithStackTrace(runtimeModel: SDK.RuntimeModel.RuntimeModel): HTMLElement {
+  private buildMessageWithStackTrace(runtimeModel: SDK.RuntimeModel.RuntimeModel|null): HTMLElement {
     const toggleElement = document.createElement('div');
     toggleElement.classList.add('console-message-stack-trace-toggle');
     const contentElement = toggleElement.createChild('div', 'console-message-stack-trace-wrapper');
 
     const messageElement = this.buildMessage();
-    const icon = IconButton.Icon.create('triangle-right', 'console-message-expand-icon');
+    const icon = runtimeModel ? IconButton.Icon.create('triangle-right', 'console-message-expand-icon') : null;
     const clickableElement = contentElement.createChild('div');
     UI.ARIAUtils.setExpanded(clickableElement, false);
-    clickableElement.appendChild(icon);
+    if (icon) {
+      clickableElement.appendChild(icon);
+    }
     // Intercept focus to avoid highlight on click.
     clickableElement.tabIndex = -1;
     clickableElement.appendChild(messageElement);
     const stackTraceElement = contentElement.createChild('div');
     const stackTracePreview = Components.JSPresentationUtils.buildStackTracePreviewContents(
-        runtimeModel.target(), this.linkifier,
-        {stackTrace: this.message.stackTrace, tabStops: undefined, widthConstrained: true});
+        runtimeModel ? runtimeModel.target() : null, this.linkifier,
+        {stackTrace: runtimeModel ? this.message.stackTrace : undefined, tabStops: undefined, widthConstrained: true});
     stackTraceElement.appendChild(stackTracePreview.element);
     for (const linkElement of stackTracePreview.links) {
       this.selectableChildren.push({element: linkElement, forceSelect: () => linkElement.focus()});
     }
-    stackTraceElement.classList.add('hidden');
+    stackTraceElement.classList.add('hidden-stack-trace');
     UI.ARIAUtils.setLabel(
         contentElement, `${messageElement.textContent} ${i18nString(UIStrings.stackMessageCollapsed)}`);
     UI.ARIAUtils.markAsGroup(stackTraceElement);
 
-    // We debounce the trace expansion metric in case this was accidental.
-    const DEBOUNCE_MS = 300;
-    let debounce: number|undefined;
-    this.expandTrace = (expand: boolean) => {
-      if (expand) {
-        debounce = window.setTimeout(() => {
-          Host.userMetrics.actionTaken(Host.UserMetrics.Action.TraceExpanded);
-        }, DEBOUNCE_MS);
-      } else {
-        clearTimeout(debounce);
-      }
-      icon.name = expand ? 'triangle-down' : 'triangle-right';
-      stackTraceElement.classList.toggle('hidden', !expand);
-      const stackTableState =
-          expand ? i18nString(UIStrings.stackMessageExpanded) : i18nString(UIStrings.stackMessageCollapsed);
-      UI.ARIAUtils.setLabel(contentElement, `${messageElement.textContent} ${stackTableState}`);
-      UI.ARIAUtils.alert(stackTableState);
-      UI.ARIAUtils.setExpanded(clickableElement, expand);
-      this.traceExpanded = expand;
-    };
+    if (icon) {
+      // We debounce the trace expansion metric in case this was accidental.
+      const DEBOUNCE_MS = 300;
+      let debounce: number|undefined;
+      this.expandTrace = (expand: boolean) => {
+        if (expand) {
+          debounce = window.setTimeout(() => {
+            Host.userMetrics.actionTaken(Host.UserMetrics.Action.TraceExpanded);
+          }, DEBOUNCE_MS);
+        } else {
+          clearTimeout(debounce);
+        }
+        icon.name = expand ? 'triangle-down' : 'triangle-right';
+        stackTraceElement.classList.toggle('hidden-stack-trace', !expand);
+        const stackTableState =
+            expand ? i18nString(UIStrings.stackMessageExpanded) : i18nString(UIStrings.stackMessageCollapsed);
+        UI.ARIAUtils.setLabel(contentElement, `${messageElement.textContent} ${stackTableState}`);
+        UI.ARIAUtils.alert(stackTableState);
+        UI.ARIAUtils.setExpanded(clickableElement, expand);
+        this.traceExpanded = expand;
+      };
 
-    const toggleStackTrace = (event: Event): void => {
-      if (UI.UIUtils.isEditing() || contentElement.hasSelection()) {
-        return;
-      }
-      this.expandTrace && this.expandTrace(stackTraceElement.classList.contains('hidden'));
-      event.consume();
-    };
+      const toggleStackTrace = (event: Event): void => {
+        if (UI.UIUtils.isEditing() || contentElement.hasSelection()) {
+          return;
+        }
+        this.expandTrace && this.expandTrace(stackTraceElement.classList.contains('hidden-stack-trace'));
+        event.consume();
+      };
 
-    clickableElement.addEventListener('click', toggleStackTrace, false);
-    if (this.message.type === Protocol.Runtime.ConsoleAPICalledEventType.Trace &&
-        Common.Settings.Settings.instance().moduleSetting('console-trace-expand').get()) {
-      this.expandTrace(true);
+      clickableElement.addEventListener('click', toggleStackTrace, false);
+      if (this.message.type === Protocol.Runtime.ConsoleAPICalledEventType.Trace &&
+          Common.Settings.Settings.instance().moduleSetting('console-trace-expand').get()) {
+        this.expandTrace(true);
+      }
+
+      // @ts-ignore
+      toggleElement._expandStackTraceForTest = this.expandTrace.bind(this, true);
     }
-
-    // @ts-ignore
-    toggleElement._expandStackTraceForTest = this.expandTrace.bind(this, true);
     return toggleElement;
   }
 
@@ -1249,7 +1253,7 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
     if (runtimeModel && shouldIncludeTrace) {
       formattedMessage = this.buildMessageWithStackTrace(runtimeModel);
     } else {
-      formattedMessage = this.buildMessage();
+      formattedMessage = this.buildMessageWithStackTrace(null);
     }
     contentElement.appendChild(formattedMessage);
 
@@ -1645,6 +1649,7 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
       this.selectableChildren.push({element: scriptLocationLink, forceSelect: () => scriptLocationLink.focus()});
       formattedLine.appendChild(scriptLocationLink);
       formattedLine.appendChild(this.linkifyStringAsFragment(suffix));
+      formattedLine.classList.add('formatted-stack-frame');
       stackTrace.insertBefore(formattedLine, insertBefore);
     }
     return true;
@@ -1728,6 +1733,7 @@ export class ConsoleViewMessage implements ConsoleViewportElement {
       this.selectableChildren.push({element: scriptLocationLink, forceSelect: () => scriptLocationLink.focus()});
       formattedLine.appendChild(scriptLocationLink);
       formattedLine.appendChild(this.linkifyStringAsFragment(suffix));
+      formattedLine.classList.add('formatted-stack-frame');
       formattedResult.appendChild(formattedLine);
 
       if (!link.enclosedInBraces) {
