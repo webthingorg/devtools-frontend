@@ -15,6 +15,7 @@ import {
 interface RehydratingTraceBase {
   cat: string;
   pid: number;
+  args: {data: object;}
 }
 
 interface TraceEventTargetRundown extends RehydratingTraceBase {
@@ -213,7 +214,8 @@ export class EnhancedTracesParser {
   }
 
   private isTraceEvent(event: unknown): event is RehydratingTraceBase {
-    return 'cat' in (event as RehydratingTraceBase) && 'pid' in (event as RehydratingTraceBase);
+    return 'cat' in (event as RehydratingTraceBase) && 'pid' in (event as RehydratingTraceBase) &&
+        'args' in (event as RehydratingTraceBase) && 'data' in (event as RehydratingTraceBase).args;
   }
 
   private isTargetRundownEvent(event: unknown): event is TraceEventTargetRundown {
