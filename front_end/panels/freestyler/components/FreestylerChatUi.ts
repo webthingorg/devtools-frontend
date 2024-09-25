@@ -14,6 +14,7 @@ import * as MarkdownView from '../../../ui/components/markdown_view/markdown_vie
 import * as Spinners from '../../../ui/components/spinners/spinners.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
 import * as VisualLogging from '../../../ui/visual_logging/visual_logging.js';
+import {PanelUtils} from '../../utils/utils.js';
 import {type ContextDetail} from '../DrJonesNetworkAgent.js';
 import {ErrorType} from '../FreestylerAgent.js';
 
@@ -712,14 +713,19 @@ export class FreestylerChatUi extends HTMLElement {
       'resource-link': true,
     });
 
-    // clang-format off
-    return LitHtml.html`<div class="select-element">
+    if (this.#props.selectedNetworkRequest) {
+      const icon = PanelUtils.getIcon(this.#props.selectedNetworkRequest);
+      // clang-format off
+      return LitHtml.html`<div class="select-element">
       <div class=${resourceClass}
       @click=${this.#props.onSelectedNetworkRequestClick}>
-        <${IconButton.Icon.Icon.litTagName} name="file-script"></${IconButton.Icon.Icon.litTagName}>
+        ${icon}
         ${this.#props.selectedNetworkRequest?.name()}
       </div></div>`;
-    // clang-format on
+      // clang-format on
+    }
+
+    return LitHtml.html`${LitHtml.nothing}`;
   };
 
   #renderSelectAnElement = (): LitHtml.TemplateResult => {
