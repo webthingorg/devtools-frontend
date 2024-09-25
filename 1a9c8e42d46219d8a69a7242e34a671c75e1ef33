@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c123e9bb_1b7703d7",
+        "filename": "scripts/test/run_lint_check.js",
+        "patchSetId": 1
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-09-25T15:48:16Z",
+      "side": 1,
+      "message": "I am not sure if this is too noisy, but it every helpful if you don\u0027t know what is happening with the lint rule.",
+      "revId": "1a9c8e42d46219d8a69a7242e34a671c75e1ef33",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
