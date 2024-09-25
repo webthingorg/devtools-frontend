@@ -16,6 +16,23 @@
       "message": "CCed all parties that are affected Freestyler, CI, Performance Insights",
       "revId": "b476409674090466ff3bfbaedc07d94ebce714a9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1f5121a_960e2eab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-09-25T16:46:24Z",
+      "side": 1,
+      "message": "LGTM",
+      "revId": "b476409674090466ff3bfbaedc07d94ebce714a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
