@@ -108,6 +108,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "b7547066_9c889ace",
+        "filename": "front_end/panels/timeline/components/insights/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-25T22:26:13Z",
+      "side": 1,
+      "message": "\u003e `timeline.toggle-insight.${this.#insightInternalName}`\n\nthe autofix linter can\u0027t parse this expression. it\u0027s variable.",
+      "parentUuid": "7135c885_401a2f41",
+      "revId": "0f15e6efa484dbebb674a32c1fd99659e5b1e5ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "a2e3462d_6e679988",
         "filename": "front_end/panels/timeline/components/insights/RenderBlocking.ts",
         "patchSetId": 2
