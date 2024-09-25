@@ -16,6 +16,29 @@
       "message": "ptal",
       "revId": "376f4bf01271ee0b4814edb257662703a0a9545f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "488e4620_92261ce9",
+        "filename": "front_end/panels/timeline/AnnotationHelpers.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-09-25T09:22:01Z",
+      "side": 1,
+      "message": "Should we debounce announcing time range bounds updates? This even is dispatched all the time while the selection is happening",
+      "range": {
+        "startLine": 26,
+        "startChar": 2,
+        "endLine": 26,
+        "endChar": 26
+      },
+      "revId": "376f4bf01271ee0b4814edb257662703a0a9545f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
