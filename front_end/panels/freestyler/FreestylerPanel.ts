@@ -81,7 +81,10 @@ const UIStringsTemp = {
    *@description Title text for request initiator chain.
    */
   requestInitiatorChain: 'Request Initiator Chain',
-
+  /**
+   *@description AI assistant UI tooltip text for the settings button (gear icon).
+   */
+  settings: 'Settings',
 };
 
 // TODO(nvitkov): b/346933425
@@ -112,6 +115,13 @@ function createToolbar(target: HTMLElement, {onClearClick}: {onClearClick: () =>
     Host.InspectorFrontendHost.InspectorFrontendHostInstance.openInNewTab(DOGFOOD_INFO);
   });
   rightToolbar.appendToolbarItem(helpButton);
+
+  const settingsButton =
+      new UI.Toolbar.ToolbarButton(i18nString(UIStringsTemp.settings), 'gear', undefined, 'freestyler.settings');
+  settingsButton.addEventListener(UI.Toolbar.ToolbarButton.Events.CLICK, () => {
+    void UI.ViewManager.ViewManager.instance().showView('chrome-ai');
+  });
+  rightToolbar.appendToolbarItem(settingsButton);
 }
 
 function defaultView(input: FreestylerChatUiProps, output: ViewOutput, target: HTMLElement): void {
