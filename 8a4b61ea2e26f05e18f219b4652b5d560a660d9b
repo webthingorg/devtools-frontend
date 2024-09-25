@@ -22,6 +22,30 @@
       },
       "revId": "8a4b61ea2e26f05e18f219b4652b5d560a660d9b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48397fa2_c515c9f0",
+        "filename": "front_end/models/trace/types/File.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-09-25T18:18:16Z",
+      "side": 1,
+      "message": "I agree. Added a state to the EntriesLink",
+      "parentUuid": "7b93374b_2033fe2f",
+      "range": {
+        "startLine": 75,
+        "startChar": 2,
+        "endLine": 75,
+        "endChar": 18
+      },
+      "revId": "8a4b61ea2e26f05e18f219b4652b5d560a660d9b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
