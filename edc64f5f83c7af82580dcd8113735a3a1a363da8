@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f494f5a_0ce0e924",
+        "filename": "front_end/core/sdk/DebuggerModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 256,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-09-25T08:22:34Z",
+      "side": 1,
+      "message": "Makes a lot of sense, I\u0027ve added code for backwards compatibility. PTAL!",
+      "parentUuid": "0ab1960a_85925162",
+      "revId": "edc64f5f83c7af82580dcd8113735a3a1a363da8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ea943aa4_526b9dd0",
@@ -65,6 +83,24 @@
       "writtenOn": "2024-09-24T15:35:58Z",
       "side": 1,
       "message": "I think we shouldn\u0027t throw here. This would be wrong in the case where DevTools and V8 don\u0027t quite fit together, in which case it\u0027d be nicer to gracefully recover. How about a strongly worded console.assert instead?",
+      "revId": "edc64f5f83c7af82580dcd8113735a3a1a363da8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9abceaf1_49c3c059",
+        "filename": "front_end/core/sdk/DebuggerModel.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-09-25T08:22:34Z",
+      "side": 1,
+      "message": "SG!",
+      "parentUuid": "ea943aa4_526b9dd0",
       "revId": "edc64f5f83c7af82580dcd8113735a3a1a363da8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
