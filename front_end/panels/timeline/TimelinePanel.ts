@@ -63,7 +63,6 @@ import {IsolateSelector} from './IsolateSelector.js';
 import {AnnotationModifiedEvent, ModificationsManager} from './ModificationsManager.js';
 import * as Overlays from './overlays/overlays.js';
 import {cpuprofileJsonGenerator, traceJsonGenerator} from './SaveFileFormatter.js';
-import {NodeNamesUpdated, SourceMapsResolver} from './SourceMapsResolver.js';
 import {type Client, TimelineController} from './TimelineController.js';
 import {TimelineFlameChartView} from './TimelineFlameChartView.js';
 import {TimelineHistoryManager} from './TimelineHistoryManager.js';
@@ -76,6 +75,7 @@ import timelineStatusDialogStyles from './timelineStatusDialog.css.js';
 import {TimelineUIUtils} from './TimelineUIUtils.js';
 import {UIDevtoolsController} from './UIDevtoolsController.js';
 import {UIDevtoolsUtils} from './UIDevtoolsUtils.js';
+import {NodeNamesUpdated, SourceMapsResolver} from './utils/SourceMapsResolver.js';
 
 const UIStrings = {
   /**
@@ -1911,7 +1911,12 @@ export class TimelinePanel extends UI.Panel.Panel implements Client, TimelineMod
   }
 
   #onSourceMapsNodeNamesResolved(): void {
-    this.flameChart.refreshMainFlameChart();
+    // Source maps can change the way calls hierarchies should look in
+    // the flame chart (f.e. if some calls are ignore listed after
+    // resolving source maps). Thus, we must reappend the flamechart
+    // entries.
+    this.flameChart.getMainDataProvider().timelineData(true);
+    this.flameChart.getMainFlameChart().update();
   }
 
   /**
