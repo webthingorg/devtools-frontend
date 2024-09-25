@@ -60,6 +60,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "db26bb6f_8a28a54a",
+        "filename": "front_end/panels/settings/FrameworkIgnoreListSettingsTab.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-25T20:06:11Z",
+      "side": 1,
+      "message": "One sentence is a lot for this but.. I think we can swing it :)\n\nbtw it\u0027s so nice having a tech writer review. :) Appreciate it!\n\nI adapted your suggestion a tad, incorporating Eric\u0027s addition. wdyt?",
+      "parentUuid": "fe9c0f54_57886bea",
+      "range": {
+        "startLine": 24,
+        "startChar": 7,
+        "endLine": 24,
+        "endChar": 199
+      },
+      "revId": "4390f6bd9619c28c606cda93c7339a417f04f79d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "52cbab37_60d9ecdb",
         "filename": "front_end/panels/settings/FrameworkIgnoreListSettingsTab.ts",
         "patchSetId": 1
@@ -71,6 +95,24 @@
       "writtenOn": "2024-09-24T09:25:30Z",
       "side": 1,
       "message": "Nit: Chains of more than 3 nouns are hard to parse for non-native speakers.\n```suggestion\n  addFilenamePattern: \u0027Add a regex rule for the file\u0027s URL\u0027,\n```",
+      "revId": "4390f6bd9619c28c606cda93c7339a417f04f79d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8382c010_5f8f8212",
+        "filename": "front_end/panels/settings/FrameworkIgnoreListSettingsTab.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-25T20:06:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "52cbab37_60d9ecdb",
       "revId": "4390f6bd9619c28c606cda93c7339a417f04f79d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -92,6 +134,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "82e81180_320814bd",
+        "filename": "front_end/panels/settings/FrameworkIgnoreListSettingsTab.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-25T20:06:11Z",
+      "side": 1,
+      "message": "love it done.",
+      "parentUuid": "88c88544_6b590aa8",
+      "revId": "4390f6bd9619c28c606cda93c7339a417f04f79d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c9ee09e5_2c03ff16",
@@ -105,6 +165,24 @@
       "writtenOn": "2024-09-24T09:25:30Z",
       "side": 1,
       "message": "```suggestion\n  patternCannotBeEmpty: \u0027Rule can\u0027t be empty\u0027,\n```",
+      "revId": "4390f6bd9619c28c606cda93c7339a417f04f79d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1acae45f_14a6cbc6",
+        "filename": "front_end/panels/settings/FrameworkIgnoreListSettingsTab.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-25T20:06:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c9ee09e5_2c03ff16",
       "revId": "4390f6bd9619c28c606cda93c7339a417f04f79d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

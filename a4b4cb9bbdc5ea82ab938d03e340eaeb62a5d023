@@ -22,6 +22,30 @@
       },
       "revId": "a4b4cb9bbdc5ea82ab938d03e340eaeb62a5d023",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4c5db48_c9e76bfc",
+        "filename": "front_end/panels/settings/FrameworkIgnoreListSettingsTab.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-25T20:06:11Z",
+      "side": 0,
+      "message": "I don\u0027t mind the clarity. I\u0027ll do it.",
+      "parentUuid": "96f8e6c1_0d2a187a",
+      "range": {
+        "startLine": 23,
+        "startChar": 73,
+        "endLine": 23,
+        "endChar": 116
+      },
+      "revId": "a4b4cb9bbdc5ea82ab938d03e340eaeb62a5d023",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
