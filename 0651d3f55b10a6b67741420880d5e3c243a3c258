@@ -33,6 +33,23 @@
       "message": "Very nice improvement indeed! Since Seth already did a thorough review, I skipped comparing the algo with the paper. From the CL description it seems that test coverage was sufficient to flush out (hopefully) most/all bugs.\n\nOnce the blink side test was disabled we can land this! 🎉",
       "revId": "0651d3f55b10a6b67741420880d5e3c243a3c258",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dcc91a61_660b3077",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1596737
+      },
+      "writtenOn": "2024-09-25T13:03:14Z",
+      "side": 1,
+      "message": "Thanks for the reviews! I\u0027ve created crrev.com/c/5889522 to disable the Blink test, PTAL! I\u0027ll complete this once that\u0027s in and the check passes.",
+      "revId": "0651d3f55b10a6b67741420880d5e3c243a3c258",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
