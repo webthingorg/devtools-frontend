@@ -4,18 +4,51 @@
 
 import * as Mocha from 'mocha';
 // @ts-expect-error
-import * as commonInterface from 'mocha/lib/interfaces/common.js';
+import * as commonInterface from 'mocha/lib/interfaces/common.js';  // eslint-disable-line rulesdir/es_modules_import
+import * as os from 'os';
 import * as Path from 'path';
 
-import {getBrowserAndPages} from '../conductor/puppeteer-state.js';
-import {TestConfig} from '../conductor/test_config.js';
-import {ScreenshotError} from '../shared/screenshot-error.js';
-
 import {AsyncScope} from './async-scope.js';
-import {platform, type Platform} from './helper.js';
+import {getBrowserAndPages} from './puppeteer-state.js';
+import {ScreenshotError} from './screenshot-error.js';
+import {TestConfig} from './test_config.js';
 
 type SuiteFunction = ((this: Mocha.Suite) => void)|undefined;
 type ExclusiveSuiteFunction = (this: Mocha.Suite) => void;
+
+declare global {
+  /*
+  * For tests containing screenshots.
+  */
+  let itScreenshot: {
+    (title: string, fn: Mocha.AsyncFunc): void,
+
+    skip: (title: string, fn: Mocha.AsyncFunc) => void,
+
+    skipOnPlatforms: (platforms: Array<Platform>, title: string, fn: Mocha.AsyncFunc) => void,
+  };
+  namespace Mocha {
+    export interface TestFunction {
+      skipOnPlatforms: (platforms: Array<Platform>, title: string, fn: Mocha.AsyncFunc) => void;
+    }
+  }
+}
+
+export type Platform = 'mac'|'win32'|'linux';
+export let platform: Platform;
+switch (os.platform()) {
+  case 'darwin':
+    platform = 'mac';
+    break;
+
+  case 'win32':
+    platform = 'win32';
+    break;
+
+  default:
+    platform = 'linux';
+    break;
+}
 
 async function takeScreenshots(): Promise<{target?: string, frontend?: string}> {
   try {
@@ -52,7 +85,7 @@ async function createScreenshotError(error: Error): Promise<Error> {
   return error;
 }
 
-function makeInstrumentedTestFunction(fn: Mocha.AsyncFunc) {
+export function makeInstrumentedTestFunction(fn: Mocha.AsyncFunc) {
   return async function testFunction(this: Mocha.Context) {
     const abortController = new AbortController();
     let resolver;
@@ -228,5 +261,7 @@ function devtoolsTestInterface(suite: Mocha.Suite) {
 }
 
 devtoolsTestInterface.description = 'DevTools test interface';
+devtoolsTestInterface.platform = platform;
+devtoolsTestInterface.makeInstrumentedTestFunction = makeInstrumentedTestFunction;
 
 module.exports = devtoolsTestInterface;
