@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6bce2cc_9f05e6d8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1610537
+      },
+      "writtenOn": "2024-09-25T17:47:28Z",
+      "side": 1,
+      "message": "Hi Paul, Jack, this CL remains to be the source of truth of all planned change for a minimally working rehydrated session and I\u0027ll make sure it\u0027s always up to date with the latest changes. Feel free to let me know if you have any questions.",
+      "revId": "d12fbe24995831969d4ae30d60df9f9cb5c522f7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
