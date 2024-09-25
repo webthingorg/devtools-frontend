@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc7639f9_18104caf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-09-25T14:07:03Z",
+      "side": 1,
+      "message": "PTAL.\n\nExcept for the tests, it looks like a bigger change that it really is, since gerrit picked up the source map resolver file move as a file removal + addition.",
+      "revId": "5881d0b250c61f7baf9f587d2b0baa7305fa3fc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
