@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a234b8dc_a0681682",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-09-25T15:54:07Z",
+      "side": 1,
+      "message": "CCed all parties that are affected Freestyler, CI, Performance Insights",
+      "revId": "b476409674090466ff3bfbaedc07d94ebce714a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
