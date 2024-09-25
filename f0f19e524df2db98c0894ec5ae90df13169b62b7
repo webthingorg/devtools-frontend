@@ -114,6 +114,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e57dac4c_e16ae118",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-09-25T14:52:58Z",
+      "side": 1,
+      "message": "When FS is not available, the opt-in screen does not show a dynamic disclaimer, but a hard-coded one instead. -\u003e disclaimers can be moved to UIStringsNotTranslate.",
+      "parentUuid": "868040fd_41bc1f9e",
+      "range": {
+        "startLine": 26,
+        "startChar": 6,
+        "endLine": 26,
+        "endChar": 19
+      },
+      "revId": "f0f19e524df2db98c0894ec5ae90df13169b62b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "50dca4c3_c8ac1c06",
         "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
         "patchSetId": 1
