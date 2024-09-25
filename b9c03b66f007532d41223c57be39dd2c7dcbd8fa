@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "deee8feb_6a7c84f6",
+        "filename": "front_end/panels/timeline/components/SidebarAnnotationsTab.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-09-25T09:32:18Z",
+      "side": 1,
+      "message": "To make it cleaner, we could add the annotations timestamp comparator into `AnnotationsHelpers` and just use it here:\n\n`this.#annotations \u003d annotations.sort(compareAnnotationsTimestamps); `\n\nI don\u0027t feel too strongly about it though 😄",
+      "range": {
+        "startLine": 90,
+        "startChar": 6,
+        "endLine": 90,
+        "endChar": 96
+      },
+      "revId": "b9c03b66f007532d41223c57be39dd2c7dcbd8fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
