@@ -106,6 +106,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9714bfa6_d226a159",
+        "filename": "front_end/panels/freestyler/DrJonesNetworkAgent.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 190,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-09-25T15:52:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1932f946_743ef6c8",
+      "range": {
+        "startLine": 190,
+        "startChar": 15,
+        "endLine": 190,
+        "endChar": 36
+      },
+      "revId": "f0f19e524df2db98c0894ec5ae90df13169b62b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0f90abae_64db7720",
@@ -177,6 +201,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a8d4820_edd05215",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-09-25T15:52:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e57dac4c_e16ae118",
+      "range": {
+        "startLine": 26,
+        "startChar": 6,
+        "endLine": 26,
+        "endChar": 19
+      },
+      "revId": "f0f19e524df2db98c0894ec5ae90df13169b62b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "50dca4c3_c8ac1c06",
@@ -190,6 +238,30 @@
       "writtenOn": "2024-09-25T14:10:32Z",
       "side": 1,
       "message": "Let\u0027s type this as a LocalizedString",
+      "range": {
+        "startLine": 890,
+        "startChar": 27,
+        "endLine": 890,
+        "endChar": 33
+      },
+      "revId": "f0f19e524df2db98c0894ec5ae90df13169b62b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eecc13bd_7122e82b",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 890,
+      "author": {
+        "id": 1557932
+      },
+      "writtenOn": "2024-09-25T15:52:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50dca4c3_c8ac1c06",
       "range": {
         "startLine": 890,
         "startChar": 27,
