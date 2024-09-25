@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b19dc754_81bd9696",
+        "filename": "front_end/models/trace/insights/FontDisplay.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-25T21:17:25Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "23fcce2f_9af2b459",
+      "revId": "0f15e6efa484dbebb674a32c1fd99659e5b1e5ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1075bbd7_9a0c38c0",
@@ -35,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f45c4acf_bf7eddb0",
+        "filename": "front_end/panels/timeline/components/insights/FontDisplay.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-25T21:17:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1075bbd7_9a0c38c0",
+      "revId": "0f15e6efa484dbebb674a32c1fd99659e5b1e5ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "902c4b86_e7ac01c9",
@@ -48,6 +84,24 @@
       "writtenOn": "2024-09-25T20:24:22Z",
       "side": 1,
       "message": "fwiw i think theres something automated that does this.\n\nlooks like the jslog_context_list eslint_rule.",
+      "revId": "0f15e6efa484dbebb674a32c1fd99659e5b1e5ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7135c885_401a2f41",
+        "filename": "front_end/panels/timeline/components/insights/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1378407
+      },
+      "writtenOn": "2024-09-25T21:17:25Z",
+      "side": 1,
+      "message": "It doesn\u0027t add the ones for our insights for us. So it errors at runtime.\n\nThe lint check just doesn\u0027t know about how we are creating these identifiers in insights. so it\u0027s still on us to add.",
+      "parentUuid": "902c4b86_e7ac01c9",
       "revId": "0f15e6efa484dbebb674a32c1fd99659e5b1e5ee",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
