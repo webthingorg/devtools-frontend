@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23fcce2f_9af2b459",
+        "filename": "front_end/models/trace/insights/FontDisplay.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-25T20:24:22Z",
+      "side": 1,
+      "message": "amazingly we don\u0027t have a \"find next trace event matching predicate method\"  but.. I think it might use Platform.ArrayUtilities.upperBound . Would be useful to have.",
+      "revId": "0f15e6efa484dbebb674a32c1fd99659e5b1e5ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1075bbd7_9a0c38c0",
+        "filename": "front_end/panels/timeline/components/insights/FontDisplay.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-25T20:24:22Z",
+      "side": 1,
+      "message": "\u003e Consider using a [`font-display`](link) of `swap` or `optional` to ensure text is consistently visible.\n\n\nsadly swap causes layout shifts unless you do ascent-override stuff: https://developer.chrome.com/blog/font-fallbacks\nbut honestly its worth it to do that.",
+      "revId": "0f15e6efa484dbebb674a32c1fd99659e5b1e5ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "902c4b86_e7ac01c9",
+        "filename": "front_end/panels/timeline/components/insights/README.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-25T20:24:22Z",
+      "side": 1,
+      "message": "fwiw i think theres something automated that does this.\n\nlooks like the jslog_context_list eslint_rule.",
+      "revId": "0f15e6efa484dbebb674a32c1fd99659e5b1e5ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2e3462d_6e679988",
+        "filename": "front_end/panels/timeline/components/insights/RenderBlocking.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-25T20:24:22Z",
+      "side": 1,
+      "message": "yay hooray!",
+      "revId": "0f15e6efa484dbebb674a32c1fd99659e5b1e5ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
