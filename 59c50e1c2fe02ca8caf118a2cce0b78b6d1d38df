@@ -50,6 +50,24 @@
       "message": "WDYT about droping a TODO in here and a crbug to remove the code once the V8 versions we support all have the new version?",
       "revId": "59c50e1c2fe02ca8caf118a2cce0b78b6d1d38df",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be6a5b31_f577786f",
+        "filename": "front_end/core/sdk/DebuggerModel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 259,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-09-25T09:52:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "afe0175b_763c85e8",
+      "revId": "59c50e1c2fe02ca8caf118a2cce0b78b6d1d38df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
