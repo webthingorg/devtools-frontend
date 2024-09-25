@@ -3203,6 +3203,15 @@ domain DOM
       # NodeIds of top layer elements
       array of NodeId nodeIds
 
+  # Returns and load overflowing children for scrollable node.
+  experimental command getOverflowingChildren
+    parameters
+      # The id of the scrollable node.
+      DOM.NodeId nodeId
+    returns
+      # The ids of overflowing children.
+      array of NodeId overflowingChildren
+
   # Returns the NodeId of the matched element according to certain relations.
   experimental command getElementByRelation
     parameters
@@ -3511,6 +3520,14 @@ domain DOM
       DOM.NodeId nodeId
       # If the node is scrollable.
       boolean isScrollable
+
+  # TODO
+  experimental event overflowingChildrenUpdated
+    parameters
+      # The id of the node.
+      DOM.NodeId nodeId
+      # overflowing children
+      array of NodeId overflowingChildren
 
   # Called when a pseudo element is removed from an element.
   experimental event pseudoElementRemoved

@@ -2472,6 +2472,66 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     const adorner = this.adorn(config);
     UI.Tooltip.Tooltip.install(adorner, i18nString(UIStrings.elementHasScrollableOverflow));
     adorner.classList.add('scroll');
+
+    const onClick = ((async () => {
+                       await this.node().updateOverflowingChildren();
+
+                       const overflowingNodeIds = this.node().getOverflowingChildren();
+                       // eslint-disable-next-line no-console
+                       console.log('new overflowingNodeIds=' + Array.from(overflowingNodeIds));
+                       for (const id of overflowingNodeIds) {
+                         const node = this.node().domModel().nodeForId(id);
+                         if (node) {
+                           const nodeShortcut = new SDK.DOMModel.DOMNodeShortcut(
+                               node.domModel().target(), node.backendNodeId(), node.nodeType(), node.nodeName());
+                           const deferredNode = nodeShortcut.deferredNode;
+                           // Here we should just highlight the node in the Elements Panel similar with what search in Elements Panel does.
+                           deferredNode.resolve(async node => {
+                             if (!node) {
+                               return;
+                             }
+                             await Common.Revealer.reveal(node);
+                             // add overflow badge
+                             const treeElement = this.treeOutline?.treeElementByNode.get(node);
+                             if (treeElement) {
+                               treeElement.changeOverflowAdorner();
+                             }
+                           });
+                           node.highlightForTwoSeconds();
+                         }
+                       }
+                     }) as EventListener);
+
+    adorner.addInteraction(onClick, {
+      isToggle: false,
+      shouldPropagateOnKeydown: false,
+      ariaLabelDefault: i18nString(UIStrings.elementHasScrollableOverflow),
+      ariaLabelActive: i18nString(UIStrings.elementHasScrollableOverflow),
+    });
+  }
+
+  changeOverflowAdorner(): void {
+    if (!isOpeningTag(this.tagTypeContext)) {
+      return;
+    }
+    const overflowAdorner = this.tagTypeContext.adorners.find(x => x.name === 'overflow');
+    if (overflowAdorner) {
+      // eslint-disable-next-line no-console
+      console.log('overflow badge found for node=' + this.node().id);
+      this.removeAdorner(overflowAdorner, this.tagTypeContext);
+    } else {
+      // eslint-disable-next-line no-console
+      console.log('overflow badge NOT found for node=' + this.node().id);
+      this.pushOverflowAdorner();
+    }
+  }
+
+  pushOverflowAdorner(): void {
+    const config = ElementsComponents.AdornerManager.getRegisteredAdorner(
+        ElementsComponents.AdornerManager.RegisteredAdorners.OVERFLOW);
+    const adorner = this.adorn(config);
+    UI.Tooltip.Tooltip.install(adorner, i18nString(UIStrings.elementHasScrollableOverflow));
+    adorner.classList.add('overflow');
   }
 }
 

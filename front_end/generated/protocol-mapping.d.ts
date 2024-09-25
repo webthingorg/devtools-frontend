@@ -140,6 +140,10 @@ export namespace ProtocolMapping {
      */
     'DOM.scrollableFlagUpdated': [Protocol.DOM.ScrollableFlagUpdatedEvent];
     /**
+     * TODO
+     */
+    'DOM.overflowingChildrenUpdated': [Protocol.DOM.OverflowingChildrenUpdatedEvent];
+    /**
      * Called when a pseudo element is removed from an element.
      */
     'DOM.pseudoElementRemoved': [Protocol.DOM.PseudoElementRemovedEvent];
@@ -1711,6 +1715,13 @@ export namespace ProtocolMapping {
     'DOM.getTopLayerElements': {
       paramsType: [];
       returnType: Protocol.DOM.GetTopLayerElementsResponse;
+    };
+    /**
+     * Returns and load overflowing children for scrollable node.
+     */
+    'DOM.getOverflowingChildren': {
+      paramsType: [Protocol.DOM.GetOverflowingChildrenRequest];
+      returnType: Protocol.DOM.GetOverflowingChildrenResponse;
     };
     /**
      * Returns the NodeId of the matched element according to certain relations.

@@ -1148,6 +1148,7 @@ export class ElementsTreeOutline extends
     domModel.addEventListener(SDK.DOMModel.Events.DistributedNodesChanged, this.distributedNodesChanged, this);
     domModel.addEventListener(SDK.DOMModel.Events.TopLayerElementsChanged, this.topLayerElementsChanged, this);
     domModel.addEventListener(SDK.DOMModel.Events.ScrollableFlagUpdated, this.scrollableFlagUpdated, this);
+    domModel.addEventListener(SDK.DOMModel.Events.OverflowingChildrenUpdated, this.overflowingChildrenUpdated, this);
   }
 
   unwireFromDOMModel(domModel: SDK.DOMModel.DOMModel): void {
@@ -1618,6 +1619,20 @@ export class ElementsTreeOutline extends
     const treeElement = this.treeElementByNode.get(node);
     if (treeElement) {
       treeElement.updateScrollAdorner();
+    }
+  }
+
+  private overflowingChildrenUpdated(
+      event: Common.EventTarget.EventTargetEvent<{changedNodes: SDK.DOMModel.DOMNode[]}>): void {
+    const {changedNodes} = event.data;
+    for (const node of changedNodes) {
+      const treeElement = this.treeElementByNode.get(node);
+      if (treeElement) {
+        treeElement.changeOverflowAdorner();
+      } else {
+        // eslint-disable-next-line no-console
+        console.log('treeElement not found');
+      }
     }
   }
 
