@@ -116,7 +116,7 @@ export class ShortcutRegistry {
         keys.push(node.key());
       }
     }
-    return keys;
+    return keys; //findmeee
   }
 
   keysForActions(actionIds: string[]): number[] {
@@ -366,7 +366,8 @@ export class ShortcutRegistry {
           continue;
         }
         const keys = bindings[i].shortcut.split(/\s+/);
-        const shortcutDescriptors = keys.map(KeyboardShortcut.makeDescriptorFromBindingShortcut);
+        const shortcutDescriptors = keys.map(KeyboardShortcut.makeDescriptorFromBindingShortcut); // findmeee
+        console.log("DESCRIPTORS: ", shortcutDescriptors)
         if (shortcutDescriptors.length > 0) {
           if (this.isDisabledDefault(shortcutDescriptors, actionId)) {
             this.devToolsDefaultShortcutActions.add(actionId);
@@ -447,7 +448,7 @@ export class ShortcutTreeNode {
   }
 
   key(): number {
-    return this.keyInternal;
+    return this.keyInternal; // findmeee
   }
 
   chords(): Map<number, ShortcutTreeNode> {

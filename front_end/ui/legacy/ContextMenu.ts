@@ -39,9 +39,28 @@ import {ShortcutRegistry} from './ShortcutRegistry.js';
 import {SoftContextMenu, type SoftContextMenuDescriptor} from './SoftContextMenu.js';
 import {deepElementFromEvent} from './UIUtils.js';
 
+export class Accelerator {
+  private readonly keyCodeInternal: number;
+  private readonly modifiersInternal: number;
+
+  constructor(keyCode: number, modifiers: number) {
+    this.keyCodeInternal = keyCode;
+    this.modifiersInternal = modifiers;
+  }
+
+  keyCode(): number {
+    return this.keyCodeInternal;
+  }
+
+  modifiers(): number {
+    return this.modifiersInternal;
+  }
+}
+
 export class Item {
   private readonly typeInternal: string;
   protected readonly label: string|undefined;
+  // protected accelerator: Accelerator;
   protected disabled: boolean|undefined;
   private readonly checked: boolean|undefined;
   protected contextMenu: ContextMenu|null;
@@ -56,6 +75,7 @@ export class Item {
       checked?: boolean, tooltip?: Platform.UIString.LocalizedString, jslogContext?: string) {
     this.typeInternal = type;
     this.label = label;
+    // this.accelerator = accelerator;
     this.disabled = disabled;
     this.checked = checked;
     this.contextMenu = contextMenu;
@@ -93,6 +113,7 @@ export class Item {
           type: 'item',
           id: this.idInternal,
           label: this.label,
+          accelerator: {keyCode: 8, modifiers: 10},
           enabled: !this.disabled,
           checked: undefined,
           subItems: undefined,
@@ -104,7 +125,11 @@ export class Item {
         }
         if (this.shortcut) {
           result.shortcut = this.shortcut;
+          console.log("SHORTCUT:   ", this.shortcut);
         }
+        // if (this.accelerator) {
+        //   const accelerator: 
+        // }
         return result;
       }
       case 'separator': {
@@ -306,6 +331,8 @@ export class SubMenu extends Item {
     const result: Host.InspectorFrontendHostAPI.ContextMenuDescriptor|SoftContextMenuDescriptor = {
       type: 'subMenu',
       label: this.label,
+      // accelerator: this.accelerator,
+      accelerator: {keyCode: 5, modifiers: 7},
       enabled: !this.disabled,
       subItems: [],
       id: undefined,
