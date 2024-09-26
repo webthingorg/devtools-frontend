@@ -81,7 +81,6 @@ export class TimelineDetailsView extends UI.Widget.VBox {
   #filmStrip: Trace.Extras.FilmStrip.Data|null = null;
   #networkRequestDetails: TimelineComponents.NetworkRequestDetails.NetworkRequestDetails;
   #layoutShiftDetails: TimelineComponents.LayoutShiftDetails.LayoutShiftDetails;
-  #layoutShiftClusterDetails: TimelineComponents.LayoutShiftClusterDetails.LayoutShiftClusterDetails;
   #onTraceBoundsChangeBound = this.#onTraceBoundsChange.bind(this);
 
   constructor(delegate: TimelineModeViewDelegate) {
@@ -123,7 +122,6 @@ export class TimelineDetailsView extends UI.Widget.VBox {
         new TimelineComponents.NetworkRequestDetails.NetworkRequestDetails(this.detailsLinkifier);
 
     this.#layoutShiftDetails = new TimelineComponents.LayoutShiftDetails.LayoutShiftDetails();
-    this.#layoutShiftClusterDetails = new TimelineComponents.LayoutShiftClusterDetails.LayoutShiftClusterDetails();
 
     this.tabbedPane.addEventListener(UI.TabbedPane.Events.TabSelected, this.tabSelected, this);
 
@@ -301,14 +299,11 @@ export class TimelineDetailsView extends UI.Widget.VBox {
     } else if (TimelineSelection.isSelection(selectionObject)) {
       const event = selectionObject;
       if (Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.TIMELINE_LAYOUT_SHIFT_DETAILS)) {
-        if (Trace.Types.Events.isSyntheticLayoutShift(event)) {
+        if (Trace.Types.Events.isSyntheticLayoutShift(event) ||
+            Trace.Types.Events.isSyntheticLayoutShiftCluster(event)) {
           const isFreshRecording = Boolean(this.#parsedTrace && Tracker.instance().recordingIsFresh(this.#parsedTrace));
           this.#layoutShiftDetails.setData(event, this.#traceInsightsSets, this.#parsedTrace, isFreshRecording);
           this.setContent(this.#layoutShiftDetails);
-        }
-        if (Trace.Types.Events.isSyntheticLayoutShiftCluster(event)) {
-          this.#layoutShiftClusterDetails.setData(event, this.#parsedTrace);
-          this.setContent(this.#layoutShiftClusterDetails);
         }
 
       } else {
