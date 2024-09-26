@@ -46,6 +46,30 @@
       },
       "revId": "743607f1e5efb5e5ca2b1c894d121d7867d2bf9a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "012353a2_b4ec6a74",
+        "filename": "front_end/models/trace/insights/SlowCSSSelector.test.ts",
+        "patchSetId": 3
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-26T09:39:02Z",
+      "side": 1,
+      "message": "\u003e The 1st test case is to make sure the test data is not updated\n\nI don\u0027t quite follow what you mean by this; but because this is a test for the Slow CSS Selector insight, I am surprised by the existence of a test in this file that does not actually invoke any of the insights code. Therefore I think we could remove it; if the data is wrong the subsequent test below would fail. And we already have tests for the Slow CSS Selector handler to test the parsing.\n\nPut simply: I don\u0027t think this test improves our coverage at all, and therefore isn\u0027t required.",
+      "parentUuid": "dcf41aff_440fcb91",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 31,
+        "endChar": 27
+      },
+      "revId": "743607f1e5efb5e5ca2b1c894d121d7867d2bf9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
