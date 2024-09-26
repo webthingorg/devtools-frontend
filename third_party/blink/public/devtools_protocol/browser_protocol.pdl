@@ -3205,6 +3205,15 @@ domain DOM
       # NodeIds of top layer elements
       array of NodeId nodeIds
 
+  # Returns and load overflowing children for scrollable node.
+  experimental command getOverflowingChildren
+    parameters
+      # The id of the scrollable node.
+      DOM.NodeId nodeId
+    returns
+      # The ids of overflowing children.
+      array of NodeId overflowingChildren
+
   # Returns the NodeId of the matched element according to certain relations.
   experimental command getElementByRelation
     parameters

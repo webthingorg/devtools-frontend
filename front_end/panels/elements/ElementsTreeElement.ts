@@ -2471,6 +2471,42 @@ export class ElementsTreeElement extends UI.TreeOutline.TreeElement {
     const adorner = this.adorn(config);
     UI.Tooltip.Tooltip.install(adorner, i18nString(UIStrings.elementHasScrollableOverflow));
     adorner.classList.add('scroll');
+
+    const onClick = ((async () => {
+                       // The following method also updates the overflow badge(s).
+                       await this.node().updateOverflowingChildren();
+                     }) as EventListener);
+
+    adorner.addInteraction(onClick, {
+      isToggle: false,
+      shouldPropagateOnKeydown: false,
+      ariaLabelDefault: i18nString(UIStrings.elementHasScrollableOverflow),
+      ariaLabelActive: i18nString(UIStrings.elementHasScrollableOverflow),
+    });
+  }
+
+  changeOverflowAdorner(): void {
+    if (!isOpeningTag(this.tagTypeContext)) {
+      return;
+    }
+    const overflowAdorner = this.tagTypeContext.adorners.find(x => x.name === 'overflow');
+    if (overflowAdorner) {
+      // eslint-disable-next-line no-console
+      console.log('overflow badge found for node=' + this.node().id);
+      this.removeAdorner(overflowAdorner, this.tagTypeContext);
+    } else {
+      // eslint-disable-next-line no-console
+      console.log('overflow badge NOT found for node=' + this.node().id);
+      this.pushOverflowAdorner();
+    }
+  }
+
+  pushOverflowAdorner(): void {
+    const config = ElementsComponents.AdornerManager.getRegisteredAdorner(
+        ElementsComponents.AdornerManager.RegisteredAdorners.OVERFLOW);
+    const adorner = this.adorn(config);
+    UI.Tooltip.Tooltip.install(adorner, i18nString(UIStrings.elementHasScrollableOverflow));
+    adorner.classList.add('overflow');
   }
 }
 

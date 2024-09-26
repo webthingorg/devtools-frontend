@@ -6793,6 +6793,28 @@
                     ]
                 },
                 {
+                    "name": "getOverflowingChildren",
+                    "description": "Returns and load overflowing children for scrollable node.",
+                    "experimental": true,
+                    "parameters": [
+                        {
+                            "name": "nodeId",
+                            "description": "The id of the scrollable node.",
+                            "$ref": "DOM.NodeId"
+                        }
+                    ],
+                    "returns": [
+                        {
+                            "name": "overflowingChildren",
+                            "description": "The ids of overflowing children.",
+                            "type": "array",
+                            "items": {
+                                "$ref": "NodeId"
+                            }
+                        }
+                    ]
+                },
+                {
                     "name": "getElementByRelation",
                     "description": "Returns the NodeId of the matched element according to certain relations.",
                     "experimental": true,
