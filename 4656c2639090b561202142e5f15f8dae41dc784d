@@ -1,0 +1,201 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eeb221f6_050c8aa6",
+        "filename": "front_end/panels/security/OriginTreeElement.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-09-26T17:47:38Z",
+      "side": 1,
+      "message": "#onSelect",
+      "range": {
+        "startLine": 15,
+        "startChar": 23,
+        "endLine": 15,
+        "endChar": 37
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "bb4619a7_3d927c4a",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/security/OriginTreeElement.ts",
+              "range": {
+                "startLine": 15,
+                "startChar": 0,
+                "endLine": 16,
+                "endChar": 0
+              },
+              "replacement": "      private readonly onSelect: () \u003d\u003e void, className: string,\n"
+            },
+            {
+              "path": "front_end/panels/security/OriginTreeElement.ts",
+              "range": {
+                "startLine": 40,
+                "startChar": 0,
+                "endLine": 41,
+                "endChar": 0
+              },
+              "replacement": "    this.onSelect();\n"
+            }
+          ]
+        }
+      ],
+      "revId": "4656c2639090b561202142e5f15f8dae41dc784d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9df1d17_0f68e156",
+        "filename": "front_end/panels/security/OriginTreeElement.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-09-26T17:47:38Z",
+      "side": 1,
+      "message": "Also use # for these private members",
+      "range": {
+        "startLine": 16,
+        "startChar": 23,
+        "endLine": 16,
+        "endChar": 40
+      },
+      "revId": "4656c2639090b561202142e5f15f8dae41dc784d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6706fbea_aafe5ddc",
+        "filename": "front_end/panels/security/SecurityAndPrivacyPanelSidebar.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-09-26T17:47:38Z",
+      "side": 1,
+      "message": "This is an arrow function, it doesn\u0027t need to be bound to `this`",
+      "range": {
+        "startLine": 86,
+        "startChar": 8,
+        "endLine": 86,
+        "endChar": 32
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "c21e2255_bcbb5db3",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/security/SecurityAndPrivacyPanelSidebar.ts",
+              "range": {
+                "startLine": 86,
+                "startChar": 0,
+                "endLine": 87,
+                "endChar": 0
+              },
+              "replacement": "        this.revealMainView, \u0027security-main-view-sidebar-tree-item\u0027, this.#renderTreeElement);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "4656c2639090b561202142e5f15f8dae41dc784d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0e11e6e7_ee05e47b",
+        "filename": "front_end/panels/security/SecurityAndPrivacyPanelSidebar.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-09-26T17:47:38Z",
+      "side": 1,
+      "message": "treeElement!.appendChild is allowed now.",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 89
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "d33dd987_0f3aeb2c",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/security/SecurityAndPrivacyPanelSidebar.ts",
+              "range": {
+                "startLine": 108,
+                "startChar": 0,
+                "endLine": 109,
+                "endChar": 0
+              },
+              "replacement": "    treeElement!.appendChild(this.#mainViewReloadMessage);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "4656c2639090b561202142e5f15f8dae41dc784d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6bf7fc35_0792e5a1",
+        "filename": "front_end/panels/security/SecurityAndPrivacyPanelSidebar.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-09-26T17:47:38Z",
+      "side": 1,
+      "message": "It would be simpler to initialize each var seprately.",
+      "range": {
+        "startLine": 234,
+        "startChar": 0,
+        "endLine": 234,
+        "endChar": 54
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "61681f62_4371cc1f",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/security/SecurityAndPrivacyPanelSidebar.ts",
+              "range": {
+                "startLine": 234,
+                "startChar": 0,
+                "endLine": 251,
+                "endChar": 0
+              },
+              "replacement": "      const icon \u003d isOverviewElement ?\n          getSecurityStateIconForOverview(securityState, `lock-icon lock-icon-${securityState}`) :\n          getSecurityStateIconForDetailedView(\n              securityState, `security-property security-property-${securityState}`);\n      const elementTitle \u003d isOverviewElement ?\n          (():\n               Element \u003d\u003e {\n                 const title \u003d document.createElement(\u0027span\u0027);\n                 title.classList.add(\u0027title\u0027);\n                 title.textContent \u003d i18nString(UIStrings.overview);\n                 return title;\n               })() :\n          createHighlightedUrl(element.origin() ?? Platform.DevToolsPath.EmptyUrlString, securityState);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "4656c2639090b561202142e5f15f8dae41dc784d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
