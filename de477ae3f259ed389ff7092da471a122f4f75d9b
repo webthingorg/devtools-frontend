@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6e52d2c_0610ee6b",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-26T20:14:47Z",
+      "side": 1,
+      "message": "since rootCausesByShift is populated beforehand this shouldn\u0027t happen. Like it\u0027d flag we mistake of ours if we get that fallback case.\n\nSo i\u0027d favor throwing an error\n\n    const rootCausesForShift \u003d rootCausesByShift.get(shift);\n    if (!rootCausesForShift) {\n      throw new Error(\u0027Unaccounted shift\u0027);\n    }\n    rootCausesForShift.nonCompositedAnimations.push(...failures);\n    \n \n the alternative is \n \n \n    const rootCausesForShift \u003d rootCausesByShift.get(shift);\n    if (rootCausesForShift) {\n      rootCausesForShift.nonCompositedAnimations.push(...failures);\n    }\n    \nwhich is fine but not as exacting.\n\nwhichever you go with lets also update the other 2.",
+      "range": {
+        "startLine": 160,
+        "startChar": 0,
+        "endLine": 166,
+        "endChar": 7
+      },
+      "revId": "de477ae3f259ed389ff7092da471a122f4f75d9b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67d972f1_473dd8d3",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-26T20:14:47Z",
+      "side": 1,
+      "message": "lets move this and the map inside of getNonCompositedFailureRootCauses\n\n    getNonCompositedFailureRootCauses(compositeAnimationEvents, prePaintEvents, rootCausesByShift): NoncompositedAnimationFailure[]",
+      "revId": "de477ae3f259ed389ff7092da471a122f4f75d9b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecbb5a8a_2d9a087f",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-26T20:14:47Z",
+      "side": 1,
+      "message": "hmm.. its pretty standard convention that our traceevent arrays/etc remain sorted by ts. (maybe you got bitten by the sort when it had been higher up?)\n\nCan we do this sort up in the component, assuming its for that?  and if so, lets use .toSorted() so we don\u0027t mutate insights\u0027 return object. (In case something else uses it)",
+      "range": {
+        "startLine": 349,
+        "startChar": 0,
+        "endLine": 350,
+        "endChar": 80
+      },
+      "revId": "de477ae3f259ed389ff7092da471a122f4f75d9b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
