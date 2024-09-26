@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f638aefa_eb9d83b7",
+        "filename": "front_end/models/trace/types/File.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-09-26T12:21:09Z",
+      "side": 1,
+      "message": "Discussed in the chat. Will keep the current solution for now.",
+      "parentUuid": "210352ba_35191219",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 1
+      },
+      "revId": "692ddb357a1fe028cb844fc5ce53254651b5d99e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c135fa2e_bbc4b5a2",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-09-26T10:29:04Z",
       "side": 1,
       "message": "I\u0027m having a hard time understanding this - I think it\u0027s the combination of `NotStarted` with `false` and what this denotes. Is there a clearer name here we could use? Or could we pass in `state: EntriesLinkState` ?",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 48
+      },
+      "revId": "692ddb357a1fe028cb844fc5ce53254651b5d99e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ac7624d_b95d6aee",
+        "filename": "front_end/panels/timeline/overlays/components/EntriesLinkOverlay.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-09-26T12:21:09Z",
+      "side": 1,
+      "message": "That\u0027s fair. Now passing the state instead",
+      "parentUuid": "c135fa2e_bbc4b5a2",
       "range": {
         "startLine": 58,
         "startChar": 0,

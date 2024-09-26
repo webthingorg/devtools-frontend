@@ -22,6 +22,30 @@
       },
       "revId": "2709fa744749f851721829cc218698729f74bd24",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ac29323_b31267b3",
+        "filename": "front_end/panels/timeline/overlays/OverlaysImpl.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1593257
+      },
+      "writtenOn": "2024-09-26T12:21:09Z",
+      "side": 0,
+      "message": "Agree! also it fixes a bug around deleting another overlay straight away when label is created",
+      "parentUuid": "9dd70018_eedad1f3",
+      "range": {
+        "startLine": 231,
+        "startChar": 0,
+        "endLine": 231,
+        "endChar": 40
+      },
+      "revId": "2709fa744749f851721829cc218698729f74bd24",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
