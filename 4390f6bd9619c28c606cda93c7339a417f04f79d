@@ -82,6 +82,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "12bd501e_2c87dcc0",
+        "filename": "front_end/panels/settings/FrameworkIgnoreListSettingsTab.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1546622
+      },
+      "writtenOn": "2024-09-26T10:30:10Z",
+      "side": 1,
+      "message": "\u003e btw it\u0027s so nice having a tech writer review. :) Appreciate it!\n\nYou\u0027re most welcome. Keep the CLs coming :)\n\n\u003e I adapted your suggestion a tad, incorporating Eric\u0027s addition. wdyt?\n\nLGTM",
+      "parentUuid": "db26bb6f_8a28a54a",
+      "range": {
+        "startLine": 24,
+        "startChar": 7,
+        "endLine": 24,
+        "endChar": 199
+      },
+      "revId": "4390f6bd9619c28c606cda93c7339a417f04f79d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "52cbab37_60d9ecdb",
