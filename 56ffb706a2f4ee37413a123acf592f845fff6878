@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9514de74_9ea55910",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-26T09:18:01Z",
+      "side": 1,
+      "message": "LGTM implementation parts, though we need to add a flag for performance entry and use it to decide whether to show the context menu or not.\n\nLet\u0027s discuss the rollout strategy we want in today\u0027s meeting and move on depending on the resolution :)",
+      "revId": "56ffb706a2f4ee37413a123acf592f845fff6878",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
