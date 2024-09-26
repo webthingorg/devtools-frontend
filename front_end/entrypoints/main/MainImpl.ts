@@ -383,7 +383,6 @@ export class MainImpl {
     Root.Runtime.experiments.register(
         Root.Runtime.ExperimentName.TIMELINE_ANNOTATIONS,
         'Performance panel: enable annotations',
-        true,
     );
 
     Root.Runtime.experiments.register(
@@ -417,6 +416,7 @@ export class MainImpl {
       'css-type-component-length-deprecate',
       Root.Runtime.ExperimentName.AUTOFILL_VIEW,
       Root.Runtime.ExperimentName.TIMELINE_OBSERVATIONS,
+      Root.Runtime.ExperimentName.TIMELINE_ANNOTATIONS,
       Root.Runtime.ExperimentName.NETWORK_PANEL_FILTER_BAR_REDESIGN,
       ...(Root.Runtime.Runtime.queryParam('isChromeForTesting') ? ['protocol-monitor'] : []),
     ]);
