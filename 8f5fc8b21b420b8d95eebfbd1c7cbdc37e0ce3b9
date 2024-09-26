@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab6a1fc0_2ff3ed02",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-09-26T07:36:35Z",
+      "side": 1,
+      "message": "Hi Joshua! I\u0027ve added a comment on the styles 😊",
+      "revId": "8f5fc8b21b420b8d95eebfbd1c7cbdc37e0ce3b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2c2d2c64_bc27bbe4",
@@ -157,6 +174,23 @@
         "endLine": 173,
         "endChar": 42
       },
+      "revId": "8f5fc8b21b420b8d95eebfbd1c7cbdc37e0ce3b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08480541_e1db166a",
+        "filename": "front_end/panels/security/sidebar.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1396836
+      },
+      "writtenOn": "2024-09-26T07:36:35Z",
+      "side": 1,
+      "message": "A lot of these css rules can now be removed, since you\u0027re moving from what we call `NavigationDrawer` (not expandable/collapsible), to a `NavigationTree`. The `NavigationTree`s should look the same. You can see the differences between these two (if you want) in the [CDT design kit](https://www.figma.com/design/A5iQBBNAe5zPFpJvUzUgW8/CDT-design-kit). The variant that you are using is already defining the correct css and should be used. The only remaining css rules should be very specific to the `SecurityPanel` (i.e. icon colors, or heading margins). See an example `css`that uses the `NavigationTree` variant and only defines specific rules [in the Application Panel](https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/application/resourcesSidebar.css;l\u003d1;drc\u003d3f7a474efb1229168d46f7cc604181cc7fc5042e), which is uses the navigation tree and has headings too.",
       "revId": "8f5fc8b21b420b8d95eebfbd1c7cbdc37e0ce3b9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
