@@ -52,6 +52,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "20347511_9d5f97c3",
+        "filename": "front_end/panels/security/OriginTreeElement.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 3584853
+      },
+      "writtenOn": "2024-09-26T19:29:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "eeb221f6_050c8aa6",
+      "range": {
+        "startLine": 15,
+        "startChar": 23,
+        "endLine": 15,
+        "endChar": 37
+      },
+      "revId": "4656c2639090b561202142e5f15f8dae41dc784d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d9df1d17_0f68e156",
@@ -65,6 +89,30 @@
       "writtenOn": "2024-09-26T17:47:38Z",
       "side": 1,
       "message": "Also use # for these private members",
+      "range": {
+        "startLine": 16,
+        "startChar": 23,
+        "endLine": 16,
+        "endChar": 40
+      },
+      "revId": "4656c2639090b561202142e5f15f8dae41dc784d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cefccccd_5c4277fe",
+        "filename": "front_end/panels/security/OriginTreeElement.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 3584853
+      },
+      "writtenOn": "2024-09-26T19:29:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9df1d17_0f68e156",
       "range": {
         "startLine": 16,
         "startChar": 23,
@@ -116,6 +164,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebb25cfe_172f09aa",
+        "filename": "front_end/panels/security/SecurityAndPrivacyPanelSidebar.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 3584853
+      },
+      "writtenOn": "2024-09-26T19:29:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6706fbea_aafe5ddc",
+      "range": {
+        "startLine": 86,
+        "startChar": 8,
+        "endLine": 86,
+        "endChar": 32
+      },
+      "revId": "4656c2639090b561202142e5f15f8dae41dc784d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0e11e6e7_ee05e47b",
@@ -157,6 +229,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "79fdab90_7ac64bf9",
+        "filename": "front_end/panels/security/SecurityAndPrivacyPanelSidebar.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 3584853
+      },
+      "writtenOn": "2024-09-26T19:29:24Z",
+      "side": 1,
+      "message": "The linter is still giving errors with non-null assertions. Leaving as is for now",
+      "parentUuid": "0e11e6e7_ee05e47b",
+      "range": {
+        "startLine": 108,
+        "startChar": 0,
+        "endLine": 108,
+        "endChar": 89
+      },
+      "revId": "4656c2639090b561202142e5f15f8dae41dc784d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6bf7fc35_0792e5a1",
@@ -194,6 +290,30 @@
           ]
         }
       ],
+      "revId": "4656c2639090b561202142e5f15f8dae41dc784d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c82ac93_1df2ab3e",
+        "filename": "front_end/panels/security/SecurityAndPrivacyPanelSidebar.ts",
+        "patchSetId": 8
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 3584853
+      },
+      "writtenOn": "2024-09-26T19:29:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6bf7fc35_0792e5a1",
+      "range": {
+        "startLine": 234,
+        "startChar": 0,
+        "endLine": 234,
+        "endChar": 54
+      },
       "revId": "4656c2639090b561202142e5f15f8dae41dc784d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
