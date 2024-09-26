@@ -108,15 +108,15 @@ const UIStringsNotTranslate = {
    */
   stoppedResponse: 'You stopped this response',
   /**
-   * @description Side effect confirmation text
+   * @description Prompt for user to confirm code execution that may effect the page.
    */
-  sideEffectConfirmationDescription: 'The code contains side effects. Do you wish to continue?',
+  sideEffectConfirmationDescription: 'This code may modify page content. Continue?',
   /**
-   * @description Side effect confirmation text for the button that says "Continue"
+   * @description Button text that confirm code execution that may effect the page.
    */
   positiveSideEffectConfirmation: 'Continue',
   /**
-   * @description Side effect confirmation text for the button that says "Cancel"
+   * @description Button text that cancels code execution that may effect the page.
    */
   negativeSideEffectConfirmation: 'Cancel',
   /**
@@ -641,30 +641,30 @@ export class FreestylerChatUi extends HTMLElement {
             .name=${'profile'}
           ></${IconButton.Icon.Icon.litTagName}>`;
       // clang-format off
-      return LitHtml.html`<div
+      return LitHtml.html`<section
         class="chat-message query"
         jslog=${VisualLogging.section('question')}
       >
         <div class="message-info">
           ${image}
           <div class="message-name">
-            <span>${name}</span>
+            <h2>${name}</h2>
           </div>
         </div>
         <div class="message-content">${this.#renderTextAsMarkdown(message.text)}</div>
-      </div>`;
+      </section>`;
       // clang-format on
     }
 
     // clang-format off
     return LitHtml.html`
-      <div class="chat-message answer" jslog=${VisualLogging.section('answer')}>
+      <section class="chat-message answer" jslog=${VisualLogging.section('answer')}>
         <div class="message-info">
           <${IconButton.Icon.Icon.litTagName}
             name="smart-assistant"
           ></${IconButton.Icon.Icon.litTagName}>
           <div class="message-name">
-            <span>${lockedString(UIStringsNotTranslate.aiAssistance)}</span>
+            <h2>${lockedString(UIStringsNotTranslate.aiAssistance)}</h2>
           </div>
         </div>
         ${LitHtml.Directives.repeat(
@@ -702,7 +702,7 @@ export class FreestylerChatUi extends HTMLElement {
               : LitHtml.nothing
           }
         </div>
-      </div>
+      </section>
     `;
     // clang-format on
   };
@@ -789,7 +789,7 @@ export class FreestylerChatUi extends HTMLElement {
   #renderMessages = (): LitHtml.TemplateResult => {
     // clang-format off
     return LitHtml.html`
-      <div class="messages-scroll-container" @scroll=${this.#handleScroll}>
+      <main class="messages-scroll-container" @scroll=${this.#handleScroll}>
         <div class="messages-container">
           ${this.#props.messages.map((message, _, array) =>
             this.#renderChatMessage(message, {
@@ -797,7 +797,7 @@ export class FreestylerChatUi extends HTMLElement {
             }),
           )}
         </div>
-      </div>
+      </main>
     `;
     // clang-format on
   };
@@ -806,14 +806,14 @@ export class FreestylerChatUi extends HTMLElement {
     const suggestions = this.#getSuggestions();
 
     // clang-format off
-    return LitHtml.html`<div class="empty-state-container messages-scroll-container">
+    return LitHtml.html`<main class="empty-state-container messages-scroll-container">
       <div class="header">
         <div class="icon">
           <${IconButton.Icon.Icon.litTagName}
             name="smart-assistant"
           ></${IconButton.Icon.Icon.litTagName}>
         </div>
-        ${lockedString(UIStringsNotTranslate.emptyStateText)}
+        <h2>${lockedString(UIStringsNotTranslate.emptyStateText)}</h2>
       </div>
       <div class="suggestions">
         ${suggestions.map(suggestion => {
