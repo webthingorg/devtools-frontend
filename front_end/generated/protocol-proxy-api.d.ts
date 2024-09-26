@@ -1065,6 +1065,11 @@ declare namespace ProtocolProxyApi {
     invoke_getTopLayerElements(): Promise<Protocol.DOM.GetTopLayerElementsResponse>;
 
     /**
+     * Returns and load overflowing children for scrollable node.
+     */
+    invoke_getOverflowingChildren(params: Protocol.DOM.GetOverflowingChildrenRequest): Promise<Protocol.DOM.GetOverflowingChildrenResponse>;
+
+    /**
      * Returns the NodeId of the matched element according to certain relations.
      */
     invoke_getElementByRelation(params: Protocol.DOM.GetElementByRelationRequest): Promise<Protocol.DOM.GetElementByRelationResponse>;

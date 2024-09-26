@@ -1713,6 +1713,13 @@ export namespace ProtocolMapping {
       returnType: Protocol.DOM.GetTopLayerElementsResponse;
     };
     /**
+     * Returns and load overflowing children for scrollable node.
+     */
+    'DOM.getOverflowingChildren': {
+      paramsType: [Protocol.DOM.GetOverflowingChildrenRequest];
+      returnType: Protocol.DOM.GetOverflowingChildrenResponse;
+    };
+    /**
      * Returns the NodeId of the matched element according to certain relations.
      */
     'DOM.getElementByRelation': {
