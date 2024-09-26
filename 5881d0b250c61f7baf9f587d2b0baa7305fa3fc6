@@ -16,6 +16,276 @@
       "message": "PTAL.\n\nExcept for the tests, it looks like a bigger change that it really is, since gerrit picked up the source map resolver file move as a file removal + addition.",
       "revId": "5881d0b250c61f7baf9f587d2b0baa7305fa3fc6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "899fb2b9_bd27b6c1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-26T08:58:38Z",
+      "side": 1,
+      "message": "love it, this is great work! a bunch of notes + small suggestions but this lgtm",
+      "revId": "5881d0b250c61f7baf9f587d2b0baa7305fa3fc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2140d6f7_a940c778",
+        "filename": "front_end/models/trace/extras/URLForEntry.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-26T08:58:38Z",
+      "side": 1,
+      "message": "do you think we should just merge these into one? or rename this to `nonResolvedURL` or something?",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 3
+      },
+      "revId": "5881d0b250c61f7baf9f587d2b0baa7305fa3fc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e86fbd95_3b5d4e24",
+        "filename": "front_end/panels/timeline/utils/SourceMapsResolver.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-26T08:58:38Z",
+      "side": 1,
+      "message": "(haven\u0027t read the rest of the CL yet) but should this become a generic \"stuff updated\" event now that the resolver also cares about locations?",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 45
+      },
+      "revId": "5881d0b250c61f7baf9f587d2b0baa7305fa3fc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60bc18f8_ae0be4e0",
+        "filename": "front_end/panels/timeline/utils/SourceMapsResolver.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-26T08:58:38Z",
+      "side": 1,
+      "message": "is this comment meant to be above the declaration above? It looks a bit lost here.",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 67
+      },
+      "revId": "5881d0b250c61f7baf9f587d2b0baa7305fa3fc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23ed6d33_56981849",
+        "filename": "front_end/panels/timeline/utils/SourceMapsResolver.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-26T08:58:38Z",
+      "side": 1,
+      "message": "typo: `those`",
+      "range": {
+        "startLine": 65,
+        "startChar": 27,
+        "endLine": 65,
+        "endChar": 31
+      },
+      "revId": "5881d0b250c61f7baf9f587d2b0baa7305fa3fc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbbea2e5_090c9a03",
+        "filename": "front_end/panels/timeline/utils/SourceMapsResolver.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-26T08:58:38Z",
+      "side": 1,
+      "message": "do we need to check its length here (so the `[0]` doesn\u0027t error below)?\n\nI guess if we have one, it must always have at least one object inside it, but might be worth an extra check in case we ever get bad data",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 32
+      },
+      "revId": "5881d0b250c61f7baf9f587d2b0baa7305fa3fc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8dea63ed_707105f1",
+        "filename": "front_end/panels/timeline/utils/SourceMapsResolver.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-26T08:58:38Z",
+      "side": 1,
+      "message": "might be worth a comment explaining the fallback here",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 65
+      },
+      "revId": "5881d0b250c61f7baf9f587d2b0baa7305fa3fc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2805cc33_d6916367",
+        "filename": "front_end/panels/timeline/utils/SourceMapsResolver.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-26T08:58:38Z",
+      "side": 1,
+      "message": "can we get rid of this check now ? I think we always have the handler, even if it has no data.",
+      "range": {
+        "startLine": 115,
+        "startChar": 3,
+        "endLine": 119,
+        "endChar": 13
+      },
+      "revId": "5881d0b250c61f7baf9f587d2b0baa7305fa3fc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "891beb52_3ae05596",
+        "filename": "front_end/panels/timeline/utils/SourceMapsResolver.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-26T08:58:38Z",
+      "side": 1,
+      "message": "think we can get rid of this",
+      "range": {
+        "startLine": 170,
+        "startChar": 3,
+        "endLine": 172,
+        "endChar": 5
+      },
+      "revId": "5881d0b250c61f7baf9f587d2b0baa7305fa3fc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ad37a6f_bc114a06",
+        "filename": "front_end/panels/timeline/utils/SourceMapsResolver.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-26T08:58:38Z",
+      "side": 1,
+      "message": "don\u0027t need the `?.` as you\u0027ve got the `!target` check above",
+      "range": {
+        "startLine": 186,
+        "startChar": 34,
+        "endLine": 186,
+        "endChar": 40
+      },
+      "revId": "5881d0b250c61f7baf9f587d2b0baa7305fa3fc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c36bbc24_57c73e67",
+        "filename": "front_end/panels/timeline/utils/SourceMapsResolver.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-26T08:58:38Z",
+      "side": 1,
+      "message": "let\u0027s rename this event as we are doing more than names",
+      "range": {
+        "startLine": 199,
+        "startChar": 0,
+        "endLine": 199,
+        "endChar": 47
+      },
+      "revId": "5881d0b250c61f7baf9f587d2b0baa7305fa3fc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1e752e9_cce4a5e8",
+        "filename": "front_end/panels/timeline/utils/SourceMapsResolver.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-26T08:58:38Z",
+      "side": 1,
+      "message": "change this to `isResolving` now it\u0027s more than names?",
+      "range": {
+        "startLine": 205,
+        "startChar": 0,
+        "endLine": 205,
+        "endChar": 33
+      },
+      "revId": "5881d0b250c61f7baf9f587d2b0baa7305fa3fc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
