@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04797150_1c14c7fc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1596737
+      },
+      "writtenOn": "2024-09-26T18:02:55Z",
+      "side": 1,
+      "message": "Simon, could you give a CR+1 again? It got reset when I pushed the latest patchset that removed unused strings. Thanks!",
+      "revId": "38e0d90fc1d7281710e4aa0457ce0a0533d05bd1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
