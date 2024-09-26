@@ -41,6 +41,7 @@ export class RenderBlockingRequests extends BaseInsight {
   override insightCategory: Category = Category.LCP;
   override internalName: string = 'render-blocking-requests';
   override userVisibleTitle: string = i18nString(UIStrings.title);
+  override description: string = i18nString(UIStrings.description);
 
   override connectedCallback(): void {
     super.connectedCallback();
@@ -87,16 +88,17 @@ export class RenderBlockingRequests extends BaseInsight {
         <div class="insights">
           <${SidebarInsight.SidebarInsight.litTagName} .data=${{
             title: this.userVisibleTitle,
+            description: this.description,
             internalName: this.internalName,
             expanded: this.isActive(),
             estimatedSavings,
           } as SidebarInsight.InsightDetails}
           @insighttoggleclick=${this.onSidebarClick}
         >
-          <div slot="insight-description" class="insight-description">
+          <div slot="insight-description">
             ${md(i18nString(UIStrings.description))}
           </div>
-          <div slot="insight-content" style="insight-content">
+          <div slot="insight-content" class="insight-section">
             <p>
               <h3>${i18nString(UIStrings.longestBlockingRequests)}</h3>
               <ul class="url-list">

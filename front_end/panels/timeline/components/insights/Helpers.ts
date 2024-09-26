@@ -45,6 +45,7 @@ export abstract class BaseInsight extends HTMLElement {
   abstract internalName: string;
   abstract insightCategory: Category;
   abstract userVisibleTitle: string;
+  abstract description: string;
 
   protected readonly shadow = this.attachShadow({mode: 'open'});
 
