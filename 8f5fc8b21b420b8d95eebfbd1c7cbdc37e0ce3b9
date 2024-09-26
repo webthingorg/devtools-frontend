@@ -16,6 +16,149 @@
       "message": "Does it make sense to continue passing call backs for these functions? \n\nOr would it be better to define this behavior in the `#renderTreeElement` function based off the `element`\u0027s instance and className?",
       "revId": "8f5fc8b21b420b8d95eebfbd1c7cbdc37e0ce3b9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "128802d8_fe3aa38a",
+        "filename": "front_end/panels/security/OriginTreeElement.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-09-26T06:19:58Z",
+      "side": 1,
+      "message": "No, let\u0027s have it all in the `#renderTreeElement`.",
+      "parentUuid": "2c2d2c64_bc27bbe4",
+      "revId": "8f5fc8b21b420b8d95eebfbd1c7cbdc37e0ce3b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1cf13283_710e4b32",
+        "filename": "front_end/panels/security/SecurityAndPrivacyPanelSidebar.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-09-26T06:19:58Z",
+      "side": 1,
+      "message": "#revealOrigin",
+      "range": {
+        "startLine": 76,
+        "startChar": 23,
+        "endLine": 76,
+        "endChar": 40
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "c2dc652b_2f6910a6",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/security/SecurityAndPrivacyPanelSidebar.ts",
+              "range": {
+                "startLine": 76,
+                "startChar": 0,
+                "endLine": 77,
+                "endChar": 0
+              },
+              "replacement": "      private readonly revealOrigin: (arg0: Origin) \u003d\u003e void,\n"
+            },
+            {
+              "path": "front_end/panels/security/SecurityAndPrivacyPanelSidebar.ts",
+              "range": {
+                "startLine": 176,
+                "startChar": 0,
+                "endLine": 177,
+                "endChar": 0
+              },
+              "replacement": "          onSelect: this.revealOrigin.bind(this, origin),\n"
+            }
+          ]
+        }
+      ],
+      "revId": "8f5fc8b21b420b8d95eebfbd1c7cbdc37e0ce3b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a1edef4_c1d6b913",
+        "filename": "front_end/panels/security/SecurityAndPrivacyPanelSidebar.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-09-26T06:19:58Z",
+      "side": 1,
+      "message": "#revealMainView: () \u003d\u003e void\n\n\nand keep the mainView instance on the panel class.",
+      "range": {
+        "startLine": 77,
+        "startChar": 23,
+        "endLine": 77,
+        "endChar": 44
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "fd3d2a84_f8ef1628",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/panels/security/SecurityAndPrivacyPanelSidebar.ts",
+              "range": {
+                "startLine": 77,
+                "startChar": 0,
+                "endLine": 78,
+                "endChar": 0
+              },
+              "replacement": "      private readonly revealMainView: () \u003d\u003e void, mainView: SecurityMainView) {\n"
+            },
+            {
+              "path": "front_end/panels/security/SecurityAndPrivacyPanelSidebar.ts",
+              "range": {
+                "startLine": 99,
+                "startChar": 0,
+                "endLine": 100,
+                "endChar": 0
+              },
+              "replacement": "          onSelect: this.revealMainView.bind(this),\n"
+            }
+          ]
+        }
+      ],
+      "revId": "8f5fc8b21b420b8d95eebfbd1c7cbdc37e0ce3b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d94249fc_78b8352b",
+        "filename": "front_end/panels/security/SecurityAndPrivacyPanelSidebar.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1511722
+      },
+      "writtenOn": "2024-09-26T06:19:58Z",
+      "side": 1,
+      "message": "This function could be moved to this file, right?",
+      "range": {
+        "startLine": 173,
+        "startChar": 22,
+        "endLine": 173,
+        "endChar": 42
+      },
+      "revId": "8f5fc8b21b420b8d95eebfbd1c7cbdc37e0ce3b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
