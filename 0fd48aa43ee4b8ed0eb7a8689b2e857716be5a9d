@@ -16,6 +16,24 @@
       "message": "What are the implications of removing this entirely? From a previous [CL](https://crrev.com/c/4974606) I can see that `justify-content` was changed to `center` to fix the focus. Since the focus is now fixed anyway, why don\u0027t we just move back to `justify-content: left` and keep the margin?",
       "revId": "0fd48aa43ee4b8ed0eb7a8689b2e857716be5a9d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "990b0643_8f563640",
+        "filename": "front_end/ui/legacy/toolbar.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-09-26T09:46:10Z",
+      "side": 0,
+      "message": "I didn\u0027t notice any undesired behaviour when removing this (just by visually checking), but your suggestion works too! We can do that to be on the safer side:) updated",
+      "parentUuid": "020586e3_fd374150",
+      "revId": "0fd48aa43ee4b8ed0eb7a8689b2e857716be5a9d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
