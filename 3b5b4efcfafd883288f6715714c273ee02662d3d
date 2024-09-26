@@ -107,6 +107,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c1cbeca_c978f77f",
+        "filename": "front_end/core/sdk/CSSMatchedStyles.ts",
+        "patchSetId": 10
+      },
+      "lineNbr": 1021,
+      "author": {
+        "id": 1380460
+      },
+      "writtenOn": "2024-09-26T07:10:48Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "7220a90e_fb3edc58",
+      "revId": "3b5b4efcfafd883288f6715714c273ee02662d3d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b0115fc8_7fb62b91",
