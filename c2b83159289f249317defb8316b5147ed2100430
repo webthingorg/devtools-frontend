@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9def4700_25deef9f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3514702
+      },
+      "writtenOn": "2024-09-26T23:05:26Z",
+      "side": 1,
+      "message": "With tests I think is ready to review",
+      "revId": "c2b83159289f249317defb8316b5147ed2100430",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a9086e1_41516cc2",
+        "filename": "front_end/core/sdk/DOMModel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1499,
+      "author": {
+        "id": 3514702
+      },
+      "writtenOn": "2024-09-26T23:05:26Z",
+      "side": 1,
+      "message": "Using this a probe for updating the overflowing children will not work because ScrollableFlag probe is setted at the end of the method UpdateScrollableAreaSet, where the code just checks if it needs to add a new scrollable area or not.",
+      "revId": "c2b83159289f249317defb8316b5147ed2100430",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49a1b119_0781789b",
+        "filename": "front_end/core/sdk/DOMModel.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 1516,
+      "author": {
+        "id": 3514702
+      },
+      "writtenOn": "2024-09-26T23:05:26Z",
+      "side": 1,
+      "message": "Only update the changed nodes because removing and adding will be inefficient and also visible to users.\n\nCompute the changed nodes between two events by union - interesction of the arrays",
+      "revId": "c2b83159289f249317defb8316b5147ed2100430",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e84b2940_552f2b35",
+        "filename": "front_end/panels/elements/ElementsTreeElement.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 2488,
+      "author": {
+        "id": 3514702
+      },
+      "writtenOn": "2024-09-26T23:05:26Z",
+      "side": 1,
+      "message": "Consider calling this method using a throttler if you plan to update the overflowing children when something in the page changes.",
+      "revId": "c2b83159289f249317defb8316b5147ed2100430",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
