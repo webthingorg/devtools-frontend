@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "806b02f5_1eda16b3",
+        "filename": "front_end/models/trace/extras/URLForEntry.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-09-26T11:24:27Z",
+      "side": 1,
+      "message": "I think we can\u0027t merge because of the deps the resolved version has on SDK, etc. Some bits in the trace engine depend on this so by merging them we would introduce a dep from trace -\u003e SDK, which we want to avoid. I like the idea to make the name more explicit! Done.",
+      "parentUuid": "2140d6f7_a940c778",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 16,
+        "endChar": 3
+      },
+      "revId": "5881d0b250c61f7baf9f587d2b0baa7305fa3fc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e86fbd95_3b5d4e24",
@@ -71,6 +95,30 @@
       "writtenOn": "2024-09-26T08:58:38Z",
       "side": 1,
       "message": "(haven\u0027t read the rest of the CL yet) but should this become a generic \"stuff updated\" event now that the resolver also cares about locations?",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 45
+      },
+      "revId": "5881d0b250c61f7baf9f587d2b0baa7305fa3fc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1097d785_34205938",
+        "filename": "front_end/panels/timeline/utils/SourceMapsResolver.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-09-26T11:24:27Z",
+      "side": 1,
+      "message": "good catch! Done.",
+      "parentUuid": "e86fbd95_3b5d4e24",
       "range": {
         "startLine": 17,
         "startChar": 0,
@@ -104,6 +152,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b00381fa_4372167f",
+        "filename": "front_end/panels/timeline/utils/SourceMapsResolver.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-09-26T11:24:27Z",
+      "side": 1,
+      "message": "indeed! This was meant to be deleted!",
+      "parentUuid": "60bc18f8_ae0be4e0",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 67
+      },
+      "revId": "5881d0b250c61f7baf9f587d2b0baa7305fa3fc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "23ed6d33_56981849",
@@ -117,6 +189,30 @@
       "writtenOn": "2024-09-26T08:58:38Z",
       "side": 1,
       "message": "typo: `those`",
+      "range": {
+        "startLine": 65,
+        "startChar": 27,
+        "endLine": 65,
+        "endChar": 31
+      },
+      "revId": "5881d0b250c61f7baf9f587d2b0baa7305fa3fc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d1f6eff_de701c83",
+        "filename": "front_end/panels/timeline/utils/SourceMapsResolver.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-09-26T11:24:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23ed6d33_56981849",
       "range": {
         "startLine": 65,
         "startChar": 27,
@@ -150,6 +246,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "48a9e8d2_8f28d8ac",
+        "filename": "front_end/panels/timeline/utils/SourceMapsResolver.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-09-26T11:24:27Z",
+      "side": 1,
+      "message": "good catch! I wonder if it\u0027s worth enforcing the use of `.at()` to catch these with ts?",
+      "parentUuid": "bbbea2e5_090c9a03",
+      "range": {
+        "startLine": 79,
+        "startChar": 0,
+        "endLine": 79,
+        "endChar": 32
+      },
+      "revId": "5881d0b250c61f7baf9f587d2b0baa7305fa3fc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8dea63ed_707105f1",
@@ -163,6 +283,30 @@
       "writtenOn": "2024-09-26T08:58:38Z",
       "side": 1,
       "message": "might be worth a comment explaining the fallback here",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 95,
+        "endChar": 65
+      },
+      "revId": "5881d0b250c61f7baf9f587d2b0baa7305fa3fc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89b79bb9_e123069c",
+        "filename": "front_end/panels/timeline/utils/SourceMapsResolver.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-09-26T11:24:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8dea63ed_707105f1",
       "range": {
         "startLine": 95,
         "startChar": 0,
@@ -196,6 +340,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ec35ec7_bb56aba9",
+        "filename": "front_end/panels/timeline/utils/SourceMapsResolver.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-09-26T11:24:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2805cc33_d6916367",
+      "range": {
+        "startLine": 115,
+        "startChar": 3,
+        "endLine": 119,
+        "endChar": 13
+      },
+      "revId": "5881d0b250c61f7baf9f587d2b0baa7305fa3fc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "891beb52_3ae05596",
@@ -209,6 +377,30 @@
       "writtenOn": "2024-09-26T08:58:38Z",
       "side": 1,
       "message": "think we can get rid of this",
+      "range": {
+        "startLine": 170,
+        "startChar": 3,
+        "endLine": 172,
+        "endChar": 5
+      },
+      "revId": "5881d0b250c61f7baf9f587d2b0baa7305fa3fc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "060447ac_eba93981",
+        "filename": "front_end/panels/timeline/utils/SourceMapsResolver.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-09-26T11:24:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "891beb52_3ae05596",
       "range": {
         "startLine": 170,
         "startChar": 3,
@@ -242,6 +434,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "77c64cf2_bc74aa3f",
+        "filename": "front_end/panels/timeline/utils/SourceMapsResolver.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-09-26T11:24:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8ad37a6f_bc114a06",
+      "range": {
+        "startLine": 186,
+        "startChar": 34,
+        "endLine": 186,
+        "endChar": 40
+      },
+      "revId": "5881d0b250c61f7baf9f587d2b0baa7305fa3fc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c36bbc24_57c73e67",
@@ -265,6 +481,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a96b9c4_052ee386",
+        "filename": "front_end/panels/timeline/utils/SourceMapsResolver.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-09-26T11:24:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c36bbc24_57c73e67",
+      "range": {
+        "startLine": 199,
+        "startChar": 0,
+        "endLine": 199,
+        "endChar": 47
+      },
+      "revId": "5881d0b250c61f7baf9f587d2b0baa7305fa3fc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d1e752e9_cce4a5e8",
@@ -278,6 +518,30 @@
       "writtenOn": "2024-09-26T08:58:38Z",
       "side": 1,
       "message": "change this to `isResolving` now it\u0027s more than names?",
+      "range": {
+        "startLine": 205,
+        "startChar": 0,
+        "endLine": 205,
+        "endChar": 33
+      },
+      "revId": "5881d0b250c61f7baf9f587d2b0baa7305fa3fc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "26a5b936_cf947c41",
+        "filename": "front_end/panels/timeline/utils/SourceMapsResolver.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1447167
+      },
+      "writtenOn": "2024-09-26T11:24:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d1e752e9_cce4a5e8",
       "range": {
         "startLine": 205,
         "startChar": 0,
