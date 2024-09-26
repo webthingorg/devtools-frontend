@@ -28,6 +28,10 @@ table tr > *:first-child {
   text-align: left;
 }
 
+table.hoverable tbody tr {
+  cursor: pointer;
+}
+
 table.hoverable tbody tr:hover,
 table.hoverable tbody tr.selected {
   background-color: var(--app-color-performance-sidebar-table-row-hover);
@@ -36,8 +40,4 @@ table.hoverable tbody tr.selected {
 table th[scope="row"] {
   font-weight: normal;
   padding: 3px 0;
-}
-
-td {
-  font-weight: bold;
 }
