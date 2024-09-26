@@ -169,3 +169,18 @@ UI.ActionRegistration.registerActionExtension({
   },
   condition: config => isDrJonesFeatureAvailable(config) && !isPolicyRestricted(config),
 });
+
+UI.ActionRegistration.registerActionExtension({
+  actionId: 'drjones.performance-panel-context',
+  contextTypes(): [] {
+    return [];
+  },
+  setting,
+  category: UI.ActionRegistration.ActionCategory.GLOBAL,
+  title: i18nLazyString(UIStringsTemp.askAiAssistant),
+  async loadActionDelegate() {
+    const Freestyler = await loadFreestylerModule();
+    return new Freestyler.ActionDelegate();
+  },
+  condition: config => isDrJonesFeatureAvailable(config) && !isPolicyRestricted(config),
+});
