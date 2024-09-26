@@ -115,7 +115,8 @@
   position: absolute;
   right: 0;
   bottom: 0;
-  padding: var(--sys-size-4) var(--sys-size-4);
+  padding-bottom: 3px;
+  padding-right: var(--sys-size-3);
 }
 
 .disclaimer {
