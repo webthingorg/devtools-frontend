@@ -16,6 +16,69 @@
       "message": "The bug ticket has a video of what this looks like.",
       "revId": "9aa3748b9d0f8fc211b6d1e66534212d42d30b6d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "887c0953_15eececc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-26T09:33:20Z",
+      "side": 1,
+      "message": "this lgtm but I\u0027m wondering if there is an opportunity to simplify the higher level setOverlays / setOverlayOverrides...but maybe not. let me know what you think!\n\nbtw happy after thinking about my comments for you to find a reviewer in your timezone to plus one; I trust your judgement and you have spent much more time on this than I have.\n\nI would suggest at a minimum a few code comments would be helpful if we land with the current impl. Thanks!",
+      "revId": "9aa3748b9d0f8fc211b6d1e66534212d42d30b6d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "acefcc02_25444723",
+        "filename": "front_end/panels/timeline/TimelineFlameChartView.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-26T09:33:20Z",
+      "side": 1,
+      "message": "does this method exist basically to avoid the behavour in setOverlays that also reveals the active entry ?\n\nnow we have the option to update the trace bounds or not, I\u0027m wondering if we just extend the options you can pass into `setOverlays`. I\u0027m finding the existence of two methods slightly confusing.\n\n\nedit: OK I think I just realised it\u0027s because now on a per-insight basis there can be a subset of overlays you want to activate, rather than just a \"all\" or \"nothing\" based on if the insight is expanded. That\u0027s what this is doing, right?\n\nI still wonder if in TimelineFlameChartView it should be making that distinction; I feel like at the insights level we just tell TimelineFlameChartView to render a set of insights, and it does it.\n\nThat said, I can see why we wouldn\u0027t want to call the `createOverlaysFn` multiple times as we move / hover on an insight and change which subset of overlays are rendered. But I\u0027m wondering if we can do that and solve it in the insights, rather than pollute the FlameChartView with multiple methods that do nearly-but-not-exactly the same thing.\n\nIf that isn\u0027t feasible (you have likely more sense of this than I have), at the very least I wonder if this method should be named `setTemporaryOverlayOverrides` or something with a big doc comment explaining why this exists. But I can\u0027t shake the feeling at this level we should try to unify and not have multiple ways to create overlays that have different effects on the UI.\n\nwdyt?",
+      "range": {
+        "startLine": 420,
+        "startChar": 0,
+        "endLine": 420,
+        "endChar": 22
+      },
+      "revId": "9aa3748b9d0f8fc211b6d1e66534212d42d30b6d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b1fdf46f_48596d52",
+        "filename": "front_end/panels/timeline/overlays/OverlaysImpl.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-26T09:33:20Z",
+      "side": 1,
+      "message": "do you think we should error if it\u0027s not?",
+      "range": {
+        "startLine": 99,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 42
+      },
+      "revId": "9aa3748b9d0f8fc211b6d1e66534212d42d30b6d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
