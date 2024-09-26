@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4df00fa_18f15796",
+        "filename": "front_end/panels/freestyler/FreestylerPanel.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-09-26T13:35:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ec290179_7fcf9686",
+      "revId": "3953d218d764f1d2c1aa4c2f3766a658fba75947",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b9152327_ae641014",
@@ -66,6 +84,24 @@
       "writtenOn": "2024-09-26T11:14:32Z",
       "side": 1,
       "message": "(nit): Can we move this to a separate function called `#renderConsentViewState` and use it here? So that it\u0027ll look something like this:\n```\n\u003cdiv class\u003d\"chat-ui\"\u003e\n    ${this.#props.state \u003d\u003d\u003d State.CONSENT_VIEW ? this.#renderConsentViewState()\n        : this.#props.messages.length \u003d\u003d\u003d 0 ? this.#renderEmptyState()\n        : this.#renderMessages()}\n...\n```\n\nwhich I think would make it easier to understand what\u0027s going on in the `#render` method and won\u0027t run the `settingsLink` related code unless we\u0027re rendering the consent state.",
+      "revId": "3953d218d764f1d2c1aa4c2f3766a658fba75947",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8f0c80e_98b788ad",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 914,
+      "author": {
+        "id": 1396454
+      },
+      "writtenOn": "2024-09-26T13:35:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b9152327_ae641014",
       "revId": "3953d218d764f1d2c1aa4c2f3766a658fba75947",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
