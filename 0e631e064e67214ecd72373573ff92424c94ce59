@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e24aa4e5_a724b8c2",
+        "filename": "front_end/panels/timeline/components/LayoutShiftDetails.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-26T22:39:46Z",
+      "side": 1,
+      "message": "i think you can get rid of this rowspan / rootCauseCount stuff now.\n\nDidn\u0027t try out the patch but... sure looks like it",
+      "range": {
+        "startLine": 215,
+        "startChar": 16,
+        "endLine": 215,
+        "endChar": 46
+      },
+      "revId": "0e631e064e67214ecd72373573ff92424c94ce59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
