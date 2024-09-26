@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4332e96_7230465c",
+        "filename": "front_end/ui/legacy/UIUtils.ts",
+        "patchSetId": 1
+      },
+      "lineNbr": 1841,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-26T14:39:12Z",
+      "side": 0,
+      "message": "Some of our shadow roots get created with a helper that called this. Many don\u0027t. So that led to an inconsistency with the API\u0027s effectiveness. (Another reason to drop it :)",
+      "revId": "668df2555679c2925f751a40e1b73f738cc84010",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
