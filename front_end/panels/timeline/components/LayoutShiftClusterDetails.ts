@@ -6,6 +6,7 @@ import * as i18n from '../../../core/i18n/i18n.js';
 import * as Helpers from '../../../models/trace/helpers/helpers.js';
 import * as Trace from '../../../models/trace/trace.js';
 import * as LitHtml from '../../../ui/lit-html/lit-html.js';
+import {LayoutShiftDetails} from './LayoutShiftDetails.js'
 
 import layoutShiftDetailsStyles from './layoutShiftDetails.css.js';
 
@@ -35,30 +36,36 @@ const UIStrings = {
 const str_ = i18n.i18n.registerUIStrings('panels/timeline/components/LayoutShiftClusterDetails.ts', UIStrings);
 const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
-export class LayoutShiftClusterDetails extends HTMLElement {
-  static readonly litTagName = LitHtml.literal`devtools-performance-layout-shift-cluster-details`;
-  readonly #shadow = this.attachShadow({mode: 'open'});
+export class LayoutShiftClusterDetails extends LayoutShiftDetails {
+  static override readonly litTagName = LitHtml.literal`devtools-performance-layout-shift-cluster-details`;
+  // readonly #shadow = this.attachShadow({mode: 'open'});
 
-  #cluster?: Trace.Types.Events.SyntheticLayoutShiftCluster|null;
+  // #cluster?: Trace.Types.Events.SyntheticLayoutShiftCluster|null;
+  #event: Trace.Types.Events.SyntheticLayoutShift|Trace.Types.Events.SyntheticLayoutShiftCluster|null = null;
   #parsedTrace: Trace.Handlers.Types.ParsedTrace|null = null;
 
-  connectedCallback(): void {
-    this.#shadow.adoptedStyleSheets = [layoutShiftDetailsStyles];
+  override connectedCallback(): void {
+    this.shadow.adoptedStyleSheets = [layoutShiftDetailsStyles];
     this.#render();
   }
 
-  setData(cluster: Trace.Types.Events.SyntheticLayoutShiftCluster, parsedTrace: Trace.Handlers.Types.ParsedTrace|null):
+  override setData(
+    parsedTrace: Trace.Handlers.Types.ParsedTrace|null,
+      event: Trace.Types.Events.SyntheticLayoutShift|Trace.Types.Events.SyntheticLayoutShiftCluster,
+      traceInsightsSets?: Trace.Insights.Types.TraceInsightSets|null,
+      isFreshRecording?: Boolean):
       void {
-    if (this.#cluster === cluster) {
+    console.log("set data in cluster");
+    if (this.#event === event) {
       return;
     }
-    this.#cluster = cluster;
+    this.#event = event;
     this.#parsedTrace = parsedTrace;
     this.#render();
   }
 
   #renderInsightTitleCard(): LitHtml.TemplateResult|null {
-    if (!this.#cluster) {
+    if (!this.#event) {
       return null;
     }
 
@@ -80,7 +87,7 @@ export class LayoutShiftClusterDetails extends HTMLElement {
   }
 
   #renderDetails(
-      cluster: Trace.Types.Events.SyntheticLayoutShiftCluster,
+      cluster: Trace.Types.Events.SyntheticLayoutShift|Trace.Types.Events.SyntheticLayoutShiftCluster,
       parsedTrace: Trace.Handlers.Types.ParsedTrace): LitHtml.TemplateResult|null {
     const ts = Trace.Types.Timing.MicroSeconds(cluster.ts - parsedTrace.Meta.traceBounds.min);
     const dur = cluster.dur ?? Trace.Types.Timing.MicroSeconds(0);
@@ -96,7 +103,7 @@ export class LayoutShiftClusterDetails extends HTMLElement {
   }
 
   #render(): void {
-    if (!this.#cluster || !this.#parsedTrace) {
+    if (!this.#event || !this.#parsedTrace) {
       return;
     }
     // clang-format off
@@ -104,11 +111,11 @@ export class LayoutShiftClusterDetails extends HTMLElement {
       <div class="layout-shift-cluster-summary-details">
         ${this.#renderInsightTitleCard()}
         ${this.#renderDetailsChip()}
-        ${this.#renderDetails(this.#cluster, this.#parsedTrace)}
+        ${this.#renderDetails(this.#event, this.#parsedTrace)}
       </div>
     `;
     // clang-format on
-    LitHtml.render(output, this.#shadow, {host: this});
+    LitHtml.render(output, this.shadow, {host: this});
   }
 }
 

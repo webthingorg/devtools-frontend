@@ -65,28 +65,29 @@ const i18nString = i18n.i18n.getLocalizedString.bind(undefined, str_);
 
 export class LayoutShiftDetails extends HTMLElement {
   static readonly litTagName = LitHtml.literal`devtools-performance-layout-shift-details`;
-  readonly #shadow = this.attachShadow({mode: 'open'});
+  protected readonly shadow = this.attachShadow({mode: 'open'});
 
-  #layoutShift?: Trace.Types.Events.SyntheticLayoutShift|null;
-  #traceInsightsSets: Trace.Insights.Types.TraceInsightSets|null = null;
+  #event: Trace.Types.Events.SyntheticLayoutShift|Trace.Types.Events.SyntheticLayoutShiftCluster|null = null;
+  #traceInsightsSets?: Trace.Insights.Types.TraceInsightSets|null = null;
   #parsedTrace: Trace.Handlers.Types.ParsedTrace|null = null;
-  #isFreshRecording: Boolean = false;
+  #isFreshRecording?: Boolean = false;
 
   connectedCallback(): void {
-    this.#shadow.adoptedStyleSheets = [layoutShiftDetailsStyles];
+    this.shadow.adoptedStyleSheets = [layoutShiftDetailsStyles];
     // Styles for linkifier button.
-    UI.UIUtils.injectTextButtonStyles(this.#shadow);
+    UI.UIUtils.injectTextButtonStyles(this.shadow);
     this.#render();
   }
 
   setData(
-      layoutShift: Trace.Types.Events.SyntheticLayoutShift,
-      traceInsightsSets: Trace.Insights.Types.TraceInsightSets|null, parsedTrace: Trace.Handlers.Types.ParsedTrace|null,
-      isFreshRecording: Boolean): void {
-    if (this.#layoutShift === layoutShift) {
+      parsedTrace: Trace.Handlers.Types.ParsedTrace|null,
+      event: Trace.Types.Events.SyntheticLayoutShift|Trace.Types.Events.SyntheticLayoutShiftCluster,
+      traceInsightsSets?: Trace.Insights.Types.TraceInsightSets|null,
+      isFreshRecording?: Boolean): void {
+    if (this.#event === event) {
       return;
     }
-    this.#layoutShift = layoutShift;
+    this.#event = event;
     this.#traceInsightsSets = traceInsightsSets;
     this.#parsedTrace = parsedTrace;
     this.#isFreshRecording = isFreshRecording;
@@ -94,7 +95,7 @@ export class LayoutShiftDetails extends HTMLElement {
   }
 
   #renderInsightTitleCard(): LitHtml.TemplateResult|null {
-    if (!this.#layoutShift) {
+    if (!this.#event) {
       return null;
     }
 
@@ -170,25 +171,28 @@ export class LayoutShiftDetails extends HTMLElement {
   }
 
   #renderDetailsTable(
-      layoutShift: Trace.Types.Events.SyntheticLayoutShift,
+      event: Trace.Types.Events.SyntheticLayoutShift|Trace.Types.Events.SyntheticLayoutShiftCluster,
       traceInsightsSets: Trace.Insights.Types.TraceInsightSets,
       parsedTrace: Trace.Handlers.Types.ParsedTrace,
       ): LitHtml.TemplateResult|null {
-    const score = layoutShift.args.data?.score;
+    if (!Trace.Types.Events.isSyntheticLayoutShift(event)) {
+      return null;
+    }
+    const score = event.args.data?.score;
     if (!score) {
       return null;
     }
 
-    const ts = Trace.Types.Timing.MicroSeconds(layoutShift.ts - parsedTrace.Meta.traceBounds.min);
-    const insightsId = layoutShift.args.data?.navigationId ?? Trace.Insights.Types.NO_NAVIGATION;
+    const ts = Trace.Types.Timing.MicroSeconds(event.ts - parsedTrace.Meta.traceBounds.min);
+    const insightsId = event.args.data?.navigationId ?? Trace.Insights.Types.NO_NAVIGATION;
     const clsInsight = traceInsightsSets.get(insightsId)?.data.CumulativeLayoutShift;
     if (clsInsight instanceof Error) {
       return null;
     }
 
-    const rootCauses = clsInsight?.shifts?.get(layoutShift);
+    const rootCauses = clsInsight?.shifts?.get(event);
 
-    const elementsShifted = layoutShift.args.data?.impacted_nodes;
+    const elementsShifted = event.args.data?.impacted_nodes;
 
     const hasCulprits = rootCauses && (rootCauses.fontRequests.length > 0 || rootCauses.iframeIds.length > 0);
     const hasShiftedElements = elementsShifted && elementsShifted.length > 0;
@@ -241,7 +245,7 @@ export class LayoutShiftDetails extends HTMLElement {
   }
 
   #render(): void {
-    if (!this.#layoutShift || !this.#traceInsightsSets || !this.#parsedTrace) {
+    if (!this.#event || !this.#traceInsightsSets || !this.#parsedTrace) {
       return;
     }
     // clang-format off
@@ -249,11 +253,11 @@ export class LayoutShiftDetails extends HTMLElement {
       <div class="layout-shift-summary-details">
         ${this.#renderInsightTitleCard()}
         ${this.#renderDetailsChip()}
-        ${this.#renderDetailsTable(this.#layoutShift, this.#traceInsightsSets, this.#parsedTrace)}
+        ${this.#renderDetailsTable(this.#event, this.#traceInsightsSets, this.#parsedTrace)}
       </div>
     `;
     // clang-format on
-    LitHtml.render(output, this.#shadow, {host: this});
+    LitHtml.render(output, this.shadow, {host: this});
   }
 }
 

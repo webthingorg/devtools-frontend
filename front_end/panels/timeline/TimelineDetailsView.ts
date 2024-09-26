@@ -303,11 +303,11 @@ export class TimelineDetailsView extends UI.Widget.VBox {
       if (Root.Runtime.experiments.isEnabled(Root.Runtime.ExperimentName.TIMELINE_LAYOUT_SHIFT_DETAILS)) {
         if (Trace.Types.Events.isSyntheticLayoutShift(event)) {
           const isFreshRecording = Boolean(this.#parsedTrace && Tracker.instance().recordingIsFresh(this.#parsedTrace));
-          this.#layoutShiftDetails.setData(event, this.#traceInsightsSets, this.#parsedTrace, isFreshRecording);
+          this.#layoutShiftDetails.setData(this.#parsedTrace, event as Trace.Types.Events.SyntheticLayoutShift, this.#traceInsightsSets, isFreshRecording);
           this.setContent(this.#layoutShiftDetails);
         }
         if (Trace.Types.Events.isSyntheticLayoutShiftCluster(event)) {
-          this.#layoutShiftClusterDetails.setData(event, this.#parsedTrace);
+          this.#layoutShiftClusterDetails.setData(this.#parsedTrace, event as Trace.Types.Events.SyntheticLayoutShiftCluster);
           this.setContent(this.#layoutShiftClusterDetails);
         }
 
