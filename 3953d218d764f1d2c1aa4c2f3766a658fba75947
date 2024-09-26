@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7770d46_31221c74",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-26T11:14:32Z",
+      "side": 1,
+      "message": "LGTM % 3 comments and an offline discussion :)",
+      "revId": "3953d218d764f1d2c1aa4c2f3766a658fba75947",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec290179_7fcf9686",
+        "filename": "front_end/panels/freestyler/FreestylerPanel.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-26T11:14:32Z",
+      "side": 1,
+      "message": "(nit): We usually use `this.#handleX` prefix instead of `this.#onX` prefix for the event handlers. Can you update this to follow that? So it should be `this.#handleFreestylerEnabledSettingChanged`.",
+      "revId": "3953d218d764f1d2c1aa4c2f3766a658fba75947",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9152327_ae641014",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 914,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-26T11:14:32Z",
+      "side": 1,
+      "message": "(nit): Can we move this to a separate function called `#renderConsentViewState` and use it here? So that it\u0027ll look something like this:\n```\n\u003cdiv class\u003d\"chat-ui\"\u003e\n    ${this.#props.state \u003d\u003d\u003d State.CONSENT_VIEW ? this.#renderConsentViewState()\n        : this.#props.messages.length \u003d\u003d\u003d 0 ? this.#renderEmptyState()\n        : this.#renderMessages()}\n...\n```\n\nwhich I think would make it easier to understand what\u0027s going on in the `#render` method and won\u0027t run the `settingsLink` related code unless we\u0027re rendering the consent state.",
+      "revId": "3953d218d764f1d2c1aa4c2f3766a658fba75947",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4b2e8f7_94f45bd5",
+        "filename": "front_end/panels/freestyler/components/freestylerChatUi.css",
+        "patchSetId": 9
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-26T11:14:32Z",
+      "side": 1,
+      "message": "I think it\u0027d be better if we keep `stylelint-disable` rule and not change the places of these rules.\n\nMost of the time, it is causing issues with nested rules. I was going to propose a devtools wide change for that rule but couldn\u0027t find the time. WDYT of:\n* Keeping the `stylelint-disable` pragma above and below.\n* Moving unrelated changes back to its previous places.\n\nThat way it makes reviewing easier. Otherwise we\u0027ll see the same rule juggling behavior in other CLs too 😅",
+      "revId": "3953d218d764f1d2c1aa4c2f3766a658fba75947",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
