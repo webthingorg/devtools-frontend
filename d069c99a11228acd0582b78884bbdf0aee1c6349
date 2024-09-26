@@ -33,6 +33,24 @@
       "message": "Is this excessive? What\u0027s slowing down these tests so much more now?",
       "revId": "d069c99a11228acd0582b78884bbdf0aee1c6349",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef5fa008_b7ae50af",
+        "filename": "test/e2e/console/console-truncate-long-messages_test.ts",
+        "patchSetId": 49
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1458307
+      },
+      "writtenOn": "2024-09-26T09:43:32Z",
+      "side": 1,
+      "message": "I\u0027m not sure why this was slow on my machine. The bots show this as taking 7s on mac and 9s on linux on this cl, and the ci bots aren\u0027t running this test any faster. Also, the most recent run on my desktop was 7s, so I can probably revert this.",
+      "parentUuid": "8aedf953_1110bff2",
+      "revId": "d069c99a11228acd0582b78884bbdf0aee1c6349",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
