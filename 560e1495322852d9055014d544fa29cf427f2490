@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22dcb40c_dac707f7",
+        "filename": "front_end/panels/timeline/components/insights/ThirdParties.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-26T00:21:03Z",
+      "side": 1,
+      "message": "```suggestion\n  #sharedTableState: TableState \u003d {\n```",
+      "range": {
+        "startLine": 50,
+        "startChar": 2,
+        "endLine": 50,
+        "endChar": 14
+      },
+      "revId": "560e1495322852d9055014d544fa29cf427f2490",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

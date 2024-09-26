@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6869289_f755a9d1",
+        "filename": "front_end/panels/timeline/components/insights/Table.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-26T00:21:03Z",
+      "side": 1,
+      "message": "obv doesn\u0027t need to change here. but.. I think this event would be clearer if it were like... `ForceDisplayOverlays`. \nthe insight aspect is kinda unimportant to the event. and override is ambiguous to me.",
+      "range": {
+        "startLine": 148,
+        "startChar": 42,
+        "endLine": 148,
+        "endChar": 64
+      },
+      "revId": "f0932f23f3ad00291da1c1504bec2358fd1258fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
