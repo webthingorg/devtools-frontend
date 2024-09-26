@@ -250,7 +250,7 @@ export class DrJonesNetworkAgent {
       type: ResponseType.ANSWER,
       text: response,
       // TODO: Remove this need.
-      fixable: false,
+      suggestions: [],
       rpcId,
     };
     if (isDebugMode()) {
