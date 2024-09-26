@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef08a089_12c04bad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-26T18:25:17Z",
+      "side": 1,
+      "message": "If I\u0027m honest, I don\u0027t feel great about the complexity management here. \n\nI think we can allow this tech debt to accrue to satisfy the functionality we need right now... but once our Insight UI changes slow down, I\u0027d like to reconsider the model here to be more deliberately designed.",
+      "revId": "8f98a63ccfad75e2fdd2a35e18173ddb17bfbbd1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
