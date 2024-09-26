@@ -13,7 +13,7 @@ const UIStrings = {
   /**
    *@description Text for the performance of something
    */
-  performance: 'Performance',
+  performance: 'KKPErta',
   /**
    *@description Command for showing the 'Performance' tool
    */

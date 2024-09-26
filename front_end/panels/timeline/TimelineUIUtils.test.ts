@@ -253,7 +253,7 @@ describeWithMockConnection('TimelineUIUtils', function() {
         Workers: workersData,
       } as Trace.Handlers.Types.ParsedTrace;
 
-      const resolver = new Timeline.SourceMapsResolver.SourceMapsResolver(parsedTrace);
+      const resolver = new Timeline.Utils.SourceMapsResolver.SourceMapsResolver(parsedTrace);
       await resolver.install();
 
       const linkifier = new Components.Linkifier.Linkifier();
@@ -1176,8 +1176,9 @@ describeWithMockConnection('TimelineUIUtils', function() {
       }
 
       // Fake that we resolved the entry's name from a sourcemap.
-      Timeline.SourceMapsResolver.SourceMapsResolver.storeResolvedNodeNameForEntry(
-          profileEntry.pid, profileEntry.tid, profileEntry.nodeId, 'resolved-function-test');
+      Timeline.Utils.SourceMapsResolver.SourceMapsResolver.storeResolvedNodeDataForEntry(
+          profileEntry.pid, profileEntry.tid, profileEntry.callFrame,
+          {name: 'resolved-function-test', devtoolsLocation: null});
 
       const title = Timeline.TimelineUIUtils.TimelineUIUtils.eventTitle(profileEntry);
       assert.strictEqual(title, 'resolved-function-test');
