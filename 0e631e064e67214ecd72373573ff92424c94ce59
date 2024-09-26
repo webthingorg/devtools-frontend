@@ -22,6 +22,30 @@
       },
       "revId": "0e631e064e67214ecd72373573ff92424c94ce59",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ad4f2ad_4f57ca97",
+        "filename": "front_end/panels/timeline/components/LayoutShiftDetails.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 215,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-09-26T23:32:27Z",
+      "side": 1,
+      "message": "you\u0027re right! Done.",
+      "parentUuid": "e24aa4e5_a724b8c2",
+      "range": {
+        "startLine": 215,
+        "startChar": 16,
+        "endLine": 215,
+        "endChar": 46
+      },
+      "revId": "0e631e064e67214ecd72373573ff92424c94ce59",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
