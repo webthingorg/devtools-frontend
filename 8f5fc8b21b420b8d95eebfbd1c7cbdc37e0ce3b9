@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e20a2093_b2adcdb7",
+        "filename": "front_end/panels/security/OriginTreeElement.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 3584853
+      },
+      "writtenOn": "2024-09-26T15:25:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "128802d8_fe3aa38a",
+      "revId": "8f5fc8b21b420b8d95eebfbd1c7cbdc37e0ce3b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1cf13283_710e4b32",
@@ -100,6 +118,30 @@
           ]
         }
       ],
+      "revId": "8f5fc8b21b420b8d95eebfbd1c7cbdc37e0ce3b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f688d8a4_a8f8c86e",
+        "filename": "front_end/panels/security/SecurityAndPrivacyPanelSidebar.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 3584853
+      },
+      "writtenOn": "2024-09-26T15:25:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1cf13283_710e4b32",
+      "range": {
+        "startLine": 76,
+        "startChar": 23,
+        "endLine": 76,
+        "endChar": 40
+      },
       "revId": "8f5fc8b21b420b8d95eebfbd1c7cbdc37e0ce3b9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -155,6 +197,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8e1894c_1123cd38",
+        "filename": "front_end/panels/security/SecurityAndPrivacyPanelSidebar.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 3584853
+      },
+      "writtenOn": "2024-09-26T15:25:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0a1edef4_c1d6b913",
+      "range": {
+        "startLine": 77,
+        "startChar": 23,
+        "endLine": 77,
+        "endChar": 44
+      },
+      "revId": "8f5fc8b21b420b8d95eebfbd1c7cbdc37e0ce3b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d94249fc_78b8352b",
@@ -178,6 +244,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "17d46310_656b41ca",
+        "filename": "front_end/panels/security/SecurityAndPrivacyPanelSidebar.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 3584853
+      },
+      "writtenOn": "2024-09-26T15:25:14Z",
+      "side": 1,
+      "message": "This function is also used in the `SecurityOriginView` class constructor, so I don\u0027t think it should move to this file. Since this is a utility function just like the icon getters at the top of the Panel file, I exported this from the top level in the same way.",
+      "parentUuid": "d94249fc_78b8352b",
+      "range": {
+        "startLine": 173,
+        "startChar": 22,
+        "endLine": 173,
+        "endChar": 42
+      },
+      "revId": "8f5fc8b21b420b8d95eebfbd1c7cbdc37e0ce3b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "08480541_e1db166a",
@@ -191,6 +281,24 @@
       "writtenOn": "2024-09-26T07:36:35Z",
       "side": 1,
       "message": "A lot of these css rules can now be removed, since you\u0027re moving from what we call `NavigationDrawer` (not expandable/collapsible), to a `NavigationTree`. The `NavigationTree`s should look the same. You can see the differences between these two (if you want) in the [CDT design kit](https://www.figma.com/design/A5iQBBNAe5zPFpJvUzUgW8/CDT-design-kit). The variant that you are using is already defining the correct css and should be used. The only remaining css rules should be very specific to the `SecurityPanel` (i.e. icon colors, or heading margins). See an example `css`that uses the `NavigationTree` variant and only defines specific rules [in the Application Panel](https://source.chromium.org/chromium/chromium/src/+/main:third_party/devtools-frontend/src/front_end/panels/application/resourcesSidebar.css;l\u003d1;drc\u003d3f7a474efb1229168d46f7cc604181cc7fc5042e), which is uses the navigation tree and has headings too.",
+      "revId": "8f5fc8b21b420b8d95eebfbd1c7cbdc37e0ce3b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f0d706d_1131e814",
+        "filename": "front_end/panels/security/sidebar.css",
+        "patchSetId": 6
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 3584853
+      },
+      "writtenOn": "2024-09-26T15:25:14Z",
+      "side": 1,
+      "message": "Gothca. I removed most of it. I\u0027ll update the CL screenshots :)",
+      "parentUuid": "08480541_e1db166a",
       "revId": "8f5fc8b21b420b8d95eebfbd1c7cbdc37e0ce3b9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
