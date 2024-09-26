@@ -16,6 +16,23 @@
       "message": "Can I haz +1 again plz?",
       "revId": "3617a0a4c985ad4030e1d2f62a2e12251738fd90",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef339b9e_7cdd96e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-26T18:16:27Z",
+      "side": 1,
+      "message": "but of course",
+      "revId": "3617a0a4c985ad4030e1d2f62a2e12251738fd90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
