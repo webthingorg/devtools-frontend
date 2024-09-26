@@ -1366,16 +1366,15 @@ export class VersionController {
 }
 
 export const enum SettingStorageType {
-  /**
-   * Synced storage persists settings with the active Chrome profile but also
-   * syncs the settings across devices via Chrome Sync.
-   */
+  /** Persists with the active Chrome profile but also syncs the settings across devices via Chrome Sync. */
   SYNCED = 'Synced',
-  /** Global storage persists settings with the active Chrome profile */
+  /** Persisted with the active Chrome profile, but not synchronized to other devices.
+   * The default SettingStorageType of createSetting(). */
   GLOBAL = 'Global',
-  /** Uses Window.localStorage */
+  /** Uses Window.localStorage. Not recommended, legacy. */
   LOCAL = 'Local',
-  /** Session storage dies when DevTools window closes */
+  /** Session storage dies when DevTools window closes. Useful for atypical conditions that should be reverted when the
+   * user is done with their task. (eg Emulation modes, Debug overlays). These are also not carried into/out of incognito */
   SESSION = 'Session',
 }
 
