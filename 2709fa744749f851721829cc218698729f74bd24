@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "21f69ee0_bc2286f4",
+        "filename": "front_end/core/common/Color.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 2187,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-09-26T23:37:39Z",
+      "side": 0,
+      "message": "Can you explain this change? Why was it necessary?",
+      "revId": "2709fa744749f851721829cc218698729f74bd24",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b66f8692_45918ce6",
         "filename": "front_end/panels/timeline/overlays/OverlaysImpl.ts",
         "patchSetId": 8
@@ -32,6 +49,23 @@
       "side": 0,
       "message": "Thank you! good catch. Addressed in the appender. :)",
       "parentUuid": "b66f8692_45918ce6",
+      "revId": "2709fa744749f851721829cc218698729f74bd24",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3291700_a0244858",
+        "filename": "front_end/panels/timeline/track_appenders/LayoutShiftsTrackAppender.test.ts",
+        "patchSetId": 9
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-09-26T23:37:39Z",
+      "side": 0,
+      "message": "Can we keep this test case? Will remind us to replace it with others once the experiment is removed.",
       "revId": "2709fa744749f851721829cc218698729f74bd24",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
