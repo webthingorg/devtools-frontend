@@ -1083,6 +1083,7 @@ export const knownContextValues = new Set([
   'drawer',
   'drawer-view-closeableTabs',
   'drjones.network-panel-context',
+  'drjones.performance-panel-context',
   'drop',
   'duration',
   'durationchange',
