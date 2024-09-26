@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9dd70018_eedad1f3",
+        "filename": "front_end/panels/timeline/overlays/OverlaysImpl.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-26T10:29:04Z",
+      "side": 0,
+      "message": "it\u0027s a really nice sign that this is a smart change because of all this tidy up we can do!",
+      "range": {
+        "startLine": 231,
+        "startChar": 0,
+        "endLine": 231,
+        "endChar": 40
+      },
+      "revId": "2709fa744749f851721829cc218698729f74bd24",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

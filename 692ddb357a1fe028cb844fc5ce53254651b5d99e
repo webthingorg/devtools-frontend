@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43a207b8_53950122",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-26T10:29:04Z",
+      "side": 1,
+      "message": "have a couple of thoughts but the direction and design is far better now \n! nice",
+      "revId": "692ddb357a1fe028cb844fc5ce53254651b5d99e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "210352ba_35191219",
+        "filename": "front_end/models/trace/types/File.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-26T10:29:04Z",
+      "side": 1,
+      "message": "I would like us to think about improving this more as per my last comment; right now the way this type is it lets us have an entry marked as CONNECTED but with no `entryTo`, which is an invalid state.\n\n\n```\ntype EntriesLinkAnnotation \u003d { type: \u0027ENTRIES_LINK\u0027 } \u0026 ({\n  state: EntriesLinkState.CREATION_NOT_STARTED,\n  entryFrom: Event\n} | {\n  state: EntriesLinkState.PENDING_TO_EVENT,\n  entryFrom: Event\n} | {\n  state: EntriesLinkState.CONNECTED,\n  entryFrom: Event\n  entryTo: Event\n}\n```\n\ndoes that make sense? I don\u0027t want to block on this, but it would be a useful follow-up because it now drastically limits the number of states you can have, and removes completely nonsensical ones that don\u0027t actually ever occur. The more accurate the types are the less work we have to do to validate data vs letting the compiler do it for us :)",
+      "range": {
+        "startLine": 78,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 1
+      },
+      "revId": "692ddb357a1fe028cb844fc5ce53254651b5d99e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c135fa2e_bbc4b5a2",
+        "filename": "front_end/panels/timeline/overlays/components/EntriesLinkOverlay.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-26T10:29:04Z",
+      "side": 1,
+      "message": "I\u0027m having a hard time understanding this - I think it\u0027s the combination of `NotStarted` with `false` and what this denotes. Is there a clearer name here we could use? Or could we pass in `state: EntriesLinkState` ?",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 48
+      },
+      "revId": "692ddb357a1fe028cb844fc5ce53254651b5d99e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
