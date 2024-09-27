@@ -16,6 +16,24 @@
       "message": "it\u0027s the fact that they\u0027re clickable that makes it cursor:pointer.\n\nso maybe a sticky class instead?",
       "revId": "218da1d48ff3189d8a8f7ee3d13a96b12c08249f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05b8a9d0_f240c0c1",
+        "filename": "front_end/panels/timeline/components/insights/table.css",
+        "patchSetId": 2
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-27T00:06:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c6ff4bb_9136d243",
+      "revId": "218da1d48ff3189d8a8f7ee3d13a96b12c08249f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
