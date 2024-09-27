@@ -5,6 +5,51 @@
 import {TraceLoader} from '../../../testing/TraceLoader.js';
 import * as Trace from '../trace.js';
 
+let idCounter = 0;
+
+function makeTimingEventWithBasicData({name, ts: tsMicro, dur: durMicro}: {name: string, ts: number, dur: number}):
+    Trace.Types.Events.Event[] {
+  const isMark = durMicro === undefined;
+  const currentId = idCounter++;
+  const traceEventBase = {
+    cat: 'blink.user_timing',
+    pid: Trace.Types.Events.ProcessID(1),
+    tid: Trace.Types.Events.ThreadID(1),
+    id2: {local: `${currentId}`},
+  };
+
+  const firstEvent = {
+    name,
+    ph: isMark ? Trace.Types.Events.Phase.INSTANT : Trace.Types.Events.Phase.ASYNC_NESTABLE_START,
+    ts: Trace.Types.Timing.MicroSeconds(tsMicro),
+    ...traceEventBase,
+  } as Trace.Types.Events.Event;
+  if (isMark) {
+    return [firstEvent];
+  }
+  return [
+    firstEvent,
+    {
+      name,
+      ...traceEventBase,
+      ts: Trace.Types.Timing.MicroSeconds(tsMicro + (durMicro || 0)),
+      ph: Trace.Types.Events.Phase.ASYNC_NESTABLE_END,
+    },
+  ];
+}
+
+export async function createUserTimingDataFromTestInput(testData: {name: string, ts: number, dur: number}[]):
+    Promise<Trace.Handlers.ModelHandlers.UserTimings.UserTimingsData> {
+  const events = testData.flatMap(makeTimingEventWithBasicData).sort((e1, e2) => e1.ts - e2.ts);
+  Trace.Helpers.SyntheticEvents.SyntheticEventsManager.createAndActivate(events);
+  Trace.Handlers.ModelHandlers.UserTimings.reset();
+  for (const event of events) {
+    Trace.Handlers.ModelHandlers.UserTimings.handleEvent(event);
+  }
+  await Trace.Handlers.ModelHandlers.UserTimings.finalize();
+  return Trace.Handlers.ModelHandlers.UserTimings.data();
+}
+
 describe('UserTimingsHandler', function() {
   let timingsData: Trace.Handlers.ModelHandlers.UserTimings.UserTimingsData;
   describe('performance timings', function() {
@@ -186,6 +231,29 @@ describe('UserTimingsHandler', function() {
         assert.strictEqual(timingsData.timestampEvents[1].args.data.message, 'another timestamp');
         assert.strictEqual(timingsData.timestampEvents[2].args.data.message, 'yet another timestamp');
       });
+    });
+  });
+  describe('event sorting', function() {
+    it('Sorts user timing events correctly', async function() {
+      // Three user timings with same start and end time.
+      // Test they are sorted in inverse order.
+      const testData = [
+        {ts: 0, dur: 100, name: 'First measurement'},
+        {ts: 0, dur: 100, name: 'Second measurement'},
+        {ts: 0, dur: 100, name: 'Third measurement'},
+      ];
+
+      const userTimingData = await createUserTimingDataFromTestInput(testData);
+      const firstMeasurementIndex =
+          userTimingData.performanceMeasures.findIndex(measure => measure.name === 'First measurement');
+      const secondMeasurementIndex =
+          userTimingData.performanceMeasures.findIndex(measure => measure.name === 'Second measurement');
+      const thirdMeasurementIndex =
+          userTimingData.performanceMeasures.findIndex(measure => measure.name === 'Third measurement');
+
+      assert.strictEqual(firstMeasurementIndex, 2);
+      assert.strictEqual(secondMeasurementIndex, 1);
+      assert.strictEqual(thirdMeasurementIndex, 0);
     });
   });
 });
