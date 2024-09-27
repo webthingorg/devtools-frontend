@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "28879771_a0b3cf1a",
+        "filename": "front_end/panels/elements/components/adornerSettingsPane.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-09-27T08:46:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa826984_f78c1916",
+      "range": {
+        "startLine": 16,
+        "startChar": 4,
+        "endLine": 16,
+        "endChar": 21
+      },
+      "revId": "59738b63dc9f5acaa49ff119b45a9797d71c54e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1e6cca1f_116ef6a8",
@@ -71,6 +95,30 @@
       "writtenOn": "2024-09-27T08:43:03Z",
       "side": 1,
       "message": "Could we use `--sys-size-4` here, please?:)",
+      "range": {
+        "startLine": 17,
+        "startChar": 18,
+        "endLine": 17,
+        "endChar": 22
+      },
+      "revId": "59738b63dc9f5acaa49ff119b45a9797d71c54e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ddf9053_00e921e9",
+        "filename": "front_end/panels/elements/components/adornerSettingsPane.css",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1183894
+      },
+      "writtenOn": "2024-09-27T08:46:54Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e6cca1f_116ef6a8",
       "range": {
         "startLine": 17,
         "startChar": 18,
