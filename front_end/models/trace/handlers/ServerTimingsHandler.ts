@@ -68,7 +68,7 @@ function extractServerTimings(): void {
       if (headerName === 'server-timing' || headerName === 'server-timing-test') {
         header.name = 'server-timing';
         timingsInRequest = Platform.ServerTiming.ServerTiming.parseHeaders([header]);
-        continue;
+        break;
       }
     }
     const serverStart = timingsInRequest?.find(timing => timing.metric === RESPONSE_START_METRIC_NAME)?.start;
