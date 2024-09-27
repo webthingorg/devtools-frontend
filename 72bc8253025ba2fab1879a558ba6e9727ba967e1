@@ -34,6 +34,24 @@
       "parentUuid": "0e74800f_5e775462",
       "revId": "72bc8253025ba2fab1879a558ba6e9727ba967e1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f47f69ae_d4ee5a41",
+        "filename": "front_end/panels/timeline/LayoutShiftsTrackAppender.ts",
+        "patchSetId": 5
+      },
+      "lineNbr": 168,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-27T01:44:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "06590693_178e2783",
+      "revId": "72bc8253025ba2fab1879a558ba6e9727ba967e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
