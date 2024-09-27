@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f00ec55_c6cfb1f4",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-09-27T00:19:57Z",
+      "side": 1,
+      "message": "good call, i like throwing the error! Done",
+      "parentUuid": "c6e52d2c_0610ee6b",
+      "range": {
+        "startLine": 160,
+        "startChar": 0,
+        "endLine": 166,
+        "endChar": 7
+      },
+      "revId": "de477ae3f259ed389ff7092da471a122f4f75d9b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "67d972f1_473dd8d3",
@@ -58,6 +82,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c690f8e_2f0ead77",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 343,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-09-27T00:19:57Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "67d972f1_473dd8d3",
+      "revId": "de477ae3f259ed389ff7092da471a122f4f75d9b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ecbb5a8a_2d9a087f",
@@ -71,6 +113,30 @@
       "writtenOn": "2024-09-26T20:14:47Z",
       "side": 1,
       "message": "hmm.. its pretty standard convention that our traceevent arrays/etc remain sorted by ts. (maybe you got bitten by the sort when it had been higher up?)\n\nCan we do this sort up in the component, assuming its for that?  and if so, lets use .toSorted() so we don\u0027t mutate insights\u0027 return object. (In case something else uses it)",
+      "range": {
+        "startLine": 349,
+        "startChar": 0,
+        "endLine": 350,
+        "endChar": 80
+      },
+      "revId": "de477ae3f259ed389ff7092da471a122f4f75d9b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39edb50b_77ded757",
+        "filename": "front_end/models/trace/insights/CumulativeLayoutShift.ts",
+        "patchSetId": 6
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1468649
+      },
+      "writtenOn": "2024-09-27T00:19:57Z",
+      "side": 1,
+      "message": "ah actually this convinced me to do the sort on the sidebar ui instead. I like keeping the convention, and shouldn\u0027t be much overhead on the UI given there\u0027s usually a low number of clusters for traces anyway. Done.",
+      "parentUuid": "ecbb5a8a_2d9a087f",
       "range": {
         "startLine": 349,
         "startChar": 0,
