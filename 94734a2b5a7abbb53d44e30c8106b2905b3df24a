@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a704a11c_0432e3e6",
+        "filename": "front_end/panels/timeline/components/LiveMetricsView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-09-27T00:59:41Z",
+      "side": 1,
+      "message": "Had to mention 98th percentile stuff but yeah",
+      "parentUuid": "1a2aa3e4_12b9a37c",
+      "revId": "94734a2b5a7abbb53d44e30c8106b2905b3df24a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6850bf9a_ddabec11",
@@ -48,6 +66,24 @@
       "writtenOn": "2024-09-27T00:14:58Z",
       "side": 1,
       "message": "i mean.. this is intrapanel so .. you didn\u0027t *need* to do this as a revealer. but..  It doesn\u0027t hurt :) works for me.",
+      "revId": "94734a2b5a7abbb53d44e30c8106b2905b3df24a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5289c3c_8d0b4943",
+        "filename": "front_end/panels/timeline/components/LiveMetricsView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1534302
+      },
+      "writtenOn": "2024-09-27T00:59:41Z",
+      "side": 1,
+      "message": "Yeah it does seem like overkill in hindsight. I was hoping the `linkifyRevealable` function would do more styling for us, so I\u0027m open to using a raw `\u003cbutton\u003e` el if needed. That being said, work is already done so...",
+      "parentUuid": "6850bf9a_ddabec11",
       "revId": "94734a2b5a7abbb53d44e30c8106b2905b3df24a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
