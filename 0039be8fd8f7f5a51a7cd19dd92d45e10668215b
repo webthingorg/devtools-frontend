@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "315a953e_1cce9425",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-09-27T08:40:08Z",
+      "side": 1,
+      "message": "Ergün, one Material question / comment",
+      "revId": "0039be8fd8f7f5a51a7cd19dd92d45e10668215b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df086c61_836f2953",
+        "filename": "front_end/panels/freestyler/components/freestylerChatUi.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1419627
+      },
+      "writtenOn": "2024-09-27T08:40:08Z",
+      "side": 1,
+      "message": "what are these? were the colors introduced recently, or are you using something that\u0027s been there for a long time?\nin case of the latter, we should not use `--color-smth-smth` anymore, instead we should use `--sys-color-smth`. If the system colors do not offer a suitable token, and this was introduced recently, could you please rename it to `--app-color-smth`?",
+      "range": {
+        "startLine": 222,
+        "startChar": 60,
+        "endLine": 222,
+        "endChar": 98
+      },
+      "revId": "0039be8fd8f7f5a51a7cd19dd92d45e10668215b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
