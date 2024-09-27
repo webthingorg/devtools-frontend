@@ -1,0 +1,154 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f75e523e_61f47c87",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-27T09:24:54Z",
+      "side": 1,
+      "message": "Thanks for sending this Jayson!\n\nThis broadly lgtm but I would like Paul\u0027s review as he is more familiar with this work than I am. I left a few comments mostly around the type system usage; the amount of `any`s makes me a bit nervous and I\u0027m wondering if we can make it a bit tighter.",
+      "revId": "81782c7f7476295c797234914fd873673dfa0a47",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99fb7fd2_08cda68c",
+        "filename": "front_end/core/sdk/RehydratingConnection.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-27T09:24:54Z",
+      "side": 1,
+      "message": "can we default this to `null` rather than the `!` ?",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 37,
+        "endChar": 44
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "c1ef407a_629109ae",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "front_end/core/sdk/RehydratingConnection.ts",
+              "range": {
+                "startLine": 37,
+                "startChar": 0,
+                "endLine": 38,
+                "endChar": 0
+              },
+              "replacement": "  onMessage: ((arg0: Object) \u003d\u003e void)|null \u003d null;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "81782c7f7476295c797234914fd873673dfa0a47",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78865bd3_e7d93ece",
+        "filename": "front_end/core/sdk/RehydratingConnection.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-27T09:24:54Z",
+      "side": 1,
+      "message": "can we do what we did in the other CL and try `unknown[]` (or even better if we have a type defined!)",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 39,
+        "endChar": 19
+      },
+      "revId": "81782c7f7476295c797234914fd873673dfa0a47",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec5f15d2_ee8a89df",
+        "filename": "front_end/core/sdk/RehydratingConnection.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-27T09:24:54Z",
+      "side": 1,
+      "message": "can we try to improve this? even type it as `unknown` so we have to validate that `scriptId` is present. Or at least define an interface and cast to that.",
+      "range": {
+        "startLine": 208,
+        "startChar": 0,
+        "endLine": 208,
+        "endChar": 85
+      },
+      "revId": "81782c7f7476295c797234914fd873673dfa0a47",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1aa69a0a_2a14f72c",
+        "filename": "front_end/core/sdk/RehydratingConnection.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 260,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-27T09:24:54Z",
+      "side": 1,
+      "message": "should we make `scriptId` an optional param if it can not exist?\n\nalso this will fail if the id `\u003d\u003d\u003d 0` ; is that intended?",
+      "range": {
+        "startLine": 258,
+        "startChar": 3,
+        "endLine": 260,
+        "endChar": 5
+      },
+      "revId": "81782c7f7476295c797234914fd873673dfa0a47",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1326b013_bc118fe8",
+        "filename": "front_end/core/sdk/RehydratingObject.ts",
+        "patchSetId": 7
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-27T09:24:54Z",
+      "side": 1,
+      "message": "again wondering if we can be more precise or at least consider unknown so it has to be validated at run time",
+      "range": {
+        "startLine": 69,
+        "startChar": 3,
+        "endLine": 69,
+        "endChar": 64
+      },
+      "revId": "81782c7f7476295c797234914fd873673dfa0a47",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
