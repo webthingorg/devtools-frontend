@@ -39,6 +39,30 @@
       },
       "revId": "0039be8fd8f7f5a51a7cd19dd92d45e10668215b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "761b2893_8869d86e",
+        "filename": "front_end/panels/freestyler/components/freestylerChatUi.css",
+        "patchSetId": 4
+      },
+      "lineNbr": 222,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-27T09:00:17Z",
+      "side": 1,
+      "message": "As discussed offline, I\u0027ll do that as a follow-up today :)",
+      "parentUuid": "df086c61_836f2953",
+      "range": {
+        "startLine": 222,
+        "startChar": 60,
+        "endLine": 222,
+        "endChar": 98
+      },
+      "revId": "0039be8fd8f7f5a51a7cd19dd92d45e10668215b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

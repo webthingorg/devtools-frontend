@@ -16,6 +16,24 @@
       "message": "Needed to fix the build failure, PTAL again :)",
       "revId": "9bc11a75c0944f2123b3bc8eb0ead241e89eb9ec",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "770826e4_0fcfa9b1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1524702
+      },
+      "writtenOn": "2024-09-27T09:00:17Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "16d559b2_bba26dfb",
+      "revId": "9bc11a75c0944f2123b3bc8eb0ead241e89eb9ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
