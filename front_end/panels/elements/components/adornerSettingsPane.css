@@ -11,15 +11,23 @@
   color: var(--sys-color-on-surface);
   font-size: 12px;
   align-items: center;
-}
 
-.settings-title {
-  font-weight: 500;
-  margin-right: 6px;
+  & > .settings-title {
+    font-weight: 500;
+    margin-right: 6px;
+    min-width: fit-content;
+  }
+
+  & > .setting-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
 
 .setting {
   margin-left: 1em;
+  display: flex;
+  min-width: fit-content;
 }
 
 .adorner-status {
