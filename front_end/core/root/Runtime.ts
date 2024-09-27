@@ -326,6 +326,21 @@ export interface HostConfigExplainThisResourceDogfood {
   modelId: string;
   temperature: number;
   enabled: boolean;
+  userTier: string;
+}
+
+export interface HostConfigDrJonesPerformanceAgentDogfood {
+  modelId: string;
+  temperature: number;
+  enabled: boolean;
+  userTier: string;
+}
+
+export interface HostConfigDrJonesFileAgentDogfood {
+  modelId: string;
+  temperature: number;
+  enabled: boolean;
+  userTier: string;
 }
 
 export interface HostConfigVeLogging {
@@ -349,6 +364,8 @@ export type HostConfig = Platform.TypeScriptUtilities.RecursivePartial<{
   devToolsConsoleInsights: HostConfigConsoleInsights,
   devToolsFreestylerDogfood: HostConfigFreestylerDogfood,
   devToolsExplainThisResourceDogfood: HostConfigExplainThisResourceDogfood,
+  devToolsDrJonesPerformanceAgentDogfood: HostConfigDrJonesPerformanceAgentDogfood,
+  devToolsDrJonesFileAgentDogfood: HostConfigDrJonesFileAgentDogfood,
   devToolsVeLogging: HostConfigVeLogging,
   devToolsPrivacyUI: HostConfigPrivacyUI,
   /**
