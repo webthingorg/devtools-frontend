@@ -5,6 +5,7 @@
 import * as CLSCulprits from './CLSCulprits.js';
 import * as DocumentLatency from './DocumentLatency.js';
 import * as FontDisplay from './FontDisplay.js';
+import * as ForcedReflow from './ForcedReflow.js';
 import * as Helpers from './Helpers.js';
 import * as InteractionToNextPaint from './InteractionToNextPaint.js';
 import * as LCPDiscovery from './LCPDiscovery.js';
@@ -22,6 +23,7 @@ export {
   CLSCulprits,
   DocumentLatency,
   FontDisplay,
+  ForcedReflow,
   Helpers,
   InteractionToNextPaint,
   LCPDiscovery,

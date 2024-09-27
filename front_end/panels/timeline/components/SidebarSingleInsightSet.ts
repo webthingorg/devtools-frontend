@@ -174,6 +174,7 @@ export class SidebarSingleInsightSet extends HTMLElement {
       Insights.Viewport.Viewport,
       Insights.ThirdParties.ThirdParties,
       Insights.SlowCSSSelector.SlowCSSSelector,
+      Insights.ForcedReflow.ForcedReflow,
     ];
     // clang-format off
     return LitHtml.html`${insightComponents.map(component => {

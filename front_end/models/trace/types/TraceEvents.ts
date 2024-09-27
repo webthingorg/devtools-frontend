@@ -1717,6 +1717,17 @@ export function isSelectorStats(event: Event): event is SelectorStats {
   return event.name === Name.SELECTOR_STATS;
 }
 
+export interface ForcedReflowAggregatedData {
+  topLevelFunctionCall: CallFrame|Protocol.Runtime.CallFrame;
+  totalTime: number;
+  bottomUpData: Set<string>;
+}
+
+export interface BottomUpCallStack {
+  bottomUpData: (CallFrame|Protocol.Runtime.CallFrame)[], recalcDataSet: Set<string>,
+      recalcData: (CallFrame|Protocol.Runtime.CallFrame)[],
+}
+
 export interface UpdateLayoutTree extends Complete {
   name: Name.UPDATE_LAYOUT_TREE;
   args: Args&{

@@ -171,3 +171,35 @@ ul.url-list {
 .devtools-link.invalid-link {
   color: var(--sys-color-state-disabled);
 }
+
+.insight-sub-title {
+  margin-top: 5px;
+  margin-bottom: 2px;
+}
+
+.fr-title {
+  line-height: 30px;
+  font-weight: 500;
+}
+
+.fr-url {
+  white-space: nowrap;
+}
+
+ul.fr-list {
+  margin: 2px;
+}
+
+ul.fr-list.fr-list-last {
+  margin-bottom: 20px;
+}
+
+.text-button.link-style {
+  background: none;
+  color: var(--sys-color-primary);
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  height: 18px;
+}
