@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12408ffc_2a657709",
+        "filename": "front_end/panels/timeline/components/layoutShiftDetails.css",
+        "patchSetId": 3
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-27T01:57:08Z",
+      "side": 1,
+      "message": "id get rid of these two\n\nbut nested within here i\u0027d do a \n\nth,td {\n  padding: 0 4px;\n}",
+      "range": {
+        "startLine": 40,
+        "startChar": 0,
+        "endLine": 41,
+        "endChar": 22
+      },
+      "revId": "c8281923d8180d758a60fa8678764d22fe4c5f52",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
