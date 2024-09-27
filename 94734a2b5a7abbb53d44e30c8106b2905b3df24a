@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1c8edc4_3ced4462",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-27T00:14:58Z",
+      "side": 1,
+      "message": "nice one",
+      "revId": "94734a2b5a7abbb53d44e30c8106b2905b3df24a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a2aa3e4_12b9a37c",
+        "filename": "front_end/panels/timeline/components/LiveMetricsView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 253,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-27T00:14:58Z",
+      "side": 1,
+      "message": "```suggestion\n  inpInteraction: \u0027INP is the longest interaction.\u0027,\n```\n\nor something like that?   just so it has a lil more value.",
+      "revId": "94734a2b5a7abbb53d44e30c8106b2905b3df24a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6850bf9a_ddabec11",
+        "filename": "front_end/panels/timeline/components/LiveMetricsView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1118499
+      },
+      "writtenOn": "2024-09-27T00:14:58Z",
+      "side": 1,
+      "message": "i mean.. this is intrapanel so .. you didn\u0027t *need* to do this as a revealer. but..  It doesn\u0027t hurt :) works for me.",
+      "revId": "94734a2b5a7abbb53d44e30c8106b2905b3df24a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
