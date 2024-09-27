@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0cfbcea2_a89d15b0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3596264
+      },
+      "writtenOn": "2024-09-27T10:35:45Z",
+      "side": 1,
+      "message": "I was planning to do it in a follow up CL - added b/369978405 for tracking",
+      "parentUuid": "dc1ff228_8eb4b45f",
+      "revId": "d7e7d6d64a751acf14bfa5ad994eb4d616023965",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9cd29b5e_d5fe90a5",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-09-26T09:06:34Z",
       "side": 1,
       "message": "(nit): We can make this an early return `nothing` when there isn\u0027t any selected network request. WDYT?\n\nOtherwise it\u0027ll be good to move `resourceClass` to inside `if` block.",
+      "revId": "d7e7d6d64a751acf14bfa5ad994eb4d616023965",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35c3627f_5bd8904c",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 710,
+      "author": {
+        "id": 3596264
+      },
+      "writtenOn": "2024-09-27T10:35:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9cd29b5e_d5fe90a5",
       "revId": "d7e7d6d64a751acf14bfa5ad994eb4d616023965",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -52,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d751099_376bdf1e",
+        "filename": "front_end/panels/freestyler/components/FreestylerChatUi.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 716,
+      "author": {
+        "id": 3596264
+      },
+      "writtenOn": "2024-09-27T10:35:45Z",
+      "side": 1,
+      "message": "Yeah, I was initially planning to move the logic in a separate CL. But for now, I have copied the logic for `isFailed` to `utils.ts` and used it in `getIcon`.\n\nI am tracking change for using this function in `NetworkDataGridNode` in b/369978405",
+      "parentUuid": "e98c29c3_35cde554",
+      "revId": "d7e7d6d64a751acf14bfa5ad994eb4d616023965",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bac6c57a_a18176f9",
@@ -65,6 +119,24 @@
       "writtenOn": "2024-09-26T09:06:34Z",
       "side": 1,
       "message": "(nit): Can we put this inside a `describe` blog for `getIconForNetworkRequests`, something like:\n\n`describe(\u0027getIconForNetworkRequests\u0027, () \u003d\u003e {...`",
+      "revId": "d7e7d6d64a751acf14bfa5ad994eb4d616023965",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad81f4bd_d815b88d",
+        "filename": "front_end/panels/utils/utils.test.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 3596264
+      },
+      "writtenOn": "2024-09-27T10:35:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bac6c57a_a18176f9",
       "revId": "d7e7d6d64a751acf14bfa5ad994eb4d616023965",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -86,6 +158,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2089ffda_f1c8ce15",
+        "filename": "front_end/panels/utils/utils.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 3596264
+      },
+      "writtenOn": "2024-09-27T10:35:45Z",
+      "side": 1,
+      "message": "Done - thanks for the suggestion!",
+      "parentUuid": "278d26d8_97b76486",
+      "revId": "d7e7d6d64a751acf14bfa5ad994eb4d616023965",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "29c3c38f_de4191b9",
@@ -99,6 +189,24 @@
       "writtenOn": "2024-09-26T09:06:34Z",
       "side": 1,
       "message": "(nit): WDYT of renaming this to `getIconForNetworkRequest` as `PanelUtils`s scope is bigger than network requests.",
+      "revId": "d7e7d6d64a751acf14bfa5ad994eb4d616023965",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be2d8af4_f5a8430e",
+        "filename": "front_end/panels/utils/utils.ts",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 3596264
+      },
+      "writtenOn": "2024-09-27T10:35:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "29c3c38f_de4191b9",
       "revId": "d7e7d6d64a751acf14bfa5ad994eb4d616023965",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
