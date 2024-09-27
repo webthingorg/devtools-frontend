@@ -86,6 +86,24 @@
       "parentUuid": "6850bf9a_ddabec11",
       "revId": "94734a2b5a7abbb53d44e30c8106b2905b3df24a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "585bad8d_86098b4c",
+        "filename": "front_end/panels/timeline/components/LiveMetricsView.ts",
+        "patchSetId": 2
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1396442
+      },
+      "writtenOn": "2024-09-27T08:50:46Z",
+      "side": 1,
+      "message": "fwiw I probably wouldn\u0027t have bothered with this as I think it adds more indirection than it\u0027s worth, but I can see the pros for using it and don\u0027t feel strongly enough that you should revert or change it",
+      "parentUuid": "a5289c3c_8d0b4943",
+      "revId": "94734a2b5a7abbb53d44e30c8106b2905b3df24a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
